@@ -2,7 +2,7 @@
 
 > **Use at your own risk.** This independent, experimental project is not
 > affiliated with, endorsed by, or supported by FNIRSI. Incorrect firmware or
-> installation can disable the device, erase data, or produce incorrect
+> installation can brick the device, erase data, or produce incorrect
 > measurements. To the extent permitted by law, no warranty is provided and
 > the contributors accept no liability for resulting damage.
 > [Read the full safety and licensing notice](docs/LEGAL_AND_SAFETY.md).
