@@ -1,42 +1,44 @@
-# Ekran galerisi
+# Screenshot gallery
 
 ## POTAT-99 / custom firmware
 
-Mevcut `docs/firmware_screens/` görüntüleri RV32 emülasyonundan alınmıştır;
-normal ekranlar için V2.4/parity karşılaştırma kanıtına eşlik eder. Bunlar
-0.6.0'ın fiziksel cihaz fotoğrafları veya yeni tema ekranlarının kanıtı değildir.
+Existing `docs/firmware_screens/` screenshots were captured in RV32
+emulation and accompany the V2.4/parity comparisons. They are not photographs
+of 0.6.0 on physical hardware or evidence of its new theme screens.
 
-| Normal ölçüm | İkinci görünüm, HOLD/REL |
+| Regular measurement | Second layout, HOLD/REL |
 |---|---|
-| ![DC V](../firmware_screens/02-regular-dc-volts.png) | ![Tema 2](../firmware_screens/04-theme2-hold-rel.png) |
+| ![DC V](../firmware_screens/02-regular-dc-volts.png) | ![Theme 2](../firmware_screens/04-theme2-hold-rel.png) |
 
-| Grafik | Monitor |
+| Recording graph | Monitor |
 |---|---|
-| ![Grafik](../firmware_screens/05-record-graph.png) | ![Monitor](../firmware_screens/06-monitor-thresholds.png) |
+| ![Graph](../firmware_screens/05-record-graph.png) | ![Monitor](../firmware_screens/06-monitor-thresholds.png) |
 
-| Menü | Geçmiş |
+| Menu | History |
 |---|---|
-| ![Menü](../firmware_screens/07-settings-menu.png) | ![Geçmiş](../firmware_screens/08-history-browser.png) |
+| ![Menu](../firmware_screens/07-settings-menu.png) | ![History](../firmware_screens/08-history-browser.png) |
 
 ## DOOM 0.4.0
 
-Önceki doğrulanmış 0.4.0 BIN'inin emülatör ekranları yeniden kullanıldı.
-Uzun emülatör oturumu çalıştırılmadı. SRAM fixture içeren ileri test ekranları
-kendi [ayrıntılı galerisinde](../../projects/doom/docs/screenshots/v0.4.0/README.md) etiketlidir.
+Emulator screenshots from the previously verified 0.4.0 BIN were reused.
+No long emulator session was run during consolidation. Advanced test screens
+using SRAM fixtures are labeled in the
+[detailed gallery](../../projects/doom/docs/screenshots/v0.4.0/README.md).
 
-| Oyun | Menü / ses |
+| Gameplay | Menu / sound |
 |---|---|
-| ![Oyun](../../projects/doom/docs/screenshots/v0.4.0/game.png) | ![Seçenekler](../../projects/doom/docs/screenshots/v0.4.0/sound-off.png) |
+| ![Gameplay](../../projects/doom/docs/screenshots/v0.4.0/game.png) | ![Options](../../projects/doom/docs/screenshots/v0.4.0/sound-off.png) |
 
-## Studio tema editörü ve Flash Manager
+## Studio theme editor and Flash Manager
 
-Aşağıdaki iki görüntü birleştirme sırasında **gerçek Qt uygulamasından**,
-offscreen modda ve native C önizleme aracıyla alındı. Donanım bağlanmadı,
-canlı ölçüm başlatılmadı. Yeniden üretim: `tools/capture_studio_gallery.py`.
+These two screenshots were captured from the **actual Qt application** during
+consolidation, using offscreen mode and the native C preview tool.
+No hardware was connected and no live measurement was started.
+Reproduce with `tools/capture_studio_gallery.py`.
 
-![Studio tema editörü](studio-theme-editor.png)
+![Studio theme editor](studio-theme-editor.png)
 
 ![Studio Flash Manager](studio-flash-manager.png)
 
-Oyun ve üretici görsellerinin hakları ilgili sahiplerine aittir;
-[yeniden dağıtım sınırları](../LEGAL_AND_SAFETY.md) geçerlidir.
+Game and manufacturer images remain the property of their rights holders;
+[redistribution limits apply](../LEGAL_AND_SAFETY.md).

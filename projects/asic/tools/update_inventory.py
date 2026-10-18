@@ -37,19 +37,19 @@ def main():
         writer.writeheader()
         writer.writerows(rows)
     total = sum(r["uart_candidates"] for r in rows)
-    lines = ["# Gerçek kayıt indeksi", "",
-             f"Oluşturuldu: {datetime.now().astimezone().isoformat()}. {len(rows)} oturum; {total} UART adayı.", "",
-             "| Oturum | Test | Süre (s) | Durum | UART hata adayı |",
+    lines = ["# Physical capture index", "",
+             f"Generated: {datetime.now().astimezone().isoformat()}. {len(rows)} sessions; {total} UART candidates.", "",
+             "| Session | Test | Duration (s) | Status | UART error candidates |",
              "|---|---|---:|---|---:|"]
     for row in rows:
         name = row["capture"]
         base = f"../captures/{name}"
-        lines.append(f"| [{name}]({base}/metadata.json) · [ham]({base}/raw.sr) · [analiz]({base}/analysis.json) | "
+        lines.append(f"| [{name}]({base}/metadata.json) · [raw]({base}/raw.sr) · [analysis]({base}/analysis.json) | "
                      f"{row['test']} | {row['duration_s']:.6f} | {row['status']} | {row['uart_error_candidates']} |")
-    lines += ["", "`captured` hedef sample sayısının alındığını belirtir; tüm UART adaylarının",
-              "hatasız olduğunu söylemez. `partial_or_failed` sample eksikliği veya kayıt hatasıdır.",
-              "Her ham `.sr` SHA-256 değeri indeks oluşturulurken kontrol edildi.",
-              "Eski analiz revizyonları ilgili oturumun `revisions/` dizinindedir.", ""]
+    lines += ["", "`captured` means the requested sample count was acquired; it does not imply",
+              "every UART candidate is error-free. `partial_or_failed` means missing samples or capture failure.",
+              "Every original `.sr` SHA-256 was checked when generating this index.",
+              "Earlier analysis revisions remain in each session's `revisions/` directory.", ""]
     (ROOT / "docs/CAPTURE_INDEX.md").write_text("\n".join(lines))
     print(f"{len(rows)} captures; {total} UART candidates; all raw archive hashes matched")
 

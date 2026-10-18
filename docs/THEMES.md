@@ -1,65 +1,67 @@
-# Tema hazırlama ve cihaza yükleme
+# Preparing and installing themes
 
-Studio'nun offline editörü tamamlanan işlevdir; gerçek cihazla USB yönetim ve
-canlı ölçüm taşıması eksiktir. Tema yüklemek için o bağlantı gerekmez:
-`THEME.PKG` mevcut bootloader diskine elle kopyalanır.
+Studio's offline editor works; real-device USB management and live
+measurement transport remain unfinished. Theme installation does not require
+that transport: copy `THEME.PKG` manually to the existing bootloader disk.
 
-## Düzenleme
+## Editing
 
-1. [Studio'yu başlatın](BUILDING.md#studio--tema-editörü), **File → Open original dump**
-   seçin. Orijinal 8 MiB dosya salt okunur kaynak olarak kullanılır.
-2. **Theme Editor** ile ekran/görsel seçin. PNG/JPEG içe aktarabilir,
-   görsele metin işleyebilir veya **Batch colour** ile grup renklendirebilirsiniz.
-3. Önizlemeleri kontrol edin. Bunlar firmware'in native C renderer'ı ve gerçek
-   Flash kaynaklarıdır. JPEG uyumu firmware TJpgDec derlemesiyle sınanır.
-4. Düzenlenebilir projeyi `artifacts/themes/<ad>/project/` altında saklayın.
-   **Export THEME.PKG for the meter** ile `artifacts/themes/<ad>/THEME.PKG`
-   üretin. Yeni temalar orijinal dump'ın üzerine kaydedilmez.
+1. [Start Studio](BUILDING.md#studio-and-theme-editor) and select
+   **File → Open original dump**. The original 8 MiB image is read-only input.
+2. Select a screen/asset in **Theme Editor**. Import PNG/JPEG images,
+   bake text into an image, or recolor groups with **Batch colour**.
+3. Check previews rendered by the native firmware C code using real Flash
+   resources. JPEG compatibility is checked with the firmware's TJpgDec build.
+4. Save the editable project under `artifacts/themes/<name>/project/`.
+   Use **Export THEME.PKG for the meter** to write
+   `artifacts/themes/<name>/THEME.PKG`. Do not save over the original dump.
 
-## Sürüm ve alan
+## Versions and space
 
-| Özellik | Gerekli POTAT-99 |
+| Feature | Required POTAT-99 version |
 |---|---|
-| JPEG tema paketi | ≥0.4.0 |
-| Firmware çizim renklerini eşleyen `THEME.PAL` paleti | ≥0.5.0 |
-| Görsel gerektirmeyen Simple screen | ≥0.6.0 |
+| JPEG theme package | ≥0.4.0 |
+| `THEME.PAL` mappings for firmware-drawn colors | ≥0.5.0 |
+| Image-free Simple screen | ≥0.6.0 |
 
-Paket yalnız değişen görselleri ve isteğe bağlı paleti içerir. Pozisyon/font/
-kodla çizilmiş metinleri keyfî taşımak desteklenmez. Paket adı **THEME.PKG**
-kalmalıdır. BOOT hacmi 1.5625 MiB toplamdır; yaklaşık 1.5 MB boş yerden söz
-edilse de gerçek boşluğu kontrol edin. Assets hacmindeki toplam boş alan da
-tüm kurulu temaları sınırlar; yaklaşık 3 MB gözlemi sabit kapasite garantisi değildir.
+A package contains only changed images and an optional palette.
+Arbitrarily moving positions, fonts or code-drawn text is unsupported.
+Keep the name **THEME.PKG**. BOOT is 1.5625 MiB in total; although roughly
+1.5 MB free has been observed, check actual available space. Free assets-volume
+space also limits installed themes; the roughly 3 MB observation is not a
+guaranteed constant.
 
-## Yükleme, seçme, silme
+## Installing, selecting and deleting
 
-1. Önce uygun POTAT-99 sürümünü [Windows USB yöntemiyle](UPDATING.md) yükleyin.
-2. Cihazı kapatın; **POWER + MENU** ile BOOT USB diskini Windows'a bağlayın.
-3. Yalnız `THEME.PKG` kopyalayın, güvenli çıkarın ve normal açın.
-4. Uygulama paketin sınırlarını/CRC'lerini kontrol eder, assets hacminde
-   `themes/Tnn` altına kurar, doğrular, etkinleştirir ve paketi kaldırır.
-   Kesintide kurulumun tamamlandığı varsayılmaz; hata mesajını inceleyin.
-5. **Menu → About → ENTER → Display** ekranında temayı seçin. OK kullanır;
-   ENTER seçili özel temayı onay sorusuyla siler. MENU/BACK çıkar.
+1. Install a compatible POTAT-99 version using the [Windows USB procedure](UPDATING.md).
+2. Switch off the meter, enter BOOT USB mode with **POWER + MENU**, and connect to Windows.
+3. Copy only `THEME.PKG`, safely eject and start normally.
+4. The application checks package bounds/CRCs, installs into
+   `themes/Tnn` on the assets volume, verifies, activates and removes the
+   package. After interruption, do not assume installation completed; inspect the error.
+5. In **Menu → About → ENTER → Display**, OK activates a theme.
+   ENTER deletes a selected custom theme after confirmation. MENU/BACK exits.
 
-**Original** seçimiyle özgün kaynaklara dönülür. Orijinal görsellerin üstüne
-yazılmaz; tema kurulum/silme assets Flash'ına yazma işlemidir. Geri dönüş
-gerektiğinde tam 8 MiB yedek ile MCU firmware yedeğini birbirinden ayırın;
-ham dump'ı USB firmware BIN'i gibi kullanmayın.
+Select **Original** to return to the original resources. Original images
+are not overwritten, but installing/deleting themes writes assets Flash.
+Keep an 8 MiB external Flash backup distinct from an MCU firmware backup;
+do not use a raw dump as a USB firmware BIN.
 
-0.6.0'da aynı Display ekranından **Simple screen** açılır; arka plan, rakam,
-metin/vurgu rengi ve boyutu seçilebilir. Bunun için paket/Studio gerekmez.
+In 0.6.0, the same Display screen provides **Simple screen** with background,
+digit, text/accent colors and digit size. It does not need a package or Studio.
 
-## Küçük örnek
+## Small example
 
 ```bash
 python3 tools/create_demo_theme.py
-# artifacts/themes/green-demo/THEME.PKG — 78 bayt, yalnız 0xFD40 → 0x07E0 paleti
+# artifacts/themes/green-demo/THEME.PKG — 78 bytes; palette 0xFD40 → 0x07E0 only
 ```
 
-Bu örnek üretici JPEG'i kopyalamaz; ≥0.5.0 ister. Sadece eşlenen firmware çizim
-renklerini değiştirir, JPEG içindeki renkleri değiştirmez. Offline paket
-parse/CRC doğrulaması yapılır; fiziksel kurulum bu birleştirmede denenmedi.
+This example copies no manufacturer JPEG and requires ≥0.5.0.
+It changes only the mapped firmware-drawn colors, not colors inside JPEGs.
+The package is parsed/CRC-checked offline; physical installation was not
+tested during consolidation.
 
-İleri ayrıntılar: [editör](../projects/studio/THEME_EDITOR.md),
+Further details: [editor](../projects/studio/THEME_EDITOR.md),
 [Flash Manager](../projects/studio/FLASH_MANAGER.md),
-[paket C kodu](../reconstructed/ui/theme_boot.c).
+[package C implementation](../reconstructed/ui/theme_boot.c).

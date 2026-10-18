@@ -1,225 +1,202 @@
-# DMT99 CH32V303RCT6 debug erişim yetenekleri
+# DMT99 CH32V303RCT6 debug capabilities
 
-## Son gerçek donanım sonucu
+## Latest physical-device result
 
-| Yetenek | Sınıf | Kanıt |
+| Capability | Classification | Evidence |
 |---|---|---|
-| DMI / DM activation | destekleniyor | 8/8 stabil, DMCONTROL=1 |
-| Halt | destekleniyor | DMSTATUS=382 gözlendi |
-| Resume / running durumu | destekleniyor | Gözlenen halt sonrası üç running örneği; son bağımsız 8/8 c82 |
-| Resumeack bitlerinin gözlenmesi | bilinmiyor | WCH'de sampled değer 0; ACK görülmüş gibi raporlanmıyor |
-| Program Buffer load + SRAM | destekleniyor (sınırlı örnek) | 20000000 → 02028000, iki bağımsız okuma |
-| Halted Flash / prefix / alias load | engelleniyor, neden özel kodla kanıtlanmadı | 08006400, 08000000, 00000000, 00006400: cmderr=3 |
-| GPR/Program Buffer/DATA restorasyonu | destekleniyor (bu deneylerde) | Readback ve PC değişmedi kontrolü başarılı |
-| Normal modda SRAM helper ile Flash okuma | bilinmiyor | Scratch RAM ve trap/CPU geri dönüşü doğrulanmadı; yürütülmedi |
+| DMI / DM activation | Supported | 8/8 stable, DMCONTROL=1 |
+| Halt | Supported | DMSTATUS=382 observed |
+| Resume / running state | Supported | Three running samples after observed halt; final independent8/8 c82 |
+| Observed resumeack bits | Unknown | WCH sampled value0; no ACK observation claimed |
+| Program Buffer load + SRAM | Supported, bounded sample | 20000000→02028000, two independent reads |
+| Halted Flash/prefix/alias load | Blocked, exact cause unproven | 08006400/08000000/00000000/00006400:cmderr3 |
+| GPR/Program Buffer/DATA restoration | Supported for these experiments | Readback and unchangedPC checks passed |
+| Normal-mode SRAM helper reading Flash | Unknown | Scratch RAM/trap/CPU restoration unverified; not executed |
 
-**Flash'tan yeni veri: 0 bayt.** SRAM raw dosyaları ve SHA-256, gerçek deney
-tablosu ve tüm log bağlantıları [FLASH_RECOVERY_REPORT.md](FLASH_RECOVERY_REPORT.md)
-içindedir. Son durum DMSTATUS=c82, DMCONTROL=1, ABSTRACTCS=08000002; CPU running,
-pinler bırakılmış. Hedef Flash/option byte/RDP/WRP programlama veya silme yok.
+**New original Flash data: zero bytes.**
+SRAM files/hash, experiment table and logs:
+[FLASH_RECOVERY_REPORT.md](FLASH_RECOVERY_REPORT.md).
+Final DMSTATUS=c82, DMCONTROL=1, ABSTRACTCS=08000002; CPU running,
+pins released. No target Flash/option-byte/RDP/WRP programming or erase.
 
-Eski bölümler aşağıda tarihsel kanıt olarak korunuyor.
+The following sections preserve earlier stages. Their unknown/not-yet-tried
+statements must not override the latest table.
 
-> Sonraki kullanıcı izniyle orijinal MCU halt edildi: `DMSTATUS=382` doğrulandı.
-> Halted Access Memory ilk `08006400` adresinde `cmderr=3` döndürdü; bayt yok.
-> Resume sonrası running durumu görüldü, resumeack görülmedi. Eski sürümün
-> cleanup belirsizliği korunuyor; bağımsız 8/8 running kontrolü ayrıca kaydedildi.
-> [Halted deney](recovery/20261017-original-halt-memory-03/session.json),
-> [son durum](recovery/20261017-post-cycle03-identify.json),
-> [güncel araştırma raporu](FLASH_RECOVERY_REPORT.md).
-> ESP32 seri raporlamasında yakalanan stack overflow düzeltildi. Yeni Program
-> Buffer adayı ayrı explicit/default-off izinle yalnız load/ebreak içerir.
+> A later authorized experiment observed halt(DMSTATUS382).
+> Halted Access Memory at08006400 returned cmderr3, without data.
+> Running state followed resume, but resumeack was unobserved.
+> Earlier cleanup uncertainty is preserved alongside an independent8/8 running check.
+> [Halted session](recovery/20261017-original-halt-memory-03/session.json),
+> [final state](recovery/20261017-post-cycle03-identify.json),
+> [current recovery report](FLASH_RECOVERY_REPORT.md).
+> The ESP32 reporting stack overflow was corrected.
+> A separately gated/default-off Program Buffer candidate uses only load/ebreak.
 
-> 2026-10-17 sonraki araştırma: [FLASH_RECOVERY_REPORT.md](FLASH_RECOVERY_REPORT.md).
-> Aşağıdaki tarihsel “Flash dump engelleniyor” sınıfı, önceki okuyucunun RDP
-> kontrolünde durmasını ifade eder; sıfır dolu Flash veya donanımda denenmiş
-> alternatif Flash-read reddi kanıtı değildir. Son capture SBCS=0 gösteriyor.
-> 22:59 Türkiye saati: activation+lab açık, halt/resume kapalı ESP32 görüntüsü
-> yüklendi. Orijinal MCU'da DMCONTROL=1 aktivasyonu doğrulandı. İlk running
-> Access Memory komutu cmderr=4 döndürdü; hiç Flash baytı alınmadı.
-> [Aktivasyon](recovery/20261017-active-lab-activation-01.json) ve
-> [deney](recovery/20261017-original-running-memory-01/session.json) yeni
-> dosyalardadır. Mevcut capture'lar değiştirilmedi.
+> Earlier2026-10-17 research: “Flash dump blocked” originally meant the
+> legacy reader stopped at its RDP precheck, not that Flash returned zeros
+> or an alternative read had been attempted.
+> SBCS=0 in the latest capability capture.
+> At22:59 Turkey time an activation+lab image, with halt/resume disabled,
+> was installed on the ESP32. DMCONTROL1 activation succeeded.
+> Running Access Memory returned cmderr4 without Flash data.
+> [Activation](recovery/20261017-active-lab-activation-01.json),
+> [running experiment](recovery/20261017-original-running-memory-01/session.json).
+> Existing captures were unchanged.
 
-| Güncel yetenek | Sınıf | Gerçek kanıt |
+| Earlier running-stage capability | Classification | Evidence |
 |---|---|---|
-| DMI ve explicit DM aktivasyonu | destekleniyor | 8/8 stabil, DMCONTROL=1 readback |
-| Running hart Access Memory `02200000` | engelleniyor (neden RDP olarak kanıtlanmadı) | İlk adres 08006400, ABSTRACTCS=08000402, cmderr=4 |
-| Halted Access Memory / RDP altında Flash okuma | bilinmiyor | Halt denenmedi; Flash baytı yok |
-| Deney sonrası DATA restorasyonu ve pin release | destekleniyor (bu denemede) | DATA0/1 readback, DMSTATUS=c82, state_uncertain=false |
+| DMI / explicit activation | Supported | 8/8 stable, DMCONTROL1readback |
+| Running Access Memory02200000 | Blocked, RDP cause unproven | First08006400, ABSTRACTCS08000402,cmderr4 |
+| Halted Access Memory/protected Flash | Unknown at that stage | Not yet halted, no Flash data |
+| DATA restoration/pin release | Supported in that attempt | DATA0/1readback, DMSTATUSc82,state_uncertainfalse |
 
-DM aktif ve sticky cmderr=4 bırakıldı; hata otomatik temizlenmedi. CPU running
-kaldı. Aşağıdaki bölümler önceki geliştirme aşamalarının tarihsel kaydıdır;
-güncel yükleme ve deney sonucu yukarıdadır.
+The DM remained active with sticky cmderr4; CPU stayed running.
+The historical diagnostic-development stage below used offline mocks and
+ESP32 builds without new physical target sessions, flashing, patching, halt
+or reset. Mock success is not CH32V303 hardware validation.
+Analysis sources were used read-only.
 
-Tarih: 2026-10-17. Probe: `projects/rvswd`.
-Analiz kaynakları: `.` (yalnızca okundu).
+## Existing session evidence
 
-Bu turda salt okunur diagnostic mod geliştirildi, önce offline mock testleri
-çalıştırıldı ve ESP32 görüntüsü derlenecek. Fiziksel seri port açılmadı; adaptöre
-yükleme, yeni hedef oturumu, Flash dump, hedef firmware patch, halt veya reset
-çalıştırılmadı. Bu dokümanın başındaki son gerçek cihaz bulgusu kullanıcı tarafından
-bu oturumda bildirilen capture özetidir. Yeni kodun mock başarısı, CH32V303 üzerinde
-donanım doğrulaması değildir.
-
-## Mevcut oturum kanıtı
-
-Son bildirilen gerçek cihaz capture özeti: Chip ID `30310524`, DMSTATUS
-`00000c82`, 8/8 stable preflight, hart running, authenticated=true,
-DMCONTROL `00000000`, sonuç `debug_module_inactive`. Bu bulgu, DM aktivasyonunun
-artık ayrı kontrollü bir sonraki aşama olarak ele alınmasını destekler. Capture
-dosya adı/hash bu mesajda verilmedi; mevcut capture dosyaları değiştirilmedi.
+A later user-reported summary gave chip30310524, DMSTATUS00000c82,
+8/8stable, running/authenticated and DMCONTROL0:
+debug_module_inactive. The message supplied no filename/hash, and captures
+were not altered. This motivated separately controlled activation.
 
 [captures/dmt99-20261017-031509-dump.json](captures/dmt99-20261017-031509-dump.json)
-2026-10-17 00:15:09 UTC tarihli önceki kayıttır. Dosya değiştirilmedi.
-SHA-256: `eb4dc1e6dadeb3554c9f64efabe87e5627b9dccc34f5f3bb89d393c3366d511c`.
+is an earlier2026-10-17 00:15:09UTC session, unchanged, SHA-256
+`eb4dc1e6dadeb3554c9f64efabe87e5627b9dccc34f5f3bb89d393c3366d511c`.
 
-| Alan | Kaydedilmiş değer | Yorum |
+| Field | Recorded value | Interpretation |
 |---|---|---|
-| Chip ID, DMI `0x7f` | `30310524` | CH32V303 aile ipucu; tam paket/kapasiteyi tek başına kanıtlamaz |
-| DMCONTROL, `0x10` | `00000001` | `dmactive=1`, seçili hart 0, okunabilir reset alanları 0 |
-| DMSTATUS, `0x11` | `00000c82` | version 2, authenticated 1, authbusy 0, any/allrunning 1, any/allhalted 0 |
-| HARTINFO, `0x12` | `00312380` | Ham değer korundu |
-| ABSTRACTCS, `0x16` | `08000002` | busy 0, cmderr 0, datacount 2, progbufsize 8 |
-| CPBR, `0x7c` | `00000000` | Okuma başarılı; sıfır değer ek bir yetenek kanıtlamaz |
-| Kimlik örnekleri | 8, result `ok` | 41 DMI trace kaydı; bu trace kimlik aşamasına aittir |
-| Önceki OBR okuması | `03fffefe` | RDPRT bit 1 set: RDP aktif |
-| Önceki işlem sonucu | `read_protection_enabled` | Her iki pass için 0 bayt; Flash kapasitesi okunmamış (`flash_kib=0`) |
-| Önceki cleanup bildirimi | restored/resumed/pins_released `true` | Eski okuyucunun bildirimi; yeni resumeack kontrolünün doğrulaması değildir |
+| ChipID DMI7f | 30310524 | Family clue, not complete package/capacity identification |
+| DMCONTROL10 | 00000001 | dmactive1,hart0,readable reset fields0 |
+| DMSTATUS11 | 00000c82 | version2,authenticated1,authbusy0,running1,halted0 |
+| HARTINFO12 | 00312380 | Raw value retained |
+| ABSTRACTCS16 | 08000002 | busy0,cmderr0,datacount2,progbufsize8 |
+| CPBR7c | 00000000 | Successful read; zero proves no further capability |
+| Identity samples | 8,resultok | 41identity-stage trace entries |
+| Earlier OBR | 03fffefe | RDPRTbit1 set,RDP active |
+| Earlier result | read_protection_enabled | Both passes0bytes; flash_kib0 means capacity unread |
+| Earlier cleanup report | restored/resumed/pins_releasedtrue | Legacy report, not validation of the newer resumeack check |
 
-Önceki iki `.bin.partial` dosyası da 0 bayttır; geçerli Flash dump olarak
-kullanılmamalıdır. Bu dosyalara yeni veri yazılmadı. Eski OBR değeri yeniden
-okunmadı; yeni oturum JSON'undaki `read_protection: unknown`, **o oturumda yeniden
-ölçüm yapılmadığını** anlatır ve mevcut RDP kanıtını geçersiz kılmaz.
+Both .bin.partial files are zero-length and are not valid dumps.
+No data was appended. A later read_protection:unknown field means not
+remeasured in that session, not invalidation of the earlier OBR evidence.
 
-Daha erken [diagnose kaydı](captures/diagnose-20261017-025841.json), CPBR'de
-`parity_error` gösterir. [Sonraki kayıt](captures/test-20261017-030513-diagnose.json),
-üç tamamlanmış örnekten sonra chip ID okumasında `no_response` gösterir. Dolayısıyla
-önceki başarılı oturum, sonraki her bağlantının sağlıklı olacağını garanti etmez;
-bu hatalar RDP kanıtı olarak sınıflandırılmadı.
+An earlier [diagnose capture](captures/diagnose-20261017-025841.json)
+has CPBR parity_error; a [later one](captures/test-20261017-030513-diagnose.json)
+has chip-ID no_response after three samples.
+One good session does not guarantee later transport health; these errors were not labeled RDP.
 
-## Cihazın bilinen yetenekleri
+## Historical capability classification
 
-| Yetenek | Sınıf | Kanıt / sınır |
+| Capability | Classification | Evidence/limit at that stage |
 |---|---|---|
-| DMI kimlik, DMCONTROL ve DMSTATUS okuma | **destekleniyor** | Önceki oturumda sekiz tutarlı örnek |
-| CPU halt | **destekleniyor, geçmiş oturum kanıtı** | Eski okuyucu OBR okuma ve restore aşamalarını tamamlamış; bağımsız halt izi yok |
-| CPU resume | **destekleniyor, geçmiş oturum bildirimi** | `resumed=true`; yeni any/allresumeack kontrolü cihazda denenmedi |
-| x8–x11 okuma/koruma | **destekleniyor, eski akıştan çıkarım** | Eski OBR okuyucusunun başarılı hazırlık/restore akışı; register değerleri capture'da yok |
-| PC ve x0–x31 tam snapshot | **bilinmiyor** | Yeni read-only abstract register yolu yalnızca mock üzerinde doğrulandı |
-| SRAM snapshot | **bilinmiyor** | Cihazdan SRAM alınmadı; SBA desteği henüz okunmadı |
-| GPIO / USART / SPI snapshot | **bilinmiyor** | Yeni güvenli profiller yalnızca mock üzerinde doğrulandı |
-| Flash dump | **engelleniyor** | RDP kanıtı ve önceki 0 baytlık sonuç; bu sürümde komut kaldırıldı |
-| Flash / option byte / RDP / WRP / kalibrasyon yazma | **engelleniyor, yazılım politikası** | Host komutu ve hedef bellek yazma yolu yok |
-| Reset | **engelleniyor, yazılım politikası** | Komut yok; reset bitlerini içeren DMCONTROL değerleri reddediliyor |
+| DMI identity/DMCONTROL/DMSTATUS | Supported | Eight consistent samples |
+| CPU halt | Supported, historical evidence | Legacy OBR/restore flow; no independent halt trace then |
+| CPU resume | Supported, historical report | resumedtrue; new resumeack checks then untested |
+| x8–x11 read/preservation | Inferred from old flow | OBR preparation/restore succeeded; values absent from capture |
+| FullPC/x0–x31snapshot | Unknown | New abstract-register path tested only with mocks |
+| SRAM snapshot | Unknown | No SRAM sample then; SBA not yet queried |
+| GPIO/USART/SPI snapshot | Unknown | Safe profiles tested only with mocks |
+| Flash dump | Blocked | RDP evidence/zero-byte result; command removed |
+| Flash/options/RDP/WRP/calibration writes | Blocked by policy | No host command/target-memory-write path |
+| Reset | Blocked by policy | No command; reset-containing DMCONTROL values rejected |
 
-## Yeni diagnostic arayüzü
+## Diagnostic interface
 
-Firmware kimliği `protocol: 3`, `build: read-only-diagnostic`.
-`tools/diag.py`, eski `flash-reader` görüntüsüne diagnostic göndermez.
-`info` içindeki `flash_dump`, `flash_write`, `target_memory_write` ve
-`reset_command` alanları `false` olmalıdır.
+Firmware identity: protocol3,build read-only-diagnostic.
+tools/diag.py refuses the legacy flash-reader image.
+info must report flash_dump/flash_write/target_memory_write/reset_commandfalse.
 
-| Komut | İşlem | Hedef CPU çalışma durumu |
+| Command | Operation | CPU state |
 |---|---|---|
-| `info` | Adaptör bilgisi; hedef sinyallerini sürmez | Değiştirmez |
-| `diagnose` / `identify` | Mevcut beş DMI sorgusu; CPBR ayrı, opsiyonel sonuç | Değiştirmez; DM etkinleştirmez |
-| `capabilities` | Beş sorguyla kararlı preflight; aktif DM'de ABSTRACTAUTO/SBCS ve son durum | Değiştirmez; varsayılan seçim maskesi 0, **DMI write sayısı 0** |
-| `capabilities --registers` | Zaten halted hart için DPC ve x0–x31 okur | Running ise `hart_running_no_implicit_halt`; halt göndermez |
-| `capabilities --sram/--gpio/--usart/--spi` | Açıkça seçilen sabit snapshot profili; SBA varsa | Halt/resume/reset göndermez |
-| `halt-cycle` | Açıkça seçilen halt ve eski running durumuna dönüş deneyi | Varsayılan build'de kapalı |
-| `activate-dm` | Ayrı, açık DM etkinleştirme deneyi | Varsayılan build'de kapalı |
+| info | Adapter information, no target signals | Unchanged |
+| diagnose/identify | Existing five DMI queries; CPBR optional/separate | No activation or state change |
+| capabilities | Stable five-query preflight; activeDM ABSTRACTAUTO/SBCS/final status | Default mask0: **zero DMI writes** |
+| capabilities --registers | DPC/x0–x31 only on an already halted hart | Running returns hart_running_no_implicit_halt |
+| capabilities --sram/--gpio/--usart/--spi | Explicit fixed snapshots when SBA supports them | No halt/resume/reset |
+| halt-cycle | Explicit halt/return-to-running experiment | Disabled by default |
+| activate-dm | Separate explicit DM activation | Disabled by default |
 
-`memory_read:true` ve `dmi_write:true` info alanları yazılımın isteğe bağlı
-snapshot yeteneğini belirtir; bir sorgunun bellek okuduğu veya cihaza bu yeteneğin
-verildiği anlamına gelmez. Gerçek snapshot'lar JSON `snapshots` alanında bulunur.
+info memory_readtrue/dmi_writetrue indicate optional software capabilities,
+not a completed target read or hardware grant. Actual results are in snapshots.
 
-Her capability JSON'da `status: supported / blocked / unknown`, `reason` ve
-`failure_class` taşır. `supported`, ilgili oturumda ilgili yolun başarılı olduğu
-anlamına gelir. `blocked`, açık authentication/protection reddi veya seçilen
-protokolün desteklenmemesi gibi somut kanıt gerektirir. Test edilmemiş erişim,
-kapalı clock, running hart, transport hatası veya nedeni belirsiz erişim hatası
-`unknown` kalır. SBA desteklenmiyorsa `unsupported_debug_capability`, **bu sürümün
-SBA yolunun** engellendiğini belirtir; başka debug yöntemlerinin imkânsızlığını veya
-RDP'nin SRAM'ı engellediğini kanıtlamaz.
+Each result has supported/blocked/unknown, reason and failure_class.
+Supported means that route succeeded in that session.
+Blocked requires concrete authentication/protection/unsupported-protocol evidence.
+Untested access, clock-off, running state, transport errors or unexplained
+access failures remain unknown.
+unsupported_debug_capability blocks this SBA route, not all debug methods
+or necessarily SRAM access under RDP.
 
-### Register okuma ve snapshot sınırları
+### Registers and snapshot bounds
 
-`--registers`, RV32 Access Register komutunda transfer=1, write=0, postexec=0 ve
-postincrement=0 kullanır. PC, halted durumdaki **DPC (`0x7b1`)** değeridir; running
-CPU'nun anlık PC örneklemesi değildir. Her komuttan önce halted durumu ve kapalı
-autoexec kontrol edilir. CPU register'larına yazılmaz. Debug DATA0 önce saklanır,
-sonunda geri okunarak restore edilir. PC erişimi desteklenmezse sticky cmderr
-korunur ve işlem durur; arkadan GPR veya program-buffer denemesi yapılmaz.
-`pc_valid` ve `gpr_valid_mask`, kısmi veriyi gerçek sıfır register değerinden ayırır.
+--registers uses RV32 Access Register transfer1/write0/postexec0/postincrement0.
+PC is halted DPC0x7b1, not a live running-PC sample.
+Before each command, halted state and autoexec-off are checked.
+CPU registers are not written.
+DATA0 is saved, restored and read back.
+UnsupportedPC retains stickycmderr and stops without GPR/progbuf fallback.
+pc_valid/gpr_valid_mask distinguish missing data from actual zero values.
 
-Bellek yolu yalnızca SBCS version 1, 32-bit adres ve gerekli erişim genişliği
-bildirildiğinde çalışır. Otomatik DATA read ve adres artırma kapalıdır. Her sabit
-adrese bir bus-read tetiklenir, busy/error kontrol edilir, veri alınır. Snapshot
-başına en fazla 48 değer alınır:
+Memory snapshots require SBCSversion1,32-bit addresses and the needed width.
+Automatic read/increment are disabled.
+Each allowlisted address triggers one bounded bus read.
+Maximum48snapshot values:
 
-| Profil | İzinli adresler | Genişlik / ek kapı |
+| Profile | Addresses | Width/additional gate |
 |---|---|---|
-| SRAM | `20000000–2000003c`, 16 word / 64 bayt | 32 bit; sadece bu sabit pencere |
-| RCC clock maskeleri | `40021018`, `4002101c` | Çevre birimi seçilmişse önce okunur; RCC'ye yazılmaz |
-| GPIOA/B/C | taban `40010800`, `40010c00`, `40011000`; `+0/+4/+8/+c` | CFGLR, CFGHR, INDR, OUTDR; APB2 clock biti açık olmalı |
-| USART1/2/3 | taban `40013800`, `40004400`, `40004800`; `+8/+c/+10/+14` | BRR, CTLR1/2/3; ilgili APB clock biti açık olmalı |
-| SPI1/2/3 | taban `40013000`, `40003800`, `40003c00`; `+0/+4` | CTLR1/2; **16 bit SBA desteği** ve açık APB clock gerekir |
+| SRAM | 20000000–2000003c,16words/64bytes | Fixed32-bit window |
+| RCC masks | 40021018/4002101c | Read before selected peripherals; never written |
+| GPIOA/B/C | Bases40010800/40010c00/40011000,+0/+4/+8/+c | CFGLR/CFGHR/INDR/OUTDR; APB2clock enabled |
+| USART1/2/3 | Bases40013800/40004400/40004800,+8/+c/+10/+14 | BRR/CTLR1/2/3; correspondingAPBclock |
+| SPI1/2/3 | Bases40013000/40003800/40003c00,+0/+4 | CTLR1/2;16-bitSBA support and clock required |
 
-GPIO BSHR/BCR/LCKR, USART STATR/DATAR ve SPI STATR/DATAR okunmaz. FIFO, veri tüketen,
-read-to-clear veya kilit sıralamasını tamamlayabilecek register'lar profile dahil
-değildir. Kapalı clock açılmaz; ilgili blok atlanır. Bir gruptaki `supported`,
-okunan açık bloklar için geçerlidir; atlananları RCC maskeleri ve adres listesiyle
-ayırt edin. Running snapshot atomik değildir; firmware bu sırada SRAM, GPIO ve
-clock'ları değiştirebilir. GPIO snapshot'ının kendisi pin sürmez, USART veri
-iletmez, SPI transferi veya harici Flash komutu başlatmaz.
+Excluded: GPIO BSHR/BCR/LCKR, USART STATR/DATAR, SPI STATR/DATAR,
+FIFOs/data-consuming/read-to-clear/lock-sequence registers.
+Disabled clocks are not enabled; blocks are skipped.
+Supported applies only to read, clocked blocks; use RCC/address records to identify skips.
+Running snapshots are non-atomic.
+They do not drive GPIO, transmit UART, initiate SPI or send external-Flash commands.
 
-Snapshot seçimi bazı **debug register yazmaları** gerektirir: COMMAND/DATA0 veya
-SBCS/SBADDRESS0. Hedef SRAM/MMIO/Flash yazması yapılmaz. SBA data register'ına hiçbir
-zaman yazılmaz. SBA yapılandırması geri doğrulanır; son SBADDRESS/SBDATA latch'i
-snapshot sonucunu taşımaya devam edebilir. Hata bitleri temizlenmez. Bu nedenle
-salt okunur tanımı hedef belleği ve CPU register'ları içindir; debug modülünün
-bütün latch'lerinin değişmez kaldığı iddia edilmez.
+Snapshots require **debug-register writes** to COMMAND/DATA0 or SBCS/SBADDRESS0,
+not target SRAM/MMIO/Flash writes. SBA data is never written.
+Configuration restoration is read back, but address/data latches may retain
+the last result. Error bits are not cleared.
+Read-only refers to target memory/CPU registers, not immutable debug-module latches.
 
-### Halt/resume araştırması ve geri dönüş
+### Explicit activation and halt/resume
 
-`CONFIG_DIAG_ALLOW_DM_ACTIVATION` ve `CONFIG_DIAG_ALLOW_HALT_RESUME` ayrı ayrı,
-varsayılan `n`'dir. DM aktivasyonu yalnızca `activate-dm`, build izni ve host'taki
-`--allow-dm-activation` ile wire token `EXPLICIT_DM_ACTIVATION` birlikte seçilirse
-çalışır. CPU halt/resume ayrıca `CONFIG_DIAG_ALLOW_HALT_RESUME=y`,
-`--allow-halt-resume` ve `EXPLICIT_HALT_RESUME` gerektirir. Activation izni
-halt/resume yetkisi vermez. Normal diagnostic build'de ikisi de kapalı kalmalıdır.
+CONFIG_DIAG_ALLOW_DM_ACTIVATION and CONFIG_DIAG_ALLOW_HALT_RESUME are
+independent default-n gates.
+Activation additionally requires --allow-dm-activation and token
+EXPLICIT_DM_ACTIVATION.
+Halt/resume requires its own build gate, --allow-halt-resume and
+EXPLICIT_HALT_RESUME. Activation does not authorize halt.
+Both remain disabled in a normal build.
 
-### Kontrollü DM activation
+activate-dm first runs stable preflight.
+Already-active DM gets reads only.
+Inactive DM may receive exactly one DMCONTROL=00000001 write.
+No retry or blind cleanup write follows failure.
+DMCONTROL/DMSTATUS readback checks authentication and unchanged running/halted state.
+Reports separate dmactive_write_attempted,dmcontrol_readback_valid,
+dmstatus_readback_valid,dmactive_set,activation_state_uncertain,pins_released.
+Lost readback may leave uncertain state: do not automatically retry.
+Successful activation intentionally leaves the DM active.
 
-`activate-dm` önce tam stable preflight yapar. Zaten aktif DM'de write yapmadan
-DMCONTROL ve DMSTATUS'ı tekrar okur. İnaktif DM'de yalnızca bir adet
-`DMCONTROL=0x00000001` write frame'i gönderebilir: bu değer yalnızca dmactive bitini
-seçer. Kodda retry veya başarısız write sonrası otomatik cleanup write yoktur.
-Ardından DMCONTROL ve DMSTATUS readback edilir; authentication ve hart running/
-halted durumunun değişmediği kontrol edilir. JSON `dmactive_write_attempted`,
-`dmcontrol_readback_valid`, `dmstatus_readback_valid`, `dmactive_set`,
-`activation_state_uncertain` ve `pins_released` alanları bu kanıtı ayırır.
-Readback kaybolursa `activation_state_uncertain` true olabilir; komutu otomatik
-tekrarlamayın. Başarılı aktivasyon DM'yi etkin bırakır; otomatik deactivation
-yapılmaz çünkü target debug durumunu değiştirmek auth/oturum durumunu belirsiz
-hale getirebilir.
+A subsequent separate mask0 capabilities reads ABSTRACTAUTO18/SBCS38 with no writes.
+Only advertised SBA enables the fixed snapshot profiles above.
+--registers never implicitly halts.
+Flash/options/RDP/WRP/calibration addresses are excluded.
+This historical diagnostic path added no target-memory/register store or progbuf execution.
 
-Aktivasyon başarılı olduktan sonra ayrı `capabilities` çağrısı ABSTRACTAUTO
-(`0x18`) ve SBCS (`0x38`) okur; varsayılan mask `0` bu aşamada hiçbir DMI write
-yapmaz. SBA desteklenirse `--sram`, `--gpio`, `--usart`, `--spi` seçimleri yalnızca
-yukarıdaki sabit allowlist adreslerini okur. Bu snapshot'lar CPU halt etmez; CPU
-register'ları istenirse `--registers` yalnızca CPU zaten halted iken salt okunur
-abstract transfer yapar ve running hart için otomatik halt etmez. Flash, option
-byte, RDP, WRP ve kalibrasyon adresleri allowlist dışıdır. Target SRAM/MMIO/CPU
-register write veya program-buffer execution yolu eklenmemiştir.
-
-Önce adapter ESP32 firmware'ini güvenli biçimde oluşturup adapter'a yükleyin;
-DMT99 debug kablosu bu sırada ayrılmış olmalıdır. Menüconfig'te sadece
-`Allow explicit DM activation (DMCONTROL.dmactive only)` seçeneğini etkinleştirin;
-halt/resume seçeneğini kapalı bırakın. Aşağıdaki testler yalnızca operatörün her
-adımda devam etmesiyle yürür; otomatik cihaz testi değildir. `/dev/ttyUSB0` ve
-`3300` değerlerini gerçek port ve taze ölçümle değiştirin:
+When separately preparing an activation-enabled adapter, disconnect DMT99
+signals before building/flashing; enable activation only and keep halt disabled.
+The following are operator-controlled examples, not automatically executed tests.
+Replace port and3300 with actual values:
 
 ```sh
 python tools/diag.py --port /dev/ttyUSB0 --output captures/dm-info-NEW.json info
@@ -228,88 +205,78 @@ python tools/diag.py --port /dev/ttyUSB0 --output captures/dm-activate-NEW.json 
 python tools/diag.py --port /dev/ttyUSB0 --output captures/dm-capabilities-NEW.json capabilities --voltage-mv 3300 --board-pins-checked --wiring-checked
 ```
 
-Komutları sırayla uygulayın ve her adımın JSON'unu inceleyin. Info'da
-`dm_activation_enabled=true`, `halt_resume_enabled=false` ve doğru ESP32/GPIO
-pinleri olmalı. Preflight tekrar `30310524`, authenticated=true, hart running ve
-DMCONTROL=0 vermeli. Activation sonucunda `dmactive_set=true`, iki readback valid,
-`dmcontrol=1`, `dmstatus` running/authenticated ve `pins_released=true` beklenir.
-Farklı/eksik sonuçta durun, tekrar etmeyin. Ardından mask-0 capabilities ile
-ABSTRACTAUTO/SBCS'yi okuyun. Yalnızca SBCS açıkça SBA'yı desteklerse ve mask-0
-sonucu temizse, ayrı dosya ve operatör seçimiyle istenen sınırlı snapshot grubunu
-çağırın, örneğin:
+Inspect each JSON before continuing.
+info must show activationtrue/haltfalse and verified ESP32/GPIO.
+Preflight expects30310524,authenticated/running,DMCONTROL0.
+Activation expects dmactive_settrue,validreadbacks,DMCONTROL1,
+running/authenticated and pins_releasedtrue.
+Stop on missing/unexpected results rather than retry.
+Only clean mask0 results and advertised SBA justify a separately selected snapshot:
 
 ```sh
 python tools/diag.py --port /dev/ttyUSB0 --output captures/dm-sram-NEW.json capabilities --voltage-mv 3300 --board-pins-checked --wiring-checked --sram
 ```
 
-Bu işlem dizisinde `halt-cycle`, `reset`, `dump`, `identify` sonrası gizli
-activation veya cihaz üzerinde otomatik test çalıştırmayın. `activate-dm` dışında
-hedef durumunu değiştiren işlem seçilmemiştir.
+Do not add halt-cycle/reset/dump, hidden activation after identify or
+automatic target tests to this activation-only sequence.
 
-Deney kodu önce stable, active, authenticated ve running hart gerektirir.
-Baştan halted bir CPU'yu sahiplenmez veya resume etmez. Halt isteği gönderilmeden
-önce ownership kaydedilir; yarıda kesilmiş write'ın hedefe ulaşmış olabileceği
-varsayılır. Halt, any/allhalted ile; resume, any/allrunning **ve** any/allresumeack
-ile doğrulanır. Haltreq/resumereq write-only alanlarının readback'i ACK sayılmaz.
-Okunabilir DMCONTROL seçim/reset/active alanları ayrıca kontrol edilir.
+The separately gated halt-cycle requires stable,active,authenticated,running
+state. It does not take ownership of or resume an initially halted CPU.
+Ownership is recorded before halt request because a partial write may reach
+the target. Historical generic halt verification requires any/allhalted;
+resume requires any/allrunning **and** any/allresumeack.
+Write-only request readback is not ACK; readable selection/reset/active
+fields are also checked.
 
-Halt timeout'unda link güvenilir ve abstract engine idle ise haltreq temizlenir ve
-bounded resume cleanup uygulanır. Register okunduysa DATA0 restore edilmeden
-başarılı dönüş bildirilmez. Parity, GPIO, line veya frame hatasında kör write
-cleanup/retry yapılmaz. `operation_result` ilk hatayı, `cleanup_result` ayrı geri
-dönüş sonucunu saklar. `target_state_uncertain:true`, CPU'nun running olduğunun
-kanıtlanamadığını belirtir; GPIO'ların Hi-Z olması tek başına resume kanıtı değildir.
-Reset, DM'yi kapatıp açma, unprotect veya program-buffer fallback yoktur.
-Fiziksel bağlantı kaybında yazılımla mutlak geri dönüş garantisi verilemez.
+On halt timeout, cleanup clears haltreq and performs bounded resume only
+with trustworthy transport and idle abstract engine.
+DATA0 restoration is required after register reads.
+Parity/GPIO/line/frame errors do not trigger blind writes/retries.
+operation_result and cleanup_result are separate.
+target_state_uncertain means running cannot be proved; Hi-Z alone is not resume.
+No reset,DM cycling,unprotect or progbuf fallback.
+Physical disconnection prevents unconditional software recovery guarantees.
 
-### Hata ayrımı ve süre sınırları
+### Errors and deadlines
 
-| Sonuç / sınıf | Yorum |
+| Result/class | Meaning |
 |---|---|
-| `read_protection_enabled` / `rdp_blocked` | Önceki oturumdaki OBR kanıtıyla bilinen Flash engeli. Yeni tanı yolu OBR'yi okumaz, bunu genel bus hatasından üretmez |
-| `authentication_required` / `authentication_blocked` | DMSTATUS authentication kapısı; doğrudan RDP ile eşitlenmez |
-| `parity_error`, `no_response`, `line_held_low`, `gpio_error` / `connection_error` | Güvenilir iletişim yok; RDP diye etiketlenmez |
-| `frame_timeout` / `timeout` | Bir senkronizasyon veya DMI frame'i 100 ms sınırını aştı |
-| `poll_timeout` / `timeout` | Halt/resume, abstract engine veya SBA beklemesi doldu; ayrıca sberror=1 bus timeout |
-| `abstract_command_error`, `system_bus_error` / `access_error_cause_unproven` | Ham cmderr/sberror saklanır. Genel exception/bus hatası, tek başına RDP kanıtlamaz |
-| `unsupported_debug_capability` / `unsupported` | Bildirilmeyen SBA genişliği/version veya cmderr=2; başka yol denenmez |
-| `disabled_by_policy` | Çalışma durumunu değiştirme kapısı kapalı |
-| `cleanup_unconfirmed` | Cleanup veya son durum doğrulaması başarısız; ayrı ham sonuçlar incelenmeli |
+| read_protection_enabled/rdp_blocked | EarlierOBR evidence; not synthesized from generic bus errors |
+| authentication_required/authentication_blocked | DMSTATUS gate, not synonymous with RDP |
+| parity_error/no_response/line_held_low/gpio_error | Connection failure, not RDP evidence |
+| frame_timeout | One synchronization/DMI frame exceeded100ms |
+| poll_timeout | Halt/resume/abstract/SBA budget expired; sberror1 is bus timeout |
+| abstract_command_error/system_bus_error | Rawcmderr/sberror retained; exception alone does not proveRDP |
+| unsupported_debug_capability | MissingSBA/version/width or cmderr2; no fallback |
+| disabled_by_policy | State-changing gate closed |
+| cleanup_unconfirmed | Separate cleanup/final-state evidence incomplete |
 
-Her poll döngüsünün bütçesi 200 ms'dir; devam eden tek DMI frame'i ve scheduler
-gecikmesi buna eklenebilir. Döngüler sınırlıdır; başarısız işlemin tekrarı yoktur.
-Varsayılan half-period 250 µs, turnaround 50 µs ve 8 kimlik örneği korundu.
-Frame aralarında RTOS'a yield edilir; UART trace'leri hedef pinleri bırakıldıktan
-sonra basılır. Trace tamponu 1024 kayıt; overflow JSON'da görünür ve host hata verir.
-Host yanıt deadline'ı 60 saniyedir. Yalnızca GPIO-passive `hello` el sıkışması
-tekrarlanabilir. Host timeout'u adaptörün cleanup yaptığının kanıtı sayılmaz.
+Poll budgets are200ms plus an in-flight frame/scheduler delay.
+No unbounded loops/retries.
+Half-period250µs,turnaround50µs,eight identity samples.
+RTOS yield between frames; UART trace output only after signal release.
+Trace capacity1024, explicit overflow/host failure.
+Host response deadline60s.
+Only passive hello may retry; host timeout does not prove adapter cleanup.
 
-## Offline doğrulama
+## Historical offline validation
 
-İlk olarak mevcut testler `CC=cc bash tests/run.sh` ile çalıştırıldı: eski iki C
-mock testi ve 11 Python testi geçti. Ortamdaki `CC=gcc-14` yürütülebiliri yoktu;
-mevcut `/usr/bin/cc` açıkça seçildi. İlk testlerdeki eski Flash senaryoları tamamen
-sentetikti, cihaz veya mevcut dump dosyaları kullanılmadı.
+Initial tests passed two legacy C mocks and11Python tests using CC=cc;
+inherited gcc-14 was unavailable. Flash cases were synthetic.
+The new default suite replaced the legacy Flash-reader mock with diagnostics:
+twoC executables/17Python tests initially, later18Python tests/twoC groups.
 
-Güncel varsayılan suite, eski Flash okuyucu mock'u yerine yeni diagnostic testini
-çalıştırır. Sonuçlar: iki C test yürütülebiliri ve **17 Python testi başarılı**.
-
-- Mevcut transport testinde 4519 GPIO hata konumunda pin bırakma.
-- Diagnostic testinde 3418 GPIO, 338 kısmi halt/resume write ve 542 DMI parity
-  hata konumu; örtük halt ve sınırsız retry bulunmaması.
-- 33 register okuması, 48 güvenli snapshot değeri, running ve halted başlangıçları,
-  autoexec/clock kapıları, eksik SBA/16-bit desteği, sticky hata ve timeout.
-- Halt timeout'undan başarılı cleanup, resume timeout'unda belirsiz durum bildirimi,
-  dışarıdan halted CPU'nun resume edilmemesi ve release hatası.
-- Gerçek CLI/pyserial'ın **sentetik PTY** üzerinde command maskesi, eski firmware
-  reddi, birbirinden bağımsız activation/halt-resume build gate'leri, açık wire
-  token'ları ve capture koruması.
-- Activation mock'unda inaktif DM için tek DMCONTROL=1 write, iki readback,
-  already-active durumda sıfır write ve pin-release hata bildirimi.
-- Flash/option/kalibrasyon, veri/FIFO ve lock adreslerinin allowlist dışında kalması;
-  memory-write, progbuf, register-write, error-clear ve reset DMI yazmalarının reddi.
-
-Tekrarlama:
+- Transport:4519GPIO failure positions still release pins.
+- Diagnostics:3418GPIO,338partial halt/resume-write and542DMI-parity faults.
+- 33register reads,48safe snapshot values,running/halted starts,
+  autoexec/clock/width gates, sticky errors/timeouts.
+- Halt-timeout cleanup, uncertain resume timeout, no resuming externally halted
+  CPUs and release failures.
+- Actual CLI/pyserial with syntheticPTY: masks,legacy-image rejection,
+  independent gates/tokens and immutable captures.
+- Activation: one inactiveDM write,readbacks,zero writes ifalready active,release errors.
+- Exclusion of Flash/options/calibration/FIFO/lock addresses and rejection of
+  target-memory/progbuf/register/error-clear/reset writes in that diagnostic path.
 
 ```bash
 cd projects/rvswd
@@ -317,78 +284,60 @@ CC=cc bash tests/run.sh
 ASAN_OPTIONS=detect_leaks=0 CC=clang SANITIZE=1 bash tests/run.sh
 ```
 
-GCC sanitizer linki bu ortamda eksik libasan/libubsan nedeniyle kullanılamadı.
-Clang ASan/UBSan ile doğrulandı; ptrace ortamında LeakSanitizer çalışmadığından
-sadece leak taraması kapatıldı. Bu testler gerçek hedef erişimi içermez.
+GCC sanitizer runtimes were missing; Clang ASan/UBSan passed.
+Only LeakSanitizer was disabled under ptrace.
+These tests never accessed hardware.
 
-ESP-IDF v5.5.5 ile `build-diagnostic` dizininde ESP32 ELF/BIN derlendi. Varsayılan
-sdkconfig'te `CONFIG_DIAG_ALLOW_DM_ACTIVATION` ve `CONFIG_DIAG_ALLOW_HALT_RESUME`
-kapalıdır. Eski reader sadece
-`RV_LEGACY_READER_OFFLINE_TEST` makrosu altında tarihsel kaynak olarak tutuldu;
-normal build'e ve UART komut tablosuna dahil değildir. `libmain.a` sembollerinde eski
-`rv_dump_flash`, `read_program`, `write_gpr` ve `rv_crc32` bulunmadığı doğrulandı. `tests/test_reader.c` artık
-varsayılan test runner'da çalıştırılmaz. Orijinal programmer referans bileşeni
-hâlâ build dışında tutulur.
+ESP-IDF5.5.5 built build-diagnostic ELF/BIN with both state-change gates off.
+Legacy source exists only under RV_LEGACY_READER_OFFLINE_TEST,
+not normal linking/UART routing. libmain.a lacked
+rv_dump_flash,read_program,write_gpr,rv_crc32.
+tests/test_reader.c is not in the default runner; the programmer reference remains excluded.
 
-
-Bu turda `CC=cc bash tests/run.sh` başarılı oldu: 18 Python testi ve iki C mock
-paketi geçti. ESP-IDF v5.5.5 `reconfigure` ardından `ninja -C build-diagnostic
--j 2` başarılı oldu. Varsayılan sdkconfig'te her iki yeni izin de kapalıdır.
-Güncel adapter BIN `177584` bayt, SHA-256
+A later reconfigure/ninja-j2 run passed with18Python/twoC groups.
+The adapter BIN was177584bytes,SHA-256
 `8e30a26889a3adedfc0100a59e381dbc31d495c214f91965a75aab248ea5cd7c`.
-Eski reader sembolleri `libmain.a` içinde bulunmadı. Görüntü DMT99 üzerinde
-çalıştırılmadı ve adaptöre yüklenmedi.
+It was not installed/run during that development stage.
 
-Aktivasyon izniyle ayrı adapter firmware'i hazırlamak gerekirse, DMT99 SWCLK/SWDIO
-hatları fiziksel olarak ayrıyken ESP-IDF ortamında şu adımları uygulayın. Menüde
-sadece DM activation seçeneğini açıp halt/resume seçeneğini kapalı bırakın:
+Activation-only build preparation, with target signals disconnected:
 
 ```bash
 cd projects/rvswd
 . ${IDF_PATH}/export.sh
 idf.py -B build-diagnostic -D IDF_TARGET=esp32 -D SDKCONFIG=build-diagnostic/sdkconfig -D 'SDKCONFIG_DEFAULTS=sdkconfig.defaults;sdkconfig.uart.defaults' menuconfig
-```
-
-Menüden çıkıp kaydettikten sonra izinleri ve adapter build'ini doğrulayın:
-
-```bash
 grep -E 'CONFIG_DIAG_ALLOW_(DM_ACTIVATION|HALT_RESUME)' build-diagnostic/sdkconfig
 idf.py -B build-diagnostic -D IDF_TARGET=esp32 -D SDKCONFIG=build-diagnostic/sdkconfig -D 'SDKCONFIG_DEFAULTS=sdkconfig.defaults;sdkconfig.uart.defaults' reconfigure
 ninja -C build-diagnostic -j 2
 ```
 
-Beklenen ayarlar `CONFIG_DIAG_ALLOW_DM_ACTIVATION=y` ve
-`# CONFIG_DIAG_ALLOW_HALT_RESUME is not set` olmalı. Sonra yalnızca ESP32
-adapter'ı yükleyin; DMT99 bağlantısı ayrılmış kalmalı:
+Expect activation=y and halt/resume unset.
+Only if separately proceeding, flash the **ESP32 adapter** while DMT99 remains disconnected:
 
 ```bash
 idf.py -B build-diagnostic -D SDKCONFIG=build-diagnostic/sdkconfig -p /dev/ttyUSB0 -b 115200 flash
 ```
 
-## Gerçek cihaz için bağlantı ve yalnızca güvenli test komutları
+## Physical wiring and diagnostic-only sequence
 
-Aşağıdaki komutlar bu turda cihaz üzerinde çalıştırılmadı. Yeni host aracı protocol
-3 görüntüsü gerektirir. Adaptörde eski `flash-reader` varsa hedef sinyalleri
-ayrılmışken yalnızca **ESP32 adaptörünü** güncelleyin; eski görüntüyle yeni komutları
-denemeyin. Hedef CH32'ye yazan bir yükleme veya hedef firmware patch adımı yoktur.
+These examples were not executed during the diagnostic-development stage.
+Use protocol3; if the adapter still runs flash-reader, update only the
+disconnected ESP32, never route new commands to the legacy image.
+No CH32 firmware patch or programming step is involved.
 
-1. DMT99 test uçlarını tüm devrelerden ayırın; hedefin USB/şarj kablosunu çıkarın.
-   Kablolama sırasında cihazı kapatın. Test sırasında hedef kendi bataryasından,
-   ESP32 USB'den beslensin.
-2. Ortak GND → header 1. GPIO25 → 330 Ω → header 2 / PA14 / SWCLK.
-   GPIO26 → 330 Ω → header 3 / PA13 / SWDIO. Mevcut doğrulanmış eşlemeyi koruyun;
-   GPIO16/17 kullanılmaz.
-3. SWCLK ve SWDIO target tarafında hedef 3.3 V'a gerekli pull-up'lara sahip olmalı
-   (proje bağlantısı: her hatta 4.7 kΩ). Sürücü open-drain'dir; internal pull-up'lar
-   kapalıdır. ESP32 3V3/5V/VIN'i hedef header 4'e bağlamayın.
-4. Her iki kart açıkken GND'yi önce, sinyalleri sonra bağlayın. Header 4–1 gerilimini
-   harici ölçü aletiyle ölçün; geçerli aralık 3000–3450 mV. GPIO25/26 doğrulamasını
-   ve mevcut kısa bağlantıları kontrol edin. Seri monitörleri kapatın.
-5. ESP32 reset/yükleme ve herhangi bir kartı kapatma öncesinde hedef sinyallerini
-   ayırın. Host DTR/RTS'yi bilerek reset için kullanmaz; USB sürücüsü/board açılış
-   davranışının fiziksel doğrulaması yine gereklidir.
+1. Disconnect all measurement circuits/USB charging; switch off while wiring.
+   For testing, power DMT99 from its battery and ESP32 from USB.
+2. CommonGND→header1,GPIO25→330Ω→header2/PA14/SWCLK,
+   GPIO26→330Ω→header3/PA13/SWDIO. Keep verified wiring; GPIO16/17 unused.
+3. Target-side pull-ups to target3.3V are required on both signals
+   (project wiring4.7kΩ each). Open-drain, internalpullups off.
+   Never connect ESP32 3V3/5V/VIN to header4.
+4. With both boards on, connect ground before signals. Measure header4–1
+   externally:3000–3450mV. Verify25/26/short wiring; close serial monitors.
+5. Disconnect target signals before adapter reset/flashing or powering down
+   either board. Host avoids intentional DTR/RTS reset, but board/driver
+   open behavior still needs physical verification.
 
-Güncel adaptör görüntüsünü hazırlama (offline):
+Default offline adapter build:
 
 ```bash
 cd projects/rvswd
@@ -397,45 +346,39 @@ export PYTHONDONTWRITEBYTECODE=1
 idf.py -B build-diagnostic -D IDF_TARGET=esp32 -D SDKCONFIG=build-diagnostic/sdkconfig -D 'SDKCONFIG_DEFAULTS=sdkconfig.defaults;sdkconfig.uart.defaults' build
 ```
 
-`build-diagnostic/sdkconfig` içinde `# CONFIG_DIAG_ALLOW_DM_ACTIVATION is not set`
-ve `# CONFIG_DIAG_ALLOW_HALT_RESUME is not set` olmalıdır. Bu ortamda `idf.py`
-reconfigure ardından build `ninja -C build-diagnostic -j 2` ile tamamlandı. Aynı
-SDK ortamında `idf.py build` komutu da kullanılabilir. Eski `build-esp32` dosyalarını yeni diagnostic diye
-karıştırmayın. Adaptörü güncellemek gerekirse hedef sinyalleri ayrılmış halde:
+Both activation/halt gates must be unset.
+Historical builds used reconfigure then ninja-j2; idf.py build works in the
+same SDK environment. Do not mistake old build-esp32 outputs for current diagnostics.
+If separately updating the adapter with target signals disconnected:
 
 ```bash
 export ADAPTER_PORT=/dev/ttyUSB0
 idf.py -B build-diagnostic -D SDKCONFIG=build-diagnostic/sdkconfig -p "$ADAPTER_PORT" -b 115200 flash
 ```
 
-Bu `flash` komutu yalnızca ESP32 adaptörü içindir; burada çalıştırılmadı. Adaptör
-USB konsolu 115200 8N1, GPIO1 TX / GPIO3 RX; RVSWD hedef hatlarından ayrıdır.
+This targets ESP32 only and was not executed in that stage.
+Console115200 8N1 usesGPIO1TX/GPIO3RX, separate from RVSWD.
 
-Sinyaller bağlı değilken adaptör bilgisi alınabilir:
+With signals disconnected, read adapter info:
 
 ```bash
 export ADAPTER_PORT=/dev/ttyUSB0
 python tools/diag.py --port "$ADAPTER_PORT" --output captures/diagnostic-info-001.json info
 ```
 
-`protocol=3`, `build=read-only-diagnostic`, `dm_activation_enabled=false`,
-`halt_resume_enabled=false`,
-`board_verified=true`, `initialized=true`, `gpio_clk=25`, `gpio_dio=26` beklenir.
-Bunlar beklenen alanlardır; yeni donanım capture'ı değildir.
+Expected, not newly measured: protocol3,buildread-only-diagnostic,
+activationfalse,haltfalse,board_verified/initializedtrue,gpio_clk25,gpio_dio26.
 
-Bağlantı ve taze gerilim ölçümü tamamlandıktan sonra ilk hedef testi **yalnızca
-DMI read** olsun:
+After wiring/fresh voltage checks, the first target operation should be **DMI reads only**:
 
 ```bash
-read -r -p 'Hedef header 4–1 gerilimi (mV): ' TARGET_MV
+read -r -p 'Target header4–1 voltage(mV): ' TARGET_MV
 python tools/diag.py --port "$ADAPTER_PORT" --output captures/diagnostic-status-001.json capabilities --voltage-mv "$TARGET_MV" --board-pins-checked --wiring-checked
 ```
 
-`result=ok`, stable preflight ve `pins_released=true` görülürse, yalnızca DM zaten
-aktifse açıkça seçilmiş salt okunur snapshot testlerine geçin. Her komut ayrı
-bounded oturumdur; hata sonrası otomatik devam yapılmaz. Her seferinde taze
-gerilim ölçün ve yeni çıktı adı kullanın. Bu komutlar DM'yi etkinleştirmez ve
-CPU'yu durdurmaz:
+Only after stable resultok/pins_releasedtrue, with DM already active, select
+bounded read-only snapshots. Each needs a new filename/current voltage;
+never automatically continue after failure:
 
 ```bash
 python tools/diag.py --port "$ADAPTER_PORT" --output captures/diagnostic-sram-001.json capabilities --sram --voltage-mv "$TARGET_MV" --board-pins-checked --wiring-checked
@@ -443,25 +386,22 @@ python tools/diag.py --port "$ADAPTER_PORT" --output captures/diagnostic-periphe
 python tools/diag.py --port "$ADAPTER_PORT" --output captures/diagnostic-registers-001.json capabilities --registers --voltage-mv "$TARGET_MV" --board-pins-checked --wiring-checked
 ```
 
-Son komut running hart'ta beklendiği gibi `hart_running_no_implicit_halt` ile durur.
-Register almak için bu aşamada CPU'yu durdurmayın. SBCS desteği yoksa snapshot
-komutu yazmadan `unsupported_debug_capability` verir. DM inactive ise
-`debug_module_inactive` ile durun; bu salt okunur test dizisine activation eklemeyin.
-DM inactive ise sadece kontrollü aktivasyon adımlarını gerçekten seçtiyseniz üstteki
-`activate-dm` prosedürüne geçin; aksi halde burada durun. Protection, parity veya
-timeout sonucunda reset, unprotect, option-byte işlemi ya da eski dump komutuyla
-devam etmeyin. `--help` veya `info` ile devam etmek hedefe erişim gerektirmez.
+Registers on a running hart correctly return hart_running_no_implicit_halt.
+Do not halt merely to obtain them in this sequence.
+MissingSBA returns unsupported_debug_capability before snapshot writes.
+InactiveDM stops with debug_module_inactive; activation is a separately
+selected procedure, not an implicit continuation.
+After protection/parity/timeout, do not proceed with reset/unprotect/options
+or the legacy dump command. help/info need no target access.
 
-## Başvurulan birincil kaynaklar
+## Primary references
 
-- [RISC-V External Debug Support v0.13.2](https://riscv.org/wp-content/uploads/2024/12/riscv-debug-release.pdf):
-  DMSTATUS, write-only halt/resume istekleri, Access Register, ABSTRACTAUTO ve SBA
-  tanımları. Bunlar WCH üzerindeki opsiyonel komut desteğinin kanıtı değildir.
-- [WCH referans el kitabı sayfası](https://www.wch-ic.com/downloads/CH32FV2x_V3xRM_PDF.html):
-  üretici yazarlı v2.5 PDF'nin analiz reposundaki mevcut kopyası okundu:
-  `references/wch-dump-feasibility/CH32FV2x_V3xRM_EN.PDF`.
-  Bölüm 10.3.1 GPIO, 18.10 USART, 20.3.7 ve 20.4 SPI, Flash OBR/RDPRT açıklaması.
-  Özellikle SPI durum okumaları flag temizleyebildiğinden kapsam dışındadır.
-- Analiz reposundaki sabitlenmiş WCH `ch32v30x.h`: register taban/ofsetleri ve
-  RCC clock bitleri çapraz kontrol edildi. `docs/FIRMWARE_DUMP_FEASIBILITY.md`
-  mevcut RDP ve hafıza haritası bağlamı için okundu; değiştirilmedi.
+- [RISC-V External Debug0.13.2](https://riscv.org/wp-content/uploads/2024/12/riscv-debug-release.pdf):
+  DMSTATUS,write-only requests,AccessRegister,ABSTRACTAUTO,SBA.
+  The standard does not prove WCH supports optional commands.
+- [WCH reference manual](https://www.wch-ic.com/downloads/CH32FV2x_V3xRM_PDF.html):
+  local manufacturer-authoredv2.5 PDF under references/wch-dump-feasibility/,
+  GPIO10.3.1,USART18.10,SPI20.3.7/20.4,OBR/RDPRT.
+  SPI status reads may clear flags and are excluded.
+- Pinned ch32v30x.h cross-checks register bases/offsets/RCC clocks.
+  [Export feasibility](../../docs/FIRMWARE_DUMP_FEASIBILITY.md) supplied RDP/map context.

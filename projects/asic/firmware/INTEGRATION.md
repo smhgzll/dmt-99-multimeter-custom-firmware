@@ -1,64 +1,68 @@
-# CH32V303 entegrasyon sınırı
+# CH32V303 integration boundary
 
-`dmt99_asic.c/.h` C11, libc `memcpy/memmove/memset` ve sabit boyutlu tamponlar
-kullanır. HAL, MMIO, kesme, gecikme, UART gönderimi veya kalibrasyon erişimi yoktur.
-Bu aşama transport ve firmware kaynaklı görüntü yorumlama modülüdür; analog
-doğruluğu ve tüm modlarda çalışması henüz doğrulanmış sürüm değildir.
+dmt99_asic.c/.h uses C11, libc memcpy/memmove/memset and fixed buffers.
+It has no HAL, MMIO, interrupts, delays, UART transmission or calibration access.
+It is a transport/display interpretation module, not an analog-accuracy
+validated driver for every mode.
 
 ```c
 dmt99_stream rx;
-/* on_record tüm FRAME/UNFRAMED/INCOMPLETE kayıtlarını kopyalayarak saklamalı. */
+/* on_record must copy and retain every FRAME/UNFRAMED/INCOMPLETE record. */
 dmt99_stream_init(&rx, 12, on_record, context);
-/* UART RX ring buffer'dan HER alınan bayt için: */
+/* For EVERY received UART byte: */
 dmt99_stream_feed(&rx, received_byte, uart_error_flags);
-/* Gerçek UART IDLE'da, o ana kadarki tüm baytları besledikten sonra: */
+/* At actual UART IDLE, after feeding all bytes received so far: */
 dmt99_stream_idle(&rx);
 ```
 
-DMA sayacının 13 olması 13 yeni bayt alındığını göstermez. Gerçek DMA yazma
-indeksini/RXNE akışını kullanın; IDLE'da bayt sayısı yerine sabit 13 kopyalamayın.
-Circular DMA wrap/TC/IDLE sıralamasını firmware binding'i ayrıca yönetmelidir.
-Hatalar callback'e aynen aktarılır; hatalı kaydın sayısal çıktısını güvenilir
-ölçüm olarak kullanma kararı uygulamaya aittir. RX checksum doğrulanmış değildir.
+DMA count13 does not mean13 new bytes arrived. Use the actual DMA write index
+or RXNE stream; do not copy a constant13 bytes at IDLE.
+Binding must manage circular wrap/TC/IDLE ordering.
+Errors pass unchanged to callbacks; the application decides whether
+numeric output from an erroneous record is trustworthy.
+RX checksums are unvalidated.
 
-`parsed.numeric` doğruysa gösterilen birimdeki değer `mantissa/divisor`'dır;
-tam sayı bölmesi yerine uygun float/rasyonel hesap kullanın. Unit code ve
-`dmt99_unit_resource_name` firmware UI ilişkisidir. `dmt99_value_si` bilinen
-unit kodlarından V/A/Ω/F/Hz cinsine matematiksel prefix dönüşümü yapar; bilinmeyen
-ve C/F ayrımı belirsiz sıcaklık kodunu reddeder. Gerçek corpus V/µA/A/Ω/kΩ/MΩ/nF/Hz
-ve code=21 sıcaklık örneklerini kapsar; diğer prefix'ler firmware kaynak ilişkisidir. V ve akım açık uç
-kayıtlarında ac_dc_code=2 DC, =1 AC ile ilişkilendi. Fiziksel kademe, tüm overload
-koşulları ve analog kalibrasyon ayrıca doğrulanmış değildir.
-Direnç için Ω/kΩ/MΩ örnekleri gerçek referans kartı kayıtlarında karşılaştırıldı;
-`dmt99_resistance_ohms` bunları Ω'a dönüştürür. `dmt99_is_resistance_open_pattern`
-açık problarda gözlenen tam deseni tanır; tüm overload/fault türlerini sınıflamaz.
-`parsed.numeric=false` durumunda divisor=0; bölme yapmayın. AUTO/OL/bilinmeyen
-semboller otomatik sıfır ölçümüne dönüştürülmez.
-Baştaki boş LCD haneleri sayısal değerde atlanır (gerçek 1Ω kaydındaki
-`"  1.1"` → 11/10 Ω); `text` alanı boşlukları aynen korur. İç/son boşluklar ve
-harfler sayısala zorlanmaz. Nominal 1Ω komponent ile ekrandaki 1.1Ω aynı
-metadata alanı değildir; bu karşılaştırma mutlak analog doğruluğu ispatlamaz.
+When parsed.numeric is true, displayed-unit value is mantissa/divisor;
+use appropriate floating/rational arithmetic rather than integer division.
+Unit codes and dmt99_unit_resource_name are firmware UI associations.
+dmt99_value_si mathematically converts supported units to V/A/Ω/F/Hz and
+rejects unknowns/ambiguous C/F temperature.
+The physical corpus covers V/µA/A/Ω/kΩ/MΩ/nF/Hz and temperature code21;
+other prefixes are firmware-resource evidence.
+Open-input V/current associate ac_dc_code2 with DC and1 with AC.
+Physical range, all overload conditions and analog calibration remain unverified.
 
-`dmt99_host_ui_status(&parsed, host_mode, &state)` için çağıran seçili modu
-bilmelidir: 0x09 NCV'de dört segmentin `-` sayısı (0..4), 0x13 LIVE'da ilk
-segment `L` değilse 1, aksi durumda 0 döner. Bu, orijinal screen.c çizim
-kararının uygulamasıdır; fiziksel güvenlik/enerjili kablo dedektörü değildir.
-Gerçek açık giriş kayıtlarında NCV=0, LIVE=0 görüldü; aktif seviyeler denenmedi.
-Desteklenmeyen mod veya display dışı frame için false ve değişmeyen output vardır.
-Ham NCV bilinmeyen sembolü ve LIVE `L1UE` metni parser'da aynen korunur.
+Resistance Ω/kΩ/MΩ was compared against physical reference-board captures;
+dmt99_resistance_ohms converts to Ω.
+dmt99_is_resistance_open_pattern identifies the exact open-probe pattern,
+not every overload/fault.
+When numeric=false, divisor=0: do not divide.
+AUTO/OL/unknown symbols are not silently zero readings.
+Leading blank cells are ignored only for numeric conversion
+(physical `"  1.1"`→11/10Ω); text preserves blanks.
+Internal/trailing blanks and letters remain nonnumeric.
+Nominal1Ω and displayed1.1Ω are different metadata fields, not proof of analog accuracy.
 
-`dmt99_build_firmware_template` sadece onaylı firmware literal formunu üretir;
-hiçbir yere göndermez. Normal komutların çoğu henüz donanımda test edilmedi.
-Legacy 00/check11 korunur; diagnostic A0 serializer'da sunulmaz. Kullanıcının
-pasif analiz kuralı gereğince bu çalışma sırasında üretilen komutlar gönderilmez.
+For dmt99_host_ui_status(&parsed,host_mode,&state), the caller must supply
+the selected mode. Mode09 NCV counts dashes among four symbols(0..4);
+mode13 LIVE returns1 if the first symbol is not L, otherwise0.
+This reproduces screen.c's drawing decision, not a safety-rated energized-wire detector.
+Physical open inputs gave NCV0/LIVE0; active levels were not tested.
+Unsupported modes/non-display frames returnfalse without modifying output.
+Raw unknown NCV symbols and LIVE text L1UE remain unchanged.
 
-Custom firmware ağacına bu oturumda dosya kopyalanmadı ve MCU flash edilmedi.
-Mevcut custom firmware'in `rv32imac_zicsr_zifencei / ilp32` ayarlarıyla obje ve
-statik arşiv derlendi. Yeniden üretmek için proje kökünden `make -C firmware`;
-farklı toolchain için `make -C firmware CROSS=/path/to/riscv-prefix-`.
-`build/libdmt99_asic_rv32.a` yalnızca host'ta oluşur; Makefile hedefe bağlanmaz.
-Standart `mem*` ve soft double işlemleri için firmware'in libc/libgcc link'i
-gereklidir; RV32 obje derlemesi tam uygulama link/RAM/stack doğrulaması değildir.
-Gerçek ölçüm corpus'u büyüdükten sonra binding ve fiziksel dönüşümler ayrıca
-doğrulanacak. Eski 13 bayt formu ancak açık profil tercihiyle stream'de seçilir;
-bu seçeneğin bulunması wire uzunluğunun donanımda doğrulandığı anlamına gelmez.
+dmt99_build_firmware_template emits only supported literal firmware forms
+and sends nothing. Most ordinary commands remain physically untested.
+Legacy00/check11 is preserved; diagnosticA0 is unavailable.
+Commands generated during this passive investigation were never transmitted.
+
+During the original standalone session no files were copied into custom
+firmware and no MCU was flashed. The module built as an object/static archive
+using rv32imac_zicsr_zifencei/ilp32:
+`make -C firmware`, or `make -C firmware CROSS=/path/to/riscv-prefix-`.
+build/libdmt99_asic_rv32.a is a host-side output; the Makefile does not connect
+to a target. Firmware libc/libgcc must supply mem* and soft-double operations.
+Compiling an RV32 object does not validate a complete application's link/RAM/stack.
+Binding and physical conversions require further corpus/hardware validation.
+The historical13-byte stream form requires explicit profile selection;
+its availability does not validate that wire length.

@@ -1,196 +1,203 @@
-# POTAT-99 · FNIRSI DMT99 araştırma ve firmware çalışma alanı
+# POTAT-99 · FNIRSI DMT99 research and firmware workspace
 
-> **Kendi sorumluluğunuzda kullanın.** Bu bağımsız ve deneysel çalışma FNIRSI ile
-> bağlantılı, onaylı veya desteklenen bir ürün değildir. Hatalı yazılım/yükleme
-> cihazı çalışmaz hâle getirebilir, verileri silebilir veya yanlış ölçüm
-> gösterebilir. Mevzuatın izin verdiği ölçüde garanti verilmez ve geliştiriciler
-> zararlardan sorumluluk kabul etmez. [Ayrıntılı risk ve lisans açıklaması](docs/LEGAL_AND_SAFETY.md).
+> **Use at your own risk.** This independent, experimental project is not
+> affiliated with, endorsed by, or supported by FNIRSI. Incorrect firmware or
+> installation can disable the device, erase data, or produce incorrect
+> measurements. To the extent permitted by law, no warranty is provided and
+> the contributors accept no liability for resulting damage.
+> [Read the full safety and licensing notice](docs/LEGAL_AND_SAFETY.md).
 
-DMT99'un V2.4 uygulamasının tersine mühendisliği, **POTAT-99** C firmware'i,
-masaüstü tema editörü, küçük bir DOOM portu, pasif ASIC UART çözümlemesi ve
-ESP32 RVSWD teşhisi bu depoda birlikte bulunur. Amaç, özgün kanıttan
-izlenebilir kaynak koduna ve tekrarlanabilir derlemelere ulaşmaktır.
+This repository brings together reverse engineering of the DMT99 V2.4
+application, the **POTAT-99** C firmware, a desktop theme editor, a small DOOM
+port, passive measurement-ASIC UART analysis, and ESP32 RVSWD diagnostics.
+The aim is traceable source reconstruction and reproducible builds backed
+by the original evidence.
 
-**Başlangıç:** [Derleme](docs/BUILDING.md) · [BIN yükleme / geri dönüş](docs/UPDATING.md)
-· [Tema yükleme](docs/THEMES.md) · [Galeri](docs/gallery/README.md)
-· [Araştırma ve kanıtlar](docs/RESEARCH.md) · [Tüm belgeler](docs/README.md)
+**Start here:** [Build](docs/BUILDING.md) · [Install a BIN / roll back](docs/UPDATING.md)
+· [Install themes](docs/THEMES.md) · [Gallery](docs/gallery/README.md)
+· [Research and evidence](docs/RESEARCH.md) · [Documentation index](docs/README.md)
 
-## Projeler ve mevcut durum
+## Projects and status
 
-| Bileşen | Kaynak | Durum |
+| Component | Source | Status |
 |---|---|---|
-| POTAT-99 firmware | [reconstructed/](reconstructed/README.md) | Son korunmuş sürüm **0.6.0**; özgün ekranlar, menüler, ölçüm bağlantısı, geçmiş, temalar, sade ekran; çevrimdışı/emülatör kanıtı |
-| DOOM | [projects/doom/](projects/doom/README.md) | **0.4.0**; küçük E1M1 raycaster, altı silah, animasyon, buzzer, god mode, yumuşak hareket; tam klasik DOOM motoru değil |
-| DMT99 Studio | [projects/studio/](projects/studio/README.md) | Tema editörü, Flash yöneticisi ve firmware önizlemesi çalışır; gerçek cihazla yönetim/canlı veri bağlantısı **eksik** |
-| ASIC UART | [projects/asic/](projects/asic/README.md) | 25 fiziksel kayıt, 24 regresyon kesiti, bağımsız C parser/serializer; analog doğrulama sınırlı |
-| ESP32 RVSWD | [projects/rvswd/](projects/rvswd/README.md) | Klasik ESP32 üzerinden teşhis; RDP aktif, özgün MCU Flash'ından **0 bayt** kurtarıldı; başarıyla tekrarlanan SRAM örneği yalnız **4 bayt** |
+| POTAT-99 firmware | [reconstructed/](reconstructed/README.md) | Latest preserved release **0.6.0**; original screens, menus, measurement link, history, themes and simple screen; offline/emulator evidence |
+| DOOM | [projects/doom/](projects/doom/README.md) | **0.4.0**; small E1M1 raycaster, six weapons, animation, buzzer, god mode and smooth movement; not the complete classic DOOM engine |
+| DMT99 Studio | [projects/studio/](projects/studio/README.md) | Theme editor, Flash Manager and firmware previews work; the real-device management/live-data transport is **unfinished** |
+| ASIC UART | [projects/asic/](projects/asic/README.md) | 25 physical captures, 24 regression excerpts and an independent C parser/serializer; analog validation is limited |
+| ESP32 RVSWD | [projects/rvswd/](projects/rvswd/README.md) | Classic ESP32 diagnostics; RDP is active; **zero bytes** recovered from original MCU Flash; the repeated SRAM sample is only **4 bytes** |
 
-Bu birleştirme yeni bir donanım doğrulaması veya yeni firmware sürümü değildir.
-Önceki sürümler korunur. **STOCK_COMPATIBLE** ve **CUSTOM_DMT99** ayrımı sürer;
-POTAT-99 yayın özellikleri ayrıca `DMT_RELEASE_FEATURES` ile açılır. Studio,
-DOOM ve UART teşhis araçlarının tek klasörde olması onları tek firmware imajı
-yapmaz. DOOM çalışırken multimetre işlevi yoktur.
+Workspace consolidation is not a new firmware release or hardware
+validation. Existing releases are preserved. **STOCK_COMPATIBLE** and
+**CUSTOM_DMT99** remain separate; POTAT-99 release features are additionally
+enabled through `DMT_RELEASE_FEATURES`. These projects share a repository,
+not a single firmware image. The multimeter does not function as a meter
+while running the DOOM firmware.
 
-## Galeri
+## Gallery
 
-Ekranlar emülatör/native C renderer ve gerçek Studio arayüzünden alınmıştır;
-cihaz fotoğrafı veya fiziksel performans kanıtı değildir.
+Screens come from the emulator/native C renderer and the actual Studio UI.
+They are not device photographs or evidence of physical performance.
 
-| POTAT-99: normal ölçüm | POTAT-99: kayıt görünümü |
+| POTAT-99: regular measurement | POTAT-99: recording view |
 |---|---|
-| ![Normal ekran](docs/firmware_screens/02-regular-dc-volts.png) | ![Grafik](docs/firmware_screens/05-record-graph.png) |
+| ![Regular display](docs/firmware_screens/02-regular-dc-volts.png) | ![Recording graph](docs/firmware_screens/05-record-graph.png) |
 
-| DOOM: oyun | DOOM: seçenekler |
+| DOOM: gameplay | DOOM: options |
 |---|---|
-| ![DOOM oyun](projects/doom/docs/screenshots/v0.4.0/game.png) | ![DOOM menü](projects/doom/docs/screenshots/v0.4.0/sound-off.png) |
+| ![DOOM gameplay](projects/doom/docs/screenshots/v0.4.0/game.png) | ![DOOM options](projects/doom/docs/screenshots/v0.4.0/sound-off.png) |
 
-![Studio tema editörü — gerçek çevrimdışı Qt arayüzü](docs/gallery/studio-theme-editor.png)
+![Studio theme editor — actual offline Qt interface](docs/gallery/studio-theme-editor.png)
 
-[Daha fazla görüntü ve kaynakları](docs/gallery/README.md).
+[More screenshots and their provenance](docs/gallery/README.md).
 
-## Cihaz ve bellek
+## Device and memory
 
-| Bölüm | Bu projedeki bulgu / yapılandırma |
+| Component | Observed interface / build configuration |
 |---|---|
 | MCU | **WCH CH32V303RCT6**, RISC-V RV32IMAC, soft-float |
-| Saat | 8 MHz HSE ×18 PLL = **144 MHz** |
-| RAM | Yeni imajlar **32 KiB** sınırında linklenir; option byte/RDP değiştirilmez |
-| Ekran | **320×240**, GPIOB 16 bit paralel veri; PC3/4/5/13 kontrol |
-| Harici Flash | **Winbond W25Q64, 8 MiB**, SPI1: PA4 CS, PA5/6/7 |
-| Tuşlar / güç | PC2 ve PC8…PC12; PC1 güç tutma, PA8 şarj algılama |
-| Buzzer / aydınlatma | PA1 TIM2 CH2 / PC6 TIM8 CH1 |
-| Ölçüm ASIC bağlantısı | USART1 PA9 TX / PA10 RX, **9600 8N1**; SD7502/yakın SDIC ailesi kimliği hipotezdir |
-| Debug çıkışı | USART2 PA2, **115200 8N1**; özgün debug yolu TX odaklıdır |
+| Clock | 8 MHz HSE ×18 PLL = **144 MHz** |
+| RAM | New images link within **32 KiB**; option bytes and RDP are not changed |
+| Display | **320×240**, GPIOB 16-bit parallel data; PC3/4/5/13 control |
+| External Flash | **Winbond W25Q64, 8 MiB**, SPI1: PA4 CS, PA5/6/7 |
+| Buttons / power | PC2 and PC8…PC12; PC1 power latch, PA8 charge detection |
+| Buzzer / backlight | PA1 TIM2 CH2 / PC6 TIM8 CH1 |
+| Measurement ASIC link | USART1 PA9 TX / PA10 RX, **9600 8N1**; SD7502/related SDIC identity remains a hypothesis |
+| Debug output | USART2 PA2, **115200 8N1**; the original debug path is TX-oriented |
 
-| Adres / sektör | Anlamı |
+| Address / sector | Meaning |
 |---|---|
-| `0x08000000–0x080063FF` | 25 KiB özgün bootloader alanı; elimizde dump'ı yok |
-| `0x08006400` | USB uygulama BIN başlangıcı; dosya ofseti 0 buraya eşlenir |
-| `0x08006438` | Vektör tablosu; yürütme alias'ı `0x6438` |
-| `0x08030000` | Mevcut uygulama linker üst sınırı; `0x6400` sonrasında 167 KiB alan |
-| `0x08040000` | V2.4'te gözlenen 256 bayt ayar/geçmiş sayfası; fiziksel Flash kapsamı ayrıca doğrulama ister |
-| Harici sektör 0 | MBR; sektör birimi **4096 bayt** |
-| Harici sektör 63…462 | FAT12 BOOT, USB aktarım hacmi; 400 sektör = 1.5625 MiB |
-| Harici sektör 463…2047 | FAT12 assets; JPEG/font/tema kaynakları |
+| `0x08000000–0x080063FF` | Original 25 KiB bootloader region; no dump is available |
+| `0x08006400` | USB application BIN origin; file offset 0 maps here |
+| `0x08006438` | Vector table; execution alias `0x6438` |
+| `0x08030000` | Current application linker upper bound; 167 KiB available after `0x6400` |
+| `0x08040000` | V2.4's observed 256-byte settings/history page; the physical Flash extent still needs verification |
+| External sector 0 | MBR; sector units are **4096 bytes** |
+| External sectors 63…462 | FAT12 BOOT, USB transfer volume; 400 sectors = 1.5625 MiB |
+| External sectors 463…2047 | FAT12 assets; JPEG/font/theme resources |
 
-USB diskteki yaklaşık 1.5 MiB boşluk MCU uygulama kodu için kullanılabilir RAM
-veya Flash alanı değildir. Pin/işlev dayanakları:
-[donanım eşlemesi](docs/HARDWARE_MAPPING.md),
-[imaj ve bellek açıklaması](docs/FIRMWARE_RELEASE.md).
+The roughly 1.5 MiB of USB disk space is not additional MCU application
+Flash or RAM. Evidence for the pin assignments and memory layout:
+[hardware mapping](docs/HARDWARE_MAPPING.md),
+[image format and memory layout](docs/FIRMWARE_RELEASE.md).
 
-## Araştırma süreci
+## Research process
 
-1. **V2.4 uygulaması:** 135.096 bayt BIN, `0x6400` alias'ına eşleme,
-   439 fonksiyonun dekompilasyonu, WCH özel komutlarının çözümü ve adres bazlı C rekonstrüksiyonu.
-2. **Harici Flash:** 8 MiB dump'ta MBR/FAT12, kaynak dosyaları ve tarihsel
-   kalıntılar incelendi. 299 canlı dosya / 297 JPEG envanteri çıkarıldı;
-   ChaN FatFs ve TJpgDec karşılıkları ikili kanıtla nitelendirildi.
-3. **Davranış karşılaştırması:** orijinal komutlar, menü/cache, ekranlar,
-   zamanlayıcılar ve paketler native C testleri ve RV32 emülasyonuyla karşılaştırıldı.
-4. **Gerçek UART:** pasif D0/D2 logic analyzer kayıtları, DMA tamponuyla tel
-   paketinin aynı olmadığını gösterdi: MCU TX 10 bayt; gözlenen ölçüm burst'leri
-   12 bayt; bazı ASIC event adayları 10 bayt. RX checksum ve analog kalibrasyon
-   tamamlanmış sayılmaz.
-5. **MCU debug:** kullanılan bağlantı ARM JTAG değil, PA14/PA13 üzerinden
-   iki telli **RVSWD**. Debug teşhisi çalışması tüm Flash'ı okuyabilmek veya
-   güvenli programlayabilmek anlamına gelmez. RDP altında Flash kurtarma başarılı değildir.
+1. **V2.4 application:** mapped the 135,096-byte BIN to alias `0x6400`,
+   decompiled 439 functions, decoded WCH-specific instructions and
+   reconstructed address-traceable C implementations.
+2. **External Flash:** examined MBR/FAT12 structures, resources and historical
+   residue in an 8 MiB dump. Inventoried 299 live files / 297 JPEGs and
+   qualified ChaN FatFs and TJpgDec counterparts against binary evidence.
+3. **Behavior comparisons:** compared original commands, menu/cache behavior,
+   screens, timers and packets with native C tests and RV32 emulation.
+4. **Physical UART captures:** passive D0/D2 recordings established that the
+   DMA buffer size is not the wire packet length: MCU TX is 10 bytes,
+   observed measurement bursts are 12 bytes, and some ASIC event candidates
+   are 10 bytes. RX checksums and analog calibration remain unresolved.
+5. **MCU debugging:** the connection is two-wire **RVSWD** on PA14/PA13.
+   Successful debug diagnostics do not establish complete Flash readout or
+   safe programming. Flash recovery under RDP has not succeeded.
 
-[Araştırma özeti ve ham kanıta bağlantılar](docs/RESEARCH.md).
-Eski Phase 3/4 sayıları tarihsel kapsamı anlatır; farklı kategoriler toplanıp
-donanım eşdeğerliği veya yüzde 100 tamamlanmışlık iddiası yapılmaz.
+[Research overview and links to evidence](docs/RESEARCH.md).
+Earlier Phase 3/4 counts describe historical scopes. Different coverage
+categories are not added together to claim hardware equivalence or 100% completion.
 
-## Hızlı derleme
+## Quick build
 
-Linux/WSL üzerinde GNU make, C derleyicisi ve Python gerekir. MCU için
-RV32IMAC/ILP32 destekleyen RISC-V GCC, ESP32 adaptörü için ayrı **ESP-IDF 5.5.5**
-kullanılır. [Tüm kurulum, test ve BIN'e kadar adımlar](docs/BUILDING.md).
+Linux/WSL builds require GNU make, a C compiler and Python. MCU builds need
+RISC-V GCC with RV32IMAC/ILP32 support. The ESP32 adapter separately requires
+**ESP-IDF 5.5.5**. [Complete setup, tests and build-to-BIN instructions](docs/BUILDING.md).
 
 ```bash
 python3 -m venv .venv
 .venv/bin/pip install -r requirements-dev.txt
 
 make firmware       # reconstructed/build/firmware-update/dmt99-update.bin
-make studio-tools   # Studio'nun native renderer/JPEG kontrol araçları
-make asic           # projects/asic/build/libdmt99_asic_rv32.a (firmware değildir)
+make studio-tools   # Studio native renderer and JPEG checker
+make asic           # projects/asic/build/libdmt99_asic_rv32.a (not a firmware image)
 
-# DOOM için yerel/yasal oyun verisi gerekir; veri Git'e eklenmez.
+# DOOM needs separately licensed local game data; the data is excluded from Git.
 python3 projects/doom/tools/fetch_wad.py
 make doom           # projects/doom/build/dmt99-doom.bin
 
 projects/studio/dmt99-studio
 ```
 
-Kaynaklar ve küçük regresyon kesitleri Git'e uygundur. Üretici BIN'i, 8 MiB
-dump, tam kayıtlar ve DOOM oyun verileri otomatik yayımlanmaz; yerel
-[`artifacts/`](artifacts/README.md) arşivinde saklanır. Temiz klonda eksik
-girdileri [derleme rehberindeki](docs/BUILDING.md#girdi-dosyaları) konumlara
-yerleştirin. [SHA-256 kataloğu](artifacts/catalog.json) özgün dosyaları tanımlar.
+Source and small regression excerpts are selected for Git. The manufacturer
+BIN, 8 MiB dump, complete captures and DOOM game data remain in the local
+[`artifacts/` archive](artifacts/README.md) and are not automatically published.
+In a clean clone, place missing inputs in the locations listed in the
+[build guide](docs/BUILDING.md#input-files).
+The [SHA-256 catalog](artifacts/catalog.json) identifies the archived files.
 
-## BIN yükleme ve geri dönüş
+## BIN installation and rollback
 
-**Şimdilik Windows 10/11 kullanın. Sanal Windows 11 + USB aygıt aktarımı ile
-BIN kopyalama kullanıcı tarafından başarılı olarak bildirildi.** Bu gözlem
-her VM/USB denetleyicisi için garanti değildir. FNIRSI'nin
-[güncel indirme talimatı](https://www.fnirsi.com/pages/manuals-firmwares)
-Windows 10/11 belirtir; macOS kullanılmamasını ister. Linux üzerinden yükleme
-bu projenin desteklenen yolu değildir; Linux/WSL derleme için kullanılabilir.
+**Use Windows 10/11 for now. The user reported successful BIN copying through
+a Windows 11 VM with USB device passthrough.** This does not guarantee every
+VM or USB controller will work. FNIRSI's
+[current download instructions](https://www.fnirsi.com/pages/manuals-firmwares)
+specify Windows 10/11 and warn against macOS. Linux installation is not a
+supported route here; Linux/WSL can be used for building.
 
-1. Bataryayı doldurun; probları ve debug/analyzer bağlantılarını ayırın.
-2. Cihaz kapalıyken **POWER + MENU** ile USB güncelleme diskini açın.
-3. Doğru SHA-256 kontrolünden sonra **yalnız uygulama USB BIN'ini** kopyalayın.
-4. Kopyalama bitince güvenli çıkarın; üreticinin yönergesine göre bağlantıyı
-   kesin, normal açılışı ve sürümü kontrol edin.
-5. DOOM'dan ölçü aletine dönüş için aynı yolla çalıştığı bilinen POTAT-99
-   uygulama BIN'ini; orijinale dönüş için V2.4 BIN'ini yükleyin.
+1. Charge the battery; disconnect probes and debug/analyzer wiring.
+2. With the meter off, enter the USB update disk using **POWER + MENU**.
+3. Verify SHA-256, then copy **only the intended USB application BIN**.
+4. Wait for copying to finish, safely eject, disconnect according to the
+   manufacturer's instructions, and check normal startup and the version.
+5. To return from DOOM to multimeter operation, use the same process with a
+   known-working POTAT-99 application BIN; use the V2.4 BIN for the original application.
 
-**ESP32 BIN'i, 8 MiB dump, `.elf`, standalone imaj veya tema paketi firmware
-BIN'i yerine kopyalanmaz.** İmaj bootloader bölgesini içermez; bootloader'ın
-gerçek erase/check davranışı okunamadığı için kesinti sonrası geri dönüş
-garantisi verilmez. [Ayrıntılı kurulum ve kurtarma sınırları](docs/UPDATING.md).
+**Do not substitute an ESP32 BIN, 8 MiB dump, ELF, standalone image or theme
+package for the application BIN.** The image omits the bootloader region;
+the actual bootloader erase/check behavior is unavailable, so recovery after
+an interruption is not guaranteed.
+[Full installation instructions and recovery limits](docs/UPDATING.md).
 
-## Tema güncelleme
+## Theme installation
 
-POTAT-99 **≥0.4.0** için Studio'da görselleri düzenleyin ve **Export THEME.PKG**
-ile dışa aktarın. Firmware çizim renk paleti **≥0.5.0**, görselsiz sade ekran
-**≥0.6.0** ister. Windows USB güncelleme diskine adı değişmeden `THEME.PKG`
-kopyalanır; sonraki normal açılışta uygulama doğrular, `themes/Tnn` dizinine
-kurar ve paketi siler. **Menu → About → ENTER → Display** ile tema seçilir/silinir.
+For POTAT-99 **≥0.4.0**, edit images in Studio and use **Export THEME.PKG**.
+Firmware-drawn color palettes require **≥0.5.0**; the image-free simple screen
+requires **≥0.6.0**. Copy `THEME.PKG`, without renaming it, to the Windows USB
+update disk. At the next normal boot, the application validates the package,
+installs it under `themes/Tnn`, activates it and removes the package.
+Use **Menu → About → ENTER → Display** to select or delete a theme.
 
-Orijinal görsellerin üzerine yazılmaz; aktif tema öncelikli kaynak olarak
-kullanılır. Bu işlem assets bölümüne yazdığı için Flash yedeği önemlidir.
-[Tema hazırlama, boyut sınırı ve geri alma](docs/THEMES.md).
+Original images are preserved; the active theme is searched first.
+Installation writes to the assets partition, so keep a Flash backup.
+[Preparing themes, size limits and undoing changes](docs/THEMES.md).
 
-## Kısıtlar, tehlikeler ve lisanslar
+## Limitations, risks and licensing
 
-- Özel firmware ölçüm doğruluğu/kalibrasyon veya güvenlik sınıfı sertifikası
-  sağlamaz. Kritik, şebeke veya güvenlik amaçlı ölçümlerde kullanılmamalıdır.
-- USB, ESP32 ve logic analyzer ölçüm devresine toprak yolu açabilir. Debug
-  kabloları bağlıyken enerjili/şebeke devrelerde ölçüm yapmayın.
-- **RDP kaldırma mass erase doğurabilir:** orijinal bootloader/ayarlar kalıcı
-  kaybolabilir. Normal USB yükleme için RDP açılmaz, option byte değiştirilmez.
-- Bootloader kodu, gerçek USB MSC/update algoritması ve dahili Flash
-  kapsamının tümü elde değildir. Varsayımsal bir bootloader eklenmedi.
-- Studio canlı cihaz yönetim protokolünün gerçek USB taşıması tamamlanmadı;
-  simulated device verileri gerçek ölçüm değildir.
-- Kod, üretici firmware/görselleri, WCH SDK ve DOOM oyun verilerinin hakları
-  ayrıdır. Depoyu birleştirmek tüm dosyalara tek açık kaynak lisansı vermez.
-  [Lisans kapsamı](LICENSE.md) · [Üçüncü taraf bildirimleri](THIRD_PARTY_NOTICES.md).
+- Custom firmware does not certify measurement accuracy, calibration or
+  safety ratings. Do not use it for critical, mains or safety-related measurements.
+- USB, ESP32 and logic analyzer connections can create a ground path into
+  the measurement circuit. Do not measure energized/mains circuits with debug wiring attached.
+- **Removing RDP can cause mass erase:** the original bootloader and settings
+  may be lost permanently. Normal USB installation does not remove RDP or change option bytes.
+- Bootloader code, the actual USB MSC/update algorithm and the complete
+  internal Flash layout are unavailable. No speculative bootloader has been added.
+- Studio's real USB management transport is unfinished. Simulated-device
+  readings are not physical measurements.
+- Code, manufacturer firmware/images, the WCH SDK and DOOM game data have
+  separate rights. Consolidation does not place every file under one open-source license.
+  [License scope](LICENSE.md) · [Third-party notices](THIRD_PARTY_NOTICES.md).
 
-## Referanslar
+## References
 
-- [FNIRSI DMT-99 ürün sayfası](https://www.fnirsi.com/products/dmt-99)
-  ve [üretici kılavuz/firmware kaynakları](https://www.fnirsi.com/pages/manuals-firmwares).
+- [FNIRSI DMT-99 product page](https://www.fnirsi.com/products/dmt-99)
+  and [manufacturer manuals/firmware](https://www.fnirsi.com/pages/manuals-firmwares).
 - [WCH CH32V303](https://www.wch-ic.com/products/CH32V303.html),
-  [resmî CH32V307 SDK](https://github.com/openwch/ch32v307);
-  yerel sürüm/hash'ler `references/` ve `reconstructed/vendor/` içinde.
-- [ChaN FatFs](https://elm-chan.org/fsw/ff/) ve [TJpgDec](https://elm-chan.org/fsw/tjpgd/).
-- [Artfical/doom-avr](https://github.com/Artfical/doom-avr/) — DOOM portunun kaynağı,
-  pinlenmiş revizyon `f584566ec2e18041725e1de5668c6cb1f764ab58`.
+  [official CH32V307 SDK](https://github.com/openwch/ch32v307);
+  local versions/hashes are recorded under `references/` and `reconstructed/vendor/`.
+- [ChaN FatFs](https://elm-chan.org/fsw/ff/) and [TJpgDec](https://elm-chan.org/fsw/tjpgd/).
+- [Artfical/doom-avr](https://github.com/Artfical/doom-avr/) — the DOOM port's upstream,
+  pinned at `f584566ec2e18041725e1de5668c6cb1f764ab58`.
 - [sigrok](https://sigrok.org/), [Unicorn](https://www.unicorn-engine.org/),
   [Ghidra](https://github.com/NationalSecurityAgency/ghidra).
 - [Nicolai Electronics RVSWD](https://github.com/Nicolai-Electronics/esp32-component-rvswd),
   [wch-protocols](https://github.com/ch32-riscv-ug/wch-protocols),
   [Espressif ESP-IDF](https://github.com/espressif/esp-idf).
 
-Birleştirme doğrulaması, eski klasörlerin durumu ve yayıma dahil edilmeyen
-dosyalar: [WORKSPACE_MIGRATION.md](docs/WORKSPACE_MIGRATION.md).
+Consolidation checks, the status of the old folders and publication exclusions:
+[WORKSPACE_MIGRATION.md](docs/WORKSPACE_MIGRATION.md).

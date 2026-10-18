@@ -1,231 +1,237 @@
-# DMT99 firmware update ve korunmuş Flash export fizibilitesi
+# DMT99 firmware update and protected Flash export feasibility
 
-17 Ekim 2026. Hedef: kullanıcı tarafından bildirilen CH32V303RCT6, RDP aktif.
-**Offline prototip için GO; çalışan orijinal cihaza kod yükleme ve kayıpsız tam dump
-iddiası için NO-GO.** RDP kaldırılmadı, debug/seri/USB cihaza bağlanılmadı. Firmware
-BIN, payload, patch veya flashlanabilir yeni imaj üretilmedi.
+17 October2026. Target: user-reported CH32V303RCT6 with active RDP.
+**GO for an offline prototype; NO-GO for installing code on the working
+original device or claiming a lossless complete dump.**
+RDP was not removed, no debug/serial/USB target was opened, and no firmware
+BIN, payload, patch or flashable image was produced.
 
-Flash'tan normal kullanıcı kodu çalıştırarak okuma yapılması koşullu olarak mümkün
-görünüyor. Ancak bu kodu **orijinal içeriği değiştirmeden** başlatacak doğrulanmış
-bir yol bulunmadı. Updater'ın silme sınırları ve geri dönüş davranışı bilinmiyor.
-Bu nedenle bu çalışma RDP bypass başarısı veya uygulanabilir cihaz prosedürü değildir.
+Reading from normal user code executing in Flash appears conditionally
+plausible. No verified way was found to start that code **without changing
+original contents**. Updater erase bounds and rollback behavior are unknown.
+This is neither successful RDP bypass nor a deployable device procedure.
 
-## Kanıt kapsamı
+## Evidence scope
 
-439 fonksiyonun mevcut decompilation/disassembly, çağrı grafiği, USART/Flash/MMIO
-envanteri, native persistence kaynakları, önceki USB ve SPI incelemeleri okundu.
-Ghidra analizi yeniden üretilmedi. Yeni dar inceleme
-[`firmware_update_evidence.json`](../analysis/firmware_update_evidence.json) içinde
-orijinal instruction adresi, ham BIN baytları ve çağrı yerlerini saklar.
+Existing decompilation/disassembly of439 functions, call graph, USART/Flash/
+MMIO inventory, native persistence, USB and SPI findings were examined.
+Ghidra analysis was not regenerated.
+[firmware_update_evidence.json](../analysis/firmware_update_evidence.json)
+retains the narrow inspection's original addresses, BIN bytes and call sites.
 
-Üretici yazarlı WCH **CH32FV2x_V3xRM v2.5** ve **CH32V307DS0 v3.9** incelendi.
-Resmî [referans el kitabı sayfası](https://www.wch.cn/downloads/CH32FV2x_V3xRM_PDF.html)
-ve [datasheet sayfası](https://www.wch.cn/downloads/CH32V307DS0_PDF.html) erişilebilir;
-PDF indirme API'si tekrar deneme hatası verdi. PDF'ler erişilebilir aynadan alındı;
-üretici sunucusundan doğrudan alınmış dosya oldukları iddia edilmiyor. URL, SHA-256,
-üretici API metadatası ve ilgili sayfaların metni
-[`references/wch-dump-feasibility/`](../references/wch-dump-feasibility/) altında.
-SDK'nin sabitlenmiş WCH Flash sürücüsü ayrıca kontrol edildi. Forum veya ticari
-“unlock” iddiası erişim garantisi olarak kullanılmadı.
+Manufacturer-authored WCH CH32FV2x_V3xRM v2.5 and CH32V307DS0 v3.9 were reviewed.
+Official [reference-manual](https://www.wch.cn/downloads/CH32FV2x_V3xRM_PDF.html)
+and [datasheet](https://www.wch.cn/downloads/CH32V307DS0_PDF.html) pages were accessible,
+but direct PDF download returned a retry error.
+PDFs came from accessible mirrors, not directly from the manufacturer server.
+URLs, hashes, API metadata and selected page text are in
+[references/wch-dump-feasibility](../references/wch-dump-feasibility/).
+The pinned WCH Flash driver was also checked.
+Forum/commercial unlock claims were not treated as access guarantees.
 
-## BIN formatı ve adres haritası
+## BIN format and address map
 
-`DMT-99_V2.4_20240306.bin`: **135096 / 0x20FB8 bayt**;
+DMT-99_V2.4_20240306.bin: **135096 /0x20FB8 bytes**,
 SHA-256 `4befdf6b58e063f03901f190000d790e60d20d0a23e5eeb2b6f6840f1830e98e`.
-Dosya, başlangıcı kesilmiş tam MCU dump'ı veya ARM vektör tablosu değildir; doğrudan
-RV32 uygulama görüntüsüdür. Dosya ofseti `f` için amaçlanan eşleme:
+It is a direct RV32 application image, not an ARM vector table or a truncated
+complete MCU dump. Intended mapping for file offset f:
 
 ```
-link/normal yürütme adresi = 0x00006400 + f
-kanonik Code Flash adresi = 0x08006400 + f
+link/normal execution address =0x00006400+f
+canonical Code Flash address =0x08006400+f
 ```
 
-| Bölge | Kanonik fiziksel adresler, son dahil | BIN ofseti | Kanıt |
+| Region | Canonical physical addresses, inclusive | BIN offset | Evidence |
 |---|---|---|---|
-| Eksik uygulama öncesi alan | `08000000–080063FF` | yok | 25 KiB; içeriği ve görevi bilinmiyor |
-| Entry ve dolgu | `08006400–08006437` | `00000–00037` | `6f 60 80 26`: `j 0000C668`; ardından NOP/EBREAK |
-| Vektörler/dolgu | `08006438–080065FF` | `00038–001FF` | düşük alias adresli vektörler |
-| Mevcut text bölgesi | `08006600–0801E81F` | `00200–1841F` | korunmuş talimat envanteri |
-| Sabitler | `0801E820–080271CF` | `18420–20DCF` | font, tablo ve metinler |
-| Başlatılmış SRAM verisinin yük kopyası | `080271D0–080273B7` | `20DD0–20FB7` | reset döngüsü, 488 bayt |
-| BIN sonrasındaki Code Flash | `080273B8–08077FFF` | yok | üretici haritası; bu cihazdan okunmadı |
-| Ayar/geçmiş okuma/yazma niyeti | `08040000–080400FF` | yok | `D928`, `D87C` |
-| Varsayılan SRAM | `20000000–2000FFFF` | reset ile kopyalanır | stack top `20010000`, BSS sonu `200054D8` |
-| WCH sistem boot alanı | `1FFF8000–1FFFEFFF` | yok | RM tablo 32-1; **eksik ilk 25 KiB ile aynı alan değil** |
-| User option bytes | `1FFFF800–1FFFF87F` | yok | RM tablo 32-1; prototip kapsamı dışında |
+| Missing pre-application area | 08000000–080063FF | absent | 25KiB; contents/function unavailable |
+| Entry/padding | 08006400–08006437 | 00000–00037 | 6f608026: j0000C668, followed by NOP/EBREAK |
+| Vectors/padding | 08006438–080065FF | 00038–001FF | Low-alias handler addresses |
+| Present text | 08006600–0801E81F | 00200–1841F | Preserved instruction inventory |
+| Constants | 0801E820–080271CF | 18420–20DCF | Fonts/tables/strings |
+| Initialized SRAM load copy | 080271D0–080273B7 | 20DD0–20FB7 | Reset copy loop,488bytes |
+| Code Flash after BIN | 080273B8–08077FFF | absent | Manufacturer map, not read from this device |
+| Settings/history access | 08040000–080400FF | absent | D928/D87C |
+| Default SRAM | 20000000–2000FFFF | Reset copies data | Stack20010000, BSS end200054D8 |
+| WCH system boot memory | 1FFF8000–1FFFEFFF | absent | RM table32-1; **not the missing first25KiB** |
+| User option bytes | 1FFFF800–1FFFF87F | absent | RM table32-1, outside prototype scope |
 
-WCH datasheet tablo 2-1-1 ve notu RC modelinde toplam **480 KiB Code Flash** ile
-256 KiB sıfır beklemeli alan / 64 KiB SRAM varsayılanını ayırır. Bu, `08040000`
-adresini nominal 256 KiB'ın dışında diye geçersiz sayan eski yorumu düzeltir;
-cihazın mevcut partition seçeneği ve o adresteki veri hâlâ okunmuş değildir.
-[WCH datasheet, PDF s.5–6](https://ch32-riscv-ug.github.io/CH32V307/datasheet_en/CH32V20x_30xDS0.PDF#page=5).
+Datasheet table2-1-1/notes distinguish RC's **480KiB total Code Flash**
+from the default256KiB zero-wait region/64KiB SRAM.
+This corrects the earlier interpretation that08040000 must be invalid
+because it lies beyond nominal256KiB.
+Actual partition options and data there remain unread.
+[Datasheet pages5–6](https://ch32-riscv-ug.github.io/CH32V307/datasheet_en/CH32V20x_30xDS0.PDF#page=5).
 
-`C668–C6F2` reset talimatları düşük alias üzerinde `gp=200009B0`, `sp=20010000`,
-data source `271D0`, destination `20000000`, data end `200001E8`,
-`mtvec=643B`, `mepc=908A` kurar. **Fiziksel adres ile yürütme adresi birbirinin yerine
-konamaz:** aynı AUIPC dizisini `0800C668` üzerinde yürütmek `gp=280009B0` üretir.
-Üst alias'a kör atlama veya raw BIN'i sıfır adresine yazma bir yükleme planı değildir.
-Gerçek cihazda bu dosyanın birebir yüklü olduğu henüz karşılaştırılmadı.
+Reset C668–C6F2 on the low alias establishes gp200009B0, sp20010000,
+data source271D0, destination20000000, end200001E8, mtvec643B and mepc908A.
+**Physical and execution addresses are not interchangeable**:
+the same AUIPC sequence at0800C668 produces gp280009B0.
+Blind upper-alias jumps or writing this BIN at zero are not installation plans.
+The file has not been compared byte-for-byte with the installed device.
 
-### Header, CRC, imza ve sürüm
+### Header, CRC, signature and version
 
-İlk baytta geçerli entry bulunduğu için koddan önce ayrı bir container header yok.
-Dosyanın son baytı resetin kopyaladığı data extentinin tam sonudur; onun arkasında
-ayrı trailer yok. Son 4 bayt `50 01 00 20`, yani SRAM adresi değeridir; önceki
-baytların standart CRC32'si değildir. Tüm dosyanın CRC32'si `8EF0046F` yalnızca
-bizim envanter değerimizdir, cihazın kabul ettiği checksum olarak sunulmuyor.
+A valid first instruction leaves no separate pre-code container header.
+The file ends exactly at the initialized-data extent copied by reset;
+no additional trailer follows. The last four bytes are
+`50 01 00 20`, a SRAM-address value rather than
+standard CRC32 of preceding bytes.
+Whole-file CRC32 **8EF0046F** is an inventory value only, not an established updater checksum.
 
-Sabit `DMT-99 V2.4`, link `24BA0` adresindedir; `143E0` bunu metin renderer'ına
-gönderir. Bu bir sürüm **gösterimidir**. Uygulamada güncelleme dosyası boyutu/sürümü,
-CRC veya imza doğrulayan bir akış kurulamadı. Başlatma verisinin içinde kontrol
-alanı bulunması, güncelleyicinin tüm dosyaya haricen kontrol uygulaması veya dosya
-adını sınaması dışlanmış değildir. Birkaç CRC denemesinden “imza yok / her payload
-kabul edilir” sonucu çıkarılmadı.
+The constant DMT-99 V2.4 at link24BA0 is rendered by143E0.
+This is a displayed version, not evidence of update-file validation.
+No application flow for update size/version/CRC/signature checking was found.
+A control field in initialized data, external whole-file checks or filename
+rules remain possible. A few CRC attempts do not prove no signature or arbitrary-payload acceptance.
 
-## Flash yazma ve updater bulguları
+## Flash writes and updater findings
 
-| Orijinal link entry / çağrı yeri | Gerçek davranış / hedef |
+| Original entry / call site | Behavior / destination |
 |---|---|
-| `C320`, call `C340 → D87C` | shutdown: ekran/buzzer/backlight, ayar commit, PC1 düşük, sonsuz döngü |
-| `D928`, call `D93C → D908` | `08040000`'dan `20000020`'ye 128 halfword okur |
-| `D87C`, call `D8AC → CA52` | `08040000` için tek fast erase isteği |
-| `CA52`, stores `CA62/CA64/CA6C` | CTLR `40022010`: page erase `20000`, ADDR `40022014`: `address & FFFFFF00`, START `40` |
-| `D87C`, call `D8F8 → C9EE` | status `4` kaldıkça `08040000, ... ,080400FE`'ye en çok 128 halfword |
-| `C9EE`, store `CA14` | CTLR PG biti açılır, hedefe 16-bit store, bekle ve PG temizle |
-| `C982/CA26`, `C99C/CA44` | standart/fast unlock ve lock; option-byte/RDP kaldırma akışı değil |
-| `DD4E → FB48("0:BOOT")` | SPI FatFs üzerinde dizin oluşturur; MCU bootloader geçişi değil |
-| `C5F2/C5F4/C644` | USB vektör hedefleri default trap; MSC işleyicisi değil |
+| C320, C340→D87C | Shutdown: display/buzzer/backlight, settings commit, PC1low, infinite loop |
+| D928, D93C→D908 | Reads128halfwords08040000→20000020 |
+| D87C, D8AC→CA52 | One fast-erase request for08040000 |
+| CA52 storesCA62/CA64/CA6C | CTLR40022010 page-erase20000; ADDR40022014=address&FFFFFF00; START40 |
+| D87C, D8F8→C9EE | Up to128halfwords08040000…080400FE while status remains4 |
+| C9EE storeCA14 | Sets PG,16-bit destination store, waits, clears PG |
+| C982/CA26, C99C/CA44 | Standard/fast unlock/lock, not option-byte/RDP removal |
+| DD4E→FB48("0:BOOT") | SPI FatFs directory creation, not MCU bootloader entry |
+| C5F2/C5F4/C644 | USB vectors target default traps, not MSC handlers |
 
-`FLASH_ProgramHalfWord`, `FLASH_ErasePage_Fast` ve unlock/lock rutinlerinin mevcut
-doğrudan çağıranı yalnızca `D87C`'dir. Bunun çağıranı shutdown `C320`'dir.
-Firmware uygulama alanına erase/program, USB MSC komut işleyicisi, reset bayrağıyla
-bootloader'a geçiş veya updater dosya yükleme akışı **bulunamadı**. Bu sonuç mevcut
-439 body, instruction/MMIO inventory ve önceki descriptor taraması kapsamındadır;
-eksik bölgede böyle kod bulunmadığını kanıtlamaz. SPI Flash'ın `D538/D588/D6BC`
-erase/page/sector yazmaları harici NOR içindir ve MCU update ile karıştırılmadı.
+The only direct caller of present ProgramHalfWord/ErasePage_Fast/unlock/lock
+routines is D87C, called from shutdown C320.
+No application-region erase/program, USB MSC handler, reset-flag bootloader
+handoff or updater file-loading flow was found.
+Scope is the439bodies, instruction/MMIO inventory and prior descriptor scan;
+absence from this application says nothing definitive about the missing prefix.
+SPI D538/D588/D6BC erase/page/sector writes target external NOR, not MCU updates.
 
-[`test_update_flash_trace.py`](../tools/test_update_flash_trace.py), `D87C` ve `D928`
-orijinal entry'lerini çalıştırarak C persistence callback sözleşmesiyle karşılaştırır.
-25 commit vakası status/failure sınırlarını, 16 load vakası tüm 256 baytı kontrol eder.
-SDK gövdeleri de yürütülür; MMIO yalnızca özel Python belleğinde niyet kaydıdır,
-CSR `800` atlanır, busy/ready/WRP yanıtları modellenir. **41 vaka geçti; fiziksel
-erase/program veya RDP modeli doğrulanmadı.**
+[test_update_flash_trace.py](../tools/test_update_flash_trace.py) executes
+original D87C/D928 against the native persistence callback contract.
+25commit cases cover status/failure boundaries;16load cases cover all256bytes.
+SDK bodies execute; MMIO records intent in private Python memory, CSR800 is
+skipped, and busy/ready/WRP responses are modeled.
+**41 cases passed; physical erase/program and RDP behavior were not validated.**
 
-### İlk 25 KiB güncellemede korunur mu?
+### Is the first25KiB preserved during updates?
 
-**Mevcut kanıtla bilinmiyor.** BIN bu bölgeyi içermez; bu, updater'ın orayı silmediği
-anlamına gelmez. Üç ayrı varsayımsal silme geometrisi sonucu değiştirir:
+**Unknown from available evidence.** The BIN omits it, but the updater could
+still erase overlapping memory. Hypothetical geometries illustrate the uncertainty:
 
-| Olası erase birimi | `08006400` için aşağı yuvarlanan başlangıç | Eksik alanla örtüşme |
+| Possible erase unit | Rounded-down start for08006400 | Prefix overlap |
 |---|---|---|
-| 256 bayt fast page | `08006400` | yok |
-| 4096 bayt standart sector | `08006000` | `08006000–080063FF`, 1024 bayt |
-| 32 KiB block | `08000000` | tüm 25 KiB; RDP/yazma koruması işlemi ayrıca etkiler |
+| 256-byte fast page | 08006400 | None |
+| 4096-byte standard sector | 08006000 | 08006000–080063FF,1024bytes |
+| 32KiB block | 08000000 | All25KiB; RDP/write protection may additionally affect it |
 
-Bunlar gerçek updater izleri değildir. RDP'nin otomatik yazma koruması yalnız ilk
-4 KiB için belgelenmiştir; sonraki 21 KiB için koruma garantisi sağlamaz. WRP
-seçenekleri, round-down/round-up davranışı, mass erase, başarısız güncellemeden
-kurtarma, dosya adı ve imza politikası bilinmeden updater'a payload verilemez.
+These are not updater traces.
+RDP's documented automatic write protection covers only the first4KiB,
+not the remaining21KiB.
+WRP, rounding, mass erase, failed-update recovery, filename and signature
+rules must be understood before presenting a payload to the updater.
 
-**Pristine tam dump açısından daha temel engel:** export kodunu uygulama sayfalarına
-yazmak, o sayfaların orijinal baytlarını daha export başlamadan değiştirir. Resmî
-BIN'den sonra yerine koymak, cihazdaki önceki baytların bu BIN ile aynı olduğunu
-kanıtlamaz. Dump öncesi değişen sayfalar başka kanaldan korunmadan bu yöntemle
-“orijinal tam Flash” elde edildiği söylenemez. Sadece eksik prefix'i kurtarma hedefi
-bile önce updater'ın o prefix'i koruduğunun kanıtını gerektirir.
+For a **pristine complete dump**, installing export code already changes
+application pages before export starts.
+Restoring the official BIN does not prove those pages originally matched it.
+Unless every overwritten byte is preserved independently, this cannot be
+called recovery of the original complete Flash.
+Even prefix-only recovery first requires proof the updater preserves that prefix.
 
-## RDP erişim matrisi ve kesinlik sınırı
+## RDP access matrix and confidence limits
 
-RM v2.5 §32.2.2, §32.5.1, §32.6 ve `RDPRT` tanımı incelendi. §32.5.1 kullanıcı
-kodunun genel adres alanından 8/16/32-bit Flash verisi okuyabildiğini tanımlar;
-tek tek RDP/yürütme bağlamlarını ayıran kapsamlı bir okuma matrisi vermez.
-RDP kaldırılması otomatik ana
-Flash silmesi başlatır; bunu koruma yöntemi olarak kullanmak **NO-GO**.
-[WCH RM, PDF s.603 ve 616–617](https://ch32-riscv-ug.github.io/CH32V20x/datasheet_en/CH32FV2x_V3xRM.PDF#page=603).
+RM v2.5 §§32.2.2,32.5.1,32.6/RDPRT were reviewed.
+§32.5.1 describes normal8/16/32-bit Flash reads through the general address
+space, without a complete matrix for every RDP/execution context.
+RDP removal automatically erases main Flash: **NO-GO** for preservation.
+[RM pages603/616–617](https://ch32-riscv-ug.github.io/CH32V20x/datasheet_en/CH32FV2x_V3xRM.PDF#page=603).
 
-| RDP aktif bağlam | CPU/data okuma | Erase/program | Karar / kanıt sınırı |
+| Active-RDP context | CPU/data reads | Erase/program | Assessment |
 |---|---|---|---|
-| Normal user Flash boot, debug bağlantısı olmadan | ROM sabitlerini ve `D928` verisini okuyan uygulama bu yolu destekliyor; eksik prefix'in tamamı cihazda doğrulanmadı | ilk 4 KiB otomatik korumalı; diğerleri WRP/çalışma koşullarına bağlı | Flash export için koşullu aday |
-| SRAM'den boot | seçilen RM genel RDP “unreadable” tanımı dışında ayrıntılı CPU-read tablosu vermiyor | RM normal erase/programı yasaklar | kayıpsız okuma yolu olarak kanıtlanmadı; NO-GO |
-| Flash boot sonrasında SRAM rutinine atlama | boot kaynağı mı anlık PC mi belirleyici: seçilen belgelerden kesinleşmedi | güvenli kabul edilmez | ayrı deney gerekir |
-| Sistem boot kodu / ISP | belgelenmiş kayıpsız readout servisi bulunmadı | normal erase/program sınırlı; mass erase istisnası korumaz | USB/USART ISP, RDP readout garantisi değildir |
-| SDI/debug | RDP tanımı readout'u engeller | normal erase/program sınırlı | ESP32-S3 debug arayüzü bu yetkiyi kendiliğinden vermez |
-| DMA veya başka bus master | bu hedef/koruma bağlamında doğrulanmadı | kullanılmıyor | export yolu seçilmedi |
+| Normal user Flash boot, no debugger | Application constant/D928 reads support this path; full missing-prefix access untested | First4KiB automatically protected; others depend on WRP/conditions | Conditional export candidate |
+| Boot from SRAM | Selected RM lacks detailed CPU-read matrix beyond general protection wording | Normal erase/program forbidden | Lossless route unproven,NO-GO |
+| Flash boot→SRAM routine | Boot source vs currentPC dependency unresolved | Not assumed safe | Separate experiment |
+| System boot/ISP | No documented lossless Code Flash readout found | Normal writes restricted; mass-erase exception does not preserve contents | USB/USART ISP is not an RDP-readout guarantee |
+| SDI/debug | RDP definition prevents readout | Normal writes restricted | ESP32-S3 interface does not grant access by itself |
+| DMA/other bus master | Unverified for this target/context | Unused | Not selected |
 
-“RDP aktifken CPU hiçbir Flash verisini okuyamaz” sonucu çıkarılamaz: çalışır
-uygulamanın sabit veri ve ayar okuması bununla uyumlu değildir. Buna karşılık
-**seçilen resmî RM bütün yürütme/okuma bağlamlarını açıkça ayırmadığı için**
-“Flash kodu her korumalı adresi kesin okur” veya “RAM kodu başarılı olur” da
-kanıtlanmış değildir. Normal Flash boot üzerinden export **koşullu fizibilite**,
-cihazda başarı ise **doğrulanmamış** durumdadır. Diğer MCU ailelerinin RDP seviyeleri
-bu parçaya aktarılmadı; seçenek baytlarına yazma prototipe eklenmedi.
+It is unjustified to claim an RDP-protected CPU cannot read any Flash data:
+the working application's constant/settings reads contradict that simplification.
+Conversely, the selected RM does not prove Flash code can read every protected
+address or that RAM code will succeed.
+Normal-Flash export is **conditionally feasible**, physical success **unverified**.
+Other MCU families' RDP-level models were not imported; no option-byte writes were added.
 
-## Aktarım kanalı seçimi
+## Transfer-channel choice
 
-**Aday: USART2 TX / PA2, tek yönlü 115200 8N1.** `main 908A`, `1A682`'ye 115200
-verir. `1A682`, GPIOA pin maskesi `0004` ile PA2 alternate output'u, USART2
-`40004400`'ı ve TX-only mode'u kurar. `1A6E2`, TC bekleyip USART2'ye bayt gönderir.
-Bu uygulama kanıtı ASIC protokolünden bağımsızdır.
+**Candidate: USART2 TX/PA2, one-way115200 8N1.**
+Main908A passes115200 to1A682, which configures GPIOA mask0004 as PA2
+alternate output, USART2 at40004400, TX-only.
+1A6E2 waitsTC and sends bytes.
+This evidence is independent of the ASIC protocol.
 
-| Kanal | MCU pin kanıtı | DMT99 bağlantı kanıtı / sonuç |
+| Channel | MCU pin evidence | DMT99 wiring evidence / result |
 |---|---|---|
-| USART2 TX | PA2, 64 pin pakette pin 16; USART2_TX mux | firmware GPIO/USART kurulumu var; PCB pad/header ve süreklilik ölçümü yok. En güçlü aday |
-| USART2 RX | PA3, 64 pin pakette pin 17; USART2_RX mux | orijinal debug kurulumu RX'i açmaz; pad/hat bilinmiyor. Tekrar istek kanalı varsayılmadı |
-| USART1 | PA9/PA10, 64 pin pakette 42/43 | `C350/97C4/C468`, 9600 8N1 ASIC TX/RX. Kullanılmayacak |
-| USB FS | PA11/PA12, 64 pin pakette 44/45 | paket mux'u var; DMT99 konektör rotası/aktif application stack kanıtı yok. Şimdilik seçilmedi |
-| USART3 / yeni GPIO | mux olasılığı tek başına yeterli değil | GPIOB display veri portu; spare pin veya yeni UART hattı varsayılmadı |
-| Harici SPI Flash | mevcut SPI1/NOR yolu | export için NOR yazmak orijinal harici kanıtı değiştirir; seçilmedi |
+| USART2TX | PA2,64-pin package pin16 | Firmware setup exists; accessible pad/header/continuity unverified; strongest candidate |
+| USART2RX | PA3,pin17 | Original debug setup is TX-only; pad/route unknown; no resend channel assumed |
+| USART1 | PA9/PA10,pins42/43 | C350/97C4/C468,9600 8N1 ASIC; not selected |
+| USBFS | PA11/PA12,pins44/45 | Package mux exists; connector routing/application stack unproven; not selected |
+| USART3/newGPIO | Mux possibilities alone insufficient | GPIOB is display bus; no spare pin/new UART assumed |
+| External SPIFlash | Existing SPI1/NOR | Writing export data would change external evidence; not selected |
 
-Pin eşlemesi [WCH datasheet pin tabloları](https://ch32-riscv-ug.github.io/CH32V307/datasheet_en/CH32V20x_30xDS0.PDF#page=31)
-ile kontrol edildi; fiziksel cihaz pin/pad haritası değildir. Prototip USART2'yi veya
-GPIO'yu başlatmaz. Gerçek bağlamada yalnız MCU TX'ten alım, uygun VIO seviyesi ve
-ortak referans gerekir; bilinmeyen PA3'e TX bağlanması planlanmadı. Binary aktarım
-sırasında orijinal debug printf karışması engellenmelidir.
+[WCH pin tables](https://ch32-riscv-ug.github.io/CH32V307/datasheet_en/CH32V20x_30xDS0.PDF#page=31)
+support package assignments, not a measured PCB pad map.
+The prototype initializes neither USART2 nor GPIO.
+Future binding needs MCU-TX-only reception, appropriate VIO/shared reference;
+no host TX on unknown PA3 is planned.
+Original debug printf must not contaminate binary transfer.
 
-## Salt okunur offline prototip
+## Read-only offline prototype
 
-[`flash_export.c`](../reconstructed/offline_export/flash_export.c) yeni deneysel C
-kodu; orijinal fonksiyon çevirisi değildir. Sadece `read(address, out, n)` ve
-`send(frame, n)` callback'leri vardır. Flash controller unlock/erase/program,
-option-byte erişimi, gerçek MMIO okuyucusu, startup veya updater entegrasyonu yok.
-Dosya backend'i orijinal BIN'i `rb` açar; bulunmayan prefix'i sentezlemez.
+[flash_export.c](../reconstructed/offline_export/flash_export.c) is new
+experimental code, not an original-function translation.
+Only read(address,out,n) and send(frame,n) callbacks are exposed.
+There is no Flash unlock/erase/program, option-byte access, MMIO reader,
+startup or updater integration. File backend opens the BIN rb and never invents a prefix.
 
-İki sınır birlikte kontrol edilir: üretici Code Flash aralığı
-`[08000000,08078000)` ve çağıranın daha dar, bağımsız doğrulanmış okuma politikası.
-Sıfır uzunluk, taşma, policy dışı başlangıç/son ve 2–8 dışında pass reddedilir.
-Her en çok 256 bayt blok, gönderilmeden iki kere okunup karşılaştırılır. Varsayılan
-iki tam pass ile her bayt dört kez okunur; read/send hatasında işlem durur.
+Bounds combine manufacturer Code Flash range [08000000,08078000) and an
+independently verified narrower caller policy.
+Zero length, overflow, out-of-policy bounds and pass counts outside2–8 are rejected.
+Each block of at most256bytes is read twice and compared before transmission.
+Default two complete passes read each byte four times.
+Read/send errors stop the transfer.
 
-**D99X v1 bizim test protokolümüzdür; FNIRSI/WCH update protokolü değildir.**
-Tüm çok baytlı alanlar little endian:
+**D99Xv1 is this project's test protocol, not a FNIRSI/WCH update protocol.**
+Multibyte fields are little-endian:
 
-| Ofset | Alan |
+| Offset | Field |
 |---|---|
-| `0..3` | `D99X` magic |
-| `4..7` | version=1, type: DATA=1/END=2/ERROR=3, pass index, pass count |
-| `8..11` | çağıranın belirlediği session |
-| `12..15` | block index; END için toplam blok sayısı |
-| `16..19` | blok adresi; END için aralığın sonu |
-| `20..27` | beklenen range start ve byte length |
-| `28..31` | payload length u16, status u8, reserved=0 |
-| `32..` | DATA: 1–256 bayt; END: pass veri CRC32'si, ERROR: veri yok |
-| son 4 bayt | header+payload CRC32/ISO-HDLC (`EDB88320`, init/final XOR `FFFFFFFF`) |
+| 0..3 | D99X magic |
+| 4..7 | Version1,typeDATA1/END2/ERROR3,pass index/count |
+| 8..11 | Caller-selected session |
+| 12..15 | Block index; total blocks forEND |
+| 16..19 | Block address; range end forEND |
+| 20..27 | Expected range start/byte length |
+| 28..31 | Payload length u16,status u8,reserved0 |
+| 32.. | DATA1–256bytes; END pass-dataCRC32; ERROR no payload |
+| Final4bytes | Header+payload CRC32/ISO-HDLC,EDB88320,initial/finalXORFFFFFFFF |
 
-Host [`flash_dump_receiver.py`](../tools/flash_dump_receiver.py) capture dosyası/stdin
-okur. Beklenen range/session dışarıdan verilir; bozuk CRC'de yeniden senkronize olur,
-eksik blok/END, değişen metadata, tutarsız duplicate, farklı iki pass veya ERROR
-başarılı dump üretemez. Eşit duplicate ve farklı blok sırası kabul edilir. Tüm
-kontrollerden sonra yeni dosya oluşturur, var olan dosyayı değiştirmez. SHA-256,
-pass CRC, kayıp/gürültü istatistikleri raporlanır. `--known-bin` kesişen uygulama
-bölgesini karşılaştırır; kesişim yoksa başarısız olur. `compare` iki ayrı dump'ın
-uzunluk, farklı bayt ve SHA-256 karşılaştırmasını yapar.
+[flash_dump_receiver.py](../tools/flash_dump_receiver.py) reads capture files/stdin.
+Expected range/session are supplied independently.
+It resynchronizes after bad CRC; missing blocks/END, changing metadata,
+inconsistent duplicates, unequal passes or ERROR cannot produce successful output.
+Equal duplicates and reordered blocks are accepted.
+Only after all checks does it create a new file, refusing overwrite.
+Reports include SHA-256, passCRC and missing/noise counts.
+--known-bin compares the overlapping application region and fails if no overlap exists.
+compare checks two independent dumps' lengths/differing bytes/hashes.
 
-Tek yönlü kanalda host resend komutu yoktur: tekrar okuma iki pass içinde gerçekleşir;
-kayıp aktarım için ileride bağımsız yeni oturum alınacaktır. PA3 bağlantısı uydurulmadı.
-Session ve CRC kimlik doğrulama/freshness veya RDP başarısı kanıtı değildir; aynı
-yanlış/sabit veriyi tekrar okumak da aynı CRC'yi üretir.
+The one-way transport has no host resend command; rereads occur in passes,
+and lost transfers would need new independent sessions.
+No PA3 wiring is invented.
+Session/CRC do not authenticate source/freshness or prove RDP success:
+repeated wrong/constant data can also match.
 
-Örnek **yalnız dosya replay'i**, proje kökünde:
+**File replay only**, from repository root:
 
 ```sh
 make -C reconstructed/offline_export test sanitize
@@ -241,74 +247,75 @@ python3 tools/flash_dump_receiver.py compare \
   DMT-99_V2.4_20240306.bin "$work_dir/application.bin"
 ```
 
-Bu çıktı **MCU dump'ı değildir**, zaten var olan uygulama dosyasının aktarım testidir.
-Tam dump geldiğinde `tools/ingest_mcu_dump.py` mevcut uygulama karşılaştırmasını
-yeniden analiz başlatmadan yapabilir; prefix-only dosya tam dump diye içeri alınmamalı.
+This is **not an MCU dump**, only transport testing of an existing file.
+When an actual dump becomes available, ingest_mcu_dump.py can compare the
+application incrementally; a prefix-only file must not be labeled a full dump.
 
-## Flash ve RAM yürütme için ayrı doğrulama planları
+## Separate Flash and RAM execution plans
 
-**Önce offline / ayrı test donanımı:** C protokol, bağımsız Python wire oracle'ı,
-sınırlar, CRC, eksik/bozuk/sırası değişmiş/tekrarlanmış frame, read/send failure ve
-farklı pass vakaları geçti. Altı Python testi 1 bayttan 480 KiB'a sentetik belleği
-ve değişmeyen orijinal BIN'i kullanır. C test yürütülebiliri ve ASan/UBSan yürütmesi
-geçti. `D87C/D928` için 41 bounded karşılaştırma geçti.
+Offline checks passed C protocol, independent Python oracle, bounds, CRC,
+missing/corrupt/reordered/duplicate frames, read/send failure and unequal passes.
+Six Python tests cover synthetic memory1byte–480KiB and the unchanged BIN.
+C and ASan/UBSan executions passed, as did41boundedD87C/D928 comparisons.
 
-RV32IMAC/ILP32 için iki **relocatable object** derlendi: normal `.text.*` ve
-`DMT_EXPORT_RAM_EXPERIMENT` ile `.ramtext.dmt_export`. RAM varyantının doğrudan
-kod referansları aynı section'da, dış unresolved sembolü yok; iki IO callback'inin
-gerçek konumu yine bağlayana bağlıdır. Bunlar link edilmedi ve yürütülmedi.
-Object/komut/hash bilgisi `flash_export_object_build.json`, section/relocation
-çıktısı `logs/flash-export-object-build.log` içindedir. Section derlemesi RDP testi
-veya SRAM yükleme yöntemi değildir.
+Two RV32IMAC/ILP32 **relocatable objects** were compiled: normal .text.*
+and DMT_EXPORT_RAM_EXPERIMENT .ramtext.dmt_export.
+RAM direct code references remain in-section and have no undefined external
+symbols, but actual callback locations depend on binding.
+Neither object was linked/executed.
+Evidence: analysis/flash_export_object_build.json,
+logs/flash-export-object-build.log.
+Section placement is not an RDP experiment or SRAM loader.
 
-1. **Flash'tan çalışma, ayrı CH32V303RCT6:** önceden içeriği bilinen canary desenleri
-   bulunan test parçasında RDP kapalı baseline, sonra aynı parçanın RDP aktif
-   normal Flash boot çalışması karşılaştırılmalı. Loader/okuyucu/CRC/UART callback
-   adresleri, stack, interrupt kaynakları ve hiçbir Flash-write çağrısı bulunmadığı
-   son ELF üzerinden kontrol edilmeli. Debug bağlantısı olmadan cold boot; düşük
-   alias kodu ile kanonik Flash okumaları ayrı kaydedilmeli. Eksik prefix, application,
-   `08040000` ve üst non-zero-wait alan örnekleri doğrulanmalı. RM'nin Flash erişim
-   clock koşulları sağlanmalı; orijinal 144 MHz konfigürasyonu kör kopyalanmamalı.
-2. **SRAM'den boot, aynı model test parçası:** RDP kapalı pozitif kontrol, RDP aktif
-   CPU read sonucu/fault/timeout karşılaştırması ayrı yapılmalı. Programın çalışması
-   read erişiminin başarılı olduğu anlamına gelmez. İstenmeyen option-byte yazma,
-   otomatik unprotect veya mass erase seçenekleri kullanılmamalı. Sonuç negatifse
-   orijinal cihaz üzerinde denenmemeli.
-3. **Flash boot → SRAM'a atlama:** ikinci testten ayrı kayıt; anlık PC, loader ve
-   tüm callback/constant konumları doğrulanmalı. Flash'a geri çağrı sonucu SRAM
-   başarısı diye raporlanmamalı. Bus fault/exception yolları önceden test edilmeli.
+1. **Flash execution on a separate same-model spare:** establish known
+   canaries withoutRDP, then compare normal protected Flash boot.
+   Verify final ELF loader/reader/CRC/UART addresses, stack, interrupts and
+   absence of Flash-write calls.
+   Cold-boot without debug, separately recording low-alias execution and
+   canonical reads of prefix/application/08040000/non-zero-wait regions.
+   Meet RM clock conditions rather than blindly copying144MHz.
+2. **SRAM boot on the same-model spare:** compare unprotected positive control
+   with protected read/fault/timeout behavior. Executing code is not proof
+   of successful reads. No option-byte writes, automatic unprotect or mass erase.
+   If negative, do not repeat on the original device.
+3. **Flash boot→SRAM jump:** separate from SRAM boot. Confirm currentPC,
+   loader, callbacks and constants. Flash callbacks must not be credited as
+   SRAM-only success. Test bus-fault/exception paths first.
 
-Bu deneyler burada gerçekleştirilmedi; test parçasına işlem yapmak dahi bu turda
-yapılmış bir eylem değildir.
+None of these physical experiments, including spare-device work, was performed in this phase.
 
-## Orijinal cihaza müdahaleden önce zorunlu kapılar
+## Required gates before touching the original device
 
-- Mevcut MCU/lot, VIO, güç/power-latch davranışı ve PA2'nin gerçekten erişilebilir
-  hattı belgelenmeli. USB/USART kablosu ile geri besleme veya ASIC hattı sürülmemeli.
-- Güncelleyicinin kendisi veya güvenilir eşdeğer erase/program izi bulunmalı:
-  dosya→adres eşlemesi, erase birimi, ilk/son sayfa, option-byte/RDP/WRP davranışı,
-  kabul kontrolleri ve yarıda kesilme/başarısız kabul sonrası durum kanıtlanmalı.
-- Kaybolabilecek **bütün** içeriğin güncelleme öncesi korunması açıklanmalı.
-  İlk 25 KiB, ayar/geçmiş, uygulamadan farklı baytlar ve cihaz özel verileri
-  olmadan sadece V2.4 BIN'e dönüş “tam rollback” değildir. 8 MiB SPI kopyası
-  dahili Flash yedeğinin yerine geçmez.
-- İlgili yürütme bağlamı ayrı aynı model test parçasında, RDP açık ve debug'sız
-  doğrulanmalı. İki bağımsız oturumun byte-for-byte karşılaştırması ve bilinen
-  V2.4 kesişimi kontrol edilmeli; `00/FF/E339` sabit veri başarı sayılmamalı.
-- Sonradan bir payload gerekiyorsa ayrı çıktı/manifest, exact base/hash, clobber
-  listesi ve geri dönüş doğrulaması hazırlanmalı. Bu çalışma böyle payload üretmedi.
+- Document actual MCU/lot,VIO,power/latch behavior and accessible PA2 route.
+  Avoid back-powering or driving ASIC lines.
+- Obtain updater code or trustworthy erase/program traces proving file/address
+  mapping, erase unit, first/last page, option/RDP/WRP behavior, checks and failed/interrupted states.
+- Explain preservation of **all** potentially lost original data.
+  V2.4-only rollback is not complete restoration without prefix, settings,
+  differing application bytes and device-specific data.
+  SPI backup is not internal Flash backup.
+- Validate the execution context on a separate protected same-model spare
+  without debug, comparing two independent dumps and known V2.4 overlap.
+  Constant00/FF/E339 is not success.
+- Any future payload needs separate output/manifest, exact base/hash,
+  clobber list and verified rollback. No such payload was produced here.
 
-| Karar | Durum |
+| Decision | Result |
 |---|---|
-| Dosya backend'iyle geliştirme ve protokol doğrulama | **GO, tamamlandı** |
-| Ayrı test parçasında RDP bağlamlarını araştırma | koşullu sonraki adım; burada yapılmadı |
-| Mevcut DMT99'a güncelleme/payload yükleme | **NO-GO** |
-| RDP kaldırarak orijinali koruma | **NO-GO**, belgelenmiş otomatik silme |
-| ESP32-S3/RAM üzerinden kayıpsız bypass başarılı iddiası | **NO-GO**, kanıt yok |
-| Güncellemede ilk 25 KiB korunur garantisi | **NO-GO**, updater yok ve erase sınırı belirsiz |
+| File-backend development/protocol validation | **GO, completed** |
+| Separate-spare RDP execution-context investigation | Conditional next step; not performed |
+| Install update/payload on current DMT99 | **NO-GO** |
+| Preserve original by removing RDP | **NO-GO**, documented automatic erase |
+| Claim lossless ESP32-S3/RAM bypass | **NO-GO**, no evidence |
+| Guarantee first25KiB survives updates | **NO-GO**, updater/erase bounds unavailable |
 
-Fonksiyon metrikleri **146 complete / 14 partial / 123 incomplete** olarak kaldı;
-partial, incomplete toplamına dahildir. Deneysel exporter ve yeni testler orijinal
-fonksiyon kredisi kazanmaz. STOCK_COMPATIBLE/CUSTOM_DMT99 uygulama kaynakları ve
-ELF'leri değiştirilmedi; mevcut regression raporları korunup bu kapsam dışı büyük
-suiteler yeniden çalıştırılmadı. Son denetim: `analysis/flash_export_validation.json`.
+Historical function counts remained **146complete/14partial/123incomplete**,
+with partial included in incomplete.
+Experimental exporter/tests earn no original-function credit.
+STOCK_COMPATIBLE/CUSTOM_DMT99 application sources/ELFs were unchanged;
+existing regressions were preserved without rerunning unrelated large suites.
+Final audit: analysis/flash_export_validation.json.
+
+This dated feasibility stage predates the later physical RVSWD experiments;
+see [current research overview](RESEARCH.md) and
+[recovery report](../projects/rvswd/FLASH_RECOVERY_REPORT.md).

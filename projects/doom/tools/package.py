@@ -42,31 +42,31 @@ def main():
           'controls':{'up_PC11':'ramped_forward','down_PC10':'ramped_back','left_PC12':'ramped_turn_left','right_PC9':'ramped_turn_right','PC8':'fire_on_press_repeat','PC8_plus_PC10_2_seconds':'pause_menu'},
           'writes_internal_or_external_flash_at_runtime':False}
     (out/'release.json').write_text(json.dumps(info,indent=2)+'\n')
-    (out/'README_TR.md').write_text(f'''# POTAT-99 DOOM {version}
+    (out/'README.md').write_text(f'''# POTAT-99 DOOM {version}
 
-USB güncelleme diski için tek dosya: `{name}`.
-`sha256sum -c SHA256SUMS` ile kontrol edin. `debug/` dosyalarını veya raporları
-cihaza kopyalamayın. WAD/paket gerekmez; oyun görselleri BIN içindedir.
+The only file to copy to the USB update disk is `{name}`.
+Verify it with `sha256sum -c SHA256SUMS`. Do not copy debug files or reports.
+No WAD/package is needed; game assets are embedded in the BIN.
 
-Mevcut POWER+MENU USB yöntemi kullanılır. Kaldırmak için aynı yöntemle önceki
-çalışan POTAT-99 BIN'ini geri yükleyin. Ayrıntılar: [proje README](../../README.md).
+Use the existing POWER+MENU USB procedure on Windows 10/11.
+To remove the game, reinstall a known-working POTAT-99 BIN the same way.
+See [installation and rollback](../../../../docs/UPDATING.md).
 
-Yukarı PC11 / aşağı PC10: ileri/geri; sol PC12 / sağ PC9: dönme.
-PC8: ateş/onay; PC8 + aşağı PC10 birlikte 2 saniye: pause menüsü; PC2: kapatma.
-Orta tuş tek başına uzun tutulunca menü açılmaz, silah bekleme süresine göre ateş sürer.
-Hareket ve dönüş basılı tutulunca kademeli hızlanır; hız sınırı vardır, bırakınca durur.
-Ateş, adım, hasar ve düşman öldürme için farklı kısa buzzer efektleri var.
-Menüde WEAPONS ile altı silah, GOD MODE ve SOUND ile hasarsızlık/ses seçilir.
-Ayarlar RAM'de kalır; güç döngüsünde god kapalı, ses açık olur. Menüde dünya donar.
-Düşmanlar duvar arkasındaki atışla uyanmaz; görüş kaybında yalnız son görülen
-konuma en fazla 5 saniye yönelir. Cesetler ölüm animasyonundan 8 saniye sonra silinir.
-Düşmanlarda duvar çarpışması ve
-yürüme/saldırı/ölüm animasyonları vardır. Harita hâlâ tek yükseklikli raycaster'dır.
-Ölçüm modu bu oyun firmware'inde yok.
+Up PC11 / down PC10: forward/backward; left PC12 / right PC9: turn.
+PC8: fire/confirm; PC8 + down PC10 held together for 2 seconds: pause; PC2: off.
+Holding center alone keeps firing according to weapon cooldown and never opens the menu.
+Movement/turning accelerate to bounded speeds while held and stop on release.
+Distinct short buzzer effects accompany firing, steps, damage and kills.
+WEAPONS selects among six weapons; GOD MODE and SOUND toggle protection/audio.
+Options remain in RAM; power cycling resets god off and sound on. Menus freeze the world.
+Enemies do not wake from gunfire through walls; after losing sight they pursue
+only the last seen position for up to 5 seconds. Corpses disappear 8 seconds after death animation.
+Enemies have wall collision and walking/attack/death animations.
+The map remains a single-height raycaster. This firmware has no measurement mode.
 
-BIN {image.stat().st_size} bayt, fiziksel 0x08006400, vektör alias 0x6438, 32 KiB RAM sınırı.
-Emülatör testleri geçti; fiziksel cihaz ve USB kabulü henüz doğrulanmadı.
-Updater'ın gerçek erase davranışı ve kesinti sonrası dönüş garantisi bilinmiyor.
+BIN: {image.stat().st_size} bytes, physical origin 0x08006400, vector alias 0x6438, 32 KiB RAM limit.
+Emulator tests passed; physical-device operation and USB acceptance remain unverified.
+Actual updater erase behavior and interrupted-update recovery are not guaranteed.
 ''')
     print(dest)
 if __name__=='__main__':main()

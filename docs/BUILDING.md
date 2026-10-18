@@ -1,85 +1,88 @@
-# Derleme ve test
+# Building and testing
 
-Komutlar depo kökünden çalıştırılır. Derleme Linux/WSL içindir; **cihaza USB
-kopyalama Windows 10/11'de** yapılır. Hiçbir aşağıdaki build/test komutu bağlı
-cihazı programlamaz veya ölçüm ASIC'ine komut göndermez.
+Run commands from the repository root unless shown otherwise. Build on
+Linux/WSL; **copy USB update files to the device using Windows 10/11**.
+None of the build/test commands below programs hardware or transmits to the measurement ASIC.
 
-## Girdi dosyaları
+## Input files
 
-Yayımlama hakkı belirsiz dosyalar Git'e dahil değildir. Kendi yedeklerinizi
-şu yerlere koyun; mevcut dosyanın üzerine yazmayın:
+Files with uncertain redistribution rights are excluded from Git. Place
+your own backups at these locations; do not overwrite an existing acquisition:
 
-| Dosya | Yer | SHA-256 |
+| File | Location | SHA-256 |
 |---|---|---|
-| Üretici V2.4 uygulaması | `artifacts/firmware/original/DMT-99_V2.4_20240306.bin` | `4befdf6b58e063f03901f190000d790e60d20d0a23e5eeb2b6f6840f1830e98e` |
+| Manufacturer V2.4 application | `artifacts/firmware/original/DMT-99_V2.4_20240306.bin` | `4befdf6b58e063f03901f190000d790e60d20d0a23e5eeb2b6f6840f1830e98e` |
 | W25Q64 dump, 8 MiB | `artifacts/flash/original/dmt99_flash_1.bin` | `fc6bf2ed36f578c15725a4365c4a381c98ce42657d3b8a98ff06efb1b6427d69` |
 | DOOM shareware 1.9 WAD | `artifacts/game-data/doom1.wad` | `1d7d43be501e67d927e415e0b8f3e29c3bf33075e859721816f652a526cac771` |
 
-Kökteki özgün BIN, `flashdump/`, `final/`, `extracted_flash/` ve proje capture
-yolları **göreli uyumluluk bağlantılarıdır**. Hedefler `artifacts/` içindedir.
-Linux/WSL Git klonu bu bağlantıları korumalıdır. Windows'ta symlink yerine
-metin dosyası oluşturan bir Git ayarıyla build yapmayın; WSL kullanın.
+The original root BIN, `flashdump/`, `final/`, `extracted_flash/` and project
+capture paths are **relative compatibility links** into `artifacts/`.
+A Linux/WSL Git clone must preserve these links. Do not build with a Windows
+Git configuration that substitutes text files for symlinks; use WSL.
 
-Klasörleri gerekirse `mkdir -p artifacts/firmware/original artifacts/flash/original`
-ile oluşturun. Dump, simulator/Studio kaynak önizlemelerinde gerekir;
-POTAT-99 C derlemesi mevcut MCU ROM tablolarını `ui/*rom*` kaynaklarından alır.
-V2.4 BIN'i imaj formatı ve orijinal kod karşılaştırmaları için gereklidir.
+Create missing directories with
+`mkdir -p artifacts/firmware/original artifacts/flash/original`.
+The dump is needed for simulator/Studio resource previews. POTAT-99 C builds
+use the recovered MCU ROM tables in `ui/*rom*`. The V2.4 BIN is needed for
+image-format and original-code comparisons.
 
-## Araçlar
+## Tools
 
-- GNU make, GCC/Clang, Python ≥3.10; GUI için Python ortamının desteklediği Qt.
-- RISC-V GCC: `rv32imac_zicsr_zifencei`, `ilp32`, soft-float ve `libgcc`/`libm`
-  multilib'i. Kullanılan derleyici ESP-IDF'in riscv32-esp-elf GCC 14.2.0 paketidir.
-- `tools/find_riscv_toolchain.py` PATH'i ve mevcut kullanıcının ESP araç
-  dizinini arar. Otomatik seçim uygun değilse `CROSS=/path/to/riscv32-esp-elf-`
-  verin. Her RISC-V derleyicinin gerekli multilib'e sahip olduğu varsayılmaz.
-- Python bağımlılıkları:
+- GNU make, GCC/Clang, Python ≥3.10; a supported Qt/Python combination for the GUI.
+- RISC-V GCC with `rv32imac_zicsr_zifencei`, `ilp32`, soft-float and
+  the required `libgcc`/`libm` multilib. The recorded builds use
+  ESP-IDF's riscv32-esp-elf GCC 14.2.0 package.
+- `tools/find_riscv_toolchain.py` searches PATH and the current user's ESP
+  tools installation. Override with `CROSS=/path/to/riscv32-esp-elf-` if
+  necessary; not every RISC-V compiler includes the required multilib.
+- Python dependencies:
 
 ```bash
 python3 -m venv .venv
 .venv/bin/pip install -r requirements-dev.txt
 ```
 
-WCH/FatFs/TJpgDec kaynakları pinlenmiş olarak depodadır. ESP-IDF ve Python
-ortamları depoya kopyalanmaz. Teşhis adaptörü için ayrıca **ESP-IDF 5.5.5**
-ve onun ESP32/Xtensa toolchain'i gerekir.
+Pinned WCH/FatFs/TJpgDec sources are vendored. ESP-IDF and Python environments
+are not copied into the repository. The diagnostic adapter separately needs
+**ESP-IDF 5.5.5** and its ESP32/Xtensa toolchain.
 
-## POTAT-99: USB uygulama BIN'i
+## POTAT-99: USB application BIN
 
 ```bash
 make -C reconstructed -j4 firmware-update
 # reconstructed/build/firmware-update/dmt99-update.bin
-# .elf, .map, .lst, .size.txt aynı dizinde; bellek/stack kontrolleri build içindedir.
+# ELF/map/listing/size outputs are alongside it; build checks include memory and stack.
 
 make -C reconstructed studio-tools
 make -C reconstructed CONFIG=STOCK_COMPATIBLE check
 make -C reconstructed CONFIG=CUSTOM_DMT99 check
 ```
 
-`firmware-update` **0x08006400** uygulama düzenini seçer ve POTAT yayın
-özelliklerini açar. `CONFIG` stock/custom analiz profilidir; yayın özellikleri
-ayrı `DMT_RELEASE_FEATURES` anahtarıdır. Mevcut yayınlar değiştirilmez. Yeni bir
-sürüm hazırlamak için örnek:
+`firmware-update` selects the **0x08006400** application layout and enables
+POTAT release features. `CONFIG` selects the stock/custom analysis profile;
+release features use the separate `DMT_RELEASE_FEATURES` flag.
+Existing releases are immutable. Example for a new version:
 
 ```bash
 make -C reconstructed release FW_VERSION=0.6.1
-# artifacts/firmware/potat-99/v0.6.1/DMT-99_V0.6.1_<tarih>.bin
+# artifacts/firmware/potat-99/v0.6.1/DMT-99_V0.6.1_<date>.bin
 ```
 
-`make release` farklı BIN ile aynı sürümü ezmeyi reddeder. 0.6.0'ın kaynak
-etiketini yeniden üretmek için `FW_VERSION=0.6.0 FW_GIT=61bbf59` kullanılır;
-aynı compiler/flags da gerekir. Bu birleştirmede 0.6.0 BIN'i değiştirilmedi.
-Kök depo yeni Git geçmişi kullanır; eski kaynak kilometre taşları yalnız yerel
-`.history/` arşivinde korunur, otomatik GitHub geçmişine eklenmez.
+`make release` refuses to overwrite a version with a different BIN.
+To reproduce the 0.6.0 source label, use `FW_VERSION=0.6.0 FW_GIT=61bbf59`;
+the same compiler and flags are also required. Consolidation did not change
+the 0.6.0 BIN. The root repository has a new Git history; earlier source
+milestones remain in the local `.history/` archive and are not automatically
+imported into public GitHub history.
 
-`firmware-all`, `firmware` ve standalone/restore hedefleri tarihsel analiz
-için bulunur. Bunlar USB güncelleme dosyası olarak kullanılmaz; `0x0` düzeni
-bootloader'ı kaybetme riski taşır. Normal süreç yalnız `firmware-update` kullanır.
+`firmware-all`, `firmware` and standalone/restore targets remain for
+historical analysis. They are not USB update images: the `0x0` layout risks
+losing the bootloader. Normal installation uses only `firmware-update`.
 
 ## DOOM
 
 ```bash
-python3 projects/doom/tools/fetch_wad.py  # ağdan ayrı lisanslı shareware girdisi
+python3 projects/doom/tools/fetch_wad.py  # separately licensed shareware input
 make -C projects/doom -j4 all
 # projects/doom/build/dmt99-doom.bin
 make -C projects/doom test
@@ -87,36 +90,37 @@ make -C projects/doom verify
 .venv/bin/python projects/doom/tools/simulator.py
 ```
 
-Upstream gerekli kaynakları pinlenmiş kopya olarak içerir; submodule init
-gerekmez. WAD ve `generated/` Git dışındadır. Oyun verisini yeniden dağıtma
-şartları AGPL kod lisansından ayrıdır. Masaüstü simülatörde gerçek buzzer sesi yoktur.
+Required upstream sources are vendored at a pinned revision; submodule
+initialization is unnecessary. WAD and `generated/` are excluded from Git.
+Game-data redistribution terms are separate from the AGPL code license.
+The desktop simulator does not play the target buzzer sounds.
 
-Yeni BIN'i yayımlamadan önce `make -C projects/doom emulate
-EMU_PYTHON=<depo>/.venv/bin/python` tam RV32 testini çalıştırır. Ardından
-`make -C projects/doom package` **kanıtın mevcut BIN hash'iyle aynı olduğunu**
-kontrol ederek `artifacts/firmware/doom/v<version>/` üretir. Emülasyon uzun
-sürebilir; bu birleştirmede yeniden koşulmadı, önceki görüntüler kullanıldı.
-Kaynak değiştiyse `src/version.h` sürümü yükseltilir, eski yayın ezilmez.
+Before publishing a changed BIN, run the full RV32 test with
+`make -C projects/doom emulate EMU_PYTHON=<repo>/.venv/bin/python`.
+Then `make -C projects/doom package` checks that **validation belongs to the
+current BIN hash** and writes `artifacts/firmware/doom/v<version>/`.
+Emulation can take time; it was not rerun during consolidation, which reused
+existing screenshots. If source changes, bump `src/version.h`; do not overwrite a release.
 
-## Studio / tema editörü
+## Studio and theme editor
 
 ```bash
 make studio-tools
 projects/studio/dmt99-studio
-# Launcher kendi projects/studio/.venv ortamını gerekirse oluşturur.
-# Ortak ortam tercih edilirse:
+# The launcher creates projects/studio/.venv when necessary.
+# Alternatively, use the shared environment:
 cd projects/studio
 ../../.venv/bin/python -m dmt99studio
 QT_QPA_PLATFORM=offscreen ../../.venv/bin/python -m pytest -q
 ```
 
-Studio ana kaynakları ve `artifacts/flash/original/` dump'ını otomatik bulur;
-eski kardeş proje klasörleri gerekli değildir. `DMT99_FIRMWARE_PROJECT` ve
-`DMT99_ASIC_ANALYSIS` ortam değişkenleri isteğe bağlı farklı konumlar içindir.
-Studio bir MCU BIN'i üretmez; firmware build'ini kullanır, `THEME.PKG`, tema
-projesi veya kopya Flash imajı dışa aktarır. [Tema rehberi](THEMES.md).
+Studio locates the firmware sources and `artifacts/flash/original/` dump
+within this repository; the old sibling project folders are unnecessary.
+`DMT99_FIRMWARE_PROJECT` and `DMT99_ASIC_ANALYSIS` optionally override locations.
+Studio does not generate an MCU BIN: it reuses the firmware build and exports
+`THEME.PKG`, theme projects or working Flash copies. [Theme guide](THEMES.md).
 
-## ASIC UART / bağımsız C sürücü
+## ASIC UART / independent C driver
 
 ```bash
 cd projects/asic
@@ -126,20 +130,21 @@ make -C firmware
 python3 tools/dmt99.py --help
 ```
 
-Bu bir **statik kütüphanedir**, tek başına yüklenebilir BIN değildir. Uygulama
-ile bağlamak için `firmware/INTEGRATION.md` geçerlidir. Gerçek pasif kayıt
-için ayrıca sigrok-cli, analyzer firmware'i ve fiziksel bağlantı gerekir;
-`capture`/`probe` komutları build/test adımı değildir. Varsayılan RX profilini
-13 bayt DMA boyutuyla değiştirmeyin; gerçek kayıt profili 12 bayttır.
+This is a **static library**, not a standalone flashable BIN.
+See `firmware/INTEGRATION.md` for application binding. Physical passive
+captures also need sigrok-cli, analyzer firmware and verified wiring;
+`capture`/`probe` are not build/test steps. Do not replace the default
+12-byte observed RX profile with the historical 13-byte DMA-buffer size.
 
-Sanitizer testi Clang varsa onu, yoksa GCC'yi kullanır; `SANITIZER_CC` ile
-seçilebilir. GCC için `libasan`/`libubsan` kurulu olmalıdır. ptrace altındaki
-hostlarda `ASAN_OPTIONS=detect_leaks=0` gerekebilir; adres/UB kontrolleri açık kalır.
+The sanitizer test uses Clang when available, otherwise GCC; override with
+`SANITIZER_CC`. GCC needs installed `libasan`/`libubsan` runtimes.
+Hosts running under ptrace may require `ASAN_OPTIONS=detect_leaks=0`;
+address and UB checks remain enabled.
 
-## ESP32 RVSWD teşhis adaptörü
+## ESP32 RVSWD diagnostic adapter
 
-Bu hedef **klasik ESP32** içindir; önceki ESP32-S3 planı ile karıştırılmamalıdır.
-ESP-IDF 5.5.5 ortamını etkinleştirdikten sonra:
+This target is for **classic ESP32**, not the earlier ESP32-S3 plan.
+After activating ESP-IDF 5.5.5:
 
 ```bash
 cd projects/rvswd
@@ -148,23 +153,24 @@ idf.py -B build-default -D IDF_TARGET=esp32 \
   -D SDKCONFIG=build-default/sdkconfig \
   -D 'SDKCONFIG_DEFAULTS=sdkconfig.defaults;sdkconfig.uart.defaults' build
 # build-default/dmt99_rvswd_diag.bin
-# bootloader/bootloader.bin ve partition_table/partition-table.bin de ESP32'ye aittir.
+# bootloader/bootloader.bin and partition_table/partition-table.bin also target ESP32.
 ```
 
-Lab/activation/halt/progbuf kapıları normal build'de kapalıdır. Hazır arşivdeki
-eski `*-lab` imajları normal teşhis yayını değildir. ESP32 BIN'ini DMT99 USB
-diskine **kopyalamayın**. ESP32'ye yükleme ayrı donanım işlemidir; bu rehber
-yalnız build'e kadardır. [Bağlantı ve teşhis kuralları](../projects/rvswd/DEBUG_CAPABILITIES.md),
-[RDP sonuçları](../projects/rvswd/FLASH_RECOVERY_REPORT.md).
+Lab/activation/halt/progbuf gates are disabled in the default build.
+Archived `*-lab` images are not normal diagnostic releases.
+**Never copy the ESP32 BIN to the DMT99 USB disk.** Programming the ESP32 is
+a separate hardware operation; this guide stops at building.
+[Wiring and diagnostic requirements](../projects/rvswd/DEBUG_CAPABILITIES.md),
+[RDP results](../projects/rvswd/FLASH_RECOVERY_REPORT.md).
 
-## Kısa doğrulama
+## Quick verification
 
 ```bash
 ASAN_OPTIONS=detect_leaks=0 make test
 make audit
 ```
 
-Studio pytest'i ve ESP-IDF derlemesi ayrı adımlardır. Tam UART kayıtları,
-dump veya WAD mevcut değilse ilgili araç bunları gerektirir; eksik girdili
-testler sessizce donanım başarısı olarak sayılmaz. Bu birleştirmeye ait gerçek
-test sonuçları [WORKSPACE_MIGRATION.md](WORKSPACE_MIGRATION.md) içindedir.
+Studio pytest and the ESP-IDF build are separate steps. Tests needing complete
+UART captures, a dump or WAD require those inputs; missing-input results
+must not be presented as hardware success.
+Recorded consolidation results: [WORKSPACE_MIGRATION.md](WORKSPACE_MIGRATION.md).

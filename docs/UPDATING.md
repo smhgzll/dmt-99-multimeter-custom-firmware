@@ -1,84 +1,85 @@
-# USB BIN yükleme, geri dönüş ve sınırlar
+# USB BIN installation, rollback and limitations
 
-Bu işlem cihazın program belleğini değiştirir. [Riskleri okuyun](LEGAL_AND_SAFETY.md).
-Bootloader geri okunamadığından, kesintide kurtarma veya her kart revizyonunda
-kabul garantisi yoktur. RDP kaldırma/MCU erase normal yükleme adımı değildir.
+Installation changes the device's program memory.
+[Read the risks](LEGAL_AND_SAFETY.md). The bootloader has not been recovered,
+so recovery after interruption and acceptance on every board revision are
+not guaranteed. Removing RDP or erasing the MCU is not a normal installation step.
 
-## Hangi dosya?
+## Which file?
 
-| İstenen kullanım | Uygun dosya / yer |
+| Intended use | Correct file / location |
 |---|---|
-| Ölçü aleti: POTAT-99 | `artifacts/firmware/potat-99/v0.6.0/DMT-99_V0.6.0_20261018.bin` veya yeni doğrulanmış USB uygulama sürümü |
+| Multimeter: POTAT-99 | `artifacts/firmware/potat-99/v0.6.0/DMT-99_V0.6.0_20261018.bin`, or a newer verified USB application release |
 | DOOM | `artifacts/firmware/doom/v0.4.0/DMT-99_Doom_V0.4.0_20261018.bin` |
-| Üretici uygulamasına dönüş | `artifacts/firmware/original/DMT-99_V2.4_20240306.bin` |
-| Tema | `THEME.PKG`; BIN değildir, [ayrı süreç](THEMES.md) |
+| Return to the manufacturer application | `artifacts/firmware/original/DMT-99_V2.4_20240306.bin` |
+| Theme | `THEME.PKG`; not a BIN, [separate process](THEMES.md) |
 
-Bu yollar yerel arşivi gösterir; dosyalar Git klonuyla otomatik gelmez.
-Kaynağı ve hash'i doğrulanmış dosyanız yoksa indirme yerine rastgele `.bin`
-seçmeyin. Yayın klasöründeki `release.json`, `SHA256SUMS` ve
-[katalog](../artifacts/catalog.json) karşılaştırılmalıdır. Windows PowerShell:
+These are local archive paths; binaries are not automatically included in a
+Git clone. Obtain a file with known provenance and hash rather than selecting
+an arbitrary BIN. Check its release `release.json`, `SHA256SUMS` and the
+[catalog](../artifacts/catalog.json). Windows PowerShell:
 
 ```powershell
 Get-FileHash .\DMT-99_V0.6.0_20261018.bin -Algorithm SHA256
 ```
 
-Mevcut POTAT-99 0.6.0 SHA-256:
+Preserved POTAT-99 0.6.0 SHA-256:
 `e7381d64205047d3e43102e690acc0be5663532424f6103665579fd576c50ed0`.
 DOOM 0.4.0:
 `2622d1bc35b678d74234178b79c922b0523e00d8e490df89d79b1dc253ee5d61`.
 
-**Kullanılmayacak dosyalar:** `firmware/development/` standalone/restore
-imajları, ESP32 adaptör BIN'leri, 8 MiB W25Q64 dump'ı, `.elf`, `.map`, `.hex`
-ve `debug/` dosyaları. 8 MiB dump MCU update imajı değildir.
+**Do not use:** standalone/restore images under `firmware/development/`,
+ESP32 adapter BINs, the 8 MiB W25Q64 dump, ELF/map/HEX files or `debug/`
+outputs. An external Flash dump is not an MCU update image.
 
-## Windows 10/11 ve sanal makine
+## Windows 10/11 and virtual machines
 
-FNIRSI'nin [resmî güncelleme sayfası](https://www.fnirsi.com/pages/manuals-firmwares)
-Windows 10/11 desteği bildiriyor ve macOS ile güncelleme yapılmamasını istiyor.
-Bu projede **yükleme için şimdilik Windows şartı** uygulanır; Linux üzerinden
-BOOT hacmine kopyalama desteklenen yol değildir.
+FNIRSI's [official update page](https://www.fnirsi.com/pages/manuals-firmwares)
+specifies Windows 10/11 and warns against updating from macOS.
+This project therefore **requires Windows for installation for now**;
+copying to BOOT directly from Linux is not a supported route.
 
-Kullanıcı **sanal Windows 11 ile BIN kopyalamanın başarılı olduğunu** bildirdi.
-VM kullanırken USB aygıtını bütünüyle Windows misafire aktarın; ana sistemde
-diski aynı anda bağlamayın. VM paylaşımlı klasörü, USB aygıt aktarımının yerine
-geçmez. Bu kullanıcı gözlemi bootloader'ın tüm doğrulama/erase davranışının
-çözüldüğü veya her VM'nin çalışacağı anlamına gelmez.
+The user reported **successful BIN copying through a Windows 11 VM**.
+Pass the entire USB device through to the Windows guest, and do not mount
+the disk simultaneously on the host. A VM shared folder is not USB device
+passthrough. This report does not establish the bootloader's complete
+validation/erase behavior or guarantee every VM configuration.
 
-## Yükleme
+## Installation
 
-1. Bataryayı doldurun. Probları, ESP32 ve logic analyzer kablolarını ayırın.
-   Cihazın özgün Flash çipi, paneli ve bootloader'ı yerinde olmalıdır.
-2. Geri dönebileceğiniz çalışan POTAT-99/V2.4 BIN'ini bilgisayarda saklayın.
-   Harici Flash yedeğinin aynı zamanda MCU bootloader yedeği olmadığını unutmayın.
-3. Cihaz kapalıyken **POWER + MENU** tuşlarıyla USB güncelleme moduna girin ve
-   USB'yi Windows bilgisayara bağlayın. Üretici yönergesini esas alın.
-4. Görünen diski **biçimlendirmeyin**, bölüm tablosunu değiştirmeyin. Yalnız
-   seçilmiş uygulama BIN'ini kopyalayın; aynı anda birden fazla firmware veya
-   tema paketi bırakmayın. Dosya adını gereksiz değiştirmeyin.
-5. Windows kopyalamayı bitirsin; diski güvenli çıkarın. Üreticinin tamamlanma
-   yönergesine göre USB'yi ayırın ve normal açın. İşlem sırasında gücü kesmeyin.
-6. POTAT-99 için About sürümünü, ekran/tuş/güç işlevlerini, ardından güvenli
-   düşük enerjili referansla ölçüm davranışını kontrol edin. DOOM ölçüm yapmaz.
+1. Charge the battery. Disconnect probes, ESP32 and logic analyzer wiring.
+   The original external Flash, panel and bootloader must remain installed.
+2. Keep a known-working POTAT-99/V2.4 BIN on the computer for rollback.
+   An external Flash backup is not an MCU bootloader backup.
+3. With the device off, use **POWER + MENU** to enter USB update mode and
+   connect it to Windows. Follow the manufacturer's procedure.
+4. **Do not format the disk** or alter its partition table. Copy only the
+   chosen application BIN; do not leave multiple firmware files or a theme
+   package in the same installation attempt. Avoid unnecessary renaming.
+5. Wait for Windows to finish copying, safely eject and complete the
+   manufacturer's disconnect/restart procedure. Do not interrupt power.
+6. For POTAT-99, check the About version, display/buttons/power behavior and
+   then measurements against a safe, low-energy reference. DOOM does not measure.
 
-## Geri dönüş
+## Rollback
 
-DOOM'u kaldırmak için **aynı Windows POWER+MENU yöntemiyle** çalıştığı bilinen
-POTAT-99 uygulama BIN'ini kopyalayın. Orijinal uygulama için V2.4 BIN'ini kullanın.
-Bootloader ve kaynak hacimleri sağlam kalmışsa aynı yol kullanılabilir;
-geri dönüşün her hata/kesinti durumunda çalışacağı garanti edilmez.
+To remove DOOM, copy a known-working POTAT-99 application BIN using the
+**same Windows POWER+MENU process**. Use the V2.4 BIN for the original application.
+This route requires a functioning bootloader and volumes; it is not a
+guaranteed recovery from every error or interruption.
 
-Dosya kabul edilmezse veya açılış başarısızsa diski formatlamak, RDP açmak,
-mass erase yapmak veya `0x0` standalone imajı yazmak otomatik çözüm değildir.
-Mevcut hata mesajını ve dosya durumunu kaydedin, doğru çalışan BIN/hash ve USB
-yöntemini tekrar kontrol edin. Bootloader yok olmuşsa bu projenin elinde
-doğrulanmış bir orijinal bootloader restore imajı yoktur.
+If a file is rejected or startup fails, formatting the disk, removing RDP,
+mass erase or installing a `0x0` standalone image is not an automatic remedy.
+Record the error and file state, and check the known-good BIN/hash and USB
+procedure. If the original bootloader is lost, this project has no verified
+original bootloader restore image.
 
-## Adres güvencesinin sınırı
+## What the address checks establish
 
-USB uygulama BIN'leri **dosya ofseti 0 → `0x08006400`**, vektörler `+0x38`
-düzeniyle kontrol edilir. İlk 25 KiB dosyaya dahil değildir. Bu, üretilmiş
-dosyanın doğru bölge için linklendiğinin kanıtıdır; okunamayan bootloader'ın
-hangi sayfaları sildiğini tek başına kanıtlamaz. Ayar sayfasına ilişkin
-uygulama davranışı ayrıca incelenmiştir; tam dahili Flash dump'ı yoktur.
+USB application BINs are checked for **file offset 0 → `0x08006400`**
+and vectors at `+0x38`. The first 25 KiB is absent from the file.
+This establishes the intended link layout, not which pages the unread
+bootloader actually erases. Application settings-page behavior has been
+examined separately; a full internal Flash dump is unavailable.
 
-[Mühendislik açıklaması](FIRMWARE_RELEASE.md) · [dump fizibilitesi](FIRMWARE_DUMP_FEASIBILITY.md).
+[Engineering details](FIRMWARE_RELEASE.md) · [Dump feasibility](FIRMWARE_DUMP_FEASIBILITY.md).

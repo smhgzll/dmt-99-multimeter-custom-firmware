@@ -1,29 +1,29 @@
-# Üçüncü taraf bildirimleri
+# Third-party notices
 
-- **FNIRSI:** DMT-99 adı ve özgün ürün/firmware/görseller ilgili hak sahiplerine
-  aittir. Bu depo bağımsız araştırmadır; sponsorluk/iş birliği/onay yoktur.
-- **WCH / Nanjing Qinheng Microelectronics:** SDK kopyaları kendi başlıkları ve
-  kullanım koşullarıyla korunur. Pinlenmiş sürüm:
+- **FNIRSI:** the DMT-99 name and original product/firmware/images belong to
+  their respective rights holders. This is independent research, without sponsorship, partnership or endorsement.
+- **WCH / Nanjing Qinheng Microelectronics:** SDK copies retain their source
+  headers and use conditions. Pinned revision:
   `080af2e52055334eaa6af0f7ad7df527b4ef5a66`,
   `references/wch-sdk-manifest.json`.
-- **ChaN:** FatFs R0.14b ve TJpgDec R0.01b kaynak bildirimleri değiştirilmez.
-  İkili eşleştirme, özgün üretici arşivinin kesin olarak bulunduğu anlamına gelmez.
+- **ChaN:** FatFs R0.14b and TJpgDec R0.01b notices are preserved. Binary
+  matches do not establish the exact original manufacturer source archive.
 - **Artfical/doom-avr:** Copyright (C) 2026 Talha Berk Arslan,
-  AGPL-3.0-or-later. Revizyon `f584566ec2e18041725e1de5668c6cb1f764ab58`.
-  `projects/doom/upstream/doom-avr/` artık gömülü kaynak kopyasıdır;
-  iç içe Git deposu içermez. Kod/atıf/lisans korunmuştur; upstream video
-  demosu bu çalışma alanına alınmamıştır.
-- **id Software:** DOOM adı, E1M1 ve oyun verileri AGPL olarak yeniden
-  lisanslanmaz. Yerel shareware girdisinin kaynağı/hash'i
-  `projects/doom/assets/source.json` içinde, verinin kendisi `artifacts/game-data/` altındadır.
-- **Nicolai Electronics:** MIT lisanslı RVSWD referansı
-  `889892e94885652077c50698c2222a4dd57582a1`; kopyanın kendi lisansı korunmuştur.
-- **Charles Lohr / ch32fun, ch32-riscv-ug/wch-protocols:** teşhis protokolü
-  referansları; [RVSWD NOTICE](projects/rvswd/NOTICE.md).
-- **Ghidra:** kopyalanmış RISC-V dil tanımlarının dosya başlıklarındaki
-  Apache-2.0 bildirimleri korunur; yerel WCH eklentisi `tools/ghidra_wch/`.
-- **ESP-IDF, Unicorn, PySide6/Qt, Pillow, NumPy, pyserial, sigrok:** ayrı
-  geliştirme/çalıştırma bağımlılıklarıdır; kendi sürüm/lisansları geçerlidir.
-  Python ortamları ve ESP-IDF SDK'sı depoya gömülmez.
+  AGPL-3.0-or-later. Revision `f584566ec2e18041725e1de5668c6cb1f764ab58`.
+  `projects/doom/upstream/doom-avr/` is a vendored source copy without a
+  nested Git repository. Code, attribution and license are preserved;
+  the upstream video demo was not imported.
+- **id Software:** the DOOM name, E1M1 and game data are not relicensed under
+  AGPL. The local shareware input's source/hash is recorded in
+  `projects/doom/assets/source.json`; the data is under `artifacts/game-data/`.
+- **Nicolai Electronics:** MIT-licensed RVSWD reference,
+  `889892e94885652077c50698c2222a4dd57582a1`; its original license is retained.
+- **Charles Lohr / ch32fun, ch32-riscv-ug/wch-protocols:** diagnostic protocol
+  references; [RVSWD NOTICE](projects/rvswd/NOTICE.md).
+- **Ghidra:** copied RISC-V language definitions retain their Apache-2.0
+  source notices; the local WCH extension is under `tools/ghidra_wch/`.
+- **ESP-IDF, Unicorn, PySide6/Qt, Pillow, NumPy, pyserial, sigrok:** separate
+  development/runtime dependencies with their own versions and licenses.
+  Python environments and the ESP-IDF SDK are not embedded in this repository.
 
-[Kapsam ve yeniden dağıtım sınırları](LICENSE.md).
+[Scope and redistribution limits](LICENSE.md).

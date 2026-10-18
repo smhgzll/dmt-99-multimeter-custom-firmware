@@ -1,83 +1,82 @@
-# Orijinal decompile kodla karşılaştırma — 2026-10-18
+# Comparison with original decompiled code — 2026-10-18
 
-Komut şablonları eşleşti. Kaynak proje `.`
-salt okunur kullanıldı. Tekrar çalıştırılabilir denetim:
+Command templates match. The source project was used read-only.
+Reproduce with:
 
 ```bash
 python3 -B tools/audit_decompiled.py
 ```
 
-Sonuçlar: [decompiled_audit.json](../evidence/decompiled_audit.json).
-Bu araç orijinal projedeki `rv32_trace` ile korunmuş talimat envanterini ve ROM
-verisini Python RAM modelinde çalıştırır. USART ve UI yaprak çağrıları yakalanır;
-hedefe erişim veya UART gönderimi yoktur. Bu, tam MCU/ASIC emülasyonu değildir.
-Import sırasında eski dizine bytecode yazılması kapalıdır. Okunan kaynakların
-başlangıç/bitiş SHA-256 değerleri eşleşti.
+Results: [decompiled_audit.json](../evidence/decompiled_audit.json).
+The tool executes the original project's preserved instruction inventory
+and ROM data with rv32_trace in a Python RAM model.
+USART/UI leaf calls are intercepted; no target access or UART transmission
+occurs. This is not complete MCU/ASIC emulation.
+Bytecode writes into the reference tree are disabled.
+Source SHA-256 values matched before/after the run.
 
-## Komut baytları
+## Command bytes
 
-Decompile `0xB5C8` düzenli görünüm tuş işleyicisinde:
+Regular-view button handler 0xB5C8:
 
-| Mod | CC (hex) | Son bayt (hex) | Doğrudan kaynak satırı |
+| Mode | CC (hex) | Last byte (hex) | Decompiled source lines |
 |---|---|---|---|
-| DC düşük akım / mA UI grubu | 11 | 16 | B5C8:32–33 |
+| DC low current / mA UI group | 11 | 16 | B5C8:32–33 |
 | DC A | 10 | 15 | B5C8:36–37 |
-| AC düşük akım / mA UI grubu | 16 | 1B | B5C8:40–41 |
+| AC low current / mA UI group | 16 | 1B | B5C8:40–41 |
 | AC A | 15 | 1A | B5C8:44–45 |
-| Sıcaklık | 12 | 17 | B5C8:104–105 |
+| Temperature | 12 | 17 | B5C8:104–105 |
 | NCV | 09 | 0E | B5C8:108–109 |
 | LIVE | 13 | 18 | B5C8:113–114 |
 
-Tam ordinary şablon: `AA 55 05 CC 00 00 00 00 00 SON`.
-`0x97C4` tam 10 bayt gönderir. `0xA910` event/UI kaynak yolları DC A/mA,
-AC A/mA ve sıcaklık ilişkilerini destekler; `0xA7A4` 09/13 modlarını NCV/LIVE
-çizim dallarına yönlendirir. ID bir ASIC register tanımı veya genel payload
-checksum kuralı olarak yorumlanmaz.
+Ordinary template: `AA 55 05 CC 00 00 00 00 00 LAST`.
+0x97C4 sends exactly10 bytes. Event/UI resources at0xA910 support DC A/mA,
+AC A/mA and temperature associations;0xA7A4 dispatches09/13 to NCV/LIVE.
+IDs are not interpreted as ASIC registers or an arbitrary-payload checksum rule.
 
-24 denetim bağlamından 19 farklı literal form elde edildi. Bunlar hem eski
-`analysis/asic_protocol_commands.json` hem yeni komut kataloğuyla aynı.
-C serializer'ın 18 çıktısı orijinal baytlarla birebir eşleşti. Diagnostic
-`AA 55 02 A0 ... A2` kaynakta var, serializer bilerek üretmiyor. Legacy
-`AA 55 05 00 ... 11` formu da kaynakla aynı; son baytı `00+05` diye düzeltilmez.
+24 audit contexts yielded19 distinct literals matching both the earlier
+analysis/asic_protocol_commands.json and the new catalog.
+All18 serializer outputs match original bytes.
+Diagnostic `AA 55 02 A0 ... A2` exists in the source but is deliberately
+unavailable through the serializer.
+Legacy `AA 55 05 00 ... 11` remains unchanged, not corrected to00+05.
 
-25 gerçek oturumda toplam **6 tam, UART hatasız MCU TX paketi** bulundu:
-14 iki kez; 0C, 0D, 0B ve 0A birer kez. Altısının tamamı orijinal constructor
-çıktısıyla aynı. Son yedi açık giriş kaydı mod seçildikten sonra başladı;
-yukarıdaki yedi modun seçim komutları bu kayıtlarda yoktur. Bu satırlar için
-kanıt orijinal kod ve UI bağlamıdır, yakalanmış seçim TX'i değildir.
+Across25 physical sessions, **6 complete error-free MCU TX packets** were
+found:14 twice,0C/0D/0B/0A once each. All match original constructors.
+The last seven open-input recordings began after mode selection, so they
+do not capture the seven mode-selection commands above.
+Those associations are supported by code/UI context, not recorded selection TX.
 
-## ASIC cevapları ve yorum farkları
+## ASIC replies and interpretation differences
 
-256 segment girişinin tamamı orijinal `0x98AA` ile eşleşti. Gerçek corpus'taki
-74 farklı, temiz `5AA5` cevabında orijinal `0x997E` / `0xBE78` çalıştırılarak
-şunlar karşılaştırıldı: dört segment kodu, işaret, ondalık konumu, birim,
-AC/DC kodu ve b7 bit7. Hepsi eşleşti. Yeni parser'ın sayısal kabul ettiği
-cevaplarda değer de orijinal float sonucuyla eşleşti (rel_tol=1e-6,
-abs_tol=1e-9; orijinal float32 yuvarlaması gözetildi).
+All256 segment inputs match original0x98AA.
+For74 distinct clean5AA5 replies in the physical corpus, executing
+0x997E/0xBE78 confirmed four symbols, sign, decimal position, unit,
+AC/DC code and b7bit7. Every field matched.
+For replies accepted as numeric by the new parser, values also matched
+original float results at rel_tol1e-6/abs_tol1e-9, allowing float32 rounding.
 
-NCV kaydındaki iki farklı ham cevap için orijinal `0xA74E` seviye=0 verdi;
-LIVE kaydındaki üç farklı cevap için `0xA782` active-render=0 verdi. Yeni
-context gerektiren durum çözücüsüyle aynı. Aktif alan/kablo eşikleri denenmedi.
+Two distinct raw NCV replies gave level0 through0xA74E; three LIVE replies
+gave active-render0 through0xA782. The context-dependent new status decoder
+agrees. Active-field/cable thresholds were not tested.
 
-`0x17F92`, unit code=8 için `units/ua.jpg`, 9 için `units/ma.jpg`, 10 için
-`units/a.jpg` seçer. Dolayısıyla mA **mod başlığı** altında kaydedilen code=8
-cevabını µA yorumlamamız decompile kodla uyumludur. Unit code=21 için C/F
-resmi host ayarından seçilir; `0x9CAA` Fahrenheit tercihinde gösterim dönüşümü
-yapar. Paket code=21 tek başına host C/F tercihini taşıyor sayılmaz.
+0x17F92 selects units/ua.jpg for code8, units/ma.jpg for9 and units/a.jpg for10.
+Thus interpreting code8 as µA under an mA **mode heading** agrees with code.
+For temperature code21, the host C/F setting selects the image;0x9CAA
+converts display values when Fahrenheit is preferred.
+Code21 alone does not encode the host preference.
 
-Yeni sürücünün bazı çıktıları bilinçli olarak stock UI metniyle aynı değildir:
+Intentional differences from stock UI text:
 
-- Stock parser işaret/boşluk/ondalık düzenleyerek metin üretir; yeni `text`
-  segmentlerin ham sembol metnidir. Örneğin stock mode=0 metni ` L1UE ` iken
-  ham sembol metni `L1UE` kalır.
-- NCV'nin E4 segmenti orijinal sözlükte de 255/bilinmeyendir. Generic stock
-  parser signed-char davranışıyla `/` üretebilir; yeni parser `?` ve numeric=None
-  tutar. NCV UI bu metin yerine ayrı seviye çizimini kullanır.
-- Stock, sıcaklık/düşük akım modlarında baştaki boş LCD hücrelerini `0` yapabilir;
-  yeni ham metin boşlukları korur. Sayısal dönüşüm ayrı yapılır.
-- `0xC350` ve `0xC468` DMA sayacı/kopyası 13'tür; hat kayıtlarında görüntü
-  burst'leri 12, `AA55FD` event'leri 10 bayttır. Tampon uzunluğu wire uzunluğu
-  olarak uygulanmaz ve ham kayda bayt eklenmez.
+- Stock reformats sign/blanks/decimal; new text preserves raw symbols.
+  For example stock mode0 text ` L1UE ` corresponds to raw `L1UE`.
+- NCV's E4 is unknown255 in the original dictionary too. Generic stock
+  signed-char behavior may yield '/', while the new parser retains '?' and
+  numeric=None. NCV UI uses its separate level rendering.
+- Stock may zero leading blank LCD cells in temperature/low-current modes;
+  raw text preserves blanks and numeric conversion is separate.
+- 0xC350/0xC468 configure/copy13 DMA bytes, but recordings show12-byte display
+  bursts and10-byte AA55FD events. Buffer size is not imposed on wire data;
+  no bytes are added.
 
-RX checksum, opaque kuyruk, fiziksel kademe ve analog kalibrasyon bu
-karşılaştırmayla çözülmüş sayılmaz.
+RX checksum, opaque tail, physical range and analog calibration remain unresolved.

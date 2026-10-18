@@ -1,49 +1,46 @@
-# ASIC protokolü — firmware kaynakları ve donanım kanıt durumu
+# ASIC protocol — firmware sources and physical evidence
 
-Bu belge tam/doğrulanmış bir wire spesifikasyonu değildir.
-Gerçek AUTO/açılış kayıtları alındı; kapsam ve byte dizileri
-[HARDWARE_FINDINGS.md](HARDWARE_FINDINGS.md) içindedir. `evidence/sources.json` okunan kaynakların
-mutlak yollarını ve SHA-256 değerlerini içerir; literal komutlar
-`evidence/firmware_commands.json` içinde kaynak metadata'sıyla korunmuştur.
+This is not a complete/validated wire specification.
+Physical AUTO/startup findings are in [HARDWARE_FINDINGS.md](HARDWARE_FINDINGS.md).
+evidence/sources.json records source paths/hashes, normalized to relative
+notation for public consolidation; evidence/firmware_commands.json retains literal provenance.
 
-| Alan | Firmware kaynaklı bilgi | Fiziksel doğrulama |
+| Field | Firmware-derived information | Physical validation |
 |---|---|---|
-| UART | `0xC350`: USART1 PA9/PA10; main 9600; 8N1 | 1/2 MHz AUTO kayıtları 9600 8N1 çözümlemesiyle tutarlı; bağımsız decoder karşılaştırması geçti |
-| RX DMA | DMA1 channel 5, circular, byte, 13; IDLE ISR `0xC468` resetler | Bekleniyor |
-| TX | `0x97C4`: tam 10 bayt, her baytta TC bekler | Açılışta 14 komutunun 10 bayt literal formu görüldü |
-| TX b0..1 | `AA 55` | Açılış 14 komutunda görüldü |
-| TX b2 | Çoğunlukla `05`; diagnostic A0 formunda `02` | Bekleniyor |
-| TX b3 | 17 ordinary command ID; ayrıca legacy 00 ve A0 literal | ASIC etkileri ayrı doğrulanacak |
-| TX b4..8 | Elde edilen tüm literal formlarda sıfır | Genel payload bilinmiyor |
-| TX b9 | Listelenen command+5 formları, legacy 00/11, A0/A2 | Genel checksum bilinmiyor |
-| RX b0..1 | `0xBE78` görüntü parser guard: `5A A5` | AUTO görüntü mesajı 5AA5/12; event adayı AA55FD/10 |
-| RX b2..6 | Dört packed LCD segment sembolü; BCD değil | Direnç ve açık uç ekranlarıyla karşılaştırıldı; tüm semboller fiziksel test edilmiş değil |
-| RX b2 bit4 | Negatif işaret | Bekleniyor |
-| RX b3/b4/b5 bit4 | Decimal sonrası 1/2/3, bu öncelikle | Üç konum direnç kayıtlarında gözlendi; çakışma önceliği firmware kaynaklı |
-| RX b2 bit0/1 | Host kodu 1/2; bit1 öncelikli | V, düşük akım ve A açık uçta 1=AC, 2=DC ile ilişkilendi |
-| RX b6..8 | Host unit priority tree, UI kaynak ilişkileri | Ω/kΩ/MΩ direnç ve V/µA/A/nF/Hz/sıcaklık açık uç örnekleri var; fiziksel kademe bilinmiyor |
-| RX NCV/LIVE | screen.c: NCV '-' sayısı; LIVE ilk sembol L değilse aktif çizim | Açıkta NCV=0, LIVE=false; aktif giriş denenmedi, host mode açıkça gerekli |
-| RX b7 bit7 | İsimsiz status flag | Anlamı bilinmiyor |
-| RX b2=FD | Event snapshot, b3 event ID; ISR header guard içermez | ACK korelasyonu kanıtsız |
-| RX b9..12 | Eski 13-byte DMA görünümünde opaque | Gerçek 12-byte mesajda b9..11 var; anlamları bilinmiyor, b12 wire'da gözlenmedi |
-| RX integrity | Firmware'de doğrulanmış checksum kontrolü bulunmuyor | Var/yok, offset ve algoritma bilinmiyor |
+| UART | 0xC350: USART1 PA9/PA10; main9600; 8N1 | 1/2-MHz AUTO samples agree with 9600 8N1 and independent decoding |
+| RX DMA | DMA1 ch5, circular, byte,13; IDLE ISR0xC468 rearms | Pending |
+| TX | 0x97C4: exactly10 bytes, waits TC per byte | Startup14 literal observed as10 bytes |
+| TX b0..1 | AA55 | Observed in startup14 |
+| TX b2 | Usually05;02 for diagnostic A0 | Pending |
+| TX b3 | 17 ordinary IDs, plus legacy00/A0 | ASIC effects require separate checks |
+| TX b4..8 | Zero in recovered literal forms | General payload unknown |
+| TX b9 | Listed command+5 forms, legacy00/11, A0/A2 | General checksum unknown |
+| RX b0..1 | 0xBE78 display guard5AA5 | AUTO display5AA5/12; event candidateAA55FD/10 |
+| RX b2..6 | Four packed LCD symbols, not BCD | Resistance/open-input display comparisons; not every symbol physically tested |
+| RX b2 bit4 | Negative sign | Pending |
+| RX b3/b4/b5 bit4 | Decimal after1/2/3, in that priority | Three positions observed; conflicting-flag priority is firmware-derived |
+| RX b2 bit0/1 | Host code1/2, bit1 priority | Open-input V/current associate1=AC,2=DC |
+| RX b6..8 | Host unit priority/UI resource associations | Ω/kΩ/MΩ and open-input V/µA/A/nF/Hz/temperature; physical range unknown |
+| RX NCV/LIVE | screen.c counts NCV dashes; LIVE renders active when first symbol is not L | Open-inputNCV0/LIVEfalse; active inputs untested, explicit host mode required |
+| RX b7 bit7 | Unnamed status flag | Meaning unknown |
+| RX b2=FD | Event snapshot, b3ID, no ISR header guard | ACK causality unproven |
+| RX b9..12 | Opaque in historical13-byte DMA view | Actual12-byte packets have b9..11; meanings unknown, wire b12 unobserved |
+| RX integrity | No established firmware checksum check | Existence/offset/algorithm unknown |
 
-Packed segmentler:
+Packed segments:
 `(b2&F0)|(b3&0F)`, `(b3&F0)|(b4&0F)`,
 `(b4&F0)|(b5&0F)`, `(b5&F0)|(b6&0F)`.
-`0x98AA` karşılaştırma öncesi bit `0x10` temizler. Kodlar
-`EB 0A AD 8F 4E C7 E7 8A EF CF` → `0..9`.
-Diğer semboller ve unit priority uygulaması eski reconstructed C ile
-differential test edilir; eski reconstruction'ın doğruluğu burada yeniden
-makine kodu emülasyonuyla ispatlanmış sayılmaz.
+0x98AA clears bit0x10 before matching.
+`EB 0A AD 8F 4E C7 E7 8A EF CF` map to0..9.
+Other symbols/unit priorities are differential-tested against reconstructed C;
+this alone is not renewed machine-code proof of that reconstruction.
 
-Üç kanıt katmanı korunur: **donanımda gözlenen**, **firmware kaynaklı/olası**,
-**bilinmeyen**. Gözlenen wire şekilleri analog anlamların doğrulandığı şeklinde
-yorumlanmaz. Güncel donanım erişim sonuçları
-`evidence/probe_*.json` dosyalarındadır; USB tanınması UART formatı doğrulaması
-olarak sayılmaz.
+Evidence categories remain **physically observed**, **firmware-derived/plausible**
+and **unknown**. Observed packet forms do not establish analog meanings.
+Host probe records remain local under artifacts/local-environment/ after consolidation.
+USB identification alone is not UART-format validation.
 
-Planlanan fiziksel sıra: startup/idle, resistance open/1k/10k/100k,
-capacitance 100n/1u/10u, DC 1.5V battery, continuity open/closed, AUTO transitions.
-Her aşamada bağlantı kullanıcı tarafından hazırlanıp bildirildikten sonra kayıt
-başlatılır. Şebeke testi yapılmaz. Ham dosyalar ve metadata kesinlikle korunur.
+The planned physical sequence was startup/idle, resistance open/1k/10k/100k,
+capacitance100n/1u/10u, DC1.5V battery, continuity open/closed and AUTO transitions.
+Each capture starts only after user-prepared wiring. No mains tests.
+Original raw files/metadata are preserved; the later scope was restricted to open inputs.

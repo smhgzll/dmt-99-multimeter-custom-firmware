@@ -1,97 +1,102 @@
-# Araştırma ve kanıt özeti
+# Research and evidence overview
 
-Bu sayfa beş projenin bulgularını birbirine bağlar. Ham kayıt, tahmin,
-simülasyon ve cihaz doğrulaması aynı kanıt sınıfı olarak sunulmaz.
+This page connects the five projects' findings. Raw captures, hypotheses,
+simulation and physical-device validation remain separate evidence categories.
 
-## V2.4 → C kaynakları
+## V2.4 to C source
 
-135.096 bayt V2.4 dosyasının fiziksel uygulama başlangıcı `0x08006400`,
-yürütme alias'ı `0x6400` olarak çözülmüştür. İlk 25 KiB dosyaya dahil
-değildir. 439 fonksiyon dekompile edilmiştir; daha sonraki aşamalar farklı
-native/SDK/library/partial/replaced kategorileri kullanır. Eski Phase 3/4
-sayıları korunmuş tarihsel raporlardır, güncel bütüne eklenmez.
+The 135,096-byte V2.4 file maps to physical application origin
+`0x08006400`, execution alias `0x6400`. The first 25 KiB is absent.
+439 functions were decompiled. Later stages use separate native/SDK/library/
+partial/replaced categories. Phase 3/4 counts are historical reports, not
+additional coverage to add to the current totals.
 
-- [Mimari](FIRMWARE_ARCHITECTURE.md), [özellik matrisi](FEATURE_MATRIX.md),
-  [son firmware doğrulama yaklaşımı](FIRMWARE_VERIFICATION.md).
-- `analysis/firmware_coverage.json`: adres bazlı dispozisyon; native/library/
-  deviation/partial/replaced/default kategorileri ayrı tutulur.
-- `decompiled/`, `disassembly/`, `analysis/instructions.json`: orijinal kod
-  kanıtı; bu birleştirmede yeniden disassembly/decompile çalıştırılmadı.
+- [Architecture](FIRMWARE_ARCHITECTURE.md), [feature matrix](FEATURE_MATRIX.md),
+  [firmware verification](FIRMWARE_VERIFICATION.md).
+- `analysis/firmware_coverage.json`: per-address dispositions, keeping
+  native/library/deviation/partial/replaced/default categories separate.
+- `decompiled/`, `disassembly/`, `analysis/instructions.json`: original-code
+  evidence; no new full disassembly or decompilation was run during consolidation.
 - [Phase 4 continuation](PHASE4_CONTINUATION_REPORT.md),
-  [ASIC kontrol raporu](ASIC_CONTROL_REPORT.md): aşama sonuçları ve sınırları.
+  [ASIC control report](ASIC_CONTROL_REPORT.md): stage results and limits.
 
 ## 8 MiB Winbond Flash
 
-Mevcut tek tam Flash okuması `artifacts/flash/original/dmt99_flash_1.bin`;
-SHA-256 `fc6bf2ed36f578c15725a4365c4a381c98ce42657d3b8a98ff06efb1b6427d69`.
-İkinci bağımsız edinim dosyası yoktur; iki okuma eşleştiği iddia edilmez.
+The single available complete external Flash acquisition is
+`artifacts/flash/original/dmt99_flash_1.bin`, SHA-256
+`fc6bf2ed36f578c15725a4365c4a381c98ce42657d3b8a98ff06efb1b6427d69`.
+No independently acquired second file is available; repeat-read equality is not claimed.
 
-4 KiB sektörlü MBR ve iki FAT12 hacimden 299 canlı dosya, 297 JPEG
-çıkarılmıştır. Çıkarılan tüm dosyaların fiziksel extents/hash envanteri
-korunur. Bir tarihsel RV32 uygulama gövdesi ve PC dosya kalıntıları da vardır;
-bunlar bootloader veya güncel kalibrasyon bölgesi olarak adlandırılmaz.
+The 4 KiB-sector MBR and two FAT12 volumes yielded 299 live files and
+297 JPEGs. Physical extents and hashes are retained for extracted files.
+A historical RV32 application body and PC file residue also exist; they
+are not identified as the bootloader or current calibration storage.
 
-[Flash analizi](FLASH_DUMP_ANALYSIS.md),
-[sürüm karşılaştırması](FIRMWARE_VERSION_COMPARISON.md),
-[kaynak yükleme mimarisi](RESOURCE_LOADING_ARCHITECTURE.md),
-[upstream eşleştirme](LIBRARY_SOURCE_RECOVERY.md).
-`artifacts/flash/extracted/` yerel çıkarım arşividir; tekrar edinim değildir.
+[Flash analysis](FLASH_DUMP_ANALYSIS.md),
+[version comparison](FIRMWARE_VERSION_COMPARISON.md),
+[resource architecture](RESOURCE_LOADING_ARCHITECTURE.md),
+[upstream matching](LIBRARY_SOURCE_RECOVERY.md).
+`artifacts/flash/extracted/` is a derived archive, not another acquisition.
 
-## ASIC: pasif UART / logic analyzer
+## ASIC: passive UART / logic analyzer
 
-Gerçek D0/D2 bağlantısı: **D0 → MCU PA9 TX**, **D2 → MCU PA10 RX**, ortak GND.
-İki hat **9600 8N1** olarak çözülür; analyzer VCC kullanılmaz. USART1
-ölçüm ASIC'ine ayrılmıştır. SD7502/yakın SDIC ailesi yayımlanmış protokol
-benzerliği kimlik tespiti olarak kabul edilmez.
+Verified channel wiring: **D0 → MCU PA9 TX**, **D2 → MCU PA10 RX**, shared GND.
+Both directions decode as **9600 8N1**. Do not connect analyzer VCC.
+USART1 is dedicated to the measurement ASIC. Similarity to published
+SD7502/related SDIC protocols is not definitive chip identification.
 
-**Kritik düzeltme:** eski firmware DMA tamponu 13 bayttır; gerçek ölçüm
-burst'lerinin gözlenen boyutu **12 bayt**tır. MCU→ASIC literal komutları
-**10 bayt**, `AA 55 FD ...` ASIC event adayları da **10 bayt** gözlenmiştir.
-Bu fark iki parser'ın bütün modlarda birleştirildiği anlamına gelmez.
+**Important distinction:** the original firmware DMA buffer is 13 bytes;
+observed physical measurement bursts are **12 bytes**.
+MCU→ASIC literal commands are **10 bytes**; ASIC event candidates beginning
+`AA 55 FD ...` were also observed as **10 bytes**.
+This does not establish a unified parser covering every mode.
 
-25 gerçek oturum ve 24 sıkıştırılmış regresyon kesiti korunmuştur. Açık uç
-DC/AC akım, NCV/LIVE, frekans, harici probesiz sıcaklık ve bildirilen direnç
-referansları vardır. Kapasitans, gerilim kaynağı ve kalibrasyonun tüm
-aralıkları fiziksel olarak doğrulanmış değildir. Checksum hipotezleri,
-ACK nedenselliği ve bilinmeyen komutlar uydurulmaz.
+25 physical sessions and 24 compressed regression excerpts are preserved.
+They cover open-input DC/AC current, NCV/LIVE, frequency, temperature without
+an external probe, and reported resistance references. Capacitance, voltage
+sources and all calibration ranges have not been physically validated.
+Checksum hypotheses, ACK causality and unknown command meanings are not invented.
 
-- [Tel protokolü](../projects/asic/docs/ASIC_UART_SPEC.md)
-- [Donanım bulguları](../projects/asic/docs/HARDWARE_FINDINGS.md)
-- [Direnç doğrulaması](../projects/asic/docs/RESISTANCE_VALIDATION.md)
-- [Kayıt indeksi](../projects/asic/docs/CAPTURE_INDEX.md)
-- [Bağımsız C arayüzü](../projects/asic/firmware/INTEGRATION.md)
+- [Wire specification](../projects/asic/docs/ASIC_UART_SPEC.md)
+- [Hardware findings](../projects/asic/docs/HARDWARE_FINDINGS.md)
+- [Resistance validation](../projects/asic/docs/RESISTANCE_VALIDATION.md)
+- [Capture index](../projects/asic/docs/CAPTURE_INDEX.md)
+- [Independent C interface](../projects/asic/firmware/INTEGRATION.md)
 
-Tam kayıtlar `artifacts/captures/asic-captures/` içinde, regresyon kesitleri
-`projects/asic/tests/fixtures/` içindedir. Sample indeksi/hata bilgisi korunur;
-üstverideki bilgisayar yolları yayıma uygun göreli gösterime çevrilmiştir.
+Complete captures are local under `artifacts/captures/asic-captures/`;
+regression excerpts are under `projects/asic/tests/fixtures/`.
+Sample indices and error information are preserved. Host paths in public
+metadata were converted to relative representations.
 
-## MCU debug / JTAG adıyla anılan RVSWD
+## MCU debug / the connection sometimes called JTAG
 
-Kullanılan adaptör **klasik ESP32**, GPIO25 SWCLK → PA14, GPIO26 SWDIO → PA13;
-UART0 GPIO1/3 → CP2102 115200 8N1. Bu ARM SWD veya klasik dört telli JTAG
-protokolü değildir. ESP32-S3 önceki plan olup doğrulanan kart değildir.
+The verified adapter is **classic ESP32**: GPIO25 SWCLK → PA14,
+GPIO26 SWDIO → PA13, UART0 GPIO1/3 → CP2102 at 115200 8N1.
+The target protocol is RVSWD, not ARM SWD or conventional four-wire JTAG.
+ESP32-S3 was an earlier plan, not the validated adapter.
 
-Son fiziksel kanıt: RDP aktif; running/halted Abstract Access Memory ve
-Program Buffer Flash/alias okumaları başarılı olmadı. Özgün MCU Flash'ından
-**0 bayt** elde edildi. SRAM `0x20000000` tek word'ü iki okumada aynı
-`00 80 02 02` döndü; bu **4 bayt SRAM**, bootloader dump'ı değildir.
-`cmderr=3/4` tek başına hatanın tüm nedenini açıklamaz.
+Latest physical evidence: RDP is active; running/halted Abstract Access
+Memory and Program Buffer Flash/alias reads did not succeed.
+**Zero bytes** of original MCU Flash were recovered.
+One SRAM word at `0x20000000` returned `00 80 02 02` in two reads;
+this is **4 bytes of SRAM**, not a bootloader dump.
+`cmderr=3/4` alone does not establish the complete cause.
 
-Default build teşhis odaklıdır; lab/activation/halt seçenekleri ayrı ve
-kapalıdır. Eski programmer referansının depoda bulunması aktif build'de Flash
-programlama/unlock yolu bulunduğu anlamına gelmez. Bu birleştirmede cihaza
-hiçbir komut gönderilmedi.
+The default build is diagnostic, with separate lab/activation/halt gates
+disabled. The historical programmer reference's presence does not mean the
+active build exposes Flash programming/unlock commands.
+No physical target commands were issued during consolidation.
 
-[Son recovery raporu](../projects/rvswd/FLASH_RECOVERY_REPORT.md),
-[teşhis ve bağlantı kanıtları](../projects/rvswd/DEBUG_CAPABILITIES.md),
-[uygulamadan export fizibilitesi](FIRMWARE_DUMP_FEASIBILITY.md).
-Tam oturumlar `artifacts/captures/rvswd-*` altında yereldir.
+[Latest recovery report](../projects/rvswd/FLASH_RECOVERY_REPORT.md),
+[diagnostics and wiring evidence](../projects/rvswd/DEBUG_CAPABILITIES.md),
+[application export feasibility](FIRMWARE_DUMP_FEASIBILITY.md).
+Complete sessions remain local under `artifacts/captures/rvswd-*`.
 
-## Birleştirmede yapılan doğrulama
+## Consolidation validation
 
-Adresler, ölçüm politikası ve menü state machine'i bu düzenlemede değiştirilmedi.
-İlgili değişiklikler proje konumları, build yolları, yayın dizinleri ve
-belgelerdir. Tam emülatör senaryoları tekrar koşturulmadı. Mevcut ekranlar
-kullanıldı, Studio için kısa native/offscreen görüntüler alındı.
+This reorganization did not change addresses, measurement policy or the
+menu state machine. Changes concern project locations, build paths,
+release directories and documentation. Full emulator scenarios were not
+rerun; existing screenshots were reused, with short native/offscreen Studio captures.
 
-[Gerçek test/build sonuçları ve hash denetimi](WORKSPACE_MIGRATION.md).
+[Recorded build/test results and hash checks](WORKSPACE_MIGRATION.md).

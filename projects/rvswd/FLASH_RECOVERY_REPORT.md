@@ -1,89 +1,91 @@
-# DMT99 orijinal dahili Flash kurtarma araştırması
+# DMT99 original internal Flash recovery investigation
 
-**Güncel sonuç: orijinal Flash'tan 0 bayt; SRAM'den 4 bayt, iki bağımsız okumada
-aynı sonuç.** Flash recovery / RDP bypass gerçekleşmedi. Son ayrı kontrol:
-8/8 stable, DMCONTROL=`00000001`, DMSTATUS=`00000c82`, ABSTRACTCS=`08000002`,
-pinler bırakılmış; CPU çalışıyor.
-[Son durum kaydı](recovery/20261017-final-after-word-tests.json).
+**Latest result: zero original Flash bytes; one4-byte SRAM word matched
+across two independent reads.** No successful Flash recovery or RDP bypass.
+Final independent check:8/8stable,DMCONTROL00000001,DMSTATUS00000c82,
+ABSTRACTCS08000002,pinsreleased,CPU running.
+[Final status](recovery/20261017-final-after-word-tests.json).
 
-## Tamamlanan gerçek deneyler ve ham veri
+## Completed physical experiments and raw data
 
-| Mekanizma / adres | Gerçek sonuç | Restorasyon |
+| Mechanism/address | Actual result | Restoration |
 |---|---|---|
-| Running Access Memory, `08006400` | cmderr=4, bayt yok | DATA geri yüklendi, CPU running |
-| Halted Access Memory, `08006400` | cmderr=3, bayt yok | DATA geri yüklendi; eski ACK kontrolünün belirsizliği aşağıda |
-| Program Buffer `lw/ebreak`, `08006400` | cmderr=3, bayt yok | GPR, buffer, DATA ve CPU running doğrulandı |
-| Program Buffer, doğrudan prefix `08000000` | cmderr=3, bayt yok | Tam cleanup, PC değişmedi |
-| Program Buffer, boot alias `00000000` | cmderr=3, bayt yok | Tam cleanup, PC değişmedi |
-| Program Buffer, uygulama alias `00006400` | cmderr=3, bayt yok | Tam cleanup, PC değişmedi |
-| Program Buffer, SRAM `20000000` | **02028000**, iki okumada aynı | Tam cleanup, PC değişmedi |
+| Running AccessMemory08006400 | cmderr4,no data | DATA restored,CPU running |
+| Halted AccessMemory08006400 | cmderr3,no data | DATA restored; earlierACK-check uncertainty below |
+| ProgramBuffer lw/ebreak08006400 | cmderr3,no data | GPR/buffer/DATA/running verified |
+| ProgramBuffer directprefix08000000 | cmderr3,no data | Full cleanup,PC unchanged |
+| ProgramBuffer bootalias00000000 | cmderr3,no data | Full cleanup,PC unchanged |
+| ProgramBuffer appalias00006400 | cmderr3,no data | Full cleanup,PC unchanged |
+| ProgramBuffer SRAM20000000 | **02028000**,two equal reads | Full cleanup,PC unchanged |
 
-Her yeni profil ayrı halt/read/restore/resume çevrimidir. Hata alan bir load
-aynı çevrim içinde tekrar edilmedi; sonraki profil ancak önceki çevrimin
-restorasyonu doğrulandıktan sonra başlatıldı. Genel DMI yetenek taraması
-tekrarlanmadı; her çevrimin 8 örnekli güvenlik preflight'ı yapıldı.
+Each profile used a separate halt/read/restore/resume cycle.
+A failed load was not retried in the same cycle.
+The next profile began only after verified restoration.
+General DMI capability scans were not repeated; each cycle used its
+eight-sample safety preflight.
 
-Kanıtlar:
-[Program Buffer uygulama deneyi](recovery/20261017-original-progbuf-01/session.json),
+Evidence:
+[application](recovery/20261017-original-progbuf-01/session.json),
 [prefix](recovery/20261017-word-prefix-01/session.json),
 [boot alias](recovery/20261017-word-boot-alias-01/session.json),
-[uygulama alias](recovery/20261017-word-app-alias-01/session.json),
+[application alias](recovery/20261017-word-app-alias-01/session.json),
 [SRAM](recovery/20261017-word-sram-01/session.json).
-Her oturumda ham UART, DMI trace, gerçek komut/adres, hata ve cleanup alanları vardır.
-[Toplu hash/trace denetimi](recovery/20261017-word-profiles-validation/hardware-results.json)
-21 eski capture'ın değişmediğini de doğrular. Timeout/crash oturumlarının eksik
-trace'i tam işlem kanıtı olarak sayılmaz.
+Sessions retain raw UART,DMI traces,actual commands/addresses,errors and cleanup.
+The [combined hash/trace audit](recovery/20261017-word-profiles-validation/hardware-results.json)
+also confirms21older captures unchanged.
+Incomplete timeout/crash traces are not complete-operation evidence.
 
-SRAM raw dosyaları (Flash dump **değildir**):
+SRAM files are **not Flash dumps**:
 
-| Adres | Boyut | Little-endian baytlar | Dosyalar |
+| Address | Size | Little-endian bytes | Files |
 |---|---:|---|---|
-| `0x20000000` | her pass 4 bayt | `00 80 02 02` | [pass 1](recovery/20261017-word-sram-01/original-sram-pass1.unverified.bin), [pass 2](recovery/20261017-word-sram-01/original-sram-pass2.unverified.bin) |
+| 0x20000000 | 4bytes/pass | `00 80 02 02` | [pass1](recovery/20261017-word-sram-01/original-sram-pass1.unverified.bin), [pass2](recovery/20261017-word-sram-01/original-sram-pass2.unverified.bin) |
 
-İki dosyanın SHA-256 değeri:
+Both SHA-256:
 `47954a621ff103a08d6249925cb355e9c1fb8676c111128631d454b31f3cf1ba`.
-Dosyalar birebir karşılaştırıldı ve DMI word'lerinden oluşan byte dizisiyle
-eşleştirildi. SRAM'in önceden bilinen bir referansı olmadığı için `.unverified`
-adı korunuyor; bağımsız tekrar eşitliği gerçek bir ölçümdür.
+Files match each other and the DMI-word byte sequence.
+The .unverified name remains because no independently known SRAM reference exists;
+repeat equality is nevertheless a physical observation.
 
-Bu pozitif SRAM kontrolü, aynı `lw/ebreak` ve register aktarım yolunun veri
-döndürebildiğini gösterir. Böylece Flash'taki sonuç yalnız UART/bağlantı veya
-genel Program Buffer başarısızlığıyla açıklanamaz. Flash/alias exception'ları
-aktif RDP ile **uyumludur**, ancak cmderr=3 tek başına özel RDP neden kodu değildir.
+This positive control shows the same lw/ebreak/register-transfer path can
+return data. Flash failure cannot be explained solely as a general UART or
+Program Buffer failure. Flash/alias exceptions are **consistent with activeRDP**,
+but cmderr3 is not a dedicated RDP cause code.
 
-Alias adayının kaynağı WCH CH32FV2x/V3x RM v2.5 §1.3'tür: boot seçimine göre
-Flash veya sistem belleği `00000000` bölgesine eşlenir. BOOT pinleri, reset
-ve mapping register'ları değiştirilmedi; alias'tan hiç veri alınamadığı için
-hangi kaynak belleğin döndüğü varsayılmadı.
+Alias candidates came from WCH CH32FV2x/V3x RMv2.5§1.3:
+boot selection maps Flash/system memory at zero.
+BOOT pins,reset and mapping registers were not changed.
+No alias data was obtained, so its mapped source was not assumed.
 
-Son derlemeler: normal build ve `build-recovery-progbuf-lab` başarılı;
-**C mock/fault testleri ve 34 Python testi geçti.** Program Buffer çekirdeği
-ayrıca ASan/UBSan + 33 host testiyle geçti; son sabit word profilleri C/34 host
-paketiyle doğrulandı. [Son build/source manifesti](recovery/20261017-word-profiles-validation/manifest.json),
-[testler](recovery/20261017-word-profiles-validation/word-profiles-tests.log),
-[çekirdek sanitizer kaydı](recovery/20261017-progbuf-validation/progbuf-sanitize.log).
-ESP32'ye yüklenen son imaj deney izinlerini açık tutar; hiçbir hedef komutu
-başlangıçta otomatik çalışmaz. Normal build'de lab/activation/halt izinleri kapalıdır.
+Default and build-recovery-progbuf-lab builds passed, with C mock/fault
+checks and **34Python tests**.
+The Program Buffer core separately passed ASan/UBSan plus33host tests;
+final word profiles passed C/34host.
+[Manifest](recovery/20261017-word-profiles-validation/manifest.json),
+[tests](recovery/20261017-word-profiles-validation/word-profiles-tests.log),
+[sanitizers](recovery/20261017-progbuf-validation/progbuf-sanitize.log).
+The last physically installed ESP32 image has experiment gates enabled,
+but executes no target command automatically.
+Default builds keep lab/activation/halt disabled.
 
-## Mevcut teknik sınır ve sonraki araştırma
+## Current technical boundary and next research
 
-Doğrudan Flash, eksik prefix, alias ve iki farklı debug okuma mekanizması
-gerçek cihazda denendi. SBA ilan edilmiyor. İncelenen ROM ISP arayüzünde genel
-Code Flash readout komutu gösterilmedi. Autoexec veya sık yeniden deneme,
-denenmiş load'a bağımsız bir erişim yetkisi sağlamaz; bu nedenle tekrarlanmadı.
+Direct Flash,missingprefix,aliases and two debug mechanisms were physically
+tested. SBA is not advertised. Reviewed ROM ISP sources show no generic
+Code Flash readout command. Autoexec/repeated attempts do not independently
+grant access to the same denied load, so these were not pursued.
 
-Bir sonraki farklı araştırma, **debug modundan çıkıp normal CPU bağlamında
-SRAM'den kod yürütmenin** RDP altında nasıl davrandığıdır. Bu henüz orijinal
-cihaz için doğrulanmış bir deney değildir: DMA'nın kullanmadığı scratch RAM,
-trap/interrupt davranışı ve tüm değiştirilen CPU durumunun geri dönüşü önce
-belirlenmelidir. Analiz deposunda bulunan ELF/map/linker dosyaları reconstruction
-ve offline harness çıktılarıdır; canlı orijinalde boş scratch alanını kanıtlamaz.
-Bu nedenle orijinal SRAM'e kod yazılmadı veya bilinmeyen Flash fonksiyonuna
-atlanmadı. Buradaki sınır yeni kullanıcı onayı eksikliği değil, mevcut
-Flash'ı koruma koşuluyla bu yürütme yolunun henüz doğrulanmamış olmasıdır.
+A distinct next question is **normal CPU execution of SRAM code outside
+debug mode under RDP**. It remains unverified on the original device.
+Scratch RAM free of DMA,trap/interrupt behavior and full CPU-state restoration
+must first be established.
+Reconstruction/offline ELF,map and linker outputs do not prove free scratch
+memory in the running original application.
+No code was written into original SRAM and no unknown Flash function was called.
+The blocker is unverified preservation/restoration, not an assumed lack of further user permission.
 
-Hazır, ayrı ve sabit word komutlarının arayüzü şöyledir (bu dört profil yukarıda
-zaten denendi; aynı hata için tekrar çalıştırmak yeni kanıt üretmez):
+The fixed-word interface below already exercised the four profiles above;
+repeating the same error is not new evidence:
 
 ```sh
 python3 tools/recovery.py original-progbuf-word --word-profile prefix \
@@ -92,337 +94,319 @@ python3 tools/recovery.py original-progbuf-word --word-profile prefix \
   --allow-original-halt-read-resume --allow-original-progbuf-load
 ```
 
-Diğer sabit profil adları `boot-alias`, `app-alias`, `sram`dır. Ölçüm alanı
-operatörün gerçek güncel değeridir. Host keyfî adres veya kod kabul etmez.
-SRAM oturumundaki eski `no_larger_read_authorized` karar metni host'un eski
-sabit scope etiketidir; kullanıcının sonraki geniş iznini iptal eden bir karar
-değildir. Host'ta bu etiket `bounded_original_samples_checked_no_automatic_expansion`
-olarak düzeltildi; gerçek capture değiştirilmedi.
+Other profiles: boot-alias,app-alias,sram.
+Supply the actual fresh voltage, not a copied example.
+The host accepts no arbitrary address/code.
+The old SRAM decision no_larger_read_authorized was a fixed scope label,
+not a revocation of the user's later broader authorization.
+It was corrected in the host to
+bounded_original_samples_checked_no_automatic_expansion without altering the capture.
 
-## 2026-10-17: Kullanıcı izniyle halt ve alternatif okuma deneyleri
+## 2026-10-17 authorized halt and alternative-read experiments
 
-Kullanıcının “tekrar dene flashı bozmadığın sürece her şeyi dene” talimatı,
-geçici halt/resume ve restore edilen debug/CPU register değişiklikleri için
-izin olarak alındı. Hedef Flash/option byte/RDP/WRP yazması, erase, reset veya
-unlock eklenmedi. Normal build'in bütün deneysel izinleri kapalı kaldı.
+The user's instruction to try other routes while preserving Flash was
+treated as authorization for temporary halt/resume and restored debug/CPU
+register changes. No Flash/options/RDP/WRP write,erase,reset or unlock was added.
+Normal-build experimental gates remained closed.
 
-`lab-memory-halt-cycle` tek adaptör işlemi içinde preflight, gerekiyorsa idle
-ABSTRACTCS.cmderr W1C (`00000700`), halt, sabit Access Memory okuması, DATA
-restorasyonu, resume ve pin release yapar. Host bağlantısının kesilmesi bu
-firmware cleanup akışını iptal etmez. Bağlantı/abstract busy arızasında kör
-resume yapılmaz. Eski kayıtlar değiştirilmedi.
+lab-memory-halt-cycle performs preflight, optional idle ABSTRACTCS.cmderrW1C
+00000700,halt,fixedAccessMemory reads,DATA restoration,resume,pin release in
+one adapter operation. Host disconnect does not cancel firmware cleanup.
+Unreliable transport/abstractbusy prevents blind resume.
+Old captures remain unchanged.
 
-- İlk yeni deneme yanıt vermedi; kullanıcı sonrasında sök-tak yaptığını bildirdi.
-  Bu denemenin hedef işlemlerinin tamamlandığı iddia edilmiyor.
-- İkinci denemenin [ham UART kaydı](recovery/20261017-original-halt-memory-02/uart.raw.bin)
-  **ESP32 main task stack overflow** gösterdi. Bu hedef RDP hatası değil,
-  eklenen büyük yerel rapor nesnelerinin seri çıktı sırasında stack tüketmesiydi.
-  Raporlar tek console task'a ait static alana taşındı; host'a ham UART kaydı
-  ve işlem sırasında adapter yeniden başlarsa anında hata verme eklendi.
-  [Düzeltme ve yeniden yükleme](recovery/20261017-halt-cycle-stackfix/manifest.json).
-- [Üçüncü deneme](recovery/20261017-original-halt-memory-03/session.json):
-  halt gerçekten gözlendi (`DMSTATUS=00000382`). İlk `08006400` adresi için
-  `COMMAND=02200000` ardından **ABSTRACTCS=08000302, cmderr=3** geldi.
-  DATA0/DATA1 restore edildi; Flash verisi okunmadı, prefix denenmedi.
-  Resume yazmasından sonra sekiz ayrı okumada `DMSTATUS=00000c82` görüldü,
-  `DMCONTROL=1`, pinler bırakıldı. Buna karşın resumeack bitleri gelmediği için
-  o sürüm `cleanup_unconfirmed/poll_timeout` raporladı; bu kayıt aynen korundu.
-- [Bağımsız son durum kontrolü](recovery/20261017-post-cycle03-identify.json)
-  8/8 stable, running, DMCONTROL=1, ABSTRACTCS=08000302 ve pin release doğruladı.
-  Dolayısıyla son durumda CPU'nun çalıştığına dair bağımsız kanıt vardır.
+- The first new attempt produced no response; the user then unplugged/replugged.
+  Completion of target operations is not claimed.
+- The second [raw UART](recovery/20261017-original-halt-memory-02/uart.raw.bin)
+  showed **ESP32 main-task stack overflow**, not a targetRDP error.
+  Large local reports consumed the serial-output stack.
+  Reports moved to single-console-task static storage; raw UART capture and
+  immediate adapter-reboot detection were added.
+  [Fix/reflash manifest](recovery/20261017-halt-cycle-stackfix/manifest.json).
+- The [third attempt](recovery/20261017-original-halt-memory-03/session.json)
+  observed actual halt(DMSTATUS00000382).
+  COMMAND02200000 at08006400 returned ABSTRACTCS08000302/cmderr3.
+  DATA0/1 were restored; no Flash data/prefix attempt.
+  After resume, eight reads showed DMSTATUS00000c82,DMCONTROL1,pinsreleased.
+  Missing resumeack still caused cleanup_unconfirmed/poll_timeout in that
+  version; the record remains unchanged.
+- An [independent final check](recovery/20261017-post-cycle03-identify.json)
+  verified8/8stable/running,DMCONTROL1,ABSTRACTCS08000302,pinsreleased.
+  Thus independent evidence establishes the final running state.
 
-WCH V4 v1.3 tablo 7-4 resumereq'in donanım tarafından geri temizlendiğini,
-tablo 7-5 ise resumeack alanlarını tanımlar; metin, bunların bu cihazdaki
-örnekleme anında mutlaka gözleneceğini kanıtlamaz. Sonraki **explicit memory
-cycle** için dönüş ölçütü ayrıca şu şekilde sınırlandı: önce bizim halt'ımız
-gözlenmeli, sonra üç ardışık authenticated/running/no-reset örneği ve son
-DMCONTROL=1 doğrulanmalı. `resume_ack_observed` ayrıca raporlanır; ACK görülmüş
-gibi gösterilmez. Genel diagnostic halt-cycle'ın eski ACK şartı değiştirilmedi.
+WCH V4v1.3 table7-4 describes self-clearing resumereq;table7-5 defines
+resumeack, without proving it must be observed at these sample instants.
+Later explicit memory cycles require our halt to have been observed,
+followed by three authenticated/running/no-reset samples and finalDMCONTROL1.
+resume_ack_observed remains separate; no falseACK claim.
+The generic diagnostic halt-cycle retains its oldACK requirement.
 
-`cmderr=3` exception'dır; tek başına RDP nedenini kanıtlamaz. Running'deki
-cmderr=4 ile halted'daki cmderr=3 ayrımı artık gerçek cihazda gözlendi.
-[RISC-V Debug 0.13.2 §3.12.7](https://riscv.org/wp-content/uploads/2024/12/riscv-debug-release.pdf#page=37)
-idle cmderr'nin W1C temizlenmesini ve hata kodlarını tanımlar.
+cmderr3 denotes exception, not proof of RDP causality.
+Runningcmderr4 versus haltedcmderr3 is now physically observed.
+[RISC-V Debug0.13.2§3.12.7](https://riscv.org/wp-content/uploads/2024/12/riscv-debug-release.pdf#page=37)
+defines idlecmderrW1C and error codes.
 
-Bir sonraki farklı yol `lab-progbuf-halt-cycle` olarak hazırlandı:
-yalnız `lw x9,0(x8)` (`00042483`) ve `ebreak` (`00100073`). Hedef belleğe store
-talimatı içermez. x8/x9, DATA0, iki Program Buffer word'ü ve PC önce okunur;
-her Flash adresi sabit allowlist'tendir; yürütmeden önce buffer readback'i
-doğrulanır. x8/x9 ve buffer geri yüklenip doğrulanır, PC değişmişse resume
-edilmez. Exception sonrası yalnız restorasyon için sticky hata temizlenir;
-başarısız load tekrarlanmaz. Ayrı default-off `CONFIG_DIAG_PROGBUF_LAB` ve
-explicit token gerektirir. Kaynak/build/test kanıtları
-[manifestte](recovery/20261017-progbuf-validation/manifest.json).
+The separately prepared lab-progbuf-halt-cycle uses only
+lw x9,0(x8)(00042483) and ebreak(00100073), with no target-memory stores.
+It saves x8/x9,DATA0,two progbuf words andPC, uses fixed addresses and verifies
+buffer readback before execution.
+Registers/buffer are restored and checked; changedPC prevents resume.
+Sticky errors are cleared only to permit restoration, never to retry failed loads.
+Separate default-off CONFIG_DIAG_PROGBUF_LAB and an explicit token are required.
+[Source/build/test manifest](recovery/20261017-progbuf-validation/manifest.json).
 
-## Önceki running deneyinin kaydı
+## Earlier running experiment
 
-> Son gerçek deney — 2026-10-17 22:59 Türkiye saati: DM aktivasyonu başarılı.
-> Çalışan orijinal MCU'ya gönderilen ilk Access Memory komutu `cmderr=4`
-> döndürdü. **Hiç Flash baytı alınmadı; prefix adresine geçilmedi.** CPU çalışır
-> durumda kaldı, DATA0/DATA1 geri yüklendi, pinler bırakıldı. Yeniden deneme yok.
+> 2026-10-17 22:59 Turkey time: DM activation succeeded.
+> The first running-MCU AccessMemory command returned cmderr4.
+> **No Flash bytes; no prefix attempt.**
+> CPU remained running,DATA0/1 restored,pinsreleased,no retry.
 
-Tarih: 2026-10-17. **Bu çalışmada orijinal MCU'dan kurtarılan yeni Flash verisi: 0 bayt.**
-İlk `0x6400` bayt henüz elde edilmedi. Aşağıdaki ESP32 BIN'leri adaptör
-firmware'idir; DMT99 dump'ı değildir.
+At that stage original Flash recovery remained0bytes; the first0x6400 bytes
+were unavailable. ESP32 BINs below are adapter firmware, not DMT99 dumps.
 
-## Önceki activation+running yüklemesi ve orijinal MCU deneyi
+### Activation-enabled adapter and original-MCU session
 
-Kullanıcının ESP32 güncelleme ve sınırlı running-read izniyle
-`build-recovery-active-lab` yüklendi: activation/lab açık, halt/resume kapalı.
-179968 bayt uygulama SHA-256:
+The user authorized ESP32 updating and a bounded running read.
+build-recovery-active-lab enabled activation/lab,not halt.
+Application179968bytes,SHA-256
 `5e9d8d30129c497c39b7a55b9f46ae895936d2775d19bfe356ae8643512eaf89`.
-[Yükleme kaydı](recovery/esp32-active-lab-upload-20261017T195734Z/upload.log)
-üç segment için hash doğrulaması ve çıkış kodu 0 gösterir.
-Yükleme sonundaki RTS reset yalnız ESP32 adaptörünedir.
-Kullanıcının taze hedef besleme ölçümü 3000 mV olarak kullanıldı.
+[Upload log](recovery/esp32-active-lab-upload-20261017T195734Z/upload.log)
+shows three segment hash checks/exit0.
+RTS reset affected only the ESP32.
+Fresh user-measured target voltage was3000mV.
 
-[Aktivasyon kaydı](recovery/20261017-active-lab-activation-01.json):
-8/8 kararlı preflight, chip `30310524`; tek DMI yazması
-`DMCONTROL(0x10)=00000001`. Readback `DMCONTROL=00000001`,
-`DMSTATUS=00000c82`; hart running/authenticated, pin release başarılı.
-Haltreq/resumereq/reset komutu gönderilmedi.
+[Activation](recovery/20261017-active-lab-activation-01.json):
+8/8stable,chip30310524,oneDMCONTROL10=1write,readback1/c82,
+running/authenticated,pinsreleased. No halt/resume/reset request.
 
-[Orijinal deney kaydı](recovery/20261017-original-running-memory-01/session.json)
-65 eksiksiz DMI trace kaydı içerir. DATA1'e `08006400` yazılıp doğrulandı;
-COMMAND'a bir kez `02200000` gönderildi. ABSTRACTCS `08000002` değerinden
-`08000402` değerine geçti: busy=0, **cmderr=4**. DATA0'dan Flash sonucu
-okunmadan duruldu; iki pass de boş, `.bin` çıktısı yok. Önceki DATA0/DATA1
-değerleri `00000000` geri yazılıp doğrulandı. Son durum:
-`DMSTATUS=00000c82`, `DMCONTROL=00000001`, `data_restored=true`,
-`final_valid=true`, `pins_released=true`, `target_state_uncertain=false`.
-Sticky cmderr temizlenmedi; DM aktif bırakıldı. Tam debug durum restorasyonu
-iddia edilmiyor. RDP/option byte/Flash/CPU register yazması yapılmadı.
+[Original session](recovery/20261017-original-running-memory-01/session.json):
+65complete DMI traces.
+DATA1=08006400 written/read back; oneCOMMAND02200000.
+ABSTRACTCS changed08000002→08000402,busy0/cmderr4.
+No Flash-result DATA0 read; both passes empty,no .bin.
+Original DATA0/1zero restored/read back.
+FinalDMSTATUSc82,DMCONTROL1,data_restored/final_valid/pins_releasedtrue,
+target_state_uncertainfalse.
+Stickycmderr and activeDM retained, so complete debug-state rollback is not claimed.
+No RDP/options/Flash/CPU-register writes.
 
-Bu bir bağlantı veya timeout hatası değildir; hedef abstract komuta hata
-döndürdü. Belgelerdeki cmderr=4 hart durumu hatasıyla uyumludur. Running
-bağlamındaki bu komut **engelleniyor**; halted desteği ve RDP'nin ayrıca
-etkisi **bilinmiyor**. Sonuç, halted okumanın başarılı olacağını veya RDP
-bypass'ını kanıtlamaz. Host'un boş örnekler için ürettiği reference/stale
-kontrol hataları gerçek sıfır/stale Flash baytlarının gözlendiği anlamına gelmez.
+This is a target command error rather than transport/timeout.
+It agrees with the documented hart-state error.
+The running command was blocked; halted/RDP interaction was then unknown.
+Host reference/stale checks on empty samples do not mean actual zero/stale
+Flash data was returned.
 
-Normal ve ilk lab build/test kanıtları aşağıdadır. Son host arayüzü ayrıca
-`original-lab --allow-original-running-read` ile açık orijinal hedef iznini
-kaydeder; spare kimliği iddia etmez. Tel protokolündeki eski
-`lab-memory-running-spare` adı aynı running motorunu seçer. Bu ekleme sonrası
-28 Python testi geçti. Güncel kanıt/hash envanteri:
-[donanım sonuç manifesti](recovery/20261017-original-running-memory-01/evidence-manifest.json).
+The host additionally records original-lab --allow-original-running-read
+authorization, without pretending the target is a spare.
+Legacy wire name lab-memory-running-spare selects the same running engine.
+28Python tests passed after this interface addition.
+[Evidence manifest](recovery/20261017-original-running-memory-01/evidence-manifest.json).
 
-**Tek sonraki teknik doğrulama:** bilinen içerikli korumasız aynı model spare
-MCU üzerinde running/halted Access Memory karşılaştırması. Orijinal MCU'da
-halted karşılaştırmaya geçmek ayrı açık halt/resume izni ve güvenilir geri
-dönüşü doğrulanmış deney gerektirir; mevcut yüklemede halt/resume kapalıdır.
-Orijinal cihazda başka komut otomatik çalıştırılmadı.
+At that earlier stage the next proposed test was running/halted AccessMemory
+on a known-content unprotected same-model spare.
+Original halted work required separately authorized,verified restoration;
+the installed image then had halt disabled.
+Later experiments at the top supersede this historical boundary.
 
-## Gerçek kanıt ve önceki sonucun düzeltilmesi
+## Correcting the earlier readout interpretation
 
-`captures/dm-capabilities-1792233896.json` gerçek önceki capture'dır:
-SHA-256 `9dc61b7eebdbf04855b9c2996ba692a536497d34ee68224005392224dcfbb3e8`.
-8 kararlı örnek, chip `30310524`, DMCONTROL `00000001`, DMSTATUS `00000c82`,
-ABSTRACTCS `08000002`, ABSTRACTAUTO `00000000`, SBCS `00000000` ve başarılı
-pin bırakma kaydedilmiştir. Bu veriler standart SBA desteği göstermiyor;
-abstract Access Memory desteğini ölçmüyor. authenticated biti RDP'nin kapalı
-olduğunu göstermez.
+Physical captures/dm-capabilities-1792233896.json has SHA-256
+`9dc61b7eebdbf04855b9c2996ba692a536497d34ee68224005392224dcfbb3e8`.
+Eight stable samples show chip30310524,DMCONTROL1,DMSTATUSc82,
+ABSTRACTCS08000002,ABSTRACTAUTO0,SBCS0,pinsreleased.
+It advertises no standardSBA and says nothing conclusive about AccessMemory.
+Authenticated does not mean RDP is disabled.
 
-`captures/dmt99-20261017-031509-dump.json` içindeki `read_protection_enabled`
-sonucunun kökeni [eski okuyucu](main/rvswd_ro.c), `transfer_flash()` fonksiyonudur:
-OBR okumasından sonra `obr & 2` doğruysa **Flash okumasına başlamadan döner**.
-OBR `03fffefe`, RDPRT=1 ve `bytes=[0,0]` kaydı bu akışla uyumludur.
-İki `.bin.partial` dosyası sıfır uzunluktadır; bunlar sıfır dolu Flash verisi
-değil, **hiç Flash verisi alınmadığının** kanıtıdır. Önceki oturumda RDP'nin
-belirli bir Flash load komutunu reddettiği veya sıfır döndürdüğü kanıtlanmadı.
-Eski akışın x8–x11 ve Program Buffer kullanarak OBR okuması, Flash okuma başarısı
-olarak yorumlanmadı. Eski okuyucu normal/deneysel yeni görüntülere bağlanmıyor.
+The old read_protection_enabled result originates in
+[main/rvswd_ro.c](main/rvswd_ro.c),transfer_flash:
+after OBR,obr&2 returns **before reading Flash**.
+OBR03fffefe/RDPRT1/bytes[0,0] agree with that.
+Zero-length partial files show **no data acquired**, not zero-filled Flash.
+That old session did not establish rejection/zero-return of a particular
+Flash load. GPR/progbuf-assisted OBR access is not Flash-read success.
+The legacy reader is excluded from normal/new experimental linking.
 
-V2.4 referansı `./DMT-99_V2.4_20240306.bin`:
-135096 bayt, beklenen taban `08006400`, SHA-256
+Reference V2.4:
+`../../DMT-99_V2.4_20240306.bin`,135096bytes,base08006400,SHA-256
 `4befdf6b58e063f03901f190000d790e60d20d0a23e5eeb2b6f6840f1830e98e`.
-Bu dosya güncelleme uygulamasıdır; kayıp prefix veya orijinal MCU'nun tam yedeği değildir.
-Mevcut capture'lar ve analiz deposu değiştirilmedi; hash envanteri oturum JSON'larında.
+It is an update application, not prefix/full-original backup.
+Captures/analysis were unchanged during the investigation; session JSONs
+retain hash inventories.
 
-## Kaynaklardan çıkan erişim yolları
+## Candidate access paths reviewed
 
-| Yol | Kaynak ve somut sonuç | Bu turdaki karar |
+The table records the earlier research stage; later physical results are above.
+
+| Route | Source/finding | Decision then |
 |---|---|---|
-| Standart SBA | Gerçek SBCS=0; mevcut snapshot kodu SBA ilanı gerektiriyor | Bilinen tarama tekrarlanmadı; Flash için kullanılamayan mevcut yol |
-| Abstract Access Register, cmdtype=0 | GPR/CSR/FPR aktarır; tek başına genel bellek okuyucusu değildir | Mevcut register snapshot korunuyor; Flash yolu gibi sunulmadı |
-| Abstract Access Memory, cmdtype=2 | WCH belgesinde destek konusunda iç çelişki var; aşağıda ayrıntı | Orijinal running MCU'da ilk komut cmderr=4; halted/RDP ayrımı bilinmiyor |
-| Program Buffer | Mevcut eski okuyucu ve minichlink okuma yolu GPR değiştirir ve hedefte load/store talimatları yürütür | Orijinal MCU için ayrı müdahale onayı gerektirir; yürütülmedi |
-| Quick Access | Standarda göre geçici halt, Program Buffer yürütme ve resume yapar; WCH ayrıca desteklemediğini belirtiyor | Müdahalesiz yol değil; eklenmedi |
-| WCH-Link bellek komutu | İncelenen `wlink` uygulaması halted MCU gerektirdiğini belirtir | USB probe komutu, ESP32'ye doğrudan gönderilebilecek yeni bir DMI read değildir |
-| Bellek alias'ları | Sıfır adresindeki eşleme boot seçimine bağlıdır; ayrı okuma mekanizması veya belgelenmiş RDP istisnası değildir | Adres taraması yapılmadı |
-| ROM ISP | `wchisp` kodunda Code Flash için program/verify, ayrıca config ve ayrı EEPROM/Data Flash read ayrılıyor | EEPROM read komutunu Code Flash read gibi kullanmak için kanıt yok; ROM'a geçiş de boot değişikliği gerektiriyor |
-| Çalışan orijinal uygulama | Mevcut analizde sabit/ayar okuması ve USART2 TX var; genel Flash export komutu gösterilmemiş | CPU'nun kendi verisini okuması debugger readout yetkisi kanıtı değil; ASIC/USART komutu gönderilmedi |
+| StandardSBA | ActualSBCS0; snapshot code requires advertisement | No repeated capability scan; unavailable current route |
+| AccessRegister,type0 | GPR/CSR/FPR transfers,not generic memory read | Existing snapshots retained |
+| AccessMemory,type2 | WCH documentation internally inconsistent | Running attemptcmderr4; halted/RDP then unknown |
+| ProgramBuffer | Legacy/minichlink paths modifyGPR and execute load/store | Required separate authorization; not yet run at that stage |
+| QuickAccess | Temporary halt/progbuf/resume; WCH says unsupported | Not nonintrusive; not added |
+| WCH-Link memory command | wlink requires haltedMCU | ProbeAPI,not a new directly transferable ESP32DMI read |
+| Memoryaliases | Boot-dependent mapping,not an independentRDP exemption | No address sweep |
+| ROMISP | wchisp distinguishes CodeFlash program/verify from config/EEPROM reads | No proof EEPROMread can read CodeFlash; boot change needed |
+| Runningoriginalapp | Constants/settings reads and USART2TX exist,but no general exporter | CPUdata access is not debugger permission; no ASIC/UART commands sent |
 
-Program Buffer değerlendirmesi [minichlink `DefaultReadWord`](https://github.com/cnlohr/ch32fun/blob/master/minichlink/minichlink.c)
-ve yerel eski okuyucunun ayrı incelenmesine dayanır. Hazır minichlink başlatma
-akışı çalıştırılmadı; otomatik setup/unlock gibi yan etkiler taşınmadı.
-[wlink `read_memory`](https://github.com/ch32-rs/wlink/blob/main/src/operations.rs)
-bir WCH-Link probe API'sidir; protokolün başarılı olması korunan Flash'tan doğru
-bayt döndüğü anlamına gelmez.
-[wchisp komutları](https://github.com/ch32-rs/wchisp/blob/main/src/protocol.rs)
-ve [EEPROM okuma uygulaması](https://github.com/ch32-rs/wchisp/blob/main/src/flashing.rs)
-incelendi. Verify, verilen veriyle karşılaştırma yapar; bilinmeyen Flash verisini
-döndüren genel bir readout arayüzü olarak değerlendirilmedi. Belgelenmemiş ISP
-komutu veya karşılaştırma üzerinden tahmin taraması yapılmadı.
+Sources:
+[minichlink DefaultReadWord](https://github.com/cnlohr/ch32fun/blob/master/minichlink/minichlink.c),
+[wlink read_memory](https://github.com/ch32-rs/wlink/blob/main/src/operations.rs),
+[wchisp protocol](https://github.com/ch32-rs/wchisp/blob/main/src/protocol.rs),
+[EEPROM code](https://github.com/ch32-rs/wchisp/blob/main/src/flashing.rs).
+No minichlink setup/unlock flow was executed/imported.
+Probe-protocol success does not prove correct protected Flash bytes.
+Verify compares supplied data; it is not general readout.
+No undocumentedISP command or comparison-based guessing sweep was performed.
 
-WCH SDK'nın yerel `ch32v30x_flash.c:FLASH_GetReadOutProtectionStatus()` fonksiyonu
-OBR bitini okur; bir Flash export servisi sağlamaz.
-[WCH Flash başvuru el kitabı](https://www.wch-ic.com/downloads/CH32FV2x_V3xRM_PDF.html),
-yerel `references/wch-dump-feasibility/CH32FV2x_V3xRM_EN.PDF` v2.5,
-§32.2.2/§32.4/§32.5.1/§32.6.4 incelendi: normal bellek okuması ile RDP ve
-unprotect ayrı konulardır; RDP kaldırma otomatik silme başlatır. Bu belge,
-her debug komutu ve yürütme bağlamı için ayrı bir izin matrisi sunmuyor.
-Bu nedenle exception/bus error doğrudan “RDP reddi” olarak etiketlenmiyor.
+WCH FLASH_GetReadOutProtectionStatus readsOBR,not Flash export.
+[Reference manual](https://www.wch-ic.com/downloads/CH32FV2x_V3xRM_PDF.html),
+localv2.5 at references/wch-dump-feasibility/:
+§§32.2.2/32.4/32.5.1/32.6.4 distinguish normal reads,RDP and destructive unprotect.
+It does not give every debug-command/execution-context permission.
+Generic exceptions/bus errors therefore are not labeled dedicatedRDP denial.
 
-Yerel üretici uygulaması, SPI'dan daha önce çıkarılmış 135036 baytlık uygulama
-ve analiz raporları da incelendi. SPI içindeki aday uygulama `0x6400` tabanlıdır;
-ilk 25 KiB'yi sağlamaz. x86 PE kalıntıları MCU bootloader'ı değildir.
-[FNIRSI indirme sayfası](https://www.fnirsi.com/pages/manuals-firmwares) ve
-[ürün sayfası](https://www.fnirsi.com/products/dmt-99) kontrol edildi; erişilen
-sayfa içeriğinden doğrulanabilir tam MCU/boot-prefix paketi elde edilmedi.
-Bu, üreticinin hiçbir yerde böyle bir dosyası bulunmadığı iddiası değildir.
+The local originalBIN,135036-byte SPI-extracted candidate and prior reports
+were reviewed. The SPI candidate starts at0x6400 and supplies no prefix;
+x86PE residue is not MCUbootloader.
+[FNIRSI downloads](https://www.fnirsi.com/pages/manuals-firmwares) and
+[product page](https://www.fnirsi.com/products/dmt-99) yielded no verifiable
+full-MCU/prefix package in accessible content.
+This does not claim no such file exists anywhere.
 
-## Access Memory ve halted-hart şartı
+## AccessMemory and halted-state requirements
 
-[RISC-V Debug 0.13.2, §3.6.1.3](https://riscv.org/wp-content/uploads/2019/03/riscv-debug-release.pdf#page=24)
-Access Memory'yi isteğe bağlı tanımlar. Uygulama running veya halted erişimi
-destekleyebilir; running destekleniyorsa halted erişim de desteklenmelidir.
-**Standart bütün MCU'lar için halted olmayı zorunlu tutmaz.** DXLEN=32 için
-adres DATA1, okunan word DATA0'dadır. Kullanılan `02200000` komutunda cmdtype=2,
-32-bit fiziksel read seçilir; write, postincrement, target-specific alanları sıfırdır.
+[RISC-V Debug0.13.2§3.6.1.3](https://riscv.org/wp-content/uploads/2019/03/riscv-debug-release.pdf#page=24)
+makes AccessMemory optional.
+Implementations may support halted/running access; running support implies
+halted support. **The standard does not universally require halt.**
+For DXLEN32,address isDATA1,read wordDATA0.
+COMMAND02200000 selects type2,32-bit physical read,write/postincrement/
+target-specific fields0.
 
-[WCH QingKe V4 v1.3 §7.1](https://atta.szlcsc.com/upload/public/pdf/source/20250114/61FF18B592E95E2E16D9BB34F2D10746.pdf?Expires=4070880000&OSSAccessKeyId=LTAIJDIkh7KmGS1H&Signature=d0xdk0j%2BxUn6j6Qz14ldAahJFPw%3D&response-content-disposition=attachment%3Bfilename%3DC5456849_%25E5%258D%2595%25E7%2589%2587%25E6%259C%25BA%2528MCU-MPU-SOC%2529_CH32V303RCT6_%25E8%25A7%2584%25E6%25A0%25BC%25E4%25B9%25A6_WJ1573486.PDF)
-(üretici belgesinin dağıtıcı kopyası; [resmî belge kaydı](https://www.wch.cn/downloads/QingKeV4_Processor_Manual_PDF.html))
-özetinde Access Register ve Access Memory desteği anlatılıyor. Tablo 7-8 ise
-type 2 için “Access to memory (not supported)” diyor; tablo 7-9 type 2 alanlarını
-ayrıntılı veriyor. Destek **bu silikon revizyonunda ölçülmeden kesinleştirilemez**.
-WCH tablo 7-7'de cmderr=4 için suspended olmayan/unavailable işlemci durumu
-veriliyor; bu hata tanımı bütün bellek okumalarının halt gerektirdiğini tek
-başına ispatlamaz. Tablo 7-9 ayrıca bit18 postexec tanımlar; deney bunu sıfır tutar.
+[Official QingKeV4 manual record](https://www.wch.cn/downloads/QingKeV4_Processor_Manual_PDF.html)
+and its reviewed manufacturer-authored distributor copy,v1.3§7.1,
+describe AccessRegister/AccessMemory in the overview.
+Table7-8 marks type2 unsupported,while7-9 details type2 fields.
+Support **cannot be settled without measuring this silicon revision**.
+Table7-7cmderr4 denotes a non-suspended/unavailable hart; that alone does
+not prove every memory read requires halt.
+Table7-9postexecbit18 remains0 in the experiment.
 
-İlk `lab-memory` yolundaki halted şartı bu belirsizlik karşısında **uygulama
-güvenlik tercihidir**, doğrulanmış CH32V303 donanım zorunluluğu değildir.
-Bunu sınamak için ayrı `lab-memory-running-spare` yolu eklendi. Başlangıçta
-korumasız test MCU'su için hazırlandı; sonradan ayrı açık kullanıcı izniyle
-orijinal cihazda bir kez denendi ve cmderr=4 alındı. İki yol da mevcut hart
-durumunu değiştirmeden işlem yapmayı dener;
-uygunsuz durumda otomatik halt/resume, retry veya başka komuta fallback yoktur.
+The first lab-memory halted requirement was an **implementation safety choice**,
+not a proven CH32V303 requirement.
+A separate lab-memory-running-spare path tested the distinction, initially
+for an unprotected spare, later once on the authorized original withcmderr4.
+Both use the selected existing hart state; neither implicitly halts/resumes,
+retries or falls back to another command.
 
-## Tamamlanan implementasyon
+## Implemented bounded experiment
 
-[main/rvswd_memory_lab.c](main/rvswd_memory_lab.c), mevcut transportu kullanır.
-`CONFIG_DIAG_ABSTRACT_MEMORY_LAB` varsayılan kapalıdır ve activation/halt build
-izinlerinden bağımsızdır. Normal build, explicit token gelse bile lab erişimini
-politika nedeniyle reddeder. İlk lab build'inde activation ve halt/resume kapalıdır;
-son yüklenen active-lab build'inde yalnız activation izni ayrıca açılmıştır.
+[main/rvswd_memory_lab.c](main/rvswd_memory_lab.c) reuses transport.
+CONFIG_DIAG_ABSTRACT_MEMORY_LAB defaults off independently of activation/halt.
+Default firmware rejects lab access even with a token.
+The first lab image had activation/halt disabled; active-lab separately enabled activation.
 
-- Sabit sıra: `08006400–0800640f` uygulama örneği, `08000000–0800000f` prefix
-  örneği; iki bağımsız tam okuma turu. En fazla 16 abstract komut.
-- Stabil preflight, active DM, authentication, seçilmiş mevcut hart durumu,
-  ABSTRACTAUTO=0, idle/no-error ABSTRACTCS ve iki DATA register kontrol edilir.
-- Her word için DATA1 adres yazması/readback, yalnız COMMAND=`02200000`,
-  bounded busy poll, DATA0 okuması uygulanır. Bu yazmalar debug modülünedir;
-  hedef Flash/SRAM/MMIO/CPU register yazması veya Program Buffer yürütmesi yoktur.
-- DATA0/DATA1 başlangıçta saklanır. Sağlıklı bağlantı, aynı hart durumu, kapalı
-  autoexec ve idle koşulları varsa geri yazılıp okunarak doğrulanır. Sticky cmderr
-  temizlenmez; COMMAND yazmaç geçmişi geri yüklenemez. Tam DM rollback iddiası yoktur.
-- Frame timeout 100 ms, abstract poll 200 ms. Poll içindeki son frame nedeniyle
-  duvar süresi polling bütçesini bir frame kadar aşabilir. İşlem sayısı sabittir;
-  UART yanıtları pinler bırakıldıktan sonra yazılır. Host cevap sınırı 45 saniyedir.
-- Bağlantı bozulduğunda kör cleanup write yapılmaz. Busy/state değişikliği,
-  readback veya cleanup hatasında ham durum, tamamlanan word sayısı ve belirsizlik
-  saklanır. Tüm geçerli çağrı çıkışlarında pin bırakma denenir.
-- Alias, option byte, settings, kalibrasyon, ROM veya genişletilmiş Flash aralıkları
-  bu deneyin adres listesinde yoktur. `08040000` ayrıca doğrulanmadan 256 KiB
-  dump varsayımına eklenmez; datasheet'teki 480 KiB toplam ve zero-wait bölünmesi
-  gerçek cihaz konfigürasyonu ile ayrı teyit edilmelidir.
+- Fixed application08006400–0800640f then prefix08000000–0800000f,
+  two complete passes,at most16abstract commands.
+- Stable preflight,active/authenticatedDM,selected existing hart state,
+  ABSTRACTAUTO0,idle/no-errorABSTRACTCS and twoDATAregisters required.
+- Perword:DATA1addresswrite/readback,COMMAND02200000,boundedbusy,DATA0read.
+  These are debug-register writes,not targetFlash/SRAM/MMIO/CPU stores or progbuf execution.
+- DATA0/1 saved/restored/read back only with reliable connection,unchanged
+  state,autoexecoff/idle. Stickyerrors retained; command history cannot be
+  restored,so completeDMrollback is not claimed.
+- Frame100ms,abstractpoll200ms; final in-flight frame may exceed poll budget.
+  Fixed operation count; UART response after pins release.
+  Host response deadline45s.
+- No blind cleanup writes after connection loss.
+  Busy/state/readback/cleanup failures retain raw status,word count and
+  uncertainty. Pin release is attempted on every valid invocation exit.
+- No aliases/options/settings/calibration/ROM/extended ranges in this
+  original AccessMemory allowlist. 08040000 is not silently appended to a
+  presumed256KiB dump;480KiB/zero-wait partitioning needs device confirmation.
 
-Ham `cmderr` her zaman korunur: 2 desteklenmeyen komut, 4 hart durumu, 3 exception,
-5 bus error; son iki hata RDP sebebini kanıtlamaz. Transport parity/no-response
-ve timeout ayrı sonuçlardır. `result=ok` yalnız deney transferinin tamamlanmasıdır;
-firmware `recovery_verified:false` döndürür.
+Rawcmderr retained:2unsupported,4hartstate,3exception,5buserror.
+The latter two do not establishRDP causality.
+Transport/timeouts remain separate.
+resultok means transfer completed; recovery_verified remainsfalse.
 
-[tools/recovery.py](tools/recovery.py) tek host denetleyicisidir:
+[tools/recovery.py](tools/recovery.py) is the host controller:
 
-- `audit`: mevcut dosyaların hash envanteri ve teknik kararlar; seri porta dokunmaz.
-- `connect`: modem hatlarını önceden pasif ayarlayarak bounded `hello`, firmware/
-  pin/interlock kontrolü; bilinen capability taramasını tekrarlamaz ve orijinal
-  hedef üzerinde lab komutu göndermez.
-- `spare-lab`: açık spare doğrulaması, mevcut `--hart-state`, taze ölçülmüş rail,
-  wiring ve bilinen prefix test verisi gerektirir. Seçilen tek deneyi gönderir.
-  Bütün response/trace yeni oturum JSON'una yazılır; otomatik tekrar yoktur.
-- Dönen word adres/sıra/sınırları, iki pass, uygulama referansı, ayrı 16 bayt
-  prefix canary, constant/stale ve alias benzerliği kontrol edilir. Alınabilen
-  ham parçalar ayrı `.unverified.bin` dosyaları, adres/uzunluk/pass/SHA-256 ile
-  kaydedilir. Başarılı spare kontrolü bile orijinal DMT99 kurtarması sayılmaz.
+- audit: hashes/decisions only,no serial access.
+- connect: passive modem lines,boundedhello,firmware/pin/interlock checks;
+  no repeated capability scan or original-target lab command.
+- spare-lab: explicit unprotected-spare confirmation,currenthartstate,
+  freshvoltage,wiring and known16-byteprefix required; sends exactly one
+  selected experiment and stores complete response/trace in a new session.
+- Checks cover returned addresses/order/bounds,two passes,application
+  reference,prefixcanary,constant/stale and alias similarities.
+  Partial raw output is .unverified.bin with addresses/lengths/pass/hashes.
+  Even passing a spare does not establish original-DMT99 recovery.
 
-Sabit/repetitif bir gerçek prefix mümkün olabilir; bu kontrol laboratuvarın
-pozitif kontrol desenini reddeder, cihazdaki gerçek verinin imkânsızlığını iddia
-etmez. Aynı hash tek başına gerçek kaynak veya adres doğruluğunu kanıtlamaz.
+Real prefixes can be repetitive; the constant-data check rejects unsuitable
+lab positive controls rather than proving such original content impossible.
+Equal hashes alone do not authenticate source or address.
 
-## Önceki offline doğrulama ve ilk bağlantı aşaması
+## Earlier offline validation and first connection
 
-Offline C transport, normal diagnostic ve lab diagnostic testleri geçti.
-Lab testi hem halted hem running sentetik peer ile her başarılı DMI-read
-konumunda parity ve her GPIO write konumunda bağlantı arızası enjekte eder.
-cmderr 1–7, busy timeout, autoexec, yanlış hart durumu, değişen hart durumu,
-repeat mismatch, inactive DM, eksik DATA register, başlangıç sticky error,
-voltaj/wiring/build/runtime gate ve pin-release hataları kapsanır.
+C transport/default/lab diagnostics passed.
+Synthetic running/halted peers inject parity at each successfulDMIread and
+connection failure at eachGPIOwrite.
+Coverage includescmderr1–7,busytimeout,autoexec,wrong/changinghart,
+repeatmismatch,inactiveDM,missingDATA,initialstickyerror,voltage/wiring/
+build/runtime gates and pin-release failures.
 
-**26 Python testi geçti.** Host testsiz “başarılı” sayılmadı: seri peer ile
-iki ayrı lab profili, yalnız hello yolu, tam raw dosya/hash/adres üretimi,
-referans/prefix uyuşmazlığı, eksik ve stale veri, bozuk adres/word sınırı,
-uyumsuz firmware, eksik izin ve no-retry doğrulanır.
-Clang AddressSanitizer + UndefinedBehaviorSanitizer ile C ve host paketleri
-de geçti (`ASAN_OPTIONS=detect_leaks=0`). Bunların tümü offline/sentetiktir.
+**26Python tests passed** with actual host/serial-peer tests of both profiles,
+hello-only access,raw/hash/address outputs,reference/prefix mismatches,
+missing/stale data,invalidaddress/word bounds,incompatiblefirmware,
+missingpermissions and no-retry.
+ClangASan/UBSan C/host suites also passed,leakcheckingoff underptrace.
+All these are offline/synthetic.
 
-ESP-IDF 5.5.5 / klasik ESP32 ile iki build tamamlandı; `esptool image_info`
-ikisi için checksum ve validation hash doğruladı:
+ESP-IDF5.5.5/classicESP32 built default and lab images; esptool image_info
+verified checksums/validation hashes.
+[Manifest](recovery/20261017-validation/manifest.json),
+[tests](recovery/20261017-validation/tests-final.log),
+[sanitizers](recovery/20261017-validation/sanitize.log),
+[host](recovery/20261017-validation/host-final.log).
+Manifest retains source/ELF/BIN/config/capture hashes.
 
-Kalıcı [doğrulama manifesti](recovery/20261017-validation/manifest.json),
-[C/host test kaydı](recovery/20261017-validation/tests-final.log),
-[ASan/UBSan kaydı](recovery/20261017-validation/sanitize.log) ve
-[son host test kaydı](recovery/20261017-validation/host-final.log) saklandı.
-Manifest source/ELF/BIN/config hash'lerini ve eski capture hash karşılaştırmasını içerir.
-
-| Build | İzinler | BIN boyutu | SHA-256 |
+| Build | Gates | BIN bytes | SHA-256 |
 |---|---|---:|---|
-| `build-recovery-default` | lab/activation/halt kapalı | 178048 | `14c1745a3099f7a8673dacd6a975bcf6843aa744ee706f6697a2633d28bdac84` |
-| `build-recovery-lab` | yalnız lab açık | 179968 | `8e06d06f7a5368e62169ca63214fee76407378f8e8327de53bd755aa308cadc2` |
+| build-recovery-default | lab/activation/halt off | 178048 | `14c1745a3099f7a8673dacd6a975bcf6843aa744ee706f6697a2633d28bdac84` |
+| build-recovery-lab | lab only | 179968 | `8e06d06f7a5368e62169ca63214fee76407378f8e8327de53bd755aa308cadc2` |
 
-İlk seri bağlantı sandbox içinde `ENOENT` ile başarısız oldu:
-[ilk oturum](recovery/20261017-session-01/session.json).
-`/sys/class/tty/ttyUSB0` ve CP2102 `10c4:ea60` mevcutken sandbox'ın `/dev`
-mount'u ayrı tmpfs'tir. İzinli ana ortam kontrolünde `/dev/ttyUSB0` character
-device `188:0`, izin `0666` olarak bulundu. Dolayısıyla arıza sürücü/RDP veya
-fiziksel USB yokluğu değil, **sandbox cihaz görünürlüğüdür**.
+The [first sandbox serial attempt](recovery/20261017-session-01/session.json)
+failedENOENT. sysfs/CP2102(10c4:ea60) existed,but sandbox/dev was a differenttmpfs.
+Authorized host inspection found ttyUSB0 character188:0,mode0666.
+This was **sandbox device visibility**,not a demonstrated driver/RDP/physicalUSB failure.
 
-Ana ortamdan [pasif gerçek adaptör oturumu](recovery/20261017-host-session-01/session.json)
-başarılı: protocol 3, GPIO25/26, initialized/board_verified=true,
-dm_activation_enabled=true, halt_resume_enabled=false. Yüklü görüntü eski
-diagnostic sürümdür; yeni lab alanları yoktur. Yalnız `hello` gönderildi;
-**yeni DMI veya bellek deneyi yürütülmedi**. DMT99 RDP'si, Flash'ı, çalışma
-durumu ve mevcut capture dosyaları değiştirilmedi.
+The [passive actual adapter session](recovery/20261017-host-session-01/session.json)
+then succeeded:protocol3,GPIO25/26,initialized/verifiedtrue,activationtrue,
+haltfalse. The installed image was older diagnostics without lab fields.
+Only hello was sent; **no new DMI/memory experiment**.
+TargetRDP/Flash/state and captures remained unchanged at that stage.
 
-## İlk önerilen spare deneyi (orijinal cihaz deneyi öncesi)
+## Initial spare experiment proposal — historical
 
-**Orijinal DMT99 yerine, bilinen test baytları içeren korumasız aynı model
-CH32V303 üzerinde Access Memory'yi doğrulamak.** Önce DMT99 SWCLK/SWDIO
-hatları adaptörden fiziksel olarak ayrılmalı; yalnız bundan sonra deneysel
-ESP32 görüntüsü yüklenebilir. Otomatik adaptör yüklemesi yapılmadı.
-Bu aşama için hazır spare/test deseni yoksa donanım önkoşulu eksiktir;
-mevcut orijinali test MCU'su yerine kullanmak onaylanmış sayılmaz.
+Before original-device experiments,the proposal was a known-content,
+unprotected same-modelCH32V303 rather than the working original.
+DMT99 signals must be disconnected before installing experimental adapter
+firmware. No automatic upload was part of the proposal.
+Without an actualspare/canary,that prerequisite was missing; it did not
+authorize substituting the original device.
 
-Spare'de ilk aday zaten **running** durumu test eder. Başarılı byte kontrolleri
-ve değişmeyen DMSTATUS/DMCONTROL ile beraber destek değerlendirilebilir.
-`cmderr=4` gelirse durulur; otomatik halt edilmez. Halted karşılaştırma ayrı
-hazırlanmış spare oturumudur. RDP açık orijinalde başarı ayrıca kanıtlanmalıdır;
-spare başarısı bunu garanti etmez.
+The first spare candidate tests already-running access.
+cmderr4 stops without implicit halt.
+Halted comparison is a separate prepared session.
+Protected-original success remains independent of spare success.
 
-Aşağıdaki komutlar laboratuvar adımının incelemeye hazır arayüzüdür; bu oturumda
-çalıştırılmadı. `SPARE_MV` gerçek taze ölçüm, prefix dosyası spare'deki bilinen
-16 bayttır; uygulama referansının ilk 16 baytı `08006400`'daki gerçek spare
-verisiyle eşleşmelidir. Bunlar MCU'ya test verisi programlayan komutlar değildir.
+The following reviewable interface was not executed in that initial stage.
+SPARE_MV must be measured; the prefixfile is the spare's known16bytes and
+the application reference's first16bytes must match08006400.
+These commands do not program test data into a MCU:
 
 ```sh
 python3 tools/recovery.py spare-lab --port /dev/ttyUSB0 \
@@ -433,10 +417,9 @@ python3 tools/recovery.py spare-lab --port /dev/ttyUSB0 \
   --prefix-reference /path/to/known-spare-prefix-16.bin
 ```
 
-Son orijinal deney bu ilk planı ilerletmiştir: type 2 running bağlamında
-cmderr=4 döndürdü. Halted/RDP ayrımı hâlâ ölçülmedi; normal firmware'de
-bu deneysel erişim yoktur.
-Program Buffer, halt, reset, CPU register yazma veya hedef kod yürütme gerektiren
-orijinal cihaz deneyi için ayrı açık onay hâlâ gereklidir. Böyle bir işlem bu
-çalışmada yapılmadı. Gerçek prefix baytları olmadan bootloader disassembly veya
-tam kurtarma hash'i üretilmedi.
+The later original experiments advanced beyond this plan:
+type2running returnedcmderr4,halted/progbuf/alias reads failed as documented above.
+Earlier statements that halt/progbuf had not been authorized or executed
+describe their historical stage,not the final result.
+Normal firmware exposes no experimental access.
+No real prefix disassembly or complete-recovery hash was fabricated.

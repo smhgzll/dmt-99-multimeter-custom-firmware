@@ -1,17 +1,17 @@
-# DOOM 0.3.0 — gerçek BIN ekranları
+# DOOM0.3.0 — actual BIN screenshots
 
-Bu görüntüler mevcut DMT99 emülatöründe çalışan gerçek RV32 BIN'in panel
-framebuffer'ından kaydedildi. Donanım deneyi değildir.
+These images were saved from the panel framebuffer of the actual RV32 BIN
+running in the DMT99 emulator, not physical hardware.
 
-![Silah menüsü](shotgun.png)
-![Yürüme/saldırı](enemy-motion.gif)
-![Ölüm animasyonu](enemy-death.gif)
+![Weapon menu](shotgun.png)
+![Walking/attacking](enemy-motion.gif)
+![Death animation](enemy-death.gif)
 
-`enemy-*`, `corpse-*` ve duvar sahneleri, kontrollü SRAM actor fixture'larıdır;
-üretim kodunda test API'si yoktur. Görüş/takip/saldırı/ölüm ve duvar engelleri
-asıl CPU koduyla çalıştırılır. Bu fixture kareleri native piksel-eşitliği
-iddiasına katılmadı. Normal GPIO/clock senaryolarının 40 karesi native C ile eşit.
+enemy-*, corpse-* and wall scenes use controlled SRAM actor fixtures;
+production code exposes no test API. Original CPU instructions execute
+sight/chase/attack/death/wall behavior. These frames are excluded from native
+pixel-equality counts;40 normal GPIO/clock frames matched native C.
 
-GIF'ler PNG karelerinin önizlemesidir; oynatma hızı fiziksel FPS ölçümü değildir.
-Kayıpsız PNG hash'leri [screenshots.json](screenshots.json) içinde. Ayrıntılı
-CPU sonuçları [emülatör raporunda](../../validation/v0.3.0/emulator_results.json).
+GIFs preview PNG sequences; playback speed is not measured hardware FPS.
+Lossless PNG hashes: [screenshots.json](screenshots.json).
+[Detailed emulator results](../../validation/v0.3.0/emulator_results.json).

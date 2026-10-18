@@ -1,68 +1,67 @@
-# Bağımsızlık, kullanım sınırları ve sorumluluk
+# Independence, usage limits and liability
 
-Bu proje FNIRSI ile bağlantılı değildir; FNIRSI tarafından hazırlanmış,
-onaylanmış, sertifikalandırılmış veya desteklenen bir firmware/araç değildir.
-Ürün ve marka adları yalnız incelenen cihazı ve kaynakları tanımlamak içindir.
-FNIRSI, WCH, Espressif ve id Software dâhil hak sahiplerinin hakları saklıdır.
+This project is not affiliated with FNIRSI and is not firmware or tooling
+prepared, endorsed, certified or supported by FNIRSI. Product and trademark
+names identify the examined device and reference sources only.
+The rights of FNIRSI, WCH, Espressif, id Software and other owners are reserved.
 
-## Garanti ve sorumluluk
+## Warranty and liability
 
-Kaynak, doküman, BIN, tema ve araçlar deneysel olarak, **olduğu gibi** sunulur.
-Uygulanabilir hukukun izin verdiği ölçüde; çalışabilirlik, belirli amaca
-uygunluk, ölçüm doğruluğu, veri bütünlüğü veya ihlâlsizlik garantisi verilmez.
-Yazarlar/katkıcılar; cihazın çalışmaz hâle gelmesi, bootloader/kalibrasyon/ayar
-ve veri kaybı, hatalı ölçüm, maddi zarar, iş kaybı veya kullanım sonucu oluşan
-doğrudan/dolaylı zararlardan sorumluluk kabul etmez. Kullanma/değiştirme/yükleme
-kararı ve gerekli yedekleme kullanıcıya aittir.
+The source, documents, BINs, themes and tools are experimental and supplied
+**as is**. To the extent permitted by applicable law, no warranty is given
+for operation, fitness for a particular purpose, measurement accuracy, data
+integrity or non-infringement. Authors and contributors accept no liability
+for device failure, loss of bootloader/calibration/settings/data, incorrect
+measurements, property damage, business losses or direct/indirect damage
+resulting from use. The decision to use, modify or install these materials
+and the responsibility for backups belong to the user.
 
-Bu ifade kanunen kaldırılamayan hakları veya sorumlulukları ortadan
-kaldırdığı iddiası taşımaz. Üçüncü tarafların kendi lisanslarındaki garanti
-hükümleri ayrıca geçerlidir. Bu doküman hukukî görüş değildir.
+This notice does not claim to exclude rights or liabilities that cannot be
+excluded by law. Third-party licenses have their own warranty provisions.
+This document is not legal advice.
 
-## Elektriksel ve cihaz riskleri
+## Electrical and device risks
 
-- Özel firmware, cihazın üretici güvenlik sınıfını veya kalibrasyonunu
-  yeniden onaylamaz. Güvenlik/kritik/şebeke ölçümlerinde kullanılmamalıdır.
-- Logic analyzer, USB-UART ve ESP32 GND bağlantısı bilgisayarın toprağını
-  ölçüm devresine bağlayabilir. Açık cihaz/debug kablosuyla enerjili veya
-  şebekeye bağlı bir devrede ölçüm yapmayın; probları ayırın.
-- Hedef pinlere 5 V veya ESP32 besleme çıkışı bağlamayın. Analyzer pasif giriş
-  olarak kullanılır, VCC'si bağlanmaz. RVSWD için kart raporundaki gerilim,
-  açık drenaj ve pull-up koşulları geçerlidir.
-- Yanlış imaj/adres, güç kesintisi, yanlış Flash geometrisi veya FAT yazması
-  kaynakları/ayarları/bootloader'ı bozabilir. Emulator testi bunu engellemez.
-- RDP kaldırma, korunmuş Flash'ın mass erase ile silinmesine yol açabilir.
-  Elimizde özgün ilk 25 KiB'ın yedeği bulunmadığından bu işlem geri
-  döndürülebilir bir güncelleme yöntemi değildir.
-- Bu depodaki geçmiş lab komutları güvenli kullanım için genel bir onay veya
-  tekrarlama önerisi değildir. Default RVSWD build'i deney kapılarını kapalı tutar.
+- Custom firmware does not recertify the manufacturer's safety rating or
+  calibration. Do not use it for safety-related, critical or mains measurements.
+- Logic analyzer, USB-UART and ESP32 GND connections can connect computer
+  ground to the measurement circuit. Do not measure energized or mains
+  circuits with the device open or debug wiring attached; disconnect probes.
+- Do not connect 5 V or ESP32 power outputs to target pins. The analyzer is
+  passive input only, with VCC disconnected. RVSWD voltage, open-drain and
+  pull-up requirements are specified in the board report.
+- Wrong images/addresses, interrupted power, incorrect Flash geometry or FAT
+  writes can damage resources/settings/bootloader. Emulator tests cannot prevent this.
+- Removing RDP can mass-erase protected Flash. No backup of the original
+  first 25 KiB is available, so this is not a reversible update route.
+- Historical lab commands are not blanket authorization or recommendations
+  to repeat experiments. The default RVSWD build leaves experimental gates closed.
 
-## Araştırma ve yeniden dağıtım
+## Research and redistribution
 
-Yalnız sahibi olduğunuz veya açıkça yetkili olduğunuz cihaz/veriler üzerinde
-çalışın. Tersine mühendislik, koruma mekanizmaları, telif ve yeniden dağıtım
-kuralları yargı alanına ve sözleşmelere göre değişebilir; bu depo genel bir
-izin oluşturmaz. Kalibrasyon/sahiplik/kimlik verilerini halka açık paylaşmayın.
+Work only on devices/data you own or are explicitly authorized to examine.
+Reverse engineering, protection mechanisms, copyright and redistribution
+rules vary by jurisdiction and contract; this repository grants no blanket
+permission. Do not publish calibration, ownership or identity data.
 
-Özgün firmware, Flash'tan çıkarılmış JPEG/font, dekompilasyon, oyun verisi ve
-patentli/telifli bileşenlere ilişkin haklar açık kaynak kod lisansından
-ayrıdır. Dosyanın bu çalışma alanında bulunması onu serbestçe yeniden
-lisanslama veya dağıtma hakkı vermez. [Lisans kapsamı](../LICENSE.md) ve
-[üçüncü taraf bildirimleri](../THIRD_PARTY_NOTICES.md) esas alınmalıdır.
+Rights in original firmware, extracted JPEGs/fonts, decompilation, game data
+and patented/copyrighted components are separate from open-source code
+licenses. Presence in this workspace is not permission to relicense or
+redistribute those materials freely.
+Consult [license scope](../LICENSE.md) and [third-party notices](../THIRD_PARTY_NOTICES.md).
 
-DOOM uyarlama kodu AGPL-3.0-or-later kapsamındadır. Dağıtım ve gerekiyorsa
-ağ üzerinden kullanım için karşılık kaynak yükümlülükleri
-[GNU AGPL metninde](https://www.gnu.org/licenses/agpl-3.0.en.html) açıklanır.
-Bu kod lisansı id Software WAD/harita/doku/sprite verilerine izin sağlamaz.
+DOOM adaptation code is AGPL-3.0-or-later. Applicable Corresponding Source
+obligations for distribution and, where relevant, network use are described
+in [GNU AGPL](https://www.gnu.org/licenses/agpl-3.0.en.html).
+This code license grants no rights to id Software WAD/maps/textures/sprites.
 
-Varsayılan `.gitignore`; üretici imajı, ham Flash dump, tam oturumlar, DOOM
-verisi ve binary/debug çıktıları Git dışında tutar. Yerel dosyalar silinmez.
-Bu filtre tek başına tüm hukukî veya kişisel veri denetiminin yerine geçmez.
+The default `.gitignore` excludes manufacturer images, raw Flash dumps,
+complete sessions, DOOM data and binary/debug outputs. Local files are retained.
+This filter is not a substitute for a full legal or personal-data review.
 
-## Kanıtların sınırı
+## Evidence limits
 
-Fiziksel UART kayıtları ve RVSWD teşhis oturumları vardır. Bunlar özel
-firmware'in bütün sürümlerinin fiziksel doğrulaması değildir. BIN'in doğru
-adrese linklenmesi updater'ın erase davranışını kanıtlamaz. VM'de bir başarılı
-kopyalama evrensel kurtarma garantisi değildir. RDP bypass/Flash recovery
-başarısı rapor edilmemektedir.
+Physical UART captures and RVSWD diagnostic sessions exist. They do not
+validate every custom firmware release on hardware. A correctly linked BIN
+does not prove updater erase behavior. A successful VM copy is not a universal
+recovery guarantee. No successful RDP bypass or original Flash recovery is claimed.

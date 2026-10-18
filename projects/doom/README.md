@@ -1,156 +1,164 @@
 # POTAT-99 DOOM 0.4.0
 
-DMT99 / CH32V303RCT6 için küçük E1M1 oyunu. Birleşik depoda kaynaklar
-`projects/doom/`, yayınlar `artifacts/firmware/doom/` içindedir. Önceki bağımsız
-çalışmanın test raporları korunur. [Birleşik derleme](../../docs/BUILDING.md),
-[Windows yükleme ve geri dönüş](../../docs/UPDATING.md),
-[riskler](../../docs/LEGAL_AND_SAFETY.md) güncel kullanım rehberidir.
+A small E1M1 game for DMT99 / CH32V303RCT6. In the consolidated repository,
+sources are under `projects/doom/` and releases under `artifacts/firmware/doom/`.
+Reports from the earlier standalone project are preserved.
+Current guides: [build](../../docs/BUILDING.md),
+[Windows installation and rollback](../../docs/UPDATING.md),
+[risks](../../docs/LEGAL_AND_SAFETY.md).
 
-**[Güncel USB BIN: DMT-99_Doom_V0.4.0_20261018.bin](dist/v0.4.0/DMT-99_Doom_V0.4.0_20261018.bin)**
+**[Current USB BIN: DMT-99_Doom_V0.4.0_20261018.bin](dist/v0.4.0/DMT-99_Doom_V0.4.0_20261018.bin)**
 
-0.4.0'da orta tuş basıldığı anda ateş eder; tek başına uzun basma menü açmaz.
-**Orta PC8 + aşağı PC10 birlikte 2 saniye** pause menüsünü açar. Hareket ve
-dönüş süreden hesaplanır; kısa basış küçük adım/dönüş, uzun basış sınırlı hız verir.
-Düşmanlar duvar arkasındaki silah sesiyle uyanmaz. Görüş kaybında oyuncunun canlı
-konumunu takip etmek yerine en fazla 5 saniye son gördükleri konuma yönelir.
+In 0.4.0, pressing the center button fires immediately; holding it alone
+does not open the menu. Hold **center PC8 + down PC10 together for 2 seconds**
+to pause. Movement/turning are time-based: short presses make small changes,
+while held buttons accelerate to bounded speeds. Gunfire does not wake
+enemies through walls. After losing sight, they pursue only the last seen
+position for up to 5 seconds rather than tracking the hidden player's current location.
 
-![Menü seçenekleri](docs/screenshots/v0.4.0/sound-off.png)
-![Oyun](docs/screenshots/v0.4.0/game.png)
+![Menu options](docs/screenshots/v0.4.0/sound-off.png)
+![Gameplay](docs/screenshots/v0.4.0/game.png)
 
-[Yeni BIN’in emülatör görüntüleri](docs/screenshots/v0.4.0/README.md).
+[Emulator screenshots of the current BIN](docs/screenshots/v0.4.0/README.md).
 
-## Yenilikler
+## Features
 
-- Duvarla engellenen görüş/atış/ses; yalnız son gözlenen konuma sınırlı takip.
-- GOD MODE ve SOUND menü seçenekleri. God tüm oyuncu hasarını engeller;
-  ses kapalıyken PWM efekti başlamaz. Güç döngüsünde god kapalı, ses açıktır.
-- Debounce sonrası basışta ateş, basılı tutunca silah cooldown’una göre tekrar;
-  yalnız PC8+PC10 birlikte 2 saniye tutulunca pause. Bırakmadan tekrar açılmaz.
-- Hareket 40→160 birim/s (ivme 240 birim/s²), dönüş 16→80 derece/s
-  (ivme 128 derece/s²). Tuş bırakılınca durur, yön değişince ivme sıfırlanır.
-  Zıt tuşlar birbirini iptal eder; alt derece hassasiyeti Q8 ile tutulur.
-- Bekleme, takip, saldırı hazırlığı, saldırı, yaralanma ve ölüm durumları.
-- İnsan düşmanlarda menzilli atış, imp'te kaçınılabilir ateş topu, demon'da yakın
-  saldırı; saldırı bekleme süreleri ve birden fazla vuruş gerektiren sağlık.
-- WAD'dan gerçek yürüme, saldırı, yaralanma ve ölüm kareleri; ölüm animasyonu sonrası 8 saniye duran, sonra kaldırılan cesetler.
-  Aktör dizileri sabittir; heap yoktur. Silme RAM boyutunu değil çizim işini azaltır.
-- Nesneler kendi en/boy oranlarında, 8–24 dünya birimi yüksekliğinde çizilir.
-  Sağlık nesneleri sağlık verir; diğerleri toplama sayacına eklenir.
-- Silah menüsü, farklı hasar/menzil/hızlar, namlu animasyonu, geri tepme ve
-  yürürken silah salınımı. Roket/ateş topu hareketi ve duvar/aktör çarpışması.
-- Çizim ve uzun hesaplamalar sırasında da tuş/ses servisi; girişler sekiz
-  elemanlık kuyrukta tutulup güvenli oyun güncelleme noktasında uygulanır.
+- Walls block sight, shots and noise wake-up; pursuit uses a bounded last-seen target.
+- GOD MODE and SOUND options. God prevents all player damage; muted sound
+  starts no PWM effects. Power cycling resets god off and sound on.
+- Fire on debounced press, repeat according to weapon cooldown while held.
+  Only the 2-second PC8+PC10 chord pauses; both keys must be released before reuse.
+- Movement 40→160 units/s, acceleration 240 units/s²; turning 16→80 degrees/s,
+  acceleration 128 degrees/s². Release stops motion, reversal resets the ramp,
+  opposing keys cancel, and Q8 retains sub-degree precision.
+- Idle, chase, windup, attack, pain and death states.
+- Ranged human attacks, avoidable imp fireballs and demon melee attacks,
+  with attack cooldowns and enemies requiring multiple hits.
+- Actual WAD walking/attack/pain/death frames. Corpses remain for 8 seconds
+  after the death animation, then disappear. Fixed actor arrays use no heap;
+  removal reduces drawing work rather than returning RAM.
+- Pickups retain their aspect ratios and render 8–24 world units tall.
+  Health pickups heal; others increment the collection counter.
+- Weapon menu, distinct damage/range/speed, muzzle animation, recoil and
+  walking bob; rockets/fireballs with wall/actor collision.
+- Button/audio servicing during drawing and long computations; an eight-entry
+  queue applies input at a safe world-update point.
 
-Bu, [doom-avr](https://github.com/Artfical/doom-avr/) tabanlı geliştirilmiş bir
-raycaster'dır. Klasik DOOM motorunun tamamı değildir. Harita tek yüksekliklidir;
-gerçek sektör/kapı/anahtar sistemi, müzik, tam envanter veya kalıcı kayıt yok.
-Düşmanlar yerel engel dolaşma/duvar kayması kullanır; genel rota araması yoktur.
-Sprite'lar kameraya bakar; tüm yönlerin görselleri bu küçük ROM'a alınmamıştır.
+This is an enhanced [doom-avr](https://github.com/Artfical/doom-avr/)
+raycaster, not the complete classic DOOM engine. The map has one height;
+there is no full sector/door/key system, music, complete inventory or save game.
+Enemies use local detours/wall sliding, not global pathfinding.
+Sprites face the camera; this small ROM does not contain all directional views.
 
-**Yeni sürüm offline/emülatör testlidir; fiziksel FPS, ses ve yükleme henüz
-bu sürümle doğrulanmadı.** Önceki sürüme ait tuş gözlemleri kullanıcıdan alındı.
+**This release has offline/emulator tests; physical FPS, sound and installation
+have not been verified for it.** Earlier button observations came from the user.
 
-## Tuşlar ve silah seçimi
+## Controls and weapons
 
-| Tuş | Oyunda | Menüde |
+| Button | Gameplay | Menu |
 |---|---|---|
-| Yukarı / PC11 | İleri | Önceki satır |
-| Aşağı / PC10 | Geri | Sonraki satır |
-| Sol / PC12 | Sola dön | Geri / Resume |
-| Sağ / PC9 | Sağa dön | — |
-| PC8 | Basışta ateş, tutulunca tekrar | Seç / onayla |
-| PC8 + aşağı, 2 saniye | Pause menüsü | Geri / Resume |
-| POWER / PC2 | Kapat | Kapat |
+| Up / PC11 | Forward | Previous row |
+| Down / PC10 | Backward | Next row |
+| Left / PC12 | Turn left | Back / Resume |
+| Right / PC9 | Turn right | — |
+| PC8 | Fire on press, repeat while held | Select / confirm |
+| PC8 + down, 2 seconds | Pause menu | Back / Resume |
+| POWER / PC2 | Power off | Power off |
 
-Ana menüde **WEAPONS** seçilir. Yukarı/aşağı ile silah, PC8 ile seçim yapılır;
-sol ile seçmeden geri dönülür. Oyun sırasında PC8+aşağı 2 saniye → **WEAPONS** → seçim →
-**RESUME**. Menü, silah ekranı ve pause sırasında dünya donar. Silah seçimi
-RAM'dedir; başlangıçta tabanca gelir. Bu küçük oyun sürümünde altı silah baştan
-seçilebilir ve cephane sınırsızdır. GOD MODE, SOUND ve silah seçimi New Game
-ile korunur; tam başlangıçta varsayılanlar geri gelir. Bu seçenekler Flash’a yazılmaz.
+Choose **WEAPONS**, navigate with up/down and confirm with PC8; left returns
+without selecting. In game: PC8+down for 2 seconds → **WEAPONS** → select →
+**RESUME**. The world freezes in menus, weapon selection and pause.
+Weapon selection remains in RAM and defaults to pistol at startup.
+All six weapons are available from the start with unlimited ammunition.
+New Game preserves god/sound/weapon choices; full startup restores defaults.
+These options are not written to Flash.
 
-| Silah | Davranış |
+| Weapon | Behavior |
 |---|---|
-| FIST | Kısa menzil, 24 hasar |
-| PISTOL | Tek mermi, 20 hasar, 400 ms bekleme |
-| SHOTGUN | Beş saçma ×12 hasar, dağılım, 800 ms bekleme |
-| CHAINGUN | Üçlü seri ×12 hasar, 400 ms bekleme |
-| CHAINSAW | Kısa menzilli üçlü vuruş ×12 hasar |
-| ROCKET | Hareket eden roket, merkezde 100/çevrede 50 alan hasarı |
+| FIST | Short range, 24 damage |
+| PISTOL | Single bullet, 20 damage, 400 ms cooldown |
+| SHOTGUN | Five pellets ×12 damage, spread, 800 ms cooldown |
+| CHAINGUN | Three-shot burst ×12 damage, 400 ms cooldown |
+| CHAINSAW | Three short-range hits ×12 damage |
+| ROCKET | Moving rocket, 100 center / 50 surrounding splash damage |
 
-Menzil, duvar ve hedefe isabet hasarı etkiler. Yakın roket patlaması oyuncuya
-30 hasar verir. Tuşa basmak düşmanları bir adım ilerletmez; AI saati bağımsızdır.
+Range, walls and hits affect damage. A nearby rocket explosion deals
+30 damage to the player. Key presses do not advance enemies one step;
+the AI has an independent clock.
 
-## Sesler
+## Sound
 
-PA1 / TIM2 CH2 üzerinden yaklaşık %50 PWM: adım 800 Hz; ateş 2600→1300 Hz;
-hasar 330→220 Hz; öldürme 1200→1800→2400 Hz. Duvara takılma veya yalnız dönme
-adım sesi üretmez. Hasar önceliklidir; öldürücü atışta ateşten sonra öldürme
-sesi gelir. Menü ve kapanmada buzzer susar. Müzik/ses örneği yoktur; bunlar kısa
-buzzer efektleridir. Masaüstü simülatör ses çalmaz.
+PA1 / TIM2 CH2 supplies roughly 50% PWM: step 800 Hz; fire 2600→1300 Hz;
+hurt 330→220 Hz; kill 1200→1800→2400 Hz.
+Blocked movement and turning alone make no step sound.
+Hurt has priority; a killing shot plays fire followed by kill.
+Menus and shutdown silence the buzzer. These are short buzzer effects,
+not music or sampled audio. The desktop simulator is silent.
 
-## İmaj ve RAM
+## Image and RAM
 
-| Ölçü | Değer |
+| Measure | Value |
 |---|---:|
-| BIN | **163.444 bayt / yaklaşık 159,6 KiB** |
-| Fiziksel yükleme aralığı | **0x08006400–0x0802E273** |
-| Entry / vektör alias | **0x6400 / 0x6438** |
-| İmaj üst sınırı | 0x30000; uygulamaya 167 KiB |
-| Statik RAM | **8.568 B** |
-| Stack rezervi / statik bound | **6.144 B / 3.274 B** |
-| Statik RAM + stack dışında boş | **18.056 B** |
-| Ekran | 320×200 sahne + 40 piksel HUD, 80 ışın |
-| Çizim şeridi | 1.600 B; cihazda tam framebuffer yok |
-| ROM görselleri/metadata | 129.200 B; 75 sprite karesi |
+| BIN | **163,444 bytes / about 159.6 KiB** |
+| Physical load range | **0x08006400–0x0802E273** |
+| Entry / vector alias | **0x6400 / 0x6438** |
+| Image upper bound | 0x30000; 167 KiB available to the application |
+| Static RAM | **8,568 B** |
+| Stack reserve / static bound | **6,144 B / 3,274 B** |
+| Space outside static RAM + stack | **18,056 B** |
+| Display | 320×200 scene + 40-pixel HUD, 80 rays |
+| Drawing strip | 1,600 B; no full target framebuffer |
+| ROM assets/metadata | 129,200 B; 75 sprite frames |
 
-Dünya adımı 100 ms, çizim üst limiti 5 FPS'tir; gerçek donanım FPS ölçümü yoktur.
-Uzun duraklamalarda güncelleme başına en fazla 500 ms işlenerek catch-up yükü
-sınırlanır. Çizim/hız düşük kalırsa gerçek zamanın bir kısmı düşürülebilir.
+The world step is 100 ms; rendering is capped at 5 FPS, not a measured
+physical rate. Catch-up is capped at 500 ms per update after long stalls.
+Some real time may be dropped when rendering is slow.
 
-Görseller küçültülmüş WAD alt kümesi olarak BIN içindedir; cihaza ayrıca WAD
-veya paket kopyalanmaz. Yaklaşık 1,6 MB USB/BOOT hacmi MCU kod alanı değildir.
-Oyun, harici Flash veya 0x08040000 ayar sayfasını yazmaz; ASIC'e komut göndermez.
+A reduced WAD subset is embedded in the BIN; do not copy a separate WAD or
+package to the meter. The roughly 1.6 MB USB/BOOT volume is not MCU code space.
+The game writes neither external Flash nor settings page 0x08040000,
+and sends no ASIC commands.
 
-## Kurulum ve ölçüm firmware'ine dönüş
+## Installation and returning to measurement firmware
 
-1. Oyundan önce çalışan POTAT-99 BIN'ini bilgisayarda tutun. Ana projenin
-   `../dmt_99_analysis/final/vX.Y.Z/` yayınları değiştirilmedi.
-2. `cd dist/v0.4.0 && sha256sum -c SHA256SUMS` ile dosyayı doğrulayın.
-3. Mevcut **POWER+MENU USB güncelleme** yöntemiyle yalnız güncel oyun BIN'ini
-   kopyalayın. `debug/`, JSON, WAD veya görseller kopyalanmaz.
-4. Kaldırmak için aynı yöntemle önceki çalışan POTAT-99 BIN'ini tekrar kurun.
-   Orijinale dönüş seçeneği `../dmt_99_analysis/DMT-99_V2.4_20240306.bin`.
+1. Keep a known-working POTAT-99 BIN on the computer. Preserved releases are
+   under `../../artifacts/firmware/potat-99/vX.Y.Z/`.
+2. Verify with `cd dist/v0.4.0 && sha256sum -c SHA256SUMS`.
+3. Use the existing **POWER+MENU USB update** process on Windows and copy
+   only the current game BIN. Do not copy debug files, JSON, WAD or images.
+4. Remove the game by reinstalling the known-working POTAT-99 BIN the same way.
+   The original application is `../../artifacts/firmware/original/DMT-99_V2.4_20240306.bin`.
 
-Bu uygulamada ölçüm modu, V2.4 şarj ekranı, düşük-pil akışı veya otomatik kapanma
-bulunmaz; POWER ile kapatılır. BIN bootloader bölgesini içermez ve kendisi
-Flash programlamaz. Bootloader okunmadığı için gerçek erase/kabul kuralları
-ve kesinti sonrası geri dönüş garanti edilemez. RDP/option byte/programlayıcı
-adımı veya cihazınıza bağlanan bir araç yoktur.
+This firmware has no measurement mode, V2.4 charging screen, low-battery
+flow or auto-off; use POWER to turn it off. The BIN omits the bootloader
+and does not itself program Flash. Because the bootloader is unread,
+its erase/acceptance rules and interrupted-update recovery cannot be guaranteed.
+No RDP/option-byte/programmer step is required. Build tools do not connect to hardware.
 
-## Derleme ve simülatör
+## Building and simulator
 
 ```bash
-git submodule update --init
-python3 tools/fetch_wad.py        # hash kontrollü yerel shareware giriş
+python3 tools/fetch_wad.py        # hash-checked local shareware input
 make -j4 all
 make test sanitize
 make emulate
-make verify                      # ana projedeki 5.017 dosya korunmalı
+make verify                      # 884 immutable evidence files after consolidation
 make package
 python3 tools/simulator.py
 python3 tools/simulator.py --script 'fwwwaaf..........' --png build/scene.png
 ```
 
-PC'de W/S veya oklar hareket/seçim, A/D veya sol/sağ dönme, Space/Enter ateş/onay,
-Space+aşağı 2 saniye veya Esc pause, F12 PNG. Pencere aynı C tuş/ivme kodunu
-kullanır; tuş bırakma ve odak kaybı hareketi durdurur. Ana döngü zamanı ilerletir. Başsız `--script`
-içinde her `.` 100 ms ilerletir; diğer karakterler zamanı doğrudan ilerletmez.
+Upstream sources are vendored; no submodule initialization is needed.
+On desktop, W/S or arrows move/navigate, A/D or left/right turn, Space/Enter
+fires/confirms, Space+down for 2 seconds or Esc pauses, and F12 saves PNG.
+The GUI uses the same C button/ramp code; releasing keys or losing focus
+stops motion. The main loop advances time. In headless scripts each `.`
+advances 100 ms; other characters do not directly advance time.
 
-GCC/make/Python 3 ve RV32IMAC ILP32 GCC gerekir. Makefile ESP-IDF toolchain'ini
-bulur; `CROSS=` ile değiştirilebilir. Python Tk pencere için, Unicorn/Pillow
-emülasyon için gereklidir. Varsayılan emülatör Python'u ana projenin mevcut
-ortamını yalnız okur; ayrı ortam için:
+Requires GCC/make/Python 3 and RV32IMAC ILP32 GCC.
+The Makefile locates the ESP-IDF toolchain; override with `CROSS=`.
+Tk is needed for the desktop window, Unicorn/Pillow for emulation.
+The emulator defaults to `PYTHON`; select an environment explicitly:
 
 ```bash
 python3 -m venv .venv
@@ -158,18 +166,17 @@ python3 -m venv .venv
 make emulate EMU_PYTHON=.venv/bin/python
 ```
 
-## Kaynaklar ve kanıt
+## Sources and evidence
 
-- `src/game.c`: zamanlı dünya, aktörler, görünürlük/çarpışma, silahlar, roketler.
-- `src/render.c`, `app.c`: sprite/şerit çizimi, HUD, menüler ve silah ekranı.
-- `src/controls.c`: ortak debounce, iki tuşlu pause ve süreye bağlı ivme.
-- `src/sound.c`: sınırlı kısa efektler; `board/board.c`: tuş, PWM, ekran, güç.
-- `board/reference/`, `third_party/wch/`: ana projeden ayrı kaynak kopyaları.
-- `tools/build_assets.py`: pinned WAD'dan animasyon/silah/nesne ROM verisi.
-- `tools/test_emulator.py`: gerçek RV32 kodu, GPIO girişleri, panel framebuffer.
+- `src/game.c`: timed world, actors, visibility/collision, weapons and rockets.
+- `src/render.c`, `app.c`: sprite/strip rendering, HUD, menus and weapon selection.
+- `src/controls.c`: shared debounce, pause chord and time-based acceleration.
+- `src/sound.c`: bounded short effects; `board/board.c`: buttons, PWM, display and power.
+- `board/reference/`, `third_party/wch/`: separately retained source copies.
+- `tools/build_assets.py`: animation/weapon/pickup ROM data from the pinned WAD.
+- `tools/test_emulator.py`: actual RV32 instructions, GPIO input and panel framebuffer.
 
-Güncel sonuçlar [TEST_RESULTS.md](TEST_RESULTS.md) ve
-`docs/validation/v0.4.0/`; önceki raporlar ve yayın dosyaları korunmuştur.
-Kaynak/lisans kökeni [NOTICE.md](NOTICE.md), dosya hash'leri
-`docs/copied_sources.json` içindedir. WAD/görsellerin ayrı id Software koşulları
-vardır; yerel BIN ve WAD Git'e eklenmez.
+Results: [TEST_RESULTS.md](TEST_RESULTS.md) and `docs/validation/v0.4.0/`.
+Older reports and releases remain intact.
+Provenance/licenses: [NOTICE.md](NOTICE.md), file hashes in `docs/copied_sources.json`.
+WAD/images have separate id Software terms; local BINs and WAD are excluded from Git.

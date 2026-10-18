@@ -1,9 +1,9 @@
 # Maintained C reconstruction, firmware and offline simulator
 
-Birleşik deponun güncel kullanım rehberleri: [build](../docs/BUILDING.md),
-[Windows USB yükleme/geri dönüş](../docs/UPDATING.md), [tema](../docs/THEMES.md).
-Yeni yayın hedefi `artifacts/firmware/potat-99/`; eski `final/` yolu göreli
-uyumluluk bağlantısıdır. Bu düzenleme uygulama/ASIC davranışını değiştirmez.
+Current workspace guides: [build](../docs/BUILDING.md),
+[Windows USB installation/rollback](../docs/UPDATING.md), [themes](../docs/THEMES.md).
+New releases go to `artifacts/firmware/potat-99/`; the old `final/` path is
+a relative compatibility link. Consolidation does not change application/ASIC behavior.
 
 `make release` builds the USB update image (same format as the V2.4 update
 file, installed by the meter's own bootloader) and publishes it to

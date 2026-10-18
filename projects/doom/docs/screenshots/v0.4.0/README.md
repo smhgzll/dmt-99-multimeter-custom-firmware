@@ -1,23 +1,26 @@
-# 0.4.0 emülatör ekranları
+# 0.4.0 emulator screenshots
 
-Gerçek RV32 BIN çalıştırıldı. Menü/oyun girişleri GPIO PC8/9/10/11/12 üzerinden.
-Panel çıktıları PNG kaydedildi; target renderer yerine host çizim çağrısı konmadı.
+The actual RV32 BIN executed with menu/game inputs through GPIO PC8/9/10/11/12.
+Panel outputs were saved as PNG; no host drawing calls replaced target rendering.
 
-![Başlangıç menüsü](clean-menu.png)
-![God açık, ses kapalı](sound-off.png)
-![Orta tuşla ateş](fire.png)
+![Startup menu](clean-menu.png)
+![God on, sound off](sound-off.png)
+![Center-button fire](fire.png)
 
-`held-fire.png`: orta tuş 2,3 saniye tutuldu; ateş sürdü, menü açılmadı.
-`pause.png`: yalnız PC8 + aşağı PC10 birlikte 2 saniye tutulunca menü açıldı.
+held-fire.png: center held2.3 seconds; firing continued without opening a menu.
+pause.png: the menu opened only after PC8+downPC10 were held together2 seconds.
 
-![God koruması](god-protects.png)
-![Ses kapalı atış](muted-fire.png)
+![God protection](god-protects.png)
+![Muted fire](muted-fire.png)
 
-God/duvar/ceset sahneleri kontrollü SRAM actor konumları kullanır. God senaryosunda
-önceden saldırısı doğrulanmış insan düşman oyuncuya yakındır; sağlık 100 kalır.
-Ses kapalı atışta yeni PWM tonu üretilmedi (görüntüden değil MMIO kaydından kontrol).
-`wall-blocks-shot.png` görüş, atış ve silah sesiyle uyanmanın engellendiği sahne;
-`corpse-removed.png` sayaç hızlandırılmış silme fixture'ıdır. Gerçek 80 tick süre
-C testinde doğrulandı. Bu görüntüler fiziksel cihaz/FPS kanıtı değildir.
+God/wall/corpse scenes use controlled SRAM actor positions.
+The god fixture places a previously confirmed attacking human enemy nearby;
+health stays100. Muted fire started no PWM tone, checked through MMIO rather
+than inferred from the image.
+wall-blocks-shot.png demonstrates blocked sight/shots/noise wake-up.
+corpse-removed.png accelerates the removal timer in a fixture;
+the actual80-tick lifetime was checked in C tests.
+These are not physical-device/FPS evidence.
 
-PNG hash'leri `screenshots.json`, ayrıntılar [test raporu](../../../TEST_RESULTS.md).
+PNG hashes: screenshots.json.
+[Detailed test report](../../../TEST_RESULTS.md).

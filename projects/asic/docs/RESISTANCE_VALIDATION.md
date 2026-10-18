@@ -1,70 +1,69 @@
-# Direnç kayıtları — 2026-10-18
+# Resistance captures — 2026-10-18
 
-ST2 kitinden çıkan 9 dirençli referans kartı kullanıldı. Kart değerleri kullanıcı
-tarafından nominal olarak bildirildi; tolerans/bağımsız referans ölçümü yoktur.
-DMT99 orijinal firmware, analyzer pasif, D0=MCU_TX / D2=ASIC_TX, 1 MHz / 9600 8N1.
+A nine-resistor reference board supplied with an ST2 kit was used.
+The user reported nominal values; no tolerance or independent measurement
+was supplied. DMT99 original firmware; passive analyzer D0=MCU_TX/D2=ASIC_TX,
+1MHz/9600 8N1.
 
-| Fiziksel durum | Kullanıcı ekran bildirimi | Kayıtta çözülen gösterim | Tam RX paketleri |
+| Physical condition | User-reported display | Decoded display | Complete RX packets |
+|---|---|---|---:|
+| Nominal1Ω, first | 1.1Ω | 0.8–1.1Ω plus open/blank transitions | 59 |
+| Nominal1Ω, repeat | 1.1Ω | 1.0Ω(17),1.1Ω(42) | 59 |
+| Nominal1kΩ | 1.001kΩ | 1.000–1.001kΩ(45), open/blank transitions(13) | 58 |
+| Nominal10kΩ | 9.970kΩ | Raw ` 9.97`kΩ throughout | 59 |
+| Nominal100kΩ | Approximately99.80kΩ | Raw ` 99.8`kΩ throughout | 60 |
+| Nominal1MΩ | 0.996 in MΩ context | 0.996MΩ throughout | 60 |
+| Nominal10MΩ | 9.970MΩ | 9.96MΩ(39),9.97MΩ(20) | 59 |
+| Open probes | User reported disconnected; no display text supplied | Raw ` 0.L `, nonnumeric | 60 |
+
+Each session lasts10s. Complete display messages are **12 bytes**, header5AA5.
+The first seven resistance/open sessions have no UART errors.
+The10MΩ session retains two initial/ending incomplete/error candidates
+and7+9-byte fragments; its59 complete packets are error-free.
+Independent sigrok comparison passed for the clean excerpt.
+Other clean resistance sessions were compared over complete byte streams.
+
+Raw digits are not silently reformatted: reported9.970 and UART ` 9.97`
+remain separate metadata/output fields, despite equal numeric value.
+Metadata records that the1MΩ report's unit came from context;
+wire flags independently yield the firmware's MΩ code.
+
+## Corrections implemented
+
+- Leading blanks in the physical1Ω reading `"  1.1"` previously prevented
+  numeric conversion. Python/C now ignore leading blank LCD cells only,
+  preserving raw text. Letters, internal/trailing blanks and unknowns are not coerced.
+- Physical Ω/kΩ/MΩ patterns match unit priority.
+  C converts displayed units by ×1/×1000/×1000000 without nominal-value correction.
+- Exact open-input symbols[17,0,14,17]/decimal2/unit13 are separately
+  recognized; no numeric zero/0Ω is produced.
+  This does not solve every overload/fault condition.
+
+## Command association
+
+Capture `20261018T011808_auto_to_resistance_open_fa59a550` is20s/1MHz,
+without UART errors. The user switched AUTO→resistance:
+
+| t(s) | MCU command | ASIC event ID | Event-start delay |
 |---|---|---|---|
-| Nominal 1 Ω, ilk | 1.1 Ω | 0.8–1.1 Ω ve açık uç/boş geçişleri | 59 |
-| Nominal 1 Ω, tekrar | 1.1 Ω | 1.0 Ω (17), 1.1 Ω (42) | 59 |
-| Nominal 1 kΩ | 1.001 kΩ | 1.000–1.001 kΩ (45), açık uç/boş geçişleri (13) | 58 |
-| Nominal 10 kΩ | 9.970 kΩ | ` 9.97` kΩ, tüm paketlerde | 59 |
-| Nominal 100 kΩ | yaklaşık 99.80 kΩ | ` 99.8` kΩ, tüm paketlerde | 60 |
-| Nominal 1 MΩ | 0.996, MΩ bağlamında | 0.996 MΩ, tüm paketlerde | 60 |
-| Nominal 10 MΩ | 9.970 MΩ | 9.96 MΩ (39), 9.97 MΩ (20) | 59 |
-| Açık uç | Kullanıcı “boşta”; ekran metni bildirilmedi | Ham ` 0.L `, sayısal değil | 60 |
+| 13.073980 | `AA 55 05 0C 00 00 00 00 00 11` | 0C | 181.435ms |
+| 15.091084 | `AA 55 05 0D 00 00 00 00 00 12` | 0D | 162.763ms |
+| 15.892405 | `AA 55 05 0B 00 00 00 00 00 10` | 0B | 164.707ms |
 
-Her kayıt 10 saniyedir. Tam görüntü mesajları **12 bayt**, `5A A5` başlıklıdır.
-İlk yedi direnç/açık uç oturumunda UART hatası yoktur. 10 MΩ kaydında başlangıç
-ve bitişteki iki eksik/hatalı UART adayı, 7+9 baytlık parçalarla birlikte korunur;
-59 tam paket UART hatasızdır. Temiz kesitin bağımsız sigrok karşılaştırması geçti.
-Diğer temiz direnç kayıtlarının tam byte akışları sigrok ile karşılaştırıldı.
+Events are10-byteAA55FD. The final state shows resistance-open input.
+This supports0B's resistance-UI association, not guaranteed ACK or complete
+understanding of analog side effects. Both directions matched independent UART decoding.
 
-Hane metinleri sessizce yeniden biçimlenmez: kullanıcının 9.970 bildirimi ile
-UART'ın ` 9.97` metni metadata ve çözümleme çıktılarında ayrıdır. Sayısal değer
-aynıdır. 1 MΩ bildiriminin birimi bağlamdan seçildiği metadata'da belirtilmiştir;
-wire flag'leri firmware'in MΩ unit kodunu üretir.
+## Files and scope
 
-## Uygulanan düzeltmeler
+Complete raw sessions are under captures/*resistance*, *1Mohm*, *10Mohm*,
+alongside CSV/JSON/text, metadata, errors and sigrok logs.
+Display/unit comparison counts: evidence/resistance_comparison.json.
+Unchanged real-sample regression excerpts are under tests/fixtures/,
+with parent hash/sample range in each JSON.
 
-- Gerçek 1Ω kaydındaki baştaki boş LCD hücreleri `"  1.1"` sayısal dönüşümü
-  engelliyordu. Python/C sayısal dönüşümünde yalnızca baştaki boş hücreler
-  atlanır; ham metin korunur. Harfler, iç/son boşluklar ve bilinmeyen semboller
-  sayıya zorlanmaz.
-- Ω/kΩ/MΩ unit priority örnekleri gerçek kayıtlarla eşleştirildi. C dönüşümü
-  gösterilen birimden Ω'a ×1/×1000/×1000000 uygular; nominal değere düzeltmez.
-- Açık uçtaki `[17,0,14,17]` sembolleri / decimal_after=2 / unit=13 tam deseni
-  ayrı tanınır. Sayısal 0 veya 0 Ω üretilmez. Bu desen tüm overload/hata
-  koşullarının çözüldüğü anlamına gelmez.
-
-## Komut ilişkisi
-
-`20261018T011808_auto_to_resistance_open_fa59a550` kaydı, 20 s / 1 MHz,
-UART hatasız. Kullanıcı AUTO'dan direnç moduna geçti. TX sırası:
-
-| t (s) | MCU komutu | ASIC event ID | Event başlama gecikmesi |
-|---|---|---|---|
-| 13.073980 | `AA 55 05 0C 00 00 00 00 00 11` | 0C | 181.435 ms |
-| 15.091084 | `AA 55 05 0D 00 00 00 00 00 12` | 0D | 162.763 ms |
-| 15.892405 | `AA 55 05 0B 00 00 00 00 00 10` | 0B | 164.707 ms |
-
-Event'ler 10 bayt `AA 55 FD` ailesindedir. Sonrasında direnç açık uç deseni
-görüldü. Bu, 0B'nin direnç UI geçişiyle ilişkisini destekler. Event'lerin
-garantili ACK olduğu ya da analog fonksiyonun tüm yan etkilerinin çözüldüğü
-iddia edilmez. Bağımsız iki yön UART decoder karşılaştırması geçti.
-
-## Dosyalar ve kapsam
-
-Tam ham kayıtlar `captures/*resistance*`, `*1Mohm*`, `*10Mohm*` klasörlerinde;
-CSV/JSON/text, metadata, hatalar ve sigrok logları birlikte saklanır.
-Sayısal ekran/birim eşleşme sayıları `evidence/resistance_comparison.json` içinde.
-Gerçek, bitleri değiştirilmemiş regresyon kesitleri `tests/fixtures/` içinde;
-parent hash ve sample aralığı her kesitin JSON'unda saklanır.
-
-Bağımsız C modülü: `firmware/dmt99_asic.c/.h`. Hiçbir UART/MMIO gönderimi veya
-target flash değişikliği yapmaz. Firmware binding'i için
-`firmware/INTEGRATION.md` kullanılır. Açıklanamayan b9..11, ASIC kimliği,
-kalibrasyon, fiziksel range kodu, RX integrity ve test edilmeyen analog modlar
-bilinmeyen olarak kalır. Son kullanıcı kapsamı: bundan sonra yalnızca açık uç
-modları; yeni komponent/kaynak bağlanması istenmez.
+Independent C: firmware/dmt99_asic.c/.h, with no UART/MMIO transmission or
+target Flash mutation. Binding boundary: firmware/INTEGRATION.md.
+Opaque b9..11, ASIC identity, calibration, physical range code, RX integrity
+and untested analog modes remain unknown.
+The user's subsequent scope was open-input modes only, without new components/sources.

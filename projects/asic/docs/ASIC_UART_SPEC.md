@@ -1,129 +1,131 @@
-# DMT99 ASIC UART — deneysel, donanım kanıtına bağlı spesifikasyon
+# DMT99 ASIC UART — experimental, evidence-bounded specification
 
-Kapsam: orijinal firmware ile AUTO/açılış, direnç referans kartı ve açık uç mod kayıtları.
-Kalibrasyon algoritması, ASIC register protokolü, tüm ölçüm modları veya genel
-checksum çözüldüğü iddia edilmez. Kaynaklar `evidence/sources.json`, gerçek
-kayıtlar `captures/`, taşınabilir uygulama `firmware/dmt99_asic.c/.h` içindedir.
+Scope: original-firmware AUTO/startup, resistance reference-board and
+open-input recordings. This does not claim recovery of calibration,
+an ASIC register protocol, every measurement mode or a general checksum.
+Sources: evidence/sources.json; recordings: captures/;
+portable implementation: firmware/dmt99_asic.c/.h.
 
-## Transport ve sınırlar
+## Transport and boundaries
 
-9600 baud, 8 data, parity yok, 1 stop, LSB-first. D0=PA9 MCU_TX,
-D2=PA10 ASIC_TX. Analyzer pasif input'tur. 1 ve 2 MHz AUTO kayıtları bağımsız
-sigrok UART decoder'ıyla aynı baytları üretir. Direnç kayıtları 1 MHz'dedir.
-Zaman damgasının aslı capture içindeki sample indeksidir.
+9600 baud, 8 data bits, no parity, 1 stop, LSB-first.
+D0=PA9 MCU_TX, D2=PA10 ASIC_TX; analyzer inputs are passive.
+AUTO recordings at 1/2 MHz match independent sigrok UART decoding.
+Resistance recordings use 1 MHz. Sample index is the authoritative timestamp.
 
-Donanımda üç wire formu görüldü:
+Three physical wire forms were observed:
 
-| Yön / aile | Başlangıç | Gözlenen uzunluk | Kapsam |
+| Direction / family | Start | Observed length | Scope |
 |---|---|---|---|
-| MCU komutu | `AA 55 05` | 10 bayt | Açılışta 14; mod geçişinde 0C/0D/0B ve 0A |
-| ASIC görüntü | `5A A5` | 12 bayt | AUTO, direnç ve açık uç V/akım/C/Hz/NCV/LIVE/sıcaklık kayıtları |
-| ASIC event adayı | `AA 55 FD` | 10 bayt | Açılışta event 14 |
+| MCU command | `AA 55 05` | 10 bytes | Startup 14; transitions 0C/0D/0B and 0A |
+| ASIC display | `5A A5` | 12 bytes | AUTO, resistance and open-input V/current/C/Hz/NCV/LIVE/temperature |
+| ASIC event candidate | `AA 55 FD` | 10 bytes | Startup event 14 |
 
-MCU firmware'indeki DMA uzunluğu **13**; bu bir DMA tampon ayarıdır. Gerçek
-görüntü mesajının bu kayıtlarda 12 bayt olmasıyla karıştırılmaz. 13 baytlık
-5AA5 formu sürücüde tarihsel uyumluluk seçeneği olarak bulunur, donanımda
-onaylanmış varsayılan değildir. Hattaki eksik bayt tamamlanmaz.
+The MCU DMA length is **13**, a buffer configuration rather than evidence
+that these 12-byte display bursts contain another byte.
+A 13-byte 5AA5 profile remains as historical compatibility, not the
+physically confirmed default. Missing bytes are never invented.
 
-Görüntü burst'leri yaklaşık 6/s. Zamanlamalar oturumun `analysis.json` içindeki
-bağımsız idle-burst istatistiklerinde min/median/max olarak saklanır. Yazılım
-ayırma eşiği 4 UART karakteridir; ASIC timing gereksinimi olduğu iddia edilmez.
-Boşluklar, UART hataları, bilinmeyen baytlar ve eksik paketler saklanır.
+Display bursts occur roughly six times per second. Session analysis.json
+retains independent idle-burst min/median/max statistics.
+The software split threshold is four UART characters, not a proven ASIC
+timing requirement. Gaps, UART errors, unknown bytes and incomplete packets remain visible.
 
-## MCU komutları
+## MCU commands
 
-Gözlenen AUTO açılış komutu:
+Observed AUTO startup:
 `AA 55 05 14 00 00 00 00 00 19`.
 
-Eski firmware'de 19 literal TX formu bulunmuştur. Ordinary ID'ler
-`01,03,08,09..16(hex)` için sıfır payload formunda b9=ID+5; legacy
-`AA 55 05 00 00 00 00 00 00 11` istisnası korunur. A0 diagnostic literalinin
-anlamı bilinmez. Serializer diagnostic A0 üretmez. Bu, arbitrary payload
-checksum'u değildir; serializer çağrısı hiçbir yere UART verisi göndermez.
+The firmware contains 19 literal TX forms. For zero-payload ordinary IDs
+01,03,08,09..16(hex), b9=ID+5; the legacy
+`AA 55 05 00 00 00 00 00 00 11` exception is preserved.
+Diagnostic A0 is uninterpreted and not exposed by the serializer.
+This does not establish arbitrary-payload checksums; serialization transmits nothing.
 
-Sabit direnç kayıtlarında MCU TX sessizdi. Ayrı AUTO→direnç geçiş kaydında
-`0C → 0D → 0B` komutları ve aynı ID'li event adayları görüldü; son durumda
-açık uç direnç deseni geldi. Böylece 0B'nin direnç UI geçişiyle ilişkisi
-gerçek donanımda da gözlendi. 0C/0D arasındaki düşük gerilim gösterimleri
-AC/DC doğruluğu veya kalibrasyon testi sayılmaz.
+MCU TX was silent during steady resistance captures.
+A separate AUTO→resistance transition recorded 0C→0D→0B and matching event
+candidate IDs, ending in the resistance open-input pattern.
+This physically supports 0B's resistance-UI association.
+Intermediate low-voltage displays are not AC/DC accuracy or calibration tests.
 
-## ASIC görüntü mesajı, 12 bayt
+## ASIC display message: 12 bytes
 
-| Offset | Bilgi | Kanıt / sınır |
+| Offset | Information | Evidence / limit |
 |---|---|---|
-| 0..1 | `5A A5` | Gerçek AUTO/direnç burst'leri |
-| 2..6 | Dört packed LCD sembolü | Firmware formülü ve gerçek ekran karşılaştırmaları |
-| 2 bit4 | Eksi işareti | Firmware kaynaklı; negatif fiziksel test yok |
-| 3/4/5 bit4 | Decimal sonrası hane 1/2/3 | Bu konumlar gerçek direnç kayıtlarında karşılaştırıldı; çakışma önceliği firmware kaynaklı |
-| 2 bit0/1 | Host AC/DC kodu | V, düşük akım ve A açık uçta 2=DC, 1=AC ile ilişkilendi; bit1 önceliği firmware kaynaklı |
-| 6..8 | Unit priority ağacı | Ω/kΩ/MΩ örnekleri gerçek direnç kayıtlarında görüldü |
-| 7 bit7 | İsimsiz status flag | Fiziksel anlamı bilinmiyor |
-| 9..11 | Opaque | Kaydedilir; checksum/ADC/kalibrasyon alanı sayılmaz |
+| 0..1 | `5A A5` | Physical AUTO/resistance bursts |
+| 2..6 | Four packed LCD symbols | Firmware formula and display comparisons |
+| 2 bit4 | Negative sign | Firmware-derived; no physical negative-reference test |
+| 3/4/5 bit4 | Decimal after digit 1/2/3 | Positions checked in resistance captures; conflict priority is firmware-derived |
+| 2 bit0/1 | Host AC/DC code | Open-input V/current: 2=DC, 1=AC association; bit1 priority is firmware-derived |
+| 6..8 | Unit priority tree | Ω/kΩ/MΩ observed in resistance captures |
+| 7 bit7 | Unnamed status flag | Physical meaning unknown |
+| 9..11 | Opaque | Retained; not identified as checksum/ADC/calibration |
 
-Semboller:
+Symbols:
 `(b2&F0)|(b3&0F)`, `(b3&F0)|(b4&0F)`,
 `(b4&F0)|(b5&0F)`, `(b5&F0)|(b6&0F)`.
-Segment matching öncesi `&EF`. Bunlar BCD değildir. Tüm segment kodları
-eski reconstructed C ile 256 girişte karşılaştırıldı; tüm sembollerin ayrı
-fiziksel kayıtla doğrulandığı anlamına gelmez.
+Mask with &EF before matching. These are not BCD.
+All 256 segment inputs match reconstructed C; that does not physically validate every symbol.
 
-Sayısal dönüşüm sadece rakamlar ve baştaki boş LCD hanelerini kabul eder.
-Ham `text` değişmez. Örnek gerçek `"  1.1"` → mantissa 11 / divisor 10,
-unit code 11 → Ω. İç/son boşluk, harf, bilinmeyen sembol ve AUTO sayıya zorlanmaz.
+Numeric conversion accepts digits with leading blank LCD cells only;
+raw text remains unchanged. Example physical `"  1.1"` gives mantissa 11,
+divisor 10, unit 11=Ω. Internal/trailing blanks, letters, unknowns and AUTO
+are not forced into numeric values.
 
-Direnç unit ağacı (normal priority koşullarında):
+Resistance units under ordinary priority conditions:
 
-| Koşul | Host unit code | Birim |
+| Condition | Host code | Unit |
 |---|---|---|
-| b7&20, b6&40 yok, b7&04 yok | 11 | Ω |
+| b7&20, neither b6&40 nor b7&04 | 11 | Ω |
 | b7&20, b6&40 | 12 | kΩ |
-| b7&20, b6&40 yok, b7&04 | 13 | MΩ |
+| b7&20, no b6&40, b7&04 | 13 | MΩ |
 
-Çakışan diğer unit flag'leri için tam öncelik eski firmware'den korunur;
-tüm çakışmalar donanımda denenmedi. `dmt99_resistance_ohms` numeric değeri
-gösterilen birimden Ω'a çevirir (×1/×1000/×1000000); nominal komponent değerine
-zorlamaz. Fiziksel kademe/range alanı ayrıca çözülmüş değildir.
+Other conflicting flags retain original firmware priority; all conflicts
+have not been physically exercised.
+dmt99_resistance_ohms converts displayed units using ×1/×1000/×1000000,
+without correcting to component nominal values. Physical range fields remain unresolved.
 
-Açık uç testinde sembol kodları `[17,0,14,17]`, decimal_after=2 ve unit code=13
-gözlendi; ham metin `" 0.L "`. `resistance_open_pattern` bu tam desene verilen
-isimdir. Tüm overload/hata durumlarını ayırt ettiği iddia edilmez. Numeric=false,
-değer `None`; C tarafında divisor=0 ve Ω dönüşümü başarısız döner.
+Open probes produced symbols [17,0,14,17], decimal_after=2, unit=13,
+raw text `" 0.L "`. resistance_open_pattern names that exact observation;
+it does not classify every overload/fault.
+Numeric is false/None; C divisor=0 and Ω conversion fails.
 
-## ASIC event adayı
+## ASIC event candidate
 
-`AA 55 FD 14 00 00 00 AA 01 BB` — 10 bayt. Ek mod geçişinde
+Startup: `AA 55 FD 14 00 00 00 AA 01 BB`, 10 bytes.
+Transitions additionally observed:
 `AA 55 FD 0C 00 00 00 AA 01 B3`,
 `AA 55 FD 0D 00 00 00 AA 01 B4`,
-`AA 55 FD 0B 00 00 00 AA 01 B2` gözlendi.
-Kapasitans geçişinde `AA 55 FD 0A 00 00 00 AA 01 B1` de gözlendi.
-FD offset2, event ID offset3. İki açılış gözleminde AUTO TX'ten yaklaşık
-164–166 ms sonra geldi. Correlated ACK/kabul/red garantisi yoktur. Orijinal
-IDLE ISR FD kontrolünde header guard içermez; yalnızca 5AA5 kabul eden bir
-parser bu ayrı aileyi kaçırır. b4..9 anlamları ve integrity bilinmiyor.
+`AA 55 FD 0B 00 00 00 AA 01 B2`,
+and capacitance `AA 55 FD 0A 00 00 00 AA 01 B1`.
 
-## Integrity ve kanıt seviyeleri
+FD is offset2, event ID offset3. Two startup observations followed AUTO TX
+by roughly 164–166 ms; this is not guaranteed correlated ACK/acceptance/rejection.
+The original IDLE ISR's FD test has no header guard; a 5AA5-only parser misses
+this separate family. Meanings/integrity of b4..9 remain unknown.
 
-RX checksum varlığı/offset/kuralı bilinmiyor. Temiz AUTO kayıtlarda aynı
-b0..10 ile farklı b11 görüldü; b11'in yalnızca bu prefix'in deterministik
-checksum'u olması bu gözlemlere uymaz. Genel checksum yoktur sonucu çıkarılmaz.
-Toplama/XOR taraması hipotez üretir; otomatik onay vermez.
-10 bayt event ailesinde bu beş ID için son bayt `sum(b0..8)&FF` ile
-eşleşir. Diğer event alanları değişmediği için bu hâlâ sınırlı bir checksum
-hipotezidir; arbitrary event payload kuralı olarak kullanılmaz.
+## Integrity and evidence levels
 
-Gerçek ekran karşılaştırmaları protokol/gösterim uyumunu test eder. ST2 kartı
-dirençlerinin burada kullanılan değerleri **nominaldir**; bağımsız referans
-ölçümü veya tolerans bilgisi bildirilmedi. Bu kayıtlar analog doğruluk ya da
-kalibrasyon sertifikası değildir. Sayısal eşleşme sayıları
-`evidence/resistance_comparison.json` içinde; ham `.sr`, tüm geçişler ve kullanıcı
-bildirimleri oturum metadata'sında korunur.
-Açık uç kapasitans/buzzer/DC/AC/Hz/akım/NCV/LIVE/sıcaklık kapsamı
-[OPEN_PROBE_VALIDATION.md](OPEN_PROBE_VALIDATION.md) içindedir.
+RX checksum existence/offset/rule is unknown.
+Clean AUTO captures show different b11 for the same b0..10, contradicting
+a deterministic checksum solely over that prefix. This does not prove no
+checksum exists. Sum/XOR scanning generates hypotheses only.
+For the five observed event IDs, the last byte matches sum(b0..8)&FF,
+but other fields did not vary; this remains a bounded hypothesis and is not
+used as an arbitrary event-payload rule.
 
-NCV ve LIVE sayısal ölçüm olarak yorumlanmaz. Çağıranın host mode=09/13
-verdiği `dmt99_host_ui_status`, orijinal screen.c'deki NCV `-` sayısını veya
-LIVE ilk segmentin `L` olup olmama kararını döndürür. Mod wire mesajından
-otomatik tahmin edilmez. Açık girişte ham ` E? ` ve `L1UE` değişmeden saklanır;
-aktif kaynakla seviyeler/eşikler test edilmedi. Sıcaklık code=21 ve kullanıcı
-°C seçimi ayrı kanıtlardır; 32 ekranı ile 32 paket değeri eşleşti. Genel SI
-fonksiyonu code=21'i C/F belirsizliğinde reddeder.
+Display comparisons test protocol/display consistency. ST2 resistance values
+are **nominal**; no independent reference measurement or tolerance was reported.
+These are not analog-accuracy or calibration certificates.
+Counts: evidence/resistance_comparison.json. Original .sr, transitions
+and user reports remain in session metadata.
+[Open-input validation](OPEN_PROBE_VALIDATION.md) covers C/buzzer/DC/AC/Hz/
+current/NCV/LIVE/temperature.
+
+NCV/LIVE are not numeric measurements. Given explicit host mode 09/13,
+dmt99_host_ui_status applies screen.c's dash count or first-symbol-L decision.
+Mode is not guessed from the packet. Open-input raw ` E? ` and `L1UE`
+are retained; active-source thresholds/levels were not tested.
+Temperature code21 and the user's °C selection are separate evidence:
+display 32 matched packet value 32, but generic SI conversion rejects
+code21 because C/F context is ambiguous.

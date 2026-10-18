@@ -1,10 +1,11 @@
 # DMT99 Studio
 
-Birleşik depoda bu uygulama `projects/studio/` içindedir. Firmware ve ASIC
-kaynaklarını aynı deponun içinden bulur; eski kardeş dizinler gerekmez.
-[Ortak kurulum/build](../../docs/BUILDING.md), [tema rehberi](../../docs/THEMES.md),
-[Windows yükleme](../../docs/UPDATING.md) güncel yönergelerdir. Gerçek USB
-yönetim/canlı veri taşıması tamamlanmadı; simulated device gerçek cihaz değildir.
+This application lives under `projects/studio/` in the consolidated repository.
+It locates firmware and ASIC sources within the same repository; old sibling
+folders are unnecessary. Current guides: [setup/build](../../docs/BUILDING.md),
+[themes](../../docs/THEMES.md), [Windows installation](../../docs/UPDATING.md).
+Real USB management/live-data transport is unfinished; the simulated device
+is not a physical meter.
 
 DMT99 Studio is a desktop tool for the FNIRSI DMT99 running POTAT-99 firmware. It is a theme editor, a
 flash manager and a companion app. It works on the existing firmware project

@@ -1,119 +1,122 @@
-# Beş projenin birleştirilmesi
+# Consolidation of the five projects
 
-2026-10-18: ana rekonstrüksiyon çalışma alanı GitHub'a uygun bir kaynak
-deposu olarak düzenlendi. Firmware algoritmaları, ASIC komutları, menü
-dispatcher'ı ve stock/custom politika ayrımı değiştirilmedi. Donanım işlemi,
-flashlama veya yeni uzun RV32 emülasyonu yapılmadı.
+2026-10-18: the main reconstruction workspace was organized as a source
+repository suitable for GitHub. Firmware algorithms, ASIC commands, the
+menu dispatcher and stock/custom policy separation were unchanged.
+No hardware operation, flashing or new long RV32 emulator session was performed.
 
-## Yeni yerleşim
+## New layout
 
-| Eski proje / yol | Birleşik yer |
+| Former project / path | Consolidated location |
 |---|---|
-| Ana analiz | `reconstructed/`, `analysis/`, `decompiled/`, `disassembly/`, `tools/`, `docs/` |
+| Main analysis | `reconstructed/`, `analysis/`, `decompiled/`, `disassembly/`, `tools/`, `docs/` |
 | dmt_99_doom | `projects/doom/` |
 | dmt99-studio | `projects/studio/` |
 | dmt_99_asic_analysis | `projects/asic/` |
 | dmt99-rvswd | `projects/rvswd/` |
 | final/v* | `artifacts/firmware/potat-99/v*` |
 | DOOM dist/v* | `artifacts/firmware/doom/v*` |
-| Özgün BIN / flashdump | `artifacts/firmware/original/`, `artifacts/flash/original/` |
-| Kayıtlar, extraction, temalar | `artifacts/captures/`, `artifacts/flash/extracted/`, `artifacts/themes/` |
+| Original BIN / flashdump | `artifacts/firmware/original/`, `artifacts/flash/original/` |
+| Captures, extraction and themes | `artifacts/captures/`, `artifacts/flash/extracted/`, `artifacts/themes/` |
 
-Dört eski kardeş proje **değiştirilmeden** yerinde bırakıldı; birleşik kaynaklar
-onlara bağımlı değildir. Mevcut main/DOOM yayınlarının içerikleri korunmuştur.
-Eski yollar için yalnız depo içinde kalan göreli symlink'ler vardır. Yeni
-yayın araçları doğrudan merkezi `artifacts/` dizinini kullanır.
+The four former sibling projects were **left unchanged** and are not runtime
+or build dependencies of the consolidated sources. Existing main/DOOM
+release contents were preserved. Former paths have relative symlinks that
+stay inside the repository. New release tools use central `artifacts/` paths directly.
 
-Mevcut beş proje ağacında kalıcı bir `THEME.PKG` yayını bulunmadı. Merkezi tema
-dizinine yalnız yeni, **78 baytlık palet örneği** eklendi; mevcut bir tema
-yayınının kurtarıldığı veya fiziksel olarak denendiği iddia edilmez.
+No persistent `THEME.PKG` release was found in the five project trees.
+Only a new **78-byte palette example** was added to the central theme folder;
+no recovered or physically tested theme release is claimed.
 
-Ana projenin eski çalışma ağacı değişiklik öncesi depo dışında yedeklendi.
-Eski `.history/` kilometre taşları yerelde korunur. İç içe Git depoları, IDE
-ayarları, Python ortamları, SDK build cache'leri ve upstream video demosu
-birleşik kaynaklara kopyalanmadı. Kök `.git` yeni/temiz yayın geçmişidir;
-kişisel geçmiş ve eski binary'ler otomatik ithal edilmedi. Hiçbir remote'a push yapılmadı.
+The previous main worktree was backed up outside the repository before
+migration. Earlier `.history/` milestones remain local. Nested Git stores,
+IDE settings, Python environments, SDK build caches and the upstream demo
+video were not imported. The root `.git` is a fresh public-source history;
+private history and old binaries were not automatically imported.
+Nothing was pushed to a remote.
 
-## Gizlilik ve kanıt ayrımı
+## Privacy and evidence boundaries
 
-- Sabit kullanıcı/bilgisayar dizinleri kaynak/Makefile/belgelerden çıkarıldı.
-  Toolchain PATH veya mevcut kullanıcının araç kurulumundan seçilir.
-- Gerekli tarihsel **metin üstverisi** göreli gösterime çevrildi. Değişen
-  metinlerin önce/sonra hash'leri `integration/metadata_normalization.json`
-  içindedir; bunlar yeni deney/analiz sonucu değildir.
-- Özgün BIN, Flash dump, ham logic/sigrok örnekleri ve yayımlanmış dosyalar
-  değiştirilmedi. Tam kayıtlar, özel USB/host envanteri, eski loglar, debug ELF
-  ve map dosyaları Git dışında yereldir; bunlarda eski edinim yolları bulunabilir.
-  Immutable debug dosyalarını yeniden yazarak yayın hash'leri bozulmadı.
-- Kök Git'e yalnız incelenmiş kaynak/belgeler, küçük regresyon kesitleri,
-  galeri ve seçilmiş release metadata'sı girer. Tüm yerel arşivi ZIPleyip
-  kaynak yayını diye yüklemek bu gizlilik filtresini atlar.
-- Lisans/atıflar korunur; root lisansı tüm araştırma ve oyun verilerini
-  yeniden lisanslamaz. Ham üretici/oyun verileri varsayılan olarak yayımlanmaz.
+- Fixed user/computer paths were removed from source, Makefiles and documents.
+  Toolchains are selected from PATH or the current user's tools installation.
+- Relevant historical **text metadata** was converted to relative notation.
+  Before/after hashes are in `integration/metadata_normalization.json`;
+  these edits are not new experiment or analysis results.
+- The original BIN, Flash dump, raw logic/sigrok samples and published files
+  were unchanged. Full sessions, private USB/host inventory, older logs,
+  debug ELFs and maps remain outside Git locally; these may retain original
+  acquisition paths. Immutable debug files were not rewritten and their
+  release hashes were not invalidated.
+- Root Git contains selected source/documents, small regression excerpts,
+  gallery images and selected release metadata. Uploading the entire local
+  archive as a source ZIP would bypass this privacy filter.
+- Licenses and attribution are retained. The root notice does not relicense
+  all research/game data; raw manufacturer/game data is unpublished by default.
 
-`tools/audit_repository.py` seçilmiş dosyaları kişisel mutlak yollar, bazı
-anahtar/token biçimleri, ana rehberlerin yerel bağlantıları ve SHA-256
-bakımından denetler. Bu sınırlı otomasyon hukukî veya tam güvenlik incelemesi değildir.
+`tools/audit_repository.py` checks selected files for personal absolute
+paths, certain key/token patterns, primary-guide local links and SHA-256
+integrity. This limited automation is not a complete legal or security audit.
 
-## Gerçek doğrulama sonuçları
+## Recorded validation results
 
-| Kontrol | Sonuç |
+| Check | Result |
 |---|---|
-| Orijinal BIN/NOR, decompiled/disassembly ve temel instruction/function envanteri | **884 dosya aynı SHA-256** |
-| İthal edilmiş yayınlar ve tam ASIC/RVSWD kayıtları | **637 dosya değişmemiş**, `integration/artifact_preservation.json` |
-| POTAT-99 temiz cross-build | **141868 bayt**, korunmuş 0.6.0 BIN'iyle birebir aynı |
-| DOOM yeni dizinden cross-build | **163444 bayt**, korunmuş 0.4.0 BIN'iyle birebir aynı |
-| Firmware STOCK_COMPATIBLE check | 13 çekirdek + 9 uygulama/storage + 6 kaynak + 2 profil + 7 simulator kontrolü geçti |
-| Firmware CUSTOM_DMT99 check | 13 çekirdek + 9 uygulama/storage + 6 kaynak + 5 profil + 7 simulator kontrolü geçti |
-| Studio native araçlar / GUI pytest | Build geçti; **41 test geçti** |
-| DOOM test | **4 C test grubu, 6 host testi, 6000 upstream collision/raycast karşılaştırması geçti** |
-| ASIC bağımsız driver | RV32 arşivi üretildi; **31 Python/C testi geçti**, ASan/UBSan stream testi dahil |
-| RVSWD teşhis | **3 C test çalıştırması ve 34 Python testi geçti** |
-| ESP32 default | ESP-IDF **5.5.5**, klasik ESP32 build'i geçti; lab/activation/halt kapıları kapalı |
-| Galeri | Mevcut POTAT/DOOM PNG'leri kullanıldı; Studio gerçek Qt offscreen UI'sinden 2 kısa görüntü alındı |
-| Ayrı dizinde yalnız Git'e seçilmiş kaynaklarla build | Firmware, DOOM, ASIC ve Studio native araçları geçti; BIN'ler yine eski yayınlarla birebir aynı |
-| Eski dört kardeş proje | **1048 kaynak/veri dosyasının hash'i aynı**; bu dizinlere yazılmadı |
+| Original BIN/NOR, decompiled/disassembly and core instruction/function inventory | **884 files retain their SHA-256** |
+| Imported releases and complete ASIC/RVSWD sessions | **637 unchanged files**, `integration/artifact_preservation.json` |
+| POTAT-99 clean cross-build | **141868 bytes**, byte-identical to preserved 0.6.0 |
+| DOOM cross-build in new location | **163444 bytes**, byte-identical to preserved 0.4.0 |
+| Firmware STOCK_COMPATIBLE check | 13 core + 9 application/storage + 6 resource + 2 profile + 7 simulator checks passed |
+| Firmware CUSTOM_DMT99 check | 13 core + 9 application/storage + 6 resource + 5 profile + 7 simulator checks passed |
+| Studio native tools / GUI pytest | Build passed; **41 tests passed** |
+| DOOM tests | **4 C groups, 6 host tests and 6000 upstream collision/raycast comparisons passed** |
+| Independent ASIC driver | RV32 archive built; **31 Python/C tests passed**, including ASan/UBSan stream testing |
+| RVSWD diagnostics | **3 C test executions and 34 Python tests passed** |
+| ESP32 default | **ESP-IDF 5.5.5**, classic ESP32 build passed; lab/activation/halt gates disabled |
+| Gallery | Existing POTAT/DOOM PNGs reused; two short captures from the actual offscreen Studio Qt UI |
+| Build from Git-selected sources in a separate directory | Firmware, DOOM, ASIC and Studio native tools passed; both BINs again matched preserved releases |
+| Former four sibling projects | **1048 source/data file hashes unchanged**; those trees were not written |
 
-Stock/custom ortak kontrollerin iki profilde çalışması iki kat özgün davranış
-kapsamı değildir. 6000 upstream vaka, klasik DOOM veya AI eşdeğerliği iddiası
-değildir. Önceki RV32 differential/emülatör raporları korunmuştur; bu
-birleştirmede yeni tam RV32 seansları çalıştırılmadı. Yeni firmware davranışı
-eklenmediği için ekranları tekrar üretmek üzere saatlerce emülasyon yapılmadı.
+Running common stock/custom checks in both profiles does not double distinct
+original-behavior coverage. The 6000 upstream cases do not establish classic
+DOOM or AI equivalence. Prior RV32 differential/emulator reports were
+preserved; no new full RV32 sessions were run during consolidation.
+No firmware behavior changed, so screenshots were not regenerated through hours of emulation.
 
-GCC sanitizer runtime'ının bu hostta eksik olması nedeniyle ASIC test harness'i
-`SANITIZER_CC` seçimini destekler; mevcut Clang ile adres/UB kontrolleri geçti.
-ptrace altında yalnız leak kontrolü kapalıydı. İlk RVSWD çalışmasında ortamın
-geçersiz `CC` seçimi derleyiciyi bulamadı; `CC=cc` ile tam test geçti.
+The host lacked GCC sanitizer runtimes, so the ASIC test harness now accepts
+`SANITIZER_CC`; address/UB checks passed with available Clang.
+Only leak checking was disabled under ptrace.
+The first RVSWD attempt inherited an unavailable compiler through `CC`;
+the complete run passed with `CC=cc`.
 
-Tekrar derleme hash'leri `integration/rebuilt_images.json`, arşiv envanteri
-`../artifacts/catalog.json` içindedir. `tools/check_reference.py` artık tüm
-ebeveyn kaynağı değişmemiş saymaz: eski 5017 dosyalık baseline tarihsel olarak
-korunur, güncel kontrol açıkça **884 immutable kanıt dosyasıyla** sınırlıdır.
-Baseline'ı sıfırlayıp aynı testmiş gibi başarı raporlanmadı.
+Rebuild hashes are in `integration/rebuilt_images.json`; the archive
+inventory is `../artifacts/catalog.json`. `tools/check_reference.py` no
+longer claims the entire maintained parent source is unchanged: the old
+5017-file baseline is historical, and current verification explicitly covers
+**884 immutable evidence files**. It was not silently rebaselined and reported as the same test.
 
-Taşınabilirlik kontrolünde Git indeksindeki dosyalar ayrı bir geçici dizine
-alındı; yalnız gerekli üç özel girdi (V2.4, NOR, WAD) kendi konumlarına
-kopyalandı. Eski kardeş kaynaklar veya build dosyaları kullanılmadı.
-`integration/portable_checkout.json` bu kontrolü ve kardeş ağaçların hash
-korunmasını kaydeder. Bu üç girdi temiz kaynak deposuna eklenmez.
+For portability, Git-index files were checked out into a separate temporary
+directory; only the three private inputs (V2.4, NOR, WAD) were supplied.
+No former sibling sources or build outputs were used.
+`integration/portable_checkout.json` records this and sibling-tree hash preservation.
+Those three inputs are not added to the public source repository.
 
-## Temizlik ve sonraki kullanım
+## Cleanup and future use
 
-Yeni belgeler tek giriş altında toplandı: `docs/README.md`. Güncel kurulum,
-tema, araştırma ve yasal sınırlar ortak rehberlere taşındı; aşama/kanıt
-raporları ayrı kalır. Eski root README tarihsel belge olarak korunur.
+`docs/README.md` is the common documentation entry point. Current setup,
+theme, research and legal guidance is consolidated; phase/evidence reports
+remain separate. The old root README is retained as a historical document.
 
-Yeniden üretilebilir build/bytecode/cache dosyaları yayın kapsamından
-çıkarılır; edinim ve kalıcı arşiv silinmez. Mevcut galeri, doğrulama raporları
-ve özgün binary'ler tutulur. Sıradaki değişiklikte `BUILDING.md` hedeflerini
-kullanın; yeni BIN için sürüm yükseltin ve gerekli differential testleri
-yenileyin. Temiz Git klonu yerel özel veri arşivinin yedeği değildir.
+Reproducible build/bytecode/cache outputs are excluded from publication;
+acquisitions and persistent archives are retained. Existing gallery images,
+validation reports and original binaries remain available locally.
+Use `BUILDING.md` for future work, bump versions for changed BINs and rerun
+the necessary differential tests. A clean Git clone is not a backup of the private archive.
 
-Fiziksel temizlikte **561659009 bayt (yaklaşık 536 MiB)** yeniden üretilebilir
-build/obje, ortam/cache, açılmış upstream arşivi ve Ghidra çalışma verisi
-kaldırıldı. Küçük yayımlanmamış cache çalışması dış yedeğe, eski ELF/host
-kütüphanesi/ekran/test raporları yerel `artifacts/validation/previous-build/`
-arşivine alındı. Studio'nun üç native aracı ve DOOM host simülatörü hızlı
-kullanım için tutuldu; MCU/ESP32 yayınları merkezi arşivde bulunur.
-`integration/cleanup.json` bu temizliğin sayısal kaydıdır. `.gitattributes`
-ithal kanıt/vendor dosyalarının satır sonlarını değiştirerek hash bozmaz.
+Cleanup removed **561659009 bytes (about 536 MiB)** of reproducible
+build/objects, environments/caches, expanded upstream archives and Ghidra
+working data. Small unpublished cache work was backed up externally;
+old ELF/host libraries/screenshots/test reports were retained under local
+`artifacts/validation/previous-build/`. Three Studio native tools and the
+DOOM host simulator were retained for immediate use; MCU/ESP32 releases
+are in the central archive. `integration/cleanup.json` records the totals.
+`.gitattributes` preserves imported evidence/vendor line endings and hashes.

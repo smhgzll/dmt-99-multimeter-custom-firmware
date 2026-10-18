@@ -1,59 +1,57 @@
-# Gerçek donanım bulguları — 2026-10-18
+# Physical hardware findings — 2026-10-18
 
-Pasif GND/D0/D2 bağlantısı, orijinal firmware, kullanıcı tarafından AUTO modu
-bildirildi. ASIC hattı D2, MCU hattı D0 olarak izlendi. MCU'ya komut gönderilmedi.
+Passive GND/D0/D2 wiring, original firmware, user-reported AUTO mode.
+ASIC TX was monitored on D2, MCU TX on D0. No commands were sent to the MCU.
 
-| Kayıt | Örnekleme / alınan süre | Gözlem |
+| Capture | Rate / acquired duration | Observation |
 |---|---|---|
-| `20261018T003908_idle_already_powered_81d808b6` | 1 MHz / 20 s | 120 × 12-byte 5AA5 burst; 1440 RX byte; UART hatası yok |
-| `20261018T004101_auto_idle_d0_d2_2mhz_9eb57894` | 2 MHz / 10 s | 61 × 12-byte 5AA5 burst; 732 RX byte; UART hatası yok |
-| `20261018T004155_startup_auto_d0_d2_2mhz_998d0648` | 2 MHz / 29.429760 s | İki AUTO TX komutu ve iki AA55FD event adayı; güç geçişlerinde hatalar korunmuş |
+| `20261018T003908_idle_already_powered_81d808b6` | 1 MHz / 20 s | 120 ×12-byte 5AA5 bursts; 1440 RX bytes; no UART errors |
+| `20261018T004101_auto_idle_d0_d2_2mhz_9eb57894` | 2 MHz / 10 s | 61 ×12-byte 5AA5 bursts; 732 RX bytes; no UART errors |
+| `20261018T004155_startup_auto_d0_d2_2mhz_998d0648` | 2 MHz / 29.429760 s | Two AUTO TX commands/two AA55FD candidates; power-transition errors retained |
 
-İlk iki kaydın 2172 RX baytı libsigrokdecode UART çözümlemesiyle birebir
-eşleşti (`evidence/real_capture_decoder_validation.json`). Bunlar 9600 8N1
-yorumunu ve gözlenen burst uzunluğunu destekler; tüm modları doğrulamaz.
+All 2172 RX bytes from the first two captures match libsigrokdecode UART
+(evidence/real_capture_decoder_validation.json).
+This supports 9600 8N1 and observed burst lengths, not every operating mode.
 
-## Ölçüm/görüntü ailesi
+## Measurement/display family
 
-`5A A5 E4 2E 63 25 07 00 00 00 01 3F` — toplam **12 bayt**.
-Firmware segment çözümlemesi `AUTO` üretir. İlk iki kayıtta b0..10 sabitken
-b11 `3E/3F/40` değerleri aldı. Dolayısıyla b11'in önceki 11 baytın deterministik
-bir checksum'u olduğu varsayımı bu temiz kayıtlara uymaz. b11'in fiziksel anlamı
-henüz bilinmiyor. Başka checksum konumları/kuralları doğrulanmış değildir.
+`5A A5 E4 2E 63 25 07 00 00 00 01 3F` — **12 bytes**.
+Firmware segment interpretation gives AUTO.
+In the first two captures b0..10 stayed constant while b11 took 3E/3F/40.
+A deterministic checksum of the preceding 11 bytes therefore does not
+explain b11 in these clean captures. Its physical meaning and other checksum
+locations/rules remain unconfirmed.
 
-13 baytlık DMA tamponu eski firmware kodunda vardır. Bu gözlem 12 bayt wire
-burst ile birlikte raporlanır; bir eksik bayt eklenmez ve nedenine dair
-tamponun eski veri içerdiği gibi olasılıklar doğrulanmış sayılmaz.
+The original firmware has a 13-byte DMA buffer. Both facts are reported
+without adding a missing byte or presenting stale-buffer hypotheses as established causes.
 
-## Açılışta farklı mesaj ailesi
+## Separate startup family
 
-MCU TX: `AA 55 05 14 00 00 00 00 00 19` — **10 bayt**.
+MCU TX: `AA 55 05 14 00 00 00 00 00 19` — **10 bytes**.
+ASIC RX: `AA 55 FD 14 00 00 00 AA 01 BB` — **10 bytes**, not 5AA5.
 
-ASIC RX: `AA 55 FD 14 00 00 00 AA 01 BB` — **10 bayt**, header `5AA5` değil.
+RX began 165.855 ms and 163.391 ms after TX in two observations.
+FD/14 is consistent with firmware event dispatch and AUTO association,
+but ACK, acceptance/rejection and guaranteed request/response semantics are unproven.
+The initial 5AA5-only guard could miss this family; the parser now retains it separately.
 
-İki gözlemde RX başlangıcı TX başlangıcından 165.855 ms ve 163.391 ms sonra
-geldi. `FD/14` firmware event dispatch yorumu ve AUTO ilişkisiyle uyumlu;
-ACK, kabul/red veya garanti edilmiş request/response semantiği henüz ispatlı değil.
-İlk kayıttaki sabit `5AA5` guard'ı bu event'i kaçırabilirdi; parser artık ayrı
-event ailesini kayıpsız korur.
+Of 60,000,000 requested startup samples, 58,859,520 arrived.
+Despite sigrok-cli return code0, the session is marked partial_or_failed.
+USB transfer timeouts appear in logs; the sample shortfall's cause remains unverified.
+Initial low level and power-transition framing errors are preserved.
 
-Açılışta 60,000,000 sample hedefi için 58,859,520 sample geldi. `sigrok-cli`
-return code 0 olsa da oturum `partial_or_failed` olarak işaretlendi. Logda
-USB transfer timeout'ları vardır; eksik sayının nedeni ayrıca doğrulanmadı.
-Kayıt başında düşük seviye ve güç geçişlerindeki framing hataları saklıdır.
+## Validation limits
 
-## Doğrulama sınırı
+Physically observed: UART bytes, two message families, 12/10-byte bursts,
+literal command14 and temporal relationships in these AUTO captures.
+Firmware-derived: segments and sign/decimal/unit priority.
+Later ST2 sessions covered nominal 1Ω/1kΩ/10kΩ/100kΩ/1MΩ/10MΩ and open probes:
+[resistance validation](RESISTANCE_VALIDATION.md).
+User-limited open-input C/buzzer/DC/AC/Hz sessions followed:
+[open-input validation](OPEN_PROBE_VALIDATION.md).
 
-Donanımda gözlenen: bu AUTO kayıtlarında UART byte dizileri, iki mesaj ailesi,
-12/10 bayt burst uzunlukları, 14 komutunun literal formu ve zamansal ilişki.
-Firmware'den yorumlanan: segmentler, işaret/decimal/unit bit öncelikleri.
-Sonraki oturumlarda ST2 direnç kartıyla 1Ω/1kΩ/10kΩ/100kΩ/1MΩ/10MΩ ve açık
-uç testleri tamamlandı; [RESISTANCE_VALIDATION.md](RESISTANCE_VALIDATION.md).
-Yeni komponent istemeyen kullanıcı kapsamıyla kapasitans/buzzer/DC/AC/Hz açık
-uç kayıtları da alındı; [OPEN_PROBE_VALIDATION.md](OPEN_PROBE_VALIDATION.md).
-UI birim prefix'leri C dönüşümünde uygulanır; analog kalibrasyon, fiziksel
-kademe, b9..11 anlamları, RX checksum ve ACK garantisi doğrulanmış değildir.
-
-Regresyon kesitleri tam ham sample kesitleridir; yeniden üretilmiş wave şekilleri
-değildir. Yanlarındaki JSON dosyalarında parent capture hash'leri, sample aralığı
-ve beklenen bayt/sample konumları bulunur. Eski analiz dizini değişmedi.
+C conversion implements UI prefixes. Analog calibration, physical range,
+b9..11 meanings, RX checksum and guaranteed ACK remain unvalidated.
+Regression excerpts are unchanged raw sample slices, not regenerated
+waveforms. Their JSON files retain parent hashes, sample ranges and expected
+byte/sample positions. The prior analysis directory was unchanged during acquisition.
