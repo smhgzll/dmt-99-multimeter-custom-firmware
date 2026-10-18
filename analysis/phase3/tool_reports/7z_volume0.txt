@@ -1,0 +1,17 @@
+
+7-Zip 26.03 (x64) : Copyright (c) 1999-2026 Igor Pavlov : 2026-09-03
+ 64-bit locale=C.UTF-8 Threads:12 OPEN_MAX:1048576
+
+Scanning the drive for archives:
+1 file, 1638400 bytes (1600 KiB)
+
+Listing archive: extracted_flash/volumes/0.fat
+
+
+ERROR: extracted_flash/volumes/0.fat : extracted_flash/volumes/0.fat
+Open ERROR: Cannot open the file as [FAT] archive
+
+
+
+
+Errors: 1

@@ -1,0 +1,7 @@
+{
+  "source": "https://ftp.gwdg.de/pub/misc/ftp.idsoftware.com/idstuff/doom/doom19s.zip",
+  "archive_sha256": "cacf0142b31ca1af00796b4a0339e07992ac5f21bc3f81e7532fe1b5e1b486e6",
+  "wad_sha256": "1d7d43be501e67d927e415e0b8f3e29c3bf33075e859721816f652a526cac771",
+  "wad_bytes": 4196020,
+  "terms": "id Software game data, not covered by code AGPL"
+}

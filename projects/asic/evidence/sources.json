@@ -1,0 +1,70 @@
+{
+  "original_directory_read_only": ".",
+  "hardware_validated": false,
+  "sources": [
+    {
+      "path": "./analysis/asic_protocol_commands.json",
+      "sha256": "79651067efc4f94a315dfc605593a731e2db4d7a73f02061dd2820637d410a01"
+    },
+    {
+      "path": "./analysis/measurement_asic_protocol.md",
+      "sha256": "18e5c1e75f4b0c033776c5867539afed25b2cb17f7a08467ae86c26b4b1b68da"
+    },
+    {
+      "path": "./reconstructed/drivers/asic_driver.h",
+      "sha256": "d1929426b402e7f01e758782c1de0cfe45e0dd4e807c10ec60c3ad45c4285e76"
+    },
+    {
+      "path": "./reconstructed/drivers/asic_driver.c",
+      "sha256": "c740fed5409a9d739854a21bd6366c90fb89747d610cf6bf3cfa06170b3d4ceb"
+    },
+    {
+      "path": "./reconstructed/drivers/measurement_asic.c",
+      "sha256": "acd337c0ac95406015203aadd5db715a54e227e09c9a3c964eab0ff94939ea98"
+    },
+    {
+      "path": "./reconstructed/drivers/measurement_reading.c",
+      "sha256": "228e4cac79908a592517e26a11539c0325b056075e5dc48a913ca48b7a708db3"
+    },
+    {
+      "path": "./reconstructed/ui/units.c",
+      "sha256": "19731a53ec25f94232807a57b0e27ab7c71d4a0ba1064adee081fad5d85853b8"
+    },
+    {
+      "path": "./decompiled/clean/0000c350_measurement_uart_dma_init.c",
+      "sha256": "f5507115b19d53226a08f8ac1aa597376d5e85ffac0f08fb737aa3ff1c90acaf"
+    },
+    {
+      "path": "./decompiled/clean/000097c4_measurement_send_command.c",
+      "sha256": "45b1ba1604ca970adaa046b8bb572c0e4a5dd5990475afbb00efd55ed782a2d7"
+    },
+    {
+      "path": "./decompiled/clean/0000be78_measurement_parse_display_frame.c",
+      "sha256": "c372206df9f78f038d7b83934659814f0e08992242fd63ebad83d771aac385b0"
+    },
+    {
+      "path": "./decompiled/clean/000098aa_measurement_segment_decode.c",
+      "sha256": "febb08eab0ec45df63a8968b56ce1bc1e86a8817886f15fcd7a616550961845b"
+    },
+    {
+      "path": "./decompiled/clean/0000c468_USART1_IRQHandler.c",
+      "sha256": "eb98360f433fe27d1fdd7e1570c23a985b3a523c9e6cee3a8a226fb964e1bd60"
+    },
+    {
+      "path": "./decompiled/clean/0000c570_DMA1_Channel5_IRQHandler.c",
+      "sha256": "7cac6173875c09b7d861b074bf297005c9ccaa2c7a9f5da1e77ec8d72ad2bcae"
+    },
+    {
+      "path": "./decompiled/clean/0000997e_measurement_decode_segments.c",
+      "sha256": "a4bee9ad666262e729fe3d7986b5b8a28f09df567767b011a42c142309b9db11"
+    },
+    {
+      "path": "./reconstructed/measurement/value.c",
+      "sha256": "f2ed2010ed37f74072f28f52ed256dc371734e10282db2e66ebdffbac1f01e1b"
+    },
+    {
+      "path": "./reconstructed/drivers/measurement_asic.h",
+      "sha256": "d5d2f342616bbc48c4d5d41f71441bc09b0056eb9bb63264c07f0e6f2965e402"
+    }
+  ]
+}

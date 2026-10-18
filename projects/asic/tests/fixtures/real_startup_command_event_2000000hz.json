@@ -1,0 +1,125 @@
+{
+  "origin": "hardware_excerpt",
+  "source_capture": "projects/asic/captures/20261018T004155_startup_auto_d0_d2_2mhz_998d0648",
+  "source_capture_status": "partial_or_failed",
+  "source_raw_sr_sha256": "6e64798173daeceb5e25acf49419c833aa216f6a6401d7b93d21976057cbd4e9",
+  "source_logic_sha256": "bcad06561757e4ed31016202503a61880629aefd5a5e746072a53647feea8433",
+  "start_sample": 7943335,
+  "end_sample_exclusive": 8305847,
+  "samplerate_hz": 2000000,
+  "channel_map": {
+    "MCU_TX": 0,
+    "ASIC_TX": 2
+  },
+  "raw_excerpt_sha256": "02f5f885ea0c37aa46591f5509a45f83a804222e3963a9597cce5b28f9d92485",
+  "expected": {
+    "MCU_TX": [
+      {
+        "value": 170,
+        "start_sample": 5000,
+        "errors": []
+      },
+      {
+        "value": 85,
+        "start_sample": 7292,
+        "errors": []
+      },
+      {
+        "value": 5,
+        "start_sample": 9583,
+        "errors": []
+      },
+      {
+        "value": 20,
+        "start_sample": 11875,
+        "errors": []
+      },
+      {
+        "value": 0,
+        "start_sample": 14167,
+        "errors": []
+      },
+      {
+        "value": 0,
+        "start_sample": 16458,
+        "errors": []
+      },
+      {
+        "value": 0,
+        "start_sample": 18750,
+        "errors": []
+      },
+      {
+        "value": 0,
+        "start_sample": 21041,
+        "errors": []
+      },
+      {
+        "value": 0,
+        "start_sample": 23333,
+        "errors": []
+      },
+      {
+        "value": 25,
+        "start_sample": 25624,
+        "errors": []
+      }
+    ],
+    "ASIC_TX": [
+      {
+        "value": 170,
+        "start_sample": 336709,
+        "errors": []
+      },
+      {
+        "value": 85,
+        "start_sample": 338789,
+        "errors": []
+      },
+      {
+        "value": 253,
+        "start_sample": 340869,
+        "errors": []
+      },
+      {
+        "value": 20,
+        "start_sample": 342949,
+        "errors": []
+      },
+      {
+        "value": 0,
+        "start_sample": 345029,
+        "errors": []
+      },
+      {
+        "value": 0,
+        "start_sample": 347108,
+        "errors": []
+      },
+      {
+        "value": 0,
+        "start_sample": 349188,
+        "errors": []
+      },
+      {
+        "value": 170,
+        "start_sample": 351268,
+        "errors": []
+      },
+      {
+        "value": 1,
+        "start_sample": 353348,
+        "errors": []
+      },
+      {
+        "value": 187,
+        "start_sample": 355428,
+        "errors": []
+      }
+    ]
+  },
+  "command_hex": "AA 55 05 14 00 00 00 00 00 19",
+  "event_hex": "AA 55 FD 14 00 00 00 AA 01 BB",
+  "event_as_correlated_ack_verified": false,
+  "rx_checksum_verified": false
+}

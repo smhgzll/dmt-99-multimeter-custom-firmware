@@ -1,0 +1,42 @@
+{
+  "images": [
+    {
+      "path": "DMT-99_V2.4_20240306.bin",
+      "sha256": "4befdf6b58e063f03901f190000d790e60d20d0a23e5eeb2b6f6840f1830e98e",
+      "device_shape_leads": [],
+      "configuration_shape_leads": [],
+      "msc_interface_leads": []
+    },
+    {
+      "path": "extracted_flash/carved/application_0004d000.bin",
+      "sha256": "bddf4261481e1c56fcd0eabb25ffbbd40122faea5c25baf77ef824e06588fe75",
+      "device_shape_leads": [],
+      "configuration_shape_leads": [],
+      "msc_interface_leads": []
+    },
+    {
+      "path": "flashdump/dmt99_flash_1.bin",
+      "sha256": "fc6bf2ed36f578c15725a4365c4a381c98ce42657d3b8a98ff06efb1b6427d69",
+      "device_shape_leads": [],
+      "configuration_shape_leads": [],
+      "msc_interface_leads": []
+    }
+  ],
+  "confirmed_device_descriptors": 0,
+  "confirmed_active_msc_interfaces": 0,
+  "original_usb_roles": [
+    {
+      "address": "0x0000c5f2",
+      "name": "USB_HP_CAN1_TX_IRQHandler_default"
+    },
+    {
+      "address": "0x0000c5f4",
+      "name": "USB_LP_CAN1_RX0_IRQHandler_default"
+    },
+    {
+      "address": "0x0000c644",
+      "name": "USBFS_IRQHandler_default"
+    }
+  ],
+  "scope": "Static shape scan plus original semantic/MMIO inventory. USB hardware behavior not observed. Internal bootloader below6400 not supplied."
+}

@@ -1,0 +1,201 @@
+{
+  "candidates": [
+    {
+      "id": "carved_rv32_application",
+      "offset": 315392,
+      "size": 135036,
+      "sha256": "bddf4261481e1c56fcd0eabb25ffbbd40122faea5c25baf77ef824e06588fe75",
+      "path": "extracted_flash/carved/application_0004d000.bin",
+      "format": "raw RV32 application with WCH Xwchc",
+      "load_address": 25600,
+      "entry_target": 50780,
+      "vector_offset": 56,
+      "extent_evidence": [
+        "Reset at c65c copies 488 initialized bytes from ROM27194; derived logical end2737c, length135036.",
+        "135036 is also a deleted BIN directory size; no surviving allocation chain proves its filename.",
+        "Reset target, vector handler pointers and shared original application/library bodies are coherent."
+      ],
+      "extent_derivation": {
+        "reset": 50780,
+        "gp": 536873392,
+        "rom_data": 160148,
+        "ram_start": 536870912,
+        "ram_end": 536871400,
+        "logical_size": 135036
+      },
+      "live_file": false,
+      "usb_stack_present": "no descriptors or USB MMIO identified in this carved application"
+    },
+    {
+      "id": "pe_001133f0",
+      "offset": 1127408,
+      "size": 676352,
+      "sha256": "7ebd1df4cbb5219295d8c791cd14dcabd15af162fe89aad4db9a55cfaa0f7a8b",
+      "path": "extracted_flash/carved/001133f0.pe",
+      "machine": 332,
+      "format": "PE/COFF",
+      "sections": [
+        {
+          "name": ".text",
+          "raw_offset": 1024,
+          "raw_size": 569856
+        },
+        {
+          "name": ".rdata",
+          "raw_offset": 570880,
+          "raw_size": 58880
+        },
+        {
+          "name": ".data",
+          "raw_offset": 629760,
+          "raw_size": 10752
+        },
+        {
+          "name": ".rsrc",
+          "raw_offset": 640512,
+          "raw_size": 35840
+        }
+      ],
+      "extent_evidence": "Maximum section raw extent and SizeOfHeaders; overlays/signatures not inferred.",
+      "classification": "x86 host executable residue, not RISC-V device firmware",
+      "live_file": false
+    },
+    {
+      "id": "pe_001b95f8",
+      "offset": 1807864,
+      "size": 15360,
+      "sha256": "b9eae90f8e942cc4586d31dc484f29079651ad64c49f90d99f86932630c66af2",
+      "path": "extracted_flash/carved/001b95f8.pe",
+      "machine": 332,
+      "format": "PE/COFF",
+      "sections": [
+        {
+          "name": "CODE",
+          "raw_offset": 1024,
+          "raw_size": 10240
+        },
+        {
+          "name": "DATA",
+          "raw_offset": 11264,
+          "raw_size": 512
+        },
+        {
+          "name": "BSS",
+          "raw_offset": 11776,
+          "raw_size": 0
+        },
+        {
+          "name": ".idata",
+          "raw_offset": 11776,
+          "raw_size": 1536
+        },
+        {
+          "name": ".edata",
+          "raw_offset": 13312,
+          "raw_size": 512
+        },
+        {
+          "name": ".reloc",
+          "raw_offset": 13824,
+          "raw_size": 1024
+        },
+        {
+          "name": ".rsrc",
+          "raw_offset": 14848,
+          "raw_size": 512
+        }
+      ],
+      "extent_evidence": "Maximum section raw extent and SizeOfHeaders; overlays/signatures not inferred.",
+      "classification": "x86 host executable residue, not RISC-V device firmware",
+      "live_file": false
+    },
+    {
+      "id": "pe_0072c000",
+      "offset": 7520256,
+      "size": 676352,
+      "sha256": "7ebd1df4cbb5219295d8c791cd14dcabd15af162fe89aad4db9a55cfaa0f7a8b",
+      "path": "extracted_flash/carved/0072c000.pe",
+      "machine": 332,
+      "format": "PE/COFF",
+      "sections": [
+        {
+          "name": ".text",
+          "raw_offset": 1024,
+          "raw_size": 569856
+        },
+        {
+          "name": ".rdata",
+          "raw_offset": 570880,
+          "raw_size": 58880
+        },
+        {
+          "name": ".data",
+          "raw_offset": 629760,
+          "raw_size": 10752
+        },
+        {
+          "name": ".rsrc",
+          "raw_offset": 640512,
+          "raw_size": 35840
+        }
+      ],
+      "extent_evidence": "Maximum section raw extent and SizeOfHeaders; overlays/signatures not inferred.",
+      "classification": "x86 host executable residue, not RISC-V device firmware",
+      "live_file": false
+    },
+    {
+      "id": "pe_007dc5f8",
+      "offset": 8242680,
+      "size": 15360,
+      "sha256": "b9eae90f8e942cc4586d31dc484f29079651ad64c49f90d99f86932630c66af2",
+      "path": "extracted_flash/carved/007dc5f8.pe",
+      "machine": 332,
+      "format": "PE/COFF",
+      "sections": [
+        {
+          "name": "CODE",
+          "raw_offset": 1024,
+          "raw_size": 10240
+        },
+        {
+          "name": "DATA",
+          "raw_offset": 11264,
+          "raw_size": 512
+        },
+        {
+          "name": "BSS",
+          "raw_offset": 11776,
+          "raw_size": 0
+        },
+        {
+          "name": ".idata",
+          "raw_offset": 11776,
+          "raw_size": 1536
+        },
+        {
+          "name": ".edata",
+          "raw_offset": 13312,
+          "raw_size": 512
+        },
+        {
+          "name": ".reloc",
+          "raw_offset": 13824,
+          "raw_size": 1024
+        },
+        {
+          "name": ".rsrc",
+          "raw_offset": 14848,
+          "raw_size": 512
+        }
+      ],
+      "extent_evidence": "Maximum section raw extent and SizeOfHeaders; overlays/signatures not inferred.",
+      "classification": "x86 host executable residue, not RISC-V device firmware",
+      "live_file": false
+    }
+  ],
+  "carved_jpeg_count": 971,
+  "non_live_jpeg_extents": 674,
+  "nested_jpeg_extents": 366,
+  "top_level_jpeg_extents": 605,
+  "deleted_metadata_is_not_live_files": true
+}

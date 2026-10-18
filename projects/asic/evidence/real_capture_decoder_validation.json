@@ -1,0 +1,30 @@
+[
+  {
+    "capture": "20261018T003908_idle_already_powered_81d808b6",
+    "rate": 1000000,
+    "bytes": 1440,
+    "sigrok_exact_match": true,
+    "uart_errors": 0
+  },
+  {
+    "capture": "20261018T004101_auto_idle_d0_d2_2mhz_9eb57894",
+    "rate": 2000000,
+    "bytes": 732,
+    "sigrok_exact_match": true,
+    "uart_errors": 0
+  },
+  {
+    "capture": "20261018T010803_resistance_st2_1ohm_reported_63335c8a",
+    "rate": 1000000,
+    "bytes": 708,
+    "sigrok_exact_match": true,
+    "uart_errors": 0
+  },
+  {
+    "capture": "20261018T010905_resistance_st2_1ohm_repeat_c96379a8",
+    "rate": 1000000,
+    "bytes": 708,
+    "sigrok_exact_match": true,
+    "uart_errors": 0
+  }
+]

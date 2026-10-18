@@ -1,0 +1,123 @@
+{
+  "compiler": "~/.espressif/tools/riscv32-esp-elf/esp-14.2.0_20260121/riscv32-esp-elf/bin/riscv32-esp-elf-gcc",
+  "functions": [
+    {
+      "address": "0x0000dec0",
+      "family": "fatfs",
+      "symbol": "get_ldnumber",
+      "compiled_symbol": "get_ldnumber",
+      "classification": "Strong semantic",
+      "original_body_bytes": 80,
+      "compiled_body_bytes": 74,
+      "exact_body_bytes": false,
+      "operation_sequence_similarity": 0.7273,
+      "original_cfg": {
+        "blocks": 11,
+        "edges": 16,
+        "back_edges": 3,
+        "memory_operand_offset_counts": {
+          "-1": 1,
+          "0": 3
+        }
+      },
+      "compiled_object_cfg": {
+        "blocks": 11,
+        "edges": 14,
+        "back_edges": 1,
+        "memory_operand_offset_counts": {
+          "0": 4
+        }
+      },
+      "abi_review": "Original const TCHAR** path contract; two logical volumes, FF_FS_RPATH=0",
+      "compiled_source": "reconstructed/vendor/fatfs/ff.c",
+      "evidence": [
+        "analysis/library_extension_differential.json",
+        "reconstructed/tests/filesystem_oracle.c"
+      ],
+      "scope": "Documented valid inputs; direct return/memory/path effects tested. Fingerprints alone do not award credit. Object CFG may include unresolved relocations."
+    },
+    {
+      "address": "0x0000e0f8",
+      "family": "fatfs",
+      "symbol": "ld_clust",
+      "compiled_symbol": "ld_clust",
+      "classification": "Strong semantic",
+      "original_body_bytes": 30,
+      "compiled_body_bytes": 68,
+      "exact_body_bytes": false,
+      "operation_sequence_similarity": 0.3,
+      "original_cfg": {
+        "blocks": 3,
+        "edges": 3,
+        "back_edges": 0,
+        "memory_operand_offset_counts": {
+          "20": 1,
+          "21": 1,
+          "26": 1,
+          "27": 1
+        }
+      },
+      "compiled_object_cfg": {
+        "blocks": 3,
+        "edges": 3,
+        "back_edges": 0,
+        "memory_operand_offset_counts": {
+          "0": 3,
+          "4": 2,
+          "8": 2,
+          "12": 2
+        }
+      },
+      "abi_review": "Original compiler scalarized FATFS.fs_type to an integer argument; oracle_load_cluster explicitly adapts this ABI",
+      "compiled_source": "reconstructed/vendor/fatfs/ff.c",
+      "evidence": [
+        "analysis/library_extension_differential.json",
+        "reconstructed/tests/filesystem_oracle.c"
+      ],
+      "scope": "Documented valid inputs; direct return/memory/path effects tested. Fingerprints alone do not award credit. Object CFG may include unresolved relocations."
+    },
+    {
+      "address": "0x0000e116",
+      "family": "fatfs",
+      "symbol": "st_clust",
+      "compiled_symbol": "st_clust",
+      "classification": "Strong semantic",
+      "original_body_bytes": 30,
+      "compiled_body_bytes": 82,
+      "exact_body_bytes": false,
+      "operation_sequence_similarity": 0.3182,
+      "original_cfg": {
+        "blocks": 3,
+        "edges": 3,
+        "back_edges": 0,
+        "memory_operand_offset_counts": {
+          "0": 1,
+          "20": 1,
+          "21": 1,
+          "26": 1,
+          "27": 1
+        }
+      },
+      "compiled_object_cfg": {
+        "blocks": 3,
+        "edges": 2,
+        "back_edges": 0,
+        "memory_operand_offset_counts": {
+          "0": 4,
+          "4": 3,
+          "8": 3,
+          "12": 3
+        }
+      },
+      "abi_review": "Original FATFS.fs_type byte and SFN offsets20/26 match configured upstream",
+      "compiled_source": "reconstructed/vendor/fatfs/ff.c",
+      "evidence": [
+        "analysis/library_extension_differential.json",
+        "reconstructed/tests/filesystem_oracle.c"
+      ],
+      "scope": "Documented valid inputs; direct return/memory/path effects tested. Fingerprints alone do not award credit. Object CFG may include unresolved relocations."
+    }
+  ],
+  "native_library_sha256": "375fdd84220b2cf511abc0b7fc0de3124fcccdacd9c65b7e903369af27c9f040",
+  "unqualified_compiled_helpers_credited": false
+}

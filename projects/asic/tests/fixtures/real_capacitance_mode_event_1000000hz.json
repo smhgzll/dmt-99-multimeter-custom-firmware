@@ -1,0 +1,197 @@
+{
+  "origin": "hardware_excerpt",
+  "source_capture": "projects/asic/captures/20261018T012010_open_probes_mode_sweep_9f01eea5",
+  "source_capture_status": "partial_or_failed",
+  "source_raw_sr_sha256": "13de242cb3da70cb11736892d237a48ddcd0675a4632ab596599533a908e925a",
+  "source_logic_sha256": "6b03deca90361e22d6d823341472dba5324e2ce2f78a9cdf51afd68a87ac8d81",
+  "source_metadata": {
+    "test": "open_mode_sweep",
+    "label": "open_probes_mode_sweep",
+    "display_text": null,
+    "display_numeric": null,
+    "display_unit": null,
+    "display_tolerance": 0,
+    "component_actual": "Problar açık; harici komponent veya kaynak yok",
+    "mode": "user-controlled open-probe mode sweep",
+    "notes": "Kullanıcı boştaki değerleri ölçelim kapasitörlerle ve başka malzemelerle uğraşmak istemiyorum şu an diyerek fiziksel kapsamı açık uç testleriyle sınırladı. Kayıt aktif mesajından sonra ulaşabildiği modlarda birkaç saniye durarak geçiş yapması istenecek. Mod sırası MCU komutları ve kullanıcı bildirimiyle ilişkilendirilecek; fiziksel komponent kalibrasyonu yapılmaz.",
+    "schema": 1,
+    "origin": "hardware",
+    "status": "partial_or_failed",
+    "host_started_at": "2026-10-18T01:20:10.998594+03:00",
+    "requested_seconds": 60.0,
+    "requested_samples": 60000000,
+    "requested_samplerate_hz": 1000000,
+    "channels": {
+      "D0": "MCU_TX_PA9_pin42",
+      "D2": "ASIC_TX_PA10_pin43"
+    },
+    "channel_map": {
+      "MCU_TX": 0,
+      "ASIC_TX": 2
+    },
+    "rx_frame_bytes": 12,
+    "uart": "9600 8N1",
+    "passive_connections_confirmed": true,
+    "device_preflight": {
+      "argv": [
+        "sigrok-cli",
+        "--driver",
+        "fx2lafw",
+        "--show"
+      ],
+      "returncode": 0,
+      "output": "Driver functions:\n    Logic analyzer\nScan options:\n    conn\nfx2lafw:conn=1.67 - Saleae Logic [S/N: Saleae Logic] with 8 channels: D0 D1 D2 D3 D4 D5 D6 D7\nChannel groups:\n    Logic: channels D0 D1 D2 D3 D4 D5 D6 D7\nSupported configuration options across all channel groups:\n    continuous: on, off\n    limit_samples: 0 (current)\n    conn: 1.67 (current)\n    samplerate - supported samplerates:\n      20 kHz (current)\n      25 kHz\n      50 kHz\n      100 kHz\n      200 kHz\n      250 kHz\n      500 kHz\n      1 MHz\n      2 MHz\n      3 MHz\n      4 MHz\n      6 MHz\n      8 MHz\n      12 MHz\n      16 MHz\n      24 MHz\n      48 MHz\n    Supported triggers: 0 1 r f e \n    captureratio: 0 (current)\n"
+    },
+    "command": [
+      "sigrok-cli",
+      "--loglevel",
+      "4",
+      "--driver",
+      "fx2lafw",
+      "--config",
+      "samplerate=1000000",
+      "--channels",
+      "D0,D2",
+      "--samples",
+      "60000000",
+      "--output-format",
+      "srzip",
+      "--output-file",
+      "projects/asic/captures/20261018T012010_open_probes_mode_sweep_9f01eea5/raw.sr"
+    ],
+    "host_finished_at": "2026-10-18T01:20:41.840058+03:00",
+    "returncode": 0,
+    "received_samples": 29532160,
+    "analysis_error": null
+  },
+  "start_sample": 28985612,
+  "end_sample_exclusive": 29159877,
+  "samplerate_hz": 1000000,
+  "channel_map": {
+    "MCU_TX": 0,
+    "ASIC_TX": 2
+  },
+  "raw_excerpt_sha256": "148a44552c898a496c9393d11d62432e80ab206c0b379facbf3a69200381306f",
+  "expected": {
+    "MCU_TX": [
+      {
+        "value": 170,
+        "start_sample": 1000,
+        "errors": []
+      },
+      {
+        "value": 85,
+        "start_sample": 2145,
+        "errors": []
+      },
+      {
+        "value": 5,
+        "start_sample": 3291,
+        "errors": []
+      },
+      {
+        "value": 10,
+        "start_sample": 4437,
+        "errors": []
+      },
+      {
+        "value": 0,
+        "start_sample": 5583,
+        "errors": []
+      },
+      {
+        "value": 0,
+        "start_sample": 6729,
+        "errors": []
+      },
+      {
+        "value": 0,
+        "start_sample": 7874,
+        "errors": []
+      },
+      {
+        "value": 0,
+        "start_sample": 9020,
+        "errors": []
+      },
+      {
+        "value": 0,
+        "start_sample": 10166,
+        "errors": []
+      },
+      {
+        "value": 15,
+        "start_sample": 11312,
+        "errors": []
+      }
+    ],
+    "ASIC_TX": [
+      {
+        "value": 170,
+        "start_sample": 162837,
+        "errors": []
+      },
+      {
+        "value": 85,
+        "start_sample": 163890,
+        "errors": []
+      },
+      {
+        "value": 253,
+        "start_sample": 164943,
+        "errors": []
+      },
+      {
+        "value": 10,
+        "start_sample": 165983,
+        "errors": []
+      },
+      {
+        "value": 0,
+        "start_sample": 167023,
+        "errors": []
+      },
+      {
+        "value": 0,
+        "start_sample": 168063,
+        "errors": []
+      },
+      {
+        "value": 0,
+        "start_sample": 169103,
+        "errors": []
+      },
+      {
+        "value": 170,
+        "start_sample": 170143,
+        "errors": []
+      },
+      {
+        "value": 1,
+        "start_sample": 171183,
+        "errors": []
+      },
+      {
+        "value": 177,
+        "start_sample": 172223,
+        "errors": []
+      }
+    ]
+  },
+  "expected_packets": [
+    {
+      "direction": "MCU_TX",
+      "hex": "AA 55 05 0A 00 00 00 00 00 0F",
+      "kind": "frame_candidate",
+      "uart_errors": []
+    },
+    {
+      "direction": "ASIC_TX",
+      "hex": "AA 55 FD 0A 00 00 00 AA 01 B1",
+      "kind": "frame_candidate",
+      "uart_errors": []
+    }
+  ],
+  "rx_checksum_verified": false,
+  "cut_policy": "exact contiguous samples; boundary truncation and initial-low errors retained"
+}

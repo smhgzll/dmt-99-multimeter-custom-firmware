@@ -1,0 +1,8 @@
+{
+  "pass": true,
+  "sha256": {
+    "dist/v0.1.0/DMT-99_Doom_V0.1.0_20261018.bin": "c6c3bfed28a7fa6eba0718b9121155be706a30c8829ea06deadb1937b4a41005",
+    "dist/v0.2.0/DMT-99_Doom_V0.2.0_20261018.bin": "2a551b1e3df0ce78fb4f9953d093d5a34423227a12e941cc882da2912c8b63f0",
+    "dist/v0.3.0/DMT-99_Doom_V0.3.0_20261018.bin": "55eeb806cdecb097256b759fd8173d2135fdaa5cf9ad3c4063d94a48908c8aa0"
+  }
+}

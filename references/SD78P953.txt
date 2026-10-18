@@ -1,0 +1,962 @@
+                                                               SD78P953
+                                            7 模拟通道双高精度 ADC
+                                            带功率测量的万用表 SOC
+
+特点                                       ⚫ 工作电压范围：2.4~3.6V
+
+                                         ⚫ 工作温度范围：-40~85℃
+⚫ 高精度 ADC，可实现 6000 分度或以上测量
+                                         ⚫ 内部 8MHz 与 32kHz RC 振荡器
+⚫ 交流真有效值输出，1kHz 带宽处误差不超过 0.5%
+⚫ 芯片内置分压电阻，无需外部电阻分压                      描述
+⚫ 可编程多功能测量网络，支持电压，电流，电阻，
+                                            本芯片是带 2 个 24 位 ADC 的 SOC 产品，程序
+ 二极管，三极管，通断，温度，功率，电容，频
+                                         存储器为 20k Bytes OTP，超低功耗设计，使用内部
+ 率，电感等测量
+                                         RC 振荡器或外部晶体振荡器工作，3.3V 工作电压
+⚫ 内置 charge pump，可测试 3V 二极管              下， 典型应用时的工作电流 CPR 关闭时 2.0mA，CPR
+                                         打开时 3.0mA。
+⚫ 多功能比较器，具有 latch 功能
+                                            外围资源丰富：可选的多种稳压电源输出，灵
+⚫ 8 位 RISC 超低功耗 MCU，49 条指令，6 级堆栈，
+                                         活设置的 ADC 模块，升压模块，UART，带有
+ 在 2MHz 工作时钟，MCU 部分在 3.3V 工作电压
+                                         CAPTURE 功能的 TIMER，正弦波产生器，PWM
+ 下电流典型值为 400μA；32kHz 时钟待机模式下
+                                         和 PFD 输出模块，LCD 驱动等。
+ 工作电流 1.5μA，休眠模式电流小于 1μA
+                                           本产品的 OTP 可以低压自烧录，烧录电压范
+⚫ 20k Bytes OTP 程序存储器，512 Bytes SRAM 数
+                                         围：2.4~3.6V，OTP 可以替代 EERPOM 使用。
+ 据存储器
+                                           MCU 提供三种工作模式让用户可以在工作效
+⚫ 24bit 计数器 TMRA、TMRB 和 TMRC，用于频率
+                                         率和能量消耗方面得到最佳选择，三种模式是：正
+ 或占空比测量
+                                         常工作模式、待机模式、休眠模式。
+⚫ 低压烧录功能，可以替代外部 EEPROM
+
+⚫ 灵活的电池检测功能，检测范围 2.0~3.3V                应用领域
+⚫ 丰富的外围资源：UART，PWM，PFD，BUZ，
+                                            手动档/自动挡万用表及相关测量应用。
+ TIMER，正弦波产生器
+⚫ 带 LCD 驱动模块，最多可支持 42SEG×4COM、           订购信息
+ 41SEG×5COM、40SEG×6COM、38SEG×8COM
+ 液晶驱动电路，超低功耗和大驱动能力设计；内                          产品型号          封装       包装
+ 含程控升压模块，可以在低压条件下维持高亮显                        SD78P953-JQS   LQFP100   盘装
+ 示，支持灰度调节                                     SD78P953-JBS   LQFP64    盘装
+⚫ 所有 I/O 带施密特触发输入及可选上拉电阻                      SD78P953-JMS   LQFP48    盘装
+
+⚫ 掉电检测电路和上电复位电路
+
+
+
+
+  晶华微电子           版本 v0.11   2022/11
+
+   http://www.SDICmicro.cn
+                                                                                                SD78P953
+
+主要资源对比
+                                                 表 1. SD78P953 资源对比表
+              OTP       RAM                               ADC   烧录电        外部
+   型号                             Stack   LCD    Timer                          WDT    Buzzer    UART   封装信息
+             (Bytes)   (Bytes)                           有效位数   压（V）       中断
+
+ SD78P953-
+              20k        512      6级      4*42     5      18     2.4-3.6   2     1         有      有     LQFP100
+   JQS
+
+ SD78P953-
+              20k        512      6级      4*33     5      18     2.4-3.6   2     1         有      有     LQFP64
+   JBS
+
+ SD78P953-
+              20k        512      6级      4*17     5      18     2.4-3.6   2     1         有      有     LQFP48
+   JMS
+
+
+
+PAD 排列图和 PAD 描述
+
+                           100
+                                        VLCD
+                                    P77/COM0  99
+                                    P76/COM1
+                                    P75/COM2
+                                              98
+                                              97
+                                    P74/COM3
+                               P73/COM4/SEG0
+                                              96
+                                              95
+                               P72/COM5/SEG1
+                               P71/COM6/SEG2
+                                              94
+                                              93
+                               P70/COM7/SEG3
+                                     P67/SEG4
+                                              92
+                                              91
+                                              90
+                                     P66/SEG5
+                                     P65/SEG6
+                                     P64/SEG7
+                                              89
+                                              88                                                  75
+                                              87                                               NC
+              1
+                                     P63/SEG8 86
+                  VPP/RST_B
+                                     P62/SEG9
+                                    P61/SEG10 85
+                                              84                                                   74
+              2
+                                    P60/SEG11
+                                        SEG12 83                                               NC
+                  CP
+                                        SEG13
+                                        SEG14
+                                              82
+                                              81
+                                              80                                                   73
+              3
+                                        SEG15
+                                        SEG16 79                                             SEG17
+                  CN
+                                           NC 78
+                                           NC 77
+                                              76                                                   72
+              4
+                                           NC                                            P54/SEG18
+                  VCP                                                                              71
+                                                                                         P53/SEG19
+              5                                                                                    70
+                  VDD                                                                    P52/SEG20
+              6   VSS                                                                              69
+                                                                                         P51/SEG21
+              7   AVDDR                                                                            68
+                                                                                         P50/SEG22
+              8   ACM                                                                              67
+                                                                                      SO/P47/SEG23
+              9   A1                                                                               66
+                                                                                PFD/PWM/P46/SEG24
+             10
+             11
+             12
+                  A2
+                  A3                                     SDIC                      XOUT/P45/SEG25
+                                                                                     XIN/P44/SEG26
+                                                                                                   65
+                                                                                                   64
+                  A4                                                                     P43/SEG27 63
+             13
+             14
+                  A5                             XXXXXXXX                                P42/SEG28 62
+                  P10/A6                                                                 P41/SEG29 61
+             15
+             16
+                  P11/A7/LBTIN0
+                  COM
+                                                 SD78P953                                P40/SEG30 60
+                                                                                             SEG31 59
+             17   NC                                                                         SEG32 58
+             18   NC                                                                           NC 57
+             19
+             20
+                  NC                                                                           NC 56
+                  NC                                                                           NC 55
+             21
+             22
+                  NC                                                                           NC 54
+                  NC      26
+                          27 P12/INT0/LBTIN1
+                             P13/INT0/LBTIN2                                                   NC 53
+             23   NC
+                          28 P14/INT0/RXD
+                          29
+                                                                                               NC 52
+                          30 P15/INT0/TXD
+                             P20/INT1
+                          31
+             24           32 P21/INT1
+                             P22/INT1
+                  NC                                                                           NC 51
+                          33 P23/INT1
+                          34 P24/INT1
+             25   NC
+                          35 P25/BUZ
+                          36 P30/SEG41
+                          37 P31/SEG40
+                          38 P32/SEG39
+                          39 P33/SEG38
+                          40 P34/SEG37
+                          41 P35/SEG36
+                          42 P36/SEG35
+                                                                                      NC
+                          43 P37/SEG34
+                          44 SEG33
+                          45 NC
+                          46 NC
+                          47 NC
+                          48 NC
+                          49 NC
+                          50
+                                           图 1. SD78P953-JQS 管脚图（LQFP100）
+
+
+
+
+晶华微电子             版本 v0.11          2022/11                                                       第 2 页 共 14 页
+
+  http://www.SDICmicro.cn
+                          晶华微电子
+
+
+
+
+                                                                                                     1 VPP/RST_B                                                                                                     12 VPP/RST_B
+                                                                                                     2 CP                                                                                                             3 CP
+                                                                                                     3 CN
+                                                                                                     4                                                                                                                4 CN
+                                                                                                        VCP                                                                                                           5 VCP
+                                                                                                     5 VDD                                                                                                            6 VDD
+                                                                                                                                                                                                                        VSS
+                          版本 v0.11
+                                                                                                     6 VSS                                                                                                            7 AVDDR
+http://www.SDICmicro.cn
+
+                                                                                                     7 AVDDR                                                                                                          8 ACM
+                                                                                                     8 ACM
+                                                                                                     9 A1                                                                                                             9 A1
+                                                                                                                                                                                                                     10 A2
+                                                                                                     10 A2
+                                                                                                     11                                                                                                              11
+                                                                                                                                                                                                                     12 A3
+                                                                                                        A3
+                                                                                                     12 A4                                                                                                           13 A4
+                                                                                                                                                                                                                     14 A5
+                                                                                                                                                                                                                        P10/A6
+                                                                                                                                                                                                                     15 P11/A7/LBTIN0
+                                                                                                                                                                                                                     16 COM
+                                                                                                                                                                                                    17
+                          2022/11                                                                                                                                                                      P12/INT0/LBTIN1                                             VLCD
+                                                                                                                                                                                                                                                                        64
+                                                                                                                                                                                                    18                                                                   63
+                                                                         13 A5                                                                                                                         P13/INT0/LBTIN2
+                                                                                                                                                         VLCD 48                                                                                               P77/COM0
+                                                                         14 P10/A6
+                                                                                                                                                               47
+                                                                                                                                                                                                    19 P14/INT0/RXD                                                      62
+                                                                                                                                                     P77/COM0                                                                                                  P76/COM1
+                                                                         15 P11/A7/LBTIN0
+                                                                                                                                                               46
+                                                                                                                                                                                                    20 P15/INT0/TXD                                                      61
+                                                                                                                                                     P76/COM1                                                                                                  P75/COM2
+                                                                         16 COM
+                                                                                                                                                               45
+                                                                                                                                                                                                    21 P20/INT1                                                          60
+                                                                                                                                                     P75/COM2                                                                                                  P74/COM3
+                                                                         17 P12/INT0/LBTIN1
+                                                                                                                                                               44
+                                                                                                                                                                                                    22 P21/INT1                                                          59
+                                                                                                                                                     P74/COM3                                                                                             P73/COM4/SEG0
+                                                                         18                                                                                                                         23 P22/INT1                                                          58
+                                                                            P13/INT0/LBTIN2                                                                    43                                                                                         P72/COM5/SEG1
+                                                                         19 P14/INT0/RXD                                                        P73/COM4/SEG0                                       24 P23/INT1                                                          57
+                                                                                                                                                               42                                                                                         P71/COM6/SEG2
+                                                                         20 P15/INT0/TXD                                                        P72/COM5/SEG1                                       25 P24/INT1                                                          56
+                                                                                                                                                P71/COM6/SEG2
+                                                                                                                                                               41                                                                                         P70/COM7/SEG3
+                                                                         21 P20/INT1                                                                           40
+                                                                                                                                                                                                    26 P25/BUZ                                                           55
+                                                                                                                                                P70/COM7/SEG3                                       27 P30/SEG41                                                P67/SEG4
+                                                                         22 P21/INT1                                                                           39                                                                                                        54
+                                                                                                                                                     P54/SEG18                                      28 P31/SEG40                                                P66/SEG5
+                                                                         23 P22/INT1                                                                           38                                                                                                        53
+                                                                                                                                                     P53/SEG19                                      29 P32/SEG39                                                P65/SEG6
+                                                                                                                                                                                                                                                                         52
+                                                                                                              SD78P953                                                                                                       SD78P953
+                                                                         24 P23/INT1                                                                           37                                                                                               P64/SEG7
+                                                                                                                         XXXXXXXX                                                                                                       XXXXXXXX
+                                                                                                                                    SDIC                                                                                                           SDIC
+                                                                                                                                                     P52/SEG20                                      30 P33/SEG38                                                         51
+                                                                                                                                                                                                    31 P34/SEG37                                                P63/SEG8
+                                                                                                                                                                                                                                  P60/SEG11
+                                                                                                                                                                                                                                                                         50
+                                                                                                                      P51/SEG21                                                                                                             47                  P62/SEG9
+                                                                                                                                35
+                                                                                                                                                                                                    32 P35/SEG36                  P54/SEG18 46                           49
+                                                                                                                                                                                                                                  P53/SEG19
+                                                                                                                                                                    图 2. SD78P953-JBS 管脚图（LQFP64）
+
+
+                                                                                                                                                                                                                                                               P61/SEG10
+                                         图 3. SD78P953-JMS 管脚图（LQFP48）
+
+
+                                                                                                                      P50/SEG22                                                                                                   P52/SEG20 45
+                                                                                                             PFD/PWM/P46/SEG24
+                                                                                                                                34                                                                                                P51/SEG21 44
+                                                                                                                                33                                                                                                P50/SEG22 43
+                                                                                                                XOUT/P45/SEG25                                                                                                 SO/P47/SEG23 42
+                                                                                                                                32                                                                                       PFD/PWM/P46/SEG24  41
+                                                                                                                  XIN/P44/SEG26                                                                                             XOUT/P45/SEG25  40
+                                                                                                       27                       31                                                                                            XIN/P44/SEG26 39
+                                                                                                                      P43/SEG27                                                                                                   P43/SEG27 38
+                                                                                                                      P42/SEG28
+                                                                                                                                30                                                                                                P42/SEG28 37
+                                                                                                       26                       29                                                                                                P41/SEG29 36
+                                                                                                                                                                                                                                            35
+                                                                                          P24/INT1   SEG31
+                                                                                               P25/BUZ                P41/SEG29                                                                                                   P40/SEG30
+                                                                                                                                28         36                                                                                     P37/SEG34 34              48
+                                                                                                       25             P40/SEG30                                                                                                   P36/SEG35 33
+
+
+
+
+                                                                                                                                                                                                                                                                              SD78P953
+                          第 3 页 共 14 页
+                                                                                       SD78P953
+                                                   表 2. 引脚描述
+            引脚编号
+              封装                       引脚名称          属性                         引脚描述
+LQFP100      LQFP64     LQFP48
+                                                     模拟     OTP 烧录的高压引脚, 外接 1μF 电容到 VSS
+   1            1          1     VPP/RST_B
+                                                       I    外部复位引脚，低电平芯片复位
+   2            2          2     CP                  模拟     charge pump2 外接电容引脚
+   3            3          3     CN                  模拟     charge pump2 外接电容引脚
+   4            4          4     VCP                 模拟     charge pump2 输出电压
+   5            5          5     VDD                 电源     电源。外接 0.1μF 电容到 VSS。
+   6            6          6     VSS                  地     地
+                                                            内部 LDO 输出，供内部模拟模块使用， 外接 0.1μF 滤波
+   7            7          7     AVDDR               模拟
+                                                            电容到 VSS
+   8            8          8     ACM                 模拟     ADC 共模电压输出，外接 0.1μF 滤波电容到 VSS
+   9            9          9     A1
+  10            10         10    A2                         A1-A5 为模拟信号输入端口，每个端口都有由寄存器控制
+                                                     模拟
+  11            11         11    A3                         的独立下拉电阻（默认关闭）。当不使用这些端口的时候，
+                                                     输入
+  12            12         12    A4                         可以将其下拉为低电平
+  13            13         13    A5
+                                                     模拟     模拟信号输入端口（有独立寄存器控制下拉电阻）
+  14            14         14    A6/P10
+                                                      I/O   数字 I/O P10
+                                                     模拟     模拟信号输入端口（有独立寄存器控制下拉电阻）
+  15            15         15    A7/P11/LBTIN0
+                                                      I/O   数字 I/O P11；也可复用 LBTIN0 输入
+  16            16         16    COM                 模拟     电路共模电压，外接 0.1μF 滤波电容到 VSS
+ 17-25                           NC                   NC    请保持悬空状态，外部不要连接任何电路
+
+  26            17         17    P12/INT0/LBTIN1      I/O   数字 I/O P12；也可复用为外部中断 0 或 LBTIN1 输入
+
+  27            18         18    P13/INT0/LBTIN2      I/O   数字 I/O P13；也可复用为外部中断 0 或 LBTIN2 输入
+
+                                                            数字 I/O P14；也可复用为外部中断 0 或 URAT 通信的
+  28            19         19    P14/INT0/RXD         I/O
+                                                            RXD
+                                                            数字 I/O P15；也可复用为外部中断 0 或 URAT 通信的
+  29            20         20    P15/INT0/TXD         I/O
+                                                            TXD
+  30            21         21    P20/INT1             I/O   数字 I/O P20；也可复用为外部中断 1
+  31            22         22    P21/INT1             I/O   数字 I/O P21；也可复用为外部中断 1
+  32            23         23    P22/INT1             I/O   数字 I/O P22；也可复用为外部中断 1
+  33            24         24    P23/INT1             I/O   数字 I/O P23；也可复用为外部中断 1
+  34            25         25    P24/INT1             I/O   数字 I/O P24；也可复用为外部中断 1
+  35            26         26    P25/BUZ              I/O   数字 I/O P25，也可输出 Buzzer 驱动信号
+  36            27               P30/SEG41            I/O   数字 I/O P30，也可以作为 SEG41
+  37            28               P31/SEG40            I/O   数字 I/O P31，也可以作为 SEG40
+  38            29               P32/SEG39            I/O   数字 I/O P32，也可以作为 SEG39
+  39            30               P33/SEG38            I/O   数字 I/O P33，也可以作为 SEG38
+  40            31               P34/SEG37            I/O   数字 I/O P34，也可以作为 SEG37
+  41            32               P35/SEG36            I/O   数字 I/O P35，也可以作为 SEG36
+
+晶华微电子                版本 v0.11     2022/11                                                第 4 页 共 14 页
+
+       http://www.SDICmicro.cn
+                                                                                 SD78P953
+
+          引脚编号
+           封装                      引脚名称           属性                   引脚描述
+LQFP100   LQFP64     LQFP48
+  42         33               P36/SEG35           I/O   数字 I/O P36，也可以作为 SEG35
+  43         34               P37/SEG34           I/O   数字 I/O P37，也可以作为 SEG34
+  44                          SEG33               模拟    SEG33
+ 45-57                        NC                  NC    请保持悬空状态，外部不要连接任何电路
+  58                          SEG32               模拟    SEG32
+  59                    27    SEG31               模拟    SEG31
+  60         35         28    P40/SEG30           I/O   数字 I/O P40，也可以作为 SEG30
+  61         36         29    P41/SEG29           I/O   数字 I/O P41，也可以作为 SEG29
+  62         37         30    P42/SEG28           I/O   数字 I/O P42，也可以作为 SEG28
+  63         38         31    P43/SEG27           I/O   数字 I/O P43，也可以作为 SEG27
+                                                  I/O   数字 I/O P44，也可以作为 SEG26
+  64         39               P44/SEG26/XIN
+                        32                        模拟    外接晶体引脚
+                                                  I/O   数字 I/O P45，也可以作为 SEG25
+  65         40               P45/SEG25/ XOUT
+                        33                        模拟    外接晶体引脚
+                                                        数字 I/O P46，也可以作为 SEG24，也可输出 PFD 或 PWM
+  66         41         34    P46/SEG24/PFD/PWM   I/O
+                                                        驱动信号
+                                                  I/O   数字 I/O P47，也可以作为 SEG23
+  67         42               P47/SEG23/SO
+                                                  模拟    正弦波输出
+  68         43         35    P50/SEG22           I/O   数字 I/O P50，也可以作为 SEG22
+  69         44         36    P51/SEG21           I/O   数字 I/O P51，也可以作为 SEG21
+  70         45         37    P52/SEG20           I/O   数字 I/O P52，也可以作为 SEG20
+  71         46         38    P53/SEG19           I/O   数字 I/O P53，也可以作为 SEG19
+  72         47         39    P54/SEG18           I/O   数字 I/O P54，也可以作为 SEG18
+  73                          SEG17               模拟    SEG17
+ 74-78                        NC                  NC    请保持悬空状态，外部不要连接任何电路
+  79                          SEG16               模拟    SEG16
+  80                          SEG15               模拟    SEG15
+  81                          SEG14               模拟    SEG14
+  82                          SEG13               模拟    SEG13
+  83                          SEG12               模拟    SEG12
+  84         48               P60/SEG11           I/O   数字 I/O P60，也可以作为 SEG11
+  85         49               P61/SEG10           I/O   数字 I/O P61，也可以作为 SEG10
+  86         50               P62/SEG9            I/O   数字 I/O P62，也可以作为 SEG9
+  87         51               P63/SEG8            I/O   数字 I/O P63，也可以作为 SEG8
+  88         52               P64/SEG7            I/O   数字 I/O P64，也可以作为 SEG7
+  89         53               P65/SEG6            I/O   数字 I/O P65，也可以作为 SEG6
+  90         54               P66/SEG5            I/O   数字 I/O P66，也可以作为 SEG5
+  91         55               P67/SEG4            I/O   数字 I/O P67，也可以作为 SEG4
+                                                        数字 I/O P70，也可以作为 COM7，在 4COM 模式下也可
+  92         56         40    P70/COM7/SEG3       I/O
+                                                        以作为 SEG3
+
+
+
+晶华微电子             版本 v0.11     2022/11                                             第 5 页 共 14 页
+
+    http://www.SDICmicro.cn
+                                                                                                                                                               SD78P953
+
+          引脚编号
+           封装                                    引脚名称                                     属性                                                         引脚描述
+LQFP100   LQFP64      LQFP48
+                                                                                                             数字 I/O P71，也可以作为 COM6，在 4COM 模式下也可
+  93         57         41            P71/COM6/SEG2                                       I/O
+                                                                                                             以作为 SEG2
+                                                                                                             数字 I/O P72，也可以作为 COM5，在 4COM 模式下也可
+  94         58         42            P72/COM5/SEG1                                       I/O
+                                                                                                             以作为 SEG1
+                                                                                                             数字 I/O P73，也可以作为 COM4，在 4COM 模式下也可
+  95         59         43            P73/COM4/SEG0                                       I/O
+                                                                                                             以作为 SEG0
+  96         60         44            P74/COM3                                            I/O                数字 I/O P74，也可以作为 COM3
+  97         61         45            P75/COM2                                            I/O                数字 I/O P75，也可以作为 COM2
+  98         62         46            P76/COM1                                            I/O                数字 I/O P76，也可以作为 COM1
+  99         63         47            P77/COM0                                            I/O                数字 I/O P77，也可以作为 COM0
+                                     LCD driver 的供电电源，可通过寄存器选择内部与 VDD
+  100        64         48           连接或与升压电路的输出连接，在 VLCD 与 VDD 间接
+                                      VLCD                                                模拟
+                                     1μF 电容
+注意：1.所有数字端口 Pnn 皆有上拉选择（默认关闭），并有输入迟滞功能，转换点分别为 0.3VDD 与 0.7VDD。
+
+
+功能框图
+
+                                                                    XIN            XOUT                                CN         CP    VCP      AVDDR
+
+
+
+
+                       RC振荡             RC振荡
+                                                               晶体振荡器                               POR/LVD                                                      VDD
+                      （32kHz）           (8MHz)                                                                              电源管理系统
+                                                                                                                                                                VSS
+
+                                                                                                                                                                COM
+                                      时序产生电路
+                                                                                                                                              正弦波产生器            SO
+
+
+                                                                                                      Sigma                                              M
+                                                 WDT                                                  Delta                                              U      A1-7
+                          OTP                                                                                                     IA1
+               VPP                                                                                    ADC1                                               X
+                        20k Bytes                                                                                                                        1
+                                                                               功率
+                                           8Bits                              计算器                                                                        M
+                                        RISC MCU                                                      Sigma
+             RST_B                                                                                    Delta                       IA2                    U
+                                                                                                      ADC2                                               X
+                                                                                                                                                         2
+                                                   SRAM
+                        特殊寄存器
+                                                  512 Bytes
+
+                                                                                                    CMPH
+                                                                                                                                               基准电压             ACM
+
+
+             VLCD
+
+                             LCD                                                                                                               电池检测             LBTIN2-0
+            SEG41-0
+                             Driver                                                                 CMPL
+            COM7-0
+
+
+
+
+                                                                                                                                               外部中断             INT1-0
+
+
+              PWM
+
+                      PWM/                                            IO控制                                                                     Timer/Counter
+                       PFD                                                                                             BUZZER
+                                                                                                                                              T0/T2/TA/TB/TC
+               PFD
+
+
+
+                                                                                                                            BUZ
+                                        P15-10    P25-20   P37-30         P47-40          P54-50    P67-60    P77-70
+
+
+                                                                          图 4. 功能框图
+
+晶华微电子             版本 v0.11             2022/11                                                                                                                   第 6 页 共 14 页
+
+    http://www.SDICmicro.cn
+                                                                                                       SD78P953
+
+ADC 性能
+                                   表 3. ADC1 的 ENOB 和噪声电压 Vnrms
+                   （输入短接至 COM，SINC3，VDD = 3.3V，AVDDR = 2.4V，VREF = 1.2V，BUF1/BUF2 使能）
+                                  ADC 工作频率 = 256kHz               DC Offset Adjust = 1.5mV
+               OSR                  128         256        512         1024      2048        4096     8192      16384
+                      ENOB         15.07       15.61      16.06        16.66     17.06       17.55    18.08     18.46
+          256
+                   Vnrms(nV)       272.30      187.73     137.46       90.54     68.60       48.90    33.85     26.00
+                      ENOB         16.36       17.03      17.56        17.94     18.42       18.72    19.16     19.40
+           64
+                   Vnrms(nV)       447.26      280.73     193.55      149.28     106.81      86.67    64.04     54.31
+   增益
+                      ENOB         16.85       17.62      18.05        18.51     18.88       19.02    19.52     19.69
+           8
+                   Vnrms(nV)      2539.26     1491.61    1107.35      803.56     622.05    563.13    398.26     355.33
+                      ENOB         16.82       17.82      18.33        18.64     18.95       19.41    19.57     19.81
+           1
+                   Vnrms(nV)      20706.50    10385.30   7301.68      5872.53   4737.40   3441.16    3091.02   2611.00
+
+
+
+                                  ADC 工作频率 = 512kHz               DC Offset Adjust = 1.5mV
+               OSR                  128         256       512         1024       2048      4096       8192      16384
+                       ENOB         14.89      15.47      15.92       16.50      16.94     17.36      17.90      18.22
+           256
+                   Vnrms(nV)       309.48     206.43     150.89      101.44      74.37     55.88      38.43      30.72
+                       ENOB         16.24      16.94      17.44       17.88      18.30     18.71      19.19      19.42
+           64
+                   Vnrms(nV)       482.93     298.13     211.28      155.89     116.08     87.48      62.85      53.30
+   增益
+                       ENOB         16.75      17.56      18.10       18.48      18.91     19.12      19.52      19.53
+            8
+                   Vnrms(nV)       2725.76    1557.04    1070.30     818.28     608.47    528.17     400.03     397.40
+                       ENOB         16.94      17.85      18.31       18.66      19.12     19.31      19.50      19.58
+            1
+                   Vnrms(nV)      19131.10    10189.6    7360.79     5803.02    4219.57   3688.11    3247.45    3060.00
+
+
+
+                                  ADC 工作频率 = 1024kHz              DC Offset Adjust = 1.5mV
+                OSR                  128         256       512         1024       2048       4096     8192      16384
+                       ENOB         14.60       15.16     15.69        16.17     16.66       17.10    17.53      17.92
+            256
+                      Vnrms(nV)     376.59     256.90     176.99      127.42     90.39       66.55    49.66      37.84
+                       ENOB         16.16       16.85     17.36        17.84     18.19       18.72    19.00      19.34
+            64
+                      Vnrms(nV)     512.08     317.09     222.93      159.35     125.60      86.77    71.62      56.68
+    增益
+                       ENOB         16.81       17.67     18.23        18.52     18.82       19.29    19.54      19.65
+               8
+                      Vnrms(nV)    2604.37     1438.37    972.72      797.42     649.11    467.03    393.60     363.87
+                       ENOB         16.96       17.90     18.44        18.78     18.95       19.29    19.60      19.63
+               1
+                      Vnrms(nV)    18777.00    9842.05   6771.75      5330.05   4730.48   3749.24    3018.33    2955.98
+
+
+
+
+晶华微电子           版本 v0.11            2022/11                                                                   第 7 页 共 14 页
+
+  http://www.SDICmicro.cn
+                                                                                                         SD78P953
+                                   表 4. ADC2 的 ENOB 和噪声电压 Vnrms
+                   （输入短接至 COM，SINC3，VDD = 3.3V，AVDDR = 2.4V，VREF = 1.2V，BUF1/BUF2 使能）
+                                   ADC 工作频率 = 256kHz               DC Offset Adjust = 1.5mV
+                OSR                  128         256        512         1024      2048        4096      8192      16384
+                       ENOB          14.95       15.40     15.98        16.51     16.96       17.46    17.87      18.33
+           256
+                   Vnrms(nV)        296.74      216.16     144.58      100.42     73.67       51.97    39.17      28.47
+                       ENOB          16.42       17.09     17.59        18.05     18.40       18.92    19.14      19.38
+            64
+                   Vnrms(nV)        428.71      268.79     189.84      138.39     108.45      75.63    64.99      55.11
+    增益
+                       ENOB          16.71       17.60     18.07        18.47     18.91       19.17    19.37      19.43
+            8
+                   Vnrms(nV)        2807.82     1510.53   1088.43      825.55     609.91    508.93     441.29     423.38
+                       ENOB          16.69       17.67     18.09        18.61     18.89       19.17    19.23      19.53
+            1
+                   Vnrms(nV)       22775.70    11500.80   8589.46      6008.10   4934.18   4065.80    3909.68    3180.99
+
+
+
+                                   ADC 工作频率 = 512kHz               DC Offset Adjust = 1.5mV
+                OSR                  128         256        512         1024      2048      4096       8192      16384
+                       ENOB         14.76       15.26      15.78       16.33      16.77     17.25      17.71      18.10
+            256
+                      Vnrms(nV)     338.99      238.89    166.52       113.52     83.97     60.14      43.80      33.41
+                       ENOB         16.27       16.89      17.40       17.95      18.35     18.75      19.02      19.11
+             64
+                      Vnrms(nV)     473.60      309.24    216.71       148.17    112.23     85.18      70.62      66.13
+     增益
+                       ENOB         16.62       17.52      18.04       18.53      18.94     19.19      19.48      19.69
+             8
+                      Vnrms(nV)    2978.20     1599.42    1109.9       794.77    597.56    500.11     410.34     354.41
+                       ENOB         16.70       17.58      18.06       18.58      18.88     19.19      19.42      19.41
+             1
+                      Vnrms(nV)    22583.60    12238.00   8805.82     6127.79    4958.71   402653     3412.04    3437.94
+
+
+
+                                  ADC 工作频率 = 1024kHz               DC Offset Adjust = 1.5mV
+                OSR                  128         256       512         1024       2048      4096       8192       16384
+                       ENOB         14.53       15.11      15.53       15.98      16.54     17.04      17.39      17.92
+            256
+                   Vnrms(nV)        396.47      265.72    198.80       145.51     98.31     69.42      54.45      37.76
+                       ENOB         16.14       16.74      17.22       17.76      18.12     18.59      18.74      19.22
+            64
+                   Vnrms(nV)        519.11      342.52    246.17       169.10    131.66     94.91      85.41      61.23
+     增益
+                       ENOB         16.67       17.57      18.05       18.49      18.75     18.99      19.37      19.48
+             8
+                   Vnrms(nV)        2879.8      1546.4    1104.6       814.76    680.96    577.66     443.73     411.10
+                       ENOB         16.66       17.60      18.03       18.55      18.81     19.34      19.42      19.54
+             1
+                   Vnrms(nV)       23235.20    12102.40   8986.38     6273.18    5224.32   3625.59    3424.40    3153.90
+注意：
+   1. 以上数据是多颗芯片测试的平均值，单颗芯片采样 1024 个数据。
+                                  FRS
+   2. ENOB 的计算公式为 log 2 (              ) ，其中 FRS 为满量程输入电压(2*Vref/Gain)， Vref 为 ADC 参考电压，Vrms 为 rms Noise。
+                                  Vrms
+
+
+
+晶华微电子            版本 v0.11            2022/11                                                                    第 8 页 共 14 页
+
+   http://www.SDICmicro.cn
+                                                                                                     SD78P953
+
+电气特性
+                                                     表 5. 最大极限值
+          标识                      参数                  最小值                             最大值                     单位
+          TA                     环境温度                      -40                         +85                     °C
+          TS                     储存温度                      -55                         +150                    °C
+          VDD                    供电电压                      -0.2                        +4.0                    V
+          Vpp                    烧录电压                      -0.2                        +6.6                    V
+     VIN, VOUT                  数字输入、输出                    -0.2                       VDD+0.3                  V
+          TL                    回流焊温度曲线                           Per IPC/JEDECJ-STD-020C                      °C
+注意：
+  1. CMOS 器件易被高能静电损坏，设备必须储存在导电泡沫中，注意避免工作电压超出范围。
+  2. 在插拔电路前请关闭电源。
+                         表 6. 电气参数（电源电压 3.3V，工作温度 25℃）
+  标识                 参数名称                最小值        典型值             最大值        单位                   条件/备注
+                                           2.4       3.0             3.6        V       模拟模块工作电压
+  VDD       工作电压
+                                           2.0       3.0             3.6        V       数字模块和 MCU 工作电压
+ FOSC       工作时钟                         0.016        2               4        MHz      在运行写表指令时只能工作在 2MHz
+ IHRC       内部高频 RC 振荡频率                   7.9        8               12       MHz      经过校准后的频率
+ ILRC       内部低频 RC 振荡频率                   28        32               36       kHz      经过校准后的频率
+  HXT       外部高频晶振                         1          --              8        MHz
+  LXT       外部低频晶振                         16       32.768            --       kHz
+                                                                                        MCU 采用内部 RC 振荡器的四分频工
+ IDD1       工作电流 1                         --         3              3.5       mA
+                                                                                        作，ADC 等模拟模块全部工作
+                                                                                        MCU 采用内部 32kHz RC 振荡工作，
+ IDD2       工作电流 2                         --        1.5              2        μA
+                                                                                        MCU 进待机模式，模拟模块不工作
+ IDD3       工作电流 3                         --        0.2              1        μA       MCU 进休眠模式，模拟模块不工作
+  Fsam      ADC 工作频率                       --        512             1024      kHz
+  OSR       过采样率                          128         --            16384       --
+ NFbit      Noise free bits 1              --        16               --       bits     Gain = 128，input FSR = ±4mV
+  BD        AC 测量带宽                        --         2               --       kHz      测量误差不超过 0.5%
+                                          -Vref       --             Vref               1 倍增益
+                                         -Vref/2      --            Vref/2              2 倍增益
+                                         -Vref/4      --            Vref/4              4 倍增益
+                                         -Vref/8      --            Vref/8              8 倍增益
+ VINdif     PGIA 差分信号输入范围               -Vref/16      --           Vref/16     mV       16 倍增益
+                                        -Vref/32      --           Vref/32              32 倍增益
+                                        -Vref/64      --           Vref/64              64 倍增益
+                                        -Vref/128     --           Vref/128             128 倍增益
+                                        -Vref/256     --           Vref/256             256 倍增益
+
+晶华微电子              版本 v0.11         2022/11                                                              第 9 页 共 14 页
+
+    http://www.SDICmicro.cn
+                                                                                  SD78P953
+
+ 标识              参数名称            最小值      典型值     最大值        单位                 条件/备注
+                                   -0.3    --     AVDDR             增益为 1 且输入 buffer 关闭
+ VIN      PGIA 电压输入范围 2
+                                   0.3     --    AVDDR-0.7          增益为 1 但输入 buffer 开启或增益非 1
+                                   -0.3    --     AVDDR       V     IA 增益为 1 且输入 buffer 关闭
+          buffer 的输入电压
+ VIN                               0.5     --    AVDDR-0.8    V     IA 增益为 1 但输入 buffer 开启
+          范围 2
+                                   0.5     --    AVDDR-0.8    V     IA 增益大于 1.
+ Vnrms    RMS noise                 --    2.76      --       μVrms 1 倍增益@OSR = 16384
+ Vref     ADC 基准电压                  --    1.2     AVDDR       V
+ Vacm     ACM 输出电压                  --    1.2       --        V
+IacmSour ACM source 电流              --     1        --        mA
+IacmSink ACM sink 电流                --     1        --        mA
+PSRacm    ACM PSR                   --    100       --       μV/V
+                                    --    2.4       --              AVDDRX[2:0] = 000
+                                    --    VCP       --              AVDDRX [2:0] = 001
+                                    --    2.9       --              AVDDRX [2:0] = 010
+Vavddr    AVDDR 输出电压                --    3.3       --        V     AVDDRX [2:0] = 011
+                                    --    3.6       --              AVDDRX [2:0] = 100
+                                    --    3.9       --              AVDDRX [2:0] = 101
+                                    --    保留        --              AVDDRX [2:0] = 110/111
+ Iavddr   AVDDR 电流能力                --     20       --        mA    模拟的 LDO 输出电流
+  Vcp     Charge pump2 输出电压        3.6    4.2       4.5       V
+  Icp     Charge pump2 输出电流         --     2         3        mA
+ POR      上电复位电压                    --    2.0       --        V
+ LVD      低压检测复位电压                  --    1.9       --        V
+ THlbt    低电池电压检测迟滞                 --    200       --        mV
+                                    --    3.3       --              LBTX[3:0] = 0010
+                                    --    3.2       --              LBTX[3:0] = 0011
+                                    --    3.1       --              LBTX[3:0] = 0100
+                                    --    3.0       --              LBTX[3:0] = 0101
+                                    --    2.9       --              LBTX[3:0] = 0110
+                                    --    2.8       --              LBTX[3:0] = 0111
+                                    --    2.7       --              LBTX[3:0] = 1000
+ VLBT     电池电压检测                                              V
+                                    --    2.6       --              LBTX[3:0] = 1001
+                                    --    2.5       --              LBTX[3:0] = 1010
+                                    --    2.4       --              LBTX[3:0] = 1011
+                                    --    2.3       --              LBTX[3:0] = 1100
+                                    --    2.2       --              LBTX[3:0] = 1101
+                                    --    2.1       --              LBTX[3:0] = 1110
+                                    --    2.0       --              LBTX[3:0] = 1111
+
+
+晶华微电子          版本 v0.11       2022/11                                                  第 10 页 共 14 页
+
+    http://www.SDICmicro.cn
+                                                                              SD78P953
+
+ 标识               参数名称           最小值      典型值     最大值       单位               条件/备注
+                                    --     2.7      --           VLCDX[2:0] = 000
+                                    --     2.9      --           VLCDX[2:0] = 001
+                                    --     3.1      --           VLCDX[2:0] = 010
+                                    --     3.3      --           VLCDX[2:0] = 011
+ Vlcd    LCD 电荷泵输出电压                                        V
+                                    --     3.5      --           VLCDX[2:0] = 100
+                                    --     4.0      --           VLCDX[2:0] = 101
+                                    --     4.5      --           VLCDX[2:0] = 110
+                                    --     5.0      --           VLCDX[2:0] = 111
+  Ilcd   LCD 电荷泵驱动能力 3              --     --       200     μA
+管脚电气参数
+                                    --      3       --           VOH = VDD-0.3V，PTxSR 设置为“0”
+  IOH    高电平 Source 电流                                      mA
+                                    --     12       --           VOH = VDD-0.3V，PTxSR 设置为“1”
+                                    --      3       --           VOL = 0.3V，PTxSR 设置为“0”
+  IOL    低电平 Sink 电流                                        mA
+                                    --     12       --           VOL = 0.3V，PTxSR 设置为“1”
+  VIH    输入高电平                   0.7VDD    --       --      V
+  VIL    输入低电平                      --     --     0.3VDD    V
+ VOH     输出高电平                  VDD-0.3    --       --      V
+ VOL     输出低电平                      --     --     VSS+0.3   V
+  Rpu    引脚上拉电阻                     --     200      --      kΩ   VDD = 3.0
+电感测量参数
+ 量程      分辨率                     准确度      测试频率      --      --
+ 2mH     0.001mH                 ±2%+8    1kHz      --      --
+ 20mH    0.01mH                  ±2%+8    1kHz      --      --
+ 200mH   0.1mH                   ±2%+8    1kHz      --      --
+  2H     0.001H                  ±5%+5    1kHz      --      --
+  20H    0.01H                   ±5%+15   100Hz     --      --
+ 200H    0.1H                       --    100Hz     --      --
+功率测量参数
+ 有效值     动态范围                     精度       --       --      --
+ 电压      500:1                   ±0.5%     --       --      --
+ 电流      500:1                   ±0.5%     --       --      --
+ 功率      --                         --     --       --      --
+注意：
+  1. Noise free bits，有效位数都与信号的满量程范围有关系，真正起决定性作用的是 Vpp noise 或 rms noise。
+  2. 对于 ADC 或 PGIA，输入信号的范围要区分差分信号输入范围和输入端的绝对电压范围，前者是真正的信号输入范围，是两个输
+     入绝对电压之差，其不仅受到单个输入端的电压范围影响，还受增益和基准选择的影响；后者为包含了差分信号和共模输入范围的
+     影响，主要受电路的限制。
+  3. 电荷泵的驱动能力与选择的电容和工作频率有关。
+
+
+
+
+晶华微电子            版本 v0.11     2022/11                                               第 11 页 共 14 页
+
+    http://www.SDICmicro.cn
+                                                                         SD78P953
+
+封装规格
+
+LQFP100 封装外形图(SD78P953-JQS)
+
+
+
+
+         尺寸：毫米
+                        标识              最小值          典型值         最大值
+                         A               1.45         1.55        1.65
+                         A1              0.01          ---        0.21
+                         A2              1.30         1.40        1.50
+                         A3               ---         0.254        ---
+                          b              0.15         0.20        0.25
+                         b1              0.16         0.22        0.28
+                          c               ---         0.127        ---
+                         D1             13.85         13.95      14.05
+                         D2             13.90         14.00      14.10
+                         E              15.80         16.00      16.20
+                         E1             13.85         13.95      14.05
+                         E2             13.90         14.00      14.10
+                          e              ---           0.5        ---
+                         L               0.42          ---        0.72
+                         L1              0.95         1.00        1.15
+                         R               0.10          ---        0.25
+                         R1              0.10          ---         ---
+                          θ               0°           ---        10°
+                         θ1               0°           ---        ---
+                                            图 5. LQFP100 封装外形图
+
+晶华微电子         版本 v0.11        2022/11                                     第 12 页 共 14 页
+
+   http://www.SDICmicro.cn
+                                                                                                                      SD78P953
+
+LQFP64 封装外形图(SD78P953-JBS)
+
+                                         D
+                                         D1                                                        b
+                                                                                                  b1
+                       48                           33
+
+              49                                            32
+
+                                                                                                                      c1
+                                                                                                                       c
+
+
+                                                                 E1 E
+                                                                        BASE METAL
+                                                                                                 WITH PLATING
+
+
+              64                                            17
+                                                                                           SECTION B-B
+
+                       1                            16
+                   b                 e        BB
+
+
+
+
+                                                                             A3
+                                                                                      A2    A
+                                                                                                0.25
+
+                                                                                                            L
+               Ө                                                                 A1
+                                 F                                                                              L1
+
+                                                                                                           DETAIL:F
+
+
+         尺寸：毫米
+
+                            标识                      最小值                 典型值                     最大值
+                            A                       ——                   ——                       1.60
+                            A1                      0.05                 ——                       0.20
+                            A2                      1.35                  1.40                    1.45
+                            A3                      0.59                  0.64                    0.69
+                            b                       0.19                 ——                       0.27
+                            b1                      0.18                  0.20                    0.23
+                            c                       0.13                 ——                       0.18
+                            c1                      0.12                  0.13                    0.14
+                            D                       11.80                12.00                   12.20
+                            D1                      9.90                 10.00                   10.10
+                            E                       11.80                12.00                   12.20
+                            E1                      9.90                 10.00                   10.10
+                            e                                           0.50BSC
+                            L                       0.45                 ——                       0.75
+                            L1                                          1.00BSC
+                            θ                        0                   ——                            7
+                                                           图 6. LQFP64 封装外形图
+晶华微电子         版本 v0.11                    2022/11                                                                      第 13 页 共 14 页
+
+   http://www.SDICmicro.cn
+                                                                                                 SD78P953
+
+LQFP48 封装外形图(SD78P953-JMS)
+                                          D
+                                          D1
+
+                           36                         25
+
+                 37                                        24
+
+
+
+
+                                                                E1 E
+                                                                          C
+                                                                               L
+                                                                                   L1        F
+
+                 48                                        13
+
+                           1
+                                                      12
+                          b           e
+
+
+
+                                                                              A3
+                                                                                        A2   A
+
+
+
+                      θ                                                        A1
+                                      F
+
+         尺寸：毫米
+                                标识             最小值              典型值           最大值
+                                 A              ——               ——            1.60
+                                A1             0.05              ——            0.20
+                                A2             1.35              1.40          1.45
+                                A3             0.59              0.64          0.69
+                                 b             0.19              ——            0.27
+                                c              0.13              ——            0.14
+                                D              8.80              9.00          9.20
+                                D1             6.90              7.00          7.10
+                                E              8.80              9.00          9.20
+                                E1             6.90               7.00         7.10
+                                 e                              0.50BSC
+                                L              0.40               ——           0.65
+                                L1                              1.00BSC
+                                θ               0                ——                7
+                                                图 7. LQFP48 封装外形图
+
+
+
+
+晶华微电子         版本 v0.11               2022/11                                                      第 14 页 共 14 页
+
+   http://www.SDICmicro.cn
+

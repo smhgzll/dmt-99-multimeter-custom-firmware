@@ -1,0 +1,63 @@
+# Local history is retained for research, never exported as public Git history.
+/.history/
+/.cache/
+/.venv/
+**/.venv/
+**/.local/
+**/__pycache__/
+*.py[cod]
+**/.pytest_cache/
+**/.mypy_cache/
+**/*.egg-info/
+**/build/
+**/build-*/
+**/node_modules/
+**/.idea/
+**/.vscode/
+.DS_Store
+Thumbs.db
+*.swp
+*.tmp
+*.lock
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+*.p12
+*.pfx
+
+# Acquired firmware, dumps, game data, captures and generated outputs stay local.
+# Only the reviewed catalog and release metadata are public by default.
+/artifacts/**
+!/artifacts/**/
+!/artifacts/README.md
+!/artifacts/catalog.json
+!/artifacts/firmware/potat-99/README.md
+!/artifacts/firmware/potat-99/CHANGELOG.md
+!/artifacts/firmware/potat-99/v*/release.json
+!/artifacts/firmware/potat-99/v*/SHA256SUMS
+!/artifacts/firmware/doom/v*/release.json
+!/artifacts/firmware/doom/v*/SHA256SUMS
+/projects/doom/generated/
+/projects/doom/assets/*.wad
+/projects/doom/assets/*.zip
+/projects/doom/dist/
+/projects/asic/captures/
+/projects/rvswd/captures/
+/projects/rvswd/recovery/
+/projects/rvswd/sdkconfig
+/analysis/ghidra_projects/
+/analysis/ghidra_decoder_projects/
+/references/upstream_archives/
+# Relative compatibility symlinks are tracked; the data they point to are ignored.
+
+# Binary build products may embed private absolute paths.
+*.o
+*.a
+*.so
+*.elf
+*.map
+*.d
+*.su
+*.lst

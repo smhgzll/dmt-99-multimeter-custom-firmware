@@ -1,0 +1,58 @@
+{
+  "recovered_device_command_handlers": [],
+  "implementation_location": "unknown; main application and carved application do not establish an MSC implementation",
+  "reference_model": "tools/usb_storage_reference.py",
+  "reference_only_commands": [
+    {
+      "opcode": 0,
+      "name": "TEST UNIT READY",
+      "original_address": null
+    },
+    {
+      "opcode": 3,
+      "name": "REQUEST SENSE",
+      "original_address": null
+    },
+    {
+      "opcode": 18,
+      "name": "INQUIRY",
+      "original_address": null
+    },
+    {
+      "opcode": 27,
+      "name": "START STOP UNIT",
+      "original_address": null
+    },
+    {
+      "opcode": 30,
+      "name": "PREVENT ALLOW MEDIUM REMOVAL",
+      "original_address": null
+    },
+    {
+      "opcode": 37,
+      "name": "READ CAPACITY10",
+      "original_address": null
+    },
+    {
+      "opcode": 40,
+      "name": "READ10",
+      "original_address": null
+    },
+    {
+      "opcode": 42,
+      "name": "WRITE10",
+      "original_address": null
+    },
+    {
+      "opcode": 53,
+      "name": "SYNCHRONIZE CACHE10",
+      "original_address": null
+    }
+  ],
+  "read_only_simulation_geometry": {
+    "block_size": 4096,
+    "block_count": 2048,
+    "evidence": "FatFs disk geometry only; USB-exported geometry remains unknown"
+  },
+  "device_interoperability_bugs_confirmed": []
+}

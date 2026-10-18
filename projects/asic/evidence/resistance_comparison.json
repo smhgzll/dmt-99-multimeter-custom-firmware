@@ -1,0 +1,2280 @@
+{
+  "schema": 1,
+  "sessions": [
+    {
+      "label": "resistance_st2_1ohm_reported",
+      "metadata": {
+        "test": "resistance_reference",
+        "label": "resistance_st2_1ohm_reported",
+        "display_text": "1.1 Ω",
+        "display_numeric": 1.1,
+        "display_unit": "ohm",
+        "display_tolerance": 0,
+        "component_actual": "ST2 referans kartı, nominal 1 ohm; kullanıcı doğruladı; bağımsız referans ölçüm değeri yok",
+        "mode": "resistance",
+        "notes": "Kullanıcı açıklaması: 1 ohm ekranda 1.1. Kayıtta 0.8..1.1 Ω ile açık uç gösterimleri birlikte gözlendi; tüm geçişler korunuyor.",
+        "schema": 1,
+        "origin": "hardware",
+        "status": "captured",
+        "host_started_at": "2026-10-18T01:08:03.799052+03:00",
+        "requested_seconds": 10.0,
+        "requested_samples": 10000000,
+        "requested_samplerate_hz": 1000000,
+        "channels": {
+          "D0": "MCU_TX_PA9_pin42",
+          "D2": "ASIC_TX_PA10_pin43"
+        },
+        "channel_map": {
+          "MCU_TX": 0,
+          "ASIC_TX": 2
+        },
+        "rx_frame_bytes": 12,
+        "uart": "9600 8N1",
+        "passive_connections_confirmed": true,
+        "device_preflight": {
+          "argv": [
+            "sigrok-cli",
+            "--driver",
+            "fx2lafw",
+            "--show"
+          ],
+          "returncode": 0,
+          "output": "Driver functions:\n    Logic analyzer\nScan options:\n    conn\nfx2lafw:conn=1.67 - Saleae Logic [S/N: Saleae Logic] with 8 channels: D0 D1 D2 D3 D4 D5 D6 D7\nChannel groups:\n    Logic: channels D0 D1 D2 D3 D4 D5 D6 D7\nSupported configuration options across all channel groups:\n    continuous: on, off\n    limit_samples: 0 (current)\n    conn: 1.67 (current)\n    samplerate - supported samplerates:\n      20 kHz (current)\n      25 kHz\n      50 kHz\n      100 kHz\n      200 kHz\n      250 kHz\n      500 kHz\n      1 MHz\n      2 MHz\n      3 MHz\n      4 MHz\n      6 MHz\n      8 MHz\n      12 MHz\n      16 MHz\n      24 MHz\n      48 MHz\n    Supported triggers: 0 1 r f e \n    captureratio: 0 (current)\n"
+        },
+        "command": [
+          "sigrok-cli",
+          "--loglevel",
+          "4",
+          "--driver",
+          "fx2lafw",
+          "--config",
+          "samplerate=1000000",
+          "--channels",
+          "D0,D2",
+          "--samples",
+          "10000000",
+          "--output-format",
+          "srzip",
+          "--output-file",
+          "projects/asic/captures/20261018T010803_resistance_st2_1ohm_reported_63335c8a/raw.sr"
+        ],
+        "host_finished_at": "2026-10-18T01:08:13.917685+03:00",
+        "returncode": 0,
+        "received_samples": 10000000,
+        "analysis_error": null,
+        "annotation_history": [
+          {
+            "timestamp": "2026-10-18T01:09:12.930744+03:00",
+            "previous": {
+              "display_text": "1 ohm",
+              "display_numeric": null,
+              "display_unit": null,
+              "display_tolerance": 0,
+              "component_actual": "ST2 kitinden çıkan 9 dirençli referans kartı; seçili direnç nominal değeri ayrıca doğrulanacak",
+              "mode": "resistance",
+              "notes": "Kullanıcı referans kartını ST2 içinden çıkan 9 tane dirençli ref board diye tanımladı; Ω modu ve hazır/ekran sorusuna 1 ohm yanıtı verdi. Bu ifadenin nominal değer mi ekran okuması mı olduğu henüz ayrılmadı; numeric metadata girilmedi. D0/D2/GND eşlemesi korunuyor."
+            }
+          }
+        ]
+      },
+      "eligible_clean_numeric_frames": 42,
+      "display_numeric_and_unit_matches": 25,
+      "comparison_policy": "numeric_and_unit_with_recorded_tolerance",
+      "status": "matches_observed",
+      "semantic_confirmation": false,
+      "analysis": {
+        "label": "resistance_st2_1ohm_reported",
+        "origin": "hardware",
+        "wire_burst_observations": {
+          "MCU_TX": {
+            "gap_threshold_samples": 4166.666666666667,
+            "burst_count": 0,
+            "uart_candidates_per_burst": {},
+            "start_period_s": null
+          },
+          "ASIC_TX": {
+            "gap_threshold_samples": 4166.666666666667,
+            "burst_count": 59,
+            "uart_candidates_per_burst": {
+              "12": 59
+            },
+            "start_period_s": {
+              "min": 0.156095,
+              "median": 0.166384,
+              "max": 0.199305
+            }
+          }
+        },
+        "total_uart_candidates": 708,
+        "uart_error_candidates": 0,
+        "packet_counts": {
+          "frame_candidate": 59
+        },
+        "groups": {
+          "ASIC_TX:display": {
+            "count": 59,
+            "distinct_frames": 8,
+            "uart_error_frames": 0,
+            "byte_values": {
+              "0": [
+                90
+              ],
+              "1": [
+                165
+              ],
+              "2": [
+                4
+              ],
+              "3": [
+                0,
+                224
+              ],
+              "4": [
+                0,
+                123,
+                224
+              ],
+              "5": [
+                0,
+                1,
+                26,
+                219,
+                250,
+                251
+              ],
+              "6": [
+                0,
+                10,
+                11,
+                15
+              ],
+              "7": [
+                32,
+                36
+              ],
+              "8": [
+                0
+              ],
+              "9": [
+                0
+              ],
+              "10": [
+                1
+              ],
+              "11": [
+                60,
+                61
+              ]
+            },
+            "changing_offsets": [
+              3,
+              4,
+              5,
+              6,
+              7,
+              11
+            ],
+            "first_t_s": 0.148689,
+            "last_t_s": 9.967177
+          }
+        },
+        "repeated_messages": [
+          {
+            "direction": "ASIC_TX",
+            "hex": "5A A5 04 00 00 1A 0A 20 00 00 01 3D",
+            "kind": "frame_candidate",
+            "count": 18
+          },
+          {
+            "direction": "ASIC_TX",
+            "hex": "5A A5 04 E0 7B 01 00 24 00 00 01 3D",
+            "kind": "frame_candidate",
+            "count": 15
+          },
+          {
+            "direction": "ASIC_TX",
+            "hex": "5A A5 04 00 E0 DB 0F 20 00 00 01 3C",
+            "kind": "frame_candidate",
+            "count": 7
+          },
+          {
+            "direction": "ASIC_TX",
+            "hex": "5A A5 04 00 00 1A 0A 20 00 00 01 3C",
+            "kind": "frame_candidate",
+            "count": 7
+          },
+          {
+            "direction": "ASIC_TX",
+            "hex": "5A A5 04 00 E0 FB 0F 20 00 00 01 3C",
+            "kind": "frame_candidate",
+            "count": 6
+          },
+          {
+            "direction": "ASIC_TX",
+            "hex": "5A A5 04 00 00 FA 0B 20 00 00 01 3C",
+            "kind": "frame_candidate",
+            "count": 4
+          },
+          {
+            "direction": "ASIC_TX",
+            "hex": "5A A5 04 00 00 00 00 24 00 00 01 3C",
+            "kind": "frame_candidate",
+            "count": 1
+          },
+          {
+            "direction": "ASIC_TX",
+            "hex": "5A A5 04 00 00 00 00 20 00 00 01 3C",
+            "kind": "frame_candidate",
+            "count": 1
+          }
+        ],
+        "firmware_display_histogram": [
+          {
+            "text": "  1.1",
+            "unit": "ohm",
+            "count": 25
+          },
+          {
+            "text": " 0.L ",
+            "unit": "Mohm",
+            "count": 15
+          },
+          {
+            "text": "  0.9",
+            "unit": "ohm",
+            "count": 7
+          },
+          {
+            "text": "  0.8",
+            "unit": "ohm",
+            "count": 6
+          },
+          {
+            "text": "  1.0",
+            "unit": "ohm",
+            "count": 4
+          },
+          {
+            "text": "    ",
+            "unit": "Mohm",
+            "count": 1
+          },
+          {
+            "text": "    ",
+            "unit": "ohm",
+            "count": 1
+          }
+        ],
+        "rx_checksum_hypotheses": {
+          "status": "hypotheses_only",
+          "frames": 59,
+          "distinct_frames": 8,
+          "last_byte_deterministic_checksum_of_prefix": "contradicted_in_capture",
+          "identical_prefix_different_last_byte": [
+            {
+              "identical_prefix": [
+                90,
+                165,
+                4,
+                0,
+                0,
+                26,
+                10,
+                32,
+                0,
+                0,
+                1
+              ],
+              "observed_last_bytes": [
+                60,
+                61
+              ]
+            }
+          ],
+          "search": "sum8/negative_sum8/xor8 over contiguous prefix ending before target; no CRC claim",
+          "candidates": [
+            {
+              "algorithm": "sum8",
+              "input_start": 8,
+              "input_end_exclusive": 9,
+              "target_offset": 9,
+              "matching_distinct_frames": 8,
+              "confirmed": false,
+              "informative_input_variation": false,
+              "target_varies": false
+            },
+            {
+              "algorithm": "negative_sum8",
+              "input_start": 8,
+              "input_end_exclusive": 9,
+              "target_offset": 9,
+              "matching_distinct_frames": 8,
+              "confirmed": false,
+              "informative_input_variation": false,
+              "target_varies": false
+            },
+            {
+              "algorithm": "xor8",
+              "input_start": 8,
+              "input_end_exclusive": 9,
+              "target_offset": 9,
+              "matching_distinct_frames": 8,
+              "confirmed": false,
+              "informative_input_variation": false,
+              "target_varies": false
+            }
+          ]
+        },
+        "evidence_state": {
+          "confirmed_hardware_fields": [],
+          "firmware_derived": [
+            "packed_segments",
+            "sign",
+            "decimal_priority",
+            "unit_priority",
+            "FD_event"
+          ],
+          "unknown": [
+            "RX_checksum",
+            "b9..12",
+            "physical_range",
+            "ASIC_identity",
+            "event_ACK_causality"
+          ],
+          "note": "Repeated observations and matching checksums alone do not confirm semantics."
+        }
+      }
+    },
+    {
+      "label": "resistance_st2_1ohm_repeat",
+      "metadata": {
+        "test": "resistance_reference",
+        "label": "resistance_st2_1ohm_repeat",
+        "display_text": "1.1 Ω",
+        "display_numeric": 1.1,
+        "display_unit": "ohm",
+        "display_tolerance": 0,
+        "component_actual": "ST2 referans kartı, nominal 1 ohm; kullanıcı doğruladı; bağımsız referans ölçüm değeri yok",
+        "mode": "resistance",
+        "notes": "Kullanıcı 1 ohm ekranda 1.1 diye nominal ve ekran değerini ayırdı. İlk 10s kayıtta OL ve 0.8..1.1 gösterimleri birlikte görüldü; bu tekrar aynı 1Ω noktasında probları sabit tutması bildirilerek alınıyor.",
+        "schema": 1,
+        "origin": "hardware",
+        "status": "captured",
+        "host_started_at": "2026-10-18T01:09:05.820169+03:00",
+        "requested_seconds": 10.0,
+        "requested_samples": 10000000,
+        "requested_samplerate_hz": 1000000,
+        "channels": {
+          "D0": "MCU_TX_PA9_pin42",
+          "D2": "ASIC_TX_PA10_pin43"
+        },
+        "channel_map": {
+          "MCU_TX": 0,
+          "ASIC_TX": 2
+        },
+        "rx_frame_bytes": 12,
+        "uart": "9600 8N1",
+        "passive_connections_confirmed": true,
+        "device_preflight": {
+          "argv": [
+            "sigrok-cli",
+            "--driver",
+            "fx2lafw",
+            "--show"
+          ],
+          "returncode": 0,
+          "output": "Driver functions:\n    Logic analyzer\nScan options:\n    conn\nfx2lafw:conn=1.67 - Saleae Logic [S/N: Saleae Logic] with 8 channels: D0 D1 D2 D3 D4 D5 D6 D7\nChannel groups:\n    Logic: channels D0 D1 D2 D3 D4 D5 D6 D7\nSupported configuration options across all channel groups:\n    continuous: on, off\n    limit_samples: 0 (current)\n    conn: 1.67 (current)\n    samplerate - supported samplerates:\n      20 kHz (current)\n      25 kHz\n      50 kHz\n      100 kHz\n      200 kHz\n      250 kHz\n      500 kHz\n      1 MHz\n      2 MHz\n      3 MHz\n      4 MHz\n      6 MHz\n      8 MHz\n      12 MHz\n      16 MHz\n      24 MHz\n      48 MHz\n    Supported triggers: 0 1 r f e \n    captureratio: 0 (current)\n"
+        },
+        "command": [
+          "sigrok-cli",
+          "--loglevel",
+          "4",
+          "--driver",
+          "fx2lafw",
+          "--config",
+          "samplerate=1000000",
+          "--channels",
+          "D0,D2",
+          "--samples",
+          "10000000",
+          "--output-format",
+          "srzip",
+          "--output-file",
+          "projects/asic/captures/20261018T010905_resistance_st2_1ohm_repeat_c96379a8/raw.sr"
+        ],
+        "host_finished_at": "2026-10-18T01:09:15.935633+03:00",
+        "returncode": 0,
+        "received_samples": 10000000,
+        "analysis_error": null
+      },
+      "eligible_clean_numeric_frames": 59,
+      "display_numeric_and_unit_matches": 42,
+      "comparison_policy": "numeric_and_unit_with_recorded_tolerance",
+      "status": "matches_observed",
+      "semantic_confirmation": false,
+      "analysis": {
+        "label": "resistance_st2_1ohm_repeat",
+        "origin": "hardware",
+        "wire_burst_observations": {
+          "MCU_TX": {
+            "gap_threshold_samples": 4166.666666666667,
+            "burst_count": 0,
+            "uart_candidates_per_burst": {},
+            "start_period_s": null
+          },
+          "ASIC_TX": {
+            "gap_threshold_samples": 4166.666666666667,
+            "burst_count": 59,
+            "uart_candidates_per_burst": {
+              "12": 59
+            },
+            "start_period_s": {
+              "min": 0.156095,
+              "median": 0.1639275,
+              "max": 0.199344
+            }
+          }
+        },
+        "total_uart_candidates": 708,
+        "uart_error_candidates": 0,
+        "packet_counts": {
+          "frame_candidate": 59
+        },
+        "groups": {
+          "ASIC_TX:display": {
+            "count": 59,
+            "distinct_frames": 3,
+            "uart_error_frames": 0,
+            "byte_values": {
+              "0": [
+                90
+              ],
+              "1": [
+                165
+              ],
+              "2": [
+                4
+              ],
+              "3": [
+                0
+              ],
+              "4": [
+                0
+              ],
+              "5": [
+                26,
+                250
+              ],
+              "6": [
+                10,
+                11
+              ],
+              "7": [
+                32
+              ],
+              "8": [
+                0
+              ],
+              "9": [
+                0
+              ],
+              "10": [
+                1
+              ],
+              "11": [
+                61,
+                62
+              ]
+            },
+            "changing_offsets": [
+              5,
+              6,
+              11
+            ],
+            "first_t_s": 0.025828,
+            "last_t_s": 9.877855
+          }
+        },
+        "repeated_messages": [
+          {
+            "direction": "ASIC_TX",
+            "hex": "5A A5 04 00 00 1A 0A 20 00 00 01 3E",
+            "kind": "frame_candidate",
+            "count": 33
+          },
+          {
+            "direction": "ASIC_TX",
+            "hex": "5A A5 04 00 00 FA 0B 20 00 00 01 3E",
+            "kind": "frame_candidate",
+            "count": 17
+          },
+          {
+            "direction": "ASIC_TX",
+            "hex": "5A A5 04 00 00 1A 0A 20 00 00 01 3D",
+            "kind": "frame_candidate",
+            "count": 9
+          }
+        ],
+        "firmware_display_histogram": [
+          {
+            "text": "  1.1",
+            "unit": "ohm",
+            "count": 42
+          },
+          {
+            "text": "  1.0",
+            "unit": "ohm",
+            "count": 17
+          }
+        ],
+        "rx_checksum_hypotheses": {
+          "status": "hypotheses_only",
+          "frames": 59,
+          "distinct_frames": 3,
+          "last_byte_deterministic_checksum_of_prefix": "contradicted_in_capture",
+          "identical_prefix_different_last_byte": [
+            {
+              "identical_prefix": [
+                90,
+                165,
+                4,
+                0,
+                0,
+                26,
+                10,
+                32,
+                0,
+                0,
+                1
+              ],
+              "observed_last_bytes": [
+                61,
+                62
+              ]
+            }
+          ],
+          "search": "sum8/negative_sum8/xor8 over contiguous prefix ending before target; no CRC claim",
+          "candidates": [
+            {
+              "algorithm": "sum8",
+              "input_start": 3,
+              "input_end_exclusive": 4,
+              "target_offset": 4,
+              "matching_distinct_frames": 3,
+              "confirmed": false,
+              "informative_input_variation": false,
+              "target_varies": false
+            },
+            {
+              "algorithm": "negative_sum8",
+              "input_start": 3,
+              "input_end_exclusive": 4,
+              "target_offset": 4,
+              "matching_distinct_frames": 3,
+              "confirmed": false,
+              "informative_input_variation": false,
+              "target_varies": false
+            },
+            {
+              "algorithm": "xor8",
+              "input_start": 3,
+              "input_end_exclusive": 4,
+              "target_offset": 4,
+              "matching_distinct_frames": 3,
+              "confirmed": false,
+              "informative_input_variation": false,
+              "target_varies": false
+            },
+            {
+              "algorithm": "sum8",
+              "input_start": 8,
+              "input_end_exclusive": 9,
+              "target_offset": 9,
+              "matching_distinct_frames": 3,
+              "confirmed": false,
+              "informative_input_variation": false,
+              "target_varies": false
+            },
+            {
+              "algorithm": "negative_sum8",
+              "input_start": 8,
+              "input_end_exclusive": 9,
+              "target_offset": 9,
+              "matching_distinct_frames": 3,
+              "confirmed": false,
+              "informative_input_variation": false,
+              "target_varies": false
+            },
+            {
+              "algorithm": "xor8",
+              "input_start": 8,
+              "input_end_exclusive": 9,
+              "target_offset": 9,
+              "matching_distinct_frames": 3,
+              "confirmed": false,
+              "informative_input_variation": false,
+              "target_varies": false
+            }
+          ]
+        },
+        "evidence_state": {
+          "confirmed_hardware_fields": [],
+          "firmware_derived": [
+            "packed_segments",
+            "sign",
+            "decimal_priority",
+            "unit_priority",
+            "FD_event"
+          ],
+          "unknown": [
+            "RX_checksum",
+            "b9..12",
+            "physical_range",
+            "ASIC_identity",
+            "event_ACK_causality"
+          ],
+          "note": "Repeated observations and matching checksums alone do not confirm semantics."
+        }
+      }
+    },
+    {
+      "label": "resistance_st2_1kohm",
+      "metadata": {
+        "test": "resistance_1k",
+        "label": "resistance_st2_1kohm",
+        "display_text": "1.001 kohm",
+        "display_numeric": 1.001,
+        "display_unit": "kohm",
+        "display_tolerance": 0,
+        "component_actual": "ST2 9 dirençli referans kartı, nominal 1 kohm; kullanıcı bildirdi; bağımsız referans ölçümü yok",
+        "mode": "resistance",
+        "notes": "Kullanıcı 1 kohm ekranda 1.001 khom bildirdi. Gösterilen birim metadata kohm olarak açıkça seçildi; kullanıcı mesajındaki khom yazımı bu notta korundu. D0=MCU_TX, D2=ASIC_TX.",
+        "schema": 1,
+        "origin": "hardware",
+        "status": "captured",
+        "host_started_at": "2026-10-18T01:10:07.736997+03:00",
+        "requested_seconds": 10.0,
+        "requested_samples": 10000000,
+        "requested_samplerate_hz": 1000000,
+        "channels": {
+          "D0": "MCU_TX_PA9_pin42",
+          "D2": "ASIC_TX_PA10_pin43"
+        },
+        "channel_map": {
+          "MCU_TX": 0,
+          "ASIC_TX": 2
+        },
+        "rx_frame_bytes": 12,
+        "uart": "9600 8N1",
+        "passive_connections_confirmed": true,
+        "device_preflight": {
+          "argv": [
+            "sigrok-cli",
+            "--driver",
+            "fx2lafw",
+            "--show"
+          ],
+          "returncode": 0,
+          "output": "Driver functions:\n    Logic analyzer\nScan options:\n    conn\nfx2lafw:conn=1.67 - Saleae Logic [S/N: Saleae Logic] with 8 channels: D0 D1 D2 D3 D4 D5 D6 D7\nChannel groups:\n    Logic: channels D0 D1 D2 D3 D4 D5 D6 D7\nSupported configuration options across all channel groups:\n    continuous: on, off\n    limit_samples: 0 (current)\n    conn: 1.67 (current)\n    samplerate - supported samplerates:\n      20 kHz (current)\n      25 kHz\n      50 kHz\n      100 kHz\n      200 kHz\n      250 kHz\n      500 kHz\n      1 MHz\n      2 MHz\n      3 MHz\n      4 MHz\n      6 MHz\n      8 MHz\n      12 MHz\n      16 MHz\n      24 MHz\n      48 MHz\n    Supported triggers: 0 1 r f e \n    captureratio: 0 (current)\n"
+        },
+        "command": [
+          "sigrok-cli",
+          "--loglevel",
+          "4",
+          "--driver",
+          "fx2lafw",
+          "--config",
+          "samplerate=1000000",
+          "--channels",
+          "D0,D2",
+          "--samples",
+          "10000000",
+          "--output-format",
+          "srzip",
+          "--output-file",
+          "projects/asic/captures/20261018T011007_resistance_st2_1kohm_9b1124e1/raw.sr"
+        ],
+        "host_finished_at": "2026-10-18T01:10:17.852236+03:00",
+        "returncode": 0,
+        "received_samples": 10000000,
+        "analysis_error": null
+      },
+      "eligible_clean_numeric_frames": 45,
+      "display_numeric_and_unit_matches": 26,
+      "comparison_policy": "numeric_and_unit_with_recorded_tolerance",
+      "status": "matches_observed",
+      "semantic_confirmation": false,
+      "analysis": {
+        "label": "resistance_st2_1kohm",
+        "origin": "hardware",
+        "wire_burst_observations": {
+          "MCU_TX": {
+            "gap_threshold_samples": 4166.666666666667,
+            "burst_count": 0,
+            "uart_candidates_per_burst": {},
+            "start_period_s": null
+          },
+          "ASIC_TX": {
+            "gap_threshold_samples": 4166.666666666667,
+            "burst_count": 58,
+            "uart_candidates_per_burst": {
+              "12": 58
+            },
+            "start_period_s": {
+              "min": 0.155797,
+              "median": 0.167418,
+              "max": 0.197576
+            }
+          }
+        },
+        "total_uart_candidates": 696,
+        "uart_error_candidates": 0,
+        "packet_counts": {
+          "frame_candidate": 58
+        },
+        "groups": {
+          "ASIC_TX:display": {
+            "count": 58,
+            "distinct_frames": 7,
+            "uart_error_frames": 0,
+            "byte_values": {
+              "0": [
+                90
+              ],
+              "1": [
+                165
+              ],
+              "2": [
+                4
+              ],
+              "3": [
+                0,
+                224,
+                250
+              ],
+              "4": [
+                0,
+                123,
+                235
+              ],
+              "5": [
+                0,
+                1,
+                11,
+                235
+              ],
+              "6": [
+                0,
+                64,
+                74,
+                75
+              ],
+              "7": [
+                32,
+                36
+              ],
+              "8": [
+                0
+              ],
+              "9": [
+                0
+              ],
+              "10": [
+                1
+              ],
+              "11": [
+                62,
+                63
+              ]
+            },
+            "changing_offsets": [
+              3,
+              4,
+              5,
+              6,
+              7,
+              11
+            ],
+            "first_t_s": 0.150514,
+            "last_t_s": 9.897975
+          }
+        },
+        "repeated_messages": [
+          {
+            "direction": "ASIC_TX",
+            "hex": "5A A5 04 FA EB 0B 4A 20 00 00 01 3E",
+            "kind": "frame_candidate",
+            "count": 26
+          },
+          {
+            "direction": "ASIC_TX",
+            "hex": "5A A5 04 FA EB EB 4B 20 00 00 01 3F",
+            "kind": "frame_candidate",
+            "count": 11
+          },
+          {
+            "direction": "ASIC_TX",
+            "hex": "5A A5 04 E0 7B 01 00 24 00 00 01 3F",
+            "kind": "frame_candidate",
+            "count": 8
+          },
+          {
+            "direction": "ASIC_TX",
+            "hex": "5A A5 04 FA EB EB 4B 20 00 00 01 3E",
+            "kind": "frame_candidate",
+            "count": 8
+          },
+          {
+            "direction": "ASIC_TX",
+            "hex": "5A A5 04 E0 7B 01 00 24 00 00 01 3E",
+            "kind": "frame_candidate",
+            "count": 2
+          },
+          {
+            "direction": "ASIC_TX",
+            "hex": "5A A5 04 00 00 00 40 20 00 00 01 3F",
+            "kind": "frame_candidate",
+            "count": 2
+          },
+          {
+            "direction": "ASIC_TX",
+            "hex": "5A A5 04 00 00 00 00 24 00 00 01 3F",
+            "kind": "frame_candidate",
+            "count": 1
+          }
+        ],
+        "firmware_display_histogram": [
+          {
+            "text": "1.001",
+            "unit": "kohm",
+            "count": 26
+          },
+          {
+            "text": "1.000",
+            "unit": "kohm",
+            "count": 19
+          },
+          {
+            "text": " 0.L ",
+            "unit": "Mohm",
+            "count": 10
+          },
+          {
+            "text": "    ",
+            "unit": "kohm",
+            "count": 2
+          },
+          {
+            "text": "    ",
+            "unit": "Mohm",
+            "count": 1
+          }
+        ],
+        "rx_checksum_hypotheses": {
+          "status": "hypotheses_only",
+          "frames": 58,
+          "distinct_frames": 7,
+          "last_byte_deterministic_checksum_of_prefix": "contradicted_in_capture",
+          "identical_prefix_different_last_byte": [
+            {
+              "identical_prefix": [
+                90,
+                165,
+                4,
+                224,
+                123,
+                1,
+                0,
+                36,
+                0,
+                0,
+                1
+              ],
+              "observed_last_bytes": [
+                62,
+                63
+              ]
+            },
+            {
+              "identical_prefix": [
+                90,
+                165,
+                4,
+                250,
+                235,
+                235,
+                75,
+                32,
+                0,
+                0,
+                1
+              ],
+              "observed_last_bytes": [
+                62,
+                63
+              ]
+            }
+          ],
+          "search": "sum8/negative_sum8/xor8 over contiguous prefix ending before target; no CRC claim",
+          "candidates": [
+            {
+              "algorithm": "sum8",
+              "input_start": 8,
+              "input_end_exclusive": 9,
+              "target_offset": 9,
+              "matching_distinct_frames": 7,
+              "confirmed": false,
+              "informative_input_variation": false,
+              "target_varies": false
+            },
+            {
+              "algorithm": "negative_sum8",
+              "input_start": 8,
+              "input_end_exclusive": 9,
+              "target_offset": 9,
+              "matching_distinct_frames": 7,
+              "confirmed": false,
+              "informative_input_variation": false,
+              "target_varies": false
+            },
+            {
+              "algorithm": "xor8",
+              "input_start": 8,
+              "input_end_exclusive": 9,
+              "target_offset": 9,
+              "matching_distinct_frames": 7,
+              "confirmed": false,
+              "informative_input_variation": false,
+              "target_varies": false
+            }
+          ]
+        },
+        "evidence_state": {
+          "confirmed_hardware_fields": [],
+          "firmware_derived": [
+            "packed_segments",
+            "sign",
+            "decimal_priority",
+            "unit_priority",
+            "FD_event"
+          ],
+          "unknown": [
+            "RX_checksum",
+            "b9..12",
+            "physical_range",
+            "ASIC_identity",
+            "event_ACK_causality"
+          ],
+          "note": "Repeated observations and matching checksums alone do not confirm semantics."
+        }
+      }
+    },
+    {
+      "label": "resistance_st2_10kohm",
+      "metadata": {
+        "test": "resistance_10k",
+        "label": "resistance_st2_10kohm",
+        "display_text": "9.970 kohm",
+        "display_numeric": 9.97,
+        "display_unit": "kohm",
+        "display_tolerance": 0,
+        "component_actual": "ST2 referans kartı, nominal 10 kohm; kullanıcı bildirdi; bağımsız referans ölçümü yok",
+        "mode": "resistance",
+        "notes": "Kullanıcı 10k ekranda 9.970 çıkıyor bildirdi; kΩ birimi önceki direnç kademe bağlamından seçildi. Probları yaklaşık 15s sabit tutması istendi. D0/D2/GND bağlantısı.",
+        "schema": 1,
+        "origin": "hardware",
+        "status": "captured",
+        "host_started_at": "2026-10-18T01:11:24.439770+03:00",
+        "requested_seconds": 10.0,
+        "requested_samples": 10000000,
+        "requested_samplerate_hz": 1000000,
+        "channels": {
+          "D0": "MCU_TX_PA9_pin42",
+          "D2": "ASIC_TX_PA10_pin43"
+        },
+        "channel_map": {
+          "MCU_TX": 0,
+          "ASIC_TX": 2
+        },
+        "rx_frame_bytes": 12,
+        "uart": "9600 8N1",
+        "passive_connections_confirmed": true,
+        "device_preflight": {
+          "argv": [
+            "sigrok-cli",
+            "--driver",
+            "fx2lafw",
+            "--show"
+          ],
+          "returncode": 0,
+          "output": "Driver functions:\n    Logic analyzer\nScan options:\n    conn\nfx2lafw:conn=1.67 - Saleae Logic [S/N: Saleae Logic] with 8 channels: D0 D1 D2 D3 D4 D5 D6 D7\nChannel groups:\n    Logic: channels D0 D1 D2 D3 D4 D5 D6 D7\nSupported configuration options across all channel groups:\n    continuous: on, off\n    limit_samples: 0 (current)\n    conn: 1.67 (current)\n    samplerate - supported samplerates:\n      20 kHz (current)\n      25 kHz\n      50 kHz\n      100 kHz\n      200 kHz\n      250 kHz\n      500 kHz\n      1 MHz\n      2 MHz\n      3 MHz\n      4 MHz\n      6 MHz\n      8 MHz\n      12 MHz\n      16 MHz\n      24 MHz\n      48 MHz\n    Supported triggers: 0 1 r f e \n    captureratio: 0 (current)\n"
+        },
+        "command": [
+          "sigrok-cli",
+          "--loglevel",
+          "4",
+          "--driver",
+          "fx2lafw",
+          "--config",
+          "samplerate=1000000",
+          "--channels",
+          "D0,D2",
+          "--samples",
+          "10000000",
+          "--output-format",
+          "srzip",
+          "--output-file",
+          "projects/asic/captures/20261018T011124_resistance_st2_10kohm_4e3927b0/raw.sr"
+        ],
+        "host_finished_at": "2026-10-18T01:11:34.557318+03:00",
+        "returncode": 0,
+        "received_samples": 10000000,
+        "analysis_error": null
+      },
+      "eligible_clean_numeric_frames": 59,
+      "display_numeric_and_unit_matches": 59,
+      "comparison_policy": "numeric_and_unit_with_recorded_tolerance",
+      "status": "matches_observed",
+      "semantic_confirmation": false,
+      "analysis": {
+        "label": "resistance_st2_10kohm",
+        "origin": "hardware",
+        "wire_burst_observations": {
+          "MCU_TX": {
+            "gap_threshold_samples": 4166.666666666667,
+            "burst_count": 0,
+            "uart_candidates_per_burst": {},
+            "start_period_s": null
+          },
+          "ASIC_TX": {
+            "gap_threshold_samples": 4166.666666666667,
+            "burst_count": 59,
+            "uart_candidates_per_burst": {
+              "12": 59
+            },
+            "start_period_s": {
+              "min": 0.158825,
+              "median": 0.16513650000000002,
+              "max": 0.183459
+            }
+          }
+        },
+        "total_uart_candidates": 708,
+        "uart_error_candidates": 0,
+        "packet_counts": {
+          "frame_candidate": 59
+        },
+        "groups": {
+          "ASIC_TX:display": {
+            "count": 59,
+            "distinct_frames": 1,
+            "uart_error_frames": 0,
+            "byte_values": {
+              "0": [
+                90
+              ],
+              "1": [
+                165
+              ],
+              "2": [
+                4
+              ],
+              "3": [
+                192
+              ],
+              "4": [
+                223
+              ],
+              "5": [
+                143
+              ],
+              "6": [
+                74
+              ],
+              "7": [
+                32
+              ],
+              "8": [
+                0
+              ],
+              "9": [
+                0
+              ],
+              "10": [
+                1
+              ],
+              "11": [
+                62
+              ]
+            },
+            "changing_offsets": [],
+            "first_t_s": 0.061592,
+            "last_t_s": 9.853602
+          }
+        },
+        "repeated_messages": [
+          {
+            "direction": "ASIC_TX",
+            "hex": "5A A5 04 C0 DF 8F 4A 20 00 00 01 3E",
+            "kind": "frame_candidate",
+            "count": 59
+          }
+        ],
+        "firmware_display_histogram": [
+          {
+            "text": " 9.97",
+            "unit": "kohm",
+            "count": 59
+          }
+        ],
+        "rx_checksum_hypotheses": {
+          "status": "hypotheses_only",
+          "frames": 59,
+          "distinct_frames": 1,
+          "last_byte_deterministic_checksum_of_prefix": "unresolved",
+          "identical_prefix_different_last_byte": [],
+          "search": "sum8/negative_sum8/xor8 over contiguous prefix ending before target; no CRC claim",
+          "candidates": [
+            {
+              "algorithm": "sum8",
+              "input_start": 8,
+              "input_end_exclusive": 9,
+              "target_offset": 9,
+              "matching_distinct_frames": 1,
+              "confirmed": false,
+              "informative_input_variation": false,
+              "target_varies": false
+            },
+            {
+              "algorithm": "negative_sum8",
+              "input_start": 8,
+              "input_end_exclusive": 9,
+              "target_offset": 9,
+              "matching_distinct_frames": 1,
+              "confirmed": false,
+              "informative_input_variation": false,
+              "target_varies": false
+            },
+            {
+              "algorithm": "xor8",
+              "input_start": 8,
+              "input_end_exclusive": 9,
+              "target_offset": 9,
+              "matching_distinct_frames": 1,
+              "confirmed": false,
+              "informative_input_variation": false,
+              "target_varies": false
+            },
+            {
+              "algorithm": "xor8",
+              "input_start": 0,
+              "input_end_exclusive": 10,
+              "target_offset": 10,
+              "matching_distinct_frames": 1,
+              "confirmed": false,
+              "informative_input_variation": false,
+              "target_varies": false
+            }
+          ]
+        },
+        "evidence_state": {
+          "confirmed_hardware_fields": [],
+          "firmware_derived": [
+            "packed_segments",
+            "sign",
+            "decimal_priority",
+            "unit_priority",
+            "FD_event"
+          ],
+          "unknown": [
+            "RX_checksum",
+            "b9..12",
+            "physical_range",
+            "ASIC_identity",
+            "event_ACK_causality"
+          ],
+          "note": "Repeated observations and matching checksums alone do not confirm semantics."
+        }
+      }
+    },
+    {
+      "label": "resistance_st2_100kohm",
+      "metadata": {
+        "test": "resistance_100k",
+        "label": "resistance_st2_100kohm",
+        "display_text": "99.80 gibi (kohm)",
+        "display_numeric": 99.8,
+        "display_unit": "kohm",
+        "display_tolerance": 0,
+        "component_actual": "ST2 referans kartı, nominal 100 kohm; kullanıcı bildirdi; bağımsız referans ölçümü yok",
+        "mode": "resistance",
+        "notes": "Kullanıcı 100k ekranda 99.80 gibi diye yaklaşık ekran okuması bildirdi. numeric metadata 99.80 karşılaştırma hedefidir, tam/hassas referans okuması sayılmaz; explicit yaklaşık notu korunuyor. Probları 15s sabit tutması istendi.",
+        "schema": 1,
+        "origin": "hardware",
+        "status": "captured",
+        "host_started_at": "2026-10-18T01:12:45.508000+03:00",
+        "requested_seconds": 10.0,
+        "requested_samples": 10000000,
+        "requested_samplerate_hz": 1000000,
+        "channels": {
+          "D0": "MCU_TX_PA9_pin42",
+          "D2": "ASIC_TX_PA10_pin43"
+        },
+        "channel_map": {
+          "MCU_TX": 0,
+          "ASIC_TX": 2
+        },
+        "rx_frame_bytes": 12,
+        "uart": "9600 8N1",
+        "passive_connections_confirmed": true,
+        "device_preflight": {
+          "argv": [
+            "sigrok-cli",
+            "--driver",
+            "fx2lafw",
+            "--show"
+          ],
+          "returncode": 0,
+          "output": "Driver functions:\n    Logic analyzer\nScan options:\n    conn\nfx2lafw:conn=1.67 - Saleae Logic [S/N: Saleae Logic] with 8 channels: D0 D1 D2 D3 D4 D5 D6 D7\nChannel groups:\n    Logic: channels D0 D1 D2 D3 D4 D5 D6 D7\nSupported configuration options across all channel groups:\n    continuous: on, off\n    limit_samples: 0 (current)\n    conn: 1.67 (current)\n    samplerate - supported samplerates:\n      20 kHz (current)\n      25 kHz\n      50 kHz\n      100 kHz\n      200 kHz\n      250 kHz\n      500 kHz\n      1 MHz\n      2 MHz\n      3 MHz\n      4 MHz\n      6 MHz\n      8 MHz\n      12 MHz\n      16 MHz\n      24 MHz\n      48 MHz\n    Supported triggers: 0 1 r f e \n    captureratio: 0 (current)\n"
+        },
+        "command": [
+          "sigrok-cli",
+          "--loglevel",
+          "4",
+          "--driver",
+          "fx2lafw",
+          "--config",
+          "samplerate=1000000",
+          "--channels",
+          "D0,D2",
+          "--samples",
+          "10000000",
+          "--output-format",
+          "srzip",
+          "--output-file",
+          "projects/asic/captures/20261018T011245_resistance_st2_100kohm_2c0eb7ee/raw.sr"
+        ],
+        "host_finished_at": "2026-10-18T01:12:55.624257+03:00",
+        "returncode": 0,
+        "received_samples": 10000000,
+        "analysis_error": null,
+        "annotation_history": [
+          {
+            "timestamp": "2026-10-18T01:31:13.277531+03:00",
+            "previous": {
+              "display_text": "99.80 gibi (kohm)",
+              "display_numeric": 99.8,
+              "display_unit": "kohm",
+              "display_tolerance": 0,
+              "display_is_approximate": null,
+              "component_actual": "ST2 referans kartı, nominal 100 kohm; kullanıcı bildirdi; bağımsız referans ölçümü yok",
+              "mode": "resistance",
+              "notes": "Kullanıcı 100k ekranda 99.80 gibi diye yaklaşık ekran okuması bildirdi. numeric metadata 99.80 karşılaştırma hedefidir, tam/hassas referans okuması sayılmaz; explicit yaklaşık notu korunuyor. Probları 15s sabit tutması istendi."
+            }
+          }
+        ],
+        "display_is_approximate": true
+      },
+      "eligible_clean_numeric_frames": 0,
+      "display_numeric_and_unit_matches": 0,
+      "comparison_policy": "explicit_tolerance_required_for_approximate_target",
+      "status": "untested",
+      "semantic_confirmation": false,
+      "analysis": {
+        "label": "resistance_st2_100kohm",
+        "origin": "hardware",
+        "wire_burst_observations": {
+          "MCU_TX": {
+            "gap_threshold_samples": 4166.666666666667,
+            "burst_count": 0,
+            "uart_candidates_per_burst": {},
+            "start_period_s": null
+          },
+          "ASIC_TX": {
+            "gap_threshold_samples": 4166.666666666667,
+            "burst_count": 60,
+            "uart_candidates_per_burst": {
+              "12": 60
+            },
+            "start_period_s": {
+              "min": 0.158981,
+              "median": 0.163349,
+              "max": 0.183654
+            }
+          }
+        },
+        "total_uart_candidates": 720,
+        "uart_error_candidates": 0,
+        "packet_counts": {
+          "frame_candidate": 60
+        },
+        "groups": {
+          "ASIC_TX:display": {
+            "count": 60,
+            "distinct_frames": 1,
+            "uart_error_frames": 0,
+            "byte_values": {
+              "0": [
+                90
+              ],
+              "1": [
+                165
+              ],
+              "2": [
+                4
+              ],
+              "3": [
+                192
+              ],
+              "4": [
+                207
+              ],
+              "5": [
+                255
+              ],
+              "6": [
+                79
+              ],
+              "7": [
+                32
+              ],
+              "8": [
+                0
+              ],
+              "9": [
+                0
+              ],
+              "10": [
+                1
+              ],
+              "11": [
+                62
+              ]
+            },
+            "changing_offsets": [],
+            "first_t_s": 0.02167,
+            "last_t_s": 9.983308
+          }
+        },
+        "repeated_messages": [
+          {
+            "direction": "ASIC_TX",
+            "hex": "5A A5 04 C0 CF FF 4F 20 00 00 01 3E",
+            "kind": "frame_candidate",
+            "count": 60
+          }
+        ],
+        "firmware_display_histogram": [
+          {
+            "text": " 99.8",
+            "unit": "kohm",
+            "count": 60
+          }
+        ],
+        "rx_checksum_hypotheses": {
+          "status": "hypotheses_only",
+          "frames": 60,
+          "distinct_frames": 1,
+          "last_byte_deterministic_checksum_of_prefix": "unresolved",
+          "identical_prefix_different_last_byte": [],
+          "search": "sum8/negative_sum8/xor8 over contiguous prefix ending before target; no CRC claim",
+          "candidates": [
+            {
+              "algorithm": "negative_sum8",
+              "input_start": 0,
+              "input_end_exclusive": 7,
+              "target_offset": 7,
+              "matching_distinct_frames": 1,
+              "confirmed": false,
+              "informative_input_variation": false,
+              "target_varies": false
+            },
+            {
+              "algorithm": "sum8",
+              "input_start": 0,
+              "input_end_exclusive": 8,
+              "target_offset": 8,
+              "matching_distinct_frames": 1,
+              "confirmed": false,
+              "informative_input_variation": false,
+              "target_varies": false
+            },
+            {
+              "algorithm": "negative_sum8",
+              "input_start": 0,
+              "input_end_exclusive": 8,
+              "target_offset": 8,
+              "matching_distinct_frames": 1,
+              "confirmed": false,
+              "informative_input_variation": false,
+              "target_varies": false
+            },
+            {
+              "algorithm": "sum8",
+              "input_start": 0,
+              "input_end_exclusive": 9,
+              "target_offset": 9,
+              "matching_distinct_frames": 1,
+              "confirmed": false,
+              "informative_input_variation": false,
+              "target_varies": false
+            },
+            {
+              "algorithm": "negative_sum8",
+              "input_start": 0,
+              "input_end_exclusive": 9,
+              "target_offset": 9,
+              "matching_distinct_frames": 1,
+              "confirmed": false,
+              "informative_input_variation": false,
+              "target_varies": false
+            },
+            {
+              "algorithm": "sum8",
+              "input_start": 8,
+              "input_end_exclusive": 9,
+              "target_offset": 9,
+              "matching_distinct_frames": 1,
+              "confirmed": false,
+              "informative_input_variation": false,
+              "target_varies": false
+            },
+            {
+              "algorithm": "negative_sum8",
+              "input_start": 8,
+              "input_end_exclusive": 9,
+              "target_offset": 9,
+              "matching_distinct_frames": 1,
+              "confirmed": false,
+              "informative_input_variation": false,
+              "target_varies": false
+            },
+            {
+              "algorithm": "xor8",
+              "input_start": 8,
+              "input_end_exclusive": 9,
+              "target_offset": 9,
+              "matching_distinct_frames": 1,
+              "confirmed": false,
+              "informative_input_variation": false,
+              "target_varies": false
+            },
+            {
+              "algorithm": "sum8",
+              "input_start": 2,
+              "input_end_exclusive": 10,
+              "target_offset": 10,
+              "matching_distinct_frames": 1,
+              "confirmed": false,
+              "informative_input_variation": false,
+              "target_varies": false
+            },
+            {
+              "algorithm": "sum8",
+              "input_start": 4,
+              "input_end_exclusive": 11,
+              "target_offset": 11,
+              "matching_distinct_frames": 1,
+              "confirmed": false,
+              "informative_input_variation": false,
+              "target_varies": false
+            }
+          ]
+        },
+        "evidence_state": {
+          "confirmed_hardware_fields": [],
+          "firmware_derived": [
+            "packed_segments",
+            "sign",
+            "decimal_priority",
+            "unit_priority",
+            "FD_event"
+          ],
+          "unknown": [
+            "RX_checksum",
+            "b9..12",
+            "physical_range",
+            "ASIC_identity",
+            "event_ACK_causality"
+          ],
+          "note": "Repeated observations and matching checksums alone do not confirm semantics."
+        }
+      }
+    },
+    {
+      "label": "resistance_st2_open",
+      "metadata": {
+        "test": "resistance_open",
+        "label": "resistance_st2_open",
+        "display_text": null,
+        "display_numeric": null,
+        "display_unit": null,
+        "display_tolerance": 0,
+        "component_actual": "Açık uç; kullanıcı probları karttan ayırdığını boşta şu an yanıtıyla doğruladı",
+        "mode": "resistance",
+        "notes": "Ekrandaki harf/rakam metni kullanıcı tarafından ayrıca bildirilmedi; display metadata bilerek boş bırakıldı. D0/D2/GND bağlı, direnç modu, açık uç kontrol kaydı.",
+        "schema": 1,
+        "origin": "hardware",
+        "status": "captured",
+        "host_started_at": "2026-10-18T01:13:48.390662+03:00",
+        "requested_seconds": 10.0,
+        "requested_samples": 10000000,
+        "requested_samplerate_hz": 1000000,
+        "channels": {
+          "D0": "MCU_TX_PA9_pin42",
+          "D2": "ASIC_TX_PA10_pin43"
+        },
+        "channel_map": {
+          "MCU_TX": 0,
+          "ASIC_TX": 2
+        },
+        "rx_frame_bytes": 12,
+        "uart": "9600 8N1",
+        "passive_connections_confirmed": true,
+        "device_preflight": {
+          "argv": [
+            "sigrok-cli",
+            "--driver",
+            "fx2lafw",
+            "--show"
+          ],
+          "returncode": 0,
+          "output": "Driver functions:\n    Logic analyzer\nScan options:\n    conn\nfx2lafw:conn=1.67 - Saleae Logic [S/N: Saleae Logic] with 8 channels: D0 D1 D2 D3 D4 D5 D6 D7\nChannel groups:\n    Logic: channels D0 D1 D2 D3 D4 D5 D6 D7\nSupported configuration options across all channel groups:\n    continuous: on, off\n    limit_samples: 0 (current)\n    conn: 1.67 (current)\n    samplerate - supported samplerates:\n      20 kHz (current)\n      25 kHz\n      50 kHz\n      100 kHz\n      200 kHz\n      250 kHz\n      500 kHz\n      1 MHz\n      2 MHz\n      3 MHz\n      4 MHz\n      6 MHz\n      8 MHz\n      12 MHz\n      16 MHz\n      24 MHz\n      48 MHz\n    Supported triggers: 0 1 r f e \n    captureratio: 0 (current)\n"
+        },
+        "command": [
+          "sigrok-cli",
+          "--loglevel",
+          "4",
+          "--driver",
+          "fx2lafw",
+          "--config",
+          "samplerate=1000000",
+          "--channels",
+          "D0,D2",
+          "--samples",
+          "10000000",
+          "--output-format",
+          "srzip",
+          "--output-file",
+          "projects/asic/captures/20261018T011348_resistance_st2_open_91086a21/raw.sr"
+        ],
+        "host_finished_at": "2026-10-18T01:13:58.506766+03:00",
+        "returncode": 0,
+        "received_samples": 10000000,
+        "analysis_error": null
+      },
+      "eligible_clean_numeric_frames": 0,
+      "display_numeric_and_unit_matches": 0,
+      "comparison_policy": "numeric_and_unit_with_recorded_tolerance",
+      "status": "untested",
+      "semantic_confirmation": false,
+      "analysis": {
+        "label": "resistance_st2_open",
+        "origin": "hardware",
+        "wire_burst_observations": {
+          "MCU_TX": {
+            "gap_threshold_samples": 4166.666666666667,
+            "burst_count": 0,
+            "uart_candidates_per_burst": {},
+            "start_period_s": null
+          },
+          "ASIC_TX": {
+            "gap_threshold_samples": 4166.666666666667,
+            "burst_count": 60,
+            "uart_candidates_per_burst": {
+              "12": 60
+            },
+            "start_period_s": {
+              "min": 0.160476,
+              "median": 0.166365,
+              "max": 0.195093
+            }
+          }
+        },
+        "total_uart_candidates": 720,
+        "uart_error_candidates": 0,
+        "packet_counts": {
+          "frame_candidate": 60
+        },
+        "groups": {
+          "ASIC_TX:display": {
+            "count": 60,
+            "distinct_frames": 1,
+            "uart_error_frames": 0,
+            "byte_values": {
+              "0": [
+                90
+              ],
+              "1": [
+                165
+              ],
+              "2": [
+                4
+              ],
+              "3": [
+                224
+              ],
+              "4": [
+                123
+              ],
+              "5": [
+                1
+              ],
+              "6": [
+                0
+              ],
+              "7": [
+                36
+              ],
+              "8": [
+                0
+              ],
+              "9": [
+                0
+              ],
+              "10": [
+                1
+              ],
+              "11": [
+                62
+              ]
+            },
+            "changing_offsets": [],
+            "first_t_s": 0.103166,
+            "last_t_s": 9.930938
+          }
+        },
+        "repeated_messages": [
+          {
+            "direction": "ASIC_TX",
+            "hex": "5A A5 04 E0 7B 01 00 24 00 00 01 3E",
+            "kind": "frame_candidate",
+            "count": 60
+          }
+        ],
+        "firmware_display_histogram": [
+          {
+            "text": " 0.L ",
+            "unit": "Mohm",
+            "count": 60
+          }
+        ],
+        "rx_checksum_hypotheses": {
+          "status": "hypotheses_only",
+          "frames": 60,
+          "distinct_frames": 1,
+          "last_byte_deterministic_checksum_of_prefix": "unresolved",
+          "identical_prefix_different_last_byte": [],
+          "search": "sum8/negative_sum8/xor8 over contiguous prefix ending before target; no CRC claim",
+          "candidates": [
+            {
+              "algorithm": "sum8",
+              "input_start": 8,
+              "input_end_exclusive": 9,
+              "target_offset": 9,
+              "matching_distinct_frames": 1,
+              "confirmed": false,
+              "informative_input_variation": false,
+              "target_varies": false
+            },
+            {
+              "algorithm": "negative_sum8",
+              "input_start": 8,
+              "input_end_exclusive": 9,
+              "target_offset": 9,
+              "matching_distinct_frames": 1,
+              "confirmed": false,
+              "informative_input_variation": false,
+              "target_varies": false
+            },
+            {
+              "algorithm": "xor8",
+              "input_start": 8,
+              "input_end_exclusive": 9,
+              "target_offset": 9,
+              "matching_distinct_frames": 1,
+              "confirmed": false,
+              "informative_input_variation": false,
+              "target_varies": false
+            }
+          ]
+        },
+        "evidence_state": {
+          "confirmed_hardware_fields": [],
+          "firmware_derived": [
+            "packed_segments",
+            "sign",
+            "decimal_priority",
+            "unit_priority",
+            "FD_event"
+          ],
+          "unknown": [
+            "RX_checksum",
+            "b9..12",
+            "physical_range",
+            "ASIC_identity",
+            "event_ACK_causality"
+          ],
+          "note": "Repeated observations and matching checksums alone do not confirm semantics."
+        }
+      }
+    },
+    {
+      "label": "resistance_st2_1Mohm",
+      "metadata": {
+        "test": "resistance_reference",
+        "label": "resistance_st2_1Mohm",
+        "display_text": "0.996 (Mohm bağlamı)",
+        "display_numeric": 0.996,
+        "display_unit": "Mohm",
+        "display_tolerance": 0,
+        "component_actual": "ST2 referans kartı, nominal 1 Mohm; kullanıcı bildirdi; bağımsız referans ölçümü yok",
+        "mode": "resistance",
+        "notes": "Kullanıcı 1m ekranda 0.996 bildirdi. MΩ birimi nominal 1MΩ ve mevcut direnç bağlamından seçildi; kullanıcı iletisinde birim ayrıca yazılmadı. D0/D2/GND ve direnç modu korunuyor, 15s sabit tutma talimatı verildi.",
+        "schema": 1,
+        "origin": "hardware",
+        "status": "captured",
+        "host_started_at": "2026-10-18T01:15:07.159231+03:00",
+        "requested_seconds": 10.0,
+        "requested_samples": 10000000,
+        "requested_samplerate_hz": 1000000,
+        "channels": {
+          "D0": "MCU_TX_PA9_pin42",
+          "D2": "ASIC_TX_PA10_pin43"
+        },
+        "channel_map": {
+          "MCU_TX": 0,
+          "ASIC_TX": 2
+        },
+        "rx_frame_bytes": 12,
+        "uart": "9600 8N1",
+        "passive_connections_confirmed": true,
+        "device_preflight": {
+          "argv": [
+            "sigrok-cli",
+            "--driver",
+            "fx2lafw",
+            "--show"
+          ],
+          "returncode": 0,
+          "output": "Driver functions:\n    Logic analyzer\nScan options:\n    conn\nfx2lafw:conn=1.67 - Saleae Logic [S/N: Saleae Logic] with 8 channels: D0 D1 D2 D3 D4 D5 D6 D7\nChannel groups:\n    Logic: channels D0 D1 D2 D3 D4 D5 D6 D7\nSupported configuration options across all channel groups:\n    continuous: on, off\n    limit_samples: 0 (current)\n    conn: 1.67 (current)\n    samplerate - supported samplerates:\n      20 kHz (current)\n      25 kHz\n      50 kHz\n      100 kHz\n      200 kHz\n      250 kHz\n      500 kHz\n      1 MHz\n      2 MHz\n      3 MHz\n      4 MHz\n      6 MHz\n      8 MHz\n      12 MHz\n      16 MHz\n      24 MHz\n      48 MHz\n    Supported triggers: 0 1 r f e \n    captureratio: 0 (current)\n"
+        },
+        "command": [
+          "sigrok-cli",
+          "--loglevel",
+          "4",
+          "--driver",
+          "fx2lafw",
+          "--config",
+          "samplerate=1000000",
+          "--channels",
+          "D0,D2",
+          "--samples",
+          "10000000",
+          "--output-format",
+          "srzip",
+          "--output-file",
+          "projects/asic/captures/20261018T011507_resistance_st2_1Mohm_7edb835a/raw.sr"
+        ],
+        "host_finished_at": "2026-10-18T01:15:17.275264+03:00",
+        "returncode": 0,
+        "received_samples": 10000000,
+        "analysis_error": null
+      },
+      "eligible_clean_numeric_frames": 60,
+      "display_numeric_and_unit_matches": 60,
+      "comparison_policy": "numeric_and_unit_with_recorded_tolerance",
+      "status": "matches_observed",
+      "semantic_confirmation": false,
+      "analysis": {
+        "label": "resistance_st2_1Mohm",
+        "origin": "hardware",
+        "wire_burst_observations": {
+          "MCU_TX": {
+            "gap_threshold_samples": 4166.666666666667,
+            "burst_count": 0,
+            "uart_candidates_per_burst": {},
+            "start_period_s": null
+          },
+          "ASIC_TX": {
+            "gap_threshold_samples": 4166.666666666667,
+            "burst_count": 60,
+            "uart_candidates_per_burst": {
+              "12": 60
+            },
+            "start_period_s": {
+              "min": 0.155563,
+              "median": 0.164181,
+              "max": 0.188645
+            }
+          }
+        },
+        "total_uart_candidates": 720,
+        "uart_error_candidates": 0,
+        "packet_counts": {
+          "frame_candidate": 60
+        },
+        "groups": {
+          "ASIC_TX:display": {
+            "count": 60,
+            "distinct_frames": 2,
+            "uart_error_frames": 0,
+            "byte_values": {
+              "0": [
+                90
+              ],
+              "1": [
+                165
+              ],
+              "2": [
+                228
+              ],
+              "3": [
+                219
+              ],
+              "4": [
+                207
+              ],
+              "5": [
+                239
+              ],
+              "6": [
+                7
+              ],
+              "7": [
+                36
+              ],
+              "8": [
+                0
+              ],
+              "9": [
+                0
+              ],
+              "10": [
+                1
+              ],
+              "11": [
+                63,
+                64
+              ]
+            },
+            "changing_offsets": [
+              11
+            ],
+            "first_t_s": 0.039992,
+            "last_t_s": 9.967729
+          }
+        },
+        "repeated_messages": [
+          {
+            "direction": "ASIC_TX",
+            "hex": "5A A5 E4 DB CF EF 07 24 00 00 01 3F",
+            "kind": "frame_candidate",
+            "count": 34
+          },
+          {
+            "direction": "ASIC_TX",
+            "hex": "5A A5 E4 DB CF EF 07 24 00 00 01 40",
+            "kind": "frame_candidate",
+            "count": 26
+          }
+        ],
+        "firmware_display_histogram": [
+          {
+            "text": "0.996",
+            "unit": "Mohm",
+            "count": 60
+          }
+        ],
+        "rx_checksum_hypotheses": {
+          "status": "hypotheses_only",
+          "frames": 60,
+          "distinct_frames": 2,
+          "last_byte_deterministic_checksum_of_prefix": "contradicted_in_capture",
+          "identical_prefix_different_last_byte": [
+            {
+              "identical_prefix": [
+                90,
+                165,
+                228,
+                219,
+                207,
+                239,
+                7,
+                36,
+                0,
+                0,
+                1
+              ],
+              "observed_last_bytes": [
+                63,
+                64
+              ]
+            }
+          ],
+          "search": "sum8/negative_sum8/xor8 over contiguous prefix ending before target; no CRC claim",
+          "candidates": [
+            {
+              "algorithm": "sum8",
+              "input_start": 8,
+              "input_end_exclusive": 9,
+              "target_offset": 9,
+              "matching_distinct_frames": 2,
+              "confirmed": false,
+              "informative_input_variation": false,
+              "target_varies": false
+            },
+            {
+              "algorithm": "negative_sum8",
+              "input_start": 8,
+              "input_end_exclusive": 9,
+              "target_offset": 9,
+              "matching_distinct_frames": 2,
+              "confirmed": false,
+              "informative_input_variation": false,
+              "target_varies": false
+            },
+            {
+              "algorithm": "xor8",
+              "input_start": 8,
+              "input_end_exclusive": 9,
+              "target_offset": 9,
+              "matching_distinct_frames": 2,
+              "confirmed": false,
+              "informative_input_variation": false,
+              "target_varies": false
+            }
+          ]
+        },
+        "evidence_state": {
+          "confirmed_hardware_fields": [],
+          "firmware_derived": [
+            "packed_segments",
+            "sign",
+            "decimal_priority",
+            "unit_priority",
+            "FD_event"
+          ],
+          "unknown": [
+            "RX_checksum",
+            "b9..12",
+            "physical_range",
+            "ASIC_identity",
+            "event_ACK_causality"
+          ],
+          "note": "Repeated observations and matching checksums alone do not confirm semantics."
+        }
+      }
+    },
+    {
+      "label": "resistance_st2_10Mohm",
+      "metadata": {
+        "test": "resistance_reference",
+        "label": "resistance_st2_10Mohm",
+        "display_text": "9.970m",
+        "display_numeric": 9.97,
+        "display_unit": "Mohm",
+        "display_tolerance": 0,
+        "component_actual": "ST2 referans kartı, nominal 10 Mohm; kullanıcı bildirdi; bağımsız referans ölçümü yok",
+        "mode": "resistance",
+        "notes": "Kullanıcı 10m enranda 9.970m bildirdi. Birim Mohm metadata olarak seçildi, ham kullanıcı bildirimi bu notta korundu. 15s sabit tutması istendi; D0/D2/GND pasif bağlantı.",
+        "schema": 1,
+        "origin": "hardware",
+        "status": "captured",
+        "host_started_at": "2026-10-18T01:17:05.478982+03:00",
+        "requested_seconds": 10.0,
+        "requested_samples": 10000000,
+        "requested_samplerate_hz": 1000000,
+        "channels": {
+          "D0": "MCU_TX_PA9_pin42",
+          "D2": "ASIC_TX_PA10_pin43"
+        },
+        "channel_map": {
+          "MCU_TX": 0,
+          "ASIC_TX": 2
+        },
+        "rx_frame_bytes": 12,
+        "uart": "9600 8N1",
+        "passive_connections_confirmed": true,
+        "device_preflight": {
+          "argv": [
+            "sigrok-cli",
+            "--driver",
+            "fx2lafw",
+            "--show"
+          ],
+          "returncode": 0,
+          "output": "Driver functions:\n    Logic analyzer\nScan options:\n    conn\nfx2lafw:conn=1.67 - Saleae Logic [S/N: Saleae Logic] with 8 channels: D0 D1 D2 D3 D4 D5 D6 D7\nChannel groups:\n    Logic: channels D0 D1 D2 D3 D4 D5 D6 D7\nSupported configuration options across all channel groups:\n    continuous: on, off\n    limit_samples: 0 (current)\n    conn: 1.67 (current)\n    samplerate - supported samplerates:\n      20 kHz (current)\n      25 kHz\n      50 kHz\n      100 kHz\n      200 kHz\n      250 kHz\n      500 kHz\n      1 MHz\n      2 MHz\n      3 MHz\n      4 MHz\n      6 MHz\n      8 MHz\n      12 MHz\n      16 MHz\n      24 MHz\n      48 MHz\n    Supported triggers: 0 1 r f e \n    captureratio: 0 (current)\n"
+        },
+        "command": [
+          "sigrok-cli",
+          "--loglevel",
+          "4",
+          "--driver",
+          "fx2lafw",
+          "--config",
+          "samplerate=1000000",
+          "--channels",
+          "D0,D2",
+          "--samples",
+          "10000000",
+          "--output-format",
+          "srzip",
+          "--output-file",
+          "projects/asic/captures/20261018T011705_resistance_st2_10Mohm_daf8f4d1/raw.sr"
+        ],
+        "host_finished_at": "2026-10-18T01:17:15.596400+03:00",
+        "returncode": 0,
+        "received_samples": 10000000,
+        "analysis_error": null
+      },
+      "eligible_clean_numeric_frames": 59,
+      "display_numeric_and_unit_matches": 20,
+      "comparison_policy": "numeric_and_unit_with_recorded_tolerance",
+      "status": "matches_observed",
+      "semantic_confirmation": false,
+      "analysis": {
+        "label": "resistance_st2_10Mohm",
+        "origin": "hardware",
+        "wire_burst_observations": {
+          "MCU_TX": {
+            "gap_threshold_samples": 4166.666666666667,
+            "burst_count": 0,
+            "uart_candidates_per_burst": {},
+            "start_period_s": null
+          },
+          "ASIC_TX": {
+            "gap_threshold_samples": 4166.666666666667,
+            "burst_count": 61,
+            "uart_candidates_per_burst": {
+              "7": 1,
+              "12": 59,
+              "9": 1
+            },
+            "start_period_s": {
+              "min": 0.156252,
+              "median": 0.162803,
+              "max": 0.197174
+            }
+          }
+        },
+        "total_uart_candidates": 724,
+        "uart_error_candidates": 2,
+        "packet_counts": {
+          "unframed": 1,
+          "frame_candidate": 59,
+          "incomplete_frame": 1
+        },
+        "groups": {
+          "ASIC_TX:display": {
+            "count": 59,
+            "distinct_frames": 4,
+            "uart_error_frames": 0,
+            "byte_values": {
+              "0": [
+                90
+              ],
+              "1": [
+                165
+              ],
+              "2": [
+                4
+              ],
+              "3": [
+                192
+              ],
+              "4": [
+                223
+              ],
+              "5": [
+                143,
+                239
+              ],
+              "6": [
+                7,
+                10
+              ],
+              "7": [
+                36
+              ],
+              "8": [
+                0
+              ],
+              "9": [
+                0
+              ],
+              "10": [
+                1
+              ],
+              "11": [
+                62,
+                63,
+                64
+              ]
+            },
+            "changing_offsets": [
+              5,
+              6,
+              11
+            ],
+            "first_t_s": 0.158139,
+            "last_t_s": 9.83473
+          }
+        },
+        "repeated_messages": [
+          {
+            "direction": "ASIC_TX",
+            "hex": "5A A5 04 C0 DF EF 07 24 00 00 01 3E",
+            "kind": "frame_candidate",
+            "count": 28
+          },
+          {
+            "direction": "ASIC_TX",
+            "hex": "5A A5 04 C0 DF 8F 0A 24 00 00 01 40",
+            "kind": "frame_candidate",
+            "count": 13
+          },
+          {
+            "direction": "ASIC_TX",
+            "hex": "5A A5 04 C0 DF EF 07 24 00 00 01 3F",
+            "kind": "frame_candidate",
+            "count": 11
+          },
+          {
+            "direction": "ASIC_TX",
+            "hex": "5A A5 04 C0 DF 8F 0A 24 00 00 01 3F",
+            "kind": "frame_candidate",
+            "count": 7
+          },
+          {
+            "direction": "ASIC_TX",
+            "hex": "F7 0A 24 00 00 01 3F",
+            "kind": "unframed",
+            "count": 1
+          },
+          {
+            "direction": "ASIC_TX",
+            "hex": "5A A5 04 C0 DF 8F 0A 24 ??",
+            "kind": "incomplete_frame",
+            "count": 1
+          }
+        ],
+        "firmware_display_histogram": [
+          {
+            "text": " 9.96",
+            "unit": "Mohm",
+            "count": 39
+          },
+          {
+            "text": " 9.97",
+            "unit": "Mohm",
+            "count": 20
+          }
+        ],
+        "rx_checksum_hypotheses": {
+          "status": "hypotheses_only",
+          "frames": 59,
+          "distinct_frames": 4,
+          "last_byte_deterministic_checksum_of_prefix": "contradicted_in_capture",
+          "identical_prefix_different_last_byte": [
+            {
+              "identical_prefix": [
+                90,
+                165,
+                4,
+                192,
+                223,
+                143,
+                10,
+                36,
+                0,
+                0,
+                1
+              ],
+              "observed_last_bytes": [
+                63,
+                64
+              ]
+            },
+            {
+              "identical_prefix": [
+                90,
+                165,
+                4,
+                192,
+                223,
+                239,
+                7,
+                36,
+                0,
+                0,
+                1
+              ],
+              "observed_last_bytes": [
+                62,
+                63
+              ]
+            }
+          ],
+          "search": "sum8/negative_sum8/xor8 over contiguous prefix ending before target; no CRC claim",
+          "candidates": [
+            {
+              "algorithm": "sum8",
+              "input_start": 8,
+              "input_end_exclusive": 9,
+              "target_offset": 9,
+              "matching_distinct_frames": 4,
+              "confirmed": false,
+              "informative_input_variation": false,
+              "target_varies": false
+            },
+            {
+              "algorithm": "negative_sum8",
+              "input_start": 8,
+              "input_end_exclusive": 9,
+              "target_offset": 9,
+              "matching_distinct_frames": 4,
+              "confirmed": false,
+              "informative_input_variation": false,
+              "target_varies": false
+            },
+            {
+              "algorithm": "xor8",
+              "input_start": 8,
+              "input_end_exclusive": 9,
+              "target_offset": 9,
+              "matching_distinct_frames": 4,
+              "confirmed": false,
+              "informative_input_variation": false,
+              "target_varies": false
+            }
+          ]
+        },
+        "evidence_state": {
+          "confirmed_hardware_fields": [],
+          "firmware_derived": [
+            "packed_segments",
+            "sign",
+            "decimal_priority",
+            "unit_priority",
+            "FD_event"
+          ],
+          "unknown": [
+            "RX_checksum",
+            "b9..12",
+            "physical_range",
+            "ASIC_identity",
+            "event_ACK_causality"
+          ],
+          "note": "Repeated observations and matching checksums alone do not confirm semantics."
+        }
+      }
+    }
+  ],
+  "next_tests": [
+    "Repeat with another known component/value and label display metadata",
+    "Check open/closed and range transitions separately",
+    "Test checksum candidates on held-out physically different captures"
+  ],
+  "automatic_confirmation": false
+}

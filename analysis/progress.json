@@ -1,0 +1,99 @@
+{
+  "input_bytes": 135096,
+  "code_extent_bytes": 98848,
+  "identified_instruction_bytes": 98318,
+  "functions": 439,
+  "decompiled": 439,
+  "semantic_classifications": 253,
+  "named_nondefault_functions": 167,
+  "default_interrupt_loops": 86,
+  "unresolved_functions": 186,
+  "implemented_interrupt_handlers": 7,
+  "nontrivial_interrupt_handlers": 6,
+  "code_gap_bytes": 534,
+  "direct_mmio_groups": [
+    "ADC1",
+    "AFIO",
+    "DMA1",
+    "DMA1_Channel5",
+    "DMA2",
+    "DMA2_EXTEN",
+    "EXTEN",
+    "EXTI",
+    "FLASH_R",
+    "GPIOA",
+    "GPIOB",
+    "GPIOC",
+    "PFIC",
+    "RCC",
+    "SPI1",
+    "SysTick",
+    "TIM2",
+    "TIM3",
+    "TIM7",
+    "TIM8",
+    "USART1",
+    "USART2",
+    "unknown_mmio"
+  ],
+  "validation": {
+    "input_sha256": "4befdf6b58e063f03901f190000d790e60d20d0a23e5eeb2b6f6840f1830e98e",
+    "host_tests_passed": 13,
+    "host_tests_failed": 0,
+    "differential_cases": 4352,
+    "decoder_vectors_passed": 52,
+    "sdk_functions_compared": 64,
+    "sdk_functions_byte_identical": 19,
+    "cross_build": "passed",
+    "linker_assertions": "passed",
+    "reproducible_elf": true,
+    "elf_sha256": "0a46beb0108d616ab4102ae02a50c766b95fe86f5c05a8da83f8b7a1b1388912",
+    "entry": "0x6400",
+    "vector": "0x6438",
+    "firmware_equivalent": false,
+    "hardware_validated": false,
+    "compiled_reconstructed_modules": [
+      "measurement_asic",
+      "spi_flash",
+      "display_bus",
+      "buttons",
+      "history",
+      "settings",
+      "foreground",
+      "wch_platform",
+      "application_harness"
+    ],
+    "sections": {
+      ".init": {
+        "address": 25600,
+        "size": 56,
+        "type": 1
+      },
+      ".vector": {
+        "address": 25656,
+        "size": 416,
+        "type": 1
+      },
+      ".text": {
+        "address": 26112,
+        "size": 1944,
+        "type": 1
+      },
+      ".data": {
+        "address": 536870912,
+        "size": 24,
+        "type": 1
+      },
+      ".bss": {
+        "address": 536870936,
+        "size": 4,
+        "type": 8
+      },
+      ".stack": {
+        "address": 536934400,
+        "size": 2048,
+        "type": 8
+      }
+    }
+  }
+}

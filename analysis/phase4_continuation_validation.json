@@ -1,0 +1,286 @@
+{
+  "milestone": "Phase4 continuation after80b91a4",
+  "code_commit": "149dbdf",
+  "complete_application": false,
+  "baseline": {
+    "native_full": 129,
+    "native_partial": 29,
+    "qualified_upstream": 20,
+    "sdk_counterparts": 64,
+    "remaining_incomplete_nontrap": 140,
+    "semantics_lower_bound": 299,
+    "direct_entries": 91,
+    "differential_cases": 29421,
+    "new_differential_cases": 13540,
+    "firmware_native_c_units": 45,
+    "host_simulator_c_units": 3,
+    "stock_c_test_executions": 33,
+    "custom_c_test_executions": 36,
+    "python_tests": 23,
+    "asan_ubsan_c_test_executions": 30,
+    "stock_elves_reproducible": true,
+    "custom_elves_reproducible": true
+  },
+  "current": {
+    "decompiled_functions": 439,
+    "complete_native": 141,
+    "partial_native": 18,
+    "incomplete_nontrap_including_partial": 128,
+    "untranslated_nontrap": 110,
+    "completed_prior_partials": 11,
+    "new_native_body_translations": 1,
+    "sdk_counterparts": 64,
+    "qualified_upstream_counterparts": 20,
+    "semantics_lower_bound_including_traps": 311,
+    "traps_excluded_from_application_coverage": 86,
+    "compiled_native_entries_full_or_partial": 159,
+    "firmware_c_units": 46,
+    "host_simulator_c_units": 3,
+    "current_new_tools_compared_entries": 12,
+    "compared_entries_across_milestones": 100,
+    "new_compared_entries": 9
+  },
+  "differential_evidence": {
+    "preserved_phase4_vectors": 29421,
+    "new_menu_vectors": 6276,
+    "new_glue_vectors": 1152,
+    "new_unique_tool_vectors": 7428,
+    "custom_repeated_vector_executions": 7428,
+    "recorded_vectors_across_milestones": 36849,
+    "definition": "Counts represent bounded tool-vector records, not all-input proof or distinct original functions. Historical29421 cases retain their original native-library hash and were not rerun. Custom repeats do not inflate new-vector totals. Previously compared1598c/15af6/164d4 gain stronger ordered-render evidence."
+  },
+  "profiles": {
+    "STOCK_COMPATIBLE": {
+      "cross_build_and_link": "passed",
+      "native_library_sha256": "7ade3397d27512e76f31e77e007c9605b23da162feb25221ed55981860313f21",
+      "simulator_sha256": "7d9a31c39efe8386d1e7c12c785515a308011674d19350145286be5280b55312",
+      "differential_reports": [
+        "analysis/menu_differential.json",
+        "analysis/glue_differential.json"
+      ],
+      "differential_vector_executions": 7428,
+      "c_test_executions": 28,
+      "asan_ubsan_c_test_executions": 15,
+      "elves": {
+        "reconstruction.elf": {
+          "sha256": "207ce04b00abb9d452d40d5af5c83ae4a839bb242a86dc6a5ca273ecc29b687e",
+          "sections": {
+            ".init": {
+              "address": 25600,
+              "size": 56,
+              "type": 1
+            },
+            ".vector": {
+              "address": 25656,
+              "size": 416,
+              "type": 1
+            },
+            ".text": {
+              "address": 26112,
+              "size": 90948,
+              "type": 1
+            },
+            ".data": {
+              "address": 536870912,
+              "size": 248,
+              "type": 1
+            },
+            ".bss": {
+              "address": 536871160,
+              "size": 556,
+              "type": 8
+            },
+            ".stack": {
+              "address": 536934400,
+              "size": 2048,
+              "type": 8
+            }
+          }
+        },
+        "recovered_modules.elf": {
+          "sha256": "e6ed7569a8b5c4b1f4f0a83d944988c9c802e0b434cc48942698b9f97eefda8e",
+          "sections": {
+            ".init": {
+              "address": 25600,
+              "size": 56,
+              "type": 1
+            },
+            ".vector": {
+              "address": 25656,
+              "size": 416,
+              "type": 1
+            },
+            ".text": {
+              "address": 26112,
+              "size": 129352,
+              "type": 1
+            },
+            ".data": {
+              "address": 536870912,
+              "size": 288,
+              "type": 1
+            },
+            ".bss": {
+              "address": 536871200,
+              "size": 592,
+              "type": 8
+            },
+            ".stack": {
+              "address": 536934400,
+              "size": 2048,
+              "type": 8
+            }
+          }
+        }
+      },
+      "reproducibility": "Not rerun for this targeted continuation; previous Phase4 result preserved."
+    },
+    "CUSTOM_DMT99": {
+      "cross_build_and_link": "passed",
+      "native_library_sha256": "2f4f584238794caf73fd63c7540b16c26548cba7acf9201fe3ff973b0522044a",
+      "simulator_sha256": "7490ac6a37206e6568e7da7fb1d7ad9f6e67a43a42478f35c9aac324d8938462",
+      "differential_reports": [
+        "analysis/menu_differential_custom.json",
+        "analysis/glue_differential_custom.json"
+      ],
+      "differential_vector_executions": 7428,
+      "c_test_executions": 31,
+      "asan_ubsan_c_test_executions": 18,
+      "elves": {
+        "reconstruction.elf": {
+          "sha256": "404889ac96b6b5a8ed8a2407f672d8f5325853e7f4f8251fedb9075d4e71b384",
+          "sections": {
+            ".init": {
+              "address": 25600,
+              "size": 56,
+              "type": 1
+            },
+            ".vector": {
+              "address": 25656,
+              "size": 416,
+              "type": 1
+            },
+            ".text": {
+              "address": 26112,
+              "size": 91692,
+              "type": 1
+            },
+            ".data": {
+              "address": 536870912,
+              "size": 248,
+              "type": 1
+            },
+            ".bss": {
+              "address": 536871160,
+              "size": 556,
+              "type": 8
+            },
+            ".stack": {
+              "address": 536934400,
+              "size": 2048,
+              "type": 8
+            }
+          }
+        },
+        "recovered_modules.elf": {
+          "sha256": "fb84ccbc9c3ef4861fc85c566a9f0e1f34d272ffe9181510e6d6d0b50123a65e",
+          "sections": {
+            ".init": {
+              "address": 25600,
+              "size": 56,
+              "type": 1
+            },
+            ".vector": {
+              "address": 25656,
+              "size": 416,
+              "type": 1
+            },
+            ".text": {
+              "address": 26112,
+              "size": 130004,
+              "type": 1
+            },
+            ".data": {
+              "address": 536870912,
+              "size": 288,
+              "type": 1
+            },
+            ".bss": {
+              "address": 536871200,
+              "size": 592,
+              "type": 8
+            },
+            ".stack": {
+              "address": 536934400,
+              "size": 2048,
+              "type": 8
+            }
+          }
+        }
+      },
+      "reproducibility": "Not rerun for this targeted continuation; previous Phase4 result preserved."
+    }
+  },
+  "sanitizers": {
+    "address": "passed",
+    "undefined": "passed",
+    "test_executions": 33,
+    "leak_detection": false,
+    "note": "Preserved ptrace exception; fail-fast address/undefined checks remain enabled."
+  },
+  "preservation": {
+    "baseline_evidence_files": 885,
+    "all_hashes_passed": true,
+    "original_bin_sha256": "4befdf6b58e063f03901f190000d790e60d20d0a23e5eeb2b6f6840f1830e98e",
+    "original_bin_read_only": true,
+    "flash_bytes": 8388608,
+    "flash_sha256": "fc6bf2ed36f578c15725a4365c4a381c98ce42657d3b8a98ff06efb1b6427d69",
+    "library_manifest_hashes_passed": true,
+    "disassembly_or_decompilation_regenerated": false
+  },
+  "source_fingerprint_sha256": "ac0561a1a9113061d92ba9a03ce68619c2325ceffabb53d8c43ddfd58323ea73",
+  "log_sha256": {
+    "logs/phase4-continuation-stock-tests.log": "00f528d7f7e6b14fa0d8430e34af34beb93a3291e1a8a542c22dc7e97e2c1ae3",
+    "logs/phase4-continuation-stock-sanitizers.log": "6fcbee7180057b9c147a12c130a995c74d8bbd8af5aedd5bc7b2ea652f71e250",
+    "logs/phase4-continuation-stock-build.log": "14ad527fa9a78158b01a3ecf666f30d9d6c707a4c1082771a1893a91208ded1b",
+    "logs/phase4-continuation-menu-stock.log": "4c094e7e29ef160e308b4f73e7f124797e5dade7f675b726ba0336029d501cad",
+    "logs/phase4-continuation-glue-stock.log": "701d97c45eaad1ec7eda113f6c3b6534ab2cb5847acdf7b6355ace2e60b2aad8",
+    "logs/phase4-continuation-custom-tests.log": "069255d0cd2cea3bbcb68b3c9a15ed33a5c2e4c1aed225c5ffe8216dd7b696b8",
+    "logs/phase4-continuation-custom-sanitizers.log": "999f3f30716c04a015d465b5ea6a0efb2669955ca11c963eee10a85d95b734c2",
+    "logs/phase4-continuation-custom-build.log": "d09e705ba0977b3e4a98085f3d9498ca01ea9439a4cb425dcb78f0ee1c2afc23",
+    "logs/phase4-continuation-menu-custom.log": "4c094e7e29ef160e308b4f73e7f124797e5dade7f675b726ba0336029d501cad",
+    "logs/phase4-continuation-glue-custom.log": "701d97c45eaad1ec7eda113f6c3b6534ab2cb5847acdf7b6355ace2e60b2aad8"
+  },
+  "source_coverage_sha256": "0cd64198181ff752a1ee71d190c1be200714c87743f18180a52aaf250a309426",
+  "priority_report_sha256": "c1505715f8919cbc258789541ff371aa65d0b83fb84d4a01796e4c21385ce67a",
+  "baseline_report_sha256": {
+    "analysis/phase4_validation.json": "40939494d2c47814f5b5593e8288e98dcae0bb3742f9459232e0e9106fddb155",
+    "analysis/continuation_validation.json": "29cfc7240b5110b758d2bbe9651e4b567d91a85ae86387f858d7a59c9da84355",
+    "analysis/phase4_continuation/baseline_validation.json": "29cfc7240b5110b758d2bbe9651e4b567d91a85ae86387f858d7a59c9da84355",
+    "analysis/phase4_continuation/baseline_source_coverage.json": "0ba87af1cd30672adbafcfb7f366aceafa818b24a62204f49032104c409158fd"
+  },
+  "screenshots": {
+    "script": "examples/menu-transitions.sim",
+    "replay_log": "logs/phase4-continuation-screenshot-replay.log",
+    "sha256": {
+      "docs/simulator_screenshots/menu-incremental.png": "730755b3ee2bce9de0f86c6b3c3f9b2b358ee9bb9f603e10c909e3b543c46b1b",
+      "docs/simulator_screenshots/theme-transition.png": "5b4616c1ba438187fd057571684f249b400d402369272bfd5378f218ceb3a0f5"
+    }
+  },
+  "limits": [
+    "Original menu renderer is qualified for layouts0/1, UI languages0/1, views1..3 and bounded history0..30. Declared callee boundaries have separate evidence.",
+    "Editor/history waits and nonreturning application reentry remain cooperative in the simulator; no interrupt/cycle or whole-firmware equivalence.",
+    "Startup caller order does not complete peripheral internals or device reset/clock/CSR behavior.",
+    "CP936 physical read at80023fe4 remains unknown. No generic table installed.",
+    "Original calibration and ASIC analog algorithms are not fabricated."
+  ],
+  "deferred": [
+    "Definitive bootloader reconstruction",
+    "Actual USB MSC recovery",
+    "Internal Flash layout confirmation",
+    "Hardware firmware update integration"
+  ],
+  "hardware_accessed": false,
+  "hardware_validated": false,
+  "hardware_flashable_release_produced": false
+}

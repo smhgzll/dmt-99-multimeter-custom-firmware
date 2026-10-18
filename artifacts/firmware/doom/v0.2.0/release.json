@@ -1,0 +1,32 @@
+{
+  "project": "POTAT-99 DOOM",
+  "version": "0.2.0",
+  "date": "20261018",
+  "file": "DMT-99_Doom_V0.2.0_20261018.bin",
+  "load_address": "0x08006400",
+  "execution_alias": "0x6400",
+  "vector_alias": "0x6438",
+  "flash_end_exclusive": "0x801a22c",
+  "image_bytes": 81452,
+  "sha256": "2a551b1e3df0ce78fb4f9953d093d5a34423227a12e941cc882da2912c8b63f0",
+  "static_ram_bytes": 6160,
+  "reserved_stack_bytes": 6144,
+  "hardware_verified": false,
+  "bootloader_acceptance_verified": false,
+  "external_asset_file_needed": false,
+  "sound_effects": [
+    "step",
+    "fire",
+    "hurt",
+    "kill"
+  ],
+  "controls": {
+    "up_PC11": "forward",
+    "down_PC10": "back",
+    "left_PC12": "turn_left",
+    "right_PC9": "turn_right",
+    "PC8_short": "fire_confirm",
+    "PC8_long": "pause"
+  },
+  "writes_internal_or_external_flash_at_runtime": false
+}

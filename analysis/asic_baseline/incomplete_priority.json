@@ -1,0 +1,3908 @@
+{
+  "baseline_incomplete_nontrap": 140,
+  "current_incomplete_nontrap": 128,
+  "completed_from_ranked_baseline": 12,
+  "baseline_partial": 29,
+  "current_partial": 18,
+  "baseline_coverage_sha256": "0ba87af1cd30672adbafcfb7f366aceafa818b24a62204f49032104c409158fd",
+  "definition": "Application-first priority. Dependencies are recorded direct calls, not a topological execution order; indirect calls/tail transfers may be absent. Full source credit is separate from physical validation. No bootloader/USB/layout assumptions.",
+  "functions": [
+    {
+      "rank": 1,
+      "address": "0x00008ed4",
+      "name": "application_loop",
+      "priority_tier": 0,
+      "priority_reason": "application control / menu / scheduling",
+      "baseline_extent": "partial",
+      "current_extent": "partial",
+      "static_callgraph_reachable": true,
+      "body_bytes": 438,
+      "callers": [
+        "0x0000908a",
+        "0x00014cd6",
+        "0x00015af6"
+      ],
+      "callees": [
+        "0x00006608",
+        "0x000075f0",
+        "0x00007f66",
+        "0x00008672",
+        "0x000097f8",
+        "0x0000a910",
+        "0x0000aed0",
+        "0x0000b29e",
+        "0x0000b56a",
+        "0x0000b5c8",
+        "0x0000b9e0",
+        "0x0000bc90",
+        "0x0000be24",
+        "0x0000be78",
+        "0x0000c11a",
+        "0x0000c248",
+        "0x0000cb40",
+        "0x00014cd6",
+        "0x00014d62",
+        "0x00014e48",
+        "0x0001511a",
+        "0x0001a64c"
+      ],
+      "remaining_direct_dependencies": [
+        "0x00006608",
+        "0x000075f0",
+        "0x00007f66",
+        "0x0000a910",
+        "0x0000b56a",
+        "0x0000b5c8",
+        "0x0000b9e0",
+        "0x0000bc90",
+        "0x0000be24",
+        "0x0000c248",
+        "0x00014cd6",
+        "0x0001a64c"
+      ],
+      "current_boundary": "Connected controller and recovered rendering; diagnostic entry, full original blocking/timing/reentrancy remain outside native contract",
+      "evidence": "decompiled/clean/00008ed4_application_loop.c"
+    },
+    {
+      "rank": 2,
+      "address": "0x0000908a",
+      "name": "main",
+      "priority_tier": 0,
+      "priority_reason": "application control / menu / scheduling",
+      "baseline_extent": "partial",
+      "current_extent": "full",
+      "static_callgraph_reachable": true,
+      "body_bytes": 72,
+      "callers": [],
+      "callees": [
+        "0x00006630",
+        "0x0000770a",
+        "0x00007736",
+        "0x00007944",
+        "0x000087aa",
+        "0x00008ed4",
+        "0x0000c350",
+        "0x0000cb8e",
+        "0x0000d2fc",
+        "0x0000dd4e",
+        "0x0001a626",
+        "0x0001a682"
+      ],
+      "remaining_direct_dependencies": [
+        "0x00006630",
+        "0x0000770a",
+        "0x000087aa",
+        "0x00008ed4",
+        "0x0000cb8e",
+        "0x0000d2fc",
+        "0x0000dd4e",
+        "0x0001a626",
+        "0x0001a682"
+      ],
+      "current_boundary": "Exact11 startup callee order and parameters with typed address-documented IO. The original8ed4 boundary does not return; offline tests stop there and permit the native callback to return. Peripheral internals and device boot are not credited.",
+      "evidence": "decompiled/clean/0000908a_main.c"
+    },
+    {
+      "rank": 3,
+      "address": "0x0000c248",
+      "name": "settings_load_and_apply",
+      "priority_tier": 0,
+      "priority_reason": "application control / menu / scheduling",
+      "baseline_extent": "partial",
+      "current_extent": "partial",
+      "static_callgraph_reachable": true,
+      "body_bytes": 216,
+      "callers": [
+        "0x00008ed4"
+      ],
+      "callees": [
+        "0x00006630",
+        "0x00008016",
+        "0x0000969e",
+        "0x0000d928",
+        "0x0000d944",
+        "0x0000d964",
+        "0x0000da04",
+        "0x0000da48",
+        "0x0000dc46",
+        "0x00015168"
+      ],
+      "remaining_direct_dependencies": [
+        "0x00006630",
+        "0x00008016",
+        "0x0000969e",
+        "0x00015168"
+      ],
+      "current_boundary": "Packed settings decoding exists; loaded/source/prefix-cache initialization and original startup-language call ordering remain incomplete.",
+      "evidence": "decompiled/clean/0000c248_settings_load_and_apply.c"
+    },
+    {
+      "rank": 4,
+      "address": "0x000169d4",
+      "name": "menu_dispatch",
+      "priority_tier": 0,
+      "priority_reason": "application control / menu / scheduling",
+      "baseline_extent": "partial",
+      "current_extent": "full",
+      "static_callgraph_reachable": true,
+      "body_bytes": 4318,
+      "callers": [
+        "0x0000b5c8",
+        "0x0000b9e0",
+        "0x0000bc90"
+      ],
+      "callees": [
+        "0x00006616",
+        "0x0000678c",
+        "0x00008194",
+        "0x000081ce",
+        "0x000083d6",
+        "0x00008588",
+        "0x0000876a",
+        "0x00008a02",
+        "0x00008c64",
+        "0x00008e46",
+        "0x0000969e",
+        "0x0000d964",
+        "0x0000fdf6",
+        "0x00010e86",
+        "0x000126d8",
+        "0x000143e0",
+        "0x00014578",
+        "0x00014ef2",
+        "0x000152a8",
+        "0x0001598c",
+        "0x00015af6",
+        "0x000164d4",
+        "0x00019954",
+        "0x00019ba8",
+        "0x00019f20",
+        "0x0001a124",
+        "0x0001a336"
+      ],
+      "remaining_direct_dependencies": [
+        "0x00006616",
+        "0x0000969e"
+      ],
+      "current_boundary": "Dispatcher cache-hit suppression, all32 states/holes, ordered incremental erases/repaints, cursor peers, exit fill/base/reset/cache contract and original restart termination. Valid layouts0/1, UI languages0/1, views1..3, bounded history0..30. Declared base/threshold/history/version IO boundaries are tested calls; blocking/timing equivalence is not claimed.",
+      "evidence": "decompiled/clean/000169d4_menu_dispatch.c"
+    },
+    {
+      "rank": 5,
+      "address": "0x000164d4",
+      "name": "menu_previous_next",
+      "priority_tier": 0,
+      "priority_reason": "application control / menu / scheduling",
+      "baseline_extent": "partial",
+      "current_extent": "full",
+      "static_callgraph_reachable": true,
+      "body_bytes": 1280,
+      "callers": [
+        "0x000169d4"
+      ],
+      "callees": [
+        "0x00006630",
+        "0x00008588",
+        "0x00008a02",
+        "0x00008e46",
+        "0x0000d964",
+        "0x00014408",
+        "0x000153d0",
+        "0x00015e9e",
+        "0x00016242",
+        "0x00018ad2",
+        "0x00019366"
+      ],
+      "remaining_direct_dependencies": [
+        "0x00006630"
+      ],
+      "current_boundary": "Complete32-ID navigation switch, endpoint/holes, category erases/updates, headings, setting-page transitions and brightness side effects. Valid layouts0/1 and UI languages0/1.",
+      "evidence": "decompiled/clean/000164d4_FUN_ram_000164d4.c"
+    },
+    {
+      "rank": 6,
+      "address": "0x0001598c",
+      "name": "menu_enter_back",
+      "priority_tier": 0,
+      "priority_reason": "application control / menu / scheduling",
+      "baseline_extent": "partial",
+      "current_extent": "full",
+      "static_callgraph_reachable": true,
+      "body_bytes": 362,
+      "callers": [
+        "0x000169d4"
+      ],
+      "callees": [
+        "0x00006630",
+        "0x00008016",
+        "0x00008a02",
+        "0x0000d9e6",
+        "0x000142a4",
+        "0x0001432e",
+        "0x00014408",
+        "0x00014a92",
+        "0x000153d0"
+      ],
+      "remaining_direct_dependencies": [
+        "0x00006630",
+        "0x00008016"
+      ],
+      "current_boundary": "State/brightness/render ordering, scrollbar1, back-to-settings region clears and pending BACK. Editor/history are explicit external-call contracts; application represents blocking waits as resumable states. Valid layouts0/1 and UI languages0/1.",
+      "evidence": "decompiled/clean/0001598c_FUN_ram_0001598c.c"
+    },
+    {
+      "rank": 7,
+      "address": "0x00015af6",
+      "name": "menu_select",
+      "priority_tier": 0,
+      "priority_reason": "application control / menu / scheduling",
+      "baseline_extent": "partial",
+      "current_extent": "full",
+      "static_callgraph_reachable": true,
+      "body_bytes": 934,
+      "callers": [
+        "0x000169d4"
+      ],
+      "callees": [
+        "0x00006616",
+        "0x0000678c",
+        "0x00008194",
+        "0x0000876a",
+        "0x00008a02",
+        "0x00008ed4",
+        "0x0000969e",
+        "0x0000d944",
+        "0x0000d964",
+        "0x0000da04",
+        "0x0000dc46",
+        "0x00011086",
+        "0x000135b0",
+        "0x00013c02",
+        "0x000153d0",
+        "0x00018ad2",
+        "0x00019366"
+      ],
+      "remaining_direct_dependencies": [
+        "0x00006616",
+        "0x00008ed4",
+        "0x0000969e"
+      ],
+      "current_boundary": "View/threshold/settings selection and exact language/layout/temperature/timeout drawing order. Restart is an explicit nonreturning external-call boundary; cooperative caller returns to its scheduler without another menu paint. Valid layouts0/1 and UI languages0/1.",
+      "evidence": "decompiled/clean/00015af6_FUN_ram_00015af6.c"
+    },
+    {
+      "rank": 8,
+      "address": "0x00015168",
+      "name": "startup_choose_language",
+      "priority_tier": 0,
+      "priority_reason": "application control / menu / scheduling",
+      "baseline_extent": "partial",
+      "current_extent": "partial",
+      "static_callgraph_reachable": true,
+      "body_bytes": 320,
+      "callers": [
+        "0x0000c248"
+      ],
+      "callees": [
+        "0x00006616",
+        "0x0000678c",
+        "0x00008194",
+        "0x0000876a",
+        "0x0000d964"
+      ],
+      "remaining_direct_dependencies": [
+        "0x00006616"
+      ],
+      "current_boundary": "Choice policy/images exist; exact initial fill, repeated selection-border order and polling/commit contract remain partial.",
+      "evidence": "decompiled/clean/00015168_FUN_ram_00015168.c"
+    },
+    {
+      "rank": 9,
+      "address": "0x00014cd6",
+      "name": "charge_screen_poll",
+      "priority_tier": 0,
+      "priority_reason": "application control / menu / scheduling",
+      "baseline_extent": "partial",
+      "current_extent": "partial",
+      "static_callgraph_reachable": true,
+      "body_bytes": 138,
+      "callers": [
+        "0x00008ed4"
+      ],
+      "callees": [
+        "0x00006616",
+        "0x0000678c",
+        "0x0000876a",
+        "0x00008ed4",
+        "0x0000969e",
+        "0x0000cb40",
+        "0x0000fdf6"
+      ],
+      "remaining_direct_dependencies": [
+        "0x00006616",
+        "0x00008ed4",
+        "0x0000969e"
+      ],
+      "current_boundary": "Charging rendering and cooperative restart are connected; exact GPIO polling, loaded-flag store and nonreturning enclosing-loop contract remain partial.",
+      "evidence": "decompiled/clean/00014cd6_charge_screen_poll.c"
+    },
+    {
+      "rank": 10,
+      "address": "0x0000b5c8",
+      "name": "measurement_regular_buttons",
+      "priority_tier": 0,
+      "priority_reason": "application control / menu / scheduling",
+      "baseline_extent": "partial",
+      "current_extent": "partial",
+      "static_callgraph_reachable": true,
+      "body_bytes": 1048,
+      "callers": [
+        "0x00008ed4"
+      ],
+      "callees": [
+        "0x00006630",
+        "0x0000678c",
+        "0x00007918",
+        "0x00007b08",
+        "0x00008050",
+        "0x0000876a",
+        "0x00008a02",
+        "0x000097c4",
+        "0x0000b5ae",
+        "0x0000d964",
+        "0x000169d4",
+        "0x00018ad2",
+        "0x00019366",
+        "0x0001a360",
+        "0x0001e59e"
+      ],
+      "remaining_direct_dependencies": [
+        "0x00006630"
+      ],
+      "current_boundary": "Command/selector/relative policy and menu begin/owner-specific exit rendering are connected. Complete composed original blocking-entry/reentry comparison remains pending.",
+      "evidence": "decompiled/clean/0000b5c8_measurement_regular_buttons.c"
+    },
+    {
+      "rank": 11,
+      "address": "0x0000b9e0",
+      "name": "measurement_record_buttons",
+      "priority_tier": 0,
+      "priority_reason": "application control / menu / scheduling",
+      "baseline_extent": "partial",
+      "current_extent": "partial",
+      "static_callgraph_reachable": true,
+      "body_bytes": 688,
+      "callers": [
+        "0x00008ed4"
+      ],
+      "callees": [
+        "0x00006630",
+        "0x0000678c",
+        "0x00008050",
+        "0x0000876a",
+        "0x0000969e",
+        "0x000096c0",
+        "0x000097c4",
+        "0x0000b5ae",
+        "0x0000d964",
+        "0x0000da28",
+        "0x0000fde6",
+        "0x00012c78",
+        "0x000169d4",
+        "0x00018ad2",
+        "0x00019366",
+        "0x0001b61e",
+        "0x0001c3b8",
+        "0x0001cfae",
+        "0x0001e2e2",
+        "0x0001e59e"
+      ],
+      "remaining_direct_dependencies": [
+        "0x00006630",
+        "0x0000969e",
+        "0x0001b61e",
+        "0x0001c3b8",
+        "0x0001cfae",
+        "0x0001e2e2"
+      ],
+      "current_boundary": "Command/selector/history policy and menu begin/record-origin extrema reset are connected. Complete composed original blocking-entry/reentry comparison remains pending.",
+      "evidence": "decompiled/clean/0000b9e0_measurement_record_buttons.c"
+    },
+    {
+      "rank": 12,
+      "address": "0x0000bc90",
+      "name": "measurement_monitor_buttons",
+      "priority_tier": 0,
+      "priority_reason": "application control / menu / scheduling",
+      "baseline_extent": "partial",
+      "current_extent": "partial",
+      "static_callgraph_reachable": true,
+      "body_bytes": 392,
+      "callers": [
+        "0x00008ed4"
+      ],
+      "callees": [
+        "0x00006630",
+        "0x0000678c",
+        "0x000078d0",
+        "0x00008050",
+        "0x0000876a",
+        "0x000097c4",
+        "0x0000b5ae",
+        "0x0000d964",
+        "0x000169d4",
+        "0x00018ad2",
+        "0x00019366",
+        "0x0001e59e"
+      ],
+      "remaining_direct_dependencies": [
+        "0x00006630"
+      ],
+      "current_boundary": "Command/selector policy and menu begin/monitor-origin selector reset are connected. Complete composed original blocking-entry/reentry comparison remains pending.",
+      "evidence": "decompiled/clean/0000bc90_measurement_monitor_buttons.c"
+    },
+    {
+      "rank": 13,
+      "address": "0x0000a910",
+      "name": "measurement_ui_regular_event",
+      "priority_tier": 0,
+      "priority_reason": "application control / menu / scheduling",
+      "baseline_extent": "partial",
+      "current_extent": "partial",
+      "static_callgraph_reachable": true,
+      "body_bytes": 1472,
+      "callers": [
+        "0x00008ed4"
+      ],
+      "callees": [
+        "0x00006616",
+        "0x0000678c",
+        "0x0000876a",
+        "0x00008a02",
+        "0x0000a7d0",
+        "0x0000d964",
+        "0x00014ef2",
+        "0x00017f92",
+        "0x0001a360",
+        "0x0001aede"
+      ],
+      "remaining_direct_dependencies": [
+        "0x00006616",
+        "0x0000a7d0",
+        "0x0001aede"
+      ],
+      "current_boundary": "State and normal FD resource layout/units recovered. Live/NCV exit reentry timing and debug print side effect remain outside full native contract",
+      "evidence": "decompiled/clean/0000a910_measurement_ui_regular_event.c"
+    },
+    {
+      "rank": 14,
+      "address": "0x000097f8",
+      "name": "measurement_forward_button_command",
+      "priority_tier": 0,
+      "priority_reason": "application control / menu / scheduling",
+      "baseline_extent": "partial",
+      "current_extent": "full",
+      "static_callgraph_reachable": true,
+      "body_bytes": 178,
+      "callers": [
+        "0x00008ed4"
+      ],
+      "callees": [
+        "0x00006630",
+        "0x000097c4",
+        "0x0000cb40",
+        "0x0001a64c",
+        "0x0001e59e"
+      ],
+      "remaining_direct_dependencies": [
+        "0x00006630",
+        "0x0001a64c"
+      ],
+      "current_boundary": "All byte event values; recognized keys wait10ms, sample their original GPIO mask, conditionally send the exact AA55 command and clear the event. Event replacement during debounce tested. No ASIC analog meaning inferred.",
+      "evidence": "decompiled/clean/000097f8_measurement_forward_button_command.c"
+    },
+    {
+      "rank": 15,
+      "address": "0x0000da48",
+      "name": "settings_auto_off_access",
+      "priority_tier": 0,
+      "priority_reason": "application control / menu / scheduling",
+      "baseline_extent": "partial",
+      "current_extent": "full",
+      "static_callgraph_reachable": true,
+      "body_bytes": 84,
+      "callers": [
+        "0x00007780",
+        "0x0000c248",
+        "0x000135b0",
+        "0x00013c02",
+        "0x00016242"
+      ],
+      "callees": [],
+      "remaining_direct_dependencies": [],
+      "current_boundary": "Getter plus unmasked full-width setter, valid0/1/2/3 timeout side effects, invalid-selector preservation of previous timeout and original write-flag return.",
+      "evidence": "decompiled/clean/0000da48_settings_auto_off_access.c"
+    },
+    {
+      "rank": 16,
+      "address": "0x0000d964",
+      "name": "settings_language_access",
+      "priority_tier": 0,
+      "priority_reason": "application control / menu / scheduling",
+      "baseline_extent": "partial",
+      "current_extent": "full",
+      "static_callgraph_reachable": true,
+      "body_bytes": 130,
+      "callers": [
+        "0x0000a7d0",
+        "0x0000a910",
+        "0x0000aed0",
+        "0x0000b29e",
+        "0x0000b5c8",
+        "0x0000b9e0",
+        "0x0000bc90",
+        "0x0000c248",
+        "0x00010e86",
+        "0x00012d5a",
+        "0x000135b0",
+        "0x00013c02",
+        "0x00014578",
+        "0x00014c42",
+        "0x00014ef2",
+        "0x00015168",
+        "0x000152a8",
+        "0x000153d0",
+        "0x00015af6",
+        "0x00015e9e",
+        "0x00016242",
+        "0x000164d4",
+        "0x000169d4",
+        "0x00018ad2",
+        "0x00019ba8",
+        "0x0001a124"
+      ],
+      "callees": [
+        "0x00006630",
+        "0x0000969e"
+      ],
+      "remaining_direct_dependencies": [
+        "0x00006630",
+        "0x0000969e"
+      ],
+      "current_boundary": "Explicit mutable20-byte prefix cache, six original paths, full-width selector switch, unsupported-selector stale-prefix retention, unmasked stored-word spill and original count-including-NUL return. Application uses supported UI languages0/1.",
+      "evidence": "decompiled/clean/0000d964_settings_language_access.c"
+    },
+    {
+      "rank": 17,
+      "address": "0x0000dc46",
+      "name": "settings_restore_defaults",
+      "priority_tier": 0,
+      "priority_reason": "application control / menu / scheduling",
+      "baseline_extent": "partial",
+      "current_extent": "full",
+      "static_callgraph_reachable": true,
+      "body_bytes": 90,
+      "callers": [
+        "0x0000c248",
+        "0x00015af6"
+      ],
+      "callees": [
+        "0x00006630",
+        "0x0000de12"
+      ],
+      "remaining_direct_dependencies": [
+        "0x00006630"
+      ],
+      "current_boundary": "Original initialized17-halfword defaults, zeroed remainder of128-halfword image, ignored-result logo-removal external call, loaded-flag store after that call. Uses preserved initialized defaults; no device storage layout confirmation.",
+      "evidence": "decompiled/clean/0000dc46_settings_restore_defaults.c"
+    },
+    {
+      "rank": 18,
+      "address": "0x0001a64c",
+      "name": "delay_ms",
+      "priority_tier": 1,
+      "priority_reason": "startup dependency / timer / power IO",
+      "baseline_extent": "untranslated",
+      "current_extent": "untranslated",
+      "static_callgraph_reachable": true,
+      "body_bytes": 54,
+      "callers": [
+        "0x00007598",
+        "0x00007918",
+        "0x0000792e",
+        "0x00007944",
+        "0x00007b08",
+        "0x00007c0a",
+        "0x00007c42",
+        "0x00007cd8",
+        "0x000087aa",
+        "0x00008ed4",
+        "0x000097f8",
+        "0x0000b56a",
+        "0x0000fe08",
+        "0x00014c42",
+        "0x0001511a"
+      ],
+      "callees": [],
+      "remaining_direct_dependencies": [],
+      "current_boundary": "No complete native or qualified upstream counterpart",
+      "evidence": "decompiled/clean/0001a64c_delay_ms.c"
+    },
+    {
+      "rank": 19,
+      "address": "0x000075f0",
+      "name": "battery_percentage_estimate",
+      "priority_tier": 1,
+      "priority_reason": "startup dependency / timer / power IO",
+      "baseline_extent": "untranslated",
+      "current_extent": "untranslated",
+      "static_callgraph_reachable": true,
+      "body_bytes": 138,
+      "callers": [
+        "0x00007780",
+        "0x00008ed4",
+        "0x00014ef2"
+      ],
+      "callees": [
+        "0x00006630",
+        "0x00007598",
+        "0x0001aede",
+        "0x0001d728",
+        "0x0001db48",
+        "0x0001dddc",
+        "0x0001e164",
+        "0x0001e21c",
+        "0x0001e2e2"
+      ],
+      "remaining_direct_dependencies": [
+        "0x00006630",
+        "0x00007598",
+        "0x0001aede",
+        "0x0001d728",
+        "0x0001db48",
+        "0x0001dddc",
+        "0x0001e164",
+        "0x0001e21c",
+        "0x0001e2e2"
+      ],
+      "current_boundary": "No complete native or qualified upstream counterpart",
+      "evidence": "decompiled/clean/000075f0_battery_percentage_estimate.c"
+    },
+    {
+      "rank": 20,
+      "address": "0x00007f66",
+      "name": "tim8_backlight_pwm_config",
+      "priority_tier": 1,
+      "priority_reason": "startup dependency / timer / power IO",
+      "baseline_extent": "partial",
+      "current_extent": "partial",
+      "static_callgraph_reachable": true,
+      "body_bytes": 176,
+      "callers": [
+        "0x00008016",
+        "0x00008ed4",
+        "0x0000c320"
+      ],
+      "callees": [
+        "0x00006630",
+        "0x0000ca80",
+        "0x0000cd70",
+        "0x0000ce16",
+        "0x0000cec0",
+        "0x0000cff0",
+        "0x0000d008",
+        "0x0000d030",
+        "0x0000d04a"
+      ],
+      "remaining_direct_dependencies": [
+        "0x00006630"
+      ],
+      "current_boundary": "period100/prescaler4799 call sites only",
+      "evidence": "decompiled/clean/00007f66_tim8_backlight_pwm_config.c"
+    },
+    {
+      "rank": 21,
+      "address": "0x00008016",
+      "name": "backlight_apply_setting",
+      "priority_tier": 1,
+      "priority_reason": "startup dependency / timer / power IO",
+      "baseline_extent": "partial",
+      "current_extent": "partial",
+      "static_callgraph_reachable": true,
+      "body_bytes": 58,
+      "callers": [
+        "0x0000c248",
+        "0x0001511a",
+        "0x0001598c"
+      ],
+      "callees": [
+        "0x00006630",
+        "0x00007f66",
+        "0x0000d9e6"
+      ],
+      "remaining_direct_dependencies": [
+        "0x00006630",
+        "0x00007f66"
+      ],
+      "current_boundary": "PWM selection recovered; SDK application call is separate",
+      "evidence": "decompiled/clean/00008016_FUN_ram_00008016.c"
+    },
+    {
+      "rank": 22,
+      "address": "0x0000cb94",
+      "name": "NVIC_Init",
+      "priority_tier": 1,
+      "priority_reason": "startup dependency / timer / power IO",
+      "baseline_extent": "untranslated",
+      "current_extent": "untranslated",
+      "static_callgraph_reachable": true,
+      "body_bytes": 166,
+      "callers": [
+        "0x00007716",
+        "0x00007944",
+        "0x0000c350"
+      ],
+      "callees": [],
+      "remaining_direct_dependencies": [],
+      "current_boundary": "No complete native or qualified upstream counterpart",
+      "evidence": "decompiled/clean/0000cb94_NVIC_Init.c"
+    },
+    {
+      "rank": 23,
+      "address": "0x00007562",
+      "name": "charge_detect_gpio_init",
+      "priority_tier": 1,
+      "priority_reason": "startup dependency / timer / power IO",
+      "baseline_extent": "untranslated",
+      "current_extent": "untranslated",
+      "static_callgraph_reachable": true,
+      "body_bytes": 54,
+      "callers": [
+        "0x0000770a"
+      ],
+      "callees": [
+        "0x00006630",
+        "0x0000ca80",
+        "0x0000cd70"
+      ],
+      "remaining_direct_dependencies": [
+        "0x00006630"
+      ],
+      "current_boundary": "No complete native or qualified upstream counterpart",
+      "evidence": "decompiled/clean/00007562_charge_detect_gpio_init.c"
+    },
+    {
+      "rank": 24,
+      "address": "0x00007598",
+      "name": "adc_read_averaged",
+      "priority_tier": 1,
+      "priority_reason": "startup dependency / timer / power IO",
+      "baseline_extent": "untranslated",
+      "current_extent": "untranslated",
+      "static_callgraph_reachable": true,
+      "body_bytes": 88,
+      "callers": [
+        "0x000075f0"
+      ],
+      "callees": [
+        "0x00006616",
+        "0x0000c780",
+        "0x0000c798",
+        "0x0000c850",
+        "0x0000c858",
+        "0x0001a64c"
+      ],
+      "remaining_direct_dependencies": [
+        "0x00006616",
+        "0x0001a64c"
+      ],
+      "current_boundary": "No complete native or qualified upstream counterpart",
+      "evidence": "decompiled/clean/00007598_adc_read_averaged.c"
+    },
+    {
+      "rank": 25,
+      "address": "0x0000767a",
+      "name": "adc_battery_init",
+      "priority_tier": 1,
+      "priority_reason": "startup dependency / timer / power IO",
+      "baseline_extent": "untranslated",
+      "current_extent": "untranslated",
+      "static_callgraph_reachable": true,
+      "body_bytes": 144,
+      "callers": [
+        "0x0000770a"
+      ],
+      "callees": [
+        "0x00006630",
+        "0x0000c6f6",
+        "0x0000c74c",
+        "0x0000c75c",
+        "0x0000c766",
+        "0x0000c76e",
+        "0x0000c778",
+        "0x0000c780",
+        "0x0000ca80",
+        "0x0000cc3a",
+        "0x0000cd70"
+      ],
+      "remaining_direct_dependencies": [
+        "0x00006630"
+      ],
+      "current_boundary": "No complete native or qualified upstream counterpart",
+      "evidence": "decompiled/clean/0000767a_adc_battery_init.c"
+    },
+    {
+      "rank": 26,
+      "address": "0x0000770a",
+      "name": "battery_inputs_init",
+      "priority_tier": 1,
+      "priority_reason": "startup dependency / timer / power IO",
+      "baseline_extent": "untranslated",
+      "current_extent": "untranslated",
+      "static_callgraph_reachable": true,
+      "body_bytes": 12,
+      "callers": [
+        "0x0000908a"
+      ],
+      "callees": [
+        "0x00006630",
+        "0x00007562",
+        "0x0000767a"
+      ],
+      "remaining_direct_dependencies": [
+        "0x00006630",
+        "0x00007562",
+        "0x0000767a"
+      ],
+      "current_boundary": "No complete native or qualified upstream counterpart",
+      "evidence": "decompiled/clean/0000770a_battery_inputs_init.c"
+    },
+    {
+      "rank": 27,
+      "address": "0x0000780c",
+      "name": "tim2_buzzer_pwm_config",
+      "priority_tier": 1,
+      "priority_reason": "startup dependency / timer / power IO",
+      "baseline_extent": "partial",
+      "current_extent": "partial",
+      "static_callgraph_reachable": true,
+      "body_bytes": 174,
+      "callers": [
+        "0x000078ba"
+      ],
+      "callees": [
+        "0x00006630",
+        "0x0000ca80",
+        "0x0000cd70",
+        "0x0000cd8e",
+        "0x0000ce16",
+        "0x0000cf42",
+        "0x0000cff0",
+        "0x0000d008",
+        "0x0000d030",
+        "0x0000d058"
+      ],
+      "remaining_direct_dependencies": [
+        "0x00006630"
+      ],
+      "current_boundary": "default383/99/191 arguments only",
+      "evidence": "decompiled/clean/0000780c_tim2_buzzer_pwm_config.c"
+    },
+    {
+      "rank": 28,
+      "address": "0x0000792e",
+      "name": "buzzer_beep_500ms",
+      "priority_tier": 1,
+      "priority_reason": "startup dependency / timer / power IO",
+      "baseline_extent": "partial",
+      "current_extent": "full",
+      "static_callgraph_reachable": true,
+      "body_bytes": 22,
+      "callers": [
+        "0x0000c320"
+      ],
+      "callees": [
+        "0x00006630",
+        "0x000078ba",
+        "0x000078d0",
+        "0x0001a64c"
+      ],
+      "remaining_direct_dependencies": [
+        "0x00006630",
+        "0x0001a64c"
+      ],
+      "current_boundary": "Default buzzer start, delay500 and disable external-call contract; mandatory bound callbacks in valid IO domain. No hardware/timing validation.",
+      "evidence": "decompiled/clean/0000792e_FUN_ram_0000792e.c"
+    },
+    {
+      "rank": 29,
+      "address": "0x000087aa",
+      "name": "display_init",
+      "priority_tier": 1,
+      "priority_reason": "startup dependency / timer / power IO",
+      "baseline_extent": "partial",
+      "current_extent": "partial",
+      "static_callgraph_reachable": true,
+      "body_bytes": 600,
+      "callers": [
+        "0x0000908a"
+      ],
+      "callees": [
+        "0x00006630",
+        "0x00007d6a",
+        "0x00007dba",
+        "0x00007f18",
+        "0x0000876a",
+        "0x0000ca80",
+        "0x0000cb4a",
+        "0x0000cb52",
+        "0x0000cd70",
+        "0x0001a64c"
+      ],
+      "remaining_direct_dependencies": [
+        "0x00006630",
+        "0x0001a64c"
+      ],
+      "current_boundary": "Panel command sequence and SDK GPIO/reset fragments exist; a joined original display-init entry/order comparison is pending. Hardware remains unvalidated.",
+      "evidence": "decompiled/clean/000087aa_display_init.c"
+    },
+    {
+      "rank": 30,
+      "address": "0x0000cb8e",
+      "name": "NVIC_PriorityGroupConfig",
+      "priority_tier": 1,
+      "priority_reason": "startup dependency / timer / power IO",
+      "baseline_extent": "untranslated",
+      "current_extent": "untranslated",
+      "static_callgraph_reachable": true,
+      "body_bytes": 6,
+      "callers": [
+        "0x0000908a"
+      ],
+      "callees": [],
+      "remaining_direct_dependencies": [],
+      "current_boundary": "No complete native or qualified upstream counterpart",
+      "evidence": "decompiled/clean/0000cb8e_NVIC_PriorityGroupConfig.c"
+    },
+    {
+      "rank": 31,
+      "address": "0x0000d212",
+      "name": "SystemInit",
+      "priority_tier": 1,
+      "priority_reason": "startup dependency / timer / power IO",
+      "baseline_extent": "untranslated",
+      "current_extent": "untranslated",
+      "static_callgraph_reachable": true,
+      "body_bytes": 234,
+      "callers": [
+        "0x0000c668"
+      ],
+      "callees": [],
+      "remaining_direct_dependencies": [],
+      "current_boundary": "No complete native or qualified upstream counterpart",
+      "evidence": "decompiled/clean/0000d212_SystemInit.c"
+    },
+    {
+      "rank": 32,
+      "address": "0x0000d2fc",
+      "name": "SystemCoreClockUpdate",
+      "priority_tier": 1,
+      "priority_reason": "startup dependency / timer / power IO",
+      "baseline_extent": "untranslated",
+      "current_extent": "untranslated",
+      "static_callgraph_reachable": true,
+      "body_bytes": 142,
+      "callers": [
+        "0x0000908a"
+      ],
+      "callees": [],
+      "remaining_direct_dependencies": [],
+      "current_boundary": "No complete native or qualified upstream counterpart",
+      "evidence": "decompiled/clean/0000d2fc_SystemCoreClockUpdate.c"
+    },
+    {
+      "rank": 33,
+      "address": "0x0000dd4e",
+      "name": "filesystem_resources_init",
+      "priority_tier": 1,
+      "priority_reason": "startup dependency / timer / power IO",
+      "baseline_extent": "untranslated",
+      "current_extent": "untranslated",
+      "static_callgraph_reachable": true,
+      "body_bytes": 98,
+      "callers": [
+        "0x0000908a"
+      ],
+      "callees": [
+        "0x00006630",
+        "0x0000d86c",
+        "0x0000f4f8",
+        "0x0000fb48",
+        "0x0000fc66"
+      ],
+      "remaining_direct_dependencies": [
+        "0x00006630",
+        "0x0000d86c",
+        "0x0000fb48"
+      ],
+      "current_boundary": "No complete native or qualified upstream counterpart",
+      "evidence": "decompiled/clean/0000dd4e_filesystem_resources_init.c"
+    },
+    {
+      "rank": 34,
+      "address": "0x0001a626",
+      "name": "delay_init",
+      "priority_tier": 1,
+      "priority_reason": "startup dependency / timer / power IO",
+      "baseline_extent": "untranslated",
+      "current_extent": "untranslated",
+      "static_callgraph_reachable": true,
+      "body_bytes": 38,
+      "callers": [
+        "0x0000908a"
+      ],
+      "callees": [],
+      "remaining_direct_dependencies": [],
+      "current_boundary": "No complete native or qualified upstream counterpart",
+      "evidence": "decompiled/clean/0001a626_delay_init.c"
+    },
+    {
+      "rank": 35,
+      "address": "0x0001a682",
+      "name": "debug_usart2_init",
+      "priority_tier": 1,
+      "priority_reason": "startup dependency / timer / power IO",
+      "baseline_extent": "untranslated",
+      "current_extent": "untranslated",
+      "static_callgraph_reachable": true,
+      "body_bytes": 96,
+      "callers": [
+        "0x0000908a"
+      ],
+      "callees": [
+        "0x00006630",
+        "0x0000ca80",
+        "0x0000cd70",
+        "0x0000cd8e",
+        "0x0000d096",
+        "0x0000d152"
+      ],
+      "remaining_direct_dependencies": [
+        "0x00006630"
+      ],
+      "current_boundary": "No complete native or qualified upstream counterpart",
+      "evidence": "decompiled/clean/0001a682_debug_usart2_init.c"
+    },
+    {
+      "rank": 36,
+      "address": "0x0000c668",
+      "name": "handle_reset",
+      "priority_tier": 1,
+      "priority_reason": "startup dependency / timer / power IO",
+      "baseline_extent": "untranslated",
+      "current_extent": "untranslated",
+      "static_callgraph_reachable": true,
+      "body_bytes": 142,
+      "callers": [],
+      "callees": [
+        "0x0000d212"
+      ],
+      "remaining_direct_dependencies": [
+        "0x0000d212"
+      ],
+      "current_boundary": "No complete native or qualified upstream counterpart",
+      "evidence": "decompiled/clean/0000c668_handle_reset.c"
+    },
+    {
+      "rank": 37,
+      "address": "0x00006400",
+      "name": "application_entry",
+      "priority_tier": 1,
+      "priority_reason": "startup dependency / timer / power IO",
+      "baseline_extent": "untranslated",
+      "current_extent": "untranslated",
+      "static_callgraph_reachable": false,
+      "body_bytes": 4,
+      "callers": [],
+      "callees": [],
+      "remaining_direct_dependencies": [],
+      "current_boundary": "No complete native or qualified upstream counterpart",
+      "evidence": "decompiled/clean/00006400_application_entry.c"
+    },
+    {
+      "rank": 38,
+      "address": "0x0000a7a4",
+      "name": "measurement_dispatch_special_display",
+      "priority_tier": 2,
+      "priority_reason": "application display / measurement glue",
+      "baseline_extent": "untranslated",
+      "current_extent": "untranslated",
+      "static_callgraph_reachable": true,
+      "body_bytes": 44,
+      "callers": [
+        "0x00017f92",
+        "0x00018354",
+        "0x00018974"
+      ],
+      "callees": [
+        "0x00006630",
+        "0x00009caa",
+        "0x0000a74e",
+        "0x0000a782"
+      ],
+      "remaining_direct_dependencies": [
+        "0x00006630",
+        "0x0000a74e",
+        "0x0000a782"
+      ],
+      "current_boundary": "No complete native or qualified upstream counterpart",
+      "evidence": "decompiled/clean/0000a7a4_FUN_ram_0000a7a4.c"
+    },
+    {
+      "rank": 39,
+      "address": "0x0000be18",
+      "name": "measurement_get_unit_code",
+      "priority_tier": 2,
+      "priority_reason": "application display / measurement glue",
+      "baseline_extent": "untranslated",
+      "current_extent": "untranslated",
+      "static_callgraph_reachable": true,
+      "body_bytes": 6,
+      "callers": [
+        "0x0000da9c",
+        "0x00012c38"
+      ],
+      "callees": [],
+      "remaining_direct_dependencies": [],
+      "current_boundary": "No complete native or qualified upstream counterpart",
+      "evidence": "decompiled/clean/0000be18_measurement_get_unit_code.c"
+    },
+    {
+      "rank": 40,
+      "address": "0x0000be1e",
+      "name": "measurement_get_value_bits",
+      "priority_tier": 2,
+      "priority_reason": "application display / measurement glue",
+      "baseline_extent": "untranslated",
+      "current_extent": "untranslated",
+      "static_callgraph_reachable": true,
+      "body_bytes": 6,
+      "callers": [
+        "0x0000da9c",
+        "0x00013264"
+      ],
+      "callees": [],
+      "remaining_direct_dependencies": [],
+      "current_boundary": "No complete native or qualified upstream counterpart",
+      "evidence": "decompiled/clean/0000be1e_measurement_get_value_bits.c"
+    },
+    {
+      "rank": 41,
+      "address": "0x0000a74e",
+      "name": "ncv_decode_dash_level",
+      "priority_tier": 2,
+      "priority_reason": "application display / measurement glue",
+      "baseline_extent": "untranslated",
+      "current_extent": "untranslated",
+      "static_callgraph_reachable": true,
+      "body_bytes": 52,
+      "callers": [
+        "0x0000a7a4"
+      ],
+      "callees": [
+        "0x00006630",
+        "0x0000997e",
+        "0x0000fe08"
+      ],
+      "remaining_direct_dependencies": [
+        "0x00006630"
+      ],
+      "current_boundary": "No complete native or qualified upstream counterpart",
+      "evidence": "decompiled/clean/0000a74e_FUN_ram_0000a74e.c"
+    },
+    {
+      "rank": 42,
+      "address": "0x0000a782",
+      "name": "live_decode_symbol",
+      "priority_tier": 2,
+      "priority_reason": "application display / measurement glue",
+      "baseline_extent": "untranslated",
+      "current_extent": "untranslated",
+      "static_callgraph_reachable": true,
+      "body_bytes": 34,
+      "callers": [
+        "0x0000a7a4"
+      ],
+      "callees": [
+        "0x00006630",
+        "0x0000997e",
+        "0x0001014e"
+      ],
+      "remaining_direct_dependencies": [
+        "0x00006630"
+      ],
+      "current_boundary": "No complete native or qualified upstream counterpart",
+      "evidence": "decompiled/clean/0000a782_FUN_ram_0000a782.c"
+    },
+    {
+      "rank": 43,
+      "address": "0x0000a7d0",
+      "name": "auto_mode_label_update",
+      "priority_tier": 2,
+      "priority_reason": "application display / measurement glue",
+      "baseline_extent": "untranslated",
+      "current_extent": "untranslated",
+      "static_callgraph_reachable": true,
+      "body_bytes": 320,
+      "callers": [
+        "0x0000a910"
+      ],
+      "callees": [
+        "0x00006630",
+        "0x0000678c",
+        "0x00008a02",
+        "0x0000d964"
+      ],
+      "remaining_direct_dependencies": [
+        "0x00006630"
+      ],
+      "current_boundary": "No complete native or qualified upstream counterpart",
+      "evidence": "decompiled/clean/0000a7d0_FUN_ram_0000a7d0.c"
+    },
+    {
+      "rank": 44,
+      "address": "0x0000b56a",
+      "name": "diagnostic_entry_commands",
+      "priority_tier": 2,
+      "priority_reason": "application display / measurement glue",
+      "baseline_extent": "untranslated",
+      "current_extent": "untranslated",
+      "static_callgraph_reachable": true,
+      "body_bytes": 68,
+      "callers": [
+        "0x00008ed4"
+      ],
+      "callees": [
+        "0x00006630",
+        "0x000097c4",
+        "0x0001a64c",
+        "0x0001e59e"
+      ],
+      "remaining_direct_dependencies": [
+        "0x00006630",
+        "0x0001a64c"
+      ],
+      "current_boundary": "No complete native or qualified upstream counterpart",
+      "evidence": "decompiled/clean/0000b56a_FUN_ram_0000b56a.c"
+    },
+    {
+      "rank": 45,
+      "address": "0x0000be24",
+      "name": "measurement_get_text_pointer",
+      "priority_tier": 2,
+      "priority_reason": "application display / measurement glue",
+      "baseline_extent": "untranslated",
+      "current_extent": "untranslated",
+      "static_callgraph_reachable": true,
+      "body_bytes": 6,
+      "callers": [
+        "0x00008ed4"
+      ],
+      "callees": [],
+      "remaining_direct_dependencies": [],
+      "current_boundary": "No complete native or qualified upstream counterpart",
+      "evidence": "decompiled/clean/0000be24_FUN_ram_0000be24.c"
+    },
+    {
+      "rank": 46,
+      "address": "0x0000be2a",
+      "name": "measurement_overload_kind",
+      "priority_tier": 2,
+      "priority_reason": "application display / measurement glue",
+      "baseline_extent": "untranslated",
+      "current_extent": "untranslated",
+      "static_callgraph_reachable": true,
+      "body_bytes": 78,
+      "callers": [
+        "0x0000da9c"
+      ],
+      "callees": [],
+      "remaining_direct_dependencies": [],
+      "current_boundary": "No complete native or qualified upstream counterpart",
+      "evidence": "decompiled/clean/0000be2a_measurement_overload_kind.c"
+    },
+    {
+      "rank": 47,
+      "address": "0x0001a336",
+      "name": "menu_draw_all_threshold_items",
+      "priority_tier": 2,
+      "priority_reason": "application display / measurement glue",
+      "baseline_extent": "untranslated",
+      "current_extent": "full",
+      "static_callgraph_reachable": true,
+      "body_bytes": 42,
+      "callers": [
+        "0x000169d4"
+      ],
+      "callees": [
+        "0x00006630",
+        "0x00019f20",
+        "0x0001a124"
+      ],
+      "remaining_direct_dependencies": [
+        "0x00006630"
+      ],
+      "current_boundary": "All six unselected threshold hints in original order for both layouts and supported UI languages; missing decompiler arguments resolved from original instructions.",
+      "evidence": "decompiled/clean/0001a336_FUN_ram_0001a336.c"
+    },
+    {
+      "rank": 48,
+      "address": "0x0000e17c",
+      "name": "fat_move_window",
+      "priority_tier": 3,
+      "priority_reason": "display / storage / platform dependency",
+      "baseline_extent": "untranslated",
+      "current_extent": "untranslated",
+      "static_callgraph_reachable": true,
+      "body_bytes": 64,
+      "callers": [
+        "0x0000e1bc",
+        "0x0000e2b8",
+        "0x0000e5e8",
+        "0x0000e71e",
+        "0x0000ebf0",
+        "0x0000ec3e",
+        "0x0000ed8e",
+        "0x0000edde",
+        "0x0000f28a",
+        "0x0000f54a",
+        "0x0000f8a4"
+      ],
+      "callees": [
+        "0x00006630",
+        "0x0000dca8",
+        "0x0000e134"
+      ],
+      "remaining_direct_dependencies": [
+        "0x00006630",
+        "0x0000e134"
+      ],
+      "current_boundary": "No complete native or qualified upstream counterpart",
+      "evidence": "decompiled/clean/0000e17c_FUN_ram_0000e17c.c"
+    },
+    {
+      "rank": 49,
+      "address": "0x0000e71e",
+      "name": "fat_get_cluster_entry",
+      "priority_tier": 3,
+      "priority_reason": "display / storage / platform dependency",
+      "baseline_extent": "untranslated",
+      "current_extent": "untranslated",
+      "static_callgraph_reachable": true,
+      "body_bytes": 222,
+      "callers": [
+        "0x0000e7fc",
+        "0x0000e8b2",
+        "0x0000e9a4",
+        "0x0000eb26",
+        "0x0000f54a",
+        "0x0000f732",
+        "0x0000f962"
+      ],
+      "callees": [
+        "0x00006616",
+        "0x0000de5a",
+        "0x0000e17c"
+      ],
+      "remaining_direct_dependencies": [
+        "0x00006616",
+        "0x0000e17c"
+      ],
+      "current_boundary": "No complete native or qualified upstream counterpart",
+      "evidence": "decompiled/clean/0000e71e_FUN_ram_0000e71e.c"
+    },
+    {
+      "rank": 50,
+      "address": "0x0000e7fc",
+      "name": "fat_directory_seek",
+      "priority_tier": 3,
+      "priority_reason": "display / storage / platform dependency",
+      "baseline_extent": "untranslated",
+      "current_extent": "untranslated",
+      "static_callgraph_reachable": true,
+      "body_bytes": 182,
+      "callers": [
+        "0x0000ebf0",
+        "0x0000ed8e",
+        "0x0000edde",
+        "0x0000ef70",
+        "0x0000f28a",
+        "0x0000fab0",
+        "0x0000fb48"
+      ],
+      "callees": [
+        "0x00006616",
+        "0x0000de84",
+        "0x0000e71e"
+      ],
+      "remaining_direct_dependencies": [
+        "0x00006616",
+        "0x0000e71e"
+      ],
+      "current_boundary": "No complete native or qualified upstream counterpart",
+      "evidence": "decompiled/clean/0000e7fc_FUN_ram_0000e7fc.c"
+    },
+    {
+      "rank": 51,
+      "address": "0x00007e20",
+      "name": "display_begin_pixels",
+      "priority_tier": 3,
+      "priority_reason": "display / storage / platform dependency",
+      "baseline_extent": "untranslated",
+      "current_extent": "untranslated",
+      "static_callgraph_reachable": true,
+      "body_bytes": 14,
+      "callers": [
+        "0x00006734",
+        "0x00007f00",
+        "0x000080d4",
+        "0x0000876a",
+        "0x00008a02",
+        "0x00017c8c"
+      ],
+      "callees": [
+        "0x00006630",
+        "0x00007d6a"
+      ],
+      "remaining_direct_dependencies": [
+        "0x00006630"
+      ],
+      "current_boundary": "No complete native or qualified upstream counterpart",
+      "evidence": "decompiled/clean/00007e20_display_begin_pixels.c"
+    },
+    {
+      "rank": 52,
+      "address": "0x0000d498",
+      "name": "spi_flash_send_byte",
+      "priority_tier": 3,
+      "priority_reason": "display / storage / platform dependency",
+      "baseline_extent": "untranslated",
+      "current_extent": "untranslated",
+      "static_callgraph_reachable": true,
+      "body_bytes": 12,
+      "callers": [
+        "0x0000d4b4",
+        "0x0000d4f8",
+        "0x0000d516",
+        "0x0000d538",
+        "0x0000d588"
+      ],
+      "callees": [
+        "0x00006630",
+        "0x0000d442"
+      ],
+      "remaining_direct_dependencies": [
+        "0x00006630",
+        "0x0000d442"
+      ],
+      "current_boundary": "No complete native or qualified upstream counterpart",
+      "evidence": "decompiled/clean/0000d498_spi_flash_send_byte.c"
+    },
+    {
+      "rank": 53,
+      "address": "0x0000eb26",
+      "name": "fat_directory_next",
+      "priority_tier": 3,
+      "priority_reason": "display / storage / platform dependency",
+      "baseline_extent": "untranslated",
+      "current_extent": "untranslated",
+      "static_callgraph_reachable": true,
+      "body_bytes": 202,
+      "callers": [
+        "0x0000ebf0",
+        "0x0000ec3e",
+        "0x0000ed8e",
+        "0x0000edde",
+        "0x0000f28a"
+      ],
+      "callees": [
+        "0x00006616",
+        "0x0000de84",
+        "0x0000e71e",
+        "0x0000e8b2",
+        "0x0000eac8"
+      ],
+      "remaining_direct_dependencies": [
+        "0x00006616",
+        "0x0000e71e",
+        "0x0000e8b2",
+        "0x0000eac8"
+      ],
+      "current_boundary": "No complete native or qualified upstream counterpart",
+      "evidence": "decompiled/clean/0000eb26_FUN_ram_0000eb26.c"
+    },
+    {
+      "rank": 54,
+      "address": "0x0000d442",
+      "name": "spi1_exchange_byte",
+      "priority_tier": 3,
+      "priority_reason": "display / storage / platform dependency",
+      "baseline_extent": "untranslated",
+      "current_extent": "untranslated",
+      "static_callgraph_reachable": true,
+      "body_bytes": 86,
+      "callers": [
+        "0x0000d498",
+        "0x0000d4a4",
+        "0x0000d4b4",
+        "0x0000d656"
+      ],
+      "callees": [
+        "0x00006630",
+        "0x0000ce04",
+        "0x0000ce08",
+        "0x0000ce0c"
+      ],
+      "remaining_direct_dependencies": [
+        "0x00006630"
+      ],
+      "current_boundary": "No complete native or qualified upstream counterpart",
+      "evidence": "decompiled/clean/0000d442_spi1_exchange_byte.c"
+    },
+    {
+      "rank": 55,
+      "address": "0x0000df10",
+      "name": "fat_validate_object",
+      "priority_tier": 3,
+      "priority_reason": "display / storage / platform dependency",
+      "baseline_extent": "untranslated",
+      "current_extent": "untranslated",
+      "static_callgraph_reachable": true,
+      "body_bytes": 64,
+      "callers": [
+        "0x0000f732",
+        "0x0000f8a4",
+        "0x0000f940",
+        "0x0000f962"
+      ],
+      "callees": [
+        "0x00006630",
+        "0x0000dca0"
+      ],
+      "remaining_direct_dependencies": [
+        "0x00006630",
+        "0x0000dca0"
+      ],
+      "current_boundary": "No complete native or qualified upstream counterpart",
+      "evidence": "decompiled/clean/0000df10_FUN_ram_0000df10.c"
+    },
+    {
+      "rank": 56,
+      "address": "0x0000e2b8",
+      "name": "fat_find_and_mount_volume",
+      "priority_tier": 3,
+      "priority_reason": "display / storage / platform dependency",
+      "baseline_extent": "untranslated",
+      "current_extent": "untranslated",
+      "static_callgraph_reachable": true,
+      "body_bytes": 816,
+      "callers": [
+        "0x0000f4f8",
+        "0x0000f54a",
+        "0x0000fab0",
+        "0x0000fb48"
+      ],
+      "callees": [
+        "0x00006608",
+        "0x0000dca0",
+        "0x0000dca4",
+        "0x0000dd00",
+        "0x0000de5a",
+        "0x0000dec0",
+        "0x0000e17c",
+        "0x0000e1bc"
+      ],
+      "remaining_direct_dependencies": [
+        "0x00006608",
+        "0x0000dca0",
+        "0x0000dca4",
+        "0x0000e17c",
+        "0x0000e1bc"
+      ],
+      "current_boundary": "No complete native or qualified upstream counterpart",
+      "evidence": "decompiled/clean/0000e2b8_FUN_ram_0000e2b8.c"
+    },
+    {
+      "rank": 57,
+      "address": "0x0000c320",
+      "name": "power_down",
+      "priority_tier": 3,
+      "priority_reason": "display / storage / platform dependency",
+      "baseline_extent": "partial",
+      "current_extent": "partial",
+      "static_callgraph_reachable": true,
+      "body_bytes": 48,
+      "callers": [
+        "0x00007780",
+        "0x00007c0a",
+        "0x00014c42"
+      ],
+      "callees": [
+        "0x00006630",
+        "0x0000792e",
+        "0x00007f66",
+        "0x0000876a",
+        "0x0000cb4e",
+        "0x0000d87c"
+      ],
+      "remaining_direct_dependencies": [
+        "0x00006630",
+        "0x00007f66",
+        "0x0000d87c"
+      ],
+      "current_boundary": "recovered ordering; flash clock/CSR backend unbound",
+      "evidence": "decompiled/clean/0000c320_power_down.c"
+    },
+    {
+      "rank": 58,
+      "address": "0x0000e134",
+      "name": "fat_sync_window",
+      "priority_tier": 3,
+      "priority_reason": "display / storage / platform dependency",
+      "baseline_extent": "untranslated",
+      "current_extent": "untranslated",
+      "static_callgraph_reachable": true,
+      "body_bytes": 72,
+      "callers": [
+        "0x0000e17c",
+        "0x0000ea1e",
+        "0x0000eac8"
+      ],
+      "callees": [
+        "0x00006630",
+        "0x0000dcd0"
+      ],
+      "remaining_direct_dependencies": [
+        "0x00006630"
+      ],
+      "current_boundary": "No complete native or qualified upstream counterpart",
+      "evidence": "decompiled/clean/0000e134_FUN_ram_0000e134.c"
+    },
+    {
+      "rank": 59,
+      "address": "0x0000ea1e",
+      "name": "fat_sync_filesystem",
+      "priority_tier": 3,
+      "priority_reason": "display / storage / platform dependency",
+      "baseline_extent": "untranslated",
+      "current_extent": "untranslated",
+      "static_callgraph_reachable": true,
+      "body_bytes": 170,
+      "callers": [
+        "0x0000f8a4",
+        "0x0000fab0",
+        "0x0000fb48"
+      ],
+      "callees": [
+        "0x00006630",
+        "0x00006660",
+        "0x0000dcd0",
+        "0x0000dd00",
+        "0x0000de70",
+        "0x0000e134"
+      ],
+      "remaining_direct_dependencies": [
+        "0x00006630",
+        "0x0000e134"
+      ],
+      "current_boundary": "No complete native or qualified upstream counterpart",
+      "evidence": "decompiled/clean/0000ea1e_FUN_ram_0000ea1e.c"
+    },
+    {
+      "rank": 60,
+      "address": "0x0000dca0",
+      "name": "disk_status",
+      "priority_tier": 3,
+      "priority_reason": "display / storage / platform dependency",
+      "baseline_extent": "untranslated",
+      "current_extent": "untranslated",
+      "static_callgraph_reachable": true,
+      "body_bytes": 4,
+      "callers": [
+        "0x0000df10",
+        "0x0000e2b8"
+      ],
+      "callees": [],
+      "remaining_direct_dependencies": [],
+      "current_boundary": "No complete native or qualified upstream counterpart",
+      "evidence": "decompiled/clean/0000dca0_disk_status.c"
+    },
+    {
+      "rank": 61,
+      "address": "0x0000dca4",
+      "name": "disk_initialize",
+      "priority_tier": 3,
+      "priority_reason": "display / storage / platform dependency",
+      "baseline_extent": "untranslated",
+      "current_extent": "untranslated",
+      "static_callgraph_reachable": true,
+      "body_bytes": 4,
+      "callers": [
+        "0x0000e2b8",
+        "0x0000fc66"
+      ],
+      "callees": [],
+      "remaining_direct_dependencies": [],
+      "current_boundary": "No complete native or qualified upstream counterpart",
+      "evidence": "decompiled/clean/0000dca4_disk_initialize.c"
+    },
+    {
+      "rank": 62,
+      "address": "0x0000dd48",
+      "name": "filesystem_fixed_timestamp",
+      "priority_tier": 3,
+      "priority_reason": "display / storage / platform dependency",
+      "baseline_extent": "untranslated",
+      "current_extent": "untranslated",
+      "static_callgraph_reachable": true,
+      "body_bytes": 6,
+      "callers": [
+        "0x0000f54a",
+        "0x0000f8a4"
+      ],
+      "callees": [],
+      "remaining_direct_dependencies": [],
+      "current_boundary": "No complete native or qualified upstream counterpart",
+      "evidence": "decompiled/clean/0000dd48_FUN_ram_0000dd48.c"
+    },
+    {
+      "rank": 63,
+      "address": "0x0000e086",
+      "name": "fat_path_decode_character",
+      "priority_tier": 3,
+      "priority_reason": "display / storage / platform dependency",
+      "baseline_extent": "untranslated",
+      "current_extent": "untranslated",
+      "static_callgraph_reachable": true,
+      "body_bytes": 114,
+      "callers": [
+        "0x0000ef70",
+        "0x0000fb48"
+      ],
+      "callees": [
+        "0x00006630",
+        "0x0000fcfc"
+      ],
+      "remaining_direct_dependencies": [
+        "0x00006630",
+        "0x0000fcfc"
+      ],
+      "current_boundary": "No complete native or qualified upstream counterpart",
+      "evidence": "decompiled/clean/0000e086_FUN_ram_0000e086.c"
+    },
+    {
+      "rank": 64,
+      "address": "0x0000e5e8",
+      "name": "fat_put_cluster_entry",
+      "priority_tier": 3,
+      "priority_reason": "display / storage / platform dependency",
+      "baseline_extent": "untranslated",
+      "current_extent": "untranslated",
+      "static_callgraph_reachable": true,
+      "body_bytes": 310,
+      "callers": [
+        "0x0000e8b2",
+        "0x0000e9a4"
+      ],
+      "callees": [
+        "0x00006616",
+        "0x0000de5a",
+        "0x0000de70",
+        "0x0000e17c"
+      ],
+      "remaining_direct_dependencies": [
+        "0x00006616",
+        "0x0000e17c"
+      ],
+      "current_boundary": "No complete native or qualified upstream counterpart",
+      "evidence": "decompiled/clean/0000e5e8_FUN_ram_0000e5e8.c"
+    },
+    {
+      "rank": 65,
+      "address": "0x0000e8b2",
+      "name": "fat_allocate_chain",
+      "priority_tier": 3,
+      "priority_reason": "display / storage / platform dependency",
+      "baseline_extent": "untranslated",
+      "current_extent": "untranslated",
+      "static_callgraph_reachable": true,
+      "body_bytes": 242,
+      "callers": [
+        "0x0000eb26",
+        "0x0000f962"
+      ],
+      "callees": [
+        "0x00006616",
+        "0x0000e5e8",
+        "0x0000e71e"
+      ],
+      "remaining_direct_dependencies": [
+        "0x00006616",
+        "0x0000e5e8",
+        "0x0000e71e"
+      ],
+      "current_boundary": "No complete native or qualified upstream counterpart",
+      "evidence": "decompiled/clean/0000e8b2_FUN_ram_0000e8b2.c"
+    },
+    {
+      "rank": 66,
+      "address": "0x0000e9a4",
+      "name": "fat_remove_chain",
+      "priority_tier": 3,
+      "priority_reason": "display / storage / platform dependency",
+      "baseline_extent": "untranslated",
+      "current_extent": "untranslated",
+      "static_callgraph_reachable": true,
+      "body_bytes": 122,
+      "callers": [
+        "0x0000f54a",
+        "0x0000fab0"
+      ],
+      "callees": [
+        "0x00006616",
+        "0x0000e5e8",
+        "0x0000e71e"
+      ],
+      "remaining_direct_dependencies": [
+        "0x00006616",
+        "0x0000e5e8",
+        "0x0000e71e"
+      ],
+      "current_boundary": "No complete native or qualified upstream counterpart",
+      "evidence": "decompiled/clean/0000e9a4_FUN_ram_0000e9a4.c"
+    },
+    {
+      "rank": 67,
+      "address": "0x0000ebf0",
+      "name": "fat_directory_allocate",
+      "priority_tier": 3,
+      "priority_reason": "display / storage / platform dependency",
+      "baseline_extent": "untranslated",
+      "current_extent": "untranslated",
+      "static_callgraph_reachable": true,
+      "body_bytes": 78,
+      "callers": [
+        "0x0000f28a",
+        "0x0000fb48"
+      ],
+      "callees": [
+        "0x00006616",
+        "0x0000e17c",
+        "0x0000e7fc",
+        "0x0000eb26"
+      ],
+      "remaining_direct_dependencies": [
+        "0x00006616",
+        "0x0000e17c",
+        "0x0000e7fc",
+        "0x0000eb26"
+      ],
+      "current_boundary": "No complete native or qualified upstream counterpart",
+      "evidence": "decompiled/clean/0000ebf0_FUN_ram_0000ebf0.c"
+    },
+    {
+      "rank": 68,
+      "address": "0x0000ec3e",
+      "name": "fat_directory_read",
+      "priority_tier": 3,
+      "priority_reason": "display / storage / platform dependency",
+      "baseline_extent": "untranslated",
+      "current_extent": "untranslated",
+      "static_callgraph_reachable": true,
+      "body_bytes": 336,
+      "callers": [
+        "0x0000fab0",
+        "0x0000fb48"
+      ],
+      "callees": [
+        "0x00006608",
+        "0x0000de9e",
+        "0x0000e17c",
+        "0x0000eb26"
+      ],
+      "remaining_direct_dependencies": [
+        "0x00006608",
+        "0x0000e17c",
+        "0x0000eb26"
+      ],
+      "current_boundary": "No complete native or qualified upstream counterpart",
+      "evidence": "decompiled/clean/0000ec3e_FUN_ram_0000ec3e.c"
+    },
+    {
+      "rank": 69,
+      "address": "0x0000edde",
+      "name": "fat_directory_find",
+      "priority_tier": 3,
+      "priority_reason": "display / storage / platform dependency",
+      "baseline_extent": "untranslated",
+      "current_extent": "untranslated",
+      "static_callgraph_reachable": true,
+      "body_bytes": 402,
+      "callers": [
+        "0x0000ef70",
+        "0x0000f28a"
+      ],
+      "callees": [
+        "0x00006600",
+        "0x0000663c",
+        "0x0000de9e",
+        "0x0000e17c",
+        "0x0000e7fc",
+        "0x0000eb26",
+        "0x0000fd46",
+        "0x0001e57a"
+      ],
+      "remaining_direct_dependencies": [
+        "0x00006600",
+        "0x0000663c",
+        "0x0000e17c",
+        "0x0000e7fc",
+        "0x0000eb26",
+        "0x0001e57a"
+      ],
+      "current_boundary": "No complete native or qualified upstream counterpart",
+      "evidence": "decompiled/clean/0000edde_FUN_ram_0000edde.c"
+    },
+    {
+      "rank": 70,
+      "address": "0x0000ef70",
+      "name": "fat_create_name",
+      "priority_tier": 3,
+      "priority_reason": "display / storage / platform dependency",
+      "baseline_extent": "untranslated",
+      "current_extent": "untranslated",
+      "static_callgraph_reachable": true,
+      "body_bytes": 794,
+      "callers": [
+        "0x0000f54a",
+        "0x0000fab0"
+      ],
+      "callees": [
+        "0x00006600",
+        "0x0000663c",
+        "0x00006660",
+        "0x0000e086",
+        "0x0000e0f8",
+        "0x0000e7fc",
+        "0x0000edde",
+        "0x0000fc9e",
+        "0x0000fd46",
+        "0x0001e7f4"
+      ],
+      "remaining_direct_dependencies": [
+        "0x00006600",
+        "0x0000663c",
+        "0x0000e086",
+        "0x0000e7fc",
+        "0x0000edde",
+        "0x0000fc9e",
+        "0x0001e7f4"
+      ],
+      "current_boundary": "No complete native or qualified upstream counterpart",
+      "evidence": "decompiled/clean/0000ef70_FUN_ram_0000ef70.c"
+    },
+    {
+      "rank": 71,
+      "address": "0x0000fc9e",
+      "name": "fat_unicode_to_codepage",
+      "priority_tier": 3,
+      "priority_reason": "display / storage / platform dependency",
+      "baseline_extent": "partial",
+      "current_extent": "partial",
+      "static_callgraph_reachable": true,
+      "body_bytes": 94,
+      "callers": [
+        "0x0000ef70",
+        "0x0000fb48"
+      ],
+      "callees": [],
+      "remaining_direct_dependencies": [],
+      "current_boundary": "All defined ASCII/wrong-page/exceptional-key returns and first unmapped ROM read at80023fe4 recovered. Physical memory alias/bus result remains unprovided; native reports fault and FatFs fails closed",
+      "evidence": "decompiled/clean/0000fc9e_FUN_ram_0000fc9e.c"
+    },
+    {
+      "rank": 72,
+      "address": "0x00007e0a",
+      "name": "display_write_register",
+      "priority_tier": 3,
+      "priority_reason": "display / storage / platform dependency",
+      "baseline_extent": "untranslated",
+      "current_extent": "untranslated",
+      "static_callgraph_reachable": true,
+      "body_bytes": 22,
+      "callers": [
+        "0x00007e68"
+      ],
+      "callees": [
+        "0x00006630",
+        "0x00007d6a",
+        "0x00007dba"
+      ],
+      "remaining_direct_dependencies": [
+        "0x00006630"
+      ],
+      "current_boundary": "No complete native or qualified upstream counterpart",
+      "evidence": "decompiled/clean/00007e0a_display_write_register.c"
+    },
+    {
+      "rank": 73,
+      "address": "0x00007e68",
+      "name": "display_scan_direction",
+      "priority_tier": 3,
+      "priority_reason": "display / storage / platform dependency",
+      "baseline_extent": "partial",
+      "current_extent": "full",
+      "static_callgraph_reachable": true,
+      "body_bytes": 152,
+      "callers": [
+        "0x00007f18"
+      ],
+      "callees": [
+        "0x00006630",
+        "0x00007d6a",
+        "0x00007dba",
+        "0x00007e0a"
+      ],
+      "remaining_direct_dependencies": [
+        "0x00006630",
+        "0x00007e0a"
+      ],
+      "current_boundary": "All eight direction values and default-zero register value; independent caller-owned dimensions/command registers, including original zero-dimension high-halfword behavior. GPIO command/data stream compared.",
+      "evidence": "decompiled/clean/00007e68_FUN_ram_00007e68.c"
+    },
+    {
+      "rank": 74,
+      "address": "0x0000d4a4",
+      "name": "spi_flash_receive_byte",
+      "priority_tier": 3,
+      "priority_reason": "display / storage / platform dependency",
+      "baseline_extent": "untranslated",
+      "current_extent": "untranslated",
+      "static_callgraph_reachable": true,
+      "body_bytes": 16,
+      "callers": [
+        "0x0000d516"
+      ],
+      "callees": [
+        "0x00006630",
+        "0x0000d442"
+      ],
+      "remaining_direct_dependencies": [
+        "0x00006630",
+        "0x0000d442"
+      ],
+      "current_boundary": "No complete native or qualified upstream counterpart",
+      "evidence": "decompiled/clean/0000d4a4_spi_flash_receive_byte.c"
+    },
+    {
+      "rank": 75,
+      "address": "0x0000d782",
+      "name": "spi_flash_detect_geometry",
+      "priority_tier": 3,
+      "priority_reason": "display / storage / platform dependency",
+      "baseline_extent": "untranslated",
+      "current_extent": "untranslated",
+      "static_callgraph_reachable": true,
+      "body_bytes": 234,
+      "callers": [
+        "0x0000d86c"
+      ],
+      "callees": [
+        "0x00006630",
+        "0x0000d4b4"
+      ],
+      "remaining_direct_dependencies": [
+        "0x00006630"
+      ],
+      "current_boundary": "No complete native or qualified upstream counterpart",
+      "evidence": "decompiled/clean/0000d782_FUN_ram_0000d782.c"
+    },
+    {
+      "rank": 76,
+      "address": "0x0000d86c",
+      "name": "spi_flash_init",
+      "priority_tier": 3,
+      "priority_reason": "display / storage / platform dependency",
+      "baseline_extent": "untranslated",
+      "current_extent": "untranslated",
+      "static_callgraph_reachable": true,
+      "body_bytes": 16,
+      "callers": [
+        "0x0000dd4e"
+      ],
+      "callees": [
+        "0x00006630",
+        "0x0000d38a",
+        "0x0000d782"
+      ],
+      "remaining_direct_dependencies": [
+        "0x00006630",
+        "0x0000d782"
+      ],
+      "current_boundary": "No complete native or qualified upstream counterpart",
+      "evidence": "decompiled/clean/0000d86c_spi_flash_init.c"
+    },
+    {
+      "rank": 77,
+      "address": "0x0000d87c",
+      "name": "settings_commit_internal_flash",
+      "priority_tier": 3,
+      "priority_reason": "display / storage / platform dependency",
+      "baseline_extent": "partial",
+      "current_extent": "partial",
+      "static_callgraph_reachable": true,
+      "body_bytes": 140,
+      "callers": [
+        "0x0000c320"
+      ],
+      "callees": [
+        "0x00006616",
+        "0x0000c982",
+        "0x0000c99c",
+        "0x0000c9aa",
+        "0x0000c9ee",
+        "0x0000ca26",
+        "0x0000ca44",
+        "0x0000ca52"
+      ],
+      "remaining_direct_dependencies": [
+        "0x00006616"
+      ],
+      "current_boundary": "exact data/status progression; device clock/CSR/unlock backend boundary",
+      "evidence": "decompiled/clean/0000d87c_settings_commit_internal_flash.c"
+    },
+    {
+      "rank": 78,
+      "address": "0x0000d908",
+      "name": "read_halfwords",
+      "priority_tier": 3,
+      "priority_reason": "display / storage / platform dependency",
+      "baseline_extent": "untranslated",
+      "current_extent": "untranslated",
+      "static_callgraph_reachable": true,
+      "body_bytes": 32,
+      "callers": [
+        "0x0000d928"
+      ],
+      "callees": [],
+      "remaining_direct_dependencies": [],
+      "current_boundary": "No complete native or qualified upstream counterpart",
+      "evidence": "decompiled/clean/0000d908_read_halfwords.c"
+    },
+    {
+      "rank": 79,
+      "address": "0x0000e1bc",
+      "name": "fat_check_volume_boot",
+      "priority_tier": 3,
+      "priority_reason": "display / storage / platform dependency",
+      "baseline_extent": "untranslated",
+      "current_extent": "untranslated",
+      "static_callgraph_reachable": true,
+      "body_bytes": 252,
+      "callers": [
+        "0x0000e2b8"
+      ],
+      "callees": [
+        "0x00006630",
+        "0x0000de5a",
+        "0x0000e17c",
+        "0x0001e57a"
+      ],
+      "remaining_direct_dependencies": [
+        "0x00006630",
+        "0x0000e17c",
+        "0x0001e57a"
+      ],
+      "current_boundary": "No complete native or qualified upstream counterpart",
+      "evidence": "decompiled/clean/0000e1bc_FUN_ram_0000e1bc.c"
+    },
+    {
+      "rank": 80,
+      "address": "0x0000eac8",
+      "name": "fat_clear_cluster",
+      "priority_tier": 3,
+      "priority_reason": "display / storage / platform dependency",
+      "baseline_extent": "untranslated",
+      "current_extent": "untranslated",
+      "static_callgraph_reachable": true,
+      "body_bytes": 94,
+      "callers": [
+        "0x0000eb26"
+      ],
+      "callees": [
+        "0x00006616",
+        "0x00006660",
+        "0x0000dcd0",
+        "0x0000de84",
+        "0x0000e134"
+      ],
+      "remaining_direct_dependencies": [
+        "0x00006616",
+        "0x0000e134"
+      ],
+      "current_boundary": "No complete native or qualified upstream counterpart",
+      "evidence": "decompiled/clean/0000eac8_FUN_ram_0000eac8.c"
+    },
+    {
+      "rank": 81,
+      "address": "0x0000ed8e",
+      "name": "fat_directory_remove",
+      "priority_tier": 3,
+      "priority_reason": "display / storage / platform dependency",
+      "baseline_extent": "untranslated",
+      "current_extent": "untranslated",
+      "static_callgraph_reachable": true,
+      "body_bytes": 80,
+      "callers": [
+        "0x0000fab0"
+      ],
+      "callees": [
+        "0x00006616",
+        "0x0000e17c",
+        "0x0000e7fc",
+        "0x0000eb26"
+      ],
+      "remaining_direct_dependencies": [
+        "0x00006616",
+        "0x0000e17c",
+        "0x0000e7fc",
+        "0x0000eb26"
+      ],
+      "current_boundary": "No complete native or qualified upstream counterpart",
+      "evidence": "decompiled/clean/0000ed8e_FUN_ram_0000ed8e.c"
+    },
+    {
+      "rank": 82,
+      "address": "0x0000f28a",
+      "name": "fat_directory_register",
+      "priority_tier": 3,
+      "priority_reason": "display / storage / platform dependency",
+      "baseline_extent": "untranslated",
+      "current_extent": "untranslated",
+      "static_callgraph_reachable": true,
+      "body_bytes": 622,
+      "callers": [
+        "0x0000f54a"
+      ],
+      "callees": [
+        "0x00006608",
+        "0x00006660",
+        "0x0000de9e",
+        "0x0000e17c",
+        "0x0000e7fc",
+        "0x0000eb26",
+        "0x0000ebf0",
+        "0x0000edde",
+        "0x0001e59e"
+      ],
+      "remaining_direct_dependencies": [
+        "0x00006608",
+        "0x0000e17c",
+        "0x0000e7fc",
+        "0x0000eb26",
+        "0x0000ebf0",
+        "0x0000edde"
+      ],
+      "current_boundary": "No complete native or qualified upstream counterpart",
+      "evidence": "decompiled/clean/0000f28a_FUN_ram_0000f28a.c"
+    },
+    {
+      "rank": 83,
+      "address": "0x0000f8a4",
+      "name": "fat_sync_file",
+      "priority_tier": 3,
+      "priority_reason": "display / storage / platform dependency",
+      "baseline_extent": "untranslated",
+      "current_extent": "untranslated",
+      "static_callgraph_reachable": true,
+      "body_bytes": 156,
+      "callers": [
+        "0x0000f940"
+      ],
+      "callees": [
+        "0x00006630",
+        "0x0000dcd0",
+        "0x0000dd48",
+        "0x0000de70",
+        "0x0000df10",
+        "0x0000e116",
+        "0x0000e17c",
+        "0x0000ea1e"
+      ],
+      "remaining_direct_dependencies": [
+        "0x00006630",
+        "0x0000dd48",
+        "0x0000df10",
+        "0x0000e17c",
+        "0x0000ea1e"
+      ],
+      "current_boundary": "No complete native or qualified upstream counterpart",
+      "evidence": "decompiled/clean/0000f8a4_FUN_ram_0000f8a4.c"
+    },
+    {
+      "rank": 84,
+      "address": "0x0000fab0",
+      "name": "fat_unlink_path",
+      "priority_tier": 3,
+      "priority_reason": "display / storage / platform dependency",
+      "baseline_extent": "untranslated",
+      "current_extent": "untranslated",
+      "static_callgraph_reachable": true,
+      "body_bytes": 152,
+      "callers": [
+        "0x0000de12"
+      ],
+      "callees": [
+        "0x00006630",
+        "0x0000e0f8",
+        "0x0000e2b8",
+        "0x0000e7fc",
+        "0x0000e9a4",
+        "0x0000ea1e",
+        "0x0000ec3e",
+        "0x0000ed8e",
+        "0x0000ef70"
+      ],
+      "remaining_direct_dependencies": [
+        "0x00006630",
+        "0x0000e2b8",
+        "0x0000e7fc",
+        "0x0000e9a4",
+        "0x0000ea1e",
+        "0x0000ec3e",
+        "0x0000ed8e",
+        "0x0000ef70"
+      ],
+      "current_boundary": "No complete native or qualified upstream counterpart",
+      "evidence": "decompiled/clean/0000fab0_FUN_ram_0000fab0.c"
+    },
+    {
+      "rank": 85,
+      "address": "0x0000fb48",
+      "name": "fat_make_directory",
+      "priority_tier": 3,
+      "priority_reason": "display / storage / platform dependency",
+      "baseline_extent": "untranslated",
+      "current_extent": "untranslated",
+      "static_callgraph_reachable": true,
+      "body_bytes": 286,
+      "callers": [
+        "0x0000dd4e"
+      ],
+      "callees": [
+        "0x00006608",
+        "0x00006660",
+        "0x0000e086",
+        "0x0000e2b8",
+        "0x0000e7fc",
+        "0x0000ea1e",
+        "0x0000ebf0",
+        "0x0000ec3e",
+        "0x0000fc9e",
+        "0x0000fd46",
+        "0x0001e59e",
+        "0x0001e7f4"
+      ],
+      "remaining_direct_dependencies": [
+        "0x00006608",
+        "0x0000e086",
+        "0x0000e2b8",
+        "0x0000e7fc",
+        "0x0000ea1e",
+        "0x0000ebf0",
+        "0x0000ec3e",
+        "0x0000fc9e",
+        "0x0001e7f4"
+      ],
+      "current_boundary": "No complete native or qualified upstream counterpart",
+      "evidence": "decompiled/clean/0000fb48_FUN_ram_0000fb48.c"
+    },
+    {
+      "rank": 86,
+      "address": "0x0000fcfc",
+      "name": "fat_codepage_to_unicode",
+      "priority_tier": 3,
+      "priority_reason": "display / storage / platform dependency",
+      "baseline_extent": "partial",
+      "current_extent": "partial",
+      "static_callgraph_reachable": true,
+      "body_bytes": 74,
+      "callers": [
+        "0x0000e086"
+      ],
+      "callees": [],
+      "remaining_direct_dependencies": [],
+      "current_boundary": "All defined ASCII/wrong-page/exceptional-key returns and first unmapped ROM read at80023fe4 recovered. Physical memory alias/bus result remains unprovided; native reports fault and FatFs fails closed",
+      "evidence": "decompiled/clean/0000fcfc_FUN_ram_0000fcfc.c"
+    },
+    {
+      "rank": 87,
+      "address": "0x0000cb88",
+      "name": "NMI_Handler",
+      "priority_tier": 3,
+      "priority_reason": "display / storage / platform dependency",
+      "baseline_extent": "untranslated",
+      "current_extent": "untranslated",
+      "static_callgraph_reachable": false,
+      "body_bytes": 4,
+      "callers": [],
+      "callees": [],
+      "remaining_direct_dependencies": [],
+      "current_boundary": "No complete native or qualified upstream counterpart",
+      "evidence": "decompiled/clean/0000cb88_NMI_Handler.c"
+    },
+    {
+      "rank": 88,
+      "address": "0x0000969e",
+      "name": "format_string_varargs",
+      "priority_tier": 4,
+      "priority_reason": "format / debug library",
+      "baseline_extent": "partial",
+      "current_extent": "partial",
+      "static_callgraph_reachable": true,
+      "body_bytes": 34,
+      "callers": [
+        "0x000099cc",
+        "0x00009caa",
+        "0x0000b9e0",
+        "0x0000be78",
+        "0x0000c248",
+        "0x0000d964",
+        "0x00012b00",
+        "0x00012d5a",
+        "0x00013504",
+        "0x00014578",
+        "0x00014c42",
+        "0x00014cd6",
+        "0x00014ef2",
+        "0x00015af6",
+        "0x000169d4",
+        "0x00018354"
+      ],
+      "callees": [
+        "0x0000910e"
+      ],
+      "remaining_direct_dependencies": [
+        "0x0000910e"
+      ],
+      "current_boundary": "typed native varargs adaptation, no unbounded writes",
+      "evidence": "decompiled/clean/0000969e_FUN_ram_0000969e.c"
+    },
+    {
+      "rank": 89,
+      "address": "0x0001a74a",
+      "name": "debug_format_emit",
+      "priority_tier": 4,
+      "priority_reason": "format / debug library",
+      "baseline_extent": "untranslated",
+      "current_extent": "untranslated",
+      "static_callgraph_reachable": true,
+      "body_bytes": 74,
+      "callers": [
+        "0x0001a794",
+        "0x0001a874",
+        "0x0001a966",
+        "0x0001aa86",
+        "0x0001ab86"
+      ],
+      "callees": [
+        "0x0001a6e2"
+      ],
+      "remaining_direct_dependencies": [
+        "0x0001a6e2"
+      ],
+      "current_boundary": "No complete native or qualified upstream counterpart",
+      "evidence": "decompiled/clean/0001a74a_FUN_ram_0001a74a.c"
+    },
+    {
+      "rank": 90,
+      "address": "0x0001a794",
+      "name": "debug_format_integer_digits",
+      "priority_tier": 4,
+      "priority_reason": "format / debug library",
+      "baseline_extent": "untranslated",
+      "current_extent": "untranslated",
+      "static_callgraph_reachable": true,
+      "body_bytes": 224,
+      "callers": [
+        "0x0001a874",
+        "0x0001a966",
+        "0x0001ab86"
+      ],
+      "callees": [
+        "0x0001a74a"
+      ],
+      "remaining_direct_dependencies": [
+        "0x0001a74a"
+      ],
+      "current_boundary": "No complete native or qualified upstream counterpart",
+      "evidence": "decompiled/clean/0001a794_FUN_ram_0001a794.c"
+    },
+    {
+      "rank": 91,
+      "address": "0x0001a966",
+      "name": "debug_format_numeric_family",
+      "priority_tier": 4,
+      "priority_reason": "format / debug library",
+      "baseline_extent": "untranslated",
+      "current_extent": "untranslated",
+      "static_callgraph_reachable": true,
+      "body_bytes": 288,
+      "callers": [
+        "0x0001aa86",
+        "0x0001ab86"
+      ],
+      "callees": [
+        "0x0001a74a",
+        "0x0001a794",
+        "0x0001af02",
+        "0x0001b294"
+      ],
+      "remaining_direct_dependencies": [
+        "0x0001a74a",
+        "0x0001a794",
+        "0x0001af02",
+        "0x0001b294"
+      ],
+      "current_boundary": "No complete native or qualified upstream counterpart",
+      "evidence": "decompiled/clean/0001a966_FUN_ram_0001a966.c"
+    },
+    {
+      "rank": 92,
+      "address": "0x0001aede",
+      "name": "debug_printf",
+      "priority_tier": 4,
+      "priority_reason": "format / debug library",
+      "baseline_extent": "untranslated",
+      "current_extent": "untranslated",
+      "static_callgraph_reachable": true,
+      "body_bytes": 36,
+      "callers": [
+        "0x000075f0",
+        "0x0000a910"
+      ],
+      "callees": [
+        "0x0001ab86"
+      ],
+      "remaining_direct_dependencies": [
+        "0x0001ab86"
+      ],
+      "current_boundary": "No complete native or qualified upstream counterpart",
+      "evidence": "decompiled/clean/0001aede_FUN_ram_0001aede.c"
+    },
+    {
+      "rank": 93,
+      "address": "0x000090d2",
+      "name": "strlen",
+      "priority_tier": 4,
+      "priority_reason": "format / debug library",
+      "baseline_extent": "untranslated",
+      "current_extent": "untranslated",
+      "static_callgraph_reachable": true,
+      "body_bytes": 20,
+      "callers": [
+        "0x0000910e"
+      ],
+      "callees": [],
+      "remaining_direct_dependencies": [],
+      "current_boundary": "No complete native or qualified upstream counterpart",
+      "evidence": "decompiled/clean/000090d2_strlen.c"
+    },
+    {
+      "rank": 94,
+      "address": "0x0000910e",
+      "name": "format_buffer_engine",
+      "priority_tier": 4,
+      "priority_reason": "format / debug library",
+      "baseline_extent": "partial",
+      "current_extent": "partial",
+      "static_callgraph_reachable": true,
+      "body_bytes": 1424,
+      "callers": [
+        "0x0000969e"
+      ],
+      "callees": [
+        "0x00006600",
+        "0x0000663c",
+        "0x000090d2",
+        "0x000090e6",
+        "0x000090fc",
+        "0x0001b61e",
+        "0x0001c302",
+        "0x0001c3b8",
+        "0x0001c870",
+        "0x0001d016",
+        "0x0001d072",
+        "0x0001d0e4"
+      ],
+      "remaining_direct_dependencies": [
+        "0x00006600",
+        "0x0000663c",
+        "0x000090d2",
+        "0x0001b61e",
+        "0x0001c302",
+        "0x0001c3b8",
+        "0x0001c870",
+        "0x0001d016",
+        "0x0001d072",
+        "0x0001d0e4"
+      ],
+      "current_boundary": "application format subset and explicit bounds",
+      "evidence": "decompiled/clean/0000910e_FUN_ram_0000910e.c"
+    },
+    {
+      "rank": 95,
+      "address": "0x0001a6e2",
+      "name": "debug_putchar",
+      "priority_tier": 4,
+      "priority_reason": "format / debug library",
+      "baseline_extent": "untranslated",
+      "current_extent": "untranslated",
+      "static_callgraph_reachable": true,
+      "body_bytes": 62,
+      "callers": [
+        "0x0001a74a"
+      ],
+      "callees": [
+        "0x00006616",
+        "0x0000d1b0",
+        "0x0000d1c0"
+      ],
+      "remaining_direct_dependencies": [
+        "0x00006616"
+      ],
+      "current_boundary": "No complete native or qualified upstream counterpart",
+      "evidence": "decompiled/clean/0001a6e2_debug_putchar.c"
+    },
+    {
+      "rank": 96,
+      "address": "0x0001a720",
+      "name": "heap_adjust_break",
+      "priority_tier": 4,
+      "priority_reason": "format / debug library",
+      "baseline_extent": "untranslated",
+      "current_extent": "untranslated",
+      "static_callgraph_reachable": true,
+      "body_bytes": 42,
+      "callers": [
+        "0x0001e7c2"
+      ],
+      "callees": [],
+      "remaining_direct_dependencies": [],
+      "current_boundary": "No complete native or qualified upstream counterpart",
+      "evidence": "decompiled/clean/0001a720_FUN_ram_0001a720.c"
+    },
+    {
+      "rank": 97,
+      "address": "0x0001a874",
+      "name": "debug_format_integer_field",
+      "priority_tier": 4,
+      "priority_reason": "format / debug library",
+      "baseline_extent": "untranslated",
+      "current_extent": "untranslated",
+      "static_callgraph_reachable": true,
+      "body_bytes": 242,
+      "callers": [
+        "0x0001ab86"
+      ],
+      "callees": [
+        "0x0001a74a",
+        "0x0001a794"
+      ],
+      "remaining_direct_dependencies": [
+        "0x0001a74a",
+        "0x0001a794"
+      ],
+      "current_boundary": "No complete native or qualified upstream counterpart",
+      "evidence": "decompiled/clean/0001a874_FUN_ram_0001a874.c"
+    },
+    {
+      "rank": 98,
+      "address": "0x0001aa86",
+      "name": "debug_format_float_family",
+      "priority_tier": 4,
+      "priority_reason": "format / debug library",
+      "baseline_extent": "untranslated",
+      "current_extent": "untranslated",
+      "static_callgraph_reachable": true,
+      "body_bytes": 256,
+      "callers": [
+        "0x0001ab86"
+      ],
+      "callees": [
+        "0x0001a74a",
+        "0x0001a966",
+        "0x0001c302",
+        "0x0001c3b8",
+        "0x0001c870",
+        "0x0001d14c",
+        "0x0001d208"
+      ],
+      "remaining_direct_dependencies": [
+        "0x0001a74a",
+        "0x0001a966",
+        "0x0001c302",
+        "0x0001c3b8",
+        "0x0001c870",
+        "0x0001d14c",
+        "0x0001d208"
+      ],
+      "current_boundary": "No complete native or qualified upstream counterpart",
+      "evidence": "decompiled/clean/0001aa86_FUN_ram_0001aa86.c"
+    },
+    {
+      "rank": 99,
+      "address": "0x0001ab86",
+      "name": "debug_format_engine",
+      "priority_tier": 4,
+      "priority_reason": "format / debug library",
+      "baseline_extent": "untranslated",
+      "current_extent": "untranslated",
+      "static_callgraph_reachable": true,
+      "body_bytes": 856,
+      "callers": [
+        "0x0001aede"
+      ],
+      "callees": [
+        "0x0001a74a",
+        "0x0001a794",
+        "0x0001a874",
+        "0x0001a966",
+        "0x0001aa86"
+      ],
+      "remaining_direct_dependencies": [
+        "0x0001a74a",
+        "0x0001a794",
+        "0x0001a874",
+        "0x0001a966",
+        "0x0001aa86"
+      ],
+      "current_boundary": "No complete native or qualified upstream counterpart",
+      "evidence": "decompiled/clean/0001ab86_FUN_ram_0001ab86.c"
+    },
+    {
+      "rank": 100,
+      "address": "0x00006630",
+      "name": "wch_save_2",
+      "priority_tier": 5,
+      "priority_reason": "compiler / arithmetic / libc runtime",
+      "baseline_extent": "untranslated",
+      "current_extent": "untranslated",
+      "static_callgraph_reachable": true,
+      "body_bytes": 12,
+      "callers": [
+        "0x00006708",
+        "0x00007562",
+        "0x000075f0",
+        "0x0000767a",
+        "0x0000770a",
+        "0x00007716",
+        "0x00007736",
+        "0x0000780c",
+        "0x000078ba",
+        "0x000078d0",
+        "0x00007918",
+        "0x0000792e",
+        "0x00007b08",
+        "0x00007d6a",
+        "0x00007dba",
+        "0x00007e0a",
+        "0x00007e20",
+        "0x00007e2e",
+        "0x00007e38",
+        "0x00007e68",
+        "0x00007f00",
+        "0x00007f18",
+        "0x00007f66",
+        "0x00008016",
+        "0x0000876a",
+        "0x000087aa",
+        "0x0000908a",
+        "0x00009774",
+        "0x000097f8",
+        "0x0000997e",
+        "0x000099cc",
+        "0x0000a74e",
+        "0x0000a782",
+        "0x0000a7a4",
+        "0x0000a7d0",
+        "0x0000aed0",
+        "0x0000b29e",
+        "0x0000b56a",
+        "0x0000b5c8",
+        "0x0000b9e0",
+        "0x0000bc90",
+        "0x0000c11a",
+        "0x0000c248",
+        "0x0000c320",
+        "0x0000c350",
+        "0x0000c9ca",
+        "0x0000c9ee",
+        "0x0000d096",
+        "0x0000d442",
+        "0x0000d498",
+        "0x0000d4a4",
+        "0x0000d4b4",
+        "0x0000d4f8",
+        "0x0000d516",
+        "0x0000d538",
+        "0x0000d588",
+        "0x0000d656",
+        "0x0000d782",
+        "0x0000d86c",
+        "0x0000d928",
+        "0x0000d964",
+        "0x0000dbac",
+        "0x0000dc46",
+        "0x0000dca8",
+        "0x0000dcd0",
+        "0x0000dd4e",
+        "0x0000ddb0",
+        "0x0000de12",
+        "0x0000df10",
+        "0x0000e086",
+        "0x0000e134",
+        "0x0000e17c",
+        "0x0000e1bc",
+        "0x0000ea1e",
+        "0x0000f4f8",
+        "0x0000f8a4",
+        "0x0000f940",
+        "0x0000fab0",
+        "0x0000fc66",
+        "0x0000fe08",
+        "0x0001014e",
+        "0x00010e86",
+        "0x00012b00",
+        "0x00013504",
+        "0x000142a4",
+        "0x0001432e",
+        "0x000143e0",
+        "0x00014408",
+        "0x00014d62",
+        "0x0001511a",
+        "0x0001598c",
+        "0x000164d4",
+        "0x00017f92",
+        "0x00018354",
+        "0x00018974",
+        "0x00019954",
+        "0x00019ba8",
+        "0x0001a336",
+        "0x0001a682"
+      ],
+      "callees": [],
+      "remaining_direct_dependencies": [],
+      "current_boundary": "No complete native or qualified upstream counterpart",
+      "evidence": "decompiled/clean/00006630_wch_save_2.c"
+    },
+    {
+      "rank": 101,
+      "address": "0x00006616",
+      "name": "wch_save_6",
+      "priority_tier": 5,
+      "priority_reason": "compiler / arithmetic / libc runtime",
+      "baseline_extent": "untranslated",
+      "current_extent": "untranslated",
+      "static_callgraph_reachable": true,
+      "body_bytes": 26,
+      "callers": [
+        "0x00006734",
+        "0x0000678c",
+        "0x00006854",
+        "0x00007598",
+        "0x00007944",
+        "0x00008194",
+        "0x000086f6",
+        "0x00008a02",
+        "0x000096de",
+        "0x000097c4",
+        "0x0000a910",
+        "0x0000d38a",
+        "0x0000d602",
+        "0x0000d87c",
+        "0x0000da9c",
+        "0x0000e5e8",
+        "0x0000e71e",
+        "0x0000e7fc",
+        "0x0000e8b2",
+        "0x0000e9a4",
+        "0x0000eac8",
+        "0x0000eb26",
+        "0x0000ebf0",
+        "0x0000ed8e",
+        "0x0000f962",
+        "0x00010198",
+        "0x00010404",
+        "0x00012c38",
+        "0x00012c78",
+        "0x00012d5a",
+        "0x00013264",
+        "0x000135b0",
+        "0x00013c02",
+        "0x00014c42",
+        "0x00014cd6",
+        "0x00014e48",
+        "0x00014ef2",
+        "0x00015168",
+        "0x000152a8",
+        "0x000153d0",
+        "0x00015af6",
+        "0x00015e9e",
+        "0x000169d4",
+        "0x00017c8c",
+        "0x00019f20",
+        "0x0001a6e2"
+      ],
+      "callees": [],
+      "remaining_direct_dependencies": [],
+      "current_boundary": "No complete native or qualified upstream counterpart",
+      "evidence": "decompiled/clean/00006616_wch_save_6.c"
+    },
+    {
+      "rank": 102,
+      "address": "0x00006600",
+      "name": "wch_save_12",
+      "priority_tier": 5,
+      "priority_reason": "compiler / arithmetic / libc runtime",
+      "baseline_extent": "untranslated",
+      "current_extent": "untranslated",
+      "static_callgraph_reachable": true,
+      "body_bytes": 8,
+      "callers": [
+        "0x0000696e",
+        "0x00006d9c",
+        "0x000080d4",
+        "0x00008266",
+        "0x000083d6",
+        "0x000084da",
+        "0x000085cc",
+        "0x00008a5a",
+        "0x00008b5c",
+        "0x00008c64",
+        "0x00008d6c",
+        "0x0000910e",
+        "0x0000be78",
+        "0x0000df50",
+        "0x0000edde",
+        "0x0000ef70",
+        "0x0000f732",
+        "0x000109e4",
+        "0x00011086",
+        "0x000126d8",
+        "0x00014578",
+        "0x00014a92",
+        "0x00017cce",
+        "0x00019366",
+        "0x0001a360",
+        "0x0001a468"
+      ],
+      "callees": [],
+      "remaining_direct_dependencies": [],
+      "current_boundary": "No complete native or qualified upstream counterpart",
+      "evidence": "decompiled/clean/00006600_wch_save_12.c"
+    },
+    {
+      "rank": 103,
+      "address": "0x0000663c",
+      "name": "wch_restore_12",
+      "priority_tier": 5,
+      "priority_reason": "compiler / arithmetic / libc runtime",
+      "baseline_extent": "untranslated",
+      "current_extent": "untranslated",
+      "static_callgraph_reachable": true,
+      "body_bytes": 36,
+      "callers": [
+        "0x0000696e",
+        "0x00006d9c",
+        "0x000080d4",
+        "0x00008266",
+        "0x000083d6",
+        "0x000084da",
+        "0x000085cc",
+        "0x00008a5a",
+        "0x00008b5c",
+        "0x00008c64",
+        "0x00008d6c",
+        "0x0000910e",
+        "0x0000be78",
+        "0x0000df50",
+        "0x0000edde",
+        "0x0000ef70",
+        "0x0000f732",
+        "0x000109e4",
+        "0x00011086",
+        "0x000126d8",
+        "0x00014578",
+        "0x00014a92",
+        "0x00017cce",
+        "0x00019366",
+        "0x0001a360",
+        "0x0001a468"
+      ],
+      "callees": [],
+      "remaining_direct_dependencies": [],
+      "current_boundary": "No complete native or qualified upstream counterpart",
+      "evidence": "decompiled/clean/0000663c_wch_restore_12.c"
+    },
+    {
+      "rank": 104,
+      "address": "0x00006608",
+      "name": "wch_save_10",
+      "priority_tier": 5,
+      "priority_reason": "compiler / arithmetic / libc runtime",
+      "baseline_extent": "untranslated",
+      "current_extent": "untranslated",
+      "static_callgraph_reachable": true,
+      "body_bytes": 14,
+      "callers": [
+        "0x000068d2",
+        "0x00008050",
+        "0x000081ce",
+        "0x00008588",
+        "0x00008672",
+        "0x00008e46",
+        "0x00008ed4",
+        "0x00009caa",
+        "0x0000d6bc",
+        "0x0000e2b8",
+        "0x0000ec3e",
+        "0x0000f28a",
+        "0x0000f54a",
+        "0x0000fb48",
+        "0x0001066c",
+        "0x00010bd0",
+        "0x00016242",
+        "0x00017c06",
+        "0x00018ad2",
+        "0x0001a124"
+      ],
+      "callees": [],
+      "remaining_direct_dependencies": [],
+      "current_boundary": "No complete native or qualified upstream counterpart",
+      "evidence": "decompiled/clean/00006608_wch_save_10.c"
+    },
+    {
+      "rank": 105,
+      "address": "0x0001e4f8",
+      "name": "runtime_count_leading_zeros",
+      "priority_tier": 5,
+      "priority_reason": "compiler / arithmetic / libc runtime",
+      "baseline_extent": "untranslated",
+      "current_extent": "untranslated",
+      "static_callgraph_reachable": true,
+      "body_bytes": 110,
+      "callers": [
+        "0x0001b61e",
+        "0x0001bd4e",
+        "0x0001c3b8",
+        "0x0001c870",
+        "0x0001d072",
+        "0x0001d0e4",
+        "0x0001d208",
+        "0x0001d3be",
+        "0x0001d728",
+        "0x0001db48",
+        "0x0001dddc",
+        "0x0001e21c",
+        "0x0001e2e2"
+      ],
+      "callees": [],
+      "remaining_direct_dependencies": [],
+      "current_boundary": "No complete native or qualified upstream counterpart",
+      "evidence": "decompiled/clean/0001e4f8_FUN_ram_0001e4f8.c"
+    },
+    {
+      "rank": 106,
+      "address": "0x0001c3b8",
+      "name": "runtime_multiply_double",
+      "priority_tier": 5,
+      "priority_reason": "compiler / arithmetic / libc runtime",
+      "baseline_extent": "untranslated",
+      "current_extent": "untranslated",
+      "static_callgraph_reachable": true,
+      "body_bytes": 1208,
+      "callers": [
+        "0x0000910e",
+        "0x00009caa",
+        "0x0000b9e0",
+        "0x00012d5a",
+        "0x00013264",
+        "0x00014578",
+        "0x00017cce",
+        "0x00018ad2",
+        "0x0001a468",
+        "0x0001aa86"
+      ],
+      "callees": [
+        "0x0001e4f8"
+      ],
+      "remaining_direct_dependencies": [
+        "0x0001e4f8"
+      ],
+      "current_boundary": "No complete native or qualified upstream counterpart",
+      "evidence": "decompiled/clean/0001c3b8_FUN_ram_0001c3b8.c"
+    },
+    {
+      "rank": 107,
+      "address": "0x0001e2e2",
+      "name": "runtime_float_to_double",
+      "priority_tier": 5,
+      "priority_reason": "compiler / arithmetic / libc runtime",
+      "baseline_extent": "untranslated",
+      "current_extent": "untranslated",
+      "static_callgraph_reachable": true,
+      "body_bytes": 172,
+      "callers": [
+        "0x000075f0",
+        "0x000099cc",
+        "0x00009caa",
+        "0x0000b9e0",
+        "0x00012d5a",
+        "0x00013264",
+        "0x00013504",
+        "0x00014578",
+        "0x00017cce",
+        "0x0001a468"
+      ],
+      "callees": [
+        "0x0001e4f8"
+      ],
+      "remaining_direct_dependencies": [
+        "0x0001e4f8"
+      ],
+      "current_boundary": "No complete native or qualified upstream counterpart",
+      "evidence": "decompiled/clean/0001e2e2_FUN_ram_0001e2e2.c"
+    },
+    {
+      "rank": 108,
+      "address": "0x0001b61e",
+      "name": "runtime_add_double",
+      "priority_tier": 5,
+      "priority_reason": "compiler / arithmetic / libc runtime",
+      "baseline_extent": "untranslated",
+      "current_extent": "untranslated",
+      "static_callgraph_reachable": true,
+      "body_bytes": 1840,
+      "callers": [
+        "0x0000910e",
+        "0x00009caa",
+        "0x0000b9e0",
+        "0x00012d5a",
+        "0x00013264",
+        "0x00014578",
+        "0x00018ad2"
+      ],
+      "callees": [
+        "0x0001e4f8"
+      ],
+      "remaining_direct_dependencies": [
+        "0x0001e4f8"
+      ],
+      "current_boundary": "No complete native or qualified upstream counterpart",
+      "evidence": "decompiled/clean/0001b61e_FUN_ram_0001b61e.c"
+    },
+    {
+      "rank": 109,
+      "address": "0x0001dabc",
+      "name": "runtime_float_compare_le",
+      "priority_tier": 5,
+      "priority_reason": "compiler / arithmetic / libc runtime",
+      "baseline_extent": "untranslated",
+      "current_extent": "untranslated",
+      "static_callgraph_reachable": true,
+      "body_bytes": 140,
+      "callers": [
+        "0x000099cc",
+        "0x00009caa",
+        "0x0000da9c",
+        "0x00013264",
+        "0x00013504",
+        "0x00014578",
+        "0x00017cce"
+      ],
+      "callees": [],
+      "remaining_direct_dependencies": [],
+      "current_boundary": "No complete native or qualified upstream counterpart",
+      "evidence": "decompiled/clean/0001dabc_FUN_ram_0001dabc.c"
+    },
+    {
+      "rank": 110,
+      "address": "0x0001d728",
+      "name": "runtime_divide_float",
+      "priority_tier": 5,
+      "priority_reason": "compiler / arithmetic / libc runtime",
+      "baseline_extent": "untranslated",
+      "current_extent": "untranslated",
+      "static_callgraph_reachable": true,
+      "body_bytes": 278,
+      "callers": [
+        "0x000075f0",
+        "0x000096de",
+        "0x00009caa",
+        "0x0000dbac",
+        "0x00012d5a",
+        "0x00017cce"
+      ],
+      "callees": [
+        "0x0001e4f8"
+      ],
+      "remaining_direct_dependencies": [
+        "0x0001e4f8"
+      ],
+      "current_boundary": "No complete native or qualified upstream counterpart",
+      "evidence": "decompiled/clean/0001d728_FUN_ram_0001d728.c"
+    },
+    {
+      "rank": 111,
+      "address": "0x0001da36",
+      "name": "runtime_float_compare_ge",
+      "priority_tier": 5,
+      "priority_reason": "compiler / arithmetic / libc runtime",
+      "baseline_extent": "untranslated",
+      "current_extent": "untranslated",
+      "static_callgraph_reachable": true,
+      "body_bytes": 134,
+      "callers": [
+        "0x000099cc",
+        "0x00009caa",
+        "0x00013264",
+        "0x00014578",
+        "0x00017cce",
+        "0x0001a468"
+      ],
+      "callees": [],
+      "remaining_direct_dependencies": [],
+      "current_boundary": "No complete native or qualified upstream counterpart",
+      "evidence": "decompiled/clean/0001da36_FUN_ram_0001da36.c"
+    },
+    {
+      "rank": 112,
+      "address": "0x0001db48",
+      "name": "runtime_multiply_float",
+      "priority_tier": 5,
+      "priority_reason": "compiler / arithmetic / libc runtime",
+      "baseline_extent": "untranslated",
+      "current_extent": "untranslated",
+      "static_callgraph_reachable": true,
+      "body_bytes": 660,
+      "callers": [
+        "0x000075f0",
+        "0x000096de",
+        "0x00009caa",
+        "0x0000da9c",
+        "0x00013264",
+        "0x00017cce"
+      ],
+      "callees": [
+        "0x0001e4f8"
+      ],
+      "remaining_direct_dependencies": [
+        "0x0001e4f8"
+      ],
+      "current_boundary": "No complete native or qualified upstream counterpart",
+      "evidence": "decompiled/clean/0001db48_FUN_ram_0001db48.c"
+    },
+    {
+      "rank": 113,
+      "address": "0x0001e21c",
+      "name": "runtime_signed_int_to_float",
+      "priority_tier": 5,
+      "priority_reason": "compiler / arithmetic / libc runtime",
+      "baseline_extent": "untranslated",
+      "current_extent": "untranslated",
+      "static_callgraph_reachable": true,
+      "body_bytes": 198,
+      "callers": [
+        "0x000075f0",
+        "0x000096de",
+        "0x0000dbac",
+        "0x00012d5a",
+        "0x00013264",
+        "0x0001a468"
+      ],
+      "callees": [
+        "0x0001e4f8"
+      ],
+      "remaining_direct_dependencies": [
+        "0x0001e4f8"
+      ],
+      "current_boundary": "No complete native or qualified upstream counterpart",
+      "evidence": "decompiled/clean/0001e21c_FUN_ram_0001e21c.c"
+    },
+    {
+      "rank": 114,
+      "address": "0x0001d072",
+      "name": "runtime_signed_int_to_double",
+      "priority_tier": 5,
+      "priority_reason": "compiler / arithmetic / libc runtime",
+      "baseline_extent": "untranslated",
+      "current_extent": "untranslated",
+      "static_callgraph_reachable": true,
+      "body_bytes": 114,
+      "callers": [
+        "0x0000910e",
+        "0x00012d5a",
+        "0x00013264",
+        "0x00018ad2"
+      ],
+      "callees": [
+        "0x0001e4f8"
+      ],
+      "remaining_direct_dependencies": [
+        "0x0001e4f8"
+      ],
+      "current_boundary": "No complete native or qualified upstream counterpart",
+      "evidence": "decompiled/clean/0001d072_FUN_ram_0001d072.c"
+    },
+    {
+      "rank": 115,
+      "address": "0x0001dddc",
+      "name": "runtime_subtract_float",
+      "priority_tier": 5,
+      "priority_reason": "compiler / arithmetic / libc runtime",
+      "baseline_extent": "untranslated",
+      "current_extent": "untranslated",
+      "static_callgraph_reachable": true,
+      "body_bytes": 904,
+      "callers": [
+        "0x000075f0",
+        "0x00009caa",
+        "0x00017cce",
+        "0x0001a468"
+      ],
+      "callees": [
+        "0x0001e4f8"
+      ],
+      "remaining_direct_dependencies": [
+        "0x0001e4f8"
+      ],
+      "current_boundary": "No complete native or qualified upstream counterpart",
+      "evidence": "decompiled/clean/0001dddc_FUN_ram_0001dddc.c"
+    },
+    {
+      "rank": 116,
+      "address": "0x0001e38e",
+      "name": "runtime_double_to_float",
+      "priority_tier": 5,
+      "priority_reason": "compiler / arithmetic / libc runtime",
+      "baseline_extent": "untranslated",
+      "current_extent": "untranslated",
+      "static_callgraph_reachable": true,
+      "body_bytes": 362,
+      "callers": [
+        "0x00009caa",
+        "0x00013264",
+        "0x00014578",
+        "0x0001a468"
+      ],
+      "callees": [],
+      "remaining_direct_dependencies": [],
+      "current_boundary": "No complete native or qualified upstream counterpart",
+      "evidence": "decompiled/clean/0001e38e_FUN_ram_0001e38e.c"
+    },
+    {
+      "rank": 117,
+      "address": "0x0001c870",
+      "name": "runtime_subtract_double",
+      "priority_tier": 5,
+      "priority_reason": "compiler / arithmetic / libc runtime",
+      "baseline_extent": "untranslated",
+      "current_extent": "untranslated",
+      "static_callgraph_reachable": true,
+      "body_bytes": 1854,
+      "callers": [
+        "0x0000910e",
+        "0x00017cce",
+        "0x0001aa86"
+      ],
+      "callees": [
+        "0x0001e4f8"
+      ],
+      "remaining_direct_dependencies": [
+        "0x0001e4f8"
+      ],
+      "current_boundary": "No complete native or qualified upstream counterpart",
+      "evidence": "decompiled/clean/0001c870_FUN_ram_0001c870.c"
+    },
+    {
+      "rank": 118,
+      "address": "0x0001cfae",
+      "name": "runtime_double_to_signed_int",
+      "priority_tier": 5,
+      "priority_reason": "compiler / arithmetic / libc runtime",
+      "baseline_extent": "untranslated",
+      "current_extent": "untranslated",
+      "static_callgraph_reachable": true,
+      "body_bytes": 104,
+      "callers": [
+        "0x0000b9e0",
+        "0x00012d5a",
+        "0x00013264"
+      ],
+      "callees": [],
+      "remaining_direct_dependencies": [],
+      "current_boundary": "No complete native or qualified upstream counterpart",
+      "evidence": "decompiled/clean/0001cfae_FUN_ram_0001cfae.c"
+    },
+    {
+      "rank": 119,
+      "address": "0x0001d016",
+      "name": "runtime_double_to_unsigned_int",
+      "priority_tier": 5,
+      "priority_reason": "compiler / arithmetic / libc runtime",
+      "baseline_extent": "untranslated",
+      "current_extent": "untranslated",
+      "static_callgraph_reachable": true,
+      "body_bytes": 92,
+      "callers": [
+        "0x0000910e",
+        "0x00017cce",
+        "0x00018ad2"
+      ],
+      "callees": [],
+      "remaining_direct_dependencies": [],
+      "current_boundary": "No complete native or qualified upstream counterpart",
+      "evidence": "decompiled/clean/0001d016_FUN_ram_0001d016.c"
+    },
+    {
+      "rank": 120,
+      "address": "0x0001d9da",
+      "name": "runtime_float_not_equal",
+      "priority_tier": 5,
+      "priority_reason": "compiler / arithmetic / libc runtime",
+      "baseline_extent": "untranslated",
+      "current_extent": "untranslated",
+      "static_callgraph_reachable": true,
+      "body_bytes": 92,
+      "callers": [
+        "0x00009caa",
+        "0x00014578",
+        "0x0001a468"
+      ],
+      "callees": [],
+      "remaining_direct_dependencies": [],
+      "current_boundary": "No complete native or qualified upstream counterpart",
+      "evidence": "decompiled/clean/0001d9da_FUN_ram_0001d9da.c"
+    },
+    {
+      "rank": 121,
+      "address": "0x0001c302",
+      "name": "runtime_compare_double",
+      "priority_tier": 5,
+      "priority_reason": "compiler / arithmetic / libc runtime",
+      "baseline_extent": "untranslated",
+      "current_extent": "untranslated",
+      "static_callgraph_reachable": true,
+      "body_bytes": 182,
+      "callers": [
+        "0x0000910e",
+        "0x0001aa86"
+      ],
+      "callees": [],
+      "remaining_direct_dependencies": [],
+      "current_boundary": "No complete native or qualified upstream counterpart",
+      "evidence": "decompiled/clean/0001c302_FUN_ram_0001c302.c"
+    },
+    {
+      "rank": 122,
+      "address": "0x0001d3be",
+      "name": "runtime_add_float",
+      "priority_tier": 5,
+      "priority_reason": "compiler / arithmetic / libc runtime",
+      "baseline_extent": "untranslated",
+      "current_extent": "untranslated",
+      "static_callgraph_reachable": true,
+      "body_bytes": 874,
+      "callers": [
+        "0x000096de",
+        "0x0001a468"
+      ],
+      "callees": [
+        "0x0001e4f8"
+      ],
+      "remaining_direct_dependencies": [
+        "0x0001e4f8"
+      ],
+      "current_boundary": "No complete native or qualified upstream counterpart",
+      "evidence": "decompiled/clean/0001d3be_FUN_ram_0001d3be.c"
+    },
+    {
+      "rank": 123,
+      "address": "0x0001e1c6",
+      "name": "runtime_float_to_unsigned_int",
+      "priority_tier": 5,
+      "priority_reason": "compiler / arithmetic / libc runtime",
+      "baseline_extent": "untranslated",
+      "current_extent": "untranslated",
+      "static_callgraph_reachable": true,
+      "body_bytes": 86,
+      "callers": [
+        "0x00009caa",
+        "0x0000da9c"
+      ],
+      "callees": [],
+      "remaining_direct_dependencies": [],
+      "current_boundary": "No complete native or qualified upstream counterpart",
+      "evidence": "decompiled/clean/0001e1c6_FUN_ram_0001e1c6.c"
+    },
+    {
+      "rank": 124,
+      "address": "0x0001e57a",
+      "name": "runtime_memcmp",
+      "priority_tier": 5,
+      "priority_reason": "compiler / arithmetic / libc runtime",
+      "baseline_extent": "untranslated",
+      "current_extent": "untranslated",
+      "static_callgraph_reachable": true,
+      "body_bytes": 36,
+      "callers": [
+        "0x0000e1bc",
+        "0x0000edde"
+      ],
+      "callees": [],
+      "remaining_direct_dependencies": [],
+      "current_boundary": "No complete native or qualified upstream counterpart",
+      "evidence": "decompiled/clean/0001e57a_FUN_ram_0001e57a.c"
+    },
+    {
+      "rank": 125,
+      "address": "0x0001e7f4",
+      "name": "runtime_strchr",
+      "priority_tier": 5,
+      "priority_reason": "compiler / arithmetic / libc runtime",
+      "baseline_extent": "untranslated",
+      "current_extent": "untranslated",
+      "static_callgraph_reachable": true,
+      "body_bytes": 24,
+      "callers": [
+        "0x0000ef70",
+        "0x0000fb48"
+      ],
+      "callees": [],
+      "remaining_direct_dependencies": [],
+      "current_boundary": "No complete native or qualified upstream counterpart",
+      "evidence": "decompiled/clean/0001e7f4_FUN_ram_0001e7f4.c"
+    },
+    {
+      "rank": 126,
+      "address": "0x0001e81c",
+      "name": "heap_lock_noop",
+      "priority_tier": 5,
+      "priority_reason": "compiler / arithmetic / libc runtime",
+      "baseline_extent": "untranslated",
+      "current_extent": "untranslated",
+      "static_callgraph_reachable": true,
+      "body_bytes": 2,
+      "callers": [
+        "0x0001e650",
+        "0x0001e6f4"
+      ],
+      "callees": [],
+      "remaining_direct_dependencies": [],
+      "current_boundary": "No complete native or qualified upstream counterpart",
+      "evidence": "decompiled/clean/0001e81c_FUN_ram_0001e81c.c"
+    },
+    {
+      "rank": 127,
+      "address": "0x0001e81e",
+      "name": "heap_unlock_noop",
+      "priority_tier": 5,
+      "priority_reason": "compiler / arithmetic / libc runtime",
+      "baseline_extent": "untranslated",
+      "current_extent": "untranslated",
+      "static_callgraph_reachable": true,
+      "body_bytes": 2,
+      "callers": [
+        "0x0001e650",
+        "0x0001e6f4"
+      ],
+      "callees": [],
+      "remaining_direct_dependencies": [],
+      "current_boundary": "No complete native or qualified upstream counterpart",
+      "evidence": "decompiled/clean/0001e81e_FUN_ram_0001e81e.c"
+    },
+    {
+      "rank": 128,
+      "address": "0x0001af02",
+      "name": "runtime_unsigned_divide_64",
+      "priority_tier": 5,
+      "priority_reason": "compiler / arithmetic / libc runtime",
+      "baseline_extent": "untranslated",
+      "current_extent": "untranslated",
+      "static_callgraph_reachable": true,
+      "body_bytes": 914,
+      "callers": [
+        "0x0001a966"
+      ],
+      "callees": [],
+      "remaining_direct_dependencies": [],
+      "current_boundary": "No complete native or qualified upstream counterpart",
+      "evidence": "decompiled/clean/0001af02_FUN_ram_0001af02.c"
+    },
+    {
+      "rank": 129,
+      "address": "0x0001b294",
+      "name": "runtime_unsigned_remainder_64",
+      "priority_tier": 5,
+      "priority_reason": "compiler / arithmetic / libc runtime",
+      "baseline_extent": "untranslated",
+      "current_extent": "untranslated",
+      "static_callgraph_reachable": true,
+      "body_bytes": 906,
+      "callers": [
+        "0x0001a966"
+      ],
+      "callees": [],
+      "remaining_direct_dependencies": [],
+      "current_boundary": "No complete native or qualified upstream counterpart",
+      "evidence": "decompiled/clean/0001b294_FUN_ram_0001b294.c"
+    },
+    {
+      "rank": 130,
+      "address": "0x0001bd4e",
+      "name": "runtime_divide_double",
+      "priority_tier": 5,
+      "priority_reason": "compiler / arithmetic / libc runtime",
+      "baseline_extent": "untranslated",
+      "current_extent": "untranslated",
+      "static_callgraph_reachable": true,
+      "body_bytes": 1460,
+      "callers": [
+        "0x00017cce"
+      ],
+      "callees": [
+        "0x0001e4f8"
+      ],
+      "remaining_direct_dependencies": [
+        "0x0001e4f8"
+      ],
+      "current_boundary": "No complete native or qualified upstream counterpart",
+      "evidence": "decompiled/clean/0001bd4e_FUN_ram_0001bd4e.c"
+    },
+    {
+      "rank": 131,
+      "address": "0x0001d0e4",
+      "name": "runtime_unsigned_int_to_double",
+      "priority_tier": 5,
+      "priority_reason": "compiler / arithmetic / libc runtime",
+      "baseline_extent": "untranslated",
+      "current_extent": "untranslated",
+      "static_callgraph_reachable": true,
+      "body_bytes": 104,
+      "callers": [
+        "0x0000910e"
+      ],
+      "callees": [
+        "0x0001e4f8"
+      ],
+      "remaining_direct_dependencies": [
+        "0x0001e4f8"
+      ],
+      "current_boundary": "No complete native or qualified upstream counterpart",
+      "evidence": "decompiled/clean/0001d0e4_FUN_ram_0001d0e4.c"
+    },
+    {
+      "rank": 132,
+      "address": "0x0001d14c",
+      "name": "runtime_double_to_unsigned_64",
+      "priority_tier": 5,
+      "priority_reason": "compiler / arithmetic / libc runtime",
+      "baseline_extent": "untranslated",
+      "current_extent": "untranslated",
+      "static_callgraph_reachable": true,
+      "body_bytes": 188,
+      "callers": [
+        "0x0001aa86"
+      ],
+      "callees": [],
+      "remaining_direct_dependencies": [],
+      "current_boundary": "No complete native or qualified upstream counterpart",
+      "evidence": "decompiled/clean/0001d14c_FUN_ram_0001d14c.c"
+    },
+    {
+      "rank": 133,
+      "address": "0x0001d208",
+      "name": "runtime_unsigned_64_to_double",
+      "priority_tier": 5,
+      "priority_reason": "compiler / arithmetic / libc runtime",
+      "baseline_extent": "untranslated",
+      "current_extent": "untranslated",
+      "static_callgraph_reachable": true,
+      "body_bytes": 438,
+      "callers": [
+        "0x0001aa86"
+      ],
+      "callees": [
+        "0x0001e4f8"
+      ],
+      "remaining_direct_dependencies": [
+        "0x0001e4f8"
+      ],
+      "current_boundary": "No complete native or qualified upstream counterpart",
+      "evidence": "decompiled/clean/0001d208_FUN_ram_0001d208.c"
+    },
+    {
+      "rank": 134,
+      "address": "0x0001e164",
+      "name": "runtime_float_to_signed_int",
+      "priority_tier": 5,
+      "priority_reason": "compiler / arithmetic / libc runtime",
+      "baseline_extent": "untranslated",
+      "current_extent": "untranslated",
+      "static_callgraph_reachable": true,
+      "body_bytes": 98,
+      "callers": [
+        "0x000075f0"
+      ],
+      "callees": [],
+      "remaining_direct_dependencies": [],
+      "current_boundary": "No complete native or qualified upstream counterpart",
+      "evidence": "decompiled/clean/0001e164_FUN_ram_0001e164.c"
+    },
+    {
+      "rank": 135,
+      "address": "0x0001e566",
+      "name": "heap_malloc_wrapper",
+      "priority_tier": 5,
+      "priority_reason": "compiler / arithmetic / libc runtime",
+      "baseline_extent": "untranslated",
+      "current_extent": "untranslated",
+      "static_callgraph_reachable": true,
+      "body_bytes": 10,
+      "callers": [
+        "0x0000678c"
+      ],
+      "callees": [
+        "0x0001e6f4"
+      ],
+      "remaining_direct_dependencies": [
+        "0x0001e6f4"
+      ],
+      "current_boundary": "No complete native or qualified upstream counterpart",
+      "evidence": "decompiled/clean/0001e566_FUN_ram_0001e566.c"
+    },
+    {
+      "rank": 136,
+      "address": "0x0001e570",
+      "name": "heap_free_wrapper",
+      "priority_tier": 5,
+      "priority_reason": "compiler / arithmetic / libc runtime",
+      "baseline_extent": "untranslated",
+      "current_extent": "untranslated",
+      "static_callgraph_reachable": true,
+      "body_bytes": 10,
+      "callers": [
+        "0x0000678c"
+      ],
+      "callees": [
+        "0x0001e650"
+      ],
+      "remaining_direct_dependencies": [
+        "0x0001e650"
+      ],
+      "current_boundary": "No complete native or qualified upstream counterpart",
+      "evidence": "decompiled/clean/0001e570_FUN_ram_0001e570.c"
+    },
+    {
+      "rank": 137,
+      "address": "0x0001e650",
+      "name": "heap_free_reentrant",
+      "priority_tier": 5,
+      "priority_reason": "compiler / arithmetic / libc runtime",
+      "baseline_extent": "untranslated",
+      "current_extent": "untranslated",
+      "static_callgraph_reachable": true,
+      "body_bytes": 164,
+      "callers": [
+        "0x0001e570"
+      ],
+      "callees": [
+        "0x0001e81c",
+        "0x0001e81e"
+      ],
+      "remaining_direct_dependencies": [
+        "0x0001e81c",
+        "0x0001e81e"
+      ],
+      "current_boundary": "No complete native or qualified upstream counterpart",
+      "evidence": "decompiled/clean/0001e650_FUN_ram_0001e650.c"
+    },
+    {
+      "rank": 138,
+      "address": "0x0001e6f4",
+      "name": "heap_malloc_reentrant",
+      "priority_tier": 5,
+      "priority_reason": "compiler / arithmetic / libc runtime",
+      "baseline_extent": "untranslated",
+      "current_extent": "untranslated",
+      "static_callgraph_reachable": true,
+      "body_bytes": 206,
+      "callers": [
+        "0x0001e566"
+      ],
+      "callees": [
+        "0x0001e7c2",
+        "0x0001e81c",
+        "0x0001e81e"
+      ],
+      "remaining_direct_dependencies": [
+        "0x0001e7c2",
+        "0x0001e81c",
+        "0x0001e81e"
+      ],
+      "current_boundary": "No complete native or qualified upstream counterpart",
+      "evidence": "decompiled/clean/0001e6f4_FUN_ram_0001e6f4.c"
+    },
+    {
+      "rank": 139,
+      "address": "0x0001e7c2",
+      "name": "heap_sbrk_reentrant",
+      "priority_tier": 5,
+      "priority_reason": "compiler / arithmetic / libc runtime",
+      "baseline_extent": "untranslated",
+      "current_extent": "untranslated",
+      "static_callgraph_reachable": true,
+      "body_bytes": 50,
+      "callers": [
+        "0x0001e6f4"
+      ],
+      "callees": [
+        "0x0001a720"
+      ],
+      "remaining_direct_dependencies": [
+        "0x0001a720"
+      ],
+      "current_boundary": "No complete native or qualified upstream counterpart",
+      "evidence": "decompiled/clean/0001e7c2_FUN_ram_0001e7c2.c"
+    },
+    {
+      "rank": 140,
+      "address": "0x0001e80c",
+      "name": "runtime_strcpy",
+      "priority_tier": 5,
+      "priority_reason": "compiler / arithmetic / libc runtime",
+      "baseline_extent": "untranslated",
+      "current_extent": "untranslated",
+      "static_callgraph_reachable": true,
+      "body_bytes": 16,
+      "callers": [
+        "0x00012c78"
+      ],
+      "callees": [],
+      "remaining_direct_dependencies": [],
+      "current_boundary": "No complete native or qualified upstream counterpart",
+      "evidence": "decompiled/clean/0001e80c_FUN_ram_0001e80c.c"
+    }
+  ]
+}

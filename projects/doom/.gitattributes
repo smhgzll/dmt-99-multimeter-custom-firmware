@@ -1,0 +1,3 @@
+# Preserve the imported SDK byte-for-byte, including vendor whitespace.
+third_party/wch/** -whitespace
+board/reference/system_ch32v30x.h -whitespace

@@ -1,0 +1,102 @@
+[
+  {
+    "session": "projects/asic/captures/20261018T011007_resistance_st2_1kohm_9b1124e1",
+    "origin": "hardware",
+    "source_logic_sha256": "32bd10883c539e8ecf48fdb8d884d92c8a74d424b9a82e018082ab09859012ac",
+    "checks": [
+      {
+        "direction": "MCU_TX",
+        "channel": 0,
+        "command": [
+          "sigrok-cli",
+          "-i",
+          "captures/20261018T011007_resistance_st2_1kohm_9b1124e1/logic.bin",
+          "-I",
+          "binary:numchannels=8:samplerate=1000000",
+          "-P",
+          "uart:rx=0:baudrate=9600:data_bits=8:parity=none:stop_bits=1",
+          "-B",
+          "uart=rx"
+        ],
+        "returncode": 0,
+        "python_byte_candidates": 0,
+        "reference_bytes": 0,
+        "python_all_clean": true,
+        "exact_match": true,
+        "reason": "Clean stream comparison"
+      },
+      {
+        "direction": "ASIC_TX",
+        "channel": 2,
+        "command": [
+          "sigrok-cli",
+          "-i",
+          "captures/20261018T011007_resistance_st2_1kohm_9b1124e1/logic.bin",
+          "-I",
+          "binary:numchannels=8:samplerate=1000000",
+          "-P",
+          "uart:rx=2:baudrate=9600:data_bits=8:parity=none:stop_bits=1",
+          "-B",
+          "uart=rx"
+        ],
+        "returncode": 0,
+        "python_byte_candidates": 696,
+        "reference_bytes": 696,
+        "python_all_clean": true,
+        "exact_match": true,
+        "reason": "Clean stream comparison"
+      }
+    ],
+    "note": "Decoder agreement is not analog calibration or checksum validation"
+  },
+  {
+    "session": "projects/asic/captures/20261018T011124_resistance_st2_10kohm_4e3927b0",
+    "origin": "hardware",
+    "source_logic_sha256": "8a88058000437e52d81f80b238bb5f1aca2fb9aaedcaed65f3dd2714014fd8b2",
+    "checks": [
+      {
+        "direction": "MCU_TX",
+        "channel": 0,
+        "command": [
+          "sigrok-cli",
+          "-i",
+          "captures/20261018T011124_resistance_st2_10kohm_4e3927b0/logic.bin",
+          "-I",
+          "binary:numchannels=8:samplerate=1000000",
+          "-P",
+          "uart:rx=0:baudrate=9600:data_bits=8:parity=none:stop_bits=1",
+          "-B",
+          "uart=rx"
+        ],
+        "returncode": 0,
+        "python_byte_candidates": 0,
+        "reference_bytes": 0,
+        "python_all_clean": true,
+        "exact_match": true,
+        "reason": "Clean stream comparison"
+      },
+      {
+        "direction": "ASIC_TX",
+        "channel": 2,
+        "command": [
+          "sigrok-cli",
+          "-i",
+          "captures/20261018T011124_resistance_st2_10kohm_4e3927b0/logic.bin",
+          "-I",
+          "binary:numchannels=8:samplerate=1000000",
+          "-P",
+          "uart:rx=2:baudrate=9600:data_bits=8:parity=none:stop_bits=1",
+          "-B",
+          "uart=rx"
+        ],
+        "returncode": 0,
+        "python_byte_candidates": 708,
+        "reference_bytes": 708,
+        "python_all_clean": true,
+        "exact_match": true,
+        "reason": "Clean stream comparison"
+      }
+    ],
+    "note": "Decoder agreement is not analog calibration or checksum validation"
+  }
+]

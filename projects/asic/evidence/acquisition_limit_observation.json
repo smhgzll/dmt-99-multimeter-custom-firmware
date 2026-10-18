@@ -1,0 +1,23 @@
+{
+  "timestamp": "2026-10-18T01:28:43.752186+03:00",
+  "observations": [
+    {
+      "capture": "20261018T004155_startup_auto_d0_d2_2mhz_998d0648",
+      "requested_s": 30,
+      "captured_s": 29.42976
+    },
+    {
+      "capture": "20261018T012010_open_probes_mode_sweep_9f01eea5",
+      "requested_s": 60,
+      "captured_s": 29.53216
+    }
+  ],
+  "sigrok_returncode": 0,
+  "sample_count_shortfall_detected": true,
+  "zero_length_timeout_transfers_in_logs": true,
+  "usb_sysfs_power_control": "on",
+  "usb_runtime_suspended_time_ms": 0,
+  "root_cause": "unresolved; not attributed to DMT99 or a fixed hardware limit",
+  "driver_reference": "https://github.com/sigrokproject/libsigrok/blob/libsigrok-0.5.2/src/hardware/fx2lafw/protocol.c",
+  "workaround_used": "Separate 10s captures, never silently joined; gaps between sessions preserved"
+}

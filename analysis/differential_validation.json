@@ -1,0 +1,13 @@
+{
+  "segment_function": "0x98aa",
+  "segment_inputs_exhaustive": 256,
+  "settings_functions": [
+    "0xd944",
+    "0xd9e6",
+    "0xda04",
+    "0xda28"
+  ],
+  "settings_cases": 4096,
+  "failed": 0,
+  "scope": "Original instructions interpreted by fail-closed RV32 subset versus native compiled reconstructed C; no device emulation."
+}

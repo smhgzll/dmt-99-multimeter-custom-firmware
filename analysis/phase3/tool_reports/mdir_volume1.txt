@@ -1,0 +1,50 @@
+ Volume in drive : has no label
+ Volume Serial Number is 7032-B598
+Directory for ::/
+
+menu         <DIR>     2023-11-09  10:37 
+mode         <DIR>     2023-11-09   9:36 
+motif2       <DIR>     2023-11-09   9:36 
+num          <DIR>     2023-11-09   9:36 
+time         <DIR>     2023-11-09   9:36 
+units        <DIR>     2023-11-09   9:36 
+cell_rin jpg      9498 2023-07-18  11:40 
+GIMAGE   JPG     24756 2023-09-18  23:12  gImage.jpg
+GIMAGE~1 JPG     15589 2023-07-18  11:40  gImage_down1.jpg
+GIMAGE~2 JPG     12708 2023-07-18  11:40  gImage_down2.jpg
+GIMAGE~3 JPG     12395 2023-07-18  11:40  gImage_down3.jpg
+GIMAGE~4 JPG     12017 2023-07-18  11:40  gImage_down4.jpg
+GI39AD~1 JPG     15469 2023-07-18  11:40  gImage_up1.jpg
+GI5416~1 JPG     12884 2023-07-18  11:40  gImage_up2.jpg
+GI012E~1 JPG     12701 2023-07-18  11:40  gImage_up3.jpg
+GI5652~1 JPG     12012 2023-07-18  11:40  gImage_up4.jpg
+live     jpg      4487 2023-07-05   1:28 
+live1    jpg      8224 2023-07-19  16:24 
+MODE3_~1 JPG      3899 2023-09-01  21:54  mode3_max1.jpg
+MODE3_~2 JPG      1974 2023-09-01  21:54  mode3_max2.jpg
+MODE3_~3 JPG      6891 2023-09-01  21:54  mode3_max3.jpg
+MODE3_~4 JPG      6794 2023-09-01  21:54  mode3_medi1.jpg
+MO1363~1 JPG      4022 2023-09-01  21:54  mode3_medi2.jpg
+MO42D0~1 JPG      6723 2023-09-01  21:54  mode3_medi3.jpg
+MO638D~1 JPG      7174 2023-09-01  21:54  mode3_min1.jpg
+MOD64E~1 JPG      4009 2023-09-01  21:54  mode3_min3.jpg
+ncv0     jpg     11196 2023-07-19  16:15 
+ncv1     jpg     19881 2023-07-05   1:28 
+ncv1_1   jpg      2507 2023-07-18  11:40 
+ncv1_2   jpg      3543 2023-07-18  11:40 
+ncv1_3   jpg      4580 2023-07-18  11:40 
+ncv2     jpg     19900 2023-07-05   1:28 
+ncv2_1   jpg      2823 2023-07-18  11:40 
+ncv2_2   jpg      3909 2023-07-18  11:40 
+ncv2_3   jpg      5101 2023-07-18  11:40 
+ncv3     jpg     20043 2023-07-05   1:28 
+ncv3_1   jpg      2536 2023-07-18  11:40 
+ncv3_2   jpg      3495 2023-07-18  11:40 
+ncv3_3   jpg      4434 2023-07-18  11:40 
+on       jpg     38303 2023-07-22  14:58 
+on1      jpg     10697 2023-11-09  10:29 
+cell         <DIR>     2023-11-09   9:36 
+history      <DIR>     2023-11-09   9:36 
+       43 files             347 174 bytes
+                          3 276 800 bytes free
+

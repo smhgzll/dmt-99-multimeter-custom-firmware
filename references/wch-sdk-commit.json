@@ -1,0 +1,140 @@
+{
+  "sha": "080af2e52055334eaa6af0f7ad7df527b4ef5a66",
+  "node_id": "C_kwDOGkZBK9oAKDA4MGFmMmU1MjA1NTMzNGVhYTZhZjBmN2FkN2RmNTI3YjRlZjVhNjY",
+  "commit": {
+    "author": {
+      "name": "qiyongshuang",
+      "email": "110513727+qiyongshuang@users.noreply.github.com",
+      "date": "2026-09-08T07:11:58Z"
+    },
+    "committer": {
+      "name": "GitHub",
+      "email": "noreply@github.com",
+      "date": "2026-09-08T07:11:58Z"
+    },
+    "message": "Merge pull request #115 from qiyongshuang/main\n\nUpdate",
+    "tree": {
+      "sha": "5bc4c982b0960da3fc61ca1d53cb3a04123fc704",
+      "url": "https://api.github.com/repos/openwch/ch32v307/git/trees/5bc4c982b0960da3fc61ca1d53cb3a04123fc704"
+    },
+    "url": "https://api.github.com/repos/openwch/ch32v307/git/commits/080af2e52055334eaa6af0f7ad7df527b4ef5a66",
+    "comment_count": 0,
+    "verification": {
+      "verified": true,
+      "reason": "valid",
+      "signature": "-----BEGIN PGP SIGNATURE-----\n\nwsFcBAABCAAQBQJqn7U+CRC1aQ7uu5UhlAAAAsQQAKCSNOK6d9ajLnxdf4ehe03r\nSPC3ATJi8SvcY612QwEQPmF5vBMBRu2A+e2BvldyG8Uf7KTYfRyITeyDkStPF01Y\ni7a8e1rsyjsD3r+3Fw/ZWOriYl5W9G9O4edVWz77k2oWIUObAT7CeWlnkf7oJQ68\nLv+9Bm5D1ghqoJ8e98k5bcmt/14FGY4QEhUaYrVbW+KtEeh2TvxNaqCUNX83M8eS\n6N8hmNvTN/ILotZ5Wjw5UXOmHCAeqqdgc7mNA6XzIBGDMQMAv1IBRNO/10Pa9F/T\noIhoLFZVv8qktc4U44L54Fa12hac4im7oKTlDuPAT3l2ql5/EA/EWAcX4RMit3ya\nyawRYot1QWx+wLCupKrGI4pHyTQRGDmUFNLX91uz+eprrPqfsMxmr1hop9ChJqvr\n26QVhOhDAPn2zG4oluHFGlpNbSFW6dzx5JGbERL+HjYKfeLmqQuiQ7FVqkL3Pwlk\nF/YkDZAKcoOWgCyi/szZqvsn6p8PSwD31i0to+lEFvQX3Ct7c19LWBE8k3zpgkoX\nqponWujx09fHEpcp8AEhqgJMprJ7XcevC2kwPgC+m94qUBs3QuSPWnVvckohY7mM\nbCAb8ut2/pLstbR127kzVb2S6nOaOZ7DKNyaeEXEJqBudCIonIbY/5gI3xLpscfe\nfwXvJ3L/Y+Y4VuC/8ykF\n=i1mH\n-----END PGP SIGNATURE-----\n",
+      "payload": "tree 5bc4c982b0960da3fc61ca1d53cb3a04123fc704\nparent 69a2eec903b4f919fcb73d1ab6c10c690780e4d1\nparent f675c5cf4deb03377c624d0b538f6a3bf5a28fca\nauthor qiyongshuang <110513727+qiyongshuang@users.noreply.github.com> 1788851518 +0800\ncommitter GitHub <noreply@github.com> 1788851518 +0800\n\nMerge pull request #115 from qiyongshuang/main\n\nUpdate",
+      "verified_at": "2026-09-08T07:11:59Z"
+    }
+  },
+  "url": "https://api.github.com/repos/openwch/ch32v307/commits/080af2e52055334eaa6af0f7ad7df527b4ef5a66",
+  "html_url": "https://github.com/openwch/ch32v307/commit/080af2e52055334eaa6af0f7ad7df527b4ef5a66",
+  "comments_url": "https://api.github.com/repos/openwch/ch32v307/commits/080af2e52055334eaa6af0f7ad7df527b4ef5a66/comments",
+  "author": {
+    "login": "qiyongshuang",
+    "id": 110513727,
+    "node_id": "U_kgDOBpZOPw",
+    "avatar_url": "https://avatars.githubusercontent.com/u/110513727?v=4",
+    "gravatar_id": "",
+    "url": "https://api.github.com/users/qiyongshuang",
+    "html_url": "https://github.com/qiyongshuang",
+    "followers_url": "https://api.github.com/users/qiyongshuang/followers",
+    "following_url": "https://api.github.com/users/qiyongshuang/following{/other_user}",
+    "gists_url": "https://api.github.com/users/qiyongshuang/gists{/gist_id}",
+    "starred_url": "https://api.github.com/users/qiyongshuang/starred{/owner}{/repo}",
+    "subscriptions_url": "https://api.github.com/users/qiyongshuang/subscriptions",
+    "organizations_url": "https://api.github.com/users/qiyongshuang/orgs",
+    "repos_url": "https://api.github.com/users/qiyongshuang/repos",
+    "events_url": "https://api.github.com/users/qiyongshuang/events{/privacy}",
+    "received_events_url": "https://api.github.com/users/qiyongshuang/received_events",
+    "type": "User",
+    "user_view_type": "public",
+    "site_admin": false
+  },
+  "committer": {
+    "login": "web-flow",
+    "id": 19864447,
+    "node_id": "MDQ6VXNlcjE5ODY0NDQ3",
+    "avatar_url": "https://avatars.githubusercontent.com/u/19864447?v=4",
+    "gravatar_id": "",
+    "url": "https://api.github.com/users/web-flow",
+    "html_url": "https://github.com/web-flow",
+    "followers_url": "https://api.github.com/users/web-flow/followers",
+    "following_url": "https://api.github.com/users/web-flow/following{/other_user}",
+    "gists_url": "https://api.github.com/users/web-flow/gists{/gist_id}",
+    "starred_url": "https://api.github.com/users/web-flow/starred{/owner}{/repo}",
+    "subscriptions_url": "https://api.github.com/users/web-flow/subscriptions",
+    "organizations_url": "https://api.github.com/users/web-flow/orgs",
+    "repos_url": "https://api.github.com/users/web-flow/repos",
+    "events_url": "https://api.github.com/users/web-flow/events{/privacy}",
+    "received_events_url": "https://api.github.com/users/web-flow/received_events",
+    "type": "User",
+    "user_view_type": "public",
+    "site_admin": false
+  },
+  "parents": [
+    {
+      "sha": "69a2eec903b4f919fcb73d1ab6c10c690780e4d1",
+      "url": "https://api.github.com/repos/openwch/ch32v307/commits/69a2eec903b4f919fcb73d1ab6c10c690780e4d1",
+      "html_url": "https://github.com/openwch/ch32v307/commit/69a2eec903b4f919fcb73d1ab6c10c690780e4d1"
+    },
+    {
+      "sha": "f675c5cf4deb03377c624d0b538f6a3bf5a28fca",
+      "url": "https://api.github.com/repos/openwch/ch32v307/commits/f675c5cf4deb03377c624d0b538f6a3bf5a28fca",
+      "html_url": "https://github.com/openwch/ch32v307/commit/f675c5cf4deb03377c624d0b538f6a3bf5a28fca"
+    }
+  ],
+  "stats": {
+    "total": 25,
+    "additions": 16,
+    "deletions": 9
+  },
+  "files": [
+    {
+      "sha": "f02bcb7b0006a75f8d7047b482ad16c6be118ecf",
+      "filename": "README.md",
+      "status": "modified",
+      "additions": 8,
+      "deletions": 4,
+      "changes": 12,
+      "blob_url": "https://github.com/openwch/ch32v307/blob/080af2e52055334eaa6af0f7ad7df527b4ef5a66/README.md",
+      "raw_url": "https://github.com/openwch/ch32v307/raw/080af2e52055334eaa6af0f7ad7df527b4ef5a66/README.md",
+      "contents_url": "https://api.github.com/repos/openwch/ch32v307/contents/README.md?ref=080af2e52055334eaa6af0f7ad7df527b4ef5a66",
+      "patch": "@@ -1,13 +1,14 @@\n-# 32-bit Interconnected RISC-V MCU CH32V307\n+# 32-bit Interconnected RISC-V MCU CH32V307/CH32V317\n EN | [中文](README_zh.md)\n \n \n \n ### Overview\n-The CH32V305 and CH32V307 are interconnected microcontrollers, based on 32-bit RISC-V core, with hardware stack area and fast interrupt entry. Compared with standard RISC-V, the interrupt response speed is greatly improved. With single-precision float point instruction sets added and stack area extended, the CH32V305/7 has higher performance, the number of U(S)ART is extended to 8, and the number of motor timer is extended to 4. The CH32V305/7 provides USB2.0 high-speed interface (480Mbps) and has built-in PHY transceiver. Ethernet MAC is upgraded to GbE and integrates 10M PHY module.\n+The CH32V305 and CH32V307/CH32V317 are interconnected microcontrollers, based on 32-bit RISC-V core, with hardware stack area and fast interrupt entry. Compared with standard RISC-V, the interrupt response speed is greatly improved. With single-precision float point instruction sets added and stack area extended, the CH32V305/7 has higher performance, the number of U(S)ART is extended to 8, and the number of motor timer is extended to 4. The CH32V305/7 provides USB2.0 high-speed interface (480Mbps) and has built-in PHY transceiver. CH32V307 Ethernet MAC is upgraded to GbE and integrates 10M PHY module.CH32V317 integrates 10M/100M PHY module\n \n ### System Block Diagram\n <img src=\"image/frame.jpg\" alt=\"frame\" style=\"zoom:50%;\" />\n+<img src=\"image/frame1.jpg\" alt=\"frame1\" style=\"zoom:50%;\" />\n  \n ### Features\n - RISC-V4F processor, max 144MHz system clock frequency;\n@@ -28,9 +29,12 @@ The CH32V305 and CH32V307 are interconnected microcontrollers, based on 32-bit R\n - 2 CAN interfaces (2.0B active);\n - SDIO interface, FSMC interface, DVP;\n - 2 x I2C, 3 x SPI, 2 x IIS;\n-- 80 I/O ports, can be mapped to 16 external interrupts;\n+- CH32V307 built-in Ethernet 10M PHY\n+- CH32V317 built-in Ethernet 10M/100M PHY\n+- CH32V307 80 I/O ports, can be mapped to 16 external interrupts;\n+- CH32V317 70 I/O ports, can be mapped to 16 external interrupts;\n - CRC calculation unit, 96-bit unique chip ID;\n - Serial 2-wire debug interface;\n-- Packages: LQFP64M, LQFP100.\n+- Packages: LQFP64M, LQFP100,QFN68（CH32V317WCU6）.\n \n "
+    },
+    {
+      "sha": "25630697b2f88b717c8037d2ec55761b0930d0c2",
+      "filename": "README_zh.md",
+      "status": "modified",
+      "additions": 8,
+      "deletions": 5,
+      "changes": 13,
+      "blob_url": "https://github.com/openwch/ch32v307/blob/080af2e52055334eaa6af0f7ad7df527b4ef5a66/README_zh.md",
+      "raw_url": "https://github.com/openwch/ch32v307/raw/080af2e52055334eaa6af0f7ad7df527b4ef5a66/README_zh.md",
+      "contents_url": "https://api.github.com/repos/openwch/ch32v307/contents/README_zh.md?ref=080af2e52055334eaa6af0f7ad7df527b4ef5a66",
+      "patch": "@@ -1,14 +1,15 @@\n-# 32位互联型RISC-V单片机CH32V307\n+# 32位互联型RISC-V单片机CH32V307/317\n \n [EN](README.md) | 中文\n \n ### 概述\n \n-CH32V305/7系列是基于32位RISC-V设计的互联型微控制器，配备了硬件堆栈区、快速中断入口，在标准RISC-V基础上大大提高了中断响应速度。加入单精度浮点指令集，扩充堆栈区，具有更高的运算性能。扩展串口U(S)ART数量到8组，电机定时器到4组。提供USB2.0高速接口（480Mbps）并内置了PHY收发器，以太网MAC升级到千兆并集成了10M-PHY模块。\n+CH32V305/307/317系列是基于32位RISC-V设计的互联型微控制器，配备了硬件堆栈区、快速中断入口，在标准RISC-V基础上大大提高了中断响应速度。加入单精度浮点指令集，扩充堆栈区，具有更高的运算性能。扩展串口U(S)ART数量到8组，电机定时器到4组。提供USB2.0高速接口（480Mbps）并内置了PHY收发器，CH32V307以太网MAC升级到千兆并集成了10M-PHY模块，CH32V317以太网集成10/100-PHY模块。\n \n ### 系统框图\n \n <img src=\"image/frame.jpg\" alt=\"frame\" style=\"zoom:50%;\" />\n+<img src=\"image/frame1.jpg\" alt=\"frame1\" style=\"zoom:50%;\" />\n \n ### 产品特点\n \n@@ -30,8 +31,10 @@ CH32V305/7系列是基于32位RISC-V设计的互联型微控制器，配备了\n - 2个CAN接口（2.0B主动）\n - SDIO接口、FSMC接口、DVP数字图像接口\n - 2组IIC接口、3组SPI接口、2组IIS接口\n-- 千兆以太网控制器ETH（内置10M PHY）\n-- 80个I/O口，可以映射到16外部中断\n+- 千兆以太网控制器ETH（CH32V307内置10M PHY）\n+- CH32V317 内置以太网10M/100M PHY\n+- CH32V307 80个I/O口，可以映射到16外部中断\n+- CH32V317 70个I/O口，可以映射到16外部中断\n - CRC计算单元，96位芯片唯一ID\n - 串行2线调试接口\n-- 封装形式：LQFP64M、LQFP100\n\\ No newline at end of file\n+- 封装形式：LQFP64M、LQFP100、QFN68（CH32V317WCU6）\n\\ No newline at end of file"
+    },
+    {
+      "sha": "cf1bc522f8303b0107adaf06f68d4cf45f9b1591",
+      "filename": "image/frame.jpg",
+      "status": "modified",
+      "additions": 0,
+      "deletions": 0,
+      "changes": 0,
+      "blob_url": "https://github.com/openwch/ch32v307/blob/080af2e52055334eaa6af0f7ad7df527b4ef5a66/image%2Fframe.jpg",
+      "raw_url": "https://github.com/openwch/ch32v307/raw/080af2e52055334eaa6af0f7ad7df527b4ef5a66/image%2Fframe.jpg",
+      "contents_url": "https://api.github.com/repos/openwch/ch32v307/contents/image%2Fframe.jpg?ref=080af2e52055334eaa6af0f7ad7df527b4ef5a66"
+    },
+    {
+      "sha": "59695fa02e4ab8da357dc4c94ca666ca7c744c8a",
+      "filename": "image/frame1.jpg",
+      "status": "added",
+      "additions": 0,
+      "deletions": 0,
+      "changes": 0,
+      "blob_url": "https://github.com/openwch/ch32v307/blob/080af2e52055334eaa6af0f7ad7df527b4ef5a66/image%2Fframe1.jpg",
+      "raw_url": "https://github.com/openwch/ch32v307/raw/080af2e52055334eaa6af0f7ad7df527b4ef5a66/image%2Fframe1.jpg",
+      "contents_url": "https://api.github.com/repos/openwch/ch32v307/contents/image%2Fframe1.jpg?ref=080af2e52055334eaa6af0f7ad7df527b4ef5a66"
+    }
+  ]
+}

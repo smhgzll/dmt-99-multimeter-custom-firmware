@@ -1,0 +1,456 @@
+{
+  "sdk_retained": {
+    "compared": 64,
+    "exact": 19,
+    "source": "references/wch-sdk-manifest.json"
+  },
+  "new_function_matches": [
+    {
+      "address": "0x00006838",
+      "family": "tjpgd",
+      "symbol": "alloc_pool",
+      "original_body_bytes": 28,
+      "compiled_body_bytes": 28,
+      "exact_body_bytes": true,
+      "operation_sequence_similarity": 1.0,
+      "original_operations": 13,
+      "compiled_operations": 13,
+      "note": "Static helpers compiled with inlining disabled for review. Operation normalization omits operands and is a fingerprint, not proof. Calls, ABI, tables and differential evidence are assessed separately.",
+      "classification": "Exact",
+      "evidence": [
+        "analysis/jpeg_differential.json"
+      ],
+      "compiled_source": "reconstructed/vendor/tjpgd/tjpgd.c"
+    },
+    {
+      "address": "0x00006854",
+      "family": "tjpgd",
+      "symbol": "bitext",
+      "original_body_bytes": 126,
+      "compiled_body_bytes": 172,
+      "exact_body_bytes": false,
+      "operation_sequence_similarity": 0.3826,
+      "original_operations": 48,
+      "compiled_operations": 67,
+      "note": "Static helpers compiled with inlining disabled for review. Operation normalization omits operands and is a fingerprint, not proof. Calls, ABI, tables and differential evidence are assessed separately.",
+      "classification": "Strong semantic",
+      "evidence": [
+        "analysis/jpeg_differential.json"
+      ],
+      "compiled_source": "reconstructed/vendor/tjpgd/tjpgd.c"
+    },
+    {
+      "address": "0x000068d2",
+      "family": "tjpgd",
+      "symbol": "huffext",
+      "original_body_bytes": 156,
+      "compiled_body_bytes": 200,
+      "exact_body_bytes": false,
+      "operation_sequence_similarity": 0.4276,
+      "original_operations": 64,
+      "compiled_operations": 81,
+      "note": "Static helpers compiled with inlining disabled for review. Operation normalization omits operands and is a fingerprint, not proof. Calls, ABI, tables and differential evidence are assessed separately.",
+      "classification": "Strong semantic",
+      "evidence": [
+        "analysis/jpeg_differential.json"
+      ],
+      "compiled_source": "reconstructed/vendor/tjpgd/tjpgd.c"
+    },
+    {
+      "address": "0x0000696e",
+      "family": "tjpgd",
+      "symbol": "jd_prepare",
+      "original_body_bytes": 1070,
+      "compiled_body_bytes": 912,
+      "exact_body_bytes": false,
+      "operation_sequence_similarity": 0.4823,
+      "original_operations": 379,
+      "compiled_operations": 326,
+      "note": "Static helpers compiled with inlining disabled for review. Operation normalization omits operands and is a fingerprint, not proof. Calls, ABI, tables and differential evidence are assessed separately.",
+      "classification": "Strong semantic",
+      "evidence": [
+        "analysis/jpeg_differential.json"
+      ],
+      "compiled_source": "reconstructed/vendor/tjpgd/tjpgd.c"
+    },
+    {
+      "address": "0x00006d9c",
+      "family": "tjpgd",
+      "symbol": "jd_decomp",
+      "original_body_bytes": 1990,
+      "compiled_body_bytes": 190,
+      "exact_body_bytes": false,
+      "operation_sequence_similarity": 0.0954,
+      "original_operations": 658,
+      "compiled_operations": 76,
+      "note": "Static helpers compiled with inlining disabled for review. Operation normalization omits operands and is a fingerprint, not proof. Calls, ABI, tables and differential evidence are assessed separately.",
+      "classification": "Strong semantic",
+      "evidence": [
+        "analysis/jpeg_differential.json"
+      ],
+      "compiled_source": "reconstructed/vendor/tjpgd/tjpgd.c"
+    },
+    {
+      "address": "0x0000de5a",
+      "family": "fatfs",
+      "symbol": "ld_dword",
+      "original_body_bytes": 22,
+      "compiled_body_bytes": 30,
+      "exact_body_bytes": false,
+      "operation_sequence_similarity": 0.9091,
+      "original_operations": 11,
+      "compiled_operations": 11,
+      "note": "Static helpers compiled with inlining disabled for review. Operation normalization omits operands and is a fingerprint, not proof. Calls, ABI, tables and differential evidence are assessed separately.",
+      "classification": "Strong semantic",
+      "evidence": [
+        "analysis/library_helper_differential.json"
+      ],
+      "compiled_source": "reconstructed/vendor/fatfs/ff.c"
+    },
+    {
+      "address": "0x0000de70",
+      "family": "fatfs",
+      "symbol": "st_dword",
+      "original_body_bytes": 20,
+      "compiled_body_bytes": 28,
+      "exact_body_bytes": false,
+      "operation_sequence_similarity": 1.0,
+      "original_operations": 8,
+      "compiled_operations": 8,
+      "note": "Static helpers compiled with inlining disabled for review. Operation normalization omits operands and is a fingerprint, not proof. Calls, ABI, tables and differential evidence are assessed separately.",
+      "classification": "Strong semantic",
+      "evidence": [
+        "analysis/library_helper_differential.json"
+      ],
+      "compiled_source": "reconstructed/vendor/fatfs/ff.c"
+    },
+    {
+      "address": "0x0000de84",
+      "family": "fatfs",
+      "symbol": "clst2sect",
+      "original_body_bytes": 26,
+      "compiled_body_bytes": 30,
+      "exact_body_bytes": false,
+      "operation_sequence_similarity": 1.0,
+      "original_operations": 11,
+      "compiled_operations": 11,
+      "note": "Static helpers compiled with inlining disabled for review. Operation normalization omits operands and is a fingerprint, not proof. Calls, ABI, tables and differential evidence are assessed separately.",
+      "classification": "Strong semantic",
+      "evidence": [
+        "analysis/library_helper_differential.json"
+      ],
+      "compiled_source": "reconstructed/vendor/fatfs/ff.c"
+    },
+    {
+      "address": "0x0000de9e",
+      "family": "fatfs",
+      "symbol": "sum_sfn",
+      "original_body_bytes": 34,
+      "compiled_body_bytes": 34,
+      "exact_body_bytes": false,
+      "operation_sequence_similarity": 0.6667,
+      "original_operations": 12,
+      "compiled_operations": 12,
+      "note": "Static helpers compiled with inlining disabled for review. Operation normalization omits operands and is a fingerprint, not proof. Calls, ABI, tables and differential evidence are assessed separately.",
+      "classification": "Strong semantic",
+      "evidence": [
+        "analysis/library_helper_differential.json"
+      ],
+      "compiled_source": "reconstructed/vendor/fatfs/ff.c"
+    },
+    {
+      "address": "0x0000dec0",
+      "family": "fatfs",
+      "symbol": "get_ldnumber",
+      "compiled_symbol": "get_ldnumber",
+      "classification": "Strong semantic",
+      "original_body_bytes": 80,
+      "compiled_body_bytes": 74,
+      "exact_body_bytes": false,
+      "operation_sequence_similarity": 0.7273,
+      "original_cfg": {
+        "blocks": 11,
+        "edges": 16,
+        "back_edges": 3,
+        "memory_operand_offset_counts": {
+          "-1": 1,
+          "0": 3
+        }
+      },
+      "compiled_object_cfg": {
+        "blocks": 11,
+        "edges": 14,
+        "back_edges": 1,
+        "memory_operand_offset_counts": {
+          "0": 4
+        }
+      },
+      "abi_review": "Original const TCHAR** path contract; two logical volumes, FF_FS_RPATH=0",
+      "compiled_source": "reconstructed/vendor/fatfs/ff.c",
+      "evidence": [
+        "analysis/library_extension_differential.json",
+        "reconstructed/tests/filesystem_oracle.c"
+      ],
+      "scope": "Documented valid inputs; direct return/memory/path effects tested. Fingerprints alone do not award credit. Object CFG may include unresolved relocations."
+    },
+    {
+      "address": "0x0000df50",
+      "family": "fatfs",
+      "symbol": "create_partition",
+      "original_body_bytes": 310,
+      "compiled_body_bytes": 370,
+      "exact_body_bytes": false,
+      "operation_sequence_similarity": 0.6578,
+      "original_operations": 98,
+      "compiled_operations": 127,
+      "note": "Static helpers compiled with inlining disabled for review. Operation normalization omits operands and is a fingerprint, not proof. Calls, ABI, tables and differential evidence are assessed separately.",
+      "classification": "Strong semantic",
+      "evidence": [
+        "analysis/filesystem_differential.json",
+        "reconstructed/tests/test_resources.c"
+      ],
+      "compiled_source": "reconstructed/vendor/fatfs/ff.c"
+    },
+    {
+      "address": "0x0000e0f8",
+      "family": "fatfs",
+      "symbol": "ld_clust",
+      "compiled_symbol": "ld_clust",
+      "classification": "Strong semantic",
+      "original_body_bytes": 30,
+      "compiled_body_bytes": 68,
+      "exact_body_bytes": false,
+      "operation_sequence_similarity": 0.3,
+      "original_cfg": {
+        "blocks": 3,
+        "edges": 3,
+        "back_edges": 0,
+        "memory_operand_offset_counts": {
+          "20": 1,
+          "21": 1,
+          "26": 1,
+          "27": 1
+        }
+      },
+      "compiled_object_cfg": {
+        "blocks": 3,
+        "edges": 3,
+        "back_edges": 0,
+        "memory_operand_offset_counts": {
+          "0": 3,
+          "4": 2,
+          "8": 2,
+          "12": 2
+        }
+      },
+      "abi_review": "Original compiler scalarized FATFS.fs_type to an integer argument; oracle_load_cluster explicitly adapts this ABI",
+      "compiled_source": "reconstructed/vendor/fatfs/ff.c",
+      "evidence": [
+        "analysis/library_extension_differential.json",
+        "reconstructed/tests/filesystem_oracle.c"
+      ],
+      "scope": "Documented valid inputs; direct return/memory/path effects tested. Fingerprints alone do not award credit. Object CFG may include unresolved relocations."
+    },
+    {
+      "address": "0x0000e116",
+      "family": "fatfs",
+      "symbol": "st_clust",
+      "compiled_symbol": "st_clust",
+      "classification": "Strong semantic",
+      "original_body_bytes": 30,
+      "compiled_body_bytes": 82,
+      "exact_body_bytes": false,
+      "operation_sequence_similarity": 0.3182,
+      "original_cfg": {
+        "blocks": 3,
+        "edges": 3,
+        "back_edges": 0,
+        "memory_operand_offset_counts": {
+          "0": 1,
+          "20": 1,
+          "21": 1,
+          "26": 1,
+          "27": 1
+        }
+      },
+      "compiled_object_cfg": {
+        "blocks": 3,
+        "edges": 2,
+        "back_edges": 0,
+        "memory_operand_offset_counts": {
+          "0": 4,
+          "4": 3,
+          "8": 3,
+          "12": 3
+        }
+      },
+      "abi_review": "Original FATFS.fs_type byte and SFN offsets20/26 match configured upstream",
+      "compiled_source": "reconstructed/vendor/fatfs/ff.c",
+      "evidence": [
+        "analysis/library_extension_differential.json",
+        "reconstructed/tests/filesystem_oracle.c"
+      ],
+      "scope": "Documented valid inputs; direct return/memory/path effects tested. Fingerprints alone do not award credit. Object CFG may include unresolved relocations."
+    },
+    {
+      "address": "0x0000f4f8",
+      "family": "fatfs",
+      "symbol": "f_mount",
+      "original_body_bytes": 82,
+      "compiled_body_bytes": 96,
+      "exact_body_bytes": false,
+      "operation_sequence_similarity": 0.7143,
+      "original_operations": 32,
+      "compiled_operations": 38,
+      "note": "Static helpers compiled with inlining disabled for review. Operation normalization omits operands and is a fingerprint, not proof. Calls, ABI, tables and differential evidence are assessed separately.",
+      "classification": "Strong semantic",
+      "evidence": [
+        "analysis/filesystem_differential.json",
+        "reconstructed/tests/test_resources.c"
+      ],
+      "compiled_source": "reconstructed/vendor/fatfs/ff.c"
+    },
+    {
+      "address": "0x0000f54a",
+      "family": "fatfs",
+      "symbol": "f_open",
+      "original_body_bytes": 488,
+      "compiled_body_bytes": 640,
+      "exact_body_bytes": false,
+      "operation_sequence_similarity": 0.6425,
+      "original_operations": 177,
+      "compiled_operations": 209,
+      "note": "Static helpers compiled with inlining disabled for review. Operation normalization omits operands and is a fingerprint, not proof. Calls, ABI, tables and differential evidence are assessed separately.",
+      "classification": "Strong semantic",
+      "evidence": [
+        "analysis/filesystem_differential.json",
+        "reconstructed/tests/test_resources.c"
+      ],
+      "compiled_source": "reconstructed/vendor/fatfs/ff.c"
+    },
+    {
+      "address": "0x0000f732",
+      "family": "fatfs",
+      "symbol": "f_read",
+      "original_body_bytes": 370,
+      "compiled_body_bytes": 438,
+      "exact_body_bytes": false,
+      "operation_sequence_similarity": 0.6408,
+      "original_operations": 131,
+      "compiled_operations": 153,
+      "note": "Static helpers compiled with inlining disabled for review. Operation normalization omits operands and is a fingerprint, not proof. Calls, ABI, tables and differential evidence are assessed separately.",
+      "classification": "Strong semantic",
+      "evidence": [
+        "analysis/filesystem_differential.json",
+        "reconstructed/tests/test_resources.c"
+      ],
+      "compiled_source": "reconstructed/vendor/fatfs/ff.c"
+    },
+    {
+      "address": "0x0000f940",
+      "family": "fatfs",
+      "symbol": "f_close",
+      "original_body_bytes": 34,
+      "compiled_body_bytes": 48,
+      "exact_body_bytes": false,
+      "operation_sequence_similarity": 0.5806,
+      "original_operations": 12,
+      "compiled_operations": 19,
+      "note": "Static helpers compiled with inlining disabled for review. Operation normalization omits operands and is a fingerprint, not proof. Calls, ABI, tables and differential evidence are assessed separately.",
+      "classification": "Strong semantic",
+      "evidence": [
+        "analysis/filesystem_differential.json",
+        "reconstructed/tests/test_resources.c"
+      ],
+      "compiled_source": "reconstructed/vendor/fatfs/ff.c"
+    },
+    {
+      "address": "0x0000f962",
+      "family": "fatfs",
+      "symbol": "f_lseek",
+      "original_body_bytes": 334,
+      "compiled_body_bytes": 414,
+      "exact_body_bytes": false,
+      "operation_sequence_similarity": 0.6929,
+      "original_operations": 129,
+      "compiled_operations": 151,
+      "note": "Static helpers compiled with inlining disabled for review. Operation normalization omits operands and is a fingerprint, not proof. Calls, ABI, tables and differential evidence are assessed separately.",
+      "classification": "Strong semantic",
+      "evidence": [
+        "analysis/filesystem_differential.json",
+        "reconstructed/tests/test_resources.c"
+      ],
+      "compiled_source": "reconstructed/vendor/fatfs/ff.c"
+    },
+    {
+      "address": "0x0000fc66",
+      "family": "fatfs",
+      "symbol": "f_fdisk",
+      "original_body_bytes": 56,
+      "compiled_body_bytes": 74,
+      "exact_body_bytes": false,
+      "operation_sequence_similarity": 0.566,
+      "original_operations": 22,
+      "compiled_operations": 31,
+      "note": "Static helpers compiled with inlining disabled for review. Operation normalization omits operands and is a fingerprint, not proof. Calls, ABI, tables and differential evidence are assessed separately.",
+      "classification": "Strong semantic",
+      "evidence": [
+        "analysis/filesystem_differential.json",
+        "reconstructed/tests/test_resources.c"
+      ],
+      "compiled_source": "reconstructed/vendor/fatfs/ff.c"
+    },
+    {
+      "address": "0x0000fd46",
+      "family": "unicode_upper",
+      "symbol": "ff_wtoupper",
+      "original_body_bytes": 160,
+      "compiled_body_bytes": 164,
+      "exact_body_bytes": false,
+      "operation_sequence_similarity": 0.9333,
+      "original_operations": 60,
+      "compiled_operations": 60,
+      "note": "Static helpers compiled with inlining disabled for review. Operation normalization omits operands and is a fingerprint, not proof. Calls, ABI, tables and differential evidence are assessed separately.",
+      "classification": "Strong semantic",
+      "evidence": [
+        "analysis/library_helper_differential.json"
+      ],
+      "compiled_source": "reconstructed/vendor/fatfs/unicode_upper.c"
+    }
+  ],
+  "upstream_components": [
+    {
+      "name": "TJpgDec",
+      "selected": "R0.01b",
+      "version_confidence": "Strong semantic branch match; original provenance unknown",
+      "rejected": [
+        "R0.01c/d: incompatible width/pool field layout",
+        "R0.02a: changed entropy/object layout"
+      ],
+      "source_url": "https://elm-chan.org/fsw/tjpgd/arc/tjpgd1b.zip"
+    },
+    {
+      "name": "FatFs",
+      "selected": "R0.14b",
+      "version_confidence": "Strong semantic configuration family; exact vendor provenance unknown",
+      "rejected": [
+        "R0.12c/R0.13c: incompatible partition builder and boot-sector validation",
+        "R0.14/R0.14a: boot validator lacks original reserved-sector/total-sector checks"
+      ],
+      "source_url": "https://elm-chan.org/fsw/ff/arc/ff14b.zip"
+    }
+  ],
+  "unknown": [
+    "Original compiler build",
+    "USB MSC source and location",
+    "newlib/libgcc exact version",
+    "SPI/graphics upstream provenance",
+    "Bootloader/update middleware"
+  ],
+  "vendor_boundaries": [
+    "fc9e/fcfc CP936 tables absent/invalid; native fails closed with address callback",
+    "block adapter bounds and capabilities; original disk_read narrowing remains separately preserved"
+  ],
+  "classification_rule": "Exact requires whole compiled body bytes; Strong semantic requires matched algorithm/layout and bounded original-code behavioral evidence. Probable entries are compiled but excluded from complete counterpart coverage.",
+  "phase4_extension_evidence": "analysis/library_extension_matches.json"
+}

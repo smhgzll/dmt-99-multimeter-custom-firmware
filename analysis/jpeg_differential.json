@@ -1,0 +1,34 @@
+{
+  "native_library_sha256": "375fdd84220b2cf511abc0b7fc0de3124fcccdacd9c65b7e903369af27c9f040",
+  "cases": [
+    {
+      "file": "extracted_flash/volume1/HISTORY/CAP.JPG",
+      "prepare_result": 0,
+      "decode_result": 0,
+      "pixels": 1216,
+      "rectangles": 5,
+      "rgb565_mcu_stream_sha256": "6e5129e433a3d65883d89d7f51342c67fa1ed6c8cd6a178688cf4fe8c41addec"
+    },
+    {
+      "file": "extracted_flash/volume1/MODE/CAP.JPG",
+      "prepare_result": 0,
+      "decode_result": 0,
+      "pixels": 1909,
+      "rectangles": 33,
+      "rgb565_mcu_stream_sha256": "b265cfa64b14b0b0e1b9a424e115855e631288f1696e460b114afa1dccc1cb96"
+    },
+    {
+      "file": "extracted_flash/volume1/NUM/RADIX.JPG",
+      "prepare_result": 0,
+      "decode_result": 0,
+      "pixels": 714,
+      "rectangles": 14,
+      "rgb565_mcu_stream_sha256": "2bf982a305cbe2e1d0912bde84c8aba88c017422a933460afacf382ebb905989"
+    }
+  ],
+  "functions": [
+    "0x0000696e",
+    "0x00006d9c"
+  ],
+  "scope": "Original RV32/Xwchc instructions execute, only input/output callbacks injected. Every emitted RGB565 MCU pixel compared with authentic R0.01b source."
+}

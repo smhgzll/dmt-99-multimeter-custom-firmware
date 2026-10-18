@@ -1,0 +1,143 @@
+{
+  "pass": true,
+  "hardware_verified": false,
+  "image_sha256": "2a551b1e3df0ce78fb4f9953d093d5a34423227a12e941cc882da2912c8b63f0",
+  "cases": [
+    {
+      "case": "clean",
+      "menu_hash": "c2c446db6b1f792ded83d6874c7c2f1542507ab4294c5f5d8d13988baa8277a6",
+      "frames": 10,
+      "fault": null,
+      "stray_irqs": 0,
+      "game_hash": "276fda645df9900d86556dffeb86457eec00631f2158bc5a2c2beba54751b3d8",
+      "right_hash": "a9132e6dad1b65b4b198645f97905f12aae93052453e79fc519e98a0c0addcd8",
+      "left_hash": "276fda645df9900d86556dffeb86457eec00631f2158bc5a2c2beba54751b3d8",
+      "up-forward_hash": "00d45dda5ff21b40740f0ddf45d259db9c4fd6cb1c6e5fe177c2c92fc91827f2",
+      "down-back_hash": "eec6825717397d1b558104bf8760ccfc16157218ebb1d56d743523341f00d788",
+      "fire_hash": "7e1919576da370926ae8fbf4b1984b1423c6f887927e622b35404b67540a6168",
+      "audio": {
+        "events_seen": 15,
+        "tones": [
+          {
+            "hz": 800.0,
+            "psc": 143,
+            "arr": 1249,
+            "duty": 0.5
+          },
+          {
+            "hz": 800.0,
+            "psc": 143,
+            "arr": 1249,
+            "duty": 0.5
+          },
+          {
+            "hz": 2597.4025974025976,
+            "psc": 143,
+            "arr": 384,
+            "duty": 0.4987012987012987
+          },
+          {
+            "hz": 1300.3901170351105,
+            "psc": 143,
+            "arr": 768,
+            "duty": 0.49934980494148246
+          },
+          {
+            "hz": 2597.4025974025976,
+            "psc": 143,
+            "arr": 384,
+            "duty": 0.4987012987012987
+          },
+          {
+            "hz": 1300.3901170351105,
+            "psc": 143,
+            "arr": 768,
+            "duty": 0.49934980494148246
+          },
+          {
+            "hz": 1200.4801920768307,
+            "psc": 143,
+            "arr": 832,
+            "duty": 0.49939975990396157
+          },
+          {
+            "hz": 1798.5611510791366,
+            "psc": 143,
+            "arr": 555,
+            "duty": 0.5
+          },
+          {
+            "hz": 2398.0815347721823,
+            "psc": 143,
+            "arr": 416,
+            "duty": 0.4988009592326139
+          },
+          {
+            "hz": 330.03300330033005,
+            "psc": 143,
+            "arr": 3029,
+            "duty": 0.5
+          },
+          {
+            "hz": 220.02200220022002,
+            "psc": 143,
+            "arr": 4544,
+            "duty": 0.4998899889988999
+          }
+        ],
+        "kill_fixture": true,
+        "lethal_damage_fixture": true,
+        "silent_after_deadline": true,
+        "controls": "up=PC11 down=PC10 left=PC12 right=PC9"
+      },
+      "pause_hash": "ff6dea77538921b81a4e0cc3af0860bc434f0223ce15b756e36eea2d58019834",
+      "power_off": true,
+      "no_internal_flash_writes": true,
+      "nor_unchanged": true,
+      "no_asic_tx": true,
+      "panel_out_of_range": 0,
+      "instructions_model_cycles": 757922800,
+      "stack_used_bytes": 864
+    },
+    {
+      "case": "leftovers",
+      "menu_hash": "c2c446db6b1f792ded83d6874c7c2f1542507ab4294c5f5d8d13988baa8277a6",
+      "frames": 1,
+      "fault": null,
+      "stray_irqs": 0,
+      "no_internal_flash_writes": true,
+      "nor_unchanged": true,
+      "no_asic_tx": true,
+      "panel_out_of_range": 0,
+      "instructions_model_cycles": 81466800,
+      "stack_used_bytes": 720
+    },
+    {
+      "case": "hsi",
+      "menu_hash": "c2c446db6b1f792ded83d6874c7c2f1542507ab4294c5f5d8d13988baa8277a6",
+      "frames": 1,
+      "fault": null,
+      "stray_irqs": 0,
+      "no_internal_flash_writes": true,
+      "nor_unchanged": true,
+      "no_asic_tx": true,
+      "panel_out_of_range": 0,
+      "instructions_model_cycles": 81446800,
+      "stack_used_bytes": 720
+    },
+    {
+      "case": "held-power",
+      "menu_hash": "c2c446db6b1f792ded83d6874c7c2f1542507ab4294c5f5d8d13988baa8277a6",
+      "frames": 1,
+      "fault": null,
+      "stray_irqs": 0,
+      "held_boot_key_ignored_and_rearmed": true,
+      "no_internal_flash_writes": true,
+      "nor_unchanged": true,
+      "no_asic_tx": true,
+      "panel_out_of_range": 0,
+      "instructions_model_cycles": 99336400,
+      "stack_used_bytes": 720
+    }
+  ]
+}

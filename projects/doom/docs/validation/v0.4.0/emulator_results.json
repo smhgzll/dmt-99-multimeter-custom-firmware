@@ -1,0 +1,187 @@
+{
+  "pass": true,
+  "hardware_verified": false,
+  "image_sha256": "2622d1bc35b678d74234178b79c922b0523e00d8e490df89d79b1dc253ee5d61",
+  "scope": "actual RV32 CPU; read-only action/motion/tick/frame observers replay the native oracle without replacing target instructions",
+  "cases": [
+    {
+      "case": "clean",
+      "initial_menu": "c6f6e25dd899e7758eb2e48952669263e311a38201254fb849891263cf9f3b2a",
+      "target_fixtures": {
+        "autonomous_sight_chase_attack": true,
+        "kill_and_corpse": true,
+        "corpse_removed": true,
+        "wall_blocks_vision_shot_and_noise": true,
+        "collision_during_detour": true,
+        "god_and_sound_menu": true
+      },
+      "weapons_menu": true,
+      "autonomous_clock": true,
+      "pause_freezes_clock": true,
+      "middle_always_fire": true,
+      "two_second_middle_down_menu": true,
+      "gpio_ramped_motion": true,
+      "power_off": true,
+      "tones": [
+        {
+          "hz": 800.0,
+          "psc": 143,
+          "arr": 1249,
+          "duty": 0.5
+        },
+        {
+          "hz": 800.0,
+          "psc": 143,
+          "arr": 1249,
+          "duty": 0.5
+        },
+        {
+          "hz": 2597.4025974025976,
+          "psc": 143,
+          "arr": 384,
+          "duty": 0.4987012987012987
+        },
+        {
+          "hz": 1300.3901170351105,
+          "psc": 143,
+          "arr": 768,
+          "duty": 0.49934980494148246
+        },
+        {
+          "hz": 2597.4025974025976,
+          "psc": 143,
+          "arr": 384,
+          "duty": 0.4987012987012987
+        },
+        {
+          "hz": 1300.3901170351105,
+          "psc": 143,
+          "arr": 768,
+          "duty": 0.49934980494148246
+        },
+        {
+          "hz": 2597.4025974025976,
+          "psc": 143,
+          "arr": 384,
+          "duty": 0.4987012987012987
+        },
+        {
+          "hz": 1300.3901170351105,
+          "psc": 143,
+          "arr": 768,
+          "duty": 0.49934980494148246
+        },
+        {
+          "hz": 2597.4025974025976,
+          "psc": 143,
+          "arr": 384,
+          "duty": 0.4987012987012987
+        },
+        {
+          "hz": 1300.3901170351105,
+          "psc": 143,
+          "arr": 768,
+          "duty": 0.49934980494148246
+        },
+        {
+          "hz": 330.03300330033005,
+          "psc": 143,
+          "arr": 3029,
+          "duty": 0.5
+        },
+        {
+          "hz": 220.02200220022002,
+          "psc": 143,
+          "arr": 4544,
+          "duty": 0.4998899889988999
+        },
+        {
+          "hz": 2597.4025974025976,
+          "psc": 143,
+          "arr": 384,
+          "duty": 0.4987012987012987
+        },
+        {
+          "hz": 1300.3901170351105,
+          "psc": 143,
+          "arr": 768,
+          "duty": 0.49934980494148246
+        },
+        {
+          "hz": 1200.4801920768307,
+          "psc": 143,
+          "arr": 832,
+          "duty": 0.49939975990396157
+        },
+        {
+          "hz": 1798.5611510791366,
+          "psc": 143,
+          "arr": 555,
+          "duty": 0.5
+        },
+        {
+          "hz": 2398.0815347721823,
+          "psc": 143,
+          "arr": 416,
+          "duty": 0.4988009592326139
+        },
+        {
+          "hz": 2597.4025974025976,
+          "psc": 143,
+          "arr": 384,
+          "duty": 0.4987012987012987
+        },
+        {
+          "hz": 1300.3901170351105,
+          "psc": 143,
+          "arr": 768,
+          "duty": 0.49934980494148246
+        }
+      ],
+      "frames": 131,
+      "native_frames_compared": 57,
+      "fault": null,
+      "no_asic_tx": true,
+      "no_internal_flash_writes": true,
+      "nor_unchanged": true,
+      "panel_out_of_range": 0,
+      "stack_used_bytes": 848
+    },
+    {
+      "case": "leftovers",
+      "initial_menu": "c6f6e25dd899e7758eb2e48952669263e311a38201254fb849891263cf9f3b2a",
+      "frames": 1,
+      "native_frames_compared": 1,
+      "fault": null,
+      "no_asic_tx": true,
+      "no_internal_flash_writes": true,
+      "nor_unchanged": true,
+      "panel_out_of_range": 0,
+      "stack_used_bytes": 676
+    },
+    {
+      "case": "hsi",
+      "initial_menu": "c6f6e25dd899e7758eb2e48952669263e311a38201254fb849891263cf9f3b2a",
+      "frames": 1,
+      "native_frames_compared": 1,
+      "fault": null,
+      "no_asic_tx": true,
+      "no_internal_flash_writes": true,
+      "nor_unchanged": true,
+      "panel_out_of_range": 0,
+      "stack_used_bytes": 676
+    },
+    {
+      "case": "held-power",
+      "initial_menu": "c6f6e25dd899e7758eb2e48952669263e311a38201254fb849891263cf9f3b2a",
+      "frames": 1,
+      "native_frames_compared": 1,
+      "fault": null,
+      "no_asic_tx": true,
+      "no_internal_flash_writes": true,
+      "nor_unchanged": true,
+      "panel_out_of_range": 0,
+      "stack_used_bytes": 676
+    }
+  ]
+}

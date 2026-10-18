@@ -1,0 +1,7 @@
+/build*/
+/sdkconfig
+/sdkconfig.old
+/.venv/
+/captures/
+__pycache__/
+*.pyc

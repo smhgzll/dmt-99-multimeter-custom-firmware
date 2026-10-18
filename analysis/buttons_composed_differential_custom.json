@@ -1,0 +1,475 @@
+{
+  "cases": {
+    "0x0000b5c8": 1824,
+    "0x0000b9e0": 1824,
+    "0x0000bc90": 1824
+  },
+  "total": 5472,
+  "entries": [
+    "0x0000b5c8",
+    "0x0000b9e0",
+    "0x0000bc90"
+  ],
+  "probe_sha256": "1a334ea987424b5897e851fb1fa81345421a8030004489d9db7857fba4851f2f",
+  "packets": [
+    {
+      "hex": "aa 55 05 13 00 00 00 00 00 18",
+      "sources": [
+        {
+          "entry": "0x0000b5c8",
+          "view": 1,
+          "event": 1,
+          "mode": 0,
+          "layout": 0,
+          "language": 0,
+          "variant": 0
+        }
+      ]
+    },
+    {
+      "hex": "aa 55 05 0f 00 00 00 00 00 14",
+      "sources": [
+        {
+          "entry": "0x0000b5c8",
+          "view": 1,
+          "event": 1,
+          "mode": 0,
+          "layout": 0,
+          "language": 0,
+          "variant": 1
+        },
+        {
+          "entry": "0x0000b9e0",
+          "view": 2,
+          "event": 1,
+          "mode": 0,
+          "layout": 0,
+          "language": 0,
+          "variant": 1
+        }
+      ]
+    },
+    {
+      "hex": "aa 55 05 09 00 00 00 00 00 0e",
+      "sources": [
+        {
+          "entry": "0x0000b5c8",
+          "view": 1,
+          "event": 1,
+          "mode": 0,
+          "layout": 0,
+          "language": 1,
+          "variant": 1
+        }
+      ]
+    },
+    {
+      "hex": "aa 55 05 12 00 00 00 00 00 17",
+      "sources": [
+        {
+          "entry": "0x0000b5c8",
+          "view": 1,
+          "event": 1,
+          "mode": 0,
+          "layout": 1,
+          "language": 0,
+          "variant": 0
+        },
+        {
+          "entry": "0x0000b9e0",
+          "view": 2,
+          "event": 1,
+          "mode": 0,
+          "layout": 0,
+          "language": 0,
+          "variant": 0
+        },
+        {
+          "entry": "0x0000bc90",
+          "view": 3,
+          "event": 1,
+          "mode": 0,
+          "layout": 0,
+          "language": 0,
+          "variant": 0
+        }
+      ]
+    },
+    {
+      "hex": "aa 55 05 03 00 00 00 00 00 08",
+      "sources": [
+        {
+          "entry": "0x0000b5c8",
+          "view": 1,
+          "event": 2,
+          "mode": 0,
+          "layout": 0,
+          "language": 0,
+          "variant": 0
+        },
+        {
+          "entry": "0x0000b9e0",
+          "view": 2,
+          "event": 2,
+          "mode": 0,
+          "layout": 0,
+          "language": 0,
+          "variant": 0
+        },
+        {
+          "entry": "0x0000bc90",
+          "view": 3,
+          "event": 2,
+          "mode": 0,
+          "layout": 0,
+          "language": 0,
+          "variant": 0
+        }
+      ]
+    },
+    {
+      "hex": "aa 55 05 00 00 00 00 00 00 11",
+      "sources": [
+        {
+          "entry": "0x0000b5c8",
+          "view": 1,
+          "event": 2,
+          "mode": 0,
+          "layout": 0,
+          "language": 0,
+          "variant": 1
+        },
+        {
+          "entry": "0x0000b5c8",
+          "view": 1,
+          "event": 7,
+          "mode": 0,
+          "layout": 0,
+          "language": 0,
+          "variant": 0
+        },
+        {
+          "entry": "0x0000b5c8",
+          "view": 1,
+          "event": 8,
+          "mode": 0,
+          "layout": 0,
+          "language": 0,
+          "variant": 0
+        },
+        {
+          "entry": "0x0000b9e0",
+          "view": 2,
+          "event": 5,
+          "mode": 0,
+          "layout": 0,
+          "language": 0,
+          "variant": 0
+        },
+        {
+          "entry": "0x0000b9e0",
+          "view": 2,
+          "event": 7,
+          "mode": 0,
+          "layout": 0,
+          "language": 0,
+          "variant": 0
+        },
+        {
+          "entry": "0x0000b9e0",
+          "view": 2,
+          "event": 8,
+          "mode": 0,
+          "layout": 0,
+          "language": 0,
+          "variant": 0
+        },
+        {
+          "entry": "0x0000bc90",
+          "view": 3,
+          "event": 5,
+          "mode": 0,
+          "layout": 0,
+          "language": 0,
+          "variant": 0
+        },
+        {
+          "entry": "0x0000bc90",
+          "view": 3,
+          "event": 7,
+          "mode": 0,
+          "layout": 0,
+          "language": 0,
+          "variant": 0
+        },
+        {
+          "entry": "0x0000bc90",
+          "view": 3,
+          "event": 8,
+          "mode": 0,
+          "layout": 0,
+          "language": 0,
+          "variant": 0
+        }
+      ]
+    },
+    {
+      "hex": "aa 55 05 0c 00 00 00 00 00 11",
+      "sources": [
+        {
+          "entry": "0x0000b5c8",
+          "view": 1,
+          "event": 3,
+          "mode": 0,
+          "layout": 0,
+          "language": 0,
+          "variant": 0
+        },
+        {
+          "entry": "0x0000b9e0",
+          "view": 2,
+          "event": 3,
+          "mode": 0,
+          "layout": 0,
+          "language": 0,
+          "variant": 0
+        },
+        {
+          "entry": "0x0000bc90",
+          "view": 3,
+          "event": 3,
+          "mode": 0,
+          "layout": 0,
+          "language": 0,
+          "variant": 0
+        }
+      ]
+    },
+    {
+      "hex": "aa 55 05 0a 00 00 00 00 00 0f",
+      "sources": [
+        {
+          "entry": "0x0000b5c8",
+          "view": 1,
+          "event": 3,
+          "mode": 0,
+          "layout": 0,
+          "language": 0,
+          "variant": 1
+        },
+        {
+          "entry": "0x0000b9e0",
+          "view": 2,
+          "event": 3,
+          "mode": 0,
+          "layout": 1,
+          "language": 0,
+          "variant": 0
+        }
+      ]
+    },
+    {
+      "hex": "aa 55 05 0d 00 00 00 00 00 12",
+      "sources": [
+        {
+          "entry": "0x0000b5c8",
+          "view": 1,
+          "event": 3,
+          "mode": 0,
+          "layout": 0,
+          "language": 1,
+          "variant": 0
+        },
+        {
+          "entry": "0x0000b9e0",
+          "view": 2,
+          "event": 3,
+          "mode": 1,
+          "layout": 1,
+          "language": 0,
+          "variant": 1
+        },
+        {
+          "entry": "0x0000bc90",
+          "view": 3,
+          "event": 3,
+          "mode": 0,
+          "layout": 0,
+          "language": 0,
+          "variant": 1
+        }
+      ]
+    },
+    {
+      "hex": "aa 55 05 0b 00 00 00 00 00 10",
+      "sources": [
+        {
+          "entry": "0x0000b5c8",
+          "view": 1,
+          "event": 3,
+          "mode": 0,
+          "layout": 1,
+          "language": 1,
+          "variant": 0
+        },
+        {
+          "entry": "0x0000b9e0",
+          "view": 2,
+          "event": 3,
+          "mode": 0,
+          "layout": 0,
+          "language": 1,
+          "variant": 0
+        }
+      ]
+    },
+    {
+      "hex": "aa 55 05 0e 00 00 00 00 00 13",
+      "sources": [
+        {
+          "entry": "0x0000b5c8",
+          "view": 1,
+          "event": 3,
+          "mode": 2,
+          "layout": 0,
+          "language": 0,
+          "variant": 1
+        },
+        {
+          "entry": "0x0000b9e0",
+          "view": 2,
+          "event": 3,
+          "mode": 1,
+          "layout": 1,
+          "language": 0,
+          "variant": 0
+        }
+      ]
+    },
+    {
+      "hex": "aa 55 05 16 00 00 00 00 00 1b",
+      "sources": [
+        {
+          "entry": "0x0000b5c8",
+          "view": 1,
+          "event": 4,
+          "mode": 0,
+          "layout": 0,
+          "language": 0,
+          "variant": 0
+        },
+        {
+          "entry": "0x0000b9e0",
+          "view": 2,
+          "event": 4,
+          "mode": 0,
+          "layout": 0,
+          "language": 1,
+          "variant": 0
+        }
+      ]
+    },
+    {
+      "hex": "aa 55 05 11 00 00 00 00 00 16",
+      "sources": [
+        {
+          "entry": "0x0000b5c8",
+          "view": 1,
+          "event": 4,
+          "mode": 0,
+          "layout": 0,
+          "language": 0,
+          "variant": 1
+        },
+        {
+          "entry": "0x0000b9e0",
+          "view": 2,
+          "event": 4,
+          "mode": 0,
+          "layout": 0,
+          "language": 1,
+          "variant": 1
+        }
+      ]
+    },
+    {
+      "hex": "aa 55 05 15 00 00 00 00 00 1a",
+      "sources": [
+        {
+          "entry": "0x0000b5c8",
+          "view": 1,
+          "event": 4,
+          "mode": 0,
+          "layout": 0,
+          "language": 1,
+          "variant": 0
+        },
+        {
+          "entry": "0x0000b9e0",
+          "view": 2,
+          "event": 4,
+          "mode": 1,
+          "layout": 1,
+          "language": 1,
+          "variant": 1
+        },
+        {
+          "entry": "0x0000bc90",
+          "view": 3,
+          "event": 4,
+          "mode": 16,
+          "layout": 0,
+          "language": 0,
+          "variant": 0
+        }
+      ]
+    },
+    {
+      "hex": "aa 55 05 10 00 00 00 00 00 15",
+      "sources": [
+        {
+          "entry": "0x0000b5c8",
+          "view": 1,
+          "event": 4,
+          "mode": 2,
+          "layout": 1,
+          "language": 0,
+          "variant": 0
+        },
+        {
+          "entry": "0x0000b9e0",
+          "view": 2,
+          "event": 4,
+          "mode": 0,
+          "layout": 0,
+          "language": 0,
+          "variant": 0
+        },
+        {
+          "entry": "0x0000bc90",
+          "view": 3,
+          "event": 4,
+          "mode": 0,
+          "layout": 0,
+          "language": 0,
+          "variant": 0
+        }
+      ]
+    },
+    {
+      "hex": "aa 55 05 14 00 00 00 00 00 19",
+      "sources": [
+        {
+          "entry": "0x0000b5c8",
+          "view": 1,
+          "event": 5,
+          "mode": 0,
+          "layout": 0,
+          "language": 0,
+          "variant": 0
+        }
+      ]
+    }
+  ],
+  "scope": "Full button call traces and selector/relative/return-event state, real original169d4 vs native application/menu composition; base/history calls isolated. Native two-step menu scheduling is not a cycle/interrupt equivalence claim."
+}

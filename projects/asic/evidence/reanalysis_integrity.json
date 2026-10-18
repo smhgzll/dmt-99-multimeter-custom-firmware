@@ -1,0 +1,128 @@
+[
+  {
+    "capture": "20261018T003908_idle_already_powered_81d808b6",
+    "raw_sha256": "e36090f96fdb6b42b0cf28de30550ac3aacf2f094276915027d372579ac2c9e2",
+    "raw_unchanged": true,
+    "uart_byte_records_unchanged": true,
+    "revision": "captures/20261018T003908_idle_already_powered_81d808b6/revisions/consistent_decoder_2026-10-18T013140.505920_0300"
+  },
+  {
+    "capture": "20261018T004101_auto_idle_d0_d2_2mhz_9eb57894",
+    "raw_sha256": "f70a287853ead1abd77eedcc46c149886b5445e18d36765cc64a654b69b113b4",
+    "raw_unchanged": true,
+    "uart_byte_records_unchanged": true,
+    "revision": "captures/20261018T004101_auto_idle_d0_d2_2mhz_9eb57894/revisions/consistent_decoder_2026-10-18T013140.505920_0300"
+  },
+  {
+    "capture": "20261018T004155_startup_auto_d0_d2_2mhz_998d0648",
+    "raw_sha256": "6e64798173daeceb5e25acf49419c833aa216f6a6401d7b93d21976057cbd4e9",
+    "raw_unchanged": true,
+    "uart_byte_records_unchanged": true,
+    "revision": "captures/20261018T004155_startup_auto_d0_d2_2mhz_998d0648/revisions/consistent_decoder_2026-10-18T013140.505920_0300"
+  },
+  {
+    "capture": "20261018T010803_resistance_st2_1ohm_reported_63335c8a",
+    "raw_sha256": "d98a658c766e07ece90cf9fde75ea4d47bdfec9a487613cd650d9e8a50ea3623",
+    "raw_unchanged": true,
+    "uart_byte_records_unchanged": true,
+    "revision": "captures/20261018T010803_resistance_st2_1ohm_reported_63335c8a/revisions/consistent_decoder_2026-10-18T013140.505920_0300"
+  },
+  {
+    "capture": "20261018T010905_resistance_st2_1ohm_repeat_c96379a8",
+    "raw_sha256": "38546c68e8e1c8ab5526b83454db7d6b2015cd3ecb2c77f0dc44a29ce66c632d",
+    "raw_unchanged": true,
+    "uart_byte_records_unchanged": true,
+    "revision": "captures/20261018T010905_resistance_st2_1ohm_repeat_c96379a8/revisions/consistent_decoder_2026-10-18T013140.505920_0300"
+  },
+  {
+    "capture": "20261018T011007_resistance_st2_1kohm_9b1124e1",
+    "raw_sha256": "1eabe36d137644138850f3b2af4ca84202a804700981b6564bcc810bcdd63a0a",
+    "raw_unchanged": true,
+    "uart_byte_records_unchanged": true,
+    "revision": "captures/20261018T011007_resistance_st2_1kohm_9b1124e1/revisions/consistent_decoder_2026-10-18T013140.505920_0300"
+  },
+  {
+    "capture": "20261018T011124_resistance_st2_10kohm_4e3927b0",
+    "raw_sha256": "c141953be8c2113cee97fc82cff9de6c821774e10e4b96e3ed4a2ed8844174b6",
+    "raw_unchanged": true,
+    "uart_byte_records_unchanged": true,
+    "revision": "captures/20261018T011124_resistance_st2_10kohm_4e3927b0/revisions/consistent_decoder_2026-10-18T013140.505920_0300"
+  },
+  {
+    "capture": "20261018T011245_resistance_st2_100kohm_2c0eb7ee",
+    "raw_sha256": "daa402792cbc2590b54094904e5021374ff638fd13e3d0ad72aaded4d1261f82",
+    "raw_unchanged": true,
+    "uart_byte_records_unchanged": true,
+    "revision": "captures/20261018T011245_resistance_st2_100kohm_2c0eb7ee/revisions/consistent_decoder_2026-10-18T013140.505920_0300"
+  },
+  {
+    "capture": "20261018T011348_resistance_st2_open_91086a21",
+    "raw_sha256": "1ee9d3a9739989d61208557a41e92395c668d0a92ad04d59aa80d17121e800a1",
+    "raw_unchanged": true,
+    "uart_byte_records_unchanged": true,
+    "revision": "captures/20261018T011348_resistance_st2_open_91086a21/revisions/consistent_decoder_2026-10-18T013140.505920_0300"
+  },
+  {
+    "capture": "20261018T011507_resistance_st2_1Mohm_7edb835a",
+    "raw_sha256": "413052e44717ec2234bc8a53861d70d461461113d350caa1d2547dea6b15a246",
+    "raw_unchanged": true,
+    "uart_byte_records_unchanged": true,
+    "revision": "captures/20261018T011507_resistance_st2_1Mohm_7edb835a/revisions/consistent_decoder_2026-10-18T013140.505920_0300"
+  },
+  {
+    "capture": "20261018T011705_resistance_st2_10Mohm_daf8f4d1",
+    "raw_sha256": "f296fa39b748cf020cec136a68cae0a32b8088957008a43f2e56715908d017fd",
+    "raw_unchanged": true,
+    "uart_byte_records_unchanged": true,
+    "revision": "captures/20261018T011705_resistance_st2_10Mohm_daf8f4d1/revisions/consistent_decoder_2026-10-18T013140.505920_0300"
+  },
+  {
+    "capture": "20261018T011808_auto_to_resistance_open_fa59a550",
+    "raw_sha256": "d4275eaf4e93875f768ff58a63b09e02ad6c78afc3d027674c84f54cc38401dd",
+    "raw_unchanged": true,
+    "uart_byte_records_unchanged": true,
+    "revision": "captures/20261018T011808_auto_to_resistance_open_fa59a550/revisions/consistent_decoder_2026-10-18T013140.505920_0300"
+  },
+  {
+    "capture": "20261018T012010_open_probes_mode_sweep_9f01eea5",
+    "raw_sha256": "13de242cb3da70cb11736892d237a48ddcd0675a4632ab596599533a908e925a",
+    "raw_unchanged": true,
+    "uart_byte_records_unchanged": true,
+    "revision": "captures/20261018T012010_open_probes_mode_sweep_9f01eea5/revisions/consistent_decoder_2026-10-18T013140.505920_0300"
+  },
+  {
+    "capture": "20261018T012123_capacitance_open_0015_reported_599d35bc",
+    "raw_sha256": "da554e4941b5cb3298d9a05668ca2fb15abefada343bf60e11cd4498e59f8e50",
+    "raw_unchanged": true,
+    "uart_byte_records_unchanged": true,
+    "revision": "captures/20261018T012123_capacitance_open_0015_reported_599d35bc/revisions/consistent_decoder_2026-10-18T013140.505920_0300"
+  },
+  {
+    "capture": "20261018T012301_continuity_open_7ec5dac1",
+    "raw_sha256": "7d392e263e7f2d5bbc4df790e64b6ebe4735ca012e1a6647d6ce06a6c905d36c",
+    "raw_unchanged": true,
+    "uart_byte_records_unchanged": true,
+    "revision": "captures/20261018T012301_continuity_open_7ec5dac1/revisions/consistent_decoder_2026-10-18T013140.505920_0300"
+  },
+  {
+    "capture": "20261018T012445_dc_voltage_open_floating_4c4cae37",
+    "raw_sha256": "8e2dff95c30a5e2e8fba910cde1c0ff87ed11137dfb33b436e382d291aa27127",
+    "raw_unchanged": true,
+    "uart_byte_records_unchanged": true,
+    "revision": "captures/20261018T012445_dc_voltage_open_floating_4c4cae37/revisions/consistent_decoder_2026-10-18T013140.505920_0300"
+  },
+  {
+    "capture": "20261018T012633_ac_voltage_open_0f21932d",
+    "raw_sha256": "b47a95d451bc0e6ec3afed6885d3a0588d094fe1500505f82fc7e18f3f12d99e",
+    "raw_unchanged": true,
+    "uart_byte_records_unchanged": true,
+    "revision": "captures/20261018T012633_ac_voltage_open_0f21932d/revisions/consistent_decoder_2026-10-18T013140.505920_0300"
+  },
+  {
+    "capture": "20261018T012926_frequency_open_8d1e1544",
+    "raw_sha256": "5463e5101bdbe0ab1c007f5452dd070d8edfa81ec63e2006a354d790348ebdc7",
+    "raw_unchanged": true,
+    "uart_byte_records_unchanged": true,
+    "revision": "captures/20261018T012926_frequency_open_8d1e1544/revisions/consistent_decoder_2026-10-18T013140.505920_0300"
+  }
+]

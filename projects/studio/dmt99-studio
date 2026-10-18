@@ -1,0 +1,10 @@
+#!/bin/sh
+# Launch DMT99 Studio (creates the virtual environment on first start).
+set -eu
+here=$(CDPATH= cd -- "$(dirname -- "$0")" && pwd)
+if [ ! -x "$here/.venv/bin/python" ]; then
+    python3 -m venv "$here/.venv"
+    "$here/.venv/bin/pip" install -q -r "$here/requirements.txt"
+fi
+cd "$here"
+exec "$here/.venv/bin/python" -m dmt99studio "$@"

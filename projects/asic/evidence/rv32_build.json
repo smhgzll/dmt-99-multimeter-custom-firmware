@@ -1,0 +1,31 @@
+{
+  "command": [
+    "~/.espressif/tools/riscv32-esp-elf/esp-14.2.0_20260121/riscv32-esp-elf/bin/riscv32-esp-elf-gcc",
+    "-march=rv32imac_zicsr_zifencei",
+    "-mabi=ilp32",
+    "-Os",
+    "-std=gnu11",
+    "-ffreestanding",
+    "-fno-builtin",
+    "-fno-common",
+    "-ffunction-sections",
+    "-fdata-sections",
+    "-Wall",
+    "-Wextra",
+    "-Werror",
+    "-Iprojects/asic/firmware",
+    "-c",
+    "projects/asic/firmware/dmt99_asic.c",
+    "-o",
+    "projects/asic/build/dmt99_asic_rv32.o"
+  ],
+  "compiler_version": "riscv32-esp-elf-gcc (crosstool-NG esp-14.2.0_20260121) 14.2.0\nCopyright (C) 2024 Free Software Foundation, Inc.\nThis is free software; see the source for copying conditions.  There is NO\nwarranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.\n\n",
+  "size": "   text\t   data\t    bss\t    dec\t    hex\tfilename\n   2224\t      0\t      0\t   2224\t    8b0\tprojects/asic/build/dmt99_asic_rv32.o\n",
+  "target_write_performed": false,
+  "source_sha256": {
+    "dmt99_asic.h": "cf3037053b6c4198a30bd4607d63bcad6964d130e8817611fa0e7f09456c57b6",
+    "dmt99_asic.c": "f7b32a0ed3c47b9e92f656ae25ea55227f8edc46e8bfe448203f0f7d3ee89875"
+  },
+  "last_checked_at": "2026-10-18T01:51:23.547368+03:00",
+  "archive_sha256": "ec296592536e98ccf3ba26f1a58ea4923a2367d42329f86939e375a0f5e63c99"
+}

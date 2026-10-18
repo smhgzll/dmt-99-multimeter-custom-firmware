@@ -1,0 +1,51 @@
+{
+  "wad_sha256": "1d7d43be501e67d927e415e0b8f3e29c3bf33075e859721816f652a526cac771",
+  "wad_bytes": 4196020,
+  "map": "E1M1",
+  "walls": 404,
+  "enemies": 103,
+  "items": 85,
+  "textures": [
+    "BROWN1",
+    "BROWN144",
+    "BROWN96",
+    "BROWNGRN",
+    "DOOR3",
+    "DOORBLU",
+    "DOORRED",
+    "DOORSTOP",
+    "DOORTRAK",
+    "DOORYEL",
+    "LITE3",
+    "SUPPORT2",
+    "SW1BRCOM",
+    "SW1BRNGN"
+  ],
+  "sprites": [
+    "AMMOA0",
+    "ARM1A0",
+    "BKEYA0",
+    "BON1A0",
+    "BON2A0",
+    "BPAKA0",
+    "CLIPA0",
+    "MEDIA0",
+    "POSSA1",
+    "RKEYA0",
+    "SARGA1",
+    "SBOXA0",
+    "SHELA0",
+    "SHOTA0",
+    "SPOSA1",
+    "STIMA0",
+    "TROOA1",
+    "YKEYA0",
+    "PISGA0"
+  ],
+  "asset_rom_bytes": 53392,
+  "generated_sha256": {
+    "assets.h": "ca14ca267b655da3eeab37e2494d5d7d4299b74f0e346961bc5f04df1caf3b04",
+    "map_data.h": "dfe4c9acde2733691e25154493504b9f6fdd3a173b66221f0bacf6e22ba416e2",
+    "assets.c": "7f2e4a562525047ef4eeb3837c0c143e1f5423322d2a5050a53f562887f4d643"
+  }
+}

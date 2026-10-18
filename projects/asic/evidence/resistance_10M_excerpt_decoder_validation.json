@@ -1,0 +1,9 @@
+{
+  "source_capture": "projects/asic/captures/20261018T011705_resistance_st2_10Mohm_daf8f4d1",
+  "source_rx_candidates": 724,
+  "source_uart_error_candidates": 2,
+  "clean_excerpt_fixture": "tests/fixtures/real_resistance_10Mohm_1000000hz",
+  "excerpt_rx_bytes": 72,
+  "excerpt_sigrok_exact_match": true,
+  "policy": "Full original capture and boundary errors retained; validation is explicitly scoped to exact contiguous clean excerpt"
+}

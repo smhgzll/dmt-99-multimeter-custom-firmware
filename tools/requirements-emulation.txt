@@ -1,0 +1,5 @@
+# Firmware emulation and image comparison (tools/fw_emulator.py, tools/test_*emulation*.py,
+# tools/test_original_differential.py, tools/test_startup_differential.py).
+unicorn==2.1.1
+numpy
+pillow

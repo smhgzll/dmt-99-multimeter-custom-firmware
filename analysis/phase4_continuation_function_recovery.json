@@ -1,0 +1,137 @@
+{
+  "baseline": {
+    "complete": 129,
+    "partial": 29,
+    "incomplete_nontrap": 140
+  },
+  "reviewed_entries": [
+    {
+      "address": "0x0000792e",
+      "source": "reconstructed/application/application.c",
+      "symbol": "application_beep_500",
+      "extent": "full",
+      "validation_group": "phase4_continuation_glue",
+      "scope": "Default buzzer start, delay500 and disable external-call contract; mandatory bound callbacks in valid IO domain. No hardware/timing validation.",
+      "hardware_validated": false,
+      "kind": "native"
+    },
+    {
+      "address": "0x00007e68",
+      "source": "reconstructed/drivers/display.c",
+      "symbol": "display_scan_direction",
+      "extent": "full",
+      "validation_group": "phase4_continuation_glue",
+      "scope": "All eight direction values and default-zero register value; independent caller-owned dimensions/command registers, including original zero-dimension high-halfword behavior. GPIO command/data stream compared.",
+      "hardware_validated": false,
+      "kind": "native"
+    },
+    {
+      "address": "0x0000908a",
+      "source": "reconstructed/application/application.c",
+      "symbol": "application_startup",
+      "extent": "full",
+      "validation_group": "phase4_continuation_glue",
+      "scope": "Exact11 startup callee order and parameters with typed address-documented IO. The original8ed4 boundary does not return; offline tests stop there and permit the native callback to return. Peripheral internals and device boot are not credited.",
+      "hardware_validated": false,
+      "kind": "native"
+    },
+    {
+      "address": "0x000097f8",
+      "source": "reconstructed/drivers/measurement_asic.c",
+      "symbol": "measurement_forward_button",
+      "extent": "full",
+      "validation_group": "phase4_continuation_glue",
+      "scope": "All byte event values; recognized keys wait10ms, sample their original GPIO mask, conditionally send the exact AA55 command and clear the event. Event replacement during debounce tested. No ASIC analog meaning inferred.",
+      "hardware_validated": false,
+      "kind": "native"
+    },
+    {
+      "address": "0x0000d964",
+      "source": "reconstructed/storage/settings.c",
+      "symbol": "settings_language_access",
+      "extent": "full",
+      "validation_group": "phase4_continuation_glue",
+      "scope": "Explicit mutable20-byte prefix cache, six original paths, full-width selector switch, unsupported-selector stale-prefix retention, unmasked stored-word spill and original count-including-NUL return. Application uses supported UI languages0/1.",
+      "hardware_validated": false,
+      "kind": "native"
+    },
+    {
+      "address": "0x0000da48",
+      "source": "reconstructed/storage/settings.c",
+      "symbol": "settings_auto_off_access",
+      "extent": "full",
+      "validation_group": "phase4_continuation_glue",
+      "scope": "Getter plus unmasked full-width setter, valid0/1/2/3 timeout side effects, invalid-selector preservation of previous timeout and original write-flag return.",
+      "hardware_validated": false,
+      "kind": "native"
+    },
+    {
+      "address": "0x0000dc46",
+      "source": "reconstructed/storage/persistence.c",
+      "symbol": "settings_image_restore_defaults",
+      "extent": "full",
+      "validation_group": "phase4_continuation_glue",
+      "scope": "Original initialized17-halfword defaults, zeroed remainder of128-halfword image, ignored-result logo-removal external call, loaded-flag store after that call. Uses preserved initialized defaults; no device storage layout confirmation.",
+      "hardware_validated": false,
+      "kind": "native"
+    },
+    {
+      "address": "0x0001598c",
+      "source": "reconstructed/ui/menu.c",
+      "symbol": "menu_enter_back_rendered",
+      "extent": "full",
+      "validation_group": "phase4_continuation_menu",
+      "scope": "State/brightness/render ordering, scrollbar1, back-to-settings region clears and pending BACK. Editor/history are explicit external-call contracts; application represents blocking waits as resumable states. Valid layouts0/1 and UI languages0/1.",
+      "hardware_validated": false,
+      "kind": "native"
+    },
+    {
+      "address": "0x00015af6",
+      "source": "reconstructed/ui/menu.c",
+      "symbol": "menu_select_rendered",
+      "extent": "full",
+      "validation_group": "phase4_continuation_menu",
+      "scope": "View/threshold/settings selection and exact language/layout/temperature/timeout drawing order. Restart is an explicit nonreturning external-call boundary; cooperative caller returns to its scheduler without another menu paint. Valid layouts0/1 and UI languages0/1.",
+      "hardware_validated": false,
+      "kind": "native"
+    },
+    {
+      "address": "0x000164d4",
+      "source": "reconstructed/ui/menu.c",
+      "symbol": "menu_navigate_rendered",
+      "extent": "full",
+      "validation_group": "phase4_continuation_menu",
+      "scope": "Complete32-ID navigation switch, endpoint/holes, category erases/updates, headings, setting-page transitions and brightness side effects. Valid layouts0/1 and UI languages0/1.",
+      "hardware_validated": false,
+      "kind": "native"
+    },
+    {
+      "address": "0x000169d4",
+      "source": "reconstructed/ui/menu.c",
+      "symbol": "menu_step_rendered / menu_paint_state",
+      "extent": "full",
+      "validation_group": "phase4_continuation_menu",
+      "scope": "Dispatcher cache-hit suppression, all32 states/holes, ordered incremental erases/repaints, cursor peers, exit fill/base/reset/cache contract and original restart termination. Valid layouts0/1, UI languages0/1, views1..3, bounded history0..30. Declared base/threshold/history/version IO boundaries are tested calls; blocking/timing equivalence is not claimed.",
+      "hardware_validated": false,
+      "kind": "native"
+    },
+    {
+      "address": "0x0001a336",
+      "source": "reconstructed/ui/menu_render.c",
+      "symbol": "menu_threshold_all",
+      "extent": "full",
+      "kind": "native",
+      "validation_group": "phase4_continuation_menu",
+      "scope": "All six unselected threshold hints in original order for both layouts and supported UI languages; missing decompiler arguments resolved from original instructions.",
+      "hardware_validated": false
+    }
+  ],
+  "full_added": 12,
+  "partial_completed": 11,
+  "not_claimed": [
+    "Physical peripheral behavior",
+    "Interrupt/cycle equivalence",
+    "Diagnostic ASIC command meanings",
+    "Bootloader/USB/internal Flash layout confirmation"
+  ]
+}

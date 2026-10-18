@@ -1,0 +1,143 @@
+{
+  "input_sha256": "4befdf6b58e063f03901f190000d790e60d20d0a23e5eeb2b6f6840f1830e98e",
+  "preserved_evidence_files": 885,
+  "identified_instruction_bytes": 98834,
+  "code_gap_bytes": 18,
+  "discovered_functions": 439,
+  "decompiled_functions": 439,
+  "role_classified_functions": 439,
+  "previously_unresolved_role_reviews": 186,
+  "unclassified_roles": 0,
+  "detailed_semantics_confirmed_lower_bound": 230,
+  "detailed_semantics_definition": "Full translated valid-domain routines, pinned SDK helper implementations and proven default loops. Role labels alone do not satisfy this stricter metric.",
+  "full_source_translated_functions": 80,
+  "partial_source_translated_functions": 36,
+  "functions_without_complete_native_translation": 359,
+  "compiled_native_translations_full_or_partial": 116,
+  "compiled_sdk_function_counterparts": 64,
+  "machine_code_checked_entry_functions": 34,
+  "machine_code_checked_entries": [
+    "0x00008050",
+    "0x00008194",
+    "0x000081ce",
+    "0x00008266",
+    "0x000083d6",
+    "0x00008a5a",
+    "0x00008b5c",
+    "0x00008c64",
+    "0x00008d6c",
+    "0x00008e46",
+    "0x000098aa",
+    "0x000099cc",
+    "0x0000a910",
+    "0x0000aed0",
+    "0x0000b29e",
+    "0x0000b5c8",
+    "0x0000b9e0",
+    "0x0000bc90",
+    "0x0000be78",
+    "0x0000d944",
+    "0x0000d9e6",
+    "0x0000da04",
+    "0x0000da28",
+    "0x0000da9c",
+    "0x0000fe08",
+    "0x00011086",
+    "0x00013264",
+    "0x00014408",
+    "0x00014a92",
+    "0x00014d62",
+    "0x00014e48",
+    "0x0001598c",
+    "0x00015af6",
+    "0x000164d4"
+  ],
+  "native_c_translation_units": 27,
+  "host_tests_passed": 19,
+  "host_tests_failed": 0,
+  "new_differential_cases": 9388,
+  "baseline_differential": {
+    "segment_function": "0x98aa",
+    "segment_inputs_exhaustive": 256,
+    "settings_functions": [
+      "0xd944",
+      "0xd9e6",
+      "0xda04",
+      "0xda28"
+    ],
+    "settings_cases": 4096,
+    "failed": 0,
+    "scope": "Original instructions interpreted by fail-closed RV32 subset versus native compiled reconstructed C; no device emulation."
+  },
+  "total_differential_cases": 13740,
+  "differential_inputs_sha256": "c1ac872f853ea2815935c138e4fce1b4598970036ef6753a63dbe9c43ab36600",
+  "cross_build": "passed",
+  "elf_sha256": "9922e3b426c8f50ef1800c884e5793d25a96e8cbba14486f01a255a5a40c5a74",
+  "reproducible_elf": true,
+  "sections": {
+    ".init": {
+      "address": 25600,
+      "size": 56,
+      "type": 1
+    },
+    ".vector": {
+      "address": 25656,
+      "size": 416,
+      "type": 1
+    },
+    ".text": {
+      "address": 26112,
+      "size": 36828,
+      "type": 1
+    },
+    ".data": {
+      "address": 536870912,
+      "size": 128,
+      "type": 1
+    },
+    ".bss": {
+      "address": 536871040,
+      "size": 556,
+      "type": 8
+    },
+    ".stack": {
+      "address": 536934400,
+      "size": 2048,
+      "type": 8
+    }
+  },
+  "baseline_decoder_vectors": 52,
+  "baseline_sdk_byte_identical": 19,
+  "firmware_equivalent": false,
+  "hardware_validated": false,
+  "complete_application": false,
+  "remaining_boundaries": [
+    "Two-key diagnostic command0xa0 meaning",
+    "Remaining menu/numeric/graph/extrema rasterization",
+    "FAT/CP936/JPEG native source integration and resource availability",
+    "Device-specific internal flash clock/CSR/program backend",
+    "ADC/debug/delay startup binding and on-device interrupt timing"
+  ],
+  "retained_modules_elf_sha256": "48d50ca4dedf7157a62ebb1742475149b1c408ae36b0e7aa623dad630aaf4eac",
+  "retained_modules_reproducible": true,
+  "retained_modules_size": {
+    "text_and_rodata": 63900,
+    "initialized_data": 188,
+    "bss": 560,
+    "reserved_stack": 2048
+  },
+  "host_sanitizers": {
+    "status": "passed",
+    "tests": 6,
+    "sanitizers": [
+      "address",
+      "undefined"
+    ],
+    "leak_detection": false,
+    "leak_detection_note": "LeakSanitizer cannot run under the sandbox ptrace environment; leak checking is disabled. These tests use stack/static storage.",
+    "compiler": "clang version 22.1.8 (Fedora 22.1.8-4.fc44)",
+    "differential_inputs_sha256": "c1ac872f853ea2815935c138e4fce1b4598970036ef6753a63dbe9c43ab36600",
+    "binary_sha256": "5291db416ffea6125c09b4ac31a7ab514aaf0ab5575fce851ccafef53a34ee4f",
+    "command": "make -C reconstructed host-sanitize"
+  }
+}

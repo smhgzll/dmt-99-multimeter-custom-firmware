@@ -1,0 +1,27 @@
+{
+  "cases": {
+    "0x0000908a": 1,
+    "0x000097f8": 520,
+    "0x0000da48": 320,
+    "0x00007e68": 72,
+    "0x0000792e": 1,
+    "0x0000d964": 234,
+    "0x0000dc46": 4
+  },
+  "total": 1152,
+  "entries": [
+    "0x0000908a",
+    "0x000097f8",
+    "0x0000da48",
+    "0x00007e68",
+    "0x0000792e",
+    "0x0000d964",
+    "0x0000dc46"
+  ],
+  "native_library_sha256": "2f4f584238794caf73fd63c7540b16c26548cba7acf9201fe3ff973b0522044a",
+  "original_sha256": "4befdf6b58e063f03901f190000d790e60d20d0a23e5eeb2b6f6840f1830e98e",
+  "additional_host_guards": {
+    "missing_startup_bindings": 11
+  },
+  "scope": "Original startup callee order/arguments and host-returning loop boundary; all 256 forwarding events with released/pressed GPIO and replacement during debounce; timeout write/read/spill effects; display command/data streams for eight directions/defaults; 500ms beep call contract. Hardware, peripheral initialization internals and interrupt timing remain unvalidated."
+}

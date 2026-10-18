@@ -1,0 +1,56 @@
+{
+  "cases": {
+    "0x0000b56a:entry": 32,
+    "0x000097f8:accepted_key_packet": 4,
+    "0x00008ed4:boot_selection": 20,
+    "0x00008ed4:normal_iteration": 384,
+    "0x00008ed4:diagnostic_iteration": 32,
+    "0x0000be78:portable_reading": 768
+  },
+  "total": 1240,
+  "entries": [
+    "0x00008ed4",
+    "0x0000b56a",
+    "0x0000be78",
+    "0x000097f8"
+  ],
+  "diagnostic_sequence": [
+    {
+      "kind": "tx",
+      "value": "aa 55 05 0b 00 00 00 00 00 10"
+    },
+    {
+      "kind": "delay",
+      "value": 200
+    },
+    {
+      "kind": "tx",
+      "value": "aa 55 02 a0 00 00 00 00 00 a2"
+    }
+  ],
+  "accepted_key_packets": [
+    {
+      "event": 1,
+      "packet": "aa 55 05 09 00 00 00 00 00 0e",
+      "source": "0x000097f8"
+    },
+    {
+      "event": 2,
+      "packet": "aa 55 05 08 00 00 00 00 00 0d",
+      "source": "0x000097f8"
+    },
+    {
+      "event": 3,
+      "packet": "aa 55 05 03 00 00 00 00 00 08",
+      "source": "0x000097f8"
+    },
+    {
+      "event": 4,
+      "packet": "aa 55 05 01 00 00 00 00 00 06",
+      "source": "0x000097f8"
+    }
+  ],
+  "native_library_sha256": "fe318cd38c0ff224e16213ab64108b566a9c3944f83bfb53aa8b35ffef38e806",
+  "original_sha256": "4befdf6b58e063f03901f190000d790e60d20d0a23e5eeb2b6f6840f1830e98e",
+  "scope": "Original complete B56A packets/delay;8ED4 boot selection and bounded normal/diagnostic iterations with explicit callee hooks; portable BE78 text/numeric/state including stale text bytes and FD parsing. No peer ACK/analog/timing or hardware validation."
+}

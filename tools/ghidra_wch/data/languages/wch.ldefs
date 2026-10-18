@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<language_definitions><language processor="RISCV" endian="little" size="32" variant="WCH" version="1.0" slafile="wch.sla" processorspec="RV32.pspec" id="RISCV:LE:32:WCH">
+<description>WCH QingKe RV32 with Xwchc (firmware uses soft-float ABI)</description>
+<compiler name="gcc" spec="riscv32-fp.cspec" id="gcc"/>
+<compiler name="gcc-soft" spec="riscv32.cspec" id="gcc-soft"/>
+</language></language_definitions>

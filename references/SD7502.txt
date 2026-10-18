@@ -1,0 +1,610 @@
+                                                                 SD7502
+                                          带峰值保持及浪涌测量功能
+                                            18*4 液晶的万用表 SoC
+
+                                           工作温度范围：-40℃~ 85℃
+ 特点                                        内部 8MHz 与 32kHz RC 振荡器
+
+  高精度 ADC，可实现 4000 或 6000 分度测量
+                                          描述
+  交流真有效值输出，2kHz 带宽处误差不超过 0.5%
+  芯片内置分压电阻，无需外部电阻分压                         本芯片是带 24 位 ADC 的 SoC 产品，程序存储
+  可编程多功能测量网络，支持电压，电流，电阻，                 器为 16k Bytes OTP，超低功耗设计，使用内部 4MHz
+   二极管，三极管，通断，温度，电容和频率等测                  RC 振荡器经内部电路处理而产生的 2MHz 时钟工
+   量                                      作，3V 工作电压下，典型应用时的工作电流 CPR
+  带峰值保持及浪涌测量功能                           关闭时 2.0mA, CPR 打开时 3.0mA。
+  内置 charge pump，可测试 3V 二极管
+                                             外围资源丰富：可选的多种稳压电源输出，灵
+  多功能比较器，具有 latch 功能
+                                          活设置的 ADC 模块，升压模块，UART，带有
+  8 位 RISC 超低功耗 MCU，49 条指令，6 级堆栈，
+                                          CAPTURE 功能的 TIMER，PWM 和 PFD 输出模块，
+   在 2MHz 工作时钟，MCU 部分在 3.3V 工作电压
+                                          LCD 驱动等。
+   下电流典型值为 400uA；32kHz 时钟待机模式下
+   工作电流 1.5uA，休眠模式电流小于 1uA                  本产品的 OTP 可以低压自烧录，烧录电压范
+  16k Bytes OTP 程序存储器，256 Bytes SRAM 数   围：2.4V~3.6V，OTP 可以替代 EEPROM 使用。
+   据存储器                                     MCU 提供三种工作模式让用户可以在工作效
+  24 位计数器 TMRA、TMRB 和 TMRC，用于频率
+                                          率和能量消耗方面得到最佳选择，三种模式是：正
+   或占空比测量                                 常工作模式、待机模式、休眠模式。
+  低压烧录功能，可以替代外部 EEPROM
+  灵活的电池检测功能，检测范围 2.0V~3.3V               应用领域
+  丰富的外围资源：UART，PWM，PFD，BUZ，
+                                            手动档或自动挡万用表及相关测量应用。
+   TIMER
+  18SEG×4COM 液晶驱动电路，超低功耗和大驱
+                                          订购信息
+   动能力设计；内含程控升压模块，可以在低压条
+   件下维持高亮显示，支持灰度调节                          LQFP64 封装
+  所有数字输入口带施密特触发输入，可以选择是
+   否使用上拉电阻
+  掉电检测电路和上电复位电路
+  工作电压范围：2.4V ~ 3.6V
+
+
+
+
+ 晶华微电子           版本 0.1   2018/08
+http://www.SDICmicro.cn
+                                                SD7502
+
+管脚图和管脚描述
+
+
+
+
+                                     图 1. 管脚图
+
+
+
+
+ 晶华微电子           版本 0.1    2018/08                第 2 页 共 9 页
+http://www.SDICmicrdo.cn
+                                                                              SD7502
+                                               表 1. 管脚描述
+  序号            PAD 名称           属性                              PAD 描述
+    1     VPP                    模拟      OTP 烧录的高压引脚, 外接 1uF 电容到 VDD 或 VSS
+    2     CP                     模拟      charge pump 外接电容引脚
+    3     CN                     模拟      charge pump 外接电容引脚
+    4     VCP                    模拟      charge pump 输出电压
+    5     VDD                    电源      电源。外接 0.1uF 电容到 VSS
+    6     VSS                     地      地
+    7     AVDDR                  模拟      内部 LDO 输出，供内部模拟模块使用，外接 0.1uF-10uF 滤波电容到 VSS
+    8     ACM                    模拟      ADC 共模电压输出，外接 0.1uF 滤波电容到 VSS
+                                 模拟      模拟信号输入端口。端口都有由寄存器控制的独立下拉电阻（默认关闭）。当
+    9     A0/LBTIN0
+                                 输入      不使用这端口的时候，可以将其下拉为低电平。可复用为 LBTIN0 输入
+                                 模拟      模拟信号输入端口。每个端口都有由寄存器控制的独立下拉电阻（默认关闭）。
+  10-16   A1--A7
+                                 输入      当不使用这些端口的时候，可以将其下拉为低电平。
+   17     COM                    模拟      测试电路共地，外接 0.1uF 滤波电容到 VSS
+   18     P10/FIN                 I/O    数字 I/O P10，也可复用为频率测试输入
+   19     P11/INT0/LBTIN1         I/O    数字 I/O P11，也可复用为外部中断 0 或 LBTIN1 输入
+   20     P12/INT0/LBTIN2         I/O    数字 I/O P12，也可复用为外部中断 0 或 LBTIN2 输入
+  21-22   P13/INT0--P14/INT0      I/O    数字 I/O P13-14，也可复用为外部中断 0
+  23-27   P20/INT1--P24/INT1      I/O    数字 I/O P20-24，也可复用为外部中断 1
+   28     P25/BUZ                 I/O    数字 I/O P25，也可输出 Buzzer 驱动信号
+   29     P26/BUZB                I/O    数字 I/O P26，也可输出 Buzzer 反相驱动信号
+  30-33   NC                      NC     请保持悬空状态，外部不要连接任何电路
+   34     P27/PFD/PWM             I/O    数字 I/O P27，也可输出 PFD 或 PWM 驱动信号
+   35     P30/RXD                 I/O    数字 I/O P30，也可复用为 URAT 通信的 RXD
+   36     P31/TXD                 I/O    数字 I/O P31，也可复用为 URAT 通信的 TXD
+          P32/SEG17--
+  37-42                           I/O    数字 I/O P32-37，也可以作为 SEG17-12
+          P37/SEG12
+          P40/SEG11--
+  43-50                           I/O    数字 I/O P40-47，也可以作为 SEG11-4
+          P47/SEG4
+          P50/SEG3--
+  51-54                           I/O    数字 I/O P50-53，也可以作为 SEG3-0
+          P53/SEG0
+          P54/COM3--                     数字 I/O P54-57，也可以作为 COM3-0。进行串行烧录时，引脚顺序分别复用
+  55-58                           I/O
+          P57/COM0                       为数据输出，2MHz 时钟输入，数据输入和数据通信时钟
+   59     XIN                    模拟      外接晶体引脚
+   60     XOUT                   模拟      外接晶体引脚
+   61     RST_B                    I     外部复位引脚，低电平芯片复位，芯片内部有 200k 上拉电阻
+                                         LCD driver 的供电电源，可通过寄存器选择内部与 VDD 连接或与升压电路的
+   62     VLCD                   模拟
+                                         输出连接，在 VLCD 与 VDD 之间外接 1uF 电容
+  63-64   NC                      NC     请保持悬空状态，外部不要连接任何电路
+ 注：
+  所有数字端口 Pnn 皆有上拉选择（默认关闭），并有输入迟滞功能，转换点分别为 0.3VDD 与 0.7VDD。
+
+
+
+ 晶华微电子             版本 0.1      2018/08                                          第 3 页 共 9 页
+http://www.SDICmicrdo.cn
+                                                                                                                                   SD7502
+
+功能框图
+
+                                                            XIN             XOUT                       CN                 VCP      AVDDR
+                                                                                                               CP
+
+
+
+
+               RC振荡            RC振荡
+                                                            晶体振荡器                           POR/LVD                                                VDD
+              （32kHz）          (8MHz)                                                                         电源管理系统
+                                                                                                                                                   VSS
+
+
+
+                              时序产生电路                                                                                                               COM
+
+
+
+
+                                                  WDT
+                    OTP
+    VPP
+                  16k Bytes
+                                  8Bits                                                     Sigma                                     M
+                               RISC MCU                                                     Delta             IA                      U             A0-7
+
+  RST_B                                                                                     ADC                                       X
+
+                                          SRAM
+                 特殊寄存器
+                                         256 Bytes
+
+                                                                                             CMPH
+                                                                                                                                 基准电压              ACM
+
+
+   VLCD
+
+                    LCD                                                                                                          电池检测              LBTIN0-2
+ SEG17-0
+                    Driver                                                                   CMPL
+ COM3-0
+
+
+
+
+                                                                                                                                 外部中断              INT1-0
+
+
+   PWM
+
+              PWM/                                          IO控制                                                                 Timer/Counter
+               PFD                                                                                     BUZZER
+                                                                                                                                T0/T2/TA/TB/TC
+    PFD
+
+
+
+                                                                                                                    BUZ
+                                         P14-10    P27-20          P37-30          P47-40     P57-50   BUZB
+
+
+
+
+                                                                  图 2. 功能框图
+
+
+
+
+ 晶华微电子           版本 0.1        2018/08                                                                                                     第 4 页 共 9 页
+http://www.SDICmicrdo.cn
+                                                                                                                                                                                                                                                                      LCD
+                                                                                                                                                                                                                                                                                                                                   VDD                                  7133               IC1       VCC                                     BT1
+                                                                                                                                                                                                                                                                                    VDD VCC                                                                  3                                   1                                                             VDD
+                                                               1
+                                                               2
+                                                               3
+                                                               4
+                                                               5
+                                                               6
+                                                               7
+                                                               8
+                                                                                      J10                                                                                                                                                                                                                                                                          Vout                Vin
+                           晶华微电子                               9
+                                                                                     烧录接口                                                                                                                                                                                                              S2                                                                      GND                                                  4.5V-9V
+                                                                                                                                                                                                                                                                                                      Power                                       C3
+                                                         COM                                                                                LED1                                                                                                                                                    C5                            C4                                            2                C2              C1                                  S1
+                                                                           P54                                                                                                                                                                                                                            BT2                                                                                                                                      Power
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 典型应用图
+                                                                           P55
+                                                                           P56
+                                                                           P57                                                                                             C4
+                                                                                                                                                                           C3                                                                                                                                                   0.1uF       47uF/16V                                          0.1uF    47 u F/16V
+                                                                  A2       VPP                                                                                             C2
+                                                                                                                                                                           C1
+                                                                                                                                                                           S1
+                                                                                                                                                                           S2
+                                                                                                                                                                           S3
+                                                                                                                                                                                                                                                                                                            3V
+                                                                                                                                                                           S4
+                                                                                                                                                                           S5
+                                                                                                                                                                           S6
+                                                                                                                                                                           S7
+                                                                                                                                                                           S8
+                                                                                                                                                                           S9
+                                                                                                                                                                          S10
+                                                                                                                                                                          S11
+                                                                                                                                                                          S12
+                                                                                                                                                                          S13                                                                                                                      47uF/16V
+                                                                                                                                                                          S14
+                                                                                                                                                                          S15
+                                                                    VDD
+                                                                                            烧录接口                                            NCV
+                                                                                                                                                                           1
+                                                                                                                                                                           2
+                                                                                                                                                                           3
+                                                                                                                                                                           4
+                                                                                                                                                                           5
+                                                                                                                                                                           6
+                                                                                                                                                                           7
+                                                                                                                                                                           8
+                                                                                                                                                                           9
+                                                                                                                                                                           10
+                                                                                                                                                                           11
+                                                                                                                                                                           12
+                                                                                                                                                                           13
+                                                                                                                                                                           14
+                                                                                                                                                                           15
+                                                                                                                                                                           16
+                                                                                                                                                 R16                       17
+                                                                                                                                                                           18
+                                                                                                                                                                           19
+http://www.SDICmicrdo.cn
+
+
+                                                                                                                                                100Ω                 62
+                                                                                                                                                                 P57 58
+                                                                                                                                                                 P56 57
+                                                                                                                                                                 P55 56
+                                                                                                                                                                 P54 55
+                           版本 0.1
+                                                                                                                                                                     54
+                                                                                                                                                                     53
+                                                                                                                                                                     52
+                                                                                                                                                                     51
+                                                                                                                                                                     50
+                                                                                                                                                                     49
+                                                                                                                                                                     48
+                                                                                                                                                                     47                                                                                                                                  VDD                                                                                      根据实际情况二选一
+                                                                                                                                                                     46
+                                                                                                                                                                     45
+                                                                                                                                                                     44
+                                                                                                                                                                     43                                                                                                       1uF        C6
+                                                                                                                                                                     42
+                                                                                                                                                                     41
+                                                                                                                                                                     40
+                                                                                                                                                                     64
+                                                                                                                                                                     63
+                                                                                                                                                                     33                                                                                                                                                                      AVDDR
+                                                                                                                                                         IC2
+                                                                                                                                                                VLCD
+                                                                                                                                                                P57/ COM0
+                                                                                                                                                                P56/ COM1                                                                                                                      5
+                                                                               A0                                                                               P55/ COM2
+                                                                                                                                                                P54/ COM3
+                                                                                                                                                                P53/ SEG0                                                                                                      VDD                                                                                                                                    22M R1
+                                                                        R28           R27                                                                       P52/ SEG1
+                                                                                                                                                                P51/ SEG2
+                                                                                                                                                                P50/ SEG3                                                                                                                      1                                                                        VPP
+                                                                                                                                                                P47/ SEG4
+                                                                                                                                                                P46/ SEG5
+                                                                                                                                                                P45/ SEG6                                                                                                       VPP
+                                                                        1M           5.1M                                                                       P44/ SEG7
+                                                                                                                                                                P43/ SEG8
+                                                                                                                                                                P42/ SEG9                                                                                                                      7
+                                                                                                                                                                P41/ SEG10
+                                                                                                                                                                P40/ SEG11
+                                                                                                                                                                P37/ SEG12                                                                                                   AVDDR
+                                                                                                   VCC                                                  39      P36/ SEG13
+                                                                                                                                                                P35/ SEG14                                                                                                                     8                                                                                                                                                      NCVIn
+                                                                                                                                                                NC
+                                                                                                                                                                NC
+                                                                                                                                                               P34/SEG15                                                                                                       ACM                                                                                                                                     1K R2
+                                                                                                                                                                NC
+                                                                                                         3V 供电时去掉R28
+                                                                                                                                                        38                                                                                                                                     4                                                                                                 R3
+                           2018/08                                                                                     外部低压检测线路
+                                                                                                                                                               P33/SEG16                                                                                                        VCP                                                                                                                                                                        1
+                                                                                                                                                        37                                                                                                                                     2                 C11             C10             C9              C8            C7
+                                                                                                                                    C14                        P32/SEG17                                                                                                         CP                                                                                                              22M
+                                                                                                                                                                                                                                                                                                       C12
+                                                                                                                                      20pF              59                                                                                                                                                       1uF            0.1uF           1uF              1uF       0.1uF                                  S3
+                                                                                                                                                               XIN                                                                                                                                    68nF
+                                                                                                                                                                                                                                                                                    CN         3                                                                                                                 NCV
+
+                                                                                                                                                                                                                                                                                               9        A0                                                                                  COM            A7
+                                                                                                                                      R6          Y1                                                                                                                    A0/LBTIN0
+                                                                                      IC4   VDD                                      10 M
+                                                                                                                                                8MHz                                                                                                                                          10                    10M R4
+                                                                                                                                         C15                                                                                                                                        A1
+                                                                                                                                                        60                   SD7502                                                                                                                                                                          Ω/mV/Cap/Hz/Temp/Diode/Cont                        R10
+                                                               To PC                                                                                           XOUT                                                                                                                                                                   1K R5
+                                                                                                                                         20pF                                                                                                                                                 11        A2
+                                                                                                                                                                                                                                                                                    A2
+                                                                                                                                                                                                                                                                                                                                                                                        S4
+                                                                                                                                         470 Ω R4       36                                                                                                                                    12                                                                                                           PTC-1K
+                                                                                                                                                               P31/TXD                                                                                                              A3
+                                                                                                                                                                                                                                                                                                       C13         C19                          S5                Q1
+                                                                                                                                                        35                                                                                                                                                                                                       8050
+                                                                                                                                                                                                                                                                                                                                                                                                                                请用<=1k的PTC
+                                                                       根据实际情况二选一                                                                               P30/RXD                                                                                                                                27nF          1nF                         Hz
+                                                                                                                                                                                                                                                                                              13
+                                                                                                                                                                                                                                                                                    A4                                                                                                                                R9
+                                                                        VDD                                                                             34
+                                                                                                                                                               P27/PFD/PWM                                                                                                                                                                                                                                            1M
+                                                                                                                                                                                                                                                                                              14        A5
+                                                                                                                                                                                                                                                                                    A5
+                                                                                                                                                        29
+                                                                                                                                                               P26/BUZB                                                                                                                                      1K R13
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                 Ω/mV/V/Cap/Hz/Temp/Diode/Cont
+
+                                                                                                                                         VDD                                                                                                                                                  15                                                                   Q2
+                                                                                                                                                                                                                                                                                    A6                                                                           8050                  Ω/Cap/Temp/Diode/Cont
+                                                                                                                                                        28
+                                         图 3.典型应用图
+                                                                                                                                                                 P20/ INT1
+                                                                                                                                                               P25/BUZ
+                                                                     R8                                                                                          P21/ INT1                                                                                                                    16        A7                                                                                A5
+                                                                                                                                                                 P22/ INT1                                                                                                          A7
+                                                                   47 Ω                                                                                          P23/ INT1                                                                                                                               VDD
+                                                                                                                                                                 P24/ INT1                                                                                                                                                                                                                                      S6
+                                                                                                                                                                        NC                                                                                                                    18
+                                                                                                                                   R18            R17                   NC
+                                                                                                                                                                                 P14/ INT0
+                                                                                                                                                                                                                                                                              P10/FIN
+                                                                                                                                                                                             P13/ INT0/ LBTIN3   P12/ INT0/ LBTIN2   P11/ INT0/ LBTIN1
+
+                                                                                                                                                                        NC
+                                                                                                                                                                                                                                                         RSTB   VSS    COM                                                                                                                                                                           uA/mA
+                                                                                                                                                  10K                                                                                                                                                                                                              COM                                           uA
+                                                                                                                                   47Ω                           23
+                                                                                                                                                                 24
+                                                               Backlight                                                                                         25
+                                                                                                                                                                 26
+                                                                                                                                                                 27
+                                                                                                                                                                 30                                                                                               6
+                                                                                                                                                                 31
+                                                                                                                                                                 32                   22               21                      20               19         61           17                     R14            R20
+                                                                              R19     R7                                                                                                                                                                                                                                                                                                                         S7
+                                                                                                                                                                                                                                                                                               10K            1M                            AVDDR
+                                                                              10K    47Ω                                                                                   1
+                                                                                                                                                                           2
+                                                                                                                                                                                                                                                                                                                                                                     D2                D1
+                                                                                                                                                                           3
+                                                                                                                                                                           4
+                                                                                                                                                                           5                                                                                                  C17        C20                                                                                                           R11                                            F1
+                                                                                                          BUZZER                                             S10                                                                                                      COM                                                                                        1N4004              1N4004
+                                                                                                                                                                                                                                                                                                              C16                                      S9                                              99 Ω/1%
+                                                                                                                                                        功能选择开关                                         P2                      P1               P0                            1uF 100pF                                                                                                                                                             800mA/250V
+                                                                                                                                                             断开: 1                                                                                                                                                                       R12          hFE                             D4                         mA
+                                                                   Q4                                                                                                                                                                                                                                         10uF                      100K
+                                                                 8050                                                              Q3                        闭合: 0                                                                                                     复位线路
+                                                                                                                                                                                                                                                                                                       R15                  E           E                                        1N4004                          S8
+                                                                                                                                  8050                                     10
+                                                                                                                                                                           9
+                                                                                                                                                                           8                                                                                             VDD
+                                                                                                                                                                           7
+                                                                                                                                                                           6                                                                                                                           1M               B                   B          R24          D5              D3
+                                                                                                                                                                                                                                                                                                                                                      100K                                              R22
+                                                                                Backlight                                                                                                                                                                                                                                                                         1N4004          1N4004               0.99 Ω/1%
+                                                                                                                                                                                                                                                                                                                  PNP                           NPN
+                                                                                                                                                               Select K4     Hold/BL K1                                                                               R29                                               C                   C
+                                                                                                                                                        P0                                                                                                                                                                              E                               COM
+                                                                                                                                                                                                                                                                      10K                                                   E                                                                                                                       10A(20A)
+                                                                                                                                                                                                                                                                                                                                                                                        R23                                F2
+                                                                                                                                                               Range K5      Max/min              K2
+                                                                                                                                                        P1                                                                                                                                                                      R25
+                                                                                                                                                                                                                                                                                                          R26                                                                        0.01 Ω/1%                        10A/250V
+                                                                                                                                                                                                                                                                                                         100K                   10Ω
+                                                                                                                                                          Rel/RS232   K6     Hz/Duty K3                                                                                C18
+                                                                                                                                                        P2                                                                                                                                                                                                                                                                                            COM
+                                                                                                                                                                                                                                                                      0.1uF                                                                                                                                                                                                                              SD7502
+                                                                                                                                                                                                                                                                                                             COM
+
+
+
+
+                                                     图
+                           第 5 页 共 9 页
+                                                                                                       SD7502
+
+ADC 性能
+                                       表 2. ADC 的 ENOB 和噪声电压 Vnrms
+             （GAIN=1，SINC3，VDD=3.3V，AVDDR=2.4V，VREF=1.2V，BUF1/BUF2 使能）
+                                                     ADC 工作频率 = 512kHz
+               OSR           128              256       512           1024     2048     4096       8192     16384
+              ENOB           16.80           17.92     18.34          18.82   19.23     19.24      19.65    19.73
+           Vn rms (uV)       21.03           9.69       7.25          5.19     3.91     3.86       2.91     2.76
+
+
+                                                     ADC 工作频率 = 1MHz
+               OSR           128              256       512           1024     2048     4096       8192     16384
+              ENOB           16.82           17.76     18.46          18.78    19.19    19.45      19.64    19.90
+           Vn rms (uV)       20.77           10.84      6.66          5.32     4.01     3.34       2.95     2.46
+     注：
+       1. 以上数据是多颗芯片测试的平均值，单颗芯片采样 1024 个数据。
+                                     FSR
+        2. ENOB 的计算公式为log 2 �                �，其中 FSR 为满量程输入电压(2*Vref/Gain)，Vn rms 为 rms Noise。
+                                     Vnrms
+
+
+
+电气特性
+                                                          表 3. 最大极限值
+            标识                     参数                          最小值                      最大值                        单位
+             TA            环境温度                                -40                       +85                        °C
+             TS            储存温度                                -55                       +150                       °C
+            V DD           供电电压                                -0.2                      +4.0                       V
+            Vpp            烧录电压                                -0.2                      +7.5                       V
+         V IN , V OUT      数字输入、输出                             -0.2                    V DD +0.3                    V
+             TL            回流焊温度曲线                                     Per IPC/JEDECJ-STD-020C                      °C
+  注：
+   1. CMOS 器件易被高能静电损坏，设备必须储存在导电泡沫中，注意避免工作电压超出范围。
+   2. 在插拔电路前请关闭电源。
+
+
+
+
+ 晶华微电子             版本 0.1     2018/08                                                                      第 6 页 共 9 页
+http://www.SDICmicrdo.cn
+                                                                                             SD7502
+
+                               表 4. 电气参数（电源电压 3.3V，工作温度 25℃）
+   标识               参数名称                 最小值        典型值       最大值        单位                条件/备注
+                                           2.4       3.0        3.6       V     模拟模块工作电压
+  VDD      工作电压
+                                           2.0       3.0        3.6       V     数字模块和 MCU 工作电压
+  FOSC     工作时钟                           0.016       2          4       MHz    在运行写表指令时只能工作在 2MHz
+  IHRC     内部高频 RC 振荡频率                    7.9        8         8.1      MHz    经过校准后的频率
+  ILRC     内部低频 RC 振荡频率                    24        32         40       kHz    经过校准后的频率
+   HXT     外部高频晶振                           1         --         8       MHz
+   LXT     外部低频晶振                          16       32.768       --      kHz
+                                                                                MCU 采用内部 RC 振荡器的四分频工
+  IDD1     工作电流 1                           --       2.0        3.0      mA
+                                                                                作，ADC 等模拟模块全部工作
+                                                                                MCU 采用内部 32kHz RC 振荡工作，
+  IDD2     工作电流 2                           --       1.5         2        uA
+                                                                                MCU 进待机模式，模拟模块不工作
+  IDD3     工作电流 3                           --       0.2         1        uA    MCU 进休眠模式，模拟模块不工作
+  Fsam     ADC 工作频率                         --       512       1024      kHz
+   OSR     过采样率                            128        --       16384
+  NFbit    Noise free bits 1                --       16          --      bits   Gain=128，input FSR=±4mV
+   BW      AC 测量带宽                                    2                  kHz    测量误差不超过 0.5%
+                                          -Vref       --       Vref             1 倍增益
+                                         -Vref/2      --       Vref/2           2 倍增益
+                                         -Vref/4      --       Vref/4           4 倍增益
+                                         -Vref/8      --       Vref/8           8 倍增益
+  VINdif   PGIA 差分信号输入范围                 -Vref/16     --      Vref/16    mV     16 倍增益
+                                         -Vref/32     --      Vref/32           32 倍增益
+                                         -Vref/64     --      Vref/64           64 倍增益
+                                     -Vref/128        --      Vref/128          128 倍增益
+                                     -Vref/256        --      Vref/256          256 倍增益
+                                           -0.3       --      AVDDR             增益为 1 且输入 buffer 关闭
+   VIN     PGIA 电压输入范围 2
+                                           0.3        --     AVDDR-0.7          增益为 1 但输入 buffer 开启或增益非 1
+  Vn rms   RMS noise                        --       2.76        --      uVrms 1 倍增益@OSR=16384
+  Vacm     ACM 输出电压                         --       1.2         --       V
+ IacmSour ACM source 电流                     --        1          --      mA
+ IacmSink ACM sink 电流                       --        1          --      mA
+ PSRacm    ACM PSR                          --       100         --      uV/V
+                                            --       2.4         --             AVDDRX[2:0]=000
+                                            --      VCP          --             AVDDRX [2:0]=001
+                                            --       2.9         --             AVDDRX [2:0]=010
+  Vavddr   AVDDR 输出电压                                                     V
+                                            --       3.3         --             AVDDRX [2:0]=011
+                                                     3.6                        AVDDRX [2:0]=100
+                                                     3.9                        AVDDRX [2:0]=101
+
+
+ 晶华微电子            版本 0.1       2018/08                                                             第 7 页 共 9 页
+http://www.SDICmicrdo.cn
+                                                                                SD7502
+
+                                              保留                   AVDDRX [2:0]=110/111
+  Iavddr   AVDDR 电流能力                  --     10      --      mA
+   POR     上电复位电压                      --     2.0     --      V
+   LVD     低压检测复位电压                    --     1.9     --      V
+  THlbt    低电池电压检测迟滞                   --     200     --      mV
+                                       --     2.1     --           VLCDX[2:0]=000
+                                       --     2.3     --           VLCDX[2:0]=001
+                                       --     2.5     --           VLCDX[2:0]=010
+                                       --     2.7     --           VLCDX[2:0]=011
+   Vlcd    LCD 电荷泵输出电压                                        V
+                                       --     2.9     --           VLCDX[2:0]=100
+                                       --     3.1     --           VLCDX[2:0]=101
+                                       --     3.3     --           VLCDX[2:0]=110
+                                       --     3.5     --           VLCDX[2:0]=111
+   Ilcd    LCD 电荷泵驱动能力 3               --     --      500     uA
+管脚电气参数
+                                       --      3      --           VOH=VDD-0.3V，PTxSR 设置为“0”
+   IOH     高电平 Source 电流                                      mA
+                                       --     12      --           VOH=VDD-0.3V，PTxSR 设置为“1”
+                                       --      3      --           VOL=0.3V，PTxSR 设置为“0”
+   IOL     低电平 Sink 电流                                        mA
+                                       --     12      --           VOL=0.3V，PTxSR 设置为“1”
+   VIH     输入高电平                     0.7VDD   --      --      V
+   VIL     输入低电平                       --     --    0.3VDD    V
+  VOH      输出高电平                 VDD-0.3      --      --      V
+   VOL     输出低电平                       --     --    VSS+0.3   V
+   Rpu     引脚上拉电阻                      --     200     --      kΩ   VDD = 3.0
+注：
+  1．Noise free bits，有效位数都与信号的满量程范围有关系，真正起决定性作用的是 Vpp noise 或 rms noise。
+  2．对于 ADC 或 PGIA，输入信号的范围要区分差分信号输入范围和输入端的绝对电压范围，前者是真正的信号输入范围，是两个输入
+绝对电压之差，其不仅受到单个输入端的电压范围影响，还受增益和基准选择的影响；后者为包含了差分信号和共模输入范围的影响，主
+要受电路的限制。
+  3．电荷泵的驱动能力与选择的电容和工作频率有关。
+
+
+
+
+封装规格
+ 晶华微电子           版本 0.1    2018/08                                                   第 8 页 共 9 页
+http://www.SDICmicrdo.cn
+                                                                                                                              SD7502
+
+                                              D
+                                              D1                                                    b
+                                                                                                   b1
+                               48                       33
+
+                     49                                      32
+
+                                                                                                                         c1
+                                                                                                                          c
+
+
+                                                                  E1 E
+                                                                         BASE METAL
+                                                                                                  WITH PLATING
+
+
+                     64                                      17
+                                                                                            SECTION B-B
+
+                               1                        16
+                           b              e        BB
+
+
+
+
+                                                                              A3
+                                                                                       A2    A
+                                                                                                 0.25
+
+                                                                                                                L
+                      Ө                                                           A1
+                                      F                                                                             L1
+
+                                                                                                             DETAIL:F
+
+
+
+
+                     尺寸: 毫米
+                           Symbol                   Min.                  Nom.                          Max.
+                               A                    ——                    ——                            1.60
+                            A1                      0.05                  ——                            0.20
+                            A2                      1.35                  1.40                          1.45
+                            A3                      0.59                  0.64                          0.69
+                               b                    0.19                  ——                            0.27
+                            b1                      0.18                  0.20                          0.23
+                               c                    0.13                  ——                            0.18
+                               c1                   0.12                  0.13                          0.14
+                               D                    11.80                 12.00                         12.20
+                            D1                      9.90                  10.00                         10.10
+                               E                    11.80                 12.00                         12.20
+                            E1                      9.90                  10.00                         10.10
+                               e                                         0.50BSC
+                               L                    0.45                  ——                            0.75
+                            L1                                           1.00BSC
+                            θ                           0                 ——                             7
+                                                        图 4. LQFP64 封装外形图
+
+
+
+
+ 晶华微电子           版本 0.1             2018/08                                                                                     第 9 页 共 9 页
+http://www.SDICmicrdo.cn
+

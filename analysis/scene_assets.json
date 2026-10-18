@@ -1,0 +1,25 @@
+{
+  "firmware_sha256": "4befdf6b58e063f03901f190000d790e60d20d0a23e5eeb2b6f6840f1830e98e",
+  "ranges": [
+    {
+      "symbol": "dmt_scene_prefix",
+      "start": "0x247c0",
+      "end_exclusive": "0x254c8",
+      "bytes": 3336,
+      "sha256": "4e32ee24c7c0f7e9c2f43f58953f630fa596d7233676ff320f4cf722b5000cea"
+    },
+    {
+      "symbol": "dmt_scene_suffix",
+      "start": "0x26338",
+      "end_exclusive": "0x27194",
+      "bytes": 3676,
+      "sha256": "2eb6340c7bcadac7f54559a03b88d01fd72ee75e90c2e793c650017c4a58300e"
+    }
+  ],
+  "reused": {
+    "source": "reconstructed/ui/bitmap_images.c",
+    "start": "0x254c8",
+    "end_exclusive": "0x26338",
+    "bytes": 3696
+  }
+}

@@ -1,0 +1,68 @@
+{
+  "pass": true,
+  "hardware_verified": false,
+  "image_sha256": "c6c3bfed28a7fa6eba0718b9121155be706a30c8829ea06deadb1937b4a41005",
+  "cases": [
+    {
+      "case": "clean",
+      "menu_hash": "ffd2df1dea279a0b3b81c837a7f3dac90f91ab7c56702652f913a881f6f6c97b",
+      "frames": 8,
+      "fault": null,
+      "stray_irqs": 0,
+      "game_hash": "276fda645df9900d86556dffeb86457eec00631f2158bc5a2c2beba54751b3d8",
+      "turned_hash": "a9132e6dad1b65b4b198645f97905f12aae93052453e79fc519e98a0c0addcd8",
+      "left_hash": "276fda645df9900d86556dffeb86457eec00631f2158bc5a2c2beba54751b3d8",
+      "forward_hash": "00d45dda5ff21b40740f0ddf45d259db9c4fd6cb1c6e5fe177c2c92fc91827f2",
+      "back_hash": "eec6825717397d1b558104bf8760ccfc16157218ebb1d56d743523341f00d788",
+      "fire_hash": "7e1919576da370926ae8fbf4b1984b1423c6f887927e622b35404b67540a6168",
+      "pause_hash": "1dbcfe75fb86cb8a01fd80291a3823afcb86c5a9847e98750a99bf000af5d52a",
+      "power_off": true,
+      "no_internal_flash_writes": true,
+      "nor_unchanged": true,
+      "no_asic_tx": true,
+      "panel_out_of_range": 0,
+      "instructions_model_cycles": 509501600,
+      "stack_used_bytes": 860
+    },
+    {
+      "case": "leftovers",
+      "menu_hash": "ffd2df1dea279a0b3b81c837a7f3dac90f91ab7c56702652f913a881f6f6c97b",
+      "frames": 1,
+      "fault": null,
+      "stray_irqs": 0,
+      "no_internal_flash_writes": true,
+      "nor_unchanged": true,
+      "no_asic_tx": true,
+      "panel_out_of_range": 0,
+      "instructions_model_cycles": 81426800,
+      "stack_used_bytes": 712
+    },
+    {
+      "case": "hsi",
+      "menu_hash": "ffd2df1dea279a0b3b81c837a7f3dac90f91ab7c56702652f913a881f6f6c97b",
+      "frames": 1,
+      "fault": null,
+      "stray_irqs": 0,
+      "no_internal_flash_writes": true,
+      "nor_unchanged": true,
+      "no_asic_tx": true,
+      "panel_out_of_range": 0,
+      "instructions_model_cycles": 81406800,
+      "stack_used_bytes": 712
+    },
+    {
+      "case": "held-power",
+      "menu_hash": "ffd2df1dea279a0b3b81c837a7f3dac90f91ab7c56702652f913a881f6f6c97b",
+      "frames": 1,
+      "fault": null,
+      "stray_irqs": 0,
+      "held_boot_key_ignored_and_rearmed": true,
+      "no_internal_flash_writes": true,
+      "nor_unchanged": true,
+      "no_asic_tx": true,
+      "panel_out_of_range": 0,
+      "instructions_model_cycles": 99332400,
+      "stack_used_bytes": 712
+    }
+  ]
+}

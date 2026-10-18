@@ -1,0 +1,15 @@
+# Run from the repository root. Uses only the simulator's mock settings.
+configure 1 0 1
+button 6
+button 3
+snapshot docs/simulator_screenshots/menu-incremental.png
+button 4
+button 2
+button 2
+button 2
+button 3
+button 1
+button 5
+snapshot docs/simulator_screenshots/theme-transition.png
+button 6
+status

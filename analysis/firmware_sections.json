@@ -1,0 +1,45 @@
+[
+  {
+    "name": "entry_padding",
+    "offset": 0,
+    "size": 56,
+    "address": "0x6400",
+    "kind": "code entry, NOPs, EBREAK"
+  },
+  {
+    "name": "vectors",
+    "offset": 56,
+    "size": 416,
+    "address": "0x6438",
+    "kind": "104 little-endian pointer slots"
+  },
+  {
+    "name": "vector_padding",
+    "offset": 472,
+    "size": 40,
+    "address": "0x65d8",
+    "kind": "zero padding"
+  },
+  {
+    "name": "text",
+    "offset": 512,
+    "size": 98848,
+    "address": "0x6600",
+    "kind": "code extent; embedded data and undiscovered gaps require coverage report"
+  },
+  {
+    "name": "rodata",
+    "offset": 99360,
+    "size": 35248,
+    "address": "0x1e820",
+    "kind": "jump tables, fonts, strings, constants"
+  },
+  {
+    "name": "data_load",
+    "offset": 134608,
+    "size": 488,
+    "address": "0x271d0",
+    "vma": "0x20000000",
+    "kind": "initialized SRAM payload"
+  }
+]

@@ -1,0 +1,5 @@
+functions 77, callbacks 4, functions with indirect calls 6
+worst main path 2634 B: handle_reset > main > doom_app_draw > doom_render > doom_cast > cosf > __ieee754_rem_pio2f > __kernel_rem_pio2f > floorf
+worst handler path 16 B (fw_default_handler): fw_default_handler > fw_unexpected_trap
+bound 2650 B of 6144 B stack (3494 B margin)
+STACK PASS

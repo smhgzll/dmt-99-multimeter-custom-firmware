@@ -1,0 +1,2279 @@
+{
+  "0x00006400": {
+    "name": "application_entry",
+    "confidence": "high",
+    "evidence": [
+      "Entry JAL to verified reset routine",
+      "Original instructions and pseudocode at 0x00006400"
+    ],
+    "notes": "Reconstructed semantic name; original symbol spelling is not known."
+  },
+  "0x0000c668": {
+    "name": "handle_reset",
+    "confidence": "high",
+    "evidence": [
+      "AUIPC SRAM initialization CSR setup and mepc handoff",
+      "Original instructions and pseudocode at 0x0000c668"
+    ],
+    "notes": "Reconstructed semantic name; original symbol spelling is not known."
+  },
+  "0x0000908a": {
+    "name": "main",
+    "confidence": "high",
+    "evidence": [
+      "Startup mepc target initializes drivers then calls nonreturning application",
+      "Original instructions and pseudocode at 0x0000908a"
+    ],
+    "notes": "Reconstructed semantic name; original symbol spelling is not known."
+  },
+  "0x00008ed4": {
+    "name": "application_loop",
+    "confidence": "high",
+    "evidence": [
+      "Three UI branches selected by 0x200001de plus packet processing and power checks",
+      "Original instructions and pseudocode at 0x00008ed4"
+    ],
+    "notes": "Reconstructed semantic name; original symbol spelling is not known."
+  },
+  "0x00006600": {
+    "name": "wch_save_12",
+    "confidence": "high",
+    "evidence": [
+      "GCC t0-return register-save helper; 64-byte frame",
+      "Original instructions and pseudocode at 0x00006600"
+    ],
+    "notes": "Reconstructed semantic name; original symbol spelling is not known."
+  },
+  "0x00006608": {
+    "name": "wch_save_10",
+    "confidence": "high",
+    "evidence": [
+      "GCC t0-return register-save helper; 48-byte frame",
+      "Original instructions and pseudocode at 0x00006608"
+    ],
+    "notes": "Reconstructed semantic name; original symbol spelling is not known."
+  },
+  "0x00006616": {
+    "name": "wch_save_6",
+    "confidence": "high",
+    "evidence": [
+      "GCC t0-return register-save helper; 32-byte frame",
+      "Original instructions and pseudocode at 0x00006616"
+    ],
+    "notes": "Reconstructed semantic name; original symbol spelling is not known."
+  },
+  "0x00006630": {
+    "name": "wch_save_2",
+    "confidence": "high",
+    "evidence": [
+      "GCC t0-return register-save helper; 16-byte frame",
+      "Original instructions and pseudocode at 0x00006630"
+    ],
+    "notes": "Reconstructed semantic name; original symbol spelling is not known."
+  },
+  "0x0000663c": {
+    "name": "wch_restore_12",
+    "confidence": "high",
+    "evidence": [
+      "Shared restore fallthroughs at 0x6640 0x664a 0x6654",
+      "Original instructions and pseudocode at 0x0000663c"
+    ],
+    "notes": "Reconstructed semantic name; original symbol spelling is not known."
+  },
+  "0x00006660": {
+    "name": "memset_recovered",
+    "confidence": "high",
+    "evidence": [
+      "Repeated byte/word fill and length; computed tail branch",
+      "Original instructions and pseudocode at 0x00006660"
+    ],
+    "notes": "Reconstructed semantic name; original symbol spelling is not known."
+  },
+  "0x0000678c": {
+    "name": "resource_draw_jpeg",
+    "confidence": "high",
+    "evidence": [
+      "Opens path then invokes decoder with output callback and display coordinates",
+      "Original instructions and pseudocode at 0x0000678c"
+    ],
+    "notes": "Reconstructed semantic name; original symbol spelling is not known."
+  },
+  "0x00006708": {
+    "name": "jpeg_input_callback",
+    "confidence": "high",
+    "evidence": [
+      "File read/seek adapter passed to decoder",
+      "Original instructions and pseudocode at 0x00006708"
+    ],
+    "notes": "Reconstructed semantic name; original symbol spelling is not known."
+  },
+  "0x00006734": {
+    "name": "jpeg_display_callback",
+    "confidence": "high",
+    "evidence": [
+      "Pixel rectangle callback passed to decoder",
+      "Original instructions and pseudocode at 0x00006734"
+    ],
+    "notes": "Reconstructed semantic name; original symbol spelling is not known."
+  },
+  "0x0000696e": {
+    "name": "jpeg_decoder_prepare",
+    "confidence": "medium",
+    "evidence": [
+      "Called with 0x1c00 work area and input callback before pixel decoding",
+      "Original instructions and pseudocode at 0x0000696e"
+    ],
+    "notes": "Reconstructed semantic name; original symbol spelling is not known."
+  },
+  "0x00006d9c": {
+    "name": "jpeg_decoder_decompress",
+    "confidence": "medium",
+    "evidence": [
+      "Decoder calls rectangle callback; JPEG preparation relationship",
+      "Original instructions and pseudocode at 0x00006d9c"
+    ],
+    "notes": "Reconstructed semantic name; original symbol spelling is not known."
+  },
+  "0x00007562": {
+    "name": "charge_detect_gpio_init",
+    "confidence": "high",
+    "evidence": [
+      "GPIOA pin 8 floating input",
+      "Original instructions and pseudocode at 0x00007562"
+    ],
+    "notes": "Reconstructed semantic name; original symbol spelling is not known."
+  },
+  "0x00007598": {
+    "name": "adc_read_averaged",
+    "confidence": "high",
+    "evidence": [
+      "Repeated ADC conversion polling and averaging",
+      "Original instructions and pseudocode at 0x00007598"
+    ],
+    "notes": "Reconstructed semantic name; original symbol spelling is not known."
+  },
+  "0x000075f0": {
+    "name": "battery_percentage_estimate",
+    "confidence": "medium",
+    "evidence": [
+      "ADC channel 10 and voltage diagnostics; float conversion signatures unresolved",
+      "Original instructions and pseudocode at 0x000075f0"
+    ],
+    "notes": "Reconstructed semantic name; original symbol spelling is not known."
+  },
+  "0x0000767a": {
+    "name": "adc_battery_init",
+    "confidence": "high",
+    "evidence": [
+      "ADC1 initialization calibration and PC0 analog input",
+      "Original instructions and pseudocode at 0x0000767a"
+    ],
+    "notes": "Reconstructed semantic name; original symbol spelling is not known."
+  },
+  "0x0000770a": {
+    "name": "battery_inputs_init",
+    "confidence": "medium",
+    "evidence": [
+      "Calls ADC and GPIO initialization routines",
+      "Original instructions and pseudocode at 0x0000770a"
+    ],
+    "notes": "Reconstructed semantic name; original symbol spelling is not known."
+  },
+  "0x00007736": {
+    "name": "tim3_periodic_init",
+    "confidence": "high",
+    "evidence": [
+      "TIM3 base values 9999 and 14399; update interrupt setup",
+      "Original instructions and pseudocode at 0x00007736"
+    ],
+    "notes": "Reconstructed semantic name; original symbol spelling is not known."
+  },
+  "0x00007780": {
+    "name": "TIM3_IRQHandler",
+    "confidence": "high",
+    "evidence": [
+      "Vector slot 45; TIM3 update flag and periodic power management",
+      "Original instructions and pseudocode at 0x00007780"
+    ],
+    "notes": "Reconstructed semantic name; original symbol spelling is not known."
+  },
+  "0x0000780c": {
+    "name": "tim2_buzzer_pwm_config",
+    "confidence": "medium",
+    "evidence": [
+      "TIM2 PWM on PA1; disable counterpart drives pin low",
+      "Original instructions and pseudocode at 0x0000780c"
+    ],
+    "notes": "Reconstructed semantic name; original symbol spelling is not known."
+  },
+  "0x000078d0": {
+    "name": "buzzer_enable",
+    "confidence": "medium",
+    "evidence": [
+      "TIM2 compare output and PA1 level control",
+      "Original instructions and pseudocode at 0x000078d0"
+    ],
+    "notes": "Reconstructed semantic name; original symbol spelling is not known."
+  },
+  "0x00007944": {
+    "name": "buttons_gpio_exti_init",
+    "confidence": "high",
+    "evidence": [
+      "PC2 8 9 10 11 12 pullups and falling-edge EXTI mapping",
+      "Original instructions and pseudocode at 0x00007944"
+    ],
+    "notes": "Reconstructed semantic name; original symbol spelling is not known."
+  },
+  "0x00007b08": {
+    "name": "button_wait_longpress",
+    "confidence": "high",
+    "evidence": [
+      "Polls five PC inputs at 10ms intervals with thresholds 41 and 101",
+      "Original instructions and pseudocode at 0x00007b08"
+    ],
+    "notes": "Reconstructed semantic name; original symbol spelling is not known."
+  },
+  "0x00007c0a": {
+    "name": "EXTI2_IRQHandler",
+    "confidence": "high",
+    "evidence": [
+      "Vector slot 24; PC2 debounce event 8 and conditional power-off",
+      "Original instructions and pseudocode at 0x00007c0a"
+    ],
+    "notes": "Reconstructed semantic name; original symbol spelling is not known."
+  },
+  "0x00007c42": {
+    "name": "EXTI9_5_IRQHandler",
+    "confidence": "high",
+    "evidence": [
+      "Vector slot 39; PC9 event 3 and PC8 short 5 long 6",
+      "Original instructions and pseudocode at 0x00007c42"
+    ],
+    "notes": "Reconstructed semantic name; original symbol spelling is not known."
+  },
+  "0x00007cd8": {
+    "name": "EXTI15_10_IRQHandler",
+    "confidence": "high",
+    "evidence": [
+      "Vector slot 56; PC10 11 12 events 1 2 4",
+      "Original instructions and pseudocode at 0x00007cd8"
+    ],
+    "notes": "Reconstructed semantic name; original symbol spelling is not known."
+  },
+  "0x00007d6a": {
+    "name": "display_write_command",
+    "confidence": "high",
+    "evidence": [
+      "PC5 low PB output word PC13 write strobe PC4 select",
+      "Original instructions and pseudocode at 0x00007d6a"
+    ],
+    "notes": "Reconstructed semantic name; original symbol spelling is not known."
+  },
+  "0x00007dba": {
+    "name": "display_write_data",
+    "confidence": "high",
+    "evidence": [
+      "PC5 high PB output word PC13 write strobe PC4 select",
+      "Original instructions and pseudocode at 0x00007dba"
+    ],
+    "notes": "Reconstructed semantic name; original symbol spelling is not known."
+  },
+  "0x00007e0a": {
+    "name": "display_write_register",
+    "confidence": "high",
+    "evidence": [
+      "Command then data transport",
+      "Original instructions and pseudocode at 0x00007e0a"
+    ],
+    "notes": "Reconstructed semantic name; original symbol spelling is not known."
+  },
+  "0x00007e20": {
+    "name": "display_begin_pixels",
+    "confidence": "medium",
+    "evidence": [
+      "Writes configured memory-write command",
+      "Original instructions and pseudocode at 0x00007e20"
+    ],
+    "notes": "Reconstructed semantic name; original symbol spelling is not known."
+  },
+  "0x00007f18": {
+    "name": "display_set_orientation",
+    "confidence": "high",
+    "evidence": [
+      "320x240 geometry and orientation command selection",
+      "Original instructions and pseudocode at 0x00007f18"
+    ],
+    "notes": "Reconstructed semantic name; original symbol spelling is not known."
+  },
+  "0x00007f66": {
+    "name": "tim8_backlight_pwm_config",
+    "confidence": "medium",
+    "evidence": [
+      "TIM8 PWM on PC6; duty used on display startup and power-off",
+      "Original instructions and pseudocode at 0x00007f66"
+    ],
+    "notes": "Reconstructed semantic name; original symbol spelling is not known."
+  },
+  "0x0000876a": {
+    "name": "display_fill",
+    "confidence": "high",
+    "evidence": [
+      "Width times height repeated color writes after window setup",
+      "Original instructions and pseudocode at 0x0000876a"
+    ],
+    "notes": "Reconstructed semantic name; original symbol spelling is not known."
+  },
+  "0x000087aa": {
+    "name": "display_init",
+    "confidence": "high",
+    "evidence": [
+      "GPIOB data port PC control pins reset and LCD initialization commands",
+      "Original instructions and pseudocode at 0x000087aa"
+    ],
+    "notes": "Reconstructed semantic name; original symbol spelling is not known."
+  },
+  "0x00008a02": {
+    "name": "display_fill_rectangle",
+    "confidence": "high",
+    "evidence": [
+      "Window bounds followed by repeated RGB565 color writes",
+      "Original instructions and pseudocode at 0x00008a02"
+    ],
+    "notes": "Reconstructed semantic name; original symbol spelling is not known."
+  },
+  "0x000090d2": {
+    "name": "strlen",
+    "confidence": "high",
+    "evidence": [
+      "Byte loop ending at zero and return length",
+      "Original instructions and pseudocode at 0x000090d2"
+    ],
+    "notes": "Reconstructed semantic name; original symbol spelling is not known."
+  },
+  "0x000097c4": {
+    "name": "measurement_send_command",
+    "confidence": "high",
+    "evidence": [
+      "Exactly ten USART1 bytes with transfer-complete polling",
+      "Original instructions and pseudocode at 0x000097c4"
+    ],
+    "notes": "Reconstructed semantic name; original symbol spelling is not known."
+  },
+  "0x000097f8": {
+    "name": "measurement_forward_button_command",
+    "confidence": "high",
+    "evidence": [
+      "Builds AA55 template for IDs 1 3 8 9 from button events",
+      "Original instructions and pseudocode at 0x000097f8"
+    ],
+    "notes": "Reconstructed semantic name; original symbol spelling is not known."
+  },
+  "0x000098aa": {
+    "name": "measurement_segment_decode",
+    "confidence": "high",
+    "evidence": [
+      "Masks 0x10 then matches explicit seven-segment patterns",
+      "Original instructions and pseudocode at 0x000098aa"
+    ],
+    "notes": "Reconstructed semantic name; original symbol spelling is not known."
+  },
+  "0x0000997e": {
+    "name": "measurement_decode_segments",
+    "confidence": "high",
+    "evidence": [
+      "Combines high/low nibbles across bytes 2 through 6 into four symbols",
+      "Original instructions and pseudocode at 0x0000997e"
+    ],
+    "notes": "Reconstructed semantic name; original symbol spelling is not known."
+  },
+  "0x0000a910": {
+    "name": "measurement_ui_regular_event",
+    "confidence": "high",
+    "evidence": [
+      "0xfd event dispatch and resource paths for measurement modes",
+      "Original instructions and pseudocode at 0x0000a910"
+    ],
+    "notes": "Reconstructed semantic name; original symbol spelling is not known."
+  },
+  "0x0000aed0": {
+    "name": "measurement_ui_record_event",
+    "confidence": "high",
+    "evidence": [
+      "0xfd event dispatch in second application branch",
+      "Original instructions and pseudocode at 0x0000aed0"
+    ],
+    "notes": "Reconstructed semantic name; original symbol spelling is not known."
+  },
+  "0x0000b29e": {
+    "name": "measurement_ui_monitor_event",
+    "confidence": "medium",
+    "evidence": [
+      "Third application branch event processing and threshold UI",
+      "Original instructions and pseudocode at 0x0000b29e"
+    ],
+    "notes": "Reconstructed semantic name; original symbol spelling is not known."
+  },
+  "0x0000b5c8": {
+    "name": "measurement_regular_buttons",
+    "confidence": "high",
+    "evidence": [
+      "Button events select documented command IDs and menu state",
+      "Original instructions and pseudocode at 0x0000b5c8"
+    ],
+    "notes": "Reconstructed semantic name; original symbol spelling is not known."
+  },
+  "0x0000b9e0": {
+    "name": "measurement_record_buttons",
+    "confidence": "high",
+    "evidence": [
+      "Command construction plus history append from event 5",
+      "Original instructions and pseudocode at 0x0000b9e0"
+    ],
+    "notes": "Reconstructed semantic name; original symbol spelling is not known."
+  },
+  "0x0000bc90": {
+    "name": "measurement_monitor_buttons",
+    "confidence": "medium",
+    "evidence": [
+      "Third application branch command construction",
+      "Original instructions and pseudocode at 0x0000bc90"
+    ],
+    "notes": "Reconstructed semantic name; original symbol spelling is not known."
+  },
+  "0x0000be18": {
+    "name": "measurement_get_unit_code",
+    "confidence": "high",
+    "evidence": [
+      "Returns 0x20000289",
+      "Original instructions and pseudocode at 0x0000be18"
+    ],
+    "notes": "Reconstructed semantic name; original symbol spelling is not known."
+  },
+  "0x0000be1e": {
+    "name": "measurement_get_value_bits",
+    "confidence": "high",
+    "evidence": [
+      "Returns raw 32-bit float representation at 0x20000284",
+      "Original instructions and pseudocode at 0x0000be1e"
+    ],
+    "notes": "Reconstructed semantic name; original symbol spelling is not known."
+  },
+  "0x0000be2a": {
+    "name": "measurement_overload_kind",
+    "confidence": "high",
+    "evidence": [
+      "String positions distinguish two OL representations returning 1 or 2",
+      "Original instructions and pseudocode at 0x0000be2a"
+    ],
+    "notes": "Reconstructed semantic name; original symbol spelling is not known."
+  },
+  "0x0000be78": {
+    "name": "measurement_parse_display_frame",
+    "confidence": "high",
+    "evidence": [
+      "5AA5 header packed segment decoding decimal and unit flag extraction",
+      "Original instructions and pseudocode at 0x0000be78"
+    ],
+    "notes": "Reconstructed semantic name; original symbol spelling is not known."
+  },
+  "0x0000c248": {
+    "name": "settings_load_and_apply",
+    "confidence": "high",
+    "evidence": [
+      "Loads packed settings and applies theme language layout and auto-off",
+      "Original instructions and pseudocode at 0x0000c248"
+    ],
+    "notes": "Reconstructed semantic name; original symbol spelling is not known."
+  },
+  "0x0000c320": {
+    "name": "power_down",
+    "confidence": "high",
+    "evidence": [
+      "Saves settings dims backlight drives PC1 low then infinite loop",
+      "Original instructions and pseudocode at 0x0000c320"
+    ],
+    "notes": "Reconstructed semantic name; original symbol spelling is not known."
+  },
+  "0x0000c350": {
+    "name": "measurement_uart_dma_init",
+    "confidence": "high",
+    "evidence": [
+      "USART1 PA9 PA10 13-byte circular DMA1 channel 5",
+      "Original instructions and pseudocode at 0x0000c350"
+    ],
+    "notes": "Reconstructed semantic name; original symbol spelling is not known."
+  },
+  "0x0000c468": {
+    "name": "USART1_IRQHandler",
+    "confidence": "high",
+    "evidence": [
+      "Vector slot 53; IDLE clears and rearms DMA plus 13-byte event snapshot",
+      "Original instructions and pseudocode at 0x0000c468"
+    ],
+    "notes": "Reconstructed semantic name; original symbol spelling is not known."
+  },
+  "0x0000c570": {
+    "name": "DMA1_Channel5_IRQHandler",
+    "confidence": "high",
+    "evidence": [
+      "Vector slot 31; DMA transfer-complete flag handling",
+      "Original instructions and pseudocode at 0x0000c570"
+    ],
+    "notes": "Reconstructed semantic name; original symbol spelling is not known."
+  },
+  "0x0000c6f6": {
+    "name": "ADC_Init",
+    "confidence": "high",
+    "evidence": [
+      "Register masks and struct offsets correspond to official WCH ADC_Init",
+      "Original instructions and pseudocode at 0x0000c6f6"
+    ],
+    "notes": "Reconstructed semantic name; original symbol spelling is not known."
+  },
+  "0x0000c74c": {
+    "name": "ADC_Cmd",
+    "confidence": "high",
+    "evidence": [
+      "ADC CTLR2 bit 0 enable",
+      "Original instructions and pseudocode at 0x0000c74c"
+    ],
+    "notes": "Reconstructed semantic name; original symbol spelling is not known."
+  },
+  "0x0000c75c": {
+    "name": "ADC_ResetCalibration",
+    "confidence": "high",
+    "evidence": [
+      "ADC CTLR2 reset-calibration bit",
+      "Original instructions and pseudocode at 0x0000c75c"
+    ],
+    "notes": "Reconstructed semantic name; original symbol spelling is not known."
+  },
+  "0x0000c766": {
+    "name": "ADC_GetResetCalibrationStatus",
+    "confidence": "high",
+    "evidence": [
+      "ADC CTLR2 reset-calibration status",
+      "Original instructions and pseudocode at 0x0000c766"
+    ],
+    "notes": "Reconstructed semantic name; original symbol spelling is not known."
+  },
+  "0x0000c76e": {
+    "name": "ADC_StartCalibration",
+    "confidence": "high",
+    "evidence": [
+      "ADC CTLR2 calibration bit",
+      "Original instructions and pseudocode at 0x0000c76e"
+    ],
+    "notes": "Reconstructed semantic name; original symbol spelling is not known."
+  },
+  "0x0000c778": {
+    "name": "ADC_GetCalibrationStatus",
+    "confidence": "high",
+    "evidence": [
+      "ADC CTLR2 calibration status",
+      "Original instructions and pseudocode at 0x0000c778"
+    ],
+    "notes": "Reconstructed semantic name; original symbol spelling is not known."
+  },
+  "0x0000c780": {
+    "name": "ADC_SoftwareStartConvCmd",
+    "confidence": "high",
+    "evidence": [
+      "ADC CTLR2 mask 0x500000",
+      "Original instructions and pseudocode at 0x0000c780"
+    ],
+    "notes": "Reconstructed semantic name; original symbol spelling is not known."
+  },
+  "0x0000c798": {
+    "name": "ADC_RegularChannelConfig",
+    "confidence": "high",
+    "evidence": [
+      "ADC sample time and regular sequence register selection",
+      "Original instructions and pseudocode at 0x0000c798"
+    ],
+    "notes": "Reconstructed semantic name; original symbol spelling is not known."
+  },
+  "0x0000c850": {
+    "name": "ADC_GetConversionValue",
+    "confidence": "high",
+    "evidence": [
+      "ADC data register halfword read",
+      "Original instructions and pseudocode at 0x0000c850"
+    ],
+    "notes": "Reconstructed semantic name; original symbol spelling is not known."
+  },
+  "0x0000c858": {
+    "name": "ADC_GetFlagStatus",
+    "confidence": "high",
+    "evidence": [
+      "ADC status mask test",
+      "Original instructions and pseudocode at 0x0000c858"
+    ],
+    "notes": "Reconstructed semantic name; original symbol spelling is not known."
+  },
+  "0x0000c862": {
+    "name": "DMA_Init",
+    "confidence": "high",
+    "evidence": [
+      "Channel peripheral memory count and CFGR struct fields",
+      "Original instructions and pseudocode at 0x0000c862"
+    ],
+    "notes": "Reconstructed semantic name; original symbol spelling is not known."
+  },
+  "0x0000c89a": {
+    "name": "DMA_Cmd",
+    "confidence": "high",
+    "evidence": [
+      "DMA CFGR enable bit",
+      "Original instructions and pseudocode at 0x0000c89a"
+    ],
+    "notes": "Reconstructed semantic name; original symbol spelling is not known."
+  },
+  "0x0000c8ae": {
+    "name": "DMA_ITConfig",
+    "confidence": "high",
+    "evidence": [
+      "DMA CFGR interrupt mask enable",
+      "Original instructions and pseudocode at 0x0000c8ae"
+    ],
+    "notes": "Reconstructed semantic name; original symbol spelling is not known."
+  },
+  "0x0000c8c0": {
+    "name": "DMA_SetCurrDataCounter",
+    "confidence": "high",
+    "evidence": [
+      "DMA CNTR write",
+      "Original instructions and pseudocode at 0x0000c8c0"
+    ],
+    "notes": "Reconstructed semantic name; original symbol spelling is not known."
+  },
+  "0x0000c8c4": {
+    "name": "DMA_ClearITPendingBit",
+    "confidence": "high",
+    "evidence": [
+      "DMA interrupt-clear registers selected by encoded flag",
+      "Original instructions and pseudocode at 0x0000c8c4"
+    ],
+    "notes": "Reconstructed semantic name; original symbol spelling is not known."
+  },
+  "0x0000c8f0": {
+    "name": "EXTI_Init",
+    "confidence": "high",
+    "evidence": [
+      "EXTI rising falling and interrupt-event mode masks",
+      "Original instructions and pseudocode at 0x0000c8f0"
+    ],
+    "notes": "Reconstructed semantic name; original symbol spelling is not known."
+  },
+  "0x0000c95a": {
+    "name": "EXTI_GetITStatus",
+    "confidence": "high",
+    "evidence": [
+      "EXTI enable plus pending tests",
+      "Original instructions and pseudocode at 0x0000c95a"
+    ],
+    "notes": "Reconstructed semantic name; original symbol spelling is not known."
+  },
+  "0x0000c978": {
+    "name": "EXTI_ClearITPendingBit",
+    "confidence": "high",
+    "evidence": [
+      "EXTI pending write-one-to-clear",
+      "Original instructions and pseudocode at 0x0000c978"
+    ],
+    "notes": "Reconstructed semantic name; original symbol spelling is not known."
+  },
+  "0x0000c982": {
+    "name": "FLASH_Unlock",
+    "confidence": "high",
+    "evidence": [
+      "Internal flash two-key unlock sequence",
+      "Original instructions and pseudocode at 0x0000c982"
+    ],
+    "notes": "Reconstructed semantic name; original symbol spelling is not known."
+  },
+  "0x0000c99c": {
+    "name": "FLASH_Lock",
+    "confidence": "high",
+    "evidence": [
+      "Internal flash CTLR lock bit",
+      "Original instructions and pseudocode at 0x0000c99c"
+    ],
+    "notes": "Reconstructed semantic name; original symbol spelling is not known."
+  },
+  "0x0000c9aa": {
+    "name": "FLASH_ClearFlag",
+    "confidence": "high",
+    "evidence": [
+      "Internal flash STATR write",
+      "Original instructions and pseudocode at 0x0000c9aa"
+    ],
+    "notes": "Reconstructed semantic name; original symbol spelling is not known."
+  },
+  "0x0000c9b2": {
+    "name": "FLASH_GetStatus",
+    "confidence": "high",
+    "evidence": [
+      "Internal flash busy and error status logic",
+      "Original instructions and pseudocode at 0x0000c9b2"
+    ],
+    "notes": "Reconstructed semantic name; original symbol spelling is not known."
+  },
+  "0x0000c9ca": {
+    "name": "FLASH_WaitForLastOperation",
+    "confidence": "high",
+    "evidence": [
+      "Polls internal flash status with timeout",
+      "Original instructions and pseudocode at 0x0000c9ca"
+    ],
+    "notes": "Reconstructed semantic name; original symbol spelling is not known."
+  },
+  "0x0000c9ee": {
+    "name": "FLASH_ProgramHalfWord",
+    "confidence": "high",
+    "evidence": [
+      "Internal flash program bit halfword store wait and disable",
+      "Original instructions and pseudocode at 0x0000c9ee"
+    ],
+    "notes": "Reconstructed semantic name; original symbol spelling is not known."
+  },
+  "0x0000ca26": {
+    "name": "FLASH_Unlock_Fast",
+    "confidence": "high",
+    "evidence": [
+      "Fast-mode two-key unlock",
+      "Original instructions and pseudocode at 0x0000ca26"
+    ],
+    "notes": "Reconstructed semantic name; original symbol spelling is not known."
+  },
+  "0x0000ca44": {
+    "name": "FLASH_Lock_Fast",
+    "confidence": "high",
+    "evidence": [
+      "Fast-mode lock bit",
+      "Original instructions and pseudocode at 0x0000ca44"
+    ],
+    "notes": "Reconstructed semantic name; original symbol spelling is not known."
+  },
+  "0x0000ca52": {
+    "name": "FLASH_ErasePage_Fast",
+    "confidence": "high",
+    "evidence": [
+      "Fast erase with address rounded to 256-byte boundary",
+      "Original instructions and pseudocode at 0x0000ca52"
+    ],
+    "notes": "Reconstructed semantic name; original symbol spelling is not known."
+  },
+  "0x0000ca80": {
+    "name": "GPIO_Init",
+    "confidence": "high",
+    "evidence": [
+      "GPIO configuration nibbles and pullup-pulldown register logic",
+      "Original instructions and pseudocode at 0x0000ca80"
+    ],
+    "notes": "Reconstructed semantic name; original symbol spelling is not known."
+  },
+  "0x0000cb40": {
+    "name": "GPIO_ReadInputDataBit",
+    "confidence": "high",
+    "evidence": [
+      "GPIO INDR masked boolean read",
+      "Original instructions and pseudocode at 0x0000cb40"
+    ],
+    "notes": "Reconstructed semantic name; original symbol spelling is not known."
+  },
+  "0x0000cb4a": {
+    "name": "GPIO_SetBits",
+    "confidence": "high",
+    "evidence": [
+      "GPIO BSHR write",
+      "Original instructions and pseudocode at 0x0000cb4a"
+    ],
+    "notes": "Reconstructed semantic name; original symbol spelling is not known."
+  },
+  "0x0000cb4e": {
+    "name": "GPIO_ResetBits",
+    "confidence": "high",
+    "evidence": [
+      "GPIO BCR write",
+      "Original instructions and pseudocode at 0x0000cb4e"
+    ],
+    "notes": "Reconstructed semantic name; original symbol spelling is not known."
+  },
+  "0x0000cb52": {
+    "name": "GPIO_WriteBit",
+    "confidence": "high",
+    "evidence": [
+      "GPIO BSHR or BCR according to bit action",
+      "Original instructions and pseudocode at 0x0000cb52"
+    ],
+    "notes": "Reconstructed semantic name; original symbol spelling is not known."
+  },
+  "0x0000cb5c": {
+    "name": "GPIO_EXTILineConfig",
+    "confidence": "high",
+    "evidence": [
+      "AFIO external interrupt port selector nibble",
+      "Original instructions and pseudocode at 0x0000cb5c"
+    ],
+    "notes": "Reconstructed semantic name; original symbol spelling is not known."
+  },
+  "0x0000cb88": {
+    "name": "NMI_Handler",
+    "confidence": "high",
+    "evidence": [
+      "Vector slot 2; mret",
+      "Original instructions and pseudocode at 0x0000cb88"
+    ],
+    "notes": "Reconstructed semantic name; original symbol spelling is not known."
+  },
+  "0x0000cb8c": {
+    "name": "HardFault_Handler",
+    "confidence": "high",
+    "evidence": [
+      "Vector slot 3; infinite self-loop",
+      "Original instructions and pseudocode at 0x0000cb8c"
+    ],
+    "notes": "Reconstructed semantic name; original symbol spelling is not known."
+  },
+  "0x0000cb8e": {
+    "name": "NVIC_PriorityGroupConfig",
+    "confidence": "high",
+    "evidence": [
+      "CSR priority group write",
+      "Original instructions and pseudocode at 0x0000cb8e"
+    ],
+    "notes": "Reconstructed semantic name; original symbol spelling is not known."
+  },
+  "0x0000cb94": {
+    "name": "NVIC_Init",
+    "confidence": "high",
+    "evidence": [
+      "PFIC enable disable and priority configuration",
+      "Original instructions and pseudocode at 0x0000cb94"
+    ],
+    "notes": "Reconstructed semantic name; original symbol spelling is not known."
+  },
+  "0x0000cc3a": {
+    "name": "RCC_ADCCLKConfig",
+    "confidence": "high",
+    "evidence": [
+      "RCC CFGR0 ADC prescaler field",
+      "Original instructions and pseudocode at 0x0000cc3a"
+    ],
+    "notes": "Reconstructed semantic name; original symbol spelling is not known."
+  },
+  "0x0000cc4c": {
+    "name": "RCC_GetClocksFreq",
+    "confidence": "high",
+    "evidence": [
+      "RCC clock mux PLL multiplier and bus prescaler calculations",
+      "Original instructions and pseudocode at 0x0000cc4c"
+    ],
+    "notes": "Reconstructed semantic name; original symbol spelling is not known."
+  },
+  "0x0000cd52": {
+    "name": "RCC_AHBPeriphClockCmd",
+    "confidence": "high",
+    "evidence": [
+      "RCC AHB clock enable register",
+      "Original instructions and pseudocode at 0x0000cd52"
+    ],
+    "notes": "Reconstructed semantic name; original symbol spelling is not known."
+  },
+  "0x0000cd70": {
+    "name": "RCC_APB2PeriphClockCmd",
+    "confidence": "high",
+    "evidence": [
+      "RCC APB2 clock enable register",
+      "Original instructions and pseudocode at 0x0000cd70"
+    ],
+    "notes": "Reconstructed semantic name; original symbol spelling is not known."
+  },
+  "0x0000cd8e": {
+    "name": "RCC_APB1PeriphClockCmd",
+    "confidence": "high",
+    "evidence": [
+      "RCC APB1 clock enable register",
+      "Original instructions and pseudocode at 0x0000cd8e"
+    ],
+    "notes": "Reconstructed semantic name; original symbol spelling is not known."
+  },
+  "0x0000cdac": {
+    "name": "SPI_Init",
+    "confidence": "high",
+    "evidence": [
+      "SPI configuration mask struct offsets CRC polynomial",
+      "Original instructions and pseudocode at 0x0000cdac"
+    ],
+    "notes": "Reconstructed semantic name; original symbol spelling is not known."
+  },
+  "0x0000cdea": {
+    "name": "SPI_Cmd",
+    "confidence": "high",
+    "evidence": [
+      "SPI CTLR1 enable bit",
+      "Original instructions and pseudocode at 0x0000cdea"
+    ],
+    "notes": "Reconstructed semantic name; original symbol spelling is not known."
+  },
+  "0x0000ce04": {
+    "name": "SPI_I2S_SendData",
+    "confidence": "high",
+    "evidence": [
+      "SPI DATAR halfword store",
+      "Original instructions and pseudocode at 0x0000ce04"
+    ],
+    "notes": "Reconstructed semantic name; original symbol spelling is not known."
+  },
+  "0x0000ce08": {
+    "name": "SPI_I2S_ReceiveData",
+    "confidence": "high",
+    "evidence": [
+      "SPI DATAR halfword load",
+      "Original instructions and pseudocode at 0x0000ce08"
+    ],
+    "notes": "Reconstructed semantic name; original symbol spelling is not known."
+  },
+  "0x0000ce0c": {
+    "name": "SPI_I2S_GetFlagStatus",
+    "confidence": "high",
+    "evidence": [
+      "SPI status flag mask",
+      "Original instructions and pseudocode at 0x0000ce0c"
+    ],
+    "notes": "Reconstructed semantic name; original symbol spelling is not known."
+  },
+  "0x0000ce16": {
+    "name": "TIM_TimeBaseInit",
+    "confidence": "high",
+    "evidence": [
+      "TIM prescaler auto-reload and update generation",
+      "Original instructions and pseudocode at 0x0000ce16"
+    ],
+    "notes": "Reconstructed semantic name; original symbol spelling is not known."
+  },
+  "0x0000cec0": {
+    "name": "TIM_OC1Init",
+    "confidence": "high",
+    "evidence": [
+      "TIM channel 1 output compare registers",
+      "Original instructions and pseudocode at 0x0000cec0"
+    ],
+    "notes": "Reconstructed semantic name; original symbol spelling is not known."
+  },
+  "0x0000cf42": {
+    "name": "TIM_OC2Init",
+    "confidence": "high",
+    "evidence": [
+      "TIM channel 2 output compare registers",
+      "Original instructions and pseudocode at 0x0000cf42"
+    ],
+    "notes": "Reconstructed semantic name; original symbol spelling is not known."
+  },
+  "0x0000cff0": {
+    "name": "TIM_Cmd",
+    "confidence": "high",
+    "evidence": [
+      "TIM CTLR1 enable bit",
+      "Original instructions and pseudocode at 0x0000cff0"
+    ],
+    "notes": "Reconstructed semantic name; original symbol spelling is not known."
+  },
+  "0x0000d008": {
+    "name": "TIM_CtrlPWMOutputs",
+    "confidence": "high",
+    "evidence": [
+      "TIM BDTR master output enable",
+      "Original instructions and pseudocode at 0x0000d008"
+    ],
+    "notes": "Reconstructed semantic name; original symbol spelling is not known."
+  },
+  "0x0000d01e": {
+    "name": "TIM_ITConfig",
+    "confidence": "high",
+    "evidence": [
+      "TIM interrupt DMA enable register mask",
+      "Original instructions and pseudocode at 0x0000d01e"
+    ],
+    "notes": "Reconstructed semantic name; original symbol spelling is not known."
+  },
+  "0x0000d030": {
+    "name": "TIM_ARRPreloadConfig",
+    "confidence": "high",
+    "evidence": [
+      "TIM CTLR1 bit 7 auto-reload preload enable",
+      "Original instructions and pseudocode at 0x0000d030"
+    ],
+    "notes": "Reconstructed semantic name; original symbol spelling is not known."
+  },
+  "0x0000d04a": {
+    "name": "TIM_OC1PreloadConfig",
+    "confidence": "high",
+    "evidence": [
+      "TIM CHCTLR1 bit 3 output compare preload",
+      "Original instructions and pseudocode at 0x0000d04a"
+    ],
+    "notes": "Reconstructed semantic name; original symbol spelling is not known."
+  },
+  "0x0000d058": {
+    "name": "TIM_OC2PreloadConfig",
+    "confidence": "high",
+    "evidence": [
+      "TIM CHCTLR1 second channel preload",
+      "Original instructions and pseudocode at 0x0000d058"
+    ],
+    "notes": "Reconstructed semantic name; original symbol spelling is not known."
+  },
+  "0x0000d06e": {
+    "name": "TIM_SetCompare2",
+    "confidence": "high",
+    "evidence": [
+      "TIM channel 2 compare halfword write",
+      "Original instructions and pseudocode at 0x0000d06e"
+    ],
+    "notes": "Reconstructed semantic name; original symbol spelling is not known."
+  },
+  "0x0000d072": {
+    "name": "TIM_GetITStatus",
+    "confidence": "high",
+    "evidence": [
+      "TIM interrupt enable and pending bits",
+      "Original instructions and pseudocode at 0x0000d072"
+    ],
+    "notes": "Reconstructed semantic name; original symbol spelling is not known."
+  },
+  "0x0000d08a": {
+    "name": "TIM_ClearITPendingBit",
+    "confidence": "high",
+    "evidence": [
+      "TIM status complement-mask write",
+      "Original instructions and pseudocode at 0x0000d08a"
+    ],
+    "notes": "Reconstructed semantic name; original symbol spelling is not known."
+  },
+  "0x0000d096": {
+    "name": "USART_Init",
+    "confidence": "high",
+    "evidence": [
+      "Official USART struct bit masks and baud divisor",
+      "Original instructions and pseudocode at 0x0000d096"
+    ],
+    "notes": "Reconstructed semantic name; original symbol spelling is not known."
+  },
+  "0x0000d152": {
+    "name": "USART_Cmd",
+    "confidence": "high",
+    "evidence": [
+      "USART CTLR1 enable bit",
+      "Original instructions and pseudocode at 0x0000d152"
+    ],
+    "notes": "Reconstructed semantic name; original symbol spelling is not known."
+  },
+  "0x0000d168": {
+    "name": "USART_ITConfig",
+    "confidence": "high",
+    "evidence": [
+      "Encoded USART interrupt register selection",
+      "Original instructions and pseudocode at 0x0000d168"
+    ],
+    "notes": "Reconstructed semantic name; original symbol spelling is not known."
+  },
+  "0x0000d19e": {
+    "name": "USART_DMACmd",
+    "confidence": "high",
+    "evidence": [
+      "USART CTLR3 DMA mask",
+      "Original instructions and pseudocode at 0x0000d19e"
+    ],
+    "notes": "Reconstructed semantic name; original symbol spelling is not known."
+  },
+  "0x0000d1b0": {
+    "name": "USART_SendData",
+    "confidence": "high",
+    "evidence": [
+      "USART DATAR write masked to nine bits",
+      "Original instructions and pseudocode at 0x0000d1b0"
+    ],
+    "notes": "Reconstructed semantic name; original symbol spelling is not known."
+  },
+  "0x0000d1b8": {
+    "name": "USART_ReceiveData",
+    "confidence": "high",
+    "evidence": [
+      "USART DATAR read masked to nine bits",
+      "Original instructions and pseudocode at 0x0000d1b8"
+    ],
+    "notes": "Reconstructed semantic name; original symbol spelling is not known."
+  },
+  "0x0000d1c0": {
+    "name": "USART_GetFlagStatus",
+    "confidence": "high",
+    "evidence": [
+      "USART STATR mask",
+      "Original instructions and pseudocode at 0x0000d1c0"
+    ],
+    "notes": "Reconstructed semantic name; original symbol spelling is not known."
+  },
+  "0x0000d1ca": {
+    "name": "USART_ClearFlag",
+    "confidence": "high",
+    "evidence": [
+      "USART STATR complement-mask write",
+      "Original instructions and pseudocode at 0x0000d1ca"
+    ],
+    "notes": "Reconstructed semantic name; original symbol spelling is not known."
+  },
+  "0x0000d1d6": {
+    "name": "USART_GetITStatus",
+    "confidence": "high",
+    "evidence": [
+      "Encoded USART interrupt enable and status tests",
+      "Original instructions and pseudocode at 0x0000d1d6"
+    ],
+    "notes": "Reconstructed semantic name; original symbol spelling is not known."
+  },
+  "0x0000d212": {
+    "name": "SystemInit",
+    "confidence": "high",
+    "evidence": [
+      "RCC 8MHz HSE times 18 PLL configuration for 144MHz",
+      "Original instructions and pseudocode at 0x0000d212"
+    ],
+    "notes": "Reconstructed semantic name; original symbol spelling is not known."
+  },
+  "0x0000d2fc": {
+    "name": "SystemCoreClockUpdate",
+    "confidence": "high",
+    "evidence": [
+      "RCC decode stores core clock at 0x200001cc",
+      "Original instructions and pseudocode at 0x0000d2fc"
+    ],
+    "notes": "Reconstructed semantic name; original symbol spelling is not known."
+  },
+  "0x0000d38a": {
+    "name": "spi1_flash_init",
+    "confidence": "high",
+    "evidence": [
+      "PA4 CS PA5 SCK PA6 MISO PA7 MOSI and SPI1 configuration",
+      "Original instructions and pseudocode at 0x0000d38a"
+    ],
+    "notes": "Reconstructed semantic name; original symbol spelling is not known."
+  },
+  "0x0000d442": {
+    "name": "spi1_exchange_byte",
+    "confidence": "high",
+    "evidence": [
+      "SPI1 TXE RXNE loops bounded by 201 polls",
+      "Original instructions and pseudocode at 0x0000d442"
+    ],
+    "notes": "Reconstructed semantic name; original symbol spelling is not known."
+  },
+  "0x0000d498": {
+    "name": "spi_flash_send_byte",
+    "confidence": "high",
+    "evidence": [
+      "Wrapper around SPI1 exchange",
+      "Original instructions and pseudocode at 0x0000d498"
+    ],
+    "notes": "Reconstructed semantic name; original symbol spelling is not known."
+  },
+  "0x0000d4a4": {
+    "name": "spi_flash_receive_byte",
+    "confidence": "high",
+    "evidence": [
+      "Wrapper exchanges dummy byte",
+      "Original instructions and pseudocode at 0x0000d4a4"
+    ],
+    "notes": "Reconstructed semantic name; original symbol spelling is not known."
+  },
+  "0x0000d4b4": {
+    "name": "spi_flash_read_jedec_id",
+    "confidence": "high",
+    "evidence": [
+      "0x9f and three response bytes with PA4 CS",
+      "Original instructions and pseudocode at 0x0000d4b4"
+    ],
+    "notes": "Reconstructed semantic name; original symbol spelling is not known."
+  },
+  "0x0000d4f8": {
+    "name": "spi_flash_write_enable",
+    "confidence": "high",
+    "evidence": [
+      "0x06 command under PA4 CS",
+      "Original instructions and pseudocode at 0x0000d4f8"
+    ],
+    "notes": "Reconstructed semantic name; original symbol spelling is not known."
+  },
+  "0x0000d516": {
+    "name": "spi_flash_read_status",
+    "confidence": "high",
+    "evidence": [
+      "0x05 command under PA4 CS",
+      "Original instructions and pseudocode at 0x0000d516"
+    ],
+    "notes": "Reconstructed semantic name; original symbol spelling is not known."
+  },
+  "0x0000d538": {
+    "name": "spi_flash_erase_sector",
+    "confidence": "high",
+    "evidence": [
+      "0x20 command and three address bytes with sector index shift",
+      "Original instructions and pseudocode at 0x0000d538"
+    ],
+    "notes": "Reconstructed semantic name; original symbol spelling is not known."
+  },
+  "0x0000d588": {
+    "name": "spi_flash_page_program",
+    "confidence": "high",
+    "evidence": [
+      "0x02 command 24-bit address and up to 256 data bytes",
+      "Original instructions and pseudocode at 0x0000d588"
+    ],
+    "notes": "Reconstructed semantic name; original symbol spelling is not known."
+  },
+  "0x0000d602": {
+    "name": "spi_flash_program_pages",
+    "confidence": "high",
+    "evidence": [
+      "Splits writes at 256-byte page boundaries",
+      "Original instructions and pseudocode at 0x0000d602"
+    ],
+    "notes": "Reconstructed semantic name; original symbol spelling is not known."
+  },
+  "0x0000d656": {
+    "name": "spi_flash_read",
+    "confidence": "high",
+    "evidence": [
+      "0x03 command 24-bit address and dummy-clock reads",
+      "Original instructions and pseudocode at 0x0000d656"
+    ],
+    "notes": "Reconstructed semantic name; original symbol spelling is not known."
+  },
+  "0x0000d6bc": {
+    "name": "spi_flash_write_preserve_sector",
+    "confidence": "high",
+    "evidence": [
+      "4096-byte read modify erase rewrite sequence",
+      "Original instructions and pseudocode at 0x0000d6bc"
+    ],
+    "notes": "Reconstructed semantic name; original symbol spelling is not known."
+  },
+  "0x0000d86c": {
+    "name": "spi_flash_init",
+    "confidence": "high",
+    "evidence": [
+      "Calls SPI1 initialization and JEDEC ID read",
+      "Original instructions and pseudocode at 0x0000d86c"
+    ],
+    "notes": "Reconstructed semantic name; original symbol spelling is not known."
+  },
+  "0x0000d87c": {
+    "name": "settings_commit_internal_flash",
+    "confidence": "high",
+    "evidence": [
+      "Erases/programs 0x08040000 and copies 128 halfwords",
+      "Original instructions and pseudocode at 0x0000d87c"
+    ],
+    "notes": "Reconstructed semantic name; original symbol spelling is not known."
+  },
+  "0x0000d908": {
+    "name": "read_halfwords",
+    "confidence": "high",
+    "evidence": [
+      "16-bit source-to-destination copy",
+      "Original instructions and pseudocode at 0x0000d908"
+    ],
+    "notes": "Reconstructed semantic name; original symbol spelling is not known."
+  },
+  "0x0000d928": {
+    "name": "settings_load_internal_flash",
+    "confidence": "high",
+    "evidence": [
+      "Copies 128 halfwords from 0x08040000 to 0x20000020",
+      "Original instructions and pseudocode at 0x0000d928"
+    ],
+    "notes": "Reconstructed semantic name; original symbol spelling is not known."
+  },
+  "0x0000d944": {
+    "name": "settings_theme_access",
+    "confidence": "high",
+    "evidence": [
+      "Packed word bits 8 and 9",
+      "Original instructions and pseudocode at 0x0000d944"
+    ],
+    "notes": "Reconstructed semantic name; original symbol spelling is not known."
+  },
+  "0x0000d964": {
+    "name": "settings_language_access",
+    "confidence": "high",
+    "evidence": [
+      "Packed word low three bits and language resource path",
+      "Original instructions and pseudocode at 0x0000d964"
+    ],
+    "notes": "Reconstructed semantic name; original symbol spelling is not known."
+  },
+  "0x0000d9e6": {
+    "name": "settings_field_3_4_access",
+    "confidence": "high",
+    "evidence": [
+      "Packed word bits 3 and 4; UI meaning not yet established",
+      "Original instructions and pseudocode at 0x0000d9e6"
+    ],
+    "notes": "Reconstructed semantic name; original symbol spelling is not known."
+  },
+  "0x0000da04": {
+    "name": "settings_layout_access",
+    "confidence": "high",
+    "evidence": [
+      "Packed word bits 10 and 11; selects alternate layout",
+      "Original instructions and pseudocode at 0x0000da04"
+    ],
+    "notes": "Reconstructed semantic name; original symbol spelling is not known."
+  },
+  "0x0000da28": {
+    "name": "settings_temperature_access",
+    "confidence": "high",
+    "evidence": [
+      "Packed word bit 5; temperature display call site",
+      "Original instructions and pseudocode at 0x0000da28"
+    ],
+    "notes": "Reconstructed semantic name; original symbol spelling is not known."
+  },
+  "0x0000da48": {
+    "name": "settings_auto_off_access",
+    "confidence": "high",
+    "evidence": [
+      "Packed word bits 6 and 7; 0 300 900 1800 second thresholds",
+      "Original instructions and pseudocode at 0x0000da48"
+    ],
+    "notes": "Reconstructed semantic name; original symbol spelling is not known."
+  },
+  "0x0000da9c": {
+    "name": "history_append_measurement",
+    "confidence": "high",
+    "evidence": [
+      "Shifts 29 four-byte entries caps count at 30 and packs measurement",
+      "Original instructions and pseudocode at 0x0000da9c"
+    ],
+    "notes": "Reconstructed semantic name; original symbol spelling is not known."
+  },
+  "0x0000dbac": {
+    "name": "history_decode_entry",
+    "confidence": "high",
+    "evidence": [
+      "Extracts mode unit sign scale and magnitude from selected four-byte entry",
+      "Original instructions and pseudocode at 0x0000dbac"
+    ],
+    "notes": "Reconstructed semantic name; original symbol spelling is not known."
+  },
+  "0x0000dc46": {
+    "name": "settings_restore_defaults",
+    "confidence": "medium",
+    "evidence": [
+      "Copies defaults and clears remaining 128-halfword settings buffer",
+      "Original instructions and pseudocode at 0x0000dc46"
+    ],
+    "notes": "Reconstructed semantic name; original symbol spelling is not known."
+  },
+  "0x0000dca0": {
+    "name": "disk_status",
+    "confidence": "medium",
+    "evidence": [
+      "FatFs-facing drive status wrapper returns zero",
+      "Original instructions and pseudocode at 0x0000dca0"
+    ],
+    "notes": "Reconstructed semantic name; original symbol spelling is not known."
+  },
+  "0x0000dca4": {
+    "name": "disk_initialize",
+    "confidence": "medium",
+    "evidence": [
+      "FatFs-facing drive initialization wrapper returns zero",
+      "Original instructions and pseudocode at 0x0000dca4"
+    ],
+    "notes": "Reconstructed semantic name; original symbol spelling is not known."
+  },
+  "0x0000dca8": {
+    "name": "disk_read",
+    "confidence": "high",
+    "evidence": [
+      "Sector index shifted by 12 then SPI read",
+      "Original instructions and pseudocode at 0x0000dca8"
+    ],
+    "notes": "Reconstructed semantic name; original symbol spelling is not known."
+  },
+  "0x0000dcd0": {
+    "name": "disk_write",
+    "confidence": "high",
+    "evidence": [
+      "Sector index shifted by 12 then preserved-sector SPI write",
+      "Original instructions and pseudocode at 0x0000dcd0"
+    ],
+    "notes": "Reconstructed semantic name; original symbol spelling is not known."
+  },
+  "0x0000dd00": {
+    "name": "disk_ioctl",
+    "confidence": "high",
+    "evidence": [
+      "Sector count 2048 sector size 4096 erase block 1",
+      "Original instructions and pseudocode at 0x0000dd00"
+    ],
+    "notes": "Reconstructed semantic name; original symbol spelling is not known."
+  },
+  "0x0000dd4e": {
+    "name": "filesystem_resources_init",
+    "confidence": "high",
+    "evidence": [
+      "Mount calls and BOOT resource handling",
+      "Original instructions and pseudocode at 0x0000dd4e"
+    ],
+    "notes": "Reconstructed semantic name; original symbol spelling is not known."
+  },
+  "0x0000de12": {
+    "name": "filesystem_logo_remove",
+    "confidence": "high",
+    "evidence": [
+      "Mounts resources removes LOGO.jpg then remounts",
+      "Original instructions and pseudocode at 0x0000de12"
+    ],
+    "notes": "Reconstructed semantic name; original symbol spelling is not known."
+  },
+  "0x00014cd6": {
+    "name": "charge_screen_poll",
+    "confidence": "high",
+    "evidence": [
+      "GPIOA pin 8 controls recharge image loop",
+      "Original instructions and pseudocode at 0x00014cd6"
+    ],
+    "notes": "Reconstructed semantic name; original symbol spelling is not known."
+  },
+  "0x00014d62": {
+    "name": "battery_icon_theme_a",
+    "confidence": "high",
+    "evidence": [
+      "Ten cell image paths selected by percentage thresholds",
+      "Original instructions and pseudocode at 0x00014d62"
+    ],
+    "notes": "Reconstructed semantic name; original symbol spelling is not known."
+  },
+  "0x0001511a": {
+    "name": "application_show_initial_screen",
+    "confidence": "high",
+    "evidence": [
+      "Optional on.jpg splash then measurement screen setup",
+      "Original instructions and pseudocode at 0x0001511a"
+    ],
+    "notes": "Reconstructed semantic name; original symbol spelling is not known."
+  },
+  "0x000169d4": {
+    "name": "menu_dispatch",
+    "confidence": "medium",
+    "evidence": [
+      "Thirty-two state switch with settings history and about branches",
+      "Original instructions and pseudocode at 0x000169d4"
+    ],
+    "notes": "Reconstructed semantic name; original symbol spelling is not known."
+  },
+  "0x0001a626": {
+    "name": "delay_init",
+    "confidence": "high",
+    "evidence": [
+      "Core-clock-derived millisecond and microsecond factors",
+      "Original instructions and pseudocode at 0x0001a626"
+    ],
+    "notes": "Reconstructed semantic name; original symbol spelling is not known."
+  },
+  "0x0001a64c": {
+    "name": "delay_ms",
+    "confidence": "high",
+    "evidence": [
+      "SysTick compare count enable and status polling",
+      "Original instructions and pseudocode at 0x0001a64c"
+    ],
+    "notes": "Reconstructed semantic name; original symbol spelling is not known."
+  },
+  "0x0001a682": {
+    "name": "debug_usart2_init",
+    "confidence": "high",
+    "evidence": [
+      "PA2 alternate output USART2 at main argument 115200",
+      "Original instructions and pseudocode at 0x0001a682"
+    ],
+    "notes": "Reconstructed semantic name; original symbol spelling is not known."
+  },
+  "0x0001a6e2": {
+    "name": "debug_putchar",
+    "confidence": "high",
+    "evidence": [
+      "USART2 transmit register and TC polling",
+      "Original instructions and pseudocode at 0x0001a6e2"
+    ],
+    "notes": "Reconstructed semantic name; original symbol spelling is not known."
+  },
+  "0x0000c5c2": {
+    "name": "Ecall_M_Mode_Handler_default",
+    "confidence": "high",
+    "evidence": [
+      "Vector slot 5 uses this target; original opcode is c.j to itself",
+      "Slot identity follows official CH32V303 D8 startup table"
+    ],
+    "notes": "Default trap loop; this interrupt is not demonstrated to be enabled."
+  },
+  "0x0000c5c4": {
+    "name": "Ecall_U_Mode_Handler_default",
+    "confidence": "high",
+    "evidence": [
+      "Vector slot 8 uses this target; original opcode is c.j to itself",
+      "Slot identity follows official CH32V303 D8 startup table"
+    ],
+    "notes": "Default trap loop; this interrupt is not demonstrated to be enabled."
+  },
+  "0x0000c5c6": {
+    "name": "Break_Point_Handler_default",
+    "confidence": "high",
+    "evidence": [
+      "Vector slot 9 uses this target; original opcode is c.j to itself",
+      "Slot identity follows official CH32V303 D8 startup table"
+    ],
+    "notes": "Default trap loop; this interrupt is not demonstrated to be enabled."
+  },
+  "0x0000c5c8": {
+    "name": "SysTick_Handler_default",
+    "confidence": "high",
+    "evidence": [
+      "Vector slot 12 uses this target; original opcode is c.j to itself",
+      "Slot identity follows official CH32V303 D8 startup table"
+    ],
+    "notes": "Default trap loop; this interrupt is not demonstrated to be enabled."
+  },
+  "0x0000c5ca": {
+    "name": "SW_Handler_default",
+    "confidence": "high",
+    "evidence": [
+      "Vector slot 14 uses this target; original opcode is c.j to itself",
+      "Slot identity follows official CH32V303 D8 startup table"
+    ],
+    "notes": "Default trap loop; this interrupt is not demonstrated to be enabled."
+  },
+  "0x0000c5cc": {
+    "name": "WWDG_IRQHandler_default",
+    "confidence": "high",
+    "evidence": [
+      "Vector slot 16 uses this target; original opcode is c.j to itself",
+      "Slot identity follows official CH32V303 D8 startup table"
+    ],
+    "notes": "Default trap loop; this interrupt is not demonstrated to be enabled."
+  },
+  "0x0000c5ce": {
+    "name": "PVD_IRQHandler_default",
+    "confidence": "high",
+    "evidence": [
+      "Vector slot 17 uses this target; original opcode is c.j to itself",
+      "Slot identity follows official CH32V303 D8 startup table"
+    ],
+    "notes": "Default trap loop; this interrupt is not demonstrated to be enabled."
+  },
+  "0x0000c5d0": {
+    "name": "TAMPER_IRQHandler_default",
+    "confidence": "high",
+    "evidence": [
+      "Vector slot 18 uses this target; original opcode is c.j to itself",
+      "Slot identity follows official CH32V303 D8 startup table"
+    ],
+    "notes": "Default trap loop; this interrupt is not demonstrated to be enabled."
+  },
+  "0x0000c5d2": {
+    "name": "RTC_IRQHandler_default",
+    "confidence": "high",
+    "evidence": [
+      "Vector slot 19 uses this target; original opcode is c.j to itself",
+      "Slot identity follows official CH32V303 D8 startup table"
+    ],
+    "notes": "Default trap loop; this interrupt is not demonstrated to be enabled."
+  },
+  "0x0000c5d4": {
+    "name": "FLASH_IRQHandler_default",
+    "confidence": "high",
+    "evidence": [
+      "Vector slot 20 uses this target; original opcode is c.j to itself",
+      "Slot identity follows official CH32V303 D8 startup table"
+    ],
+    "notes": "Default trap loop; this interrupt is not demonstrated to be enabled."
+  },
+  "0x0000c5d6": {
+    "name": "RCC_IRQHandler_default",
+    "confidence": "high",
+    "evidence": [
+      "Vector slot 21 uses this target; original opcode is c.j to itself",
+      "Slot identity follows official CH32V303 D8 startup table"
+    ],
+    "notes": "Default trap loop; this interrupt is not demonstrated to be enabled."
+  },
+  "0x0000c5d8": {
+    "name": "EXTI0_IRQHandler_default",
+    "confidence": "high",
+    "evidence": [
+      "Vector slot 22 uses this target; original opcode is c.j to itself",
+      "Slot identity follows official CH32V303 D8 startup table"
+    ],
+    "notes": "Default trap loop; this interrupt is not demonstrated to be enabled."
+  },
+  "0x0000c5da": {
+    "name": "EXTI1_IRQHandler_default",
+    "confidence": "high",
+    "evidence": [
+      "Vector slot 23 uses this target; original opcode is c.j to itself",
+      "Slot identity follows official CH32V303 D8 startup table"
+    ],
+    "notes": "Default trap loop; this interrupt is not demonstrated to be enabled."
+  },
+  "0x0000c5de": {
+    "name": "EXTI3_IRQHandler_default",
+    "confidence": "high",
+    "evidence": [
+      "Vector slot 25 uses this target; original opcode is c.j to itself",
+      "Slot identity follows official CH32V303 D8 startup table"
+    ],
+    "notes": "Default trap loop; this interrupt is not demonstrated to be enabled."
+  },
+  "0x0000c5e0": {
+    "name": "EXTI4_IRQHandler_default",
+    "confidence": "high",
+    "evidence": [
+      "Vector slot 26 uses this target; original opcode is c.j to itself",
+      "Slot identity follows official CH32V303 D8 startup table"
+    ],
+    "notes": "Default trap loop; this interrupt is not demonstrated to be enabled."
+  },
+  "0x0000c5e2": {
+    "name": "DMA1_Channel1_IRQHandler_default",
+    "confidence": "high",
+    "evidence": [
+      "Vector slot 27 uses this target; original opcode is c.j to itself",
+      "Slot identity follows official CH32V303 D8 startup table"
+    ],
+    "notes": "Default trap loop; this interrupt is not demonstrated to be enabled."
+  },
+  "0x0000c5e4": {
+    "name": "DMA1_Channel2_IRQHandler_default",
+    "confidence": "high",
+    "evidence": [
+      "Vector slot 28 uses this target; original opcode is c.j to itself",
+      "Slot identity follows official CH32V303 D8 startup table"
+    ],
+    "notes": "Default trap loop; this interrupt is not demonstrated to be enabled."
+  },
+  "0x0000c5e6": {
+    "name": "DMA1_Channel3_IRQHandler_default",
+    "confidence": "high",
+    "evidence": [
+      "Vector slot 29 uses this target; original opcode is c.j to itself",
+      "Slot identity follows official CH32V303 D8 startup table"
+    ],
+    "notes": "Default trap loop; this interrupt is not demonstrated to be enabled."
+  },
+  "0x0000c5e8": {
+    "name": "DMA1_Channel4_IRQHandler_default",
+    "confidence": "high",
+    "evidence": [
+      "Vector slot 30 uses this target; original opcode is c.j to itself",
+      "Slot identity follows official CH32V303 D8 startup table"
+    ],
+    "notes": "Default trap loop; this interrupt is not demonstrated to be enabled."
+  },
+  "0x0000c5ec": {
+    "name": "DMA1_Channel6_IRQHandler_default",
+    "confidence": "high",
+    "evidence": [
+      "Vector slot 32 uses this target; original opcode is c.j to itself",
+      "Slot identity follows official CH32V303 D8 startup table"
+    ],
+    "notes": "Default trap loop; this interrupt is not demonstrated to be enabled."
+  },
+  "0x0000c5ee": {
+    "name": "DMA1_Channel7_IRQHandler_default",
+    "confidence": "high",
+    "evidence": [
+      "Vector slot 33 uses this target; original opcode is c.j to itself",
+      "Slot identity follows official CH32V303 D8 startup table"
+    ],
+    "notes": "Default trap loop; this interrupt is not demonstrated to be enabled."
+  },
+  "0x0000c5f0": {
+    "name": "ADC1_2_IRQHandler_default",
+    "confidence": "high",
+    "evidence": [
+      "Vector slot 34 uses this target; original opcode is c.j to itself",
+      "Slot identity follows official CH32V303 D8 startup table"
+    ],
+    "notes": "Default trap loop; this interrupt is not demonstrated to be enabled."
+  },
+  "0x0000c5f2": {
+    "name": "USB_HP_CAN1_TX_IRQHandler_default",
+    "confidence": "high",
+    "evidence": [
+      "Vector slot 35 uses this target; original opcode is c.j to itself",
+      "Slot identity follows official CH32V303 D8 startup table"
+    ],
+    "notes": "Default trap loop; this interrupt is not demonstrated to be enabled."
+  },
+  "0x0000c5f4": {
+    "name": "USB_LP_CAN1_RX0_IRQHandler_default",
+    "confidence": "high",
+    "evidence": [
+      "Vector slot 36 uses this target; original opcode is c.j to itself",
+      "Slot identity follows official CH32V303 D8 startup table"
+    ],
+    "notes": "Default trap loop; this interrupt is not demonstrated to be enabled."
+  },
+  "0x0000c5f6": {
+    "name": "CAN1_RX1_IRQHandler_default",
+    "confidence": "high",
+    "evidence": [
+      "Vector slot 37 uses this target; original opcode is c.j to itself",
+      "Slot identity follows official CH32V303 D8 startup table"
+    ],
+    "notes": "Default trap loop; this interrupt is not demonstrated to be enabled."
+  },
+  "0x0000c5f8": {
+    "name": "CAN1_SCE_IRQHandler_default",
+    "confidence": "high",
+    "evidence": [
+      "Vector slot 38 uses this target; original opcode is c.j to itself",
+      "Slot identity follows official CH32V303 D8 startup table"
+    ],
+    "notes": "Default trap loop; this interrupt is not demonstrated to be enabled."
+  },
+  "0x0000c5fc": {
+    "name": "TIM1_BRK_IRQHandler_default",
+    "confidence": "high",
+    "evidence": [
+      "Vector slot 40 uses this target; original opcode is c.j to itself",
+      "Slot identity follows official CH32V303 D8 startup table"
+    ],
+    "notes": "Default trap loop; this interrupt is not demonstrated to be enabled."
+  },
+  "0x0000c5fe": {
+    "name": "TIM1_UP_IRQHandler_default",
+    "confidence": "high",
+    "evidence": [
+      "Vector slot 41 uses this target; original opcode is c.j to itself",
+      "Slot identity follows official CH32V303 D8 startup table"
+    ],
+    "notes": "Default trap loop; this interrupt is not demonstrated to be enabled."
+  },
+  "0x0000c600": {
+    "name": "TIM1_TRG_COM_IRQHandler_default",
+    "confidence": "high",
+    "evidence": [
+      "Vector slot 42 uses this target; original opcode is c.j to itself",
+      "Slot identity follows official CH32V303 D8 startup table"
+    ],
+    "notes": "Default trap loop; this interrupt is not demonstrated to be enabled."
+  },
+  "0x0000c602": {
+    "name": "TIM1_CC_IRQHandler_default",
+    "confidence": "high",
+    "evidence": [
+      "Vector slot 43 uses this target; original opcode is c.j to itself",
+      "Slot identity follows official CH32V303 D8 startup table"
+    ],
+    "notes": "Default trap loop; this interrupt is not demonstrated to be enabled."
+  },
+  "0x0000c604": {
+    "name": "TIM2_IRQHandler_default",
+    "confidence": "high",
+    "evidence": [
+      "Vector slot 44 uses this target; original opcode is c.j to itself",
+      "Slot identity follows official CH32V303 D8 startup table"
+    ],
+    "notes": "Default trap loop; this interrupt is not demonstrated to be enabled."
+  },
+  "0x0000c608": {
+    "name": "TIM4_IRQHandler_default",
+    "confidence": "high",
+    "evidence": [
+      "Vector slot 46 uses this target; original opcode is c.j to itself",
+      "Slot identity follows official CH32V303 D8 startup table"
+    ],
+    "notes": "Default trap loop; this interrupt is not demonstrated to be enabled."
+  },
+  "0x0000c60a": {
+    "name": "I2C1_EV_IRQHandler_default",
+    "confidence": "high",
+    "evidence": [
+      "Vector slot 47 uses this target; original opcode is c.j to itself",
+      "Slot identity follows official CH32V303 D8 startup table"
+    ],
+    "notes": "Default trap loop; this interrupt is not demonstrated to be enabled."
+  },
+  "0x0000c60c": {
+    "name": "I2C1_ER_IRQHandler_default",
+    "confidence": "high",
+    "evidence": [
+      "Vector slot 48 uses this target; original opcode is c.j to itself",
+      "Slot identity follows official CH32V303 D8 startup table"
+    ],
+    "notes": "Default trap loop; this interrupt is not demonstrated to be enabled."
+  },
+  "0x0000c60e": {
+    "name": "I2C2_EV_IRQHandler_default",
+    "confidence": "high",
+    "evidence": [
+      "Vector slot 49 uses this target; original opcode is c.j to itself",
+      "Slot identity follows official CH32V303 D8 startup table"
+    ],
+    "notes": "Default trap loop; this interrupt is not demonstrated to be enabled."
+  },
+  "0x0000c610": {
+    "name": "I2C2_ER_IRQHandler_default",
+    "confidence": "high",
+    "evidence": [
+      "Vector slot 50 uses this target; original opcode is c.j to itself",
+      "Slot identity follows official CH32V303 D8 startup table"
+    ],
+    "notes": "Default trap loop; this interrupt is not demonstrated to be enabled."
+  },
+  "0x0000c612": {
+    "name": "SPI1_IRQHandler_default",
+    "confidence": "high",
+    "evidence": [
+      "Vector slot 51 uses this target; original opcode is c.j to itself",
+      "Slot identity follows official CH32V303 D8 startup table"
+    ],
+    "notes": "Default trap loop; this interrupt is not demonstrated to be enabled."
+  },
+  "0x0000c614": {
+    "name": "SPI2_IRQHandler_default",
+    "confidence": "high",
+    "evidence": [
+      "Vector slot 52 uses this target; original opcode is c.j to itself",
+      "Slot identity follows official CH32V303 D8 startup table"
+    ],
+    "notes": "Default trap loop; this interrupt is not demonstrated to be enabled."
+  },
+  "0x0000c618": {
+    "name": "USART2_IRQHandler_default",
+    "confidence": "high",
+    "evidence": [
+      "Vector slot 54 uses this target; original opcode is c.j to itself",
+      "Slot identity follows official CH32V303 D8 startup table"
+    ],
+    "notes": "Default trap loop; this interrupt is not demonstrated to be enabled."
+  },
+  "0x0000c61a": {
+    "name": "USART3_IRQHandler_default",
+    "confidence": "high",
+    "evidence": [
+      "Vector slot 55 uses this target; original opcode is c.j to itself",
+      "Slot identity follows official CH32V303 D8 startup table"
+    ],
+    "notes": "Default trap loop; this interrupt is not demonstrated to be enabled."
+  },
+  "0x0000c61e": {
+    "name": "RTCAlarm_IRQHandler_default",
+    "confidence": "high",
+    "evidence": [
+      "Vector slot 57 uses this target; original opcode is c.j to itself",
+      "Slot identity follows official CH32V303 D8 startup table"
+    ],
+    "notes": "Default trap loop; this interrupt is not demonstrated to be enabled."
+  },
+  "0x0000c620": {
+    "name": "TIM8_BRK_IRQHandler_default",
+    "confidence": "high",
+    "evidence": [
+      "Vector slot 59 uses this target; original opcode is c.j to itself",
+      "Slot identity follows official CH32V303 D8 startup table"
+    ],
+    "notes": "Default trap loop; this interrupt is not demonstrated to be enabled."
+  },
+  "0x0000c622": {
+    "name": "TIM8_UP_IRQHandler_default",
+    "confidence": "high",
+    "evidence": [
+      "Vector slot 60 uses this target; original opcode is c.j to itself",
+      "Slot identity follows official CH32V303 D8 startup table"
+    ],
+    "notes": "Default trap loop; this interrupt is not demonstrated to be enabled."
+  },
+  "0x0000c624": {
+    "name": "TIM8_TRG_COM_IRQHandler_default",
+    "confidence": "high",
+    "evidence": [
+      "Vector slot 61 uses this target; original opcode is c.j to itself",
+      "Slot identity follows official CH32V303 D8 startup table"
+    ],
+    "notes": "Default trap loop; this interrupt is not demonstrated to be enabled."
+  },
+  "0x0000c626": {
+    "name": "TIM8_CC_IRQHandler_default",
+    "confidence": "high",
+    "evidence": [
+      "Vector slot 62 uses this target; original opcode is c.j to itself",
+      "Slot identity follows official CH32V303 D8 startup table"
+    ],
+    "notes": "Default trap loop; this interrupt is not demonstrated to be enabled."
+  },
+  "0x0000c628": {
+    "name": "RNG_IRQHandler_default",
+    "confidence": "high",
+    "evidence": [
+      "Vector slot 63 uses this target; original opcode is c.j to itself",
+      "Slot identity follows official CH32V303 D8 startup table"
+    ],
+    "notes": "Default trap loop; this interrupt is not demonstrated to be enabled."
+  },
+  "0x0000c62a": {
+    "name": "0_default",
+    "confidence": "high",
+    "evidence": [
+      "Vector slot 64 uses this target; original opcode is c.j to itself",
+      "Slot identity follows official CH32V303 D8 startup table"
+    ],
+    "notes": "Default trap loop; this interrupt is not demonstrated to be enabled."
+  },
+  "0x0000c62c": {
+    "name": "SDIO_IRQHandler_default",
+    "confidence": "high",
+    "evidence": [
+      "Vector slot 65 uses this target; original opcode is c.j to itself",
+      "Slot identity follows official CH32V303 D8 startup table"
+    ],
+    "notes": "Default trap loop; this interrupt is not demonstrated to be enabled."
+  },
+  "0x0000c62e": {
+    "name": "TIM5_IRQHandler_default",
+    "confidence": "high",
+    "evidence": [
+      "Vector slot 66 uses this target; original opcode is c.j to itself",
+      "Slot identity follows official CH32V303 D8 startup table"
+    ],
+    "notes": "Default trap loop; this interrupt is not demonstrated to be enabled."
+  },
+  "0x0000c630": {
+    "name": "SPI3_IRQHandler_default",
+    "confidence": "high",
+    "evidence": [
+      "Vector slot 67 uses this target; original opcode is c.j to itself",
+      "Slot identity follows official CH32V303 D8 startup table"
+    ],
+    "notes": "Default trap loop; this interrupt is not demonstrated to be enabled."
+  },
+  "0x0000c632": {
+    "name": "UART4_IRQHandler_default",
+    "confidence": "high",
+    "evidence": [
+      "Vector slot 68 uses this target; original opcode is c.j to itself",
+      "Slot identity follows official CH32V303 D8 startup table"
+    ],
+    "notes": "Default trap loop; this interrupt is not demonstrated to be enabled."
+  },
+  "0x0000c634": {
+    "name": "UART5_IRQHandler_default",
+    "confidence": "high",
+    "evidence": [
+      "Vector slot 69 uses this target; original opcode is c.j to itself",
+      "Slot identity follows official CH32V303 D8 startup table"
+    ],
+    "notes": "Default trap loop; this interrupt is not demonstrated to be enabled."
+  },
+  "0x0000c636": {
+    "name": "TIM6_IRQHandler_default",
+    "confidence": "high",
+    "evidence": [
+      "Vector slot 70 uses this target; original opcode is c.j to itself",
+      "Slot identity follows official CH32V303 D8 startup table"
+    ],
+    "notes": "Default trap loop; this interrupt is not demonstrated to be enabled."
+  },
+  "0x0000c638": {
+    "name": "TIM7_IRQHandler_default",
+    "confidence": "high",
+    "evidence": [
+      "Vector slot 71 uses this target; original opcode is c.j to itself",
+      "Slot identity follows official CH32V303 D8 startup table"
+    ],
+    "notes": "Default trap loop; this interrupt is not demonstrated to be enabled."
+  },
+  "0x0000c63a": {
+    "name": "DMA2_Channel1_IRQHandler_default",
+    "confidence": "high",
+    "evidence": [
+      "Vector slot 72 uses this target; original opcode is c.j to itself",
+      "Slot identity follows official CH32V303 D8 startup table"
+    ],
+    "notes": "Default trap loop; this interrupt is not demonstrated to be enabled."
+  },
+  "0x0000c63c": {
+    "name": "DMA2_Channel2_IRQHandler_default",
+    "confidence": "high",
+    "evidence": [
+      "Vector slot 73 uses this target; original opcode is c.j to itself",
+      "Slot identity follows official CH32V303 D8 startup table"
+    ],
+    "notes": "Default trap loop; this interrupt is not demonstrated to be enabled."
+  },
+  "0x0000c63e": {
+    "name": "DMA2_Channel3_IRQHandler_default",
+    "confidence": "high",
+    "evidence": [
+      "Vector slot 74 uses this target; original opcode is c.j to itself",
+      "Slot identity follows official CH32V303 D8 startup table"
+    ],
+    "notes": "Default trap loop; this interrupt is not demonstrated to be enabled."
+  },
+  "0x0000c640": {
+    "name": "DMA2_Channel4_IRQHandler_default",
+    "confidence": "high",
+    "evidence": [
+      "Vector slot 75 uses this target; original opcode is c.j to itself",
+      "Slot identity follows official CH32V303 D8 startup table"
+    ],
+    "notes": "Default trap loop; this interrupt is not demonstrated to be enabled."
+  },
+  "0x0000c642": {
+    "name": "DMA2_Channel5_IRQHandler_default",
+    "confidence": "high",
+    "evidence": [
+      "Vector slot 76 uses this target; original opcode is c.j to itself",
+      "Slot identity follows official CH32V303 D8 startup table"
+    ],
+    "notes": "Default trap loop; this interrupt is not demonstrated to be enabled."
+  },
+  "0x0000c644": {
+    "name": "USBFS_IRQHandler_default",
+    "confidence": "high",
+    "evidence": [
+      "Vector slot 83 uses this target; original opcode is c.j to itself",
+      "Slot identity follows official CH32V303 D8 startup table"
+    ],
+    "notes": "Default trap loop; this interrupt is not demonstrated to be enabled."
+  },
+  "0x0000c646": {
+    "name": "UART6_IRQHandler_default",
+    "confidence": "high",
+    "evidence": [
+      "Vector slot 87 uses this target; original opcode is c.j to itself",
+      "Slot identity follows official CH32V303 D8 startup table"
+    ],
+    "notes": "Default trap loop; this interrupt is not demonstrated to be enabled."
+  },
+  "0x0000c648": {
+    "name": "UART7_IRQHandler_default",
+    "confidence": "high",
+    "evidence": [
+      "Vector slot 88 uses this target; original opcode is c.j to itself",
+      "Slot identity follows official CH32V303 D8 startup table"
+    ],
+    "notes": "Default trap loop; this interrupt is not demonstrated to be enabled."
+  },
+  "0x0000c64a": {
+    "name": "UART8_IRQHandler_default",
+    "confidence": "high",
+    "evidence": [
+      "Vector slot 89 uses this target; original opcode is c.j to itself",
+      "Slot identity follows official CH32V303 D8 startup table"
+    ],
+    "notes": "Default trap loop; this interrupt is not demonstrated to be enabled."
+  },
+  "0x0000c64c": {
+    "name": "TIM9_BRK_IRQHandler_default",
+    "confidence": "high",
+    "evidence": [
+      "Vector slot 90 uses this target; original opcode is c.j to itself",
+      "Slot identity follows official CH32V303 D8 startup table"
+    ],
+    "notes": "Default trap loop; this interrupt is not demonstrated to be enabled."
+  },
+  "0x0000c64e": {
+    "name": "TIM9_UP_IRQHandler_default",
+    "confidence": "high",
+    "evidence": [
+      "Vector slot 91 uses this target; original opcode is c.j to itself",
+      "Slot identity follows official CH32V303 D8 startup table"
+    ],
+    "notes": "Default trap loop; this interrupt is not demonstrated to be enabled."
+  },
+  "0x0000c650": {
+    "name": "TIM9_TRG_COM_IRQHandler_default",
+    "confidence": "high",
+    "evidence": [
+      "Vector slot 92 uses this target; original opcode is c.j to itself",
+      "Slot identity follows official CH32V303 D8 startup table"
+    ],
+    "notes": "Default trap loop; this interrupt is not demonstrated to be enabled."
+  },
+  "0x0000c652": {
+    "name": "TIM9_CC_IRQHandler_default",
+    "confidence": "high",
+    "evidence": [
+      "Vector slot 93 uses this target; original opcode is c.j to itself",
+      "Slot identity follows official CH32V303 D8 startup table"
+    ],
+    "notes": "Default trap loop; this interrupt is not demonstrated to be enabled."
+  },
+  "0x0000c654": {
+    "name": "TIM10_BRK_IRQHandler_default",
+    "confidence": "high",
+    "evidence": [
+      "Vector slot 94 uses this target; original opcode is c.j to itself",
+      "Slot identity follows official CH32V303 D8 startup table"
+    ],
+    "notes": "Default trap loop; this interrupt is not demonstrated to be enabled."
+  },
+  "0x0000c656": {
+    "name": "TIM10_UP_IRQHandler_default",
+    "confidence": "high",
+    "evidence": [
+      "Vector slot 95 uses this target; original opcode is c.j to itself",
+      "Slot identity follows official CH32V303 D8 startup table"
+    ],
+    "notes": "Default trap loop; this interrupt is not demonstrated to be enabled."
+  },
+  "0x0000c658": {
+    "name": "TIM10_TRG_COM_IRQHandler_default",
+    "confidence": "high",
+    "evidence": [
+      "Vector slot 96 uses this target; original opcode is c.j to itself",
+      "Slot identity follows official CH32V303 D8 startup table"
+    ],
+    "notes": "Default trap loop; this interrupt is not demonstrated to be enabled."
+  },
+  "0x0000c65a": {
+    "name": "TIM10_CC_IRQHandler_default",
+    "confidence": "high",
+    "evidence": [
+      "Vector slot 97 uses this target; original opcode is c.j to itself",
+      "Slot identity follows official CH32V303 D8 startup table"
+    ],
+    "notes": "Default trap loop; this interrupt is not demonstrated to be enabled."
+  },
+  "0x0000c65c": {
+    "name": "DMA2_Channel6_IRQHandler_default",
+    "confidence": "high",
+    "evidence": [
+      "Vector slot 98 uses this target; original opcode is c.j to itself",
+      "Slot identity follows official CH32V303 D8 startup table"
+    ],
+    "notes": "Default trap loop; this interrupt is not demonstrated to be enabled."
+  },
+  "0x0000c65e": {
+    "name": "DMA2_Channel7_IRQHandler_default",
+    "confidence": "high",
+    "evidence": [
+      "Vector slot 99 uses this target; original opcode is c.j to itself",
+      "Slot identity follows official CH32V303 D8 startup table"
+    ],
+    "notes": "Default trap loop; this interrupt is not demonstrated to be enabled."
+  },
+  "0x0000c660": {
+    "name": "DMA2_Channel8_IRQHandler_default",
+    "confidence": "high",
+    "evidence": [
+      "Vector slot 100 uses this target; original opcode is c.j to itself",
+      "Slot identity follows official CH32V303 D8 startup table"
+    ],
+    "notes": "Default trap loop; this interrupt is not demonstrated to be enabled."
+  },
+  "0x0000c662": {
+    "name": "DMA2_Channel9_IRQHandler_default",
+    "confidence": "high",
+    "evidence": [
+      "Vector slot 101 uses this target; original opcode is c.j to itself",
+      "Slot identity follows official CH32V303 D8 startup table"
+    ],
+    "notes": "Default trap loop; this interrupt is not demonstrated to be enabled."
+  },
+  "0x0000c664": {
+    "name": "DMA2_Channel10_IRQHandler_default",
+    "confidence": "high",
+    "evidence": [
+      "Vector slot 102 uses this target; original opcode is c.j to itself",
+      "Slot identity follows official CH32V303 D8 startup table"
+    ],
+    "notes": "Default trap loop; this interrupt is not demonstrated to be enabled."
+  },
+  "0x0000c666": {
+    "name": "DMA2_Channel11_IRQHandler_default",
+    "confidence": "high",
+    "evidence": [
+      "Vector slot 103 uses this target; original opcode is c.j to itself",
+      "Slot identity follows official CH32V303 D8 startup table"
+    ],
+    "notes": "Default trap loop; this interrupt is not demonstrated to be enabled."
+  },
+  "0x0000c5be": {
+    "name": "unused_default_trap_c5be",
+    "confidence": "high",
+    "category": "unreferenced_default_trap",
+    "evidence": [
+      "Two-byte self-loop inside the contiguous WCH weak-handler stub region; no vector points here"
+    ],
+    "notes": "Retained weak stub; individual IRQ identity not assigned without a vector reference."
+  },
+  "0x0000c5c0": {
+    "name": "unused_default_trap_c5c0",
+    "confidence": "high",
+    "category": "unreferenced_default_trap",
+    "evidence": [
+      "Two-byte self-loop inside the contiguous WCH weak-handler stub region; no vector points here"
+    ],
+    "notes": "Retained weak stub; individual IRQ identity not assigned without a vector reference."
+  },
+  "0x0000c5dc": {
+    "name": "unused_default_trap_c5dc",
+    "confidence": "high",
+    "category": "unreferenced_default_trap",
+    "evidence": [
+      "Two-byte self-loop inside the contiguous WCH weak-handler stub region; no vector points here"
+    ],
+    "notes": "Retained weak stub; individual IRQ identity not assigned without a vector reference."
+  },
+  "0x0000c5ea": {
+    "name": "unused_default_trap_c5ea",
+    "confidence": "high",
+    "category": "unreferenced_default_trap",
+    "evidence": [
+      "Two-byte self-loop inside the contiguous WCH weak-handler stub region; no vector points here"
+    ],
+    "notes": "Retained weak stub; individual IRQ identity not assigned without a vector reference."
+  },
+  "0x0000c5fa": {
+    "name": "unused_default_trap_c5fa",
+    "confidence": "high",
+    "category": "unreferenced_default_trap",
+    "evidence": [
+      "Two-byte self-loop inside the contiguous WCH weak-handler stub region; no vector points here"
+    ],
+    "notes": "Retained weak stub; individual IRQ identity not assigned without a vector reference."
+  },
+  "0x0000c606": {
+    "name": "unused_default_trap_c606",
+    "confidence": "high",
+    "category": "unreferenced_default_trap",
+    "evidence": [
+      "Two-byte self-loop inside the contiguous WCH weak-handler stub region; no vector points here"
+    ],
+    "notes": "Retained weak stub; individual IRQ identity not assigned without a vector reference."
+  },
+  "0x0000c616": {
+    "name": "unused_default_trap_c616",
+    "confidence": "high",
+    "category": "unreferenced_default_trap",
+    "evidence": [
+      "Two-byte self-loop inside the contiguous WCH weak-handler stub region; no vector points here"
+    ],
+    "notes": "Retained weak stub; individual IRQ identity not assigned without a vector reference."
+  },
+  "0x0000c61c": {
+    "name": "unused_default_trap_c61c",
+    "confidence": "high",
+    "category": "unreferenced_default_trap",
+    "evidence": [
+      "Two-byte self-loop inside the contiguous WCH weak-handler stub region; no vector points here"
+    ],
+    "notes": "Retained weak stub; individual IRQ identity not assigned without a vector reference."
+  }
+}

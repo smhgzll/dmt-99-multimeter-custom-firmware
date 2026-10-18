@@ -1,0 +1,202 @@
+{
+  "board/reference/startup.S": {
+    "source": "./reconstructed/firmware/startup.S",
+    "sha256": "03676d65b1e899aaa3d60f17253c5dd13812673909f157d168861501834896e9"
+  },
+  "board/reference/system.c": {
+    "source": "./reconstructed/firmware/system.c",
+    "sha256": "bdc374cf4d92f418efbc6b1a4fb84c311204e350b8a8a9bcae868a958c3b4a7b"
+  },
+  "board/reference/delay.c": {
+    "source": "./reconstructed/firmware/delay.c",
+    "sha256": "18372a261e2e373e2636681fe7513e6cb81d60a46b90ad0913e0e3eed2dc810a"
+  },
+  "board/reference/firmware.h": {
+    "source": "./reconstructed/firmware/firmware.h",
+    "sha256": "d909cd0eb79ffb7c01a7c3deb889350b6831eb5d8701e14008b7e47b5762a547"
+  },
+  "board/reference/dmt99-app.ld": {
+    "source": "./reconstructed/firmware/dmt99-app.ld",
+    "sha256": "78299a48ad1a16fec7787e4ebbc787480abaa1523b3bb4aee3f2787d5ae64608"
+  },
+  "board/reference/dmt99-sections.ld": {
+    "source": "./reconstructed/firmware/dmt99-sections.ld",
+    "sha256": "7aa505148168aa3239fd7df668bbfd680003e14d8e2e1a909cb57b3752b8b43d"
+  },
+  "board/reference/memory.c": {
+    "source": "./reconstructed/platform/memory.c",
+    "sha256": "8b4d8687e7d1f56beb112b313068b3dd9b6f7b4e0f55f7f8ca1c34a1e893ce14"
+  },
+  "board/reference/ch32v30x_conf.h": {
+    "source": "./reconstructed/platform/ch32v30x_conf.h",
+    "sha256": "117ec4091e5da5f915520fac36772f2f45433ebc506fc1afd7a2c96878137c21"
+  },
+  "board/reference/display.c": {
+    "source": "./reconstructed/drivers/display.c",
+    "sha256": "8ff708fbc72a9180995e49d533b8bc5f6915baac3c89cb600a7086c8f4daabe2"
+  },
+  "board/reference/display.h": {
+    "source": "./reconstructed/drivers/display.h",
+    "sha256": "550969d9b107d00ba7f8ea117f8eae376f16df6274897ec8c17cab55fdf5f6a3"
+  },
+  "board/reference/display_bus.c": {
+    "source": "./reconstructed/drivers/display_bus.c",
+    "sha256": "bbcf4ea6409787e3acd59288507b05b03b1ee117fd51a5dd5357fdb8210d697d"
+  },
+  "board/reference/display_bus.h": {
+    "source": "./reconstructed/drivers/display_bus.h",
+    "sha256": "b0e16dc401d9ca0398342d68a555c0a3d0d98c8443d5a2be748d4d46c8296620"
+  },
+  "board/reference/dmt_bus.h": {
+    "source": "./reconstructed/include/dmt_bus.h",
+    "sha256": "4a0b85377bec0c6d8aa130604f052816982015ed75c5e6c906a3e34015e05b61"
+  },
+  "board/reference/graphics.h": {
+    "source": "./reconstructed/ui/graphics.h",
+    "sha256": "574b5f05ef347bb1b7b9b99c721030ae3f67af9e90f912bd8d5c59f133de3e89"
+  },
+  "third_party/wch/Core/core_riscv.h": {
+    "source": "./reconstructed/vendor/wch/EVT/EXAM/SRC/Core/core_riscv.h",
+    "sha256": "63e8bcdd19417c5b8650049155397056bd87761731733152de800fde1f788459"
+  },
+  "third_party/wch/Peripheral/inc/ch32v30x_rtc.h": {
+    "source": "./reconstructed/vendor/wch/EVT/EXAM/SRC/Peripheral/inc/ch32v30x_rtc.h",
+    "sha256": "770de909af93ac00a276ee3e5f4079cdbaad582c21c3f2b36252926216211a14"
+  },
+  "third_party/wch/Peripheral/inc/ch32v30x_dvp.h": {
+    "source": "./reconstructed/vendor/wch/EVT/EXAM/SRC/Peripheral/inc/ch32v30x_dvp.h",
+    "sha256": "d71011942db76dab4b28b94304195ed1b8c36446d29cc9bdd41c2373965a9144"
+  },
+  "third_party/wch/Peripheral/inc/ch32v30x_dma.h": {
+    "source": "./reconstructed/vendor/wch/EVT/EXAM/SRC/Peripheral/inc/ch32v30x_dma.h",
+    "sha256": "aa160d1762fc1a5f0c2ccba63a06aa8fa7593397ffd994406088581f12b3b030"
+  },
+  "third_party/wch/Peripheral/inc/ch32v30x_fsmc.h": {
+    "source": "./reconstructed/vendor/wch/EVT/EXAM/SRC/Peripheral/inc/ch32v30x_fsmc.h",
+    "sha256": "d96778b94282083a2943f733135dc149f073d2c4a620f5771170afb715d9f94d"
+  },
+  "third_party/wch/Peripheral/inc/ch32v30x_wwdg.h": {
+    "source": "./reconstructed/vendor/wch/EVT/EXAM/SRC/Peripheral/inc/ch32v30x_wwdg.h",
+    "sha256": "9d528222f9174b57d5ee3278700f0de321451affa4ab22ea8c8a032046f66e41"
+  },
+  "third_party/wch/Peripheral/inc/ch32v30x.h": {
+    "source": "./reconstructed/vendor/wch/EVT/EXAM/SRC/Peripheral/inc/ch32v30x.h",
+    "sha256": "1887acbd85f7fb5fde3229a8c0c2d7da4bc7d53384f7ed0c223542fd08cd28e6"
+  },
+  "third_party/wch/Peripheral/inc/ch32v30x_misc.h": {
+    "source": "./reconstructed/vendor/wch/EVT/EXAM/SRC/Peripheral/inc/ch32v30x_misc.h",
+    "sha256": "d23983316b6663245b764a75079c215f2400c75272079f8c109951e8e4ff367f"
+  },
+  "third_party/wch/Peripheral/inc/ch32v30x_spi.h": {
+    "source": "./reconstructed/vendor/wch/EVT/EXAM/SRC/Peripheral/inc/ch32v30x_spi.h",
+    "sha256": "f197ddca6b01fce87e33193f8fc5d03e5bd7d44ecc1b4fe94a57859e9e987362"
+  },
+  "third_party/wch/Peripheral/inc/ch32v30x_iwdg.h": {
+    "source": "./reconstructed/vendor/wch/EVT/EXAM/SRC/Peripheral/inc/ch32v30x_iwdg.h",
+    "sha256": "4cf4448c7a729d96dae5d7b93fd4a61e91faefa5ecec82d33848a244b0873939"
+  },
+  "third_party/wch/Peripheral/inc/ch32v30x_adc.h": {
+    "source": "./reconstructed/vendor/wch/EVT/EXAM/SRC/Peripheral/inc/ch32v30x_adc.h",
+    "sha256": "817825db6471fa59d7947fe3f59a8a921cb69a9bdbfa7046713609ab4831f1c3"
+  },
+  "third_party/wch/Peripheral/inc/ch32v30x_gpio.h": {
+    "source": "./reconstructed/vendor/wch/EVT/EXAM/SRC/Peripheral/inc/ch32v30x_gpio.h",
+    "sha256": "ce6aa03e8f47fea728dd2adfc911402e93d5d888e36e580da3c493f3e437dbcb"
+  },
+  "third_party/wch/Peripheral/inc/ch32v30x_bkp.h": {
+    "source": "./reconstructed/vendor/wch/EVT/EXAM/SRC/Peripheral/inc/ch32v30x_bkp.h",
+    "sha256": "abe9f41e1c922b7ef5fee6e58aa8a57d1de98f7912377c9251de8b0064ed9759"
+  },
+  "third_party/wch/Peripheral/inc/ch32v30x_rng.h": {
+    "source": "./reconstructed/vendor/wch/EVT/EXAM/SRC/Peripheral/inc/ch32v30x_rng.h",
+    "sha256": "b36e8a4a28be717159291a89e5f4f037d8e120d5b43bcbcd9384a5fbb7319695"
+  },
+  "third_party/wch/Peripheral/inc/ch32v30x_usb.h": {
+    "source": "./reconstructed/vendor/wch/EVT/EXAM/SRC/Peripheral/inc/ch32v30x_usb.h",
+    "sha256": "d30ef8cc9ef09b0da01093413ae5ee2219a77fbe4f50d3959f57bcd3c1fb4b47"
+  },
+  "third_party/wch/Peripheral/inc/ch32v30x_sdio.h": {
+    "source": "./reconstructed/vendor/wch/EVT/EXAM/SRC/Peripheral/inc/ch32v30x_sdio.h",
+    "sha256": "6c77cc5af58fd7689b140280e0c60b774f9b7e7d2d278a918e2dee142c920c17"
+  },
+  "third_party/wch/Peripheral/inc/ch32v30x_pwr.h": {
+    "source": "./reconstructed/vendor/wch/EVT/EXAM/SRC/Peripheral/inc/ch32v30x_pwr.h",
+    "sha256": "2de997a4e2071c795b72d48bdd85fa227279720cb5e5bd332a3137341b434722"
+  },
+  "third_party/wch/Peripheral/inc/ch32v30x_opa.h": {
+    "source": "./reconstructed/vendor/wch/EVT/EXAM/SRC/Peripheral/inc/ch32v30x_opa.h",
+    "sha256": "e9228e9298b2cc89756decb3a4a22d0c5885aa71ddfeb08b3934cf83eed72110"
+  },
+  "third_party/wch/Peripheral/inc/ch32v30x_can.h": {
+    "source": "./reconstructed/vendor/wch/EVT/EXAM/SRC/Peripheral/inc/ch32v30x_can.h",
+    "sha256": "0b00f6663a6dbca795fe18217f4aeba011544f1f4acf98d604c2513c591170f5"
+  },
+  "third_party/wch/Peripheral/inc/ch32v30x_dbgmcu.h": {
+    "source": "./reconstructed/vendor/wch/EVT/EXAM/SRC/Peripheral/inc/ch32v30x_dbgmcu.h",
+    "sha256": "de8627d7cde4002988a150041fc8548f8bc6ec3fbb2e9aa5e14a56690a9e17d9"
+  },
+  "third_party/wch/Peripheral/inc/ch32v30x_eth.h": {
+    "source": "./reconstructed/vendor/wch/EVT/EXAM/SRC/Peripheral/inc/ch32v30x_eth.h",
+    "sha256": "26e8e3d99ab62a4e72b262691db735abf3b85e08818249cc721fc09db1fde505"
+  },
+  "third_party/wch/Peripheral/inc/ch32v30x_rcc.h": {
+    "source": "./reconstructed/vendor/wch/EVT/EXAM/SRC/Peripheral/inc/ch32v30x_rcc.h",
+    "sha256": "e6fba356e1b80cf8d35532a9e709df2d63953278ef9e400688b0f1df8e80408b"
+  },
+  "third_party/wch/Peripheral/inc/ch32v30x_flash.h": {
+    "source": "./reconstructed/vendor/wch/EVT/EXAM/SRC/Peripheral/inc/ch32v30x_flash.h",
+    "sha256": "f9f1a679ac87b027520be88530bcae8ddfc21c5a8d2027b4fce6b9c4c7fb324b"
+  },
+  "third_party/wch/Peripheral/inc/ch32v30x_dac.h": {
+    "source": "./reconstructed/vendor/wch/EVT/EXAM/SRC/Peripheral/inc/ch32v30x_dac.h",
+    "sha256": "d40a63dcd498b933d1c9aeb9a1f62915cbbac0bb43fdfb71da77963e0c327e24"
+  },
+  "third_party/wch/Peripheral/inc/ch32v30x_crc.h": {
+    "source": "./reconstructed/vendor/wch/EVT/EXAM/SRC/Peripheral/inc/ch32v30x_crc.h",
+    "sha256": "9072e00947282c389a20f6ac5e81133e244441b092f24f53eab922cafbd8f522"
+  },
+  "third_party/wch/Peripheral/inc/ch32v30x_usart.h": {
+    "source": "./reconstructed/vendor/wch/EVT/EXAM/SRC/Peripheral/inc/ch32v30x_usart.h",
+    "sha256": "3a54dbc461d96b4a6d63bb8857998bc7da5d7651481c299a7620d6c67d4ff563"
+  },
+  "third_party/wch/Peripheral/inc/ch32v30x_i2c.h": {
+    "source": "./reconstructed/vendor/wch/EVT/EXAM/SRC/Peripheral/inc/ch32v30x_i2c.h",
+    "sha256": "baf3026fa9cff984b59510990f7f7fc4af04e665c20d09dcd49a0d35968b0420"
+  },
+  "third_party/wch/Peripheral/inc/ch32v30x_exti.h": {
+    "source": "./reconstructed/vendor/wch/EVT/EXAM/SRC/Peripheral/inc/ch32v30x_exti.h",
+    "sha256": "38485dc3906057a285c24bc02aece22161a5549823414f3a73a47476fa70c193"
+  },
+  "third_party/wch/Peripheral/inc/ch32v30x_tim.h": {
+    "source": "./reconstructed/vendor/wch/EVT/EXAM/SRC/Peripheral/inc/ch32v30x_tim.h",
+    "sha256": "1db40dcc9865211f2324a4277fbdc6f5ce29dec8b126b6e30b86c45e36e66d55"
+  },
+  "third_party/wch/Peripheral/src/ch32v30x_gpio.c": {
+    "source": "./reconstructed/vendor/wch/EVT/EXAM/SRC/Peripheral/src/ch32v30x_gpio.c",
+    "sha256": "d10e5a06590b2f8366c60b0272d5b879f1c34fb84ce0d49fb07d473648cdc230"
+  },
+  "third_party/wch/Peripheral/src/ch32v30x_rcc.c": {
+    "source": "./reconstructed/vendor/wch/EVT/EXAM/SRC/Peripheral/src/ch32v30x_rcc.c",
+    "sha256": "3365aebee65d40afdc09e548f3234f72dfa4be1922fb7f78dd23bccc736344c7"
+  },
+  "third_party/wch/Peripheral/src/ch32v30x_tim.c": {
+    "source": "./reconstructed/vendor/wch/EVT/EXAM/SRC/Peripheral/src/ch32v30x_tim.c",
+    "sha256": "5627611426a6a17380801918404bea704dd3c888e3fd47f48f8a8a082d701794"
+  },
+  "tools/reference/fw_emulator.py": {
+    "source": "./tools/fw_emulator.py",
+    "sha256": "7e31eac9f55b3be63ef6f6f8740b2555ab072f72b8d251b7bd572555a3ebc315"
+  },
+  "tools/reference/update_image_format.py": {
+    "source": "./tools/update_image_format.py",
+    "sha256": "248d2a135b292dcf39b9ef3732c7b80ced3df127a9d4393809f6a88c5639cabf"
+  },
+  "tools/reference/stack_report.py": {
+    "source": "./tools/stack_report.py",
+    "sha256": "1385542132078466f0d34a96cbca95cf6a1730e180512dcc468f280fdf79ce0e"
+  },
+  "board/reference/system_ch32v30x.h": {
+    "source": "./reconstructed/vendor/wch/EVT/EXAM/GPIO/GPIO_Toggle/User/system_ch32v30x.h",
+    "sha256": "817839590eb2a392324f927d7a833ecb1d19a259193699d2a7f95d851a77b28d"
+  }
+}

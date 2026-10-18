@@ -1,0 +1,919 @@
+{
+  "compiler": "~/.espressif/tools/riscv32-esp-elf/esp-14.2.0_20260121/riscv32-esp-elf/bin/riscv32-esp-elf-gcc",
+  "flags": "-Os -fno-inline -fkeep-static-functions RV32IMAC ILP32",
+  "decoded_original": "preserved Ghidra RISC-V+Xwchc instruction inventory; unchanged",
+  "functions": [
+    {
+      "address": "0x00006838",
+      "family": "tjpgd",
+      "symbol": "alloc_pool",
+      "original_body_bytes": 28,
+      "compiled_body_bytes": 28,
+      "exact_body_bytes": true,
+      "operation_sequence_similarity": 1.0,
+      "original_operations": 13,
+      "compiled_operations": 13,
+      "note": "Static helpers compiled with inlining disabled for review. Operation normalization omits operands and is a fingerprint, not proof. Calls, ABI, tables and differential evidence are assessed separately.",
+      "original_cfg": {
+        "blocks": 3,
+        "edges": 2,
+        "back_edges": 0,
+        "memory_operand_offset_counts": {
+          "108": 2,
+          "112": 2
+        }
+      },
+      "linked_counterpart_cfg": {
+        "blocks": 3,
+        "edges": 2,
+        "back_edges": 0,
+        "memory_operand_offset_counts": {
+          "108": 2,
+          "112": 2
+        }
+      },
+      "cfg_note": "Compiled graph uses linked, relocated code; missing static symbols were inlined. Basic-block topology and memory offsets are supplementary fingerprints. Differences/absence are retained, not scored as equivalence."
+    },
+    {
+      "address": "0x00006854",
+      "family": "tjpgd",
+      "symbol": "bitext",
+      "original_body_bytes": 126,
+      "compiled_body_bytes": 172,
+      "exact_body_bytes": false,
+      "operation_sequence_similarity": 0.3826,
+      "original_operations": 48,
+      "compiled_operations": 67,
+      "note": "Static helpers compiled with inlining disabled for review. Operation normalization omits operands and is a fingerprint, not proof. Calls, ABI, tables and differential evidence are assessed separately.",
+      "original_cfg": {
+        "blocks": 18,
+        "edges": 25,
+        "back_edges": 7,
+        "memory_operand_offset_counts": {
+          "0": 5,
+          "4": 2,
+          "8": 1,
+          "12": 2,
+          "116": 1
+        }
+      },
+      "linked_counterpart_cfg": {
+        "blocks": 17,
+        "edges": 23,
+        "back_edges": 4,
+        "memory_operand_offset_counts": {
+          "0": 7,
+          "4": 4,
+          "8": 3,
+          "12": 4,
+          "16": 2,
+          "20": 2,
+          "24": 2,
+          "28": 2,
+          "116": 1
+        }
+      },
+      "cfg_note": "Compiled graph uses linked, relocated code; missing static symbols were inlined. Basic-block topology and memory offsets are supplementary fingerprints. Differences/absence are retained, not scored as equivalence."
+    },
+    {
+      "address": "0x000068d2",
+      "family": "tjpgd",
+      "symbol": "huffext",
+      "original_body_bytes": 156,
+      "compiled_body_bytes": 200,
+      "exact_body_bytes": false,
+      "operation_sequence_similarity": 0.4276,
+      "original_operations": 64,
+      "compiled_operations": 81,
+      "note": "Static helpers compiled with inlining disabled for review. Operation normalization omits operands and is a fingerprint, not proof. Calls, ABI, tables and differential evidence are assessed separately.",
+      "original_cfg": {
+        "blocks": 23,
+        "edges": 32,
+        "back_edges": 8,
+        "memory_operand_offset_counts": {
+          "-2": 1,
+          "0": 7,
+          "4": 2,
+          "8": 1,
+          "12": 4,
+          "116": 1
+        }
+      },
+      "linked_counterpart_cfg": {
+        "blocks": 22,
+        "edges": 30,
+        "back_edges": 6,
+        "memory_operand_offset_counts": {
+          "0": 8,
+          "4": 2,
+          "8": 3,
+          "12": 4,
+          "16": 2,
+          "20": 2,
+          "24": 2,
+          "28": 2,
+          "32": 2,
+          "36": 2,
+          "40": 2,
+          "44": 2,
+          "116": 1
+        }
+      },
+      "cfg_note": "Compiled graph uses linked, relocated code; missing static symbols were inlined. Basic-block topology and memory offsets are supplementary fingerprints. Differences/absence are retained, not scored as equivalence."
+    },
+    {
+      "address": "0x0000696e",
+      "family": "tjpgd",
+      "symbol": "jd_prepare",
+      "original_body_bytes": 1070,
+      "compiled_body_bytes": 912,
+      "exact_body_bytes": false,
+      "operation_sequence_similarity": 0.4823,
+      "original_operations": 379,
+      "compiled_operations": 326,
+      "note": "Static helpers compiled with inlining disabled for review. Operation normalization omits operands and is a fingerprint, not proof. Calls, ABI, tables and differential evidence are assessed separately.",
+      "original_cfg": {
+        "blocks": 81,
+        "edges": 142,
+        "back_edges": 48,
+        "memory_operand_offset_counts": {
+          "-1": 1,
+          "0": 18,
+          "1": 7,
+          "2": 2,
+          "3": 2,
+          "4": 6,
+          "5": 1,
+          "8": 1,
+          "12": 3,
+          "14": 2,
+          "15": 3,
+          "16": 1,
+          "26": 2,
+          "28": 2,
+          "32": 2,
+          "36": 2,
+          "40": 2,
+          "44": 1,
+          "48": 1,
+          "52": 2,
+          "56": 1,
+          "60": 1,
+          "64": 1,
+          "68": 2,
+          "72": 1,
+          "76": 1,
+          "80": 1,
+          "84": 1,
+          "88": 1,
+          "92": 1,
+          "96": 1,
+          "100": 1,
+          "104": 1,
+          "108": 1,
+          "112": 1,
+          "116": 10,
+          "120": 1
+        }
+      },
+      "linked_counterpart_cfg": {
+        "blocks": 88,
+        "edges": 150,
+        "back_edges": 35,
+        "memory_operand_offset_counts": {
+          "-1": 1,
+          "0": 16,
+          "1": 7,
+          "2": 2,
+          "3": 3,
+          "4": 6,
+          "5": 1,
+          "7": 1,
+          "8": 1,
+          "12": 3,
+          "14": 2,
+          "15": 2,
+          "16": 2,
+          "26": 2,
+          "28": 4,
+          "32": 4,
+          "36": 4,
+          "40": 4,
+          "44": 3,
+          "48": 3,
+          "52": 4,
+          "56": 3,
+          "60": 3,
+          "64": 3,
+          "68": 4,
+          "72": 3,
+          "76": 3,
+          "80": 1,
+          "84": 1,
+          "88": 1,
+          "92": 1,
+          "96": 1,
+          "100": 1,
+          "104": 1,
+          "108": 1,
+          "112": 1,
+          "116": 9,
+          "120": 1
+        }
+      },
+      "cfg_note": "Compiled graph uses linked, relocated code; missing static symbols were inlined. Basic-block topology and memory offsets are supplementary fingerprints. Differences/absence are retained, not scored as equivalence."
+    },
+    {
+      "address": "0x00006d9c",
+      "family": "tjpgd",
+      "symbol": "jd_decomp",
+      "original_body_bytes": 1990,
+      "compiled_body_bytes": 190,
+      "exact_body_bytes": false,
+      "operation_sequence_similarity": 0.0954,
+      "original_operations": 658,
+      "compiled_operations": 76,
+      "note": "Static helpers compiled with inlining disabled for review. Operation normalization omits operands and is a fingerprint, not proof. Calls, ABI, tables and differential evidence are assessed separately.",
+      "original_cfg": {
+        "blocks": 109,
+        "edges": 159,
+        "back_edges": 34,
+        "memory_operand_offset_counts": {
+          "-20": 1,
+          "-8": 1,
+          "-7": 1,
+          "-6": 1,
+          "-5": 1,
+          "-4": 2,
+          "-3": 4,
+          "-2": 7,
+          "-1": 8,
+          "0": 35,
+          "1": 2,
+          "4": 10,
+          "8": 6,
+          "12": 4,
+          "13": 5,
+          "14": 3,
+          "15": 3,
+          "16": 5,
+          "20": 7,
+          "24": 5,
+          "26": 1,
+          "28": 7,
+          "32": 4,
+          "36": 3,
+          "40": 3,
+          "44": 2,
+          "52": 1,
+          "56": 2,
+          "58": 1,
+          "60": 2,
+          "62": 1,
+          "64": 3,
+          "68": 1,
+          "72": 1,
+          "92": 2,
+          "100": 6,
+          "104": 4,
+          "116": 1,
+          "124": 1,
+          "128": 1,
+          "156": 2,
+          "188": 1,
+          "192": 1,
+          "220": 1,
+          "224": 1
+        }
+      },
+      "linked_counterpart_cfg": {
+        "blocks": 109,
+        "edges": 160,
+        "back_edges": 35,
+        "memory_operand_offset_counts": {
+          "-8": 1,
+          "-7": 1,
+          "-6": 1,
+          "-5": 1,
+          "-4": 1,
+          "-3": 4,
+          "-2": 7,
+          "-1": 7,
+          "0": 36,
+          "1": 2,
+          "2": 1,
+          "4": 4,
+          "8": 7,
+          "12": 5,
+          "13": 5,
+          "14": 3,
+          "15": 3,
+          "16": 4,
+          "20": 7,
+          "24": 9,
+          "26": 1,
+          "28": 5,
+          "32": 6,
+          "36": 3,
+          "40": 3,
+          "44": 2,
+          "52": 1,
+          "56": 2,
+          "58": 1,
+          "60": 1,
+          "62": 1,
+          "64": 4,
+          "68": 1,
+          "72": 1,
+          "76": 2,
+          "80": 2,
+          "84": 2,
+          "88": 2,
+          "92": 2,
+          "96": 4,
+          "100": 8,
+          "104": 6,
+          "108": 2,
+          "112": 2,
+          "116": 3,
+          "120": 2,
+          "124": 2,
+          "128": 2,
+          "160": 2,
+          "192": 2,
+          "224": 2
+        }
+      },
+      "cfg_note": "Compiled graph uses linked, relocated code; missing static symbols were inlined. Basic-block topology and memory offsets are supplementary fingerprints. Differences/absence are retained, not scored as equivalence."
+    },
+    {
+      "address": "0x0000de5a",
+      "family": "fatfs",
+      "symbol": "ld_dword",
+      "original_body_bytes": 22,
+      "compiled_body_bytes": 30,
+      "exact_body_bytes": false,
+      "operation_sequence_similarity": 0.9091,
+      "original_operations": 11,
+      "compiled_operations": 11,
+      "note": "Static helpers compiled with inlining disabled for review. Operation normalization omits operands and is a fingerprint, not proof. Calls, ABI, tables and differential evidence are assessed separately.",
+      "original_cfg": {
+        "blocks": 1,
+        "edges": 0,
+        "back_edges": 0,
+        "memory_operand_offset_counts": {
+          "0": 1,
+          "1": 1,
+          "2": 1,
+          "3": 1
+        }
+      },
+      "linked_counterpart_cfg": {
+        "blocks": 1,
+        "edges": 0,
+        "back_edges": 0,
+        "memory_operand_offset_counts": {
+          "0": 1,
+          "1": 1,
+          "2": 1,
+          "3": 1
+        }
+      },
+      "cfg_note": "Compiled graph uses linked, relocated code; missing static symbols were inlined. Basic-block topology and memory offsets are supplementary fingerprints. Differences/absence are retained, not scored as equivalence."
+    },
+    {
+      "address": "0x0000de70",
+      "family": "fatfs",
+      "symbol": "st_dword",
+      "original_body_bytes": 20,
+      "compiled_body_bytes": 28,
+      "exact_body_bytes": false,
+      "operation_sequence_similarity": 1.0,
+      "original_operations": 8,
+      "compiled_operations": 8,
+      "note": "Static helpers compiled with inlining disabled for review. Operation normalization omits operands and is a fingerprint, not proof. Calls, ABI, tables and differential evidence are assessed separately.",
+      "original_cfg": {
+        "blocks": 1,
+        "edges": 0,
+        "back_edges": 0,
+        "memory_operand_offset_counts": {
+          "0": 1,
+          "1": 1,
+          "2": 1,
+          "3": 1
+        }
+      },
+      "linked_counterpart_cfg": {
+        "blocks": 1,
+        "edges": 0,
+        "back_edges": 0,
+        "memory_operand_offset_counts": {
+          "0": 1,
+          "1": 1,
+          "2": 1,
+          "3": 1
+        }
+      },
+      "cfg_note": "Compiled graph uses linked, relocated code; missing static symbols were inlined. Basic-block topology and memory offsets are supplementary fingerprints. Differences/absence are retained, not scored as equivalence."
+    },
+    {
+      "address": "0x0000de84",
+      "family": "fatfs",
+      "symbol": "clst2sect",
+      "original_body_bytes": 26,
+      "compiled_body_bytes": 30,
+      "exact_body_bytes": false,
+      "operation_sequence_similarity": 1.0,
+      "original_operations": 11,
+      "compiled_operations": 11,
+      "note": "Static helpers compiled with inlining disabled for review. Operation normalization omits operands and is a fingerprint, not proof. Calls, ABI, tables and differential evidence are assessed separately.",
+      "original_cfg": {
+        "blocks": 3,
+        "edges": 2,
+        "back_edges": 0,
+        "memory_operand_offset_counts": {
+          "10": 1,
+          "28": 1,
+          "48": 1
+        }
+      },
+      "linked_counterpart_cfg": {
+        "blocks": 3,
+        "edges": 2,
+        "back_edges": 0,
+        "memory_operand_offset_counts": {
+          "10": 1,
+          "28": 1,
+          "48": 1
+        }
+      },
+      "cfg_note": "Compiled graph uses linked, relocated code; missing static symbols were inlined. Basic-block topology and memory offsets are supplementary fingerprints. Differences/absence are retained, not scored as equivalence."
+    },
+    {
+      "address": "0x0000de9e",
+      "family": "fatfs",
+      "symbol": "sum_sfn",
+      "original_body_bytes": 34,
+      "compiled_body_bytes": 34,
+      "exact_body_bytes": false,
+      "operation_sequence_similarity": 0.6667,
+      "original_operations": 12,
+      "compiled_operations": 12,
+      "note": "Static helpers compiled with inlining disabled for review. Operation normalization omits operands and is a fingerprint, not proof. Calls, ABI, tables and differential evidence are assessed separately.",
+      "original_cfg": {
+        "blocks": 3,
+        "edges": 3,
+        "back_edges": 1,
+        "memory_operand_offset_counts": {
+          "-1": 1
+        }
+      },
+      "linked_counterpart_cfg": {
+        "blocks": 3,
+        "edges": 3,
+        "back_edges": 1,
+        "memory_operand_offset_counts": {
+          "0": 1
+        }
+      },
+      "cfg_note": "Compiled graph uses linked, relocated code; missing static symbols were inlined. Basic-block topology and memory offsets are supplementary fingerprints. Differences/absence are retained, not scored as equivalence."
+    },
+    {
+      "address": "0x0000df50",
+      "family": "fatfs",
+      "symbol": "create_partition",
+      "original_body_bytes": 310,
+      "compiled_body_bytes": 370,
+      "exact_body_bytes": false,
+      "operation_sequence_similarity": 0.6578,
+      "original_operations": 98,
+      "compiled_operations": 127,
+      "note": "Static helpers compiled with inlining disabled for review. Operation normalization omits operands and is a fingerprint, not proof. Calls, ABI, tables and differential evidence are assessed separately.",
+      "original_cfg": {
+        "blocks": 21,
+        "edges": 31,
+        "back_edges": 6,
+        "memory_operand_offset_counts": {
+          "-7": 1,
+          "-6": 1,
+          "-5": 1,
+          "-4": 1,
+          "-3": 1,
+          "-2": 1,
+          "-1": 1,
+          "0": 1,
+          "12": 2,
+          "28": 1,
+          "510": 1,
+          "511": 1
+        }
+      },
+      "linked_counterpart_cfg": {
+        "blocks": 20,
+        "edges": 29,
+        "back_edges": 6,
+        "memory_operand_offset_counts": {
+          "-7": 1,
+          "-6": 1,
+          "-5": 1,
+          "-4": 1,
+          "-3": 1,
+          "-2": 1,
+          "-1": 1,
+          "0": 1,
+          "12": 2,
+          "28": 1,
+          "44": 2,
+          "48": 2,
+          "52": 2,
+          "56": 2,
+          "60": 2,
+          "64": 2,
+          "68": 2,
+          "72": 2,
+          "76": 2,
+          "80": 2,
+          "84": 2,
+          "88": 2,
+          "92": 2,
+          "510": 1,
+          "511": 1
+        }
+      },
+      "cfg_note": "Compiled graph uses linked, relocated code; missing static symbols were inlined. Basic-block topology and memory offsets are supplementary fingerprints. Differences/absence are retained, not scored as equivalence."
+    },
+    {
+      "address": "0x0000f4f8",
+      "family": "fatfs",
+      "symbol": "f_mount",
+      "original_body_bytes": 82,
+      "compiled_body_bytes": 96,
+      "exact_body_bytes": false,
+      "operation_sequence_similarity": 0.7143,
+      "original_operations": 32,
+      "compiled_operations": 38,
+      "note": "Static helpers compiled with inlining disabled for review. Operation normalization omits operands and is a fingerprint, not proof. Calls, ABI, tables and differential evidence are assessed separately.",
+      "original_cfg": {
+        "blocks": 9,
+        "edges": 12,
+        "back_edges": 1,
+        "memory_operand_offset_counts": {
+          "0": 4,
+          "4": 2,
+          "8": 1,
+          "12": 2,
+          "28": 1
+        }
+      },
+      "linked_counterpart_cfg": {
+        "blocks": 9,
+        "edges": 12,
+        "back_edges": 1,
+        "memory_operand_offset_counts": {
+          "0": 4,
+          "8": 1,
+          "12": 2,
+          "28": 1,
+          "40": 2,
+          "44": 2
+        }
+      },
+      "cfg_note": "Compiled graph uses linked, relocated code; missing static symbols were inlined. Basic-block topology and memory offsets are supplementary fingerprints. Differences/absence are retained, not scored as equivalence."
+    },
+    {
+      "address": "0x0000f54a",
+      "family": "fatfs",
+      "symbol": "f_open",
+      "original_body_bytes": 488,
+      "compiled_body_bytes": 640,
+      "exact_body_bytes": false,
+      "operation_sequence_similarity": 0.6425,
+      "original_operations": 177,
+      "compiled_operations": 209,
+      "note": "Static helpers compiled with inlining disabled for review. Operation normalization omits operands and is a fingerprint, not proof. Calls, ABI, tables and differential evidence are assessed separately.",
+      "original_cfg": {
+        "blocks": 41,
+        "edges": 68,
+        "back_edges": 17,
+        "memory_operand_offset_counts": {
+          "0": 5,
+          "1": 1,
+          "3": 1,
+          "4": 1,
+          "6": 1,
+          "8": 1,
+          "10": 1,
+          "11": 1,
+          "12": 5,
+          "16": 2,
+          "17": 1,
+          "20": 3,
+          "24": 1,
+          "28": 10,
+          "29": 1,
+          "30": 1,
+          "31": 1,
+          "32": 2,
+          "36": 1,
+          "38": 2,
+          "52": 2,
+          "60": 6,
+          "75": 1
+        }
+      },
+      "linked_counterpart_cfg": {
+        "blocks": 39,
+        "edges": 65,
+        "back_edges": 13,
+        "memory_operand_offset_counts": {
+          "0": 5,
+          "1": 1,
+          "3": 1,
+          "4": 1,
+          "6": 1,
+          "8": 4,
+          "10": 1,
+          "11": 1,
+          "12": 6,
+          "16": 2,
+          "17": 1,
+          "20": 3,
+          "24": 1,
+          "28": 4,
+          "29": 1,
+          "30": 1,
+          "31": 1,
+          "32": 2,
+          "36": 1,
+          "38": 2,
+          "52": 2,
+          "60": 6,
+          "75": 1,
+          "604": 2,
+          "608": 2,
+          "612": 2,
+          "616": 2,
+          "620": 2,
+          "624": 2,
+          "628": 2,
+          "632": 2,
+          "636": 2
+        }
+      },
+      "cfg_note": "Compiled graph uses linked, relocated code; missing static symbols were inlined. Basic-block topology and memory offsets are supplementary fingerprints. Differences/absence are retained, not scored as equivalence."
+    },
+    {
+      "address": "0x0000f732",
+      "family": "fatfs",
+      "symbol": "f_read",
+      "original_body_bytes": 370,
+      "compiled_body_bytes": 438,
+      "exact_body_bytes": false,
+      "operation_sequence_similarity": 0.6408,
+      "original_operations": 131,
+      "compiled_operations": 153,
+      "note": "Static helpers compiled with inlining disabled for review. Operation normalization omits operands and is a fingerprint, not proof. Calls, ABI, tables and differential evidence are assessed separately.",
+      "original_cfg": {
+        "blocks": 38,
+        "edges": 58,
+        "back_edges": 9,
+        "memory_operand_offset_counts": {
+          "0": 4,
+          "1": 3,
+          "8": 1,
+          "10": 2,
+          "12": 8,
+          "16": 5,
+          "17": 3,
+          "20": 5,
+          "24": 3,
+          "28": 8
+        }
+      },
+      "linked_counterpart_cfg": {
+        "blocks": 38,
+        "edges": 58,
+        "back_edges": 8,
+        "memory_operand_offset_counts": {
+          "0": 4,
+          "1": 3,
+          "8": 1,
+          "10": 2,
+          "12": 8,
+          "16": 5,
+          "17": 2,
+          "20": 5,
+          "24": 3,
+          "28": 4,
+          "32": 2,
+          "36": 2,
+          "40": 2,
+          "44": 2,
+          "48": 2,
+          "52": 2,
+          "56": 2,
+          "60": 2,
+          "64": 2,
+          "68": 2,
+          "72": 2,
+          "76": 2
+        }
+      },
+      "cfg_note": "Compiled graph uses linked, relocated code; missing static symbols were inlined. Basic-block topology and memory offsets are supplementary fingerprints. Differences/absence are retained, not scored as equivalence."
+    },
+    {
+      "address": "0x0000f940",
+      "family": "fatfs",
+      "symbol": "f_close",
+      "original_body_bytes": 34,
+      "compiled_body_bytes": 48,
+      "exact_body_bytes": false,
+      "operation_sequence_similarity": 0.5806,
+      "original_operations": 12,
+      "compiled_operations": 19,
+      "note": "Static helpers compiled with inlining disabled for review. Operation normalization omits operands and is a fingerprint, not proof. Calls, ABI, tables and differential evidence are assessed separately.",
+      "original_cfg": {
+        "blocks": 4,
+        "edges": 5,
+        "back_edges": 0,
+        "memory_operand_offset_counts": {
+          "0": 1
+        }
+      },
+      "linked_counterpart_cfg": {
+        "blocks": 5,
+        "edges": 6,
+        "back_edges": 1,
+        "memory_operand_offset_counts": {
+          "0": 1,
+          "24": 2,
+          "28": 2
+        }
+      },
+      "cfg_note": "Compiled graph uses linked, relocated code; missing static symbols were inlined. Basic-block topology and memory offsets are supplementary fingerprints. Differences/absence are retained, not scored as equivalence."
+    },
+    {
+      "address": "0x0000f962",
+      "family": "fatfs",
+      "symbol": "f_lseek",
+      "original_body_bytes": 334,
+      "compiled_body_bytes": 414,
+      "exact_body_bytes": false,
+      "operation_sequence_similarity": 0.6929,
+      "original_operations": 129,
+      "compiled_operations": 151,
+      "note": "Static helpers compiled with inlining disabled for review. Operation normalization omits operands and is a fingerprint, not proof. Calls, ABI, tables and differential evidence are assessed separately.",
+      "original_cfg": {
+        "blocks": 41,
+        "edges": 65,
+        "back_edges": 10,
+        "memory_operand_offset_counts": {
+          "0": 1,
+          "1": 2,
+          "8": 2,
+          "10": 1,
+          "12": 11,
+          "16": 7,
+          "17": 3,
+          "20": 8,
+          "24": 3,
+          "28": 3
+        }
+      },
+      "linked_counterpart_cfg": {
+        "blocks": 43,
+        "edges": 67,
+        "back_edges": 10,
+        "memory_operand_offset_counts": {
+          "0": 1,
+          "1": 2,
+          "8": 2,
+          "10": 1,
+          "12": 8,
+          "16": 7,
+          "17": 2,
+          "20": 8,
+          "24": 4,
+          "28": 4,
+          "44": 2,
+          "48": 2,
+          "52": 2,
+          "56": 2,
+          "60": 2,
+          "64": 2,
+          "68": 2,
+          "72": 2,
+          "76": 2
+        }
+      },
+      "cfg_note": "Compiled graph uses linked, relocated code; missing static symbols were inlined. Basic-block topology and memory offsets are supplementary fingerprints. Differences/absence are retained, not scored as equivalence."
+    },
+    {
+      "address": "0x0000fc66",
+      "family": "fatfs",
+      "symbol": "f_fdisk",
+      "original_body_bytes": 56,
+      "compiled_body_bytes": 74,
+      "exact_body_bytes": false,
+      "operation_sequence_similarity": 0.566,
+      "original_operations": 22,
+      "compiled_operations": 31,
+      "note": "Static helpers compiled with inlining disabled for review. Operation normalization omits operands and is a fingerprint, not proof. Calls, ABI, tables and differential evidence are assessed separately.",
+      "original_cfg": {
+        "blocks": 6,
+        "edges": 8,
+        "back_edges": 1,
+        "memory_operand_offset_counts": {
+          "8": 2,
+          "12": 2
+        }
+      },
+      "linked_counterpart_cfg": {
+        "blocks": 8,
+        "edges": 9,
+        "back_edges": 2,
+        "memory_operand_offset_counts": {
+          "8": 2,
+          "12": 2,
+          "24": 3,
+          "28": 3
+        }
+      },
+      "cfg_note": "Compiled graph uses linked, relocated code; missing static symbols were inlined. Basic-block topology and memory offsets are supplementary fingerprints. Differences/absence are retained, not scored as equivalence."
+    },
+    {
+      "address": "0x0000fd46",
+      "family": "unicode_upper",
+      "symbol": "ff_wtoupper",
+      "original_body_bytes": 160,
+      "compiled_body_bytes": 164,
+      "exact_body_bytes": false,
+      "operation_sequence_similarity": 0.9333,
+      "original_operations": 60,
+      "compiled_operations": 60,
+      "note": "Static helpers compiled with inlining disabled for review. Operation normalization omits operands and is a fingerprint, not proof. Calls, ABI, tables and differential evidence are assessed separately.",
+      "original_cfg": {
+        "blocks": 14,
+        "edges": 22,
+        "back_edges": 5,
+        "memory_operand_offset_counts": {
+          "-2": 1,
+          "0": 3
+        }
+      },
+      "linked_counterpart_cfg": {
+        "blocks": 14,
+        "edges": 22,
+        "back_edges": 5,
+        "memory_operand_offset_counts": {
+          "0": 3,
+          "2": 1
+        }
+      },
+      "cfg_note": "Compiled graph uses linked, relocated code; missing static symbols were inlined. Basic-block topology and memory offsets are supplementary fingerprints. Differences/absence are retained, not scored as equivalence."
+    }
+  ],
+  "exact_tables": [
+    {
+      "family": "tjpgd",
+      "section": ".rodata.Clip8",
+      "size": 1024,
+      "sha256": "d6dfe67b30c38a7d3849f653a37c5366a3d00320b8f81086400c6eab7f9aff45",
+      "original_rom_address": 125104,
+      "classification": "Exact table bytes"
+    },
+    {
+      "family": "tjpgd",
+      "section": ".rodata.Ipsf",
+      "size": 128,
+      "sha256": "7790965f8e1ee148eacc2346fdf79fbc77245765d718279f6d7c80318bd2086a",
+      "original_rom_address": 126128,
+      "classification": "Exact table bytes"
+    },
+    {
+      "family": "tjpgd",
+      "section": ".rodata.Zig",
+      "size": 64,
+      "sha256": "532a0dcc2bd0e0c874ed7b05aee0fe7d27f52b130fe1b0a8eef85ebbc446ded8",
+      "original_rom_address": 126256,
+      "classification": "Exact table bytes"
+    },
+    {
+      "family": "unicode_upper",
+      "section": ".rodata.cvt2.0",
+      "size": 188,
+      "sha256": "b6007490498417379d5a43f4543d50a04a507e13981d819fa9b153210ce53e22",
+      "original_rom_address": 147244,
+      "classification": "Exact table bytes"
+    },
+    {
+      "family": "unicode_upper",
+      "section": ".rodata.cvt1.1",
+      "size": 498,
+      "sha256": "87d31f3390999dec4f7e824b5d7b5f266ccc881629728cc182154f7ac75463ca",
+      "original_rom_address": 146744,
+      "classification": "Exact table bytes"
+    }
+  ],
+  "limitations": "No identical compiler revision claim. Sequence similarity does not establish source/version identity; CFG matching beyond normalized opcode sequence is not implemented."
+}

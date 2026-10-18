@@ -1,0 +1,34 @@
+{
+  "source_checkout_build": "pass",
+  "source_checkout_contains_sibling_projects": false,
+  "locally_supplied_private_inputs": [
+    "V2.4 BIN",
+    "W25Q64 NOR dump",
+    "DOOM shareware WAD"
+  ],
+  "targets": [
+    "firmware",
+    "doom",
+    "asic",
+    "studio-tools"
+  ],
+  "rebuilt_images": {
+    "POTAT99": {
+      "bytes": 141868,
+      "sha256": "e7381d64205047d3e43102e690acc0be5663532424f6103665579fd576c50ed0"
+    },
+    "DOOM": {
+      "bytes": 163444,
+      "sha256": "2622d1bc35b678d74234178b79c922b0523e00d8e490df89d79b1dc253ee5d61"
+    }
+  },
+  "unchanged_external_source_files": {
+    "dmt_99_doom": 284,
+    "dmt99-studio": 42,
+    "dmt_99_asic_analysis": 565,
+    "dmt99-rvswd": 157
+  },
+  "external_source_failures": [],
+  "physical_device_access": false,
+  "new_full_emulation": false
+}

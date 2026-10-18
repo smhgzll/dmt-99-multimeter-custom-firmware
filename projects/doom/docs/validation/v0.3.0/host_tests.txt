@@ -1,0 +1,40 @@
+~/.espressif/tools/riscv32-esp-elf/esp-14.2.0_20260121/riscv32-esp-elf/bin/riscv32-esp-elf-gcc -march=rv32imac_zicsr_zifencei -mabi=ilp32 -Os -g -std=gnu11 -ffreestanding -fno-builtin -fno-common -ffunction-sections -fdata-sections -fstack-usage -MMD -MP -Wall -Wextra -Werror -Wno-unused-parameter -DCH32V30x_D8 -DHSE_VALUE=8000000 -DDMT_FW_APP_IMAGE=1 -Isrc -Igenerated -Iboard/reference -Ithird_party/wch/Core -Ithird_party/wch/Peripheral/inc -c src/game.c -o build/fw/src/game.o
+~/.espressif/tools/riscv32-esp-elf/esp-14.2.0_20260121/riscv32-esp-elf/bin/riscv32-esp-elf-gcc -march=rv32imac_zicsr_zifencei -mabi=ilp32 -Os -g -std=gnu11 -ffreestanding -fno-builtin -fno-common -ffunction-sections -fdata-sections -fstack-usage -MMD -MP -Wall -Wextra -Werror -Wno-unused-parameter -DCH32V30x_D8 -DHSE_VALUE=8000000 -DDMT_FW_APP_IMAGE=1 -Isrc -Igenerated -Iboard/reference -Ithird_party/wch/Core -Ithird_party/wch/Peripheral/inc -c src/render.c -o build/fw/src/render.o
+~/.espressif/tools/riscv32-esp-elf/esp-14.2.0_20260121/riscv32-esp-elf/bin/riscv32-esp-elf-gcc -march=rv32imac_zicsr_zifencei -mabi=ilp32 -Os -g -std=gnu11 -ffreestanding -fno-builtin -fno-common -ffunction-sections -fdata-sections -fstack-usage -MMD -MP -Wall -Wextra -Werror -Wno-unused-parameter -DCH32V30x_D8 -DHSE_VALUE=8000000 -DDMT_FW_APP_IMAGE=1 -Isrc -Igenerated -Iboard/reference -Ithird_party/wch/Core -Ithird_party/wch/Peripheral/inc -c src/app.c -o build/fw/src/app.o
+~/.espressif/tools/riscv32-esp-elf/esp-14.2.0_20260121/riscv32-esp-elf/bin/riscv32-esp-elf-gcc -march=rv32imac_zicsr_zifencei -mabi=ilp32 -Os -g -std=gnu11 -ffreestanding -fno-builtin -fno-common -ffunction-sections -fdata-sections -fstack-usage -MMD -MP -Wall -Wextra -Werror -Wno-unused-parameter -DCH32V30x_D8 -DHSE_VALUE=8000000 -DDMT_FW_APP_IMAGE=1 -Isrc -Igenerated -Iboard/reference -Ithird_party/wch/Core -Ithird_party/wch/Peripheral/inc -c src/sound.c -o build/fw/src/sound.o
+~/.espressif/tools/riscv32-esp-elf/esp-14.2.0_20260121/riscv32-esp-elf/bin/riscv32-esp-elf-gcc -march=rv32imac_zicsr_zifencei -mabi=ilp32 -Os -g -std=gnu11 -ffreestanding -fno-builtin -fno-common -ffunction-sections -fdata-sections -fstack-usage -MMD -MP -Wall -Wextra -Werror -Wno-unused-parameter -DCH32V30x_D8 -DHSE_VALUE=8000000 -DDMT_FW_APP_IMAGE=1 -Isrc -Igenerated -Iboard/reference -Ithird_party/wch/Core -Ithird_party/wch/Peripheral/inc -c board/board.c -o build/fw/board/board.o
+gcc -std=c11 -O2 -Wall -Wextra -Werror -Isrc -Igenerated src/game.c src/render.c src/app.c src/sound.c generated/assets.c src/host.c -lm -o build/doom-host
+gcc -std=c11 -O2 -Wall -Wextra -Werror -Isrc -Igenerated -fPIC -shared -DDOOM_HOST_LIBRARY src/game.c src/render.c src/app.c src/sound.c generated/assets.c src/host.c -lm -o build/libdoom-host.so
+gcc -std=c11 -O2 -Wall -Wextra -Werror -Isrc -Igenerated src/game.c src/render.c src/app.c src/sound.c generated/assets.c tests/test_core.c -lm -o build/test-core
+gcc -std=c11 -O2 -Wall -Wextra -Werror -Isrc -Igenerated src/sound.c tests/test_sound.c -o build/test-sound
+gcc -std=c11 -O2 -Wall -Wextra -Werror -Isrc -Igenerated tests/test_events.c generated/assets.c -lm -o build/test-events
+clang -std=c11 -O2 -Wall -Wextra -Werror -Isrc -Igenerated -O1 -g -fsanitize=address,undefined -fno-omit-frame-pointer src/game.c src/render.c src/app.c src/sound.c generated/assets.c tests/test_core.c -lm -o build/test-core-sanitize
+~/.espressif/tools/riscv32-esp-elf/esp-14.2.0_20260121/riscv32-esp-elf/bin/riscv32-esp-elf-gcc -march=rv32imac_zicsr_zifencei -mabi=ilp32 -nostdlib -Wl,--gc-sections,-Map,build/dmt99-doom.map -Wl,-L,board/reference -Tboard/reference/dmt99-app.ld build/fw/src/game.o build/fw/src/render.o build/fw/src/app.o build/fw/src/sound.o build/fw/generated/assets.o build/fw/board/board.o build/fw/board/errno.o build/fw/board/reference/system.o build/fw/board/reference/delay.o build/fw/board/reference/memory.o build/fw/board/reference/display.o build/fw/board/reference/display_bus.o build/fw/third_party/wch/Peripheral/src/ch32v30x_gpio.o build/fw/third_party/wch/Peripheral/src/ch32v30x_rcc.o build/fw/third_party/wch/Peripheral/src/ch32v30x_tim.o build/fw/board/reference/startup.o -lm -lgcc -o build/dmt99-doom.elf
+~/.espressif/tools/riscv32-esp-elf/esp-14.2.0_20260121/riscv32-esp-elf/bin/riscv32-esp-elf-objcopy -O binary build/dmt99-doom.elf build/dmt99-doom.bin
+~/.espressif/tools/riscv32-esp-elf/esp-14.2.0_20260121/riscv32-esp-elf/bin/riscv32-esp-elf-size build/dmt99-doom.elf > build/dmt99-doom.size.txt
+~/.espressif/tools/riscv32-esp-elf/esp-14.2.0_20260121/riscv32-esp-elf/bin/riscv32-esp-elf-objdump -d build/dmt99-doom.elf > build/dmt99-doom.lst
+PYTHONDONTWRITEBYTECODE=1 python3 tools/check_image.py --cross '~/.espressif/tools/riscv32-esp-elf/esp-14.2.0_20260121/riscv32-esp-elf/bin/riscv32-esp-elf-'
+build/test-core
+{"pass": true, "errors": [], "format": {"size": 162096, "flash_start": 134243328, "flash_end": 134405424, "reset": 26076, "version": "0.3.0-doom"}, "sha256": "55eeb806cdecb097256b759fd8173d2135fdaa5cf9ad3c4063d94a48908c8aa0", "ram_static_bytes": 8028, "stack_reserved_bytes": 6144, "ram_gap_bytes": 18596, "settings_page_written_by_application": false, "external_flash_used": false, "hardware_verified": false, "bootloader_acceptance_verified": false}
+PYTHONDONTWRITEBYTECODE=1 python3 tools/stack_report.py build/dmt99-doom.elf ~/.espressif/tools/riscv32-esp-elf/esp-14.2.0_20260121/riscv32-esp-elf/bin/riscv32-esp-elf-objdump build/fw 6144 > build/stack.txt
+PASS: menu/resume/new game, collision, 5920 filtered/full ray comparisons, 2000 actions, render bounds; max transfer 800 pixels
+build/test-sound
+PASS: four tone patterns, shot/kill sequence, damage priority, bounded pending effects, cancellation, deadlines and wrap
+build/test-events
+PASS: clocked AI, no input-driven movement, vision barrier, wall collision, attacks, damage/respawn, health/death, pickups, six weapons, burst and projectile
+PYTHONDONTWRITEBYTECODE=1 python3 tests/test_host.py
+....
+----------------------------------------------------------------------
+Ran 4 tests in 0.127s
+
+OK
+PYTHONDONTWRITEBYTECODE=1 python3 tools/test_upstream.py
+{"pass": true, "upstream_commit": "f584566ec2e18041725e1de5668c6cb1f764ab58", "original_level1_sha256": "f98cdedd5de2f39e56fda191556934090f2b5c0bf2ba286928e7811d902a9914", "cases": {"collision_points": 3000, "ray_intersections": 3000}, "scope": "6000 preserved wall collision/raycast comparisons; old input-driven AI/combat comparisons retired because 0.3 uses timed AI and new weapons"}
+ASAN_OPTIONS=detect_leaks=0 UBSAN_OPTIONS=halt_on_error=1 build/test-core-sanitize
+PASS: menu/resume/new game, collision, 5920 filtered/full ray comparisons, 2000 actions, render bounds; max transfer 800 pixels
+clang -std=c11 -O2 -Wall -Wextra -Werror -Isrc -Igenerated -O1 -g -fsanitize=address,undefined -fno-omit-frame-pointer src/sound.c tests/test_sound.c -o build/test-sound-sanitize
+ASAN_OPTIONS=detect_leaks=0 UBSAN_OPTIONS=halt_on_error=1 build/test-sound-sanitize
+PASS: four tone patterns, shot/kill sequence, damage priority, bounded pending effects, cancellation, deadlines and wrap
+clang -std=c11 -O2 -Wall -Wextra -Werror -Isrc -Igenerated -O1 -g -fsanitize=address,undefined -fno-omit-frame-pointer tests/test_events.c generated/assets.c -lm -o build/test-events-sanitize
+ASAN_OPTIONS=detect_leaks=0 UBSAN_OPTIONS=halt_on_error=1 build/test-events-sanitize
+PASS: clocked AI, no input-driven movement, vision barrier, wall collision, attacks, damage/respawn, health/death, pickups, six weapons, burst and projectile

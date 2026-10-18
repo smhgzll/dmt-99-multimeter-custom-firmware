@@ -1,0 +1,65 @@
+{
+  "phase_complete": false,
+  "objective": "Incremental UI/application recovery and offline simulation; whole-firmware equivalence remains unclaimed",
+  "baseline": {
+    "native_full": 87,
+    "native_partial": 36,
+    "qualified_upstream": 17,
+    "remaining_incomplete_nontrap": 185,
+    "direct_entries": 51,
+    "differential_cases": 15881
+  },
+  "current": {
+    "native_full": 129,
+    "native_partial": 29,
+    "qualified_upstream": 20,
+    "sdk_counterparts": 64,
+    "remaining_incomplete_nontrap": 140,
+    "semantics_lower_bound": 299,
+    "direct_entries": 91,
+    "differential_cases": 29421,
+    "new_differential_cases": 13540,
+    "firmware_native_c_units": 45,
+    "host_simulator_c_units": 3,
+    "stock_c_test_executions": 33,
+    "custom_c_test_executions": 36,
+    "python_tests": 23,
+    "asan_ubsan_c_test_executions": 30,
+    "stock_elves_reproducible": true,
+    "custom_elves_reproducible": true
+  },
+  "native_library_sha256": "375fdd84220b2cf511abc0b7fc0de3124fcccdacd9c65b7e903369af27c9f040",
+  "custom_library_sha256": "60382e397f51de795a9cbdcf0ea11a7dc141ce224143b4368bdc595089f7c25f",
+  "differential_inputs_sha256": "4c25e349b7c11c9127bc21ab688646e0e29495a5c0f7f62e37cbe849aba810a6",
+  "oracle_correction": "RV32C c.lui immediate sign extension now decoded from preserved raw instruction bytes; all 15881 prior cases rerun",
+  "preserved_evidence_files": 885,
+  "flash_images_verified": 1,
+  "flash_sha256": "fc6bf2ed36f578c15725a4365c4a381c98ce42657d3b8a98ff06efb1b6427d69",
+  "custom_feature": "Last acknowledged supported mode, separate16-byte CRC record, injected mock/COW backend only; stock feature callbacks never called",
+  "simulator": "C controller/resources/framebuffer/PNG plus CLI and local browser controls; deterministic explicit button, packet, ACK and timer inputs",
+  "limitations": [
+    "Full menu dispatcher transition repaint/cache ordering remains partial; cooperative observer timing differs",
+    "CP936 physical read at80023fe4 is unmapped in supplied evidence; one filename remains unavailable through stock FatFs",
+    "Graph inherited register and resistance stack scratch inputs are explicit; simulator initializes its scratch deterministically",
+    "Target startup/interrupt/stack timing, ASIC internals and calibration unvalidated",
+    "Browser backend/PNG tested offline; physical display/panel timing not tested"
+  ],
+  "deferred_until_mcu_evidence": [
+    "Definitive bootloader reconstruction",
+    "Actual USB MSC recovery",
+    "Internal Flash layout confirmation",
+    "Hardware firmware update integration"
+  ],
+  "hardware_accessed": false,
+  "hardware_validated": false,
+  "hardware_flashable_release_produced": false,
+  "local_http_smoke": "analysis/simulator_http_validation.json",
+  "supplementary_validation": {
+    "native_runtime_unchanged": true,
+    "native_library_sha256": "375fdd84220b2cf511abc0b7fc0de3124fcccdacd9c65b7e903369af27c9f040",
+    "browser_input_tests_passed": 8,
+    "python_tests_total_from_logs": 23,
+    "local_http_smoke": "analysis/simulator_http_validation.json",
+    "note": "Viewer input validation and bind-failure cleanup tested after the complete native/original-code run; no C source or native binary changed."
+  }
+}

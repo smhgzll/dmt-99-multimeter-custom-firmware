@@ -1,0 +1,1034 @@
+{
+  "original_sha256": "4befdf6b58e063f03901f190000d790e60d20d0a23e5eeb2b6f6840f1830e98e",
+  "candidate_sha256": "bddf4261481e1c56fcd0eabb25ffbbd40122faea5c25baf77ef824e06588fe75",
+  "identical_files": false,
+  "whole_contiguous_code_body_matches": [
+    {
+      "original_entry": "0x00006616",
+      "candidate_address": 26134,
+      "bytes": 26,
+      "evidence": "entire exported contiguous machine-code body is byte-identical; external targets still require relocation review"
+    },
+    {
+      "original_entry": "0x0000663c",
+      "candidate_address": 26172,
+      "bytes": 36,
+      "evidence": "entire exported contiguous machine-code body is byte-identical; external targets still require relocation review"
+    },
+    {
+      "original_entry": "0x00006660",
+      "candidate_address": 26208,
+      "bytes": 168,
+      "evidence": "entire exported contiguous machine-code body is byte-identical; external targets still require relocation review"
+    },
+    {
+      "original_entry": "0x00006838",
+      "candidate_address": 26680,
+      "bytes": 28,
+      "evidence": "entire exported contiguous machine-code body is byte-identical; external targets still require relocation review"
+    },
+    {
+      "original_entry": "0x00006854",
+      "candidate_address": 26708,
+      "bytes": 126,
+      "evidence": "entire exported contiguous machine-code body is byte-identical; external targets still require relocation review"
+    },
+    {
+      "original_entry": "0x000068d2",
+      "candidate_address": 26834,
+      "bytes": 156,
+      "evidence": "entire exported contiguous machine-code body is byte-identical; external targets still require relocation review"
+    },
+    {
+      "original_entry": "0x000090d2",
+      "candidate_address": 37058,
+      "bytes": 20,
+      "evidence": "entire exported contiguous machine-code body is byte-identical; external targets still require relocation review"
+    },
+    {
+      "original_entry": "0x000090e6",
+      "candidate_address": 37078,
+      "bytes": 22,
+      "evidence": "entire exported contiguous machine-code body is byte-identical; external targets still require relocation review"
+    },
+    {
+      "original_entry": "0x000090fc",
+      "candidate_address": 37100,
+      "bytes": 18,
+      "evidence": "entire exported contiguous machine-code body is byte-identical; external targets still require relocation review"
+    },
+    {
+      "original_entry": "0x0000969e",
+      "candidate_address": 38542,
+      "bytes": 34,
+      "evidence": "entire exported contiguous machine-code body is byte-identical; external targets still require relocation review"
+    },
+    {
+      "original_entry": "0x000098aa",
+      "candidate_address": 39064,
+      "bytes": 212,
+      "evidence": "entire exported contiguous machine-code body is byte-identical; external targets still require relocation review"
+    },
+    {
+      "original_entry": "0x0000b5ae",
+      "candidate_address": 46502,
+      "bytes": 26,
+      "evidence": "entire exported contiguous machine-code body is byte-identical; external targets still require relocation review"
+    },
+    {
+      "original_entry": "0x0000be2a",
+      "candidate_address": 48668,
+      "bytes": 78,
+      "evidence": "entire exported contiguous machine-code body is byte-identical; external targets still require relocation review"
+    },
+    {
+      "original_entry": "0x0000c570",
+      "candidate_address": 50532,
+      "bytes": 78,
+      "evidence": "entire exported contiguous machine-code body is byte-identical; external targets still require relocation review"
+    },
+    {
+      "original_entry": "0x0000c6f6",
+      "candidate_address": 50922,
+      "bytes": 86,
+      "evidence": "entire exported contiguous machine-code body is byte-identical; external targets still require relocation review"
+    },
+    {
+      "original_entry": "0x0000c74c",
+      "candidate_address": 51008,
+      "bytes": 16,
+      "evidence": "entire exported contiguous machine-code body is byte-identical; external targets still require relocation review"
+    },
+    {
+      "original_entry": "0x0000c780",
+      "candidate_address": 51060,
+      "bytes": 24,
+      "evidence": "entire exported contiguous machine-code body is byte-identical; external targets still require relocation review"
+    },
+    {
+      "original_entry": "0x0000c798",
+      "candidate_address": 51084,
+      "bytes": 184,
+      "evidence": "entire exported contiguous machine-code body is byte-identical; external targets still require relocation review"
+    },
+    {
+      "original_entry": "0x0000c862",
+      "candidate_address": 51286,
+      "bytes": 56,
+      "evidence": "entire exported contiguous machine-code body is byte-identical; external targets still require relocation review"
+    },
+    {
+      "original_entry": "0x0000c89a",
+      "candidate_address": 51342,
+      "bytes": 20,
+      "evidence": "entire exported contiguous machine-code body is byte-identical; external targets still require relocation review"
+    },
+    {
+      "original_entry": "0x0000c8ae",
+      "candidate_address": 51362,
+      "bytes": 18,
+      "evidence": "entire exported contiguous machine-code body is byte-identical; external targets still require relocation review"
+    },
+    {
+      "original_entry": "0x0000c8c4",
+      "candidate_address": 51384,
+      "bytes": 44,
+      "evidence": "entire exported contiguous machine-code body is byte-identical; external targets still require relocation review"
+    },
+    {
+      "original_entry": "0x0000c8f0",
+      "candidate_address": 51428,
+      "bytes": 106,
+      "evidence": "entire exported contiguous machine-code body is byte-identical; external targets still require relocation review"
+    },
+    {
+      "original_entry": "0x0000c95a",
+      "candidate_address": 51534,
+      "bytes": 30,
+      "evidence": "entire exported contiguous machine-code body is byte-identical; external targets still require relocation review"
+    },
+    {
+      "original_entry": "0x0000c982",
+      "candidate_address": 51574,
+      "bytes": 26,
+      "evidence": "entire exported contiguous machine-code body is byte-identical; external targets still require relocation review"
+    },
+    {
+      "original_entry": "0x0000c9b2",
+      "candidate_address": 51622,
+      "bytes": 24,
+      "evidence": "entire exported contiguous machine-code body is byte-identical; external targets still require relocation review"
+    },
+    {
+      "original_entry": "0x0000ca52",
+      "candidate_address": 51738,
+      "bytes": 46,
+      "evidence": "entire exported contiguous machine-code body is byte-identical; external targets still require relocation review"
+    },
+    {
+      "original_entry": "0x0000ca80",
+      "candidate_address": 51784,
+      "bytes": 192,
+      "evidence": "entire exported contiguous machine-code body is byte-identical; external targets still require relocation review"
+    },
+    {
+      "original_entry": "0x0000cb5c",
+      "candidate_address": 52004,
+      "bytes": 44,
+      "evidence": "entire exported contiguous machine-code body is byte-identical; external targets still require relocation review"
+    },
+    {
+      "original_entry": "0x0000cb94",
+      "candidate_address": 52060,
+      "bytes": 166,
+      "evidence": "entire exported contiguous machine-code body is byte-identical; external targets still require relocation review"
+    },
+    {
+      "original_entry": "0x0000cc3a",
+      "candidate_address": 52226,
+      "bytes": 18,
+      "evidence": "entire exported contiguous machine-code body is byte-identical; external targets still require relocation review"
+    },
+    {
+      "original_entry": "0x0000cc4c",
+      "candidate_address": 52244,
+      "bytes": 262,
+      "evidence": "entire exported contiguous machine-code body is byte-identical; external targets still require relocation review"
+    },
+    {
+      "original_entry": "0x0000cd52",
+      "candidate_address": 52506,
+      "bytes": 30,
+      "evidence": "entire exported contiguous machine-code body is byte-identical; external targets still require relocation review"
+    },
+    {
+      "original_entry": "0x0000cd70",
+      "candidate_address": 52536,
+      "bytes": 30,
+      "evidence": "entire exported contiguous machine-code body is byte-identical; external targets still require relocation review"
+    },
+    {
+      "original_entry": "0x0000cd8e",
+      "candidate_address": 52566,
+      "bytes": 30,
+      "evidence": "entire exported contiguous machine-code body is byte-identical; external targets still require relocation review"
+    },
+    {
+      "original_entry": "0x0000cdac",
+      "candidate_address": 52596,
+      "bytes": 62,
+      "evidence": "entire exported contiguous machine-code body is byte-identical; external targets still require relocation review"
+    },
+    {
+      "original_entry": "0x0000cdea",
+      "candidate_address": 52658,
+      "bytes": 26,
+      "evidence": "entire exported contiguous machine-code body is byte-identical; external targets still require relocation review"
+    },
+    {
+      "original_entry": "0x0000ce16",
+      "candidate_address": 52702,
+      "bytes": 170,
+      "evidence": "entire exported contiguous machine-code body is byte-identical; external targets still require relocation review"
+    },
+    {
+      "original_entry": "0x0000cec0",
+      "candidate_address": 52872,
+      "bytes": 130,
+      "evidence": "entire exported contiguous machine-code body is byte-identical; external targets still require relocation review"
+    },
+    {
+      "original_entry": "0x0000cf42",
+      "candidate_address": 53002,
+      "bytes": 174,
+      "evidence": "entire exported contiguous machine-code body is byte-identical; external targets still require relocation review"
+    },
+    {
+      "original_entry": "0x0000cff0",
+      "candidate_address": 53176,
+      "bytes": 24,
+      "evidence": "entire exported contiguous machine-code body is byte-identical; external targets still require relocation review"
+    },
+    {
+      "original_entry": "0x0000d008",
+      "candidate_address": 53200,
+      "bytes": 22,
+      "evidence": "entire exported contiguous machine-code body is byte-identical; external targets still require relocation review"
+    },
+    {
+      "original_entry": "0x0000d01e",
+      "candidate_address": 53222,
+      "bytes": 18,
+      "evidence": "entire exported contiguous machine-code body is byte-identical; external targets still require relocation review"
+    },
+    {
+      "original_entry": "0x0000d030",
+      "candidate_address": 53240,
+      "bytes": 26,
+      "evidence": "entire exported contiguous machine-code body is byte-identical; external targets still require relocation review"
+    },
+    {
+      "original_entry": "0x0000d058",
+      "candidate_address": 53280,
+      "bytes": 22,
+      "evidence": "entire exported contiguous machine-code body is byte-identical; external targets still require relocation review"
+    },
+    {
+      "original_entry": "0x0000d072",
+      "candidate_address": 53306,
+      "bytes": 24,
+      "evidence": "entire exported contiguous machine-code body is byte-identical; external targets still require relocation review"
+    },
+    {
+      "original_entry": "0x0000d152",
+      "candidate_address": 53530,
+      "bytes": 22,
+      "evidence": "entire exported contiguous machine-code body is byte-identical; external targets still require relocation review"
+    },
+    {
+      "original_entry": "0x0000d168",
+      "candidate_address": 53552,
+      "bytes": 54,
+      "evidence": "entire exported contiguous machine-code body is byte-identical; external targets still require relocation review"
+    },
+    {
+      "original_entry": "0x0000d19e",
+      "candidate_address": 53606,
+      "bytes": 18,
+      "evidence": "entire exported contiguous machine-code body is byte-identical; external targets still require relocation review"
+    },
+    {
+      "original_entry": "0x0000d1d6",
+      "candidate_address": 53662,
+      "bytes": 60,
+      "evidence": "entire exported contiguous machine-code body is byte-identical; external targets still require relocation review"
+    },
+    {
+      "original_entry": "0x0000d212",
+      "candidate_address": 53722,
+      "bytes": 234,
+      "evidence": "entire exported contiguous machine-code body is byte-identical; external targets still require relocation review"
+    },
+    {
+      "original_entry": "0x0000d2fc",
+      "candidate_address": 53956,
+      "bytes": 142,
+      "evidence": "entire exported contiguous machine-code body is byte-identical; external targets still require relocation review"
+    },
+    {
+      "original_entry": "0x0000d908",
+      "candidate_address": 55500,
+      "bytes": 32,
+      "evidence": "entire exported contiguous machine-code body is byte-identical; external targets still require relocation review"
+    },
+    {
+      "original_entry": "0x0000d944",
+      "candidate_address": 55564,
+      "bytes": 32,
+      "evidence": "entire exported contiguous machine-code body is byte-identical; external targets still require relocation review"
+    },
+    {
+      "original_entry": "0x0000d9e6",
+      "candidate_address": 55726,
+      "bytes": 30,
+      "evidence": "entire exported contiguous machine-code body is byte-identical; external targets still require relocation review"
+    },
+    {
+      "original_entry": "0x0000da04",
+      "candidate_address": 55756,
+      "bytes": 36,
+      "evidence": "entire exported contiguous machine-code body is byte-identical; external targets still require relocation review"
+    },
+    {
+      "original_entry": "0x0000da28",
+      "candidate_address": 55792,
+      "bytes": 32,
+      "evidence": "entire exported contiguous machine-code body is byte-identical; external targets still require relocation review"
+    },
+    {
+      "original_entry": "0x0000da48",
+      "candidate_address": 55824,
+      "bytes": 84,
+      "evidence": "entire exported contiguous machine-code body is byte-identical; external targets still require relocation review"
+    },
+    {
+      "original_entry": "0x0000dd00",
+      "candidate_address": 56520,
+      "bytes": 72,
+      "evidence": "entire exported contiguous machine-code body is byte-identical; external targets still require relocation review"
+    },
+    {
+      "original_entry": "0x0000de5a",
+      "candidate_address": 56866,
+      "bytes": 22,
+      "evidence": "entire exported contiguous machine-code body is byte-identical; external targets still require relocation review"
+    },
+    {
+      "original_entry": "0x0000de70",
+      "candidate_address": 56888,
+      "bytes": 20,
+      "evidence": "entire exported contiguous machine-code body is byte-identical; external targets still require relocation review"
+    },
+    {
+      "original_entry": "0x0000de84",
+      "candidate_address": 56908,
+      "bytes": 26,
+      "evidence": "entire exported contiguous machine-code body is byte-identical; external targets still require relocation review"
+    },
+    {
+      "original_entry": "0x0000de9e",
+      "candidate_address": 56934,
+      "bytes": 34,
+      "evidence": "entire exported contiguous machine-code body is byte-identical; external targets still require relocation review"
+    },
+    {
+      "original_entry": "0x0000dec0",
+      "candidate_address": 56968,
+      "bytes": 80,
+      "evidence": "entire exported contiguous machine-code body is byte-identical; external targets still require relocation review"
+    },
+    {
+      "original_entry": "0x0000e0f8",
+      "candidate_address": 57536,
+      "bytes": 30,
+      "evidence": "entire exported contiguous machine-code body is byte-identical; external targets still require relocation review"
+    },
+    {
+      "original_entry": "0x0000e116",
+      "candidate_address": 57566,
+      "bytes": 30,
+      "evidence": "entire exported contiguous machine-code body is byte-identical; external targets still require relocation review"
+    },
+    {
+      "original_entry": "0x0000fde6",
+      "candidate_address": 64942,
+      "bytes": 16,
+      "evidence": "entire exported contiguous machine-code body is byte-identical; external targets still require relocation review"
+    },
+    {
+      "original_entry": "0x0000fdf6",
+      "candidate_address": 64958,
+      "bytes": 18,
+      "evidence": "entire exported contiguous machine-code body is byte-identical; external targets still require relocation review"
+    },
+    {
+      "original_entry": "0x00017ab2",
+      "candidate_address": 95992,
+      "bytes": 340,
+      "evidence": "entire exported contiguous machine-code body is byte-identical; external targets still require relocation review"
+    },
+    {
+      "original_entry": "0x0001a626",
+      "candidate_address": 106190,
+      "bytes": 38,
+      "evidence": "entire exported contiguous machine-code body is byte-identical; external targets still require relocation review"
+    },
+    {
+      "original_entry": "0x0001a64c",
+      "candidate_address": 106228,
+      "bytes": 54,
+      "evidence": "entire exported contiguous machine-code body is byte-identical; external targets still require relocation review"
+    },
+    {
+      "original_entry": "0x0001a720",
+      "candidate_address": 106440,
+      "bytes": 42,
+      "evidence": "entire exported contiguous machine-code body is byte-identical; external targets still require relocation review"
+    },
+    {
+      "original_entry": "0x0001a74a",
+      "candidate_address": 106482,
+      "bytes": 74,
+      "evidence": "entire exported contiguous machine-code body is byte-identical; external targets still require relocation review"
+    },
+    {
+      "original_entry": "0x0001a794",
+      "candidate_address": 106556,
+      "bytes": 224,
+      "evidence": "entire exported contiguous machine-code body is byte-identical; external targets still require relocation review"
+    },
+    {
+      "original_entry": "0x0001a874",
+      "candidate_address": 106780,
+      "bytes": 242,
+      "evidence": "entire exported contiguous machine-code body is byte-identical; external targets still require relocation review"
+    },
+    {
+      "original_entry": "0x0001a966",
+      "candidate_address": 107022,
+      "bytes": 288,
+      "evidence": "entire exported contiguous machine-code body is byte-identical; external targets still require relocation review"
+    },
+    {
+      "original_entry": "0x0001aa86",
+      "candidate_address": 107310,
+      "bytes": 256,
+      "evidence": "entire exported contiguous machine-code body is byte-identical; external targets still require relocation review"
+    },
+    {
+      "original_entry": "0x0001aede",
+      "candidate_address": 108422,
+      "bytes": 36,
+      "evidence": "entire exported contiguous machine-code body is byte-identical; external targets still require relocation review"
+    },
+    {
+      "original_entry": "0x0001b61e",
+      "candidate_address": 110278,
+      "bytes": 1840,
+      "evidence": "entire exported contiguous machine-code body is byte-identical; external targets still require relocation review"
+    },
+    {
+      "original_entry": "0x0001c302",
+      "candidate_address": 113578,
+      "bytes": 182,
+      "evidence": "entire exported contiguous machine-code body is byte-identical; external targets still require relocation review"
+    },
+    {
+      "original_entry": "0x0001c870",
+      "candidate_address": 114968,
+      "bytes": 1854,
+      "evidence": "entire exported contiguous machine-code body is byte-identical; external targets still require relocation review"
+    },
+    {
+      "original_entry": "0x0001cfae",
+      "candidate_address": 116822,
+      "bytes": 104,
+      "evidence": "entire exported contiguous machine-code body is byte-identical; external targets still require relocation review"
+    },
+    {
+      "original_entry": "0x0001d016",
+      "candidate_address": 116926,
+      "bytes": 92,
+      "evidence": "entire exported contiguous machine-code body is byte-identical; external targets still require relocation review"
+    },
+    {
+      "original_entry": "0x0001d072",
+      "candidate_address": 117018,
+      "bytes": 114,
+      "evidence": "entire exported contiguous machine-code body is byte-identical; external targets still require relocation review"
+    },
+    {
+      "original_entry": "0x0001d0e4",
+      "candidate_address": 117132,
+      "bytes": 104,
+      "evidence": "entire exported contiguous machine-code body is byte-identical; external targets still require relocation review"
+    },
+    {
+      "original_entry": "0x0001d14c",
+      "candidate_address": 117236,
+      "bytes": 188,
+      "evidence": "entire exported contiguous machine-code body is byte-identical; external targets still require relocation review"
+    },
+    {
+      "original_entry": "0x0001d208",
+      "candidate_address": 117424,
+      "bytes": 438,
+      "evidence": "entire exported contiguous machine-code body is byte-identical; external targets still require relocation review"
+    },
+    {
+      "original_entry": "0x0001d3be",
+      "candidate_address": 117862,
+      "bytes": 874,
+      "evidence": "entire exported contiguous machine-code body is byte-identical; external targets still require relocation review"
+    },
+    {
+      "original_entry": "0x0001d9da",
+      "candidate_address": 119426,
+      "bytes": 92,
+      "evidence": "entire exported contiguous machine-code body is byte-identical; external targets still require relocation review"
+    },
+    {
+      "original_entry": "0x0001da36",
+      "candidate_address": 119518,
+      "bytes": 134,
+      "evidence": "entire exported contiguous machine-code body is byte-identical; external targets still require relocation review"
+    },
+    {
+      "original_entry": "0x0001dabc",
+      "candidate_address": 119652,
+      "bytes": 140,
+      "evidence": "entire exported contiguous machine-code body is byte-identical; external targets still require relocation review"
+    },
+    {
+      "original_entry": "0x0001dddc",
+      "candidate_address": 120452,
+      "bytes": 904,
+      "evidence": "entire exported contiguous machine-code body is byte-identical; external targets still require relocation review"
+    },
+    {
+      "original_entry": "0x0001e164",
+      "candidate_address": 121356,
+      "bytes": 98,
+      "evidence": "entire exported contiguous machine-code body is byte-identical; external targets still require relocation review"
+    },
+    {
+      "original_entry": "0x0001e1c6",
+      "candidate_address": 121454,
+      "bytes": 86,
+      "evidence": "entire exported contiguous machine-code body is byte-identical; external targets still require relocation review"
+    },
+    {
+      "original_entry": "0x0001e21c",
+      "candidate_address": 121540,
+      "bytes": 198,
+      "evidence": "entire exported contiguous machine-code body is byte-identical; external targets still require relocation review"
+    },
+    {
+      "original_entry": "0x0001e2e2",
+      "candidate_address": 121738,
+      "bytes": 172,
+      "evidence": "entire exported contiguous machine-code body is byte-identical; external targets still require relocation review"
+    },
+    {
+      "original_entry": "0x0001e38e",
+      "candidate_address": 121910,
+      "bytes": 362,
+      "evidence": "entire exported contiguous machine-code body is byte-identical; external targets still require relocation review"
+    },
+    {
+      "original_entry": "0x0001e57a",
+      "candidate_address": 122402,
+      "bytes": 36,
+      "evidence": "entire exported contiguous machine-code body is byte-identical; external targets still require relocation review"
+    },
+    {
+      "original_entry": "0x0001e59e",
+      "candidate_address": 122438,
+      "bytes": 178,
+      "evidence": "entire exported contiguous machine-code body is byte-identical; external targets still require relocation review"
+    },
+    {
+      "original_entry": "0x0001e650",
+      "candidate_address": 122616,
+      "bytes": 164,
+      "evidence": "entire exported contiguous machine-code body is byte-identical; external targets still require relocation review"
+    },
+    {
+      "original_entry": "0x0001e6f4",
+      "candidate_address": 122780,
+      "bytes": 206,
+      "evidence": "entire exported contiguous machine-code body is byte-identical; external targets still require relocation review"
+    },
+    {
+      "original_entry": "0x0001e7f4",
+      "candidate_address": 123036,
+      "bytes": 24,
+      "evidence": "entire exported contiguous machine-code body is byte-identical; external targets still require relocation review"
+    },
+    {
+      "original_entry": "0x0001e80c",
+      "candidate_address": 123060,
+      "bytes": 16,
+      "evidence": "entire exported contiguous machine-code body is byte-identical; external targets still require relocation review"
+    }
+  ],
+  "prefix_leads_only": [
+    {
+      "original_entry": "0x0000663c",
+      "candidate_address": 26172,
+      "bytes": 32
+    },
+    {
+      "original_entry": "0x00006660",
+      "candidate_address": 26208,
+      "bytes": 32
+    },
+    {
+      "original_entry": "0x00006734",
+      "candidate_address": 26420,
+      "bytes": 32
+    },
+    {
+      "original_entry": "0x0000678c",
+      "candidate_address": 26508,
+      "bytes": 32
+    },
+    {
+      "original_entry": "0x00006854",
+      "candidate_address": 26708,
+      "bytes": 32
+    },
+    {
+      "original_entry": "0x000068d2",
+      "candidate_address": 26834,
+      "bytes": 32
+    },
+    {
+      "original_entry": "0x0000969e",
+      "candidate_address": 38542,
+      "bytes": 32
+    },
+    {
+      "original_entry": "0x000098aa",
+      "candidate_address": 39064,
+      "bytes": 32
+    },
+    {
+      "original_entry": "0x0000be2a",
+      "candidate_address": 48668,
+      "bytes": 32
+    },
+    {
+      "original_entry": "0x0000c468",
+      "candidate_address": 50268,
+      "bytes": 32
+    },
+    {
+      "original_entry": "0x0000c570",
+      "candidate_address": 50532,
+      "bytes": 32
+    },
+    {
+      "original_entry": "0x0000c6f6",
+      "candidate_address": 50922,
+      "bytes": 32
+    },
+    {
+      "original_entry": "0x0000c798",
+      "candidate_address": 51084,
+      "bytes": 32
+    },
+    {
+      "original_entry": "0x0000c862",
+      "candidate_address": 51286,
+      "bytes": 32
+    },
+    {
+      "original_entry": "0x0000c8c4",
+      "candidate_address": 51384,
+      "bytes": 32
+    },
+    {
+      "original_entry": "0x0000c8f0",
+      "candidate_address": 51428,
+      "bytes": 32
+    },
+    {
+      "original_entry": "0x0000ca52",
+      "candidate_address": 51738,
+      "bytes": 32
+    },
+    {
+      "original_entry": "0x0000ca80",
+      "candidate_address": 51784,
+      "bytes": 32
+    },
+    {
+      "original_entry": "0x0000cb5c",
+      "candidate_address": 52004,
+      "bytes": 32
+    },
+    {
+      "original_entry": "0x0000cb94",
+      "candidate_address": 52060,
+      "bytes": 32
+    },
+    {
+      "original_entry": "0x0000cc4c",
+      "candidate_address": 52244,
+      "bytes": 32
+    },
+    {
+      "original_entry": "0x0000cdac",
+      "candidate_address": 52596,
+      "bytes": 32
+    },
+    {
+      "original_entry": "0x0000ce16",
+      "candidate_address": 52702,
+      "bytes": 32
+    },
+    {
+      "original_entry": "0x0000cec0",
+      "candidate_address": 52872,
+      "bytes": 32
+    },
+    {
+      "original_entry": "0x0000cf42",
+      "candidate_address": 53002,
+      "bytes": 32
+    },
+    {
+      "original_entry": "0x0000d168",
+      "candidate_address": 53552,
+      "bytes": 32
+    },
+    {
+      "original_entry": "0x0000d1d6",
+      "candidate_address": 53662,
+      "bytes": 32
+    },
+    {
+      "original_entry": "0x0000d212",
+      "candidate_address": 53722,
+      "bytes": 32
+    },
+    {
+      "original_entry": "0x0000d2fc",
+      "candidate_address": 53956,
+      "bytes": 32
+    },
+    {
+      "original_entry": "0x0000d908",
+      "candidate_address": 55500,
+      "bytes": 32
+    },
+    {
+      "original_entry": "0x0000d944",
+      "candidate_address": 55564,
+      "bytes": 32
+    },
+    {
+      "original_entry": "0x0000d964",
+      "candidate_address": 55596,
+      "bytes": 32
+    },
+    {
+      "original_entry": "0x0000da04",
+      "candidate_address": 55756,
+      "bytes": 32
+    },
+    {
+      "original_entry": "0x0000da28",
+      "candidate_address": 55792,
+      "bytes": 32
+    },
+    {
+      "original_entry": "0x0000da48",
+      "candidate_address": 55824,
+      "bytes": 32
+    },
+    {
+      "original_entry": "0x0000dd00",
+      "candidate_address": 56520,
+      "bytes": 32
+    },
+    {
+      "original_entry": "0x0000de9e",
+      "candidate_address": 56934,
+      "bytes": 32
+    },
+    {
+      "original_entry": "0x0000dec0",
+      "candidate_address": 56968,
+      "bytes": 32
+    },
+    {
+      "original_entry": "0x0000fc9e",
+      "candidate_address": 64614,
+      "bytes": 32
+    },
+    {
+      "original_entry": "0x00017ab2",
+      "candidate_address": 95992,
+      "bytes": 32
+    },
+    {
+      "original_entry": "0x0001a626",
+      "candidate_address": 106190,
+      "bytes": 32
+    },
+    {
+      "original_entry": "0x0001a64c",
+      "candidate_address": 106228,
+      "bytes": 32
+    },
+    {
+      "original_entry": "0x0001a720",
+      "candidate_address": 106440,
+      "bytes": 32
+    },
+    {
+      "original_entry": "0x0001a74a",
+      "candidate_address": 106482,
+      "bytes": 32
+    },
+    {
+      "original_entry": "0x0001a794",
+      "candidate_address": 106556,
+      "bytes": 32
+    },
+    {
+      "original_entry": "0x0001a874",
+      "candidate_address": 106780,
+      "bytes": 32
+    },
+    {
+      "original_entry": "0x0001a966",
+      "candidate_address": 107022,
+      "bytes": 32
+    },
+    {
+      "original_entry": "0x0001aa86",
+      "candidate_address": 107310,
+      "bytes": 32
+    },
+    {
+      "original_entry": "0x0001ab86",
+      "candidate_address": 107566,
+      "bytes": 32
+    },
+    {
+      "original_entry": "0x0001aede",
+      "candidate_address": 108422,
+      "bytes": 32
+    },
+    {
+      "original_entry": "0x0001af02",
+      "candidate_address": 108458,
+      "bytes": 32
+    },
+    {
+      "original_entry": "0x0001b294",
+      "candidate_address": 109372,
+      "bytes": 32
+    },
+    {
+      "original_entry": "0x0001b61e",
+      "candidate_address": 110278,
+      "bytes": 32
+    },
+    {
+      "original_entry": "0x0001bd4e",
+      "candidate_address": 112118,
+      "bytes": 32
+    },
+    {
+      "original_entry": "0x0001c302",
+      "candidate_address": 113578,
+      "bytes": 32
+    },
+    {
+      "original_entry": "0x0001c3b8",
+      "candidate_address": 113760,
+      "bytes": 32
+    },
+    {
+      "original_entry": "0x0001c870",
+      "candidate_address": 114968,
+      "bytes": 32
+    },
+    {
+      "original_entry": "0x0001cfae",
+      "candidate_address": 116822,
+      "bytes": 32
+    },
+    {
+      "original_entry": "0x0001d016",
+      "candidate_address": 116926,
+      "bytes": 32
+    },
+    {
+      "original_entry": "0x0001d072",
+      "candidate_address": 117018,
+      "bytes": 32
+    },
+    {
+      "original_entry": "0x0001d0e4",
+      "candidate_address": 117132,
+      "bytes": 32
+    },
+    {
+      "original_entry": "0x0001d14c",
+      "candidate_address": 117236,
+      "bytes": 32
+    },
+    {
+      "original_entry": "0x0001d208",
+      "candidate_address": 117424,
+      "bytes": 32
+    },
+    {
+      "original_entry": "0x0001d3be",
+      "candidate_address": 117862,
+      "bytes": 32
+    },
+    {
+      "original_entry": "0x0001d728",
+      "candidate_address": 118736,
+      "bytes": 32
+    },
+    {
+      "original_entry": "0x0001d9da",
+      "candidate_address": 119426,
+      "bytes": 32
+    },
+    {
+      "original_entry": "0x0001da36",
+      "candidate_address": 119426,
+      "bytes": 32
+    },
+    {
+      "original_entry": "0x0001dabc",
+      "candidate_address": 119426,
+      "bytes": 32
+    },
+    {
+      "original_entry": "0x0001db48",
+      "candidate_address": 119792,
+      "bytes": 32
+    },
+    {
+      "original_entry": "0x0001dddc",
+      "candidate_address": 120452,
+      "bytes": 32
+    },
+    {
+      "original_entry": "0x0001e164",
+      "candidate_address": 121356,
+      "bytes": 32
+    },
+    {
+      "original_entry": "0x0001e1c6",
+      "candidate_address": 121454,
+      "bytes": 32
+    },
+    {
+      "original_entry": "0x0001e21c",
+      "candidate_address": 121540,
+      "bytes": 32
+    },
+    {
+      "original_entry": "0x0001e2e2",
+      "candidate_address": 121738,
+      "bytes": 32
+    },
+    {
+      "original_entry": "0x0001e38e",
+      "candidate_address": 121910,
+      "bytes": 32
+    },
+    {
+      "original_entry": "0x0001e57a",
+      "candidate_address": 122402,
+      "bytes": 32
+    },
+    {
+      "original_entry": "0x0001e59e",
+      "candidate_address": 122438,
+      "bytes": 32
+    },
+    {
+      "original_entry": "0x0001e650",
+      "candidate_address": 122616,
+      "bytes": 32
+    },
+    {
+      "original_entry": "0x0001e6f4",
+      "candidate_address": 122780,
+      "bytes": 32
+    }
+  ],
+  "original_initialized_data": {
+    "rom_address": 160208,
+    "size": 488
+  },
+  "candidate_initialized_data": {
+    "rom_address": 160148,
+    "size": 488
+  },
+  "initialized_data_identical": true,
+  "version": "unknown; deleted filenames are not sufficient version attribution",
+  "equivalence": false,
+  "limitations": "Only exact whole-body and prefix searches are reported. No CFG equivalence or firmware revision equivalence is inferred. Broad normalized candidate decoding remains future work."
+}

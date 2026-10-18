@@ -1,0 +1,8 @@
+/build/
+/assets/*.wad
+/assets/*.zip
+/generated/
+__pycache__/
+*.pyc
+/dist/
+/.venv/

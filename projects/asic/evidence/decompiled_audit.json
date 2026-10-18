@@ -1,0 +1,2370 @@
+{
+  "reference": ".",
+  "reference_sources_sha256": {
+    "./DMT-99_V2.4_20240306.bin": "4befdf6b58e063f03901f190000d790e60d20d0a23e5eeb2b6f6840f1830e98e",
+    "./analysis/asic_protocol_commands.json": "79651067efc4f94a315dfc605593a731e2db4d7a73f02061dd2820637d410a01",
+    "./analysis/functions.json": "954dbc13458601d7798ebab2da8cf0dacddca7d91e637841370472e1cfb6e4be",
+    "./analysis/instructions.json": "9540fb6dbf61758e868e53f532dfe468734f0e4ee520138fa4302eab24e23745",
+    "./analysis/ncv_gap_instructions.json": "bddf0c2c146327033efeea7eb3cabbef6abb61ce2eb87ce14bca74131bab9921",
+    "./decompiled/clean/000097c4_measurement_send_command.c": "45b1ba1604ca970adaa046b8bb572c0e4a5dd5990475afbb00efd55ed782a2d7",
+    "./decompiled/clean/000097f8_measurement_forward_button_command.c": "698425973a5f2b121e99fb15bac4a665faa6a382398c3fdc72aff4ceb73bd068",
+    "./decompiled/clean/000098aa_measurement_segment_decode.c": "febb08eab0ec45df63a8968b56ce1bc1e86a8817886f15fcd7a616550961845b",
+    "./decompiled/clean/0000997e_measurement_decode_segments.c": "a4bee9ad666262e729fe3d7986b5b8a28f09df567767b011a42c142309b9db11",
+    "./decompiled/clean/00009caa_FUN_ram_00009caa.c": "2c6a885da69a7a0a330873fc85616f2b6ee8cbeb941105cc3835f9835392a957",
+    "./decompiled/clean/0000a74e_FUN_ram_0000a74e.c": "b1195adf4b80af540ec63648d87eb046bf9f6e902040e5558fad2ebcddfaf032",
+    "./decompiled/clean/0000a782_FUN_ram_0000a782.c": "d8101ec0decd7a6e6e500c65dce215cc18eb02759747dfa47f5eda106ba559d7",
+    "./decompiled/clean/0000a7a4_FUN_ram_0000a7a4.c": "96b8e4b412e3e37e1335999b2cbb264adea9f713eb91498b6b26de6f5e8ec596",
+    "./decompiled/clean/0000a910_measurement_ui_regular_event.c": "ba6ab79638ebb90f2c44da9c9eca038a9baae9c60f8d24926841bf6a85c00fbd",
+    "./decompiled/clean/0000aed0_measurement_ui_record_event.c": "c828877d01d496a92524445fcc7e702a20e32b863db840d30a27e6caacfe456d",
+    "./decompiled/clean/0000b29e_measurement_ui_monitor_event.c": "65816912f82cba04ad6993a4e94d0f2a3f7e0e3cb304aefe6b32ba5afd7354bc",
+    "./decompiled/clean/0000b56a_FUN_ram_0000b56a.c": "da6283a2cc7cdd0a6e8820907c2def942d572a793c081f126b29e4f102975450",
+    "./decompiled/clean/0000b5c8_measurement_regular_buttons.c": "19f0a7c859501a0a427da6405269a19b4d9c5a48f64a3ae8e06d18ebeaff481e",
+    "./decompiled/clean/0000b9e0_measurement_record_buttons.c": "5e2b211d6543ccf3f8aae82ef6c4a3a9fc8565ea05face74c530817a171ae33e",
+    "./decompiled/clean/0000bc90_measurement_monitor_buttons.c": "c8ec8be4efb7a5e0b30823cb07bf885494dff0b9af566ac6f2201d9f6e452edc",
+    "./decompiled/clean/0000be18_measurement_get_unit_code.c": "e1f69d1881b28f7c2f76c7bd2788c9c26ba2b3f743cc3c1fc7b4996680913e8b",
+    "./decompiled/clean/0000be1e_measurement_get_value_bits.c": "18841cd1fde7bb27f86c79c12b01ba2420012bfd10c822961e0469d125895e1f",
+    "./decompiled/clean/0000be2a_measurement_overload_kind.c": "2845365e78a3b61479f5a89eda4bd99230f8015a9ed6aa3c612aa85b6ec89878",
+    "./decompiled/clean/0000be78_measurement_parse_display_frame.c": "c372206df9f78f038d7b83934659814f0e08992242fd63ebad83d771aac385b0",
+    "./decompiled/clean/0000c350_measurement_uart_dma_init.c": "f5507115b19d53226a08f8ac1aa597376d5e85ffac0f08fb737aa3ff1c90acaf",
+    "./decompiled/clean/0000da9c_history_append_measurement.c": "b7be55dc82bf1e1095c3cb9103b6f26ae318c11775714a90defb769d159b353e",
+    "./decompiled/clean/00017f92_FUN_ram_00017f92.c": "e1c9f8cdf788765308e2d97a912cf59bc7e6f54700810054bf65b0ba54ca4171",
+    "./tools/rv32_subset.py": "4d90121c709d8ead9064f238cf3aaa9b77043192df6b8100f7f2858da9ef983e",
+    "./tools/rv32_trace.py": "068348cfde9c4b0291096447db6845542b6eb015a963daca578d4f5547e1c10c"
+  },
+  "reference_files_unchanged": true,
+  "oracle_scope": "Preserved decoded instruction inventory + original ROM data in rv32_trace; leaf IO hooks, not a full MCU or peer ASIC emulator. No target I/O.",
+  "constructor_contexts": [
+    {
+      "entry": "0x0000b5c8",
+      "event": 1,
+      "selector_before": 0,
+      "packets": [
+        "aa 55 05 12 00 00 00 00 00 17"
+      ]
+    },
+    {
+      "entry": "0x0000b5c8",
+      "event": 1,
+      "selector_before": 1,
+      "packets": [
+        "aa 55 05 0f 00 00 00 00 00 14"
+      ]
+    },
+    {
+      "entry": "0x0000b5c8",
+      "event": 1,
+      "selector_before": 2,
+      "packets": [
+        "aa 55 05 09 00 00 00 00 00 0e"
+      ]
+    },
+    {
+      "entry": "0x0000b5c8",
+      "event": 1,
+      "selector_before": 3,
+      "packets": [
+        "aa 55 05 13 00 00 00 00 00 18"
+      ]
+    },
+    {
+      "entry": "0x0000b5c8",
+      "event": 1,
+      "selector_before": 4,
+      "packets": [
+        "aa 55 05 12 00 00 00 00 00 17"
+      ]
+    },
+    {
+      "entry": "0x0000b5c8",
+      "event": 3,
+      "selector_before": 0,
+      "packets": [
+        "aa 55 05 0c 00 00 00 00 00 11"
+      ]
+    },
+    {
+      "entry": "0x0000b5c8",
+      "event": 3,
+      "selector_before": 1,
+      "packets": [
+        "aa 55 05 0d 00 00 00 00 00 12"
+      ]
+    },
+    {
+      "entry": "0x0000b5c8",
+      "event": 3,
+      "selector_before": 2,
+      "packets": [
+        "aa 55 05 0b 00 00 00 00 00 10"
+      ]
+    },
+    {
+      "entry": "0x0000b5c8",
+      "event": 3,
+      "selector_before": 3,
+      "packets": [
+        "aa 55 05 0a 00 00 00 00 00 0f"
+      ]
+    },
+    {
+      "entry": "0x0000b5c8",
+      "event": 3,
+      "selector_before": 4,
+      "packets": [
+        "aa 55 05 0e 00 00 00 00 00 13"
+      ]
+    },
+    {
+      "entry": "0x0000b5c8",
+      "event": 3,
+      "selector_before": 5,
+      "packets": [
+        "aa 55 05 0c 00 00 00 00 00 11"
+      ]
+    },
+    {
+      "entry": "0x0000b5c8",
+      "event": 4,
+      "selector_before": 0,
+      "packets": [
+        "aa 55 05 11 00 00 00 00 00 16"
+      ]
+    },
+    {
+      "entry": "0x0000b5c8",
+      "event": 4,
+      "selector_before": 1,
+      "packets": [
+        "aa 55 05 10 00 00 00 00 00 15"
+      ]
+    },
+    {
+      "entry": "0x0000b5c8",
+      "event": 4,
+      "selector_before": 2,
+      "packets": [
+        "aa 55 05 16 00 00 00 00 00 1b"
+      ]
+    },
+    {
+      "entry": "0x0000b5c8",
+      "event": 4,
+      "selector_before": 3,
+      "packets": [
+        "aa 55 05 15 00 00 00 00 00 1a"
+      ]
+    },
+    {
+      "entry": "0x0000b5c8",
+      "event": 4,
+      "selector_before": 4,
+      "packets": [
+        "aa 55 05 11 00 00 00 00 00 16"
+      ]
+    },
+    {
+      "entry": "0x0000b5c8",
+      "event": 2,
+      "selector_before": 0,
+      "packets": [
+        "aa 55 05 03 00 00 00 00 00 08"
+      ]
+    },
+    {
+      "entry": "0x0000b5c8",
+      "event": 5,
+      "selector_before": 0,
+      "packets": [
+        "aa 55 05 14 00 00 00 00 00 19"
+      ]
+    },
+    {
+      "entry": "0x0000b5c8",
+      "event": 7,
+      "selector_before": 0,
+      "packets": [
+        "aa 55 05 00 00 00 00 00 00 11"
+      ]
+    },
+    {
+      "entry": "0x000097f8",
+      "accepted_key": 1,
+      "packets": [
+        "aa 55 05 09 00 00 00 00 00 0e"
+      ]
+    },
+    {
+      "entry": "0x000097f8",
+      "accepted_key": 2,
+      "packets": [
+        "aa 55 05 08 00 00 00 00 00 0d"
+      ]
+    },
+    {
+      "entry": "0x000097f8",
+      "accepted_key": 3,
+      "packets": [
+        "aa 55 05 03 00 00 00 00 00 08"
+      ]
+    },
+    {
+      "entry": "0x000097f8",
+      "accepted_key": 4,
+      "packets": [
+        "aa 55 05 01 00 00 00 00 00 06"
+      ]
+    },
+    {
+      "entry": "0x0000b56a",
+      "packets": [
+        "aa 55 05 0b 00 00 00 00 00 10",
+        "aa 55 02 a0 00 00 00 00 00 a2"
+      ]
+    }
+  ],
+  "distinct_original_templates": 19,
+  "catalog_exact_match": true,
+  "old_catalog_exact_match": true,
+  "serializer_checks": [
+    {
+      "original_hex": "aa 55 02 a0 00 00 00 00 00 a2",
+      "serializer_accepts": false,
+      "result": "diagnostic_A0_intentionally_not_exposed"
+    },
+    {
+      "original_hex": "aa 55 05 00 00 00 00 00 00 11",
+      "serializer_accepts": true,
+      "result": "exact_match"
+    },
+    {
+      "original_hex": "aa 55 05 01 00 00 00 00 00 06",
+      "serializer_accepts": true,
+      "result": "exact_match"
+    },
+    {
+      "original_hex": "aa 55 05 03 00 00 00 00 00 08",
+      "serializer_accepts": true,
+      "result": "exact_match"
+    },
+    {
+      "original_hex": "aa 55 05 08 00 00 00 00 00 0d",
+      "serializer_accepts": true,
+      "result": "exact_match"
+    },
+    {
+      "original_hex": "aa 55 05 09 00 00 00 00 00 0e",
+      "serializer_accepts": true,
+      "result": "exact_match"
+    },
+    {
+      "original_hex": "aa 55 05 0a 00 00 00 00 00 0f",
+      "serializer_accepts": true,
+      "result": "exact_match"
+    },
+    {
+      "original_hex": "aa 55 05 0b 00 00 00 00 00 10",
+      "serializer_accepts": true,
+      "result": "exact_match"
+    },
+    {
+      "original_hex": "aa 55 05 0c 00 00 00 00 00 11",
+      "serializer_accepts": true,
+      "result": "exact_match"
+    },
+    {
+      "original_hex": "aa 55 05 0d 00 00 00 00 00 12",
+      "serializer_accepts": true,
+      "result": "exact_match"
+    },
+    {
+      "original_hex": "aa 55 05 0e 00 00 00 00 00 13",
+      "serializer_accepts": true,
+      "result": "exact_match"
+    },
+    {
+      "original_hex": "aa 55 05 0f 00 00 00 00 00 14",
+      "serializer_accepts": true,
+      "result": "exact_match"
+    },
+    {
+      "original_hex": "aa 55 05 10 00 00 00 00 00 15",
+      "serializer_accepts": true,
+      "result": "exact_match"
+    },
+    {
+      "original_hex": "aa 55 05 11 00 00 00 00 00 16",
+      "serializer_accepts": true,
+      "result": "exact_match"
+    },
+    {
+      "original_hex": "aa 55 05 12 00 00 00 00 00 17",
+      "serializer_accepts": true,
+      "result": "exact_match"
+    },
+    {
+      "original_hex": "aa 55 05 13 00 00 00 00 00 18",
+      "serializer_accepts": true,
+      "result": "exact_match"
+    },
+    {
+      "original_hex": "aa 55 05 14 00 00 00 00 00 19",
+      "serializer_accepts": true,
+      "result": "exact_match"
+    },
+    {
+      "original_hex": "aa 55 05 15 00 00 00 00 00 1a",
+      "serializer_accepts": true,
+      "result": "exact_match"
+    },
+    {
+      "original_hex": "aa 55 05 16 00 00 00 00 00 1b",
+      "serializer_accepts": true,
+      "result": "exact_match"
+    }
+  ],
+  "source_captures": [
+    "20261018T003908_idle_already_powered_81d808b6",
+    "20261018T004101_auto_idle_d0_d2_2mhz_9eb57894",
+    "20261018T004155_startup_auto_d0_d2_2mhz_998d0648",
+    "20261018T010803_resistance_st2_1ohm_reported_63335c8a",
+    "20261018T010905_resistance_st2_1ohm_repeat_c96379a8",
+    "20261018T011007_resistance_st2_1kohm_9b1124e1",
+    "20261018T011124_resistance_st2_10kohm_4e3927b0",
+    "20261018T011245_resistance_st2_100kohm_2c0eb7ee",
+    "20261018T011348_resistance_st2_open_91086a21",
+    "20261018T011507_resistance_st2_1Mohm_7edb835a",
+    "20261018T011705_resistance_st2_10Mohm_daf8f4d1",
+    "20261018T011808_auto_to_resistance_open_fa59a550",
+    "20261018T012010_open_probes_mode_sweep_9f01eea5",
+    "20261018T012123_capacitance_open_0015_reported_599d35bc",
+    "20261018T012301_continuity_open_7ec5dac1",
+    "20261018T012445_dc_voltage_open_floating_4c4cae37",
+    "20261018T012633_ac_voltage_open_0f21932d",
+    "20261018T012926_frequency_open_8d1e1544",
+    "20261018T014128_current_mA_open_first_416da768",
+    "20261018T014244_current_AC_mA_open_f9bb5e6d",
+    "20261018T014351_current_DC_A_open_b049a37a",
+    "20261018T014536_current_AC_A_open_56fe1dda",
+    "20261018T014653_cable_wave_icon_idle_unconfirmed_84761e13",
+    "20261018T014757_LIVE_cable_only_idle_0fda3de2",
+    "20261018T014854_temperature_C_no_external_probe_0421fc54"
+  ],
+  "captured_tx_checks": [
+    {
+      "capture": "20261018T004155_startup_auto_d0_d2_2mhz_998d0648",
+      "t_s": 3.9741675,
+      "hex": "aa 55 05 14 00 00 00 00 00 19",
+      "result": "exact_original_constructor_match"
+    },
+    {
+      "capture": "20261018T004155_startup_auto_d0_d2_2mhz_998d0648",
+      "t_s": 23.746875,
+      "hex": "aa 55 05 14 00 00 00 00 00 19",
+      "result": "exact_original_constructor_match"
+    },
+    {
+      "capture": "20261018T011808_auto_to_resistance_open_fa59a550",
+      "t_s": 13.07398,
+      "hex": "aa 55 05 0c 00 00 00 00 00 11",
+      "result": "exact_original_constructor_match"
+    },
+    {
+      "capture": "20261018T011808_auto_to_resistance_open_fa59a550",
+      "t_s": 15.091084,
+      "hex": "aa 55 05 0d 00 00 00 00 00 12",
+      "result": "exact_original_constructor_match"
+    },
+    {
+      "capture": "20261018T011808_auto_to_resistance_open_fa59a550",
+      "t_s": 15.892405,
+      "hex": "aa 55 05 0b 00 00 00 00 00 10",
+      "result": "exact_original_constructor_match"
+    },
+    {
+      "capture": "20261018T012010_open_probes_mode_sweep_9f01eea5",
+      "t_s": 28.986612,
+      "hex": "aa 55 05 0a 00 00 00 00 00 0f",
+      "result": "exact_original_constructor_match"
+    }
+  ],
+  "all_256_segment_codes_match": true,
+  "distinct_real_display_checks": [
+    {
+      "hex": "5a a5 00 00 80 af 0d 00 20 00 01 43",
+      "captures": [
+        "20261018T014854_temperature_C_no_external_probe_0421fc54"
+      ],
+      "original_symbols": [
+        17,
+        17,
+        3,
+        2
+      ],
+      "original_fields": {
+        "unit_code": 21,
+        "ac_dc_code": 255,
+        "status_b7_bit7": false,
+        "negative": false,
+        "decimal_after": 0
+      },
+      "our_raw_text": "  32",
+      "our_numeric": 32.0,
+      "stock_parser_text_mode0": "   32 ",
+      "fields_match": true,
+      "stock_parser_float_mode0": 32.0,
+      "numeric_match_when_ours_numeric": true,
+      "context_status_checks": []
+    },
+    {
+      "hex": "5a a5 00 00 80 af 0d 00 20 00 01 44",
+      "captures": [
+        "20261018T014854_temperature_C_no_external_probe_0421fc54"
+      ],
+      "original_symbols": [
+        17,
+        17,
+        3,
+        2
+      ],
+      "original_fields": {
+        "unit_code": 21,
+        "ac_dc_code": 255,
+        "status_b7_bit7": false,
+        "negative": false,
+        "decimal_after": 0
+      },
+      "our_raw_text": "  32",
+      "our_numeric": 32.0,
+      "stock_parser_text_mode0": "   32 ",
+      "fields_match": true,
+      "stock_parser_float_mode0": 32.0,
+      "numeric_match_when_ours_numeric": true,
+      "context_status_checks": []
+    },
+    {
+      "hex": "5a a5 00 00 80 af 0d 00 20 00 01 45",
+      "captures": [
+        "20261018T014854_temperature_C_no_external_probe_0421fc54"
+      ],
+      "original_symbols": [
+        17,
+        17,
+        3,
+        2
+      ],
+      "original_fields": {
+        "unit_code": 21,
+        "ac_dc_code": 255,
+        "status_b7_bit7": false,
+        "negative": false,
+        "decimal_after": 0
+      },
+      "our_raw_text": "  32",
+      "our_numeric": 32.0,
+      "stock_parser_text_mode0": "   32 ",
+      "fields_match": true,
+      "stock_parser_float_mode0": 32.0,
+      "numeric_match_when_ours_numeric": true,
+      "context_status_checks": []
+    },
+    {
+      "hex": "5a a5 00 00 80 af 0d 00 20 00 01 46",
+      "captures": [
+        "20261018T014854_temperature_C_no_external_probe_0421fc54"
+      ],
+      "original_symbols": [
+        17,
+        17,
+        3,
+        2
+      ],
+      "original_fields": {
+        "unit_code": 21,
+        "ac_dc_code": 255,
+        "status_b7_bit7": false,
+        "negative": false,
+        "decimal_after": 0
+      },
+      "our_raw_text": "  32",
+      "our_numeric": 32.0,
+      "stock_parser_text_mode0": "   32 ",
+      "fields_match": true,
+      "stock_parser_float_mode0": 32.0,
+      "numeric_match_when_ours_numeric": true,
+      "context_status_checks": []
+    },
+    {
+      "hex": "5a a5 00 e0 e5 04 00 00 00 00 01 46",
+      "captures": [
+        "20261018T014653_cable_wave_icon_idle_unconfirmed_84761e13"
+      ],
+      "original_symbols": [
+        17,
+        15,
+        255,
+        17
+      ],
+      "original_fields": {
+        "unit_code": 1,
+        "ac_dc_code": 255,
+        "status_b7_bit7": false,
+        "negative": false,
+        "decimal_after": 0
+      },
+      "our_raw_text": " E? ",
+      "our_numeric": null,
+      "stock_parser_text_mode0": "  E/  ",
+      "fields_match": true,
+      "stock_parser_float_mode0": 0.0,
+      "numeric_match_when_ours_numeric": null,
+      "context_status_checks": [
+        {
+          "host_mode": 9,
+          "original_render_state": 0,
+          "match": true
+        }
+      ]
+    },
+    {
+      "hex": "5a a5 00 e0 e5 04 00 00 00 00 01 47",
+      "captures": [
+        "20261018T014653_cable_wave_icon_idle_unconfirmed_84761e13"
+      ],
+      "original_symbols": [
+        17,
+        15,
+        255,
+        17
+      ],
+      "original_fields": {
+        "unit_code": 1,
+        "ac_dc_code": 255,
+        "status_b7_bit7": false,
+        "negative": false,
+        "decimal_after": 0
+      },
+      "our_raw_text": " E? ",
+      "our_numeric": null,
+      "stock_parser_text_mode0": "  E/  ",
+      "fields_match": true,
+      "stock_parser_float_mode0": 0.0,
+      "numeric_match_when_ours_numeric": null,
+      "context_status_checks": [
+        {
+          "host_mode": 9,
+          "original_render_state": 0,
+          "match": true
+        }
+      ]
+    },
+    {
+      "hex": "5a a5 00 f0 6b 01 80 08 02 00 01 42",
+      "captures": [
+        "20261018T012301_continuity_open_7ec5dac1"
+      ],
+      "original_symbols": [
+        17,
+        0,
+        14,
+        17
+      ],
+      "original_fields": {
+        "unit_code": 6,
+        "ac_dc_code": 255,
+        "status_b7_bit7": false,
+        "negative": false,
+        "decimal_after": 1
+      },
+      "our_raw_text": " .0L ",
+      "our_numeric": null,
+      "stock_parser_text_mode0": "  .0L ",
+      "fields_match": true,
+      "stock_parser_float_mode0": 0.0,
+      "numeric_match_when_ours_numeric": null,
+      "context_status_checks": []
+    },
+    {
+      "hex": "5a a5 00 f0 6b 01 80 08 02 00 01 43",
+      "captures": [
+        "20261018T012301_continuity_open_7ec5dac1"
+      ],
+      "original_symbols": [
+        17,
+        0,
+        14,
+        17
+      ],
+      "original_fields": {
+        "unit_code": 6,
+        "ac_dc_code": 255,
+        "status_b7_bit7": false,
+        "negative": false,
+        "decimal_after": 1
+      },
+      "our_raw_text": " .0L ",
+      "our_numeric": null,
+      "stock_parser_text_mode0": "  .0L ",
+      "fields_match": true,
+      "stock_parser_float_mode0": 0.0,
+      "numeric_match_when_ours_numeric": null,
+      "context_status_checks": []
+    },
+    {
+      "hex": "5a a5 04 00 00 00 00 20 00 00 01 3c",
+      "captures": [
+        "20261018T010803_resistance_st2_1ohm_reported_63335c8a"
+      ],
+      "original_symbols": [
+        17,
+        17,
+        17,
+        17
+      ],
+      "original_fields": {
+        "unit_code": 11,
+        "ac_dc_code": 255,
+        "status_b7_bit7": false,
+        "negative": false,
+        "decimal_after": 0
+      },
+      "our_raw_text": "    ",
+      "our_numeric": null,
+      "stock_parser_text_mode0": "      ",
+      "fields_match": true,
+      "stock_parser_float_mode0": 0.0,
+      "numeric_match_when_ours_numeric": null,
+      "context_status_checks": []
+    },
+    {
+      "hex": "5a a5 04 00 00 00 00 24 00 00 01 3c",
+      "captures": [
+        "20261018T010803_resistance_st2_1ohm_reported_63335c8a"
+      ],
+      "original_symbols": [
+        17,
+        17,
+        17,
+        17
+      ],
+      "original_fields": {
+        "unit_code": 13,
+        "ac_dc_code": 255,
+        "status_b7_bit7": false,
+        "negative": false,
+        "decimal_after": 0
+      },
+      "our_raw_text": "    ",
+      "our_numeric": null,
+      "stock_parser_text_mode0": "      ",
+      "fields_match": true,
+      "stock_parser_float_mode0": 0.0,
+      "numeric_match_when_ours_numeric": null,
+      "context_status_checks": []
+    },
+    {
+      "hex": "5a a5 04 00 00 00 00 24 00 00 01 3f",
+      "captures": [
+        "20261018T011007_resistance_st2_1kohm_9b1124e1",
+        "20261018T011808_auto_to_resistance_open_fa59a550"
+      ],
+      "original_symbols": [
+        17,
+        17,
+        17,
+        17
+      ],
+      "original_fields": {
+        "unit_code": 13,
+        "ac_dc_code": 255,
+        "status_b7_bit7": false,
+        "negative": false,
+        "decimal_after": 0
+      },
+      "our_raw_text": "    ",
+      "our_numeric": null,
+      "stock_parser_text_mode0": "      ",
+      "fields_match": true,
+      "stock_parser_float_mode0": 0.0,
+      "numeric_match_when_ours_numeric": null,
+      "context_status_checks": []
+    },
+    {
+      "hex": "5a a5 04 00 00 00 40 20 00 00 01 3f",
+      "captures": [
+        "20261018T011007_resistance_st2_1kohm_9b1124e1"
+      ],
+      "original_symbols": [
+        17,
+        17,
+        17,
+        17
+      ],
+      "original_fields": {
+        "unit_code": 12,
+        "ac_dc_code": 255,
+        "status_b7_bit7": false,
+        "negative": false,
+        "decimal_after": 0
+      },
+      "our_raw_text": "    ",
+      "our_numeric": null,
+      "stock_parser_text_mode0": "      ",
+      "fields_match": true,
+      "stock_parser_float_mode0": 0.0,
+      "numeric_match_when_ours_numeric": null,
+      "context_status_checks": []
+    },
+    {
+      "hex": "5a a5 04 00 00 1a 0a 20 00 00 01 3c",
+      "captures": [
+        "20261018T010803_resistance_st2_1ohm_reported_63335c8a"
+      ],
+      "original_symbols": [
+        17,
+        17,
+        1,
+        1
+      ],
+      "original_fields": {
+        "unit_code": 11,
+        "ac_dc_code": 255,
+        "status_b7_bit7": false,
+        "negative": false,
+        "decimal_after": 3
+      },
+      "our_raw_text": "  1.1",
+      "our_numeric": 1.1,
+      "stock_parser_text_mode0": "   1.1",
+      "fields_match": true,
+      "stock_parser_float_mode0": 1.100000023841858,
+      "numeric_match_when_ours_numeric": true,
+      "context_status_checks": []
+    },
+    {
+      "hex": "5a a5 04 00 00 1a 0a 20 00 00 01 3d",
+      "captures": [
+        "20261018T010803_resistance_st2_1ohm_reported_63335c8a",
+        "20261018T010905_resistance_st2_1ohm_repeat_c96379a8"
+      ],
+      "original_symbols": [
+        17,
+        17,
+        1,
+        1
+      ],
+      "original_fields": {
+        "unit_code": 11,
+        "ac_dc_code": 255,
+        "status_b7_bit7": false,
+        "negative": false,
+        "decimal_after": 3
+      },
+      "our_raw_text": "  1.1",
+      "our_numeric": 1.1,
+      "stock_parser_text_mode0": "   1.1",
+      "fields_match": true,
+      "stock_parser_float_mode0": 1.100000023841858,
+      "numeric_match_when_ours_numeric": true,
+      "context_status_checks": []
+    },
+    {
+      "hex": "5a a5 04 00 00 1a 0a 20 00 00 01 3e",
+      "captures": [
+        "20261018T010905_resistance_st2_1ohm_repeat_c96379a8"
+      ],
+      "original_symbols": [
+        17,
+        17,
+        1,
+        1
+      ],
+      "original_fields": {
+        "unit_code": 11,
+        "ac_dc_code": 255,
+        "status_b7_bit7": false,
+        "negative": false,
+        "decimal_after": 3
+      },
+      "our_raw_text": "  1.1",
+      "our_numeric": 1.1,
+      "stock_parser_text_mode0": "   1.1",
+      "fields_match": true,
+      "stock_parser_float_mode0": 1.100000023841858,
+      "numeric_match_when_ours_numeric": true,
+      "context_status_checks": []
+    },
+    {
+      "hex": "5a a5 04 00 00 fa 0b 20 00 00 01 3c",
+      "captures": [
+        "20261018T010803_resistance_st2_1ohm_reported_63335c8a"
+      ],
+      "original_symbols": [
+        17,
+        17,
+        1,
+        0
+      ],
+      "original_fields": {
+        "unit_code": 11,
+        "ac_dc_code": 255,
+        "status_b7_bit7": false,
+        "negative": false,
+        "decimal_after": 3
+      },
+      "our_raw_text": "  1.0",
+      "our_numeric": 1.0,
+      "stock_parser_text_mode0": "   1.0",
+      "fields_match": true,
+      "stock_parser_float_mode0": 1.0,
+      "numeric_match_when_ours_numeric": true,
+      "context_status_checks": []
+    },
+    {
+      "hex": "5a a5 04 00 00 fa 0b 20 00 00 01 3e",
+      "captures": [
+        "20261018T010905_resistance_st2_1ohm_repeat_c96379a8"
+      ],
+      "original_symbols": [
+        17,
+        17,
+        1,
+        0
+      ],
+      "original_fields": {
+        "unit_code": 11,
+        "ac_dc_code": 255,
+        "status_b7_bit7": false,
+        "negative": false,
+        "decimal_after": 3
+      },
+      "our_raw_text": "  1.0",
+      "our_numeric": 1.0,
+      "stock_parser_text_mode0": "   1.0",
+      "fields_match": true,
+      "stock_parser_float_mode0": 1.0,
+      "numeric_match_when_ours_numeric": true,
+      "context_status_checks": []
+    },
+    {
+      "hex": "5a a5 04 00 e0 db 0f 20 00 00 01 3c",
+      "captures": [
+        "20261018T010803_resistance_st2_1ohm_reported_63335c8a"
+      ],
+      "original_symbols": [
+        17,
+        17,
+        0,
+        9
+      ],
+      "original_fields": {
+        "unit_code": 11,
+        "ac_dc_code": 255,
+        "status_b7_bit7": false,
+        "negative": false,
+        "decimal_after": 3
+      },
+      "our_raw_text": "  0.9",
+      "our_numeric": 0.9,
+      "stock_parser_text_mode0": "   0.9",
+      "fields_match": true,
+      "stock_parser_float_mode0": 0.8999999761581421,
+      "numeric_match_when_ours_numeric": true,
+      "context_status_checks": []
+    },
+    {
+      "hex": "5a a5 04 00 e0 fb 0f 20 00 00 01 3c",
+      "captures": [
+        "20261018T010803_resistance_st2_1ohm_reported_63335c8a"
+      ],
+      "original_symbols": [
+        17,
+        17,
+        0,
+        8
+      ],
+      "original_fields": {
+        "unit_code": 11,
+        "ac_dc_code": 255,
+        "status_b7_bit7": false,
+        "negative": false,
+        "decimal_after": 3
+      },
+      "our_raw_text": "  0.8",
+      "our_numeric": 0.8,
+      "stock_parser_text_mode0": "   0.8",
+      "fields_match": true,
+      "stock_parser_float_mode0": 0.800000011920929,
+      "numeric_match_when_ours_numeric": true,
+      "context_status_checks": []
+    },
+    {
+      "hex": "5a a5 04 c0 cf ff 4f 20 00 00 01 3e",
+      "captures": [
+        "20261018T011245_resistance_st2_100kohm_2c0eb7ee"
+      ],
+      "original_symbols": [
+        17,
+        9,
+        9,
+        8
+      ],
+      "original_fields": {
+        "unit_code": 12,
+        "ac_dc_code": 255,
+        "status_b7_bit7": false,
+        "negative": false,
+        "decimal_after": 3
+      },
+      "our_raw_text": " 99.8",
+      "our_numeric": 99.8,
+      "stock_parser_text_mode0": "  99.8",
+      "fields_match": true,
+      "stock_parser_float_mode0": 99.80000305175781,
+      "numeric_match_when_ours_numeric": true,
+      "context_status_checks": []
+    },
+    {
+      "hex": "5a a5 04 c0 df 8f 0a 24 00 00 01 3f",
+      "captures": [
+        "20261018T011705_resistance_st2_10Mohm_daf8f4d1"
+      ],
+      "original_symbols": [
+        17,
+        9,
+        9,
+        7
+      ],
+      "original_fields": {
+        "unit_code": 13,
+        "ac_dc_code": 255,
+        "status_b7_bit7": false,
+        "negative": false,
+        "decimal_after": 2
+      },
+      "our_raw_text": " 9.97",
+      "our_numeric": 9.97,
+      "stock_parser_text_mode0": "  9.97",
+      "fields_match": true,
+      "stock_parser_float_mode0": 9.970000267028809,
+      "numeric_match_when_ours_numeric": true,
+      "context_status_checks": []
+    },
+    {
+      "hex": "5a a5 04 c0 df 8f 0a 24 00 00 01 40",
+      "captures": [
+        "20261018T011705_resistance_st2_10Mohm_daf8f4d1"
+      ],
+      "original_symbols": [
+        17,
+        9,
+        9,
+        7
+      ],
+      "original_fields": {
+        "unit_code": 13,
+        "ac_dc_code": 255,
+        "status_b7_bit7": false,
+        "negative": false,
+        "decimal_after": 2
+      },
+      "our_raw_text": " 9.97",
+      "our_numeric": 9.97,
+      "stock_parser_text_mode0": "  9.97",
+      "fields_match": true,
+      "stock_parser_float_mode0": 9.970000267028809,
+      "numeric_match_when_ours_numeric": true,
+      "context_status_checks": []
+    },
+    {
+      "hex": "5a a5 04 c0 df 8f 4a 20 00 00 01 3e",
+      "captures": [
+        "20261018T011124_resistance_st2_10kohm_4e3927b0"
+      ],
+      "original_symbols": [
+        17,
+        9,
+        9,
+        7
+      ],
+      "original_fields": {
+        "unit_code": 12,
+        "ac_dc_code": 255,
+        "status_b7_bit7": false,
+        "negative": false,
+        "decimal_after": 2
+      },
+      "our_raw_text": " 9.97",
+      "our_numeric": 9.97,
+      "stock_parser_text_mode0": "  9.97",
+      "fields_match": true,
+      "stock_parser_float_mode0": 9.970000267028809,
+      "numeric_match_when_ours_numeric": true,
+      "context_status_checks": []
+    },
+    {
+      "hex": "5a a5 04 c0 df ef 07 24 00 00 01 3e",
+      "captures": [
+        "20261018T011705_resistance_st2_10Mohm_daf8f4d1"
+      ],
+      "original_symbols": [
+        17,
+        9,
+        9,
+        6
+      ],
+      "original_fields": {
+        "unit_code": 13,
+        "ac_dc_code": 255,
+        "status_b7_bit7": false,
+        "negative": false,
+        "decimal_after": 2
+      },
+      "our_raw_text": " 9.96",
+      "our_numeric": 9.96,
+      "stock_parser_text_mode0": "  9.96",
+      "fields_match": true,
+      "stock_parser_float_mode0": 9.960000038146973,
+      "numeric_match_when_ours_numeric": true,
+      "context_status_checks": []
+    },
+    {
+      "hex": "5a a5 04 c0 df ef 07 24 00 00 01 3f",
+      "captures": [
+        "20261018T011705_resistance_st2_10Mohm_daf8f4d1"
+      ],
+      "original_symbols": [
+        17,
+        9,
+        9,
+        6
+      ],
+      "original_fields": {
+        "unit_code": 13,
+        "ac_dc_code": 255,
+        "status_b7_bit7": false,
+        "negative": false,
+        "decimal_after": 2
+      },
+      "our_raw_text": " 9.96",
+      "our_numeric": 9.96,
+      "stock_parser_text_mode0": "  9.96",
+      "fields_match": true,
+      "stock_parser_float_mode0": 9.960000038146973,
+      "numeric_match_when_ours_numeric": true,
+      "context_status_checks": []
+    },
+    {
+      "hex": "5a a5 04 e0 7b 01 00 24 00 00 01 3d",
+      "captures": [
+        "20261018T010803_resistance_st2_1ohm_reported_63335c8a"
+      ],
+      "original_symbols": [
+        17,
+        0,
+        14,
+        17
+      ],
+      "original_fields": {
+        "unit_code": 13,
+        "ac_dc_code": 255,
+        "status_b7_bit7": false,
+        "negative": false,
+        "decimal_after": 2
+      },
+      "our_raw_text": " 0.L ",
+      "our_numeric": null,
+      "stock_parser_text_mode0": "  0.L ",
+      "fields_match": true,
+      "stock_parser_float_mode0": 0.0,
+      "numeric_match_when_ours_numeric": null,
+      "context_status_checks": []
+    },
+    {
+      "hex": "5a a5 04 e0 7b 01 00 24 00 00 01 3e",
+      "captures": [
+        "20261018T011007_resistance_st2_1kohm_9b1124e1",
+        "20261018T011348_resistance_st2_open_91086a21"
+      ],
+      "original_symbols": [
+        17,
+        0,
+        14,
+        17
+      ],
+      "original_fields": {
+        "unit_code": 13,
+        "ac_dc_code": 255,
+        "status_b7_bit7": false,
+        "negative": false,
+        "decimal_after": 2
+      },
+      "our_raw_text": " 0.L ",
+      "our_numeric": null,
+      "stock_parser_text_mode0": "  0.L ",
+      "fields_match": true,
+      "stock_parser_float_mode0": 0.0,
+      "numeric_match_when_ours_numeric": null,
+      "context_status_checks": []
+    },
+    {
+      "hex": "5a a5 04 e0 7b 01 00 24 00 00 01 3f",
+      "captures": [
+        "20261018T011007_resistance_st2_1kohm_9b1124e1",
+        "20261018T011808_auto_to_resistance_open_fa59a550"
+      ],
+      "original_symbols": [
+        17,
+        0,
+        14,
+        17
+      ],
+      "original_fields": {
+        "unit_code": 13,
+        "ac_dc_code": 255,
+        "status_b7_bit7": false,
+        "negative": false,
+        "decimal_after": 2
+      },
+      "our_raw_text": " 0.L ",
+      "our_numeric": null,
+      "stock_parser_text_mode0": "  0.L ",
+      "fields_match": true,
+      "stock_parser_float_mode0": 0.0,
+      "numeric_match_when_ours_numeric": null,
+      "context_status_checks": []
+    },
+    {
+      "hex": "5a a5 04 e0 7b 01 00 24 00 00 01 40",
+      "captures": [
+        "20261018T012010_open_probes_mode_sweep_9f01eea5"
+      ],
+      "original_symbols": [
+        17,
+        0,
+        14,
+        17
+      ],
+      "original_fields": {
+        "unit_code": 13,
+        "ac_dc_code": 255,
+        "status_b7_bit7": false,
+        "negative": false,
+        "decimal_after": 2
+      },
+      "our_raw_text": " 0.L ",
+      "our_numeric": null,
+      "stock_parser_text_mode0": "  0.L ",
+      "fields_match": true,
+      "stock_parser_float_mode0": 0.0,
+      "numeric_match_when_ours_numeric": null,
+      "context_status_checks": []
+    },
+    {
+      "hex": "5a a5 04 e0 7b 01 00 24 00 00 01 41",
+      "captures": [
+        "20261018T012010_open_probes_mode_sweep_9f01eea5"
+      ],
+      "original_symbols": [
+        17,
+        0,
+        14,
+        17
+      ],
+      "original_fields": {
+        "unit_code": 13,
+        "ac_dc_code": 255,
+        "status_b7_bit7": false,
+        "negative": false,
+        "decimal_after": 2
+      },
+      "our_raw_text": " 0.L ",
+      "our_numeric": null,
+      "stock_parser_text_mode0": "  0.L ",
+      "fields_match": true,
+      "stock_parser_float_mode0": 0.0,
+      "numeric_match_when_ours_numeric": null,
+      "context_status_checks": []
+    },
+    {
+      "hex": "5a a5 04 fa eb 0b 4a 20 00 00 01 3e",
+      "captures": [
+        "20261018T011007_resistance_st2_1kohm_9b1124e1"
+      ],
+      "original_symbols": [
+        1,
+        0,
+        0,
+        1
+      ],
+      "original_fields": {
+        "unit_code": 12,
+        "ac_dc_code": 255,
+        "status_b7_bit7": false,
+        "negative": false,
+        "decimal_after": 1
+      },
+      "our_raw_text": "1.001",
+      "our_numeric": 1.001,
+      "stock_parser_text_mode0": " 1.001",
+      "fields_match": true,
+      "stock_parser_float_mode0": 1.0010000467300415,
+      "numeric_match_when_ours_numeric": true,
+      "context_status_checks": []
+    },
+    {
+      "hex": "5a a5 04 fa eb eb 4b 20 00 00 01 3e",
+      "captures": [
+        "20261018T011007_resistance_st2_1kohm_9b1124e1"
+      ],
+      "original_symbols": [
+        1,
+        0,
+        0,
+        0
+      ],
+      "original_fields": {
+        "unit_code": 12,
+        "ac_dc_code": 255,
+        "status_b7_bit7": false,
+        "negative": false,
+        "decimal_after": 1
+      },
+      "our_raw_text": "1.000",
+      "our_numeric": 1.0,
+      "stock_parser_text_mode0": " 1.000",
+      "fields_match": true,
+      "stock_parser_float_mode0": 1.0,
+      "numeric_match_when_ours_numeric": true,
+      "context_status_checks": []
+    },
+    {
+      "hex": "5a a5 04 fa eb eb 4b 20 00 00 01 3f",
+      "captures": [
+        "20261018T011007_resistance_st2_1kohm_9b1124e1"
+      ],
+      "original_symbols": [
+        1,
+        0,
+        0,
+        0
+      ],
+      "original_fields": {
+        "unit_code": 12,
+        "ac_dc_code": 255,
+        "status_b7_bit7": false,
+        "negative": false,
+        "decimal_after": 1
+      },
+      "our_raw_text": "1.000",
+      "our_numeric": 1.0,
+      "stock_parser_text_mode0": " 1.000",
+      "fields_match": true,
+      "stock_parser_float_mode0": 1.0,
+      "numeric_match_when_ours_numeric": true,
+      "context_status_checks": []
+    },
+    {
+      "hex": "5a a5 05 00 00 00 00 00 02 00 00 00",
+      "captures": [
+        "20261018T011808_auto_to_resistance_open_fa59a550"
+      ],
+      "original_symbols": [
+        17,
+        17,
+        17,
+        17
+      ],
+      "original_fields": {
+        "unit_code": 6,
+        "ac_dc_code": 1,
+        "status_b7_bit7": false,
+        "negative": false,
+        "decimal_after": 0
+      },
+      "our_raw_text": "    ",
+      "our_numeric": null,
+      "stock_parser_text_mode0": "      ",
+      "fields_match": true,
+      "stock_parser_float_mode0": 0.0,
+      "numeric_match_when_ours_numeric": null,
+      "context_status_checks": []
+    },
+    {
+      "hex": "5a a5 05 00 00 80 1f 00 01 00 00 00",
+      "captures": [
+        "20261018T014244_current_AC_mA_open_f9bb5e6d"
+      ],
+      "original_symbols": [
+        17,
+        17,
+        17,
+        3
+      ],
+      "original_fields": {
+        "unit_code": 8,
+        "ac_dc_code": 1,
+        "status_b7_bit7": false,
+        "negative": false,
+        "decimal_after": 0
+      },
+      "our_raw_text": "   3",
+      "our_numeric": 3.0,
+      "stock_parser_text_mode0": "    3 ",
+      "fields_match": true,
+      "stock_parser_float_mode0": 3.0,
+      "numeric_match_when_ours_numeric": true,
+      "context_status_checks": []
+    },
+    {
+      "hex": "5a a5 06 00 00 00 00 00 02 00 01 3f",
+      "captures": [
+        "20261018T011808_auto_to_resistance_open_fa59a550"
+      ],
+      "original_symbols": [
+        17,
+        17,
+        17,
+        17
+      ],
+      "original_fields": {
+        "unit_code": 6,
+        "ac_dc_code": 2,
+        "status_b7_bit7": false,
+        "negative": false,
+        "decimal_after": 0
+      },
+      "our_raw_text": "    ",
+      "our_numeric": null,
+      "stock_parser_text_mode0": "      ",
+      "fields_match": true,
+      "stock_parser_float_mode0": 0.0,
+      "numeric_match_when_ours_numeric": null,
+      "context_status_checks": []
+    },
+    {
+      "hex": "5a a5 06 00 00 e0 1b 00 01 00 01 45",
+      "captures": [
+        "20261018T014128_current_mA_open_first_416da768"
+      ],
+      "original_symbols": [
+        17,
+        17,
+        17,
+        0
+      ],
+      "original_fields": {
+        "unit_code": 8,
+        "ac_dc_code": 2,
+        "status_b7_bit7": false,
+        "negative": false,
+        "decimal_after": 0
+      },
+      "our_raw_text": "   0",
+      "our_numeric": 0.0,
+      "stock_parser_text_mode0": "    0 ",
+      "fields_match": true,
+      "stock_parser_float_mode0": 0.0,
+      "numeric_match_when_ours_numeric": true,
+      "context_status_checks": []
+    },
+    {
+      "hex": "5a a5 06 00 00 e0 1b 00 01 00 01 46",
+      "captures": [
+        "20261018T014128_current_mA_open_first_416da768"
+      ],
+      "original_symbols": [
+        17,
+        17,
+        17,
+        0
+      ],
+      "original_fields": {
+        "unit_code": 8,
+        "ac_dc_code": 2,
+        "status_b7_bit7": false,
+        "negative": false,
+        "decimal_after": 0
+      },
+      "our_raw_text": "   0",
+      "our_numeric": 0.0,
+      "stock_parser_text_mode0": "    0 ",
+      "fields_match": true,
+      "stock_parser_float_mode0": 0.0,
+      "numeric_match_when_ours_numeric": true,
+      "context_status_checks": []
+    },
+    {
+      "hex": "5a a5 06 00 00 e0 1b 00 01 00 01 47",
+      "captures": [
+        "20261018T014128_current_mA_open_first_416da768"
+      ],
+      "original_symbols": [
+        17,
+        17,
+        17,
+        0
+      ],
+      "original_fields": {
+        "unit_code": 8,
+        "ac_dc_code": 2,
+        "status_b7_bit7": false,
+        "negative": false,
+        "decimal_after": 0
+      },
+      "our_raw_text": "   0",
+      "our_numeric": 0.0,
+      "stock_parser_text_mode0": "    0 ",
+      "fields_match": true,
+      "stock_parser_float_mode0": 0.0,
+      "numeric_match_when_ours_numeric": true,
+      "context_status_checks": []
+    },
+    {
+      "hex": "5a a5 44 ee 5f ee 0b 00 04 00 01 45",
+      "captures": [
+        "20261018T012926_frequency_open_8d1e1544"
+      ],
+      "original_symbols": [
+        4,
+        8,
+        4,
+        0
+      ],
+      "original_fields": {
+        "unit_code": 18,
+        "ac_dc_code": 255,
+        "status_b7_bit7": false,
+        "negative": false,
+        "decimal_after": 2
+      },
+      "our_raw_text": "48.40",
+      "our_numeric": 48.4,
+      "stock_parser_text_mode0": " 48.40",
+      "fields_match": true,
+      "stock_parser_float_mode0": 48.400001525878906,
+      "numeric_match_when_ours_numeric": true,
+      "context_status_checks": []
+    },
+    {
+      "hex": "5a a5 60 01 2a e3 05 00 00 00 01 45",
+      "captures": [
+        "20261018T014757_LIVE_cable_only_idle_0fda3de2"
+      ],
+      "original_symbols": [
+        14,
+        1,
+        11,
+        15
+      ],
+      "original_fields": {
+        "unit_code": 1,
+        "ac_dc_code": 255,
+        "status_b7_bit7": false,
+        "negative": false,
+        "decimal_after": 0
+      },
+      "our_raw_text": "L1UE",
+      "our_numeric": null,
+      "stock_parser_text_mode0": " L1UE ",
+      "fields_match": true,
+      "stock_parser_float_mode0": 1.0,
+      "numeric_match_when_ours_numeric": null,
+      "context_status_checks": [
+        {
+          "host_mode": 19,
+          "original_render_state": 0,
+          "match": true
+        }
+      ]
+    },
+    {
+      "hex": "5a a5 60 01 2a e3 05 00 00 00 01 46",
+      "captures": [
+        "20261018T014757_LIVE_cable_only_idle_0fda3de2"
+      ],
+      "original_symbols": [
+        14,
+        1,
+        11,
+        15
+      ],
+      "original_fields": {
+        "unit_code": 1,
+        "ac_dc_code": 255,
+        "status_b7_bit7": false,
+        "negative": false,
+        "decimal_after": 0
+      },
+      "our_raw_text": "L1UE",
+      "our_numeric": null,
+      "stock_parser_text_mode0": " L1UE ",
+      "fields_match": true,
+      "stock_parser_float_mode0": 1.0,
+      "numeric_match_when_ours_numeric": null,
+      "context_status_checks": [
+        {
+          "host_mode": 19,
+          "original_render_state": 0,
+          "match": true
+        }
+      ]
+    },
+    {
+      "hex": "5a a5 60 01 2a e3 05 00 00 00 01 47",
+      "captures": [
+        "20261018T014757_LIVE_cable_only_idle_0fda3de2"
+      ],
+      "original_symbols": [
+        14,
+        1,
+        11,
+        15
+      ],
+      "original_fields": {
+        "unit_code": 1,
+        "ac_dc_code": 255,
+        "status_b7_bit7": false,
+        "negative": false,
+        "decimal_after": 0
+      },
+      "our_raw_text": "L1UE",
+      "our_numeric": null,
+      "stock_parser_text_mode0": " L1UE ",
+      "fields_match": true,
+      "stock_parser_float_mode0": 1.0,
+      "numeric_match_when_ours_numeric": null,
+      "context_status_checks": [
+        {
+          "host_mode": 19,
+          "original_render_state": 0,
+          "match": true
+        }
+      ]
+    },
+    {
+      "hex": "5a a5 c4 07 da 87 0a 00 04 00 01 45",
+      "captures": [
+        "20261018T012926_frequency_open_8d1e1544"
+      ],
+      "original_symbols": [
+        5,
+        1,
+        5,
+        7
+      ],
+      "original_fields": {
+        "unit_code": 18,
+        "ac_dc_code": 255,
+        "status_b7_bit7": false,
+        "negative": false,
+        "decimal_after": 2
+      },
+      "our_raw_text": "51.57",
+      "our_numeric": 51.57,
+      "stock_parser_text_mode0": " 51.57",
+      "fields_match": true,
+      "stock_parser_float_mode0": 51.56999969482422,
+      "numeric_match_when_ours_numeric": true,
+      "context_status_checks": []
+    },
+    {
+      "hex": "5a a5 c4 e7 fb 4b 0e 00 04 00 01 45",
+      "captures": [
+        "20261018T012926_frequency_open_8d1e1544"
+      ],
+      "original_symbols": [
+        5,
+        0,
+        0,
+        4
+      ],
+      "original_fields": {
+        "unit_code": 18,
+        "ac_dc_code": 255,
+        "status_b7_bit7": false,
+        "negative": false,
+        "decimal_after": 2
+      },
+      "our_raw_text": "50.04",
+      "our_numeric": 50.04,
+      "stock_parser_text_mode0": " 50.04",
+      "fields_match": true,
+      "stock_parser_float_mode0": 50.040000915527344,
+      "numeric_match_when_ours_numeric": true,
+      "context_status_checks": []
+    },
+    {
+      "hex": "5a a5 c4 e7 fb 8b 0a 00 04 00 01 45",
+      "captures": [
+        "20261018T012926_frequency_open_8d1e1544"
+      ],
+      "original_symbols": [
+        5,
+        0,
+        0,
+        7
+      ],
+      "original_fields": {
+        "unit_code": 18,
+        "ac_dc_code": 255,
+        "status_b7_bit7": false,
+        "negative": false,
+        "decimal_after": 2
+      },
+      "our_raw_text": "50.07",
+      "our_numeric": 50.07,
+      "stock_parser_text_mode0": " 50.07",
+      "fields_match": true,
+      "stock_parser_float_mode0": 50.06999969482422,
+      "numeric_match_when_ours_numeric": true,
+      "context_status_checks": []
+    },
+    {
+      "hex": "5a a5 c4 e7 fb 8b 0f 00 04 00 01 45",
+      "captures": [
+        "20261018T012926_frequency_open_8d1e1544"
+      ],
+      "original_symbols": [
+        5,
+        0,
+        0,
+        3
+      ],
+      "original_fields": {
+        "unit_code": 18,
+        "ac_dc_code": 255,
+        "status_b7_bit7": false,
+        "negative": false,
+        "decimal_after": 2
+      },
+      "our_raw_text": "50.03",
+      "our_numeric": 50.03,
+      "stock_parser_text_mode0": " 50.03",
+      "fields_match": true,
+      "stock_parser_float_mode0": 50.029998779296875,
+      "numeric_match_when_ours_numeric": true,
+      "context_status_checks": []
+    },
+    {
+      "hex": "5a a5 c4 e7 fb cb 07 00 04 00 01 45",
+      "captures": [
+        "20261018T012926_frequency_open_8d1e1544"
+      ],
+      "original_symbols": [
+        5,
+        0,
+        0,
+        5
+      ],
+      "original_fields": {
+        "unit_code": 18,
+        "ac_dc_code": 255,
+        "status_b7_bit7": false,
+        "negative": false,
+        "decimal_after": 2
+      },
+      "our_raw_text": "50.05",
+      "our_numeric": 50.05,
+      "stock_parser_text_mode0": " 50.05",
+      "fields_match": true,
+      "stock_parser_float_mode0": 50.04999923706055,
+      "numeric_match_when_ours_numeric": true,
+      "context_status_checks": []
+    },
+    {
+      "hex": "5a a5 e4 2e 63 25 07 00 00 00 00 00",
+      "captures": [
+        "20261018T004155_startup_auto_d0_d2_2mhz_998d0648"
+      ],
+      "original_symbols": [
+        10,
+        11,
+        12,
+        13
+      ],
+      "original_fields": {
+        "unit_code": 1,
+        "ac_dc_code": 255,
+        "status_b7_bit7": false,
+        "negative": false,
+        "decimal_after": 0
+      },
+      "our_raw_text": "AUTO",
+      "our_numeric": null,
+      "stock_parser_text_mode0": " AUTO ",
+      "fields_match": true,
+      "stock_parser_float_mode0": 0.0,
+      "numeric_match_when_ours_numeric": null,
+      "context_status_checks": []
+    },
+    {
+      "hex": "5a a5 e4 2e 63 25 07 00 00 00 01 3e",
+      "captures": [
+        "20261018T003908_idle_already_powered_81d808b6",
+        "20261018T004101_auto_idle_d0_d2_2mhz_9eb57894",
+        "20261018T004155_startup_auto_d0_d2_2mhz_998d0648"
+      ],
+      "original_symbols": [
+        10,
+        11,
+        12,
+        13
+      ],
+      "original_fields": {
+        "unit_code": 1,
+        "ac_dc_code": 255,
+        "status_b7_bit7": false,
+        "negative": false,
+        "decimal_after": 0
+      },
+      "our_raw_text": "AUTO",
+      "our_numeric": null,
+      "stock_parser_text_mode0": " AUTO ",
+      "fields_match": true,
+      "stock_parser_float_mode0": 0.0,
+      "numeric_match_when_ours_numeric": null,
+      "context_status_checks": []
+    },
+    {
+      "hex": "5a a5 e4 2e 63 25 07 00 00 00 01 3f",
+      "captures": [
+        "20261018T003908_idle_already_powered_81d808b6",
+        "20261018T004101_auto_idle_d0_d2_2mhz_9eb57894",
+        "20261018T004155_startup_auto_d0_d2_2mhz_998d0648"
+      ],
+      "original_symbols": [
+        10,
+        11,
+        12,
+        13
+      ],
+      "original_fields": {
+        "unit_code": 1,
+        "ac_dc_code": 255,
+        "status_b7_bit7": false,
+        "negative": false,
+        "decimal_after": 0
+      },
+      "our_raw_text": "AUTO",
+      "our_numeric": null,
+      "stock_parser_text_mode0": " AUTO ",
+      "fields_match": true,
+      "stock_parser_float_mode0": 0.0,
+      "numeric_match_when_ours_numeric": null,
+      "context_status_checks": []
+    },
+    {
+      "hex": "5a a5 e4 2e 63 25 07 00 00 00 01 40",
+      "captures": [
+        "20261018T003908_idle_already_powered_81d808b6",
+        "20261018T004155_startup_auto_d0_d2_2mhz_998d0648",
+        "20261018T011808_auto_to_resistance_open_fa59a550"
+      ],
+      "original_symbols": [
+        10,
+        11,
+        12,
+        13
+      ],
+      "original_fields": {
+        "unit_code": 1,
+        "ac_dc_code": 255,
+        "status_b7_bit7": false,
+        "negative": false,
+        "decimal_after": 0
+      },
+      "our_raw_text": "AUTO",
+      "our_numeric": null,
+      "stock_parser_text_mode0": " AUTO ",
+      "fields_match": true,
+      "stock_parser_float_mode0": 0.0,
+      "numeric_match_when_ours_numeric": null,
+      "context_status_checks": []
+    },
+    {
+      "hex": "5a a5 e4 2e 63 25 07 00 00 00 01 48",
+      "captures": [
+        "20261018T004155_startup_auto_d0_d2_2mhz_998d0648"
+      ],
+      "original_symbols": [
+        10,
+        11,
+        12,
+        13
+      ],
+      "original_fields": {
+        "unit_code": 1,
+        "ac_dc_code": 255,
+        "status_b7_bit7": false,
+        "negative": false,
+        "decimal_after": 0
+      },
+      "our_raw_text": "AUTO",
+      "our_numeric": null,
+      "stock_parser_text_mode0": " AUTO ",
+      "fields_match": true,
+      "stock_parser_float_mode0": 0.0,
+      "numeric_match_when_ours_numeric": null,
+      "context_status_checks": []
+    },
+    {
+      "hex": "5a a5 e4 db cf ef 07 24 00 00 01 3f",
+      "captures": [
+        "20261018T011507_resistance_st2_1Mohm_7edb835a"
+      ],
+      "original_symbols": [
+        0,
+        9,
+        9,
+        6
+      ],
+      "original_fields": {
+        "unit_code": 13,
+        "ac_dc_code": 255,
+        "status_b7_bit7": false,
+        "negative": false,
+        "decimal_after": 1
+      },
+      "our_raw_text": "0.996",
+      "our_numeric": 0.996,
+      "stock_parser_text_mode0": " 0.996",
+      "fields_match": true,
+      "stock_parser_float_mode0": 0.9959999918937683,
+      "numeric_match_when_ours_numeric": true,
+      "context_status_checks": []
+    },
+    {
+      "hex": "5a a5 e4 db cf ef 07 24 00 00 01 40",
+      "captures": [
+        "20261018T011507_resistance_st2_1Mohm_7edb835a"
+      ],
+      "original_symbols": [
+        0,
+        9,
+        9,
+        6
+      ],
+      "original_fields": {
+        "unit_code": 13,
+        "ac_dc_code": 255,
+        "status_b7_bit7": false,
+        "negative": false,
+        "decimal_after": 1
+      },
+      "our_raw_text": "0.996",
+      "our_numeric": 0.996,
+      "stock_parser_text_mode0": " 0.996",
+      "fields_match": true,
+      "stock_parser_float_mode0": 0.9959999918937683,
+      "numeric_match_when_ours_numeric": true,
+      "context_status_checks": []
+    },
+    {
+      "hex": "5a a5 e4 fb 0b 4a 2e 10 00 00 01 40",
+      "captures": [
+        "20261018T012123_capacitance_open_0015_reported_599d35bc"
+      ],
+      "original_symbols": [
+        0,
+        0,
+        1,
+        4
+      ],
+      "original_fields": {
+        "unit_code": 15,
+        "ac_dc_code": 255,
+        "status_b7_bit7": false,
+        "negative": false,
+        "decimal_after": 1
+      },
+      "our_raw_text": "0.014",
+      "our_numeric": 0.014,
+      "stock_parser_text_mode0": " 0.014",
+      "fields_match": true,
+      "stock_parser_float_mode0": 0.014000000432133675,
+      "numeric_match_when_ours_numeric": true,
+      "context_status_checks": []
+    },
+    {
+      "hex": "5a a5 e4 fb 0b 4a 2e 10 00 00 01 41",
+      "captures": [
+        "20261018T012123_capacitance_open_0015_reported_599d35bc"
+      ],
+      "original_symbols": [
+        0,
+        0,
+        1,
+        4
+      ],
+      "original_fields": {
+        "unit_code": 15,
+        "ac_dc_code": 255,
+        "status_b7_bit7": false,
+        "negative": false,
+        "decimal_after": 1
+      },
+      "our_raw_text": "0.014",
+      "our_numeric": 0.014,
+      "stock_parser_text_mode0": " 0.014",
+      "fields_match": true,
+      "stock_parser_float_mode0": 0.014000000432133675,
+      "numeric_match_when_ours_numeric": true,
+      "context_status_checks": []
+    },
+    {
+      "hex": "5a a5 e4 fb 0b 4a 2e 10 00 00 01 42",
+      "captures": [
+        "20261018T012123_capacitance_open_0015_reported_599d35bc"
+      ],
+      "original_symbols": [
+        0,
+        0,
+        1,
+        4
+      ],
+      "original_fields": {
+        "unit_code": 15,
+        "ac_dc_code": 255,
+        "status_b7_bit7": false,
+        "negative": false,
+        "decimal_after": 1
+      },
+      "our_raw_text": "0.014",
+      "our_numeric": 0.014,
+      "stock_parser_text_mode0": " 0.014",
+      "fields_match": true,
+      "stock_parser_float_mode0": 0.014000000432133675,
+      "numeric_match_when_ours_numeric": true,
+      "context_status_checks": []
+    },
+    {
+      "hex": "5a a5 e4 fb eb eb 2b 10 00 00 01 40",
+      "captures": [
+        "20261018T012010_open_probes_mode_sweep_9f01eea5"
+      ],
+      "original_symbols": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "original_fields": {
+        "unit_code": 15,
+        "ac_dc_code": 255,
+        "status_b7_bit7": false,
+        "negative": false,
+        "decimal_after": 1
+      },
+      "our_raw_text": "0.000",
+      "our_numeric": 0.0,
+      "stock_parser_text_mode0": " 0.000",
+      "fields_match": true,
+      "stock_parser_float_mode0": 0.0,
+      "numeric_match_when_ours_numeric": true,
+      "context_status_checks": []
+    },
+    {
+      "hex": "5a a5 e5 bb 8d 8a 0f 00 02 00 00 00",
+      "captures": [
+        "20261018T012633_ac_voltage_open_0f21932d"
+      ],
+      "original_symbols": [
+        0,
+        2,
+        7,
+        3
+      ],
+      "original_fields": {
+        "unit_code": 6,
+        "ac_dc_code": 1,
+        "status_b7_bit7": false,
+        "negative": false,
+        "decimal_after": 1
+      },
+      "our_raw_text": "0.273",
+      "our_numeric": 0.273,
+      "stock_parser_text_mode0": " 0.273",
+      "fields_match": true,
+      "stock_parser_float_mode0": 0.27300000190734863,
+      "numeric_match_when_ours_numeric": true,
+      "context_status_checks": []
+    },
+    {
+      "hex": "5a a5 e5 bb 8d aa 0d 00 02 00 00 00",
+      "captures": [
+        "20261018T012633_ac_voltage_open_0f21932d"
+      ],
+      "original_symbols": [
+        0,
+        2,
+        7,
+        2
+      ],
+      "original_fields": {
+        "unit_code": 6,
+        "ac_dc_code": 1,
+        "status_b7_bit7": false,
+        "negative": false,
+        "decimal_after": 1
+      },
+      "our_raw_text": "0.272",
+      "our_numeric": 0.272,
+      "stock_parser_text_mode0": " 0.272",
+      "fields_match": true,
+      "stock_parser_float_mode0": 0.2720000147819519,
+      "numeric_match_when_ours_numeric": true,
+      "context_status_checks": []
+    },
+    {
+      "hex": "5a a5 e5 fb eb 0b 0a 00 01 00 00 00",
+      "captures": [
+        "20261018T014536_current_AC_A_open_56fe1dda"
+      ],
+      "original_symbols": [
+        0,
+        0,
+        0,
+        1
+      ],
+      "original_fields": {
+        "unit_code": 10,
+        "ac_dc_code": 1,
+        "status_b7_bit7": false,
+        "negative": false,
+        "decimal_after": 1
+      },
+      "our_raw_text": "0.001",
+      "our_numeric": 0.001,
+      "stock_parser_text_mode0": " 0.001",
+      "fields_match": true,
+      "stock_parser_float_mode0": 0.0010000000474974513,
+      "numeric_match_when_ours_numeric": true,
+      "context_status_checks": []
+    },
+    {
+      "hex": "5a a5 e6 fb eb eb 0b 00 01 00 01 45",
+      "captures": [
+        "20261018T014351_current_DC_A_open_b049a37a"
+      ],
+      "original_symbols": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "original_fields": {
+        "unit_code": 10,
+        "ac_dc_code": 2,
+        "status_b7_bit7": false,
+        "negative": false,
+        "decimal_after": 1
+      },
+      "our_raw_text": "0.000",
+      "our_numeric": 0.0,
+      "stock_parser_text_mode0": " 0.000",
+      "fields_match": true,
+      "stock_parser_float_mode0": 0.0,
+      "numeric_match_when_ours_numeric": true,
+      "context_status_checks": []
+    },
+    {
+      "hex": "5a a5 e6 fb eb eb 0b 00 01 00 01 47",
+      "captures": [
+        "20261018T014351_current_DC_A_open_b049a37a"
+      ],
+      "original_symbols": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "original_fields": {
+        "unit_code": 10,
+        "ac_dc_code": 2,
+        "status_b7_bit7": false,
+        "negative": false,
+        "decimal_after": 1
+      },
+      "our_raw_text": "0.000",
+      "our_numeric": 0.0,
+      "stock_parser_text_mode0": " 0.000",
+      "fields_match": true,
+      "stock_parser_float_mode0": 0.0,
+      "numeric_match_when_ours_numeric": true,
+      "context_status_checks": []
+    },
+    {
+      "hex": "5a a5 e6 fb eb eb 0b 00 02 00 01 3f",
+      "captures": [
+        "20261018T011808_auto_to_resistance_open_fa59a550"
+      ],
+      "original_symbols": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "original_fields": {
+        "unit_code": 6,
+        "ac_dc_code": 2,
+        "status_b7_bit7": false,
+        "negative": false,
+        "decimal_after": 1
+      },
+      "our_raw_text": "0.000",
+      "our_numeric": 0.0,
+      "stock_parser_text_mode0": " 0.000",
+      "fields_match": true,
+      "stock_parser_float_mode0": 0.0,
+      "numeric_match_when_ours_numeric": true,
+      "context_status_checks": []
+    },
+    {
+      "hex": "5a a5 e6 fb eb eb 0b 00 02 00 01 45",
+      "captures": [
+        "20261018T012445_dc_voltage_open_floating_4c4cae37"
+      ],
+      "original_symbols": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "original_fields": {
+        "unit_code": 6,
+        "ac_dc_code": 2,
+        "status_b7_bit7": false,
+        "negative": false,
+        "decimal_after": 1
+      },
+      "our_raw_text": "0.000",
+      "our_numeric": 0.0,
+      "stock_parser_text_mode0": " 0.000",
+      "fields_match": true,
+      "stock_parser_float_mode0": 0.0,
+      "numeric_match_when_ours_numeric": true,
+      "context_status_checks": []
+    },
+    {
+      "hex": "5a a5 e6 fb eb eb 0b 00 02 00 01 46",
+      "captures": [
+        "20261018T012445_dc_voltage_open_floating_4c4cae37"
+      ],
+      "original_symbols": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "original_fields": {
+        "unit_code": 6,
+        "ac_dc_code": 2,
+        "status_b7_bit7": false,
+        "negative": false,
+        "decimal_after": 1
+      },
+      "our_raw_text": "0.000",
+      "our_numeric": 0.0,
+      "stock_parser_text_mode0": " 0.000",
+      "fields_match": true,
+      "stock_parser_float_mode0": 0.0,
+      "numeric_match_when_ours_numeric": true,
+      "context_status_checks": []
+    },
+    {
+      "hex": "5a a5 f6 fb eb 4b 0e 00 02 00 01 3f",
+      "captures": [
+        "20261018T011808_auto_to_resistance_open_fa59a550"
+      ],
+      "original_symbols": [
+        0,
+        0,
+        0,
+        4
+      ],
+      "original_fields": {
+        "unit_code": 6,
+        "ac_dc_code": 2,
+        "status_b7_bit7": false,
+        "negative": true,
+        "decimal_after": 1
+      },
+      "our_raw_text": "-0.004",
+      "our_numeric": -0.004,
+      "stock_parser_text_mode0": "-0.004",
+      "fields_match": true,
+      "stock_parser_float_mode0": -0.004000000189989805,
+      "numeric_match_when_ours_numeric": true,
+      "context_status_checks": []
+    },
+    {
+      "hex": "5a a5 f6 fb eb 8b 0f 00 02 00 01 3f",
+      "captures": [
+        "20261018T011808_auto_to_resistance_open_fa59a550"
+      ],
+      "original_symbols": [
+        0,
+        0,
+        0,
+        3
+      ],
+      "original_fields": {
+        "unit_code": 6,
+        "ac_dc_code": 2,
+        "status_b7_bit7": false,
+        "negative": true,
+        "decimal_after": 1
+      },
+      "our_raw_text": "-0.003",
+      "our_numeric": -0.003,
+      "stock_parser_text_mode0": "-0.003",
+      "fields_match": true,
+      "stock_parser_float_mode0": -0.003000000026077032,
+      "numeric_match_when_ours_numeric": true,
+      "context_status_checks": []
+    },
+    {
+      "hex": "5a a5 f6 fb eb 8b 0f 00 02 00 01 45",
+      "captures": [
+        "20261018T012445_dc_voltage_open_floating_4c4cae37"
+      ],
+      "original_symbols": [
+        0,
+        0,
+        0,
+        3
+      ],
+      "original_fields": {
+        "unit_code": 6,
+        "ac_dc_code": 2,
+        "status_b7_bit7": false,
+        "negative": true,
+        "decimal_after": 1
+      },
+      "our_raw_text": "-0.003",
+      "our_numeric": -0.003,
+      "stock_parser_text_mode0": "-0.003",
+      "fields_match": true,
+      "stock_parser_float_mode0": -0.003000000026077032,
+      "numeric_match_when_ours_numeric": true,
+      "context_status_checks": []
+    },
+    {
+      "hex": "5a a5 f6 fb eb 8b 0f 00 02 00 01 46",
+      "captures": [
+        "20261018T012445_dc_voltage_open_floating_4c4cae37"
+      ],
+      "original_symbols": [
+        0,
+        0,
+        0,
+        3
+      ],
+      "original_fields": {
+        "unit_code": 6,
+        "ac_dc_code": 2,
+        "status_b7_bit7": false,
+        "negative": true,
+        "decimal_after": 1
+      },
+      "our_raw_text": "-0.003",
+      "our_numeric": -0.003,
+      "stock_parser_text_mode0": "-0.003",
+      "fields_match": true,
+      "stock_parser_float_mode0": -0.003000000026077032,
+      "numeric_match_when_ours_numeric": true,
+      "context_status_checks": []
+    },
+    {
+      "hex": "5a a5 f6 fb eb ab 0d 00 02 00 01 45",
+      "captures": [
+        "20261018T012445_dc_voltage_open_floating_4c4cae37"
+      ],
+      "original_symbols": [
+        0,
+        0,
+        0,
+        2
+      ],
+      "original_fields": {
+        "unit_code": 6,
+        "ac_dc_code": 2,
+        "status_b7_bit7": false,
+        "negative": true,
+        "decimal_after": 1
+      },
+      "our_raw_text": "-0.002",
+      "our_numeric": -0.002,
+      "stock_parser_text_mode0": "-0.002",
+      "fields_match": true,
+      "stock_parser_float_mode0": -0.0020000000949949026,
+      "numeric_match_when_ours_numeric": true,
+      "context_status_checks": []
+    },
+    {
+      "hex": "5a a5 f6 fb eb ab 0d 00 02 00 01 46",
+      "captures": [
+        "20261018T012445_dc_voltage_open_floating_4c4cae37"
+      ],
+      "original_symbols": [
+        0,
+        0,
+        0,
+        2
+      ],
+      "original_fields": {
+        "unit_code": 6,
+        "ac_dc_code": 2,
+        "status_b7_bit7": false,
+        "negative": true,
+        "decimal_after": 1
+      },
+      "our_raw_text": "-0.002",
+      "our_numeric": -0.002,
+      "stock_parser_text_mode0": "-0.002",
+      "fields_match": true,
+      "stock_parser_float_mode0": -0.0020000000949949026,
+      "numeric_match_when_ours_numeric": true,
+      "context_status_checks": []
+    },
+    {
+      "hex": "5a a5 f6 fb eb eb 07 00 02 00 01 3f",
+      "captures": [
+        "20261018T011808_auto_to_resistance_open_fa59a550"
+      ],
+      "original_symbols": [
+        0,
+        0,
+        0,
+        6
+      ],
+      "original_fields": {
+        "unit_code": 6,
+        "ac_dc_code": 2,
+        "status_b7_bit7": false,
+        "negative": true,
+        "decimal_after": 1
+      },
+      "our_raw_text": "-0.006",
+      "our_numeric": -0.006,
+      "stock_parser_text_mode0": "-0.006",
+      "fields_match": true,
+      "stock_parser_float_mode0": -0.006000000052154064,
+      "numeric_match_when_ours_numeric": true,
+      "context_status_checks": []
+    }
+  ],
+  "intentional_differences": [
+    "Lossless raw text; unknown symbol '?' instead of stock coercion/rendering.",
+    "Nonnumeric/unknown frames remain None, not stock float fallback.",
+    "No mode-dependent leading blank replacement by zero in raw text.",
+    "12 observed wire bytes preserved, separate from stock DMA buffer13.",
+    "Diagnostic A0 template retained as reference but not exposed by serializer."
+  ],
+  "not_confirmed": [
+    "RX checksum",
+    "opaque tail",
+    "ASIC analog semantics",
+    "wire command selection for last7 captures"
+  ]
+}

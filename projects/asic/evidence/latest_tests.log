@@ -1,0 +1,36 @@
+test_literal_serializer (test_c_module.CModuleTests.test_literal_serializer) ... ok
+test_numeric_policy_and_rejected_input_retention (test_c_module.CModuleTests.test_numeric_policy_and_rejected_input_retention) ... ok
+test_real_frame_parsing (test_c_module.CModuleTests.test_real_frame_parsing) ... ok
+test_stream_fuzz_with_address_and_undefined_sanitizers (test_c_module.CModuleTests.test_stream_fuzz_with_address_and_undefined_sanitizers) ... ok
+test_4096_frames_and_unit_priority_combinations (test_firmware_reference.FirmwareReferenceTests.test_4096_frames_and_unit_priority_combinations) ... ok
+test_all_256_segment_codes (test_firmware_reference.FirmwareReferenceTests.test_all_256_segment_codes) ... ok
+test_all_19_literals_and_legacy_exception (test_pipeline.PacketTests.test_all_19_literals_and_legacy_exception) ... ok
+test_embedded_header_and_uart_errors_remain_visible (test_pipeline.PacketTests.test_embedded_header_and_uart_errors_remain_visible) ... ok
+test_hypotheses_never_promote_repetition (test_pipeline.PacketTests.test_hypotheses_never_promote_repetition) ... ok
+test_noise_truncation_gap_and_back_to_back_lossless (test_pipeline.PacketTests.test_noise_truncation_gap_and_back_to_back_lossless) ... ok
+test_unknown_value_and_partial_header_preserved (test_pipeline.PacketTests.test_unknown_value_and_partial_header_preserved) ... ok
+test_actual_sigrok_archive_writer_compatibility (test_pipeline.SessionTests.test_actual_sigrok_archive_writer_compatibility) ... ok
+test_chunk_order_rate_exports_and_metadata (test_pipeline.SessionTests.test_chunk_order_rate_exports_and_metadata) ... ok
+test_reject_wrong_mapping_or_missing_chunk (test_pipeline.SessionTests.test_reject_wrong_mapping_or_missing_chunk) ... ok
+test_unlisted_channel_recovery_is_explicit (test_pipeline.SessionTests.test_unlisted_channel_recovery_is_explicit) ... ok
+test_all_bytes_both_rates_channels_across_block_boundaries (test_pipeline.UARTTests.test_all_bytes_both_rates_channels_across_block_boundaries) ... ok
+test_framing_error_preserved (test_pipeline.UARTTests.test_framing_error_preserved) ... ok
+test_reference_libsigrokdecode_all_values (test_pipeline.UARTTests.test_reference_libsigrokdecode_all_values) ... ok
+test_truncated_and_glitch_and_stuck_lines (test_pipeline.UARTTests.test_truncated_and_glitch_and_stuck_lines) ... ok
+test_auto_idle_at_1_and_2_mhz (test_real_captures.RealCaptureTests.test_auto_idle_at_1_and_2_mhz) ... ok
+test_auto_to_resistance_command_event_sequence (test_real_captures.RealCaptureTests.test_auto_to_resistance_command_event_sequence) ... ok
+test_capacitance_and_buzzer_open_wire_forms (test_real_captures.RealCaptureTests.test_capacitance_and_buzzer_open_wire_forms) ... ok
+test_current_open_modes_preserve_reported_and_wire_units (test_real_captures.RealCaptureTests.test_current_open_modes_preserve_reported_and_wire_units) ... ok
+test_dc_ac_open_sign_and_status_codes (test_real_captures.RealCaptureTests.test_dc_ac_open_sign_and_status_codes) ... ok
+test_exported_resistance_reference_windows (test_real_captures.RealCaptureTests.test_exported_resistance_reference_windows) ... ok
+test_ncv_and_live_open_status_requires_host_context (test_real_captures.RealCaptureTests.test_ncv_and_live_open_status_requires_host_context) ... ok
+test_open_frequency_exact_samples_and_hz_units (test_real_captures.RealCaptureTests.test_open_frequency_exact_samples_and_hz_units) ... ok
+test_physical_one_ohm_leading_blanks_and_decimal (test_real_captures.RealCaptureTests.test_physical_one_ohm_leading_blanks_and_decimal) ... ok
+test_physical_open_probes_not_coerced_to_zero (test_real_captures.RealCaptureTests.test_physical_open_probes_not_coerced_to_zero) ... ok
+test_startup_command_and_distinct_event_header (test_real_captures.RealCaptureTests.test_startup_command_and_distinct_event_header) ... ok
+test_temperature_open_wire_numeric_and_separate_user_unit (test_real_captures.RealCaptureTests.test_temperature_open_wire_numeric_and_separate_user_unit) ... ok
+
+----------------------------------------------------------------------
+Ran 31 tests in 0.950s
+
+OK

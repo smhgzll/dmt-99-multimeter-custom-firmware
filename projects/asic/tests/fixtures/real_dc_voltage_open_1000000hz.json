@@ -1,0 +1,876 @@
+{
+  "origin": "hardware_excerpt",
+  "source_capture": "projects/asic/captures/20261018T012445_dc_voltage_open_floating_4c4cae37",
+  "source_capture_status": "captured",
+  "source_raw_sr_sha256": "8e2dff95c30a5e2e8fba910cde1c0ff87ed11137dfb33b436e382d291aa27127",
+  "source_logic_sha256": "c76af493b72b0bc6f99aa9edcfac84a5a6cff8eb93c4990be3682f37982b1951",
+  "source_metadata": {
+    "test": "voltage_dc_open",
+    "label": "dc_voltage_open_floating",
+    "display_text": "Boşta V değeri arada geziyor",
+    "display_numeric": null,
+    "display_unit": "V",
+    "display_tolerance": 0,
+    "component_actual": "Problar açık; harici kaynak yok",
+    "mode": "dc_voltage",
+    "notes": "Kullanıcı şimdi dcde arada boşta da olsa v geziyor bildirdi. Tek bir sayısal ekran hedefi girilmedi; tüm dalgalanmalar, işaret ve birim bayrakları olduğu gibi kaydedilecek. Kaynak/komponent bağlanmayacak.",
+    "schema": 1,
+    "origin": "hardware",
+    "status": "captured",
+    "host_started_at": "2026-10-18T01:24:45.499507+03:00",
+    "requested_seconds": 10.0,
+    "requested_samples": 10000000,
+    "requested_samplerate_hz": 1000000,
+    "channels": {
+      "D0": "MCU_TX_PA9_pin42",
+      "D2": "ASIC_TX_PA10_pin43"
+    },
+    "channel_map": {
+      "MCU_TX": 0,
+      "ASIC_TX": 2
+    },
+    "rx_frame_bytes": 12,
+    "uart": "9600 8N1",
+    "passive_connections_confirmed": true,
+    "device_preflight": {
+      "argv": [
+        "sigrok-cli",
+        "--driver",
+        "fx2lafw",
+        "--show"
+      ],
+      "returncode": 0,
+      "output": "Driver functions:\n    Logic analyzer\nScan options:\n    conn\nfx2lafw:conn=1.67 - Saleae Logic [S/N: Saleae Logic] with 8 channels: D0 D1 D2 D3 D4 D5 D6 D7\nChannel groups:\n    Logic: channels D0 D1 D2 D3 D4 D5 D6 D7\nSupported configuration options across all channel groups:\n    continuous: on, off\n    limit_samples: 0 (current)\n    conn: 1.67 (current)\n    samplerate - supported samplerates:\n      20 kHz (current)\n      25 kHz\n      50 kHz\n      100 kHz\n      200 kHz\n      250 kHz\n      500 kHz\n      1 MHz\n      2 MHz\n      3 MHz\n      4 MHz\n      6 MHz\n      8 MHz\n      12 MHz\n      16 MHz\n      24 MHz\n      48 MHz\n    Supported triggers: 0 1 r f e \n    captureratio: 0 (current)\n"
+    },
+    "command": [
+      "sigrok-cli",
+      "--loglevel",
+      "4",
+      "--driver",
+      "fx2lafw",
+      "--config",
+      "samplerate=1000000",
+      "--channels",
+      "D0,D2",
+      "--samples",
+      "10000000",
+      "--output-format",
+      "srzip",
+      "--output-file",
+      "projects/asic/captures/20261018T012445_dc_voltage_open_floating_4c4cae37/raw.sr"
+    ],
+    "host_finished_at": "2026-10-18T01:24:55.616149+03:00",
+    "returncode": 0,
+    "received_samples": 10000000,
+    "analysis_error": null
+  },
+  "start_sample": 83127,
+  "end_sample_exclusive": 1903496,
+  "samplerate_hz": 1000000,
+  "channel_map": {
+    "MCU_TX": 0,
+    "ASIC_TX": 2
+  },
+  "raw_excerpt_sha256": "74beac181db7533ef5f3c278ec4fa9dcb08bbba419088d424b79395090d17e8b",
+  "expected": {
+    "MCU_TX": [],
+    "ASIC_TX": [
+      {
+        "value": 90,
+        "start_sample": 1000,
+        "errors": []
+      },
+      {
+        "value": 165,
+        "start_sample": 2053,
+        "errors": []
+      },
+      {
+        "value": 246,
+        "start_sample": 3106,
+        "errors": []
+      },
+      {
+        "value": 251,
+        "start_sample": 4146,
+        "errors": []
+      },
+      {
+        "value": 235,
+        "start_sample": 5199,
+        "errors": []
+      },
+      {
+        "value": 139,
+        "start_sample": 6239,
+        "errors": []
+      },
+      {
+        "value": 15,
+        "start_sample": 7279,
+        "errors": []
+      },
+      {
+        "value": 0,
+        "start_sample": 8332,
+        "errors": []
+      },
+      {
+        "value": 2,
+        "start_sample": 9371,
+        "errors": []
+      },
+      {
+        "value": 0,
+        "start_sample": 10424,
+        "errors": []
+      },
+      {
+        "value": 1,
+        "start_sample": 11477,
+        "errors": []
+      },
+      {
+        "value": 70,
+        "start_sample": 12530,
+        "errors": []
+      },
+      {
+        "value": 90,
+        "start_sample": 164141,
+        "errors": []
+      },
+      {
+        "value": 165,
+        "start_sample": 165181,
+        "errors": []
+      },
+      {
+        "value": 246,
+        "start_sample": 166234,
+        "errors": []
+      },
+      {
+        "value": 251,
+        "start_sample": 167287,
+        "errors": []
+      },
+      {
+        "value": 235,
+        "start_sample": 168327,
+        "errors": []
+      },
+      {
+        "value": 139,
+        "start_sample": 169380,
+        "errors": []
+      },
+      {
+        "value": 15,
+        "start_sample": 170433,
+        "errors": []
+      },
+      {
+        "value": 0,
+        "start_sample": 171486,
+        "errors": []
+      },
+      {
+        "value": 2,
+        "start_sample": 172539,
+        "errors": []
+      },
+      {
+        "value": 0,
+        "start_sample": 173592,
+        "errors": []
+      },
+      {
+        "value": 1,
+        "start_sample": 174644,
+        "errors": []
+      },
+      {
+        "value": 70,
+        "start_sample": 175697,
+        "errors": []
+      },
+      {
+        "value": 90,
+        "start_sample": 333080,
+        "errors": []
+      },
+      {
+        "value": 165,
+        "start_sample": 334133,
+        "errors": []
+      },
+      {
+        "value": 230,
+        "start_sample": 335186,
+        "errors": []
+      },
+      {
+        "value": 251,
+        "start_sample": 336226,
+        "errors": []
+      },
+      {
+        "value": 235,
+        "start_sample": 337266,
+        "errors": []
+      },
+      {
+        "value": 235,
+        "start_sample": 338319,
+        "errors": []
+      },
+      {
+        "value": 11,
+        "start_sample": 339371,
+        "errors": []
+      },
+      {
+        "value": 0,
+        "start_sample": 340424,
+        "errors": []
+      },
+      {
+        "value": 2,
+        "start_sample": 341477,
+        "errors": []
+      },
+      {
+        "value": 0,
+        "start_sample": 342530,
+        "errors": []
+      },
+      {
+        "value": 1,
+        "start_sample": 343583,
+        "errors": []
+      },
+      {
+        "value": 70,
+        "start_sample": 344636,
+        "errors": []
+      },
+      {
+        "value": 90,
+        "start_sample": 496273,
+        "errors": []
+      },
+      {
+        "value": 165,
+        "start_sample": 497313,
+        "errors": []
+      },
+      {
+        "value": 230,
+        "start_sample": 498366,
+        "errors": []
+      },
+      {
+        "value": 251,
+        "start_sample": 499419,
+        "errors": []
+      },
+      {
+        "value": 235,
+        "start_sample": 500472,
+        "errors": []
+      },
+      {
+        "value": 235,
+        "start_sample": 501512,
+        "errors": []
+      },
+      {
+        "value": 11,
+        "start_sample": 502552,
+        "errors": []
+      },
+      {
+        "value": 0,
+        "start_sample": 503605,
+        "errors": []
+      },
+      {
+        "value": 2,
+        "start_sample": 504644,
+        "errors": []
+      },
+      {
+        "value": 0,
+        "start_sample": 505697,
+        "errors": []
+      },
+      {
+        "value": 1,
+        "start_sample": 506750,
+        "errors": []
+      },
+      {
+        "value": 70,
+        "start_sample": 507803,
+        "errors": []
+      },
+      {
+        "value": 90,
+        "start_sample": 659141,
+        "errors": []
+      },
+      {
+        "value": 165,
+        "start_sample": 660194,
+        "errors": []
+      },
+      {
+        "value": 246,
+        "start_sample": 661247,
+        "errors": []
+      },
+      {
+        "value": 251,
+        "start_sample": 662300,
+        "errors": []
+      },
+      {
+        "value": 235,
+        "start_sample": 663353,
+        "errors": []
+      },
+      {
+        "value": 139,
+        "start_sample": 664393,
+        "errors": []
+      },
+      {
+        "value": 15,
+        "start_sample": 665433,
+        "errors": []
+      },
+      {
+        "value": 0,
+        "start_sample": 666486,
+        "errors": []
+      },
+      {
+        "value": 2,
+        "start_sample": 667526,
+        "errors": []
+      },
+      {
+        "value": 0,
+        "start_sample": 668579,
+        "errors": []
+      },
+      {
+        "value": 1,
+        "start_sample": 669631,
+        "errors": []
+      },
+      {
+        "value": 70,
+        "start_sample": 670684,
+        "errors": []
+      },
+      {
+        "value": 90,
+        "start_sample": 822295,
+        "errors": []
+      },
+      {
+        "value": 165,
+        "start_sample": 823348,
+        "errors": []
+      },
+      {
+        "value": 246,
+        "start_sample": 824401,
+        "errors": []
+      },
+      {
+        "value": 251,
+        "start_sample": 825441,
+        "errors": []
+      },
+      {
+        "value": 235,
+        "start_sample": 826481,
+        "errors": []
+      },
+      {
+        "value": 139,
+        "start_sample": 827534,
+        "errors": []
+      },
+      {
+        "value": 15,
+        "start_sample": 828587,
+        "errors": []
+      },
+      {
+        "value": 0,
+        "start_sample": 829640,
+        "errors": []
+      },
+      {
+        "value": 2,
+        "start_sample": 830693,
+        "errors": []
+      },
+      {
+        "value": 0,
+        "start_sample": 831746,
+        "errors": []
+      },
+      {
+        "value": 1,
+        "start_sample": 832799,
+        "errors": []
+      },
+      {
+        "value": 70,
+        "start_sample": 833852,
+        "errors": []
+      },
+      {
+        "value": 90,
+        "start_sample": 985215,
+        "errors": []
+      },
+      {
+        "value": 165,
+        "start_sample": 986268,
+        "errors": []
+      },
+      {
+        "value": 246,
+        "start_sample": 987321,
+        "errors": []
+      },
+      {
+        "value": 251,
+        "start_sample": 988374,
+        "errors": []
+      },
+      {
+        "value": 235,
+        "start_sample": 989414,
+        "errors": []
+      },
+      {
+        "value": 171,
+        "start_sample": 990467,
+        "errors": []
+      },
+      {
+        "value": 13,
+        "start_sample": 991520,
+        "errors": []
+      },
+      {
+        "value": 0,
+        "start_sample": 992573,
+        "errors": []
+      },
+      {
+        "value": 2,
+        "start_sample": 993626,
+        "errors": []
+      },
+      {
+        "value": 0,
+        "start_sample": 994679,
+        "errors": []
+      },
+      {
+        "value": 1,
+        "start_sample": 995732,
+        "errors": []
+      },
+      {
+        "value": 70,
+        "start_sample": 996785,
+        "errors": []
+      },
+      {
+        "value": 90,
+        "start_sample": 1148291,
+        "errors": []
+      },
+      {
+        "value": 165,
+        "start_sample": 1149435,
+        "errors": []
+      },
+      {
+        "value": 246,
+        "start_sample": 1150488,
+        "errors": []
+      },
+      {
+        "value": 251,
+        "start_sample": 1151541,
+        "errors": []
+      },
+      {
+        "value": 235,
+        "start_sample": 1152581,
+        "errors": []
+      },
+      {
+        "value": 171,
+        "start_sample": 1153634,
+        "errors": []
+      },
+      {
+        "value": 13,
+        "start_sample": 1154687,
+        "errors": []
+      },
+      {
+        "value": 0,
+        "start_sample": 1155740,
+        "errors": []
+      },
+      {
+        "value": 2,
+        "start_sample": 1156793,
+        "errors": []
+      },
+      {
+        "value": 0,
+        "start_sample": 1157846,
+        "errors": []
+      },
+      {
+        "value": 1,
+        "start_sample": 1158899,
+        "errors": []
+      },
+      {
+        "value": 70,
+        "start_sample": 1159952,
+        "errors": []
+      },
+      {
+        "value": 90,
+        "start_sample": 1311407,
+        "errors": []
+      },
+      {
+        "value": 165,
+        "start_sample": 1312459,
+        "errors": []
+      },
+      {
+        "value": 246,
+        "start_sample": 1313512,
+        "errors": []
+      },
+      {
+        "value": 251,
+        "start_sample": 1314565,
+        "errors": []
+      },
+      {
+        "value": 235,
+        "start_sample": 1315618,
+        "errors": []
+      },
+      {
+        "value": 171,
+        "start_sample": 1316671,
+        "errors": []
+      },
+      {
+        "value": 13,
+        "start_sample": 1317724,
+        "errors": []
+      },
+      {
+        "value": 0,
+        "start_sample": 1318777,
+        "errors": []
+      },
+      {
+        "value": 2,
+        "start_sample": 1319830,
+        "errors": []
+      },
+      {
+        "value": 0,
+        "start_sample": 1320870,
+        "errors": []
+      },
+      {
+        "value": 1,
+        "start_sample": 1321923,
+        "errors": []
+      },
+      {
+        "value": 70,
+        "start_sample": 1322963,
+        "errors": []
+      },
+      {
+        "value": 90,
+        "start_sample": 1474405,
+        "errors": []
+      },
+      {
+        "value": 165,
+        "start_sample": 1475458,
+        "errors": []
+      },
+      {
+        "value": 246,
+        "start_sample": 1476511,
+        "errors": []
+      },
+      {
+        "value": 251,
+        "start_sample": 1477550,
+        "errors": []
+      },
+      {
+        "value": 235,
+        "start_sample": 1478603,
+        "errors": []
+      },
+      {
+        "value": 171,
+        "start_sample": 1479656,
+        "errors": []
+      },
+      {
+        "value": 13,
+        "start_sample": 1480709,
+        "errors": []
+      },
+      {
+        "value": 0,
+        "start_sample": 1481762,
+        "errors": []
+      },
+      {
+        "value": 2,
+        "start_sample": 1482815,
+        "errors": []
+      },
+      {
+        "value": 0,
+        "start_sample": 1483855,
+        "errors": []
+      },
+      {
+        "value": 1,
+        "start_sample": 1484908,
+        "errors": []
+      },
+      {
+        "value": 70,
+        "start_sample": 1485948,
+        "errors": []
+      },
+      {
+        "value": 90,
+        "start_sample": 1643603,
+        "errors": []
+      },
+      {
+        "value": 165,
+        "start_sample": 1644643,
+        "errors": []
+      },
+      {
+        "value": 246,
+        "start_sample": 1645696,
+        "errors": []
+      },
+      {
+        "value": 251,
+        "start_sample": 1646749,
+        "errors": []
+      },
+      {
+        "value": 235,
+        "start_sample": 1647802,
+        "errors": []
+      },
+      {
+        "value": 139,
+        "start_sample": 1648855,
+        "errors": []
+      },
+      {
+        "value": 15,
+        "start_sample": 1649908,
+        "errors": []
+      },
+      {
+        "value": 0,
+        "start_sample": 1650961,
+        "errors": []
+      },
+      {
+        "value": 2,
+        "start_sample": 1652014,
+        "errors": []
+      },
+      {
+        "value": 0,
+        "start_sample": 1653054,
+        "errors": []
+      },
+      {
+        "value": 1,
+        "start_sample": 1654107,
+        "errors": []
+      },
+      {
+        "value": 70,
+        "start_sample": 1655160,
+        "errors": []
+      },
+      {
+        "value": 90,
+        "start_sample": 1806771,
+        "errors": []
+      },
+      {
+        "value": 165,
+        "start_sample": 1807810,
+        "errors": []
+      },
+      {
+        "value": 246,
+        "start_sample": 1808863,
+        "errors": []
+      },
+      {
+        "value": 251,
+        "start_sample": 1809916,
+        "errors": []
+      },
+      {
+        "value": 235,
+        "start_sample": 1810969,
+        "errors": []
+      },
+      {
+        "value": 139,
+        "start_sample": 1812022,
+        "errors": []
+      },
+      {
+        "value": 15,
+        "start_sample": 1813075,
+        "errors": []
+      },
+      {
+        "value": 0,
+        "start_sample": 1814128,
+        "errors": []
+      },
+      {
+        "value": 2,
+        "start_sample": 1815181,
+        "errors": []
+      },
+      {
+        "value": 0,
+        "start_sample": 1816221,
+        "errors": []
+      },
+      {
+        "value": 1,
+        "start_sample": 1817274,
+        "errors": []
+      },
+      {
+        "value": 70,
+        "start_sample": 1818327,
+        "errors": []
+      }
+    ]
+  },
+  "expected_packets": [
+    {
+      "direction": "ASIC_TX",
+      "hex": "5A A5 F6 FB EB 8B 0F 00 02 00 01 46",
+      "kind": "frame_candidate",
+      "uart_errors": []
+    },
+    {
+      "direction": "ASIC_TX",
+      "hex": "5A A5 F6 FB EB 8B 0F 00 02 00 01 46",
+      "kind": "frame_candidate",
+      "uart_errors": []
+    },
+    {
+      "direction": "ASIC_TX",
+      "hex": "5A A5 E6 FB EB EB 0B 00 02 00 01 46",
+      "kind": "frame_candidate",
+      "uart_errors": []
+    },
+    {
+      "direction": "ASIC_TX",
+      "hex": "5A A5 E6 FB EB EB 0B 00 02 00 01 46",
+      "kind": "frame_candidate",
+      "uart_errors": []
+    },
+    {
+      "direction": "ASIC_TX",
+      "hex": "5A A5 F6 FB EB 8B 0F 00 02 00 01 46",
+      "kind": "frame_candidate",
+      "uart_errors": []
+    },
+    {
+      "direction": "ASIC_TX",
+      "hex": "5A A5 F6 FB EB 8B 0F 00 02 00 01 46",
+      "kind": "frame_candidate",
+      "uart_errors": []
+    },
+    {
+      "direction": "ASIC_TX",
+      "hex": "5A A5 F6 FB EB AB 0D 00 02 00 01 46",
+      "kind": "frame_candidate",
+      "uart_errors": []
+    },
+    {
+      "direction": "ASIC_TX",
+      "hex": "5A A5 F6 FB EB AB 0D 00 02 00 01 46",
+      "kind": "frame_candidate",
+      "uart_errors": []
+    },
+    {
+      "direction": "ASIC_TX",
+      "hex": "5A A5 F6 FB EB AB 0D 00 02 00 01 46",
+      "kind": "frame_candidate",
+      "uart_errors": []
+    },
+    {
+      "direction": "ASIC_TX",
+      "hex": "5A A5 F6 FB EB AB 0D 00 02 00 01 46",
+      "kind": "frame_candidate",
+      "uart_errors": []
+    },
+    {
+      "direction": "ASIC_TX",
+      "hex": "5A A5 F6 FB EB 8B 0F 00 02 00 01 46",
+      "kind": "frame_candidate",
+      "uart_errors": []
+    },
+    {
+      "direction": "ASIC_TX",
+      "hex": "5A A5 F6 FB EB 8B 0F 00 02 00 01 46",
+      "kind": "frame_candidate",
+      "uart_errors": []
+    }
+  ],
+  "rx_checksum_verified": false,
+  "cut_policy": "exact contiguous samples; boundary truncation and initial-low errors retained"
+}

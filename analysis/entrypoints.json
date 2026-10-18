@@ -1,0 +1,737 @@
+{
+  "entry": "0x6400",
+  "reset": "0xc668",
+  "main": "0x908a",
+  "system_init": "0xd212",
+  "mtvec": "0x643b",
+  "vectors": [
+    {
+      "index": 0,
+      "slot": "0x6438",
+      "target": "0x6400",
+      "sdk_name": "_start",
+      "kind": "implemented"
+    },
+    {
+      "index": 1,
+      "slot": "0x643c",
+      "target": "0x0",
+      "sdk_name": "0",
+      "kind": "reserved"
+    },
+    {
+      "index": 2,
+      "slot": "0x6440",
+      "target": "0xcb88",
+      "sdk_name": "NMI_Handler",
+      "kind": "implemented"
+    },
+    {
+      "index": 3,
+      "slot": "0x6444",
+      "target": "0xcb8c",
+      "sdk_name": "HardFault_Handler",
+      "kind": "default_self_loop"
+    },
+    {
+      "index": 4,
+      "slot": "0x6448",
+      "target": "0x0",
+      "sdk_name": "0",
+      "kind": "reserved"
+    },
+    {
+      "index": 5,
+      "slot": "0x644c",
+      "target": "0xc5c2",
+      "sdk_name": "Ecall_M_Mode_Handler",
+      "kind": "default_self_loop"
+    },
+    {
+      "index": 6,
+      "slot": "0x6450",
+      "target": "0x0",
+      "sdk_name": "0",
+      "kind": "reserved"
+    },
+    {
+      "index": 7,
+      "slot": "0x6454",
+      "target": "0x0",
+      "sdk_name": "0",
+      "kind": "reserved"
+    },
+    {
+      "index": 8,
+      "slot": "0x6458",
+      "target": "0xc5c4",
+      "sdk_name": "Ecall_U_Mode_Handler",
+      "kind": "default_self_loop"
+    },
+    {
+      "index": 9,
+      "slot": "0x645c",
+      "target": "0xc5c6",
+      "sdk_name": "Break_Point_Handler",
+      "kind": "default_self_loop"
+    },
+    {
+      "index": 10,
+      "slot": "0x6460",
+      "target": "0x0",
+      "sdk_name": "0",
+      "kind": "reserved"
+    },
+    {
+      "index": 11,
+      "slot": "0x6464",
+      "target": "0x0",
+      "sdk_name": "0",
+      "kind": "reserved"
+    },
+    {
+      "index": 12,
+      "slot": "0x6468",
+      "target": "0xc5c8",
+      "sdk_name": "SysTick_Handler",
+      "kind": "default_self_loop"
+    },
+    {
+      "index": 13,
+      "slot": "0x646c",
+      "target": "0x0",
+      "sdk_name": "0",
+      "kind": "reserved"
+    },
+    {
+      "index": 14,
+      "slot": "0x6470",
+      "target": "0xc5ca",
+      "sdk_name": "SW_Handler",
+      "kind": "default_self_loop"
+    },
+    {
+      "index": 15,
+      "slot": "0x6474",
+      "target": "0x0",
+      "sdk_name": "0",
+      "kind": "reserved"
+    },
+    {
+      "index": 16,
+      "slot": "0x6478",
+      "target": "0xc5cc",
+      "sdk_name": "WWDG_IRQHandler",
+      "kind": "default_self_loop"
+    },
+    {
+      "index": 17,
+      "slot": "0x647c",
+      "target": "0xc5ce",
+      "sdk_name": "PVD_IRQHandler",
+      "kind": "default_self_loop"
+    },
+    {
+      "index": 18,
+      "slot": "0x6480",
+      "target": "0xc5d0",
+      "sdk_name": "TAMPER_IRQHandler",
+      "kind": "default_self_loop"
+    },
+    {
+      "index": 19,
+      "slot": "0x6484",
+      "target": "0xc5d2",
+      "sdk_name": "RTC_IRQHandler",
+      "kind": "default_self_loop"
+    },
+    {
+      "index": 20,
+      "slot": "0x6488",
+      "target": "0xc5d4",
+      "sdk_name": "FLASH_IRQHandler",
+      "kind": "default_self_loop"
+    },
+    {
+      "index": 21,
+      "slot": "0x648c",
+      "target": "0xc5d6",
+      "sdk_name": "RCC_IRQHandler",
+      "kind": "default_self_loop"
+    },
+    {
+      "index": 22,
+      "slot": "0x6490",
+      "target": "0xc5d8",
+      "sdk_name": "EXTI0_IRQHandler",
+      "kind": "default_self_loop"
+    },
+    {
+      "index": 23,
+      "slot": "0x6494",
+      "target": "0xc5da",
+      "sdk_name": "EXTI1_IRQHandler",
+      "kind": "default_self_loop"
+    },
+    {
+      "index": 24,
+      "slot": "0x6498",
+      "target": "0x7c0a",
+      "sdk_name": "EXTI2_IRQHandler",
+      "kind": "implemented"
+    },
+    {
+      "index": 25,
+      "slot": "0x649c",
+      "target": "0xc5de",
+      "sdk_name": "EXTI3_IRQHandler",
+      "kind": "default_self_loop"
+    },
+    {
+      "index": 26,
+      "slot": "0x64a0",
+      "target": "0xc5e0",
+      "sdk_name": "EXTI4_IRQHandler",
+      "kind": "default_self_loop"
+    },
+    {
+      "index": 27,
+      "slot": "0x64a4",
+      "target": "0xc5e2",
+      "sdk_name": "DMA1_Channel1_IRQHandler",
+      "kind": "default_self_loop"
+    },
+    {
+      "index": 28,
+      "slot": "0x64a8",
+      "target": "0xc5e4",
+      "sdk_name": "DMA1_Channel2_IRQHandler",
+      "kind": "default_self_loop"
+    },
+    {
+      "index": 29,
+      "slot": "0x64ac",
+      "target": "0xc5e6",
+      "sdk_name": "DMA1_Channel3_IRQHandler",
+      "kind": "default_self_loop"
+    },
+    {
+      "index": 30,
+      "slot": "0x64b0",
+      "target": "0xc5e8",
+      "sdk_name": "DMA1_Channel4_IRQHandler",
+      "kind": "default_self_loop"
+    },
+    {
+      "index": 31,
+      "slot": "0x64b4",
+      "target": "0xc570",
+      "sdk_name": "DMA1_Channel5_IRQHandler",
+      "kind": "implemented"
+    },
+    {
+      "index": 32,
+      "slot": "0x64b8",
+      "target": "0xc5ec",
+      "sdk_name": "DMA1_Channel6_IRQHandler",
+      "kind": "default_self_loop"
+    },
+    {
+      "index": 33,
+      "slot": "0x64bc",
+      "target": "0xc5ee",
+      "sdk_name": "DMA1_Channel7_IRQHandler",
+      "kind": "default_self_loop"
+    },
+    {
+      "index": 34,
+      "slot": "0x64c0",
+      "target": "0xc5f0",
+      "sdk_name": "ADC1_2_IRQHandler",
+      "kind": "default_self_loop"
+    },
+    {
+      "index": 35,
+      "slot": "0x64c4",
+      "target": "0xc5f2",
+      "sdk_name": "USB_HP_CAN1_TX_IRQHandler",
+      "kind": "default_self_loop"
+    },
+    {
+      "index": 36,
+      "slot": "0x64c8",
+      "target": "0xc5f4",
+      "sdk_name": "USB_LP_CAN1_RX0_IRQHandler",
+      "kind": "default_self_loop"
+    },
+    {
+      "index": 37,
+      "slot": "0x64cc",
+      "target": "0xc5f6",
+      "sdk_name": "CAN1_RX1_IRQHandler",
+      "kind": "default_self_loop"
+    },
+    {
+      "index": 38,
+      "slot": "0x64d0",
+      "target": "0xc5f8",
+      "sdk_name": "CAN1_SCE_IRQHandler",
+      "kind": "default_self_loop"
+    },
+    {
+      "index": 39,
+      "slot": "0x64d4",
+      "target": "0x7c42",
+      "sdk_name": "EXTI9_5_IRQHandler",
+      "kind": "implemented"
+    },
+    {
+      "index": 40,
+      "slot": "0x64d8",
+      "target": "0xc5fc",
+      "sdk_name": "TIM1_BRK_IRQHandler",
+      "kind": "default_self_loop"
+    },
+    {
+      "index": 41,
+      "slot": "0x64dc",
+      "target": "0xc5fe",
+      "sdk_name": "TIM1_UP_IRQHandler",
+      "kind": "default_self_loop"
+    },
+    {
+      "index": 42,
+      "slot": "0x64e0",
+      "target": "0xc600",
+      "sdk_name": "TIM1_TRG_COM_IRQHandler",
+      "kind": "default_self_loop"
+    },
+    {
+      "index": 43,
+      "slot": "0x64e4",
+      "target": "0xc602",
+      "sdk_name": "TIM1_CC_IRQHandler",
+      "kind": "default_self_loop"
+    },
+    {
+      "index": 44,
+      "slot": "0x64e8",
+      "target": "0xc604",
+      "sdk_name": "TIM2_IRQHandler",
+      "kind": "default_self_loop"
+    },
+    {
+      "index": 45,
+      "slot": "0x64ec",
+      "target": "0x7780",
+      "sdk_name": "TIM3_IRQHandler",
+      "kind": "implemented"
+    },
+    {
+      "index": 46,
+      "slot": "0x64f0",
+      "target": "0xc608",
+      "sdk_name": "TIM4_IRQHandler",
+      "kind": "default_self_loop"
+    },
+    {
+      "index": 47,
+      "slot": "0x64f4",
+      "target": "0xc60a",
+      "sdk_name": "I2C1_EV_IRQHandler",
+      "kind": "default_self_loop"
+    },
+    {
+      "index": 48,
+      "slot": "0x64f8",
+      "target": "0xc60c",
+      "sdk_name": "I2C1_ER_IRQHandler",
+      "kind": "default_self_loop"
+    },
+    {
+      "index": 49,
+      "slot": "0x64fc",
+      "target": "0xc60e",
+      "sdk_name": "I2C2_EV_IRQHandler",
+      "kind": "default_self_loop"
+    },
+    {
+      "index": 50,
+      "slot": "0x6500",
+      "target": "0xc610",
+      "sdk_name": "I2C2_ER_IRQHandler",
+      "kind": "default_self_loop"
+    },
+    {
+      "index": 51,
+      "slot": "0x6504",
+      "target": "0xc612",
+      "sdk_name": "SPI1_IRQHandler",
+      "kind": "default_self_loop"
+    },
+    {
+      "index": 52,
+      "slot": "0x6508",
+      "target": "0xc614",
+      "sdk_name": "SPI2_IRQHandler",
+      "kind": "default_self_loop"
+    },
+    {
+      "index": 53,
+      "slot": "0x650c",
+      "target": "0xc468",
+      "sdk_name": "USART1_IRQHandler",
+      "kind": "implemented"
+    },
+    {
+      "index": 54,
+      "slot": "0x6510",
+      "target": "0xc618",
+      "sdk_name": "USART2_IRQHandler",
+      "kind": "default_self_loop"
+    },
+    {
+      "index": 55,
+      "slot": "0x6514",
+      "target": "0xc61a",
+      "sdk_name": "USART3_IRQHandler",
+      "kind": "default_self_loop"
+    },
+    {
+      "index": 56,
+      "slot": "0x6518",
+      "target": "0x7cd8",
+      "sdk_name": "EXTI15_10_IRQHandler",
+      "kind": "implemented"
+    },
+    {
+      "index": 57,
+      "slot": "0x651c",
+      "target": "0xc61e",
+      "sdk_name": "RTCAlarm_IRQHandler",
+      "kind": "default_self_loop"
+    },
+    {
+      "index": 58,
+      "slot": "0x6520",
+      "target": "0x0",
+      "sdk_name": "0",
+      "kind": "reserved"
+    },
+    {
+      "index": 59,
+      "slot": "0x6524",
+      "target": "0xc620",
+      "sdk_name": "TIM8_BRK_IRQHandler",
+      "kind": "default_self_loop"
+    },
+    {
+      "index": 60,
+      "slot": "0x6528",
+      "target": "0xc622",
+      "sdk_name": "TIM8_UP_IRQHandler",
+      "kind": "default_self_loop"
+    },
+    {
+      "index": 61,
+      "slot": "0x652c",
+      "target": "0xc624",
+      "sdk_name": "TIM8_TRG_COM_IRQHandler",
+      "kind": "default_self_loop"
+    },
+    {
+      "index": 62,
+      "slot": "0x6530",
+      "target": "0xc626",
+      "sdk_name": "TIM8_CC_IRQHandler",
+      "kind": "default_self_loop"
+    },
+    {
+      "index": 63,
+      "slot": "0x6534",
+      "target": "0xc628",
+      "sdk_name": "RNG_IRQHandler",
+      "kind": "default_self_loop"
+    },
+    {
+      "index": 64,
+      "slot": "0x6538",
+      "target": "0xc62a",
+      "sdk_name": "0",
+      "kind": "default_self_loop"
+    },
+    {
+      "index": 65,
+      "slot": "0x653c",
+      "target": "0xc62c",
+      "sdk_name": "SDIO_IRQHandler",
+      "kind": "default_self_loop"
+    },
+    {
+      "index": 66,
+      "slot": "0x6540",
+      "target": "0xc62e",
+      "sdk_name": "TIM5_IRQHandler",
+      "kind": "default_self_loop"
+    },
+    {
+      "index": 67,
+      "slot": "0x6544",
+      "target": "0xc630",
+      "sdk_name": "SPI3_IRQHandler",
+      "kind": "default_self_loop"
+    },
+    {
+      "index": 68,
+      "slot": "0x6548",
+      "target": "0xc632",
+      "sdk_name": "UART4_IRQHandler",
+      "kind": "default_self_loop"
+    },
+    {
+      "index": 69,
+      "slot": "0x654c",
+      "target": "0xc634",
+      "sdk_name": "UART5_IRQHandler",
+      "kind": "default_self_loop"
+    },
+    {
+      "index": 70,
+      "slot": "0x6550",
+      "target": "0xc636",
+      "sdk_name": "TIM6_IRQHandler",
+      "kind": "default_self_loop"
+    },
+    {
+      "index": 71,
+      "slot": "0x6554",
+      "target": "0xc638",
+      "sdk_name": "TIM7_IRQHandler",
+      "kind": "default_self_loop"
+    },
+    {
+      "index": 72,
+      "slot": "0x6558",
+      "target": "0xc63a",
+      "sdk_name": "DMA2_Channel1_IRQHandler",
+      "kind": "default_self_loop"
+    },
+    {
+      "index": 73,
+      "slot": "0x655c",
+      "target": "0xc63c",
+      "sdk_name": "DMA2_Channel2_IRQHandler",
+      "kind": "default_self_loop"
+    },
+    {
+      "index": 74,
+      "slot": "0x6560",
+      "target": "0xc63e",
+      "sdk_name": "DMA2_Channel3_IRQHandler",
+      "kind": "default_self_loop"
+    },
+    {
+      "index": 75,
+      "slot": "0x6564",
+      "target": "0xc640",
+      "sdk_name": "DMA2_Channel4_IRQHandler",
+      "kind": "default_self_loop"
+    },
+    {
+      "index": 76,
+      "slot": "0x6568",
+      "target": "0xc642",
+      "sdk_name": "DMA2_Channel5_IRQHandler",
+      "kind": "default_self_loop"
+    },
+    {
+      "index": 77,
+      "slot": "0x656c",
+      "target": "0x0",
+      "sdk_name": "0",
+      "kind": "reserved"
+    },
+    {
+      "index": 78,
+      "slot": "0x6570",
+      "target": "0x0",
+      "sdk_name": "0",
+      "kind": "reserved"
+    },
+    {
+      "index": 79,
+      "slot": "0x6574",
+      "target": "0x0",
+      "sdk_name": "0",
+      "kind": "reserved"
+    },
+    {
+      "index": 80,
+      "slot": "0x6578",
+      "target": "0x0",
+      "sdk_name": "0",
+      "kind": "reserved"
+    },
+    {
+      "index": 81,
+      "slot": "0x657c",
+      "target": "0x0",
+      "sdk_name": "0",
+      "kind": "reserved"
+    },
+    {
+      "index": 82,
+      "slot": "0x6580",
+      "target": "0x0",
+      "sdk_name": "0",
+      "kind": "reserved"
+    },
+    {
+      "index": 83,
+      "slot": "0x6584",
+      "target": "0xc644",
+      "sdk_name": "USBFS_IRQHandler",
+      "kind": "default_self_loop"
+    },
+    {
+      "index": 84,
+      "slot": "0x6588",
+      "target": "0x0",
+      "sdk_name": "0",
+      "kind": "reserved"
+    },
+    {
+      "index": 85,
+      "slot": "0x658c",
+      "target": "0x0",
+      "sdk_name": "0",
+      "kind": "reserved"
+    },
+    {
+      "index": 86,
+      "slot": "0x6590",
+      "target": "0x0",
+      "sdk_name": "0",
+      "kind": "reserved"
+    },
+    {
+      "index": 87,
+      "slot": "0x6594",
+      "target": "0xc646",
+      "sdk_name": "UART6_IRQHandler",
+      "kind": "default_self_loop"
+    },
+    {
+      "index": 88,
+      "slot": "0x6598",
+      "target": "0xc648",
+      "sdk_name": "UART7_IRQHandler",
+      "kind": "default_self_loop"
+    },
+    {
+      "index": 89,
+      "slot": "0x659c",
+      "target": "0xc64a",
+      "sdk_name": "UART8_IRQHandler",
+      "kind": "default_self_loop"
+    },
+    {
+      "index": 90,
+      "slot": "0x65a0",
+      "target": "0xc64c",
+      "sdk_name": "TIM9_BRK_IRQHandler",
+      "kind": "default_self_loop"
+    },
+    {
+      "index": 91,
+      "slot": "0x65a4",
+      "target": "0xc64e",
+      "sdk_name": "TIM9_UP_IRQHandler",
+      "kind": "default_self_loop"
+    },
+    {
+      "index": 92,
+      "slot": "0x65a8",
+      "target": "0xc650",
+      "sdk_name": "TIM9_TRG_COM_IRQHandler",
+      "kind": "default_self_loop"
+    },
+    {
+      "index": 93,
+      "slot": "0x65ac",
+      "target": "0xc652",
+      "sdk_name": "TIM9_CC_IRQHandler",
+      "kind": "default_self_loop"
+    },
+    {
+      "index": 94,
+      "slot": "0x65b0",
+      "target": "0xc654",
+      "sdk_name": "TIM10_BRK_IRQHandler",
+      "kind": "default_self_loop"
+    },
+    {
+      "index": 95,
+      "slot": "0x65b4",
+      "target": "0xc656",
+      "sdk_name": "TIM10_UP_IRQHandler",
+      "kind": "default_self_loop"
+    },
+    {
+      "index": 96,
+      "slot": "0x65b8",
+      "target": "0xc658",
+      "sdk_name": "TIM10_TRG_COM_IRQHandler",
+      "kind": "default_self_loop"
+    },
+    {
+      "index": 97,
+      "slot": "0x65bc",
+      "target": "0xc65a",
+      "sdk_name": "TIM10_CC_IRQHandler",
+      "kind": "default_self_loop"
+    },
+    {
+      "index": 98,
+      "slot": "0x65c0",
+      "target": "0xc65c",
+      "sdk_name": "DMA2_Channel6_IRQHandler",
+      "kind": "default_self_loop"
+    },
+    {
+      "index": 99,
+      "slot": "0x65c4",
+      "target": "0xc65e",
+      "sdk_name": "DMA2_Channel7_IRQHandler",
+      "kind": "default_self_loop"
+    },
+    {
+      "index": 100,
+      "slot": "0x65c8",
+      "target": "0xc660",
+      "sdk_name": "DMA2_Channel8_IRQHandler",
+      "kind": "default_self_loop"
+    },
+    {
+      "index": 101,
+      "slot": "0x65cc",
+      "target": "0xc662",
+      "sdk_name": "DMA2_Channel9_IRQHandler",
+      "kind": "default_self_loop"
+    },
+    {
+      "index": 102,
+      "slot": "0x65d0",
+      "target": "0xc664",
+      "sdk_name": "DMA2_Channel10_IRQHandler",
+      "kind": "default_self_loop"
+    },
+    {
+      "index": 103,
+      "slot": "0x65d4",
+      "target": "0xc666",
+      "sdk_name": "DMA2_Channel11_IRQHandler",
+      "kind": "default_self_loop"
+    }
+  ]
+}

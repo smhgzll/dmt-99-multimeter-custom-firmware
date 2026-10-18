@@ -1,0 +1,15 @@
+{
+  "status": "passed",
+  "tests": 13,
+  "sanitizers": [
+    "address",
+    "undefined"
+  ],
+  "leak_detection": false,
+  "leak_detection_note": "LeakSanitizer cannot run under sandbox ptrace; existing exception retained. Address/UB sanitizers remain enabled.",
+  "compiler": "clang version 22.1.8 (Fedora 22.1.8-4.fc44)",
+  "differential_inputs_sha256": "3591475753c133768117dae1c16da99b03b208317990a1d4180a444f41ab3493",
+  "binary_sha256": "8939f5fb1fde6bade9a28433c241817072e0b0b0f528b5f74d4047a0d30e22a4",
+  "resource_binary_sha256": "91bc4199d2d3d9c7615c2cae1252af8cec107407834332d88f6264ecee201af8",
+  "command": "make -C reconstructed host-sanitize"
+}

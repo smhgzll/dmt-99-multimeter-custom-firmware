@@ -1,0 +1,1130 @@
+[
+  {
+    "address": "0x0000ff48",
+    "length": 4,
+    "mnemonic": "lui",
+    "text": "lui a0,0x25",
+    "bytes": "37550200",
+    "provenance": "NCV omitted interval, existing saved project; read-only headless run"
+  },
+  {
+    "address": "0x0000ff4c",
+    "length": 2,
+    "mnemonic": "c.li",
+    "text": "c.li a2,0x0",
+    "bytes": "0146",
+    "provenance": "NCV omitted interval, existing saved project; read-only headless run"
+  },
+  {
+    "address": "0x0000ff4e",
+    "length": 2,
+    "mnemonic": "c.li",
+    "text": "c.li a1,0x0",
+    "bytes": "8145",
+    "provenance": "NCV omitted interval, existing saved project; read-only headless run"
+  },
+  {
+    "address": "0x0000ff50",
+    "length": 4,
+    "mnemonic": "addi",
+    "text": "addi a0,a0,-0x294",
+    "bytes": "1305c5d6",
+    "provenance": "NCV omitted interval, existing saved project; read-only headless run"
+  },
+  {
+    "address": "0x0000ff54",
+    "length": 4,
+    "mnemonic": "jal",
+    "text": "jal ra,0x0000678c",
+    "bytes": "ef609f83",
+    "provenance": "NCV omitted interval, existing saved project; read-only headless run"
+  },
+  {
+    "address": "0x0000ff58",
+    "length": 4,
+    "mnemonic": "lbu",
+    "text": "lbu a5,-0x7ab(gp)",
+    "bytes": "83c75185",
+    "provenance": "NCV omitted interval, existing saved project; read-only headless run"
+  },
+  {
+    "address": "0x0000ff5c",
+    "length": 4,
+    "mnemonic": "li",
+    "text": "li a2,0x5a",
+    "bytes": "1306a005",
+    "provenance": "NCV omitted interval, existing saved project; read-only headless run"
+  },
+  {
+    "address": "0x0000ff60",
+    "length": 4,
+    "mnemonic": "li",
+    "text": "li a1,0x5f",
+    "bytes": "9305f005",
+    "provenance": "NCV omitted interval, existing saved project; read-only headless run"
+  },
+  {
+    "address": "0x0000ff64",
+    "length": 2,
+    "mnemonic": "c.bnez",
+    "text": "c.bnez a5,0x0000ffde",
+    "bytes": "adef",
+    "provenance": "NCV omitted interval, existing saved project; read-only headless run"
+  },
+  {
+    "address": "0x0000ff66",
+    "length": 4,
+    "mnemonic": "lui",
+    "text": "lui a0,0x25",
+    "bytes": "37550200",
+    "provenance": "NCV omitted interval, existing saved project; read-only headless run"
+  },
+  {
+    "address": "0x0000ff6a",
+    "length": 4,
+    "mnemonic": "addi",
+    "text": "addi a0,a0,-0x288",
+    "bytes": "130585d7",
+    "provenance": "NCV omitted interval, existing saved project; read-only headless run"
+  },
+  {
+    "address": "0x0000ff6e",
+    "length": 4,
+    "mnemonic": "jal",
+    "text": "jal ra,0x0000678c",
+    "bytes": "ef60ff81",
+    "provenance": "NCV omitted interval, existing saved project; read-only headless run"
+  },
+  {
+    "address": "0x0000ff72",
+    "length": 4,
+    "mnemonic": "lui",
+    "text": "lui a0,0x25",
+    "bytes": "37550200",
+    "provenance": "NCV omitted interval, existing saved project; read-only headless run"
+  },
+  {
+    "address": "0x0000ff76",
+    "length": 4,
+    "mnemonic": "li",
+    "text": "li a2,0x8c",
+    "bytes": "1306c008",
+    "provenance": "NCV omitted interval, existing saved project; read-only headless run"
+  },
+  {
+    "address": "0x0000ff7a",
+    "length": 4,
+    "mnemonic": "li",
+    "text": "li a1,0x5f",
+    "bytes": "9305f005",
+    "provenance": "NCV omitted interval, existing saved project; read-only headless run"
+  },
+  {
+    "address": "0x0000ff7e",
+    "length": 4,
+    "mnemonic": "addi",
+    "text": "addi a0,a0,-0x270",
+    "bytes": "130505d9",
+    "provenance": "NCV omitted interval, existing saved project; read-only headless run"
+  },
+  {
+    "address": "0x0000ff82",
+    "length": 4,
+    "mnemonic": "jal",
+    "text": "jal ra,0x0000678c",
+    "bytes": "ef60bf80",
+    "provenance": "NCV omitted interval, existing saved project; read-only headless run"
+  },
+  {
+    "address": "0x0000ff86",
+    "length": 4,
+    "mnemonic": "li",
+    "text": "li a0,0xc8",
+    "bytes": "1305800c",
+    "provenance": "NCV omitted interval, existing saved project; read-only headless run"
+  },
+  {
+    "address": "0x0000ff8a",
+    "length": 4,
+    "mnemonic": "jal",
+    "text": "jal ra,0x0001a64c",
+    "bytes": "efa0206c",
+    "provenance": "NCV omitted interval, existing saved project; read-only headless run"
+  },
+  {
+    "address": "0x0000ff8e",
+    "length": 4,
+    "mnemonic": "lui",
+    "text": "lui a0,0x25",
+    "bytes": "37550200",
+    "provenance": "NCV omitted interval, existing saved project; read-only headless run"
+  },
+  {
+    "address": "0x0000ff92",
+    "length": 4,
+    "mnemonic": "li",
+    "text": "li a2,0x3c",
+    "bytes": "1306c003",
+    "provenance": "NCV omitted interval, existing saved project; read-only headless run"
+  },
+  {
+    "address": "0x0000ff96",
+    "length": 4,
+    "mnemonic": "li",
+    "text": "li a1,0x41",
+    "bytes": "93051004",
+    "provenance": "NCV omitted interval, existing saved project; read-only headless run"
+  },
+  {
+    "address": "0x0000ff9a",
+    "length": 4,
+    "mnemonic": "addi",
+    "text": "addi a0,a0,-0x258",
+    "bytes": "130585da",
+    "provenance": "NCV omitted interval, existing saved project; read-only headless run"
+  },
+  {
+    "address": "0x0000ff9e",
+    "length": 4,
+    "mnemonic": "jal",
+    "text": "jal ra,0x0000678c",
+    "bytes": "ef60effe",
+    "provenance": "NCV omitted interval, existing saved project; read-only headless run"
+  },
+  {
+    "address": "0x0000ffa2",
+    "length": 4,
+    "mnemonic": "lui",
+    "text": "lui a0,0x25",
+    "bytes": "37550200",
+    "provenance": "NCV omitted interval, existing saved project; read-only headless run"
+  },
+  {
+    "address": "0x0000ffa6",
+    "length": 4,
+    "mnemonic": "li",
+    "text": "li a2,0xa0",
+    "bytes": "1306000a",
+    "provenance": "NCV omitted interval, existing saved project; read-only headless run"
+  },
+  {
+    "address": "0x0000ffaa",
+    "length": 4,
+    "mnemonic": "li",
+    "text": "li a1,0x41",
+    "bytes": "93051004",
+    "provenance": "NCV omitted interval, existing saved project; read-only headless run"
+  },
+  {
+    "address": "0x0000ffae",
+    "length": 4,
+    "mnemonic": "addi",
+    "text": "addi a0,a0,-0x240",
+    "bytes": "130505dc",
+    "provenance": "NCV omitted interval, existing saved project; read-only headless run"
+  },
+  {
+    "address": "0x0000ffb2",
+    "length": 4,
+    "mnemonic": "jal",
+    "text": "jal ra,0x0000678c",
+    "bytes": "ef60affd",
+    "provenance": "NCV omitted interval, existing saved project; read-only headless run"
+  },
+  {
+    "address": "0x0000ffb6",
+    "length": 4,
+    "mnemonic": "li",
+    "text": "li a0,0xc8",
+    "bytes": "1305800c",
+    "provenance": "NCV omitted interval, existing saved project; read-only headless run"
+  },
+  {
+    "address": "0x0000ffba",
+    "length": 4,
+    "mnemonic": "jal",
+    "text": "jal ra,0x0001a64c",
+    "bytes": "efa02069",
+    "provenance": "NCV omitted interval, existing saved project; read-only headless run"
+  },
+  {
+    "address": "0x0000ffbe",
+    "length": 4,
+    "mnemonic": "lui",
+    "text": "lui a0,0x25",
+    "bytes": "37550200",
+    "provenance": "NCV omitted interval, existing saved project; read-only headless run"
+  },
+  {
+    "address": "0x0000ffc2",
+    "length": 2,
+    "mnemonic": "c.li",
+    "text": "c.li a2,0x14",
+    "bytes": "5146",
+    "provenance": "NCV omitted interval, existing saved project; read-only headless run"
+  },
+  {
+    "address": "0x0000ffc4",
+    "length": 2,
+    "mnemonic": "c.li",
+    "text": "c.li a1,0x1e",
+    "bytes": "f945",
+    "provenance": "NCV omitted interval, existing saved project; read-only headless run"
+  },
+  {
+    "address": "0x0000ffc6",
+    "length": 4,
+    "mnemonic": "addi",
+    "text": "addi a0,a0,-0x228",
+    "bytes": "130585dd",
+    "provenance": "NCV omitted interval, existing saved project; read-only headless run"
+  },
+  {
+    "address": "0x0000ffca",
+    "length": 4,
+    "mnemonic": "jal",
+    "text": "jal ra,0x0000678c",
+    "bytes": "ef602ffc",
+    "provenance": "NCV omitted interval, existing saved project; read-only headless run"
+  },
+  {
+    "address": "0x0000ffce",
+    "length": 4,
+    "mnemonic": "lui",
+    "text": "lui a0,0x25",
+    "bytes": "37550200",
+    "provenance": "NCV omitted interval, existing saved project; read-only headless run"
+  },
+  {
+    "address": "0x0000ffd2",
+    "length": 4,
+    "mnemonic": "li",
+    "text": "li a2,0xbe",
+    "bytes": "1306e00b",
+    "provenance": "NCV omitted interval, existing saved project; read-only headless run"
+  },
+  {
+    "address": "0x0000ffd6",
+    "length": 2,
+    "mnemonic": "c.li",
+    "text": "c.li a1,0x1e",
+    "bytes": "f945",
+    "provenance": "NCV omitted interval, existing saved project; read-only headless run"
+  },
+  {
+    "address": "0x0000ffd8",
+    "length": 4,
+    "mnemonic": "addi",
+    "text": "addi a0,a0,-0x210",
+    "bytes": "130505df",
+    "provenance": "NCV omitted interval, existing saved project; read-only headless run"
+  },
+  {
+    "address": "0x0000ffdc",
+    "length": 2,
+    "mnemonic": "c.j",
+    "text": "c.j 0x0000fe34",
+    "bytes": "a1bd",
+    "provenance": "NCV omitted interval, existing saved project; read-only headless run"
+  },
+  {
+    "address": "0x0000ffde",
+    "length": 4,
+    "mnemonic": "lui",
+    "text": "lui s0,0x25",
+    "bytes": "37540200",
+    "provenance": "NCV omitted interval, existing saved project; read-only headless run"
+  },
+  {
+    "address": "0x0000ffe2",
+    "length": 4,
+    "mnemonic": "addi",
+    "text": "addi a0,s0,-0x1f8",
+    "bytes": "130584e0",
+    "provenance": "NCV omitted interval, existing saved project; read-only headless run"
+  },
+  {
+    "address": "0x0000ffe6",
+    "length": 4,
+    "mnemonic": "jal",
+    "text": "jal ra,0x0000678c",
+    "bytes": "ef606ffa",
+    "provenance": "NCV omitted interval, existing saved project; read-only headless run"
+  },
+  {
+    "address": "0x0000ffea",
+    "length": 4,
+    "mnemonic": "li",
+    "text": "li a2,0x8c",
+    "bytes": "1306c008",
+    "provenance": "NCV omitted interval, existing saved project; read-only headless run"
+  },
+  {
+    "address": "0x0000ffee",
+    "length": 4,
+    "mnemonic": "li",
+    "text": "li a1,0x5f",
+    "bytes": "9305f005",
+    "provenance": "NCV omitted interval, existing saved project; read-only headless run"
+  },
+  {
+    "address": "0x0000fff2",
+    "length": 4,
+    "mnemonic": "addi",
+    "text": "addi a0,s0,-0x1f8",
+    "bytes": "130584e0",
+    "provenance": "NCV omitted interval, existing saved project; read-only headless run"
+  },
+  {
+    "address": "0x0000fff6",
+    "length": 4,
+    "mnemonic": "jal",
+    "text": "jal ra,0x0000678c",
+    "bytes": "ef606ff9",
+    "provenance": "NCV omitted interval, existing saved project; read-only headless run"
+  },
+  {
+    "address": "0x0000fffa",
+    "length": 4,
+    "mnemonic": "li",
+    "text": "li a0,0xc8",
+    "bytes": "1305800c",
+    "provenance": "NCV omitted interval, existing saved project; read-only headless run"
+  },
+  {
+    "address": "0x0000fffe",
+    "length": 4,
+    "mnemonic": "jal",
+    "text": "jal ra,0x0001a64c",
+    "bytes": "efa0e064",
+    "provenance": "NCV omitted interval, existing saved project; read-only headless run"
+  },
+  {
+    "address": "0x00010002",
+    "length": 4,
+    "mnemonic": "lui",
+    "text": "lui s0,0x25",
+    "bytes": "37540200",
+    "provenance": "NCV omitted interval, existing saved project; read-only headless run"
+  },
+  {
+    "address": "0x00010006",
+    "length": 4,
+    "mnemonic": "addi",
+    "text": "addi a0,s0,-0x1e8",
+    "bytes": "130584e1",
+    "provenance": "NCV omitted interval, existing saved project; read-only headless run"
+  },
+  {
+    "address": "0x0001000a",
+    "length": 4,
+    "mnemonic": "li",
+    "text": "li a2,0x3c",
+    "bytes": "1306c003",
+    "provenance": "NCV omitted interval, existing saved project; read-only headless run"
+  },
+  {
+    "address": "0x0001000e",
+    "length": 4,
+    "mnemonic": "li",
+    "text": "li a1,0x41",
+    "bytes": "93051004",
+    "provenance": "NCV omitted interval, existing saved project; read-only headless run"
+  },
+  {
+    "address": "0x00010012",
+    "length": 4,
+    "mnemonic": "jal",
+    "text": "jal ra,0x0000678c",
+    "bytes": "ef60aff7",
+    "provenance": "NCV omitted interval, existing saved project; read-only headless run"
+  },
+  {
+    "address": "0x00010016",
+    "length": 4,
+    "mnemonic": "li",
+    "text": "li a2,0xa0",
+    "bytes": "1306000a",
+    "provenance": "NCV omitted interval, existing saved project; read-only headless run"
+  },
+  {
+    "address": "0x0001001a",
+    "length": 4,
+    "mnemonic": "li",
+    "text": "li a1,0x41",
+    "bytes": "93051004",
+    "provenance": "NCV omitted interval, existing saved project; read-only headless run"
+  },
+  {
+    "address": "0x0001001e",
+    "length": 4,
+    "mnemonic": "addi",
+    "text": "addi a0,s0,-0x1e8",
+    "bytes": "130584e1",
+    "provenance": "NCV omitted interval, existing saved project; read-only headless run"
+  },
+  {
+    "address": "0x00010022",
+    "length": 4,
+    "mnemonic": "jal",
+    "text": "jal ra,0x0000678c",
+    "bytes": "ef60aff6",
+    "provenance": "NCV omitted interval, existing saved project; read-only headless run"
+  },
+  {
+    "address": "0x00010026",
+    "length": 4,
+    "mnemonic": "li",
+    "text": "li a0,0xc8",
+    "bytes": "1305800c",
+    "provenance": "NCV omitted interval, existing saved project; read-only headless run"
+  },
+  {
+    "address": "0x0001002a",
+    "length": 4,
+    "mnemonic": "jal",
+    "text": "jal ra,0x0001a64c",
+    "bytes": "efa02062",
+    "provenance": "NCV omitted interval, existing saved project; read-only headless run"
+  },
+  {
+    "address": "0x0001002e",
+    "length": 4,
+    "mnemonic": "lui",
+    "text": "lui s0,0x25",
+    "bytes": "37540200",
+    "provenance": "NCV omitted interval, existing saved project; read-only headless run"
+  },
+  {
+    "address": "0x00010032",
+    "length": 2,
+    "mnemonic": "c.li",
+    "text": "c.li a2,0x14",
+    "bytes": "5146",
+    "provenance": "NCV omitted interval, existing saved project; read-only headless run"
+  },
+  {
+    "address": "0x00010034",
+    "length": 2,
+    "mnemonic": "c.li",
+    "text": "c.li a1,0x1e",
+    "bytes": "f945",
+    "provenance": "NCV omitted interval, existing saved project; read-only headless run"
+  },
+  {
+    "address": "0x00010036",
+    "length": 4,
+    "mnemonic": "addi",
+    "text": "addi a0,s0,-0x1d8",
+    "bytes": "130584e2",
+    "provenance": "NCV omitted interval, existing saved project; read-only headless run"
+  },
+  {
+    "address": "0x0001003a",
+    "length": 4,
+    "mnemonic": "jal",
+    "text": "jal ra,0x0000678c",
+    "bytes": "ef602ff5",
+    "provenance": "NCV omitted interval, existing saved project; read-only headless run"
+  },
+  {
+    "address": "0x0001003e",
+    "length": 4,
+    "mnemonic": "li",
+    "text": "li a2,0xbe",
+    "bytes": "1306e00b",
+    "provenance": "NCV omitted interval, existing saved project; read-only headless run"
+  },
+  {
+    "address": "0x00010042",
+    "length": 2,
+    "mnemonic": "c.li",
+    "text": "c.li a1,0x1e",
+    "bytes": "f945",
+    "provenance": "NCV omitted interval, existing saved project; read-only headless run"
+  },
+  {
+    "address": "0x00010044",
+    "length": 4,
+    "mnemonic": "addi",
+    "text": "addi a0,s0,-0x1d8",
+    "bytes": "130584e2",
+    "provenance": "NCV omitted interval, existing saved project; read-only headless run"
+  },
+  {
+    "address": "0x00010048",
+    "length": 2,
+    "mnemonic": "c.j",
+    "text": "c.j 0x0000fe34",
+    "bytes": "f5b3",
+    "provenance": "NCV omitted interval, existing saved project; read-only headless run"
+  },
+  {
+    "address": "0x0001004a",
+    "length": 4,
+    "mnemonic": "lui",
+    "text": "lui a0,0x25",
+    "bytes": "37550200",
+    "provenance": "NCV omitted interval, existing saved project; read-only headless run"
+  },
+  {
+    "address": "0x0001004e",
+    "length": 2,
+    "mnemonic": "c.li",
+    "text": "c.li a2,0x0",
+    "bytes": "0146",
+    "provenance": "NCV omitted interval, existing saved project; read-only headless run"
+  },
+  {
+    "address": "0x00010050",
+    "length": 2,
+    "mnemonic": "c.li",
+    "text": "c.li a1,0x0",
+    "bytes": "8145",
+    "provenance": "NCV omitted interval, existing saved project; read-only headless run"
+  },
+  {
+    "address": "0x00010052",
+    "length": 4,
+    "mnemonic": "addi",
+    "text": "addi a0,a0,-0x1c8",
+    "bytes": "130585e3",
+    "provenance": "NCV omitted interval, existing saved project; read-only headless run"
+  },
+  {
+    "address": "0x00010056",
+    "length": 4,
+    "mnemonic": "jal",
+    "text": "jal ra,0x0000678c",
+    "bytes": "ef606ff3",
+    "provenance": "NCV omitted interval, existing saved project; read-only headless run"
+  },
+  {
+    "address": "0x0001005a",
+    "length": 4,
+    "mnemonic": "lbu",
+    "text": "lbu a5,-0x7ab(gp)",
+    "bytes": "83c75185",
+    "provenance": "NCV omitted interval, existing saved project; read-only headless run"
+  },
+  {
+    "address": "0x0001005e",
+    "length": 4,
+    "mnemonic": "li",
+    "text": "li a2,0x5a",
+    "bytes": "1306a005",
+    "provenance": "NCV omitted interval, existing saved project; read-only headless run"
+  },
+  {
+    "address": "0x00010062",
+    "length": 4,
+    "mnemonic": "li",
+    "text": "li a1,0x5f",
+    "bytes": "9305f005",
+    "provenance": "NCV omitted interval, existing saved project; read-only headless run"
+  },
+  {
+    "address": "0x00010066",
+    "length": 2,
+    "mnemonic": "c.bnez",
+    "text": "c.bnez a5,0x000100e0",
+    "bytes": "adef",
+    "provenance": "NCV omitted interval, existing saved project; read-only headless run"
+  },
+  {
+    "address": "0x00010068",
+    "length": 4,
+    "mnemonic": "lui",
+    "text": "lui a0,0x25",
+    "bytes": "37550200",
+    "provenance": "NCV omitted interval, existing saved project; read-only headless run"
+  },
+  {
+    "address": "0x0001006c",
+    "length": 4,
+    "mnemonic": "addi",
+    "text": "addi a0,a0,-0x1bc",
+    "bytes": "130545e4",
+    "provenance": "NCV omitted interval, existing saved project; read-only headless run"
+  },
+  {
+    "address": "0x00010070",
+    "length": 4,
+    "mnemonic": "jal",
+    "text": "jal ra,0x0000678c",
+    "bytes": "ef60cff1",
+    "provenance": "NCV omitted interval, existing saved project; read-only headless run"
+  },
+  {
+    "address": "0x00010074",
+    "length": 4,
+    "mnemonic": "lui",
+    "text": "lui a0,0x25",
+    "bytes": "37550200",
+    "provenance": "NCV omitted interval, existing saved project; read-only headless run"
+  },
+  {
+    "address": "0x00010078",
+    "length": 4,
+    "mnemonic": "li",
+    "text": "li a2,0x8c",
+    "bytes": "1306c008",
+    "provenance": "NCV omitted interval, existing saved project; read-only headless run"
+  },
+  {
+    "address": "0x0001007c",
+    "length": 4,
+    "mnemonic": "li",
+    "text": "li a1,0x5f",
+    "bytes": "9305f005",
+    "provenance": "NCV omitted interval, existing saved project; read-only headless run"
+  },
+  {
+    "address": "0x00010080",
+    "length": 4,
+    "mnemonic": "addi",
+    "text": "addi a0,a0,-0x1a4",
+    "bytes": "1305c5e5",
+    "provenance": "NCV omitted interval, existing saved project; read-only headless run"
+  },
+  {
+    "address": "0x00010084",
+    "length": 4,
+    "mnemonic": "jal",
+    "text": "jal ra,0x0000678c",
+    "bytes": "ef608ff0",
+    "provenance": "NCV omitted interval, existing saved project; read-only headless run"
+  },
+  {
+    "address": "0x00010088",
+    "length": 4,
+    "mnemonic": "li",
+    "text": "li a0,0xc8",
+    "bytes": "1305800c",
+    "provenance": "NCV omitted interval, existing saved project; read-only headless run"
+  },
+  {
+    "address": "0x0001008c",
+    "length": 4,
+    "mnemonic": "jal",
+    "text": "jal ra,0x0001a64c",
+    "bytes": "efa0005c",
+    "provenance": "NCV omitted interval, existing saved project; read-only headless run"
+  },
+  {
+    "address": "0x00010090",
+    "length": 4,
+    "mnemonic": "lui",
+    "text": "lui a0,0x25",
+    "bytes": "37550200",
+    "provenance": "NCV omitted interval, existing saved project; read-only headless run"
+  },
+  {
+    "address": "0x00010094",
+    "length": 4,
+    "mnemonic": "li",
+    "text": "li a2,0x3c",
+    "bytes": "1306c003",
+    "provenance": "NCV omitted interval, existing saved project; read-only headless run"
+  },
+  {
+    "address": "0x00010098",
+    "length": 4,
+    "mnemonic": "li",
+    "text": "li a1,0x41",
+    "bytes": "93051004",
+    "provenance": "NCV omitted interval, existing saved project; read-only headless run"
+  },
+  {
+    "address": "0x0001009c",
+    "length": 4,
+    "mnemonic": "addi",
+    "text": "addi a0,a0,-0x18c",
+    "bytes": "130545e7",
+    "provenance": "NCV omitted interval, existing saved project; read-only headless run"
+  },
+  {
+    "address": "0x000100a0",
+    "length": 4,
+    "mnemonic": "jal",
+    "text": "jal ra,0x0000678c",
+    "bytes": "ef60cfee",
+    "provenance": "NCV omitted interval, existing saved project; read-only headless run"
+  },
+  {
+    "address": "0x000100a4",
+    "length": 4,
+    "mnemonic": "lui",
+    "text": "lui a0,0x25",
+    "bytes": "37550200",
+    "provenance": "NCV omitted interval, existing saved project; read-only headless run"
+  },
+  {
+    "address": "0x000100a8",
+    "length": 4,
+    "mnemonic": "li",
+    "text": "li a2,0xa0",
+    "bytes": "1306000a",
+    "provenance": "NCV omitted interval, existing saved project; read-only headless run"
+  },
+  {
+    "address": "0x000100ac",
+    "length": 4,
+    "mnemonic": "li",
+    "text": "li a1,0x41",
+    "bytes": "93051004",
+    "provenance": "NCV omitted interval, existing saved project; read-only headless run"
+  },
+  {
+    "address": "0x000100b0",
+    "length": 4,
+    "mnemonic": "addi",
+    "text": "addi a0,a0,-0x174",
+    "bytes": "1305c5e8",
+    "provenance": "NCV omitted interval, existing saved project; read-only headless run"
+  },
+  {
+    "address": "0x000100b4",
+    "length": 4,
+    "mnemonic": "jal",
+    "text": "jal ra,0x0000678c",
+    "bytes": "ef608fed",
+    "provenance": "NCV omitted interval, existing saved project; read-only headless run"
+  },
+  {
+    "address": "0x000100b8",
+    "length": 4,
+    "mnemonic": "li",
+    "text": "li a0,0xc8",
+    "bytes": "1305800c",
+    "provenance": "NCV omitted interval, existing saved project; read-only headless run"
+  },
+  {
+    "address": "0x000100bc",
+    "length": 4,
+    "mnemonic": "jal",
+    "text": "jal ra,0x0001a64c",
+    "bytes": "efa00059",
+    "provenance": "NCV omitted interval, existing saved project; read-only headless run"
+  },
+  {
+    "address": "0x000100c0",
+    "length": 4,
+    "mnemonic": "lui",
+    "text": "lui a0,0x25",
+    "bytes": "37550200",
+    "provenance": "NCV omitted interval, existing saved project; read-only headless run"
+  },
+  {
+    "address": "0x000100c4",
+    "length": 2,
+    "mnemonic": "c.li",
+    "text": "c.li a2,0x14",
+    "bytes": "5146",
+    "provenance": "NCV omitted interval, existing saved project; read-only headless run"
+  },
+  {
+    "address": "0x000100c6",
+    "length": 2,
+    "mnemonic": "c.li",
+    "text": "c.li a1,0x1e",
+    "bytes": "f945",
+    "provenance": "NCV omitted interval, existing saved project; read-only headless run"
+  },
+  {
+    "address": "0x000100c8",
+    "length": 4,
+    "mnemonic": "addi",
+    "text": "addi a0,a0,-0x15c",
+    "bytes": "130545ea",
+    "provenance": "NCV omitted interval, existing saved project; read-only headless run"
+  },
+  {
+    "address": "0x000100cc",
+    "length": 4,
+    "mnemonic": "jal",
+    "text": "jal ra,0x0000678c",
+    "bytes": "ef600fec",
+    "provenance": "NCV omitted interval, existing saved project; read-only headless run"
+  },
+  {
+    "address": "0x000100d0",
+    "length": 4,
+    "mnemonic": "lui",
+    "text": "lui a0,0x25",
+    "bytes": "37550200",
+    "provenance": "NCV omitted interval, existing saved project; read-only headless run"
+  },
+  {
+    "address": "0x000100d4",
+    "length": 4,
+    "mnemonic": "li",
+    "text": "li a2,0xbe",
+    "bytes": "1306e00b",
+    "provenance": "NCV omitted interval, existing saved project; read-only headless run"
+  },
+  {
+    "address": "0x000100d8",
+    "length": 2,
+    "mnemonic": "c.li",
+    "text": "c.li a1,0x1e",
+    "bytes": "f945",
+    "provenance": "NCV omitted interval, existing saved project; read-only headless run"
+  },
+  {
+    "address": "0x000100da",
+    "length": 4,
+    "mnemonic": "addi",
+    "text": "addi a0,a0,-0x144",
+    "bytes": "1305c5eb",
+    "provenance": "NCV omitted interval, existing saved project; read-only headless run"
+  },
+  {
+    "address": "0x000100de",
+    "length": 2,
+    "mnemonic": "c.j",
+    "text": "c.j 0x0000fe34",
+    "bytes": "99bb",
+    "provenance": "NCV omitted interval, existing saved project; read-only headless run"
+  },
+  {
+    "address": "0x000100e0",
+    "length": 4,
+    "mnemonic": "lui",
+    "text": "lui s0,0x25",
+    "bytes": "37540200",
+    "provenance": "NCV omitted interval, existing saved project; read-only headless run"
+  },
+  {
+    "address": "0x000100e4",
+    "length": 4,
+    "mnemonic": "addi",
+    "text": "addi a0,s0,-0x12c",
+    "bytes": "130544ed",
+    "provenance": "NCV omitted interval, existing saved project; read-only headless run"
+  },
+  {
+    "address": "0x000100e8",
+    "length": 4,
+    "mnemonic": "jal",
+    "text": "jal ra,0x0000678c",
+    "bytes": "ef604fea",
+    "provenance": "NCV omitted interval, existing saved project; read-only headless run"
+  },
+  {
+    "address": "0x000100ec",
+    "length": 4,
+    "mnemonic": "li",
+    "text": "li a2,0x8c",
+    "bytes": "1306c008",
+    "provenance": "NCV omitted interval, existing saved project; read-only headless run"
+  },
+  {
+    "address": "0x000100f0",
+    "length": 4,
+    "mnemonic": "li",
+    "text": "li a1,0x5f",
+    "bytes": "9305f005",
+    "provenance": "NCV omitted interval, existing saved project; read-only headless run"
+  },
+  {
+    "address": "0x000100f4",
+    "length": 4,
+    "mnemonic": "addi",
+    "text": "addi a0,s0,-0x12c",
+    "bytes": "130544ed",
+    "provenance": "NCV omitted interval, existing saved project; read-only headless run"
+  },
+  {
+    "address": "0x000100f8",
+    "length": 4,
+    "mnemonic": "jal",
+    "text": "jal ra,0x0000678c",
+    "bytes": "ef604fe9",
+    "provenance": "NCV omitted interval, existing saved project; read-only headless run"
+  },
+  {
+    "address": "0x000100fc",
+    "length": 4,
+    "mnemonic": "li",
+    "text": "li a0,0xc8",
+    "bytes": "1305800c",
+    "provenance": "NCV omitted interval, existing saved project; read-only headless run"
+  },
+  {
+    "address": "0x00010100",
+    "length": 4,
+    "mnemonic": "jal",
+    "text": "jal ra,0x0001a64c",
+    "bytes": "efa0c054",
+    "provenance": "NCV omitted interval, existing saved project; read-only headless run"
+  },
+  {
+    "address": "0x00010104",
+    "length": 4,
+    "mnemonic": "lui",
+    "text": "lui s0,0x25",
+    "bytes": "37540200",
+    "provenance": "NCV omitted interval, existing saved project; read-only headless run"
+  },
+  {
+    "address": "0x00010108",
+    "length": 4,
+    "mnemonic": "addi",
+    "text": "addi a0,s0,-0x11c",
+    "bytes": "130544ee",
+    "provenance": "NCV omitted interval, existing saved project; read-only headless run"
+  },
+  {
+    "address": "0x0001010c",
+    "length": 4,
+    "mnemonic": "li",
+    "text": "li a2,0x3c",
+    "bytes": "1306c003",
+    "provenance": "NCV omitted interval, existing saved project; read-only headless run"
+  },
+  {
+    "address": "0x00010110",
+    "length": 4,
+    "mnemonic": "li",
+    "text": "li a1,0x41",
+    "bytes": "93051004",
+    "provenance": "NCV omitted interval, existing saved project; read-only headless run"
+  },
+  {
+    "address": "0x00010114",
+    "length": 4,
+    "mnemonic": "jal",
+    "text": "jal ra,0x0000678c",
+    "bytes": "ef608fe7",
+    "provenance": "NCV omitted interval, existing saved project; read-only headless run"
+  },
+  {
+    "address": "0x00010118",
+    "length": 4,
+    "mnemonic": "li",
+    "text": "li a2,0xa0",
+    "bytes": "1306000a",
+    "provenance": "NCV omitted interval, existing saved project; read-only headless run"
+  },
+  {
+    "address": "0x0001011c",
+    "length": 4,
+    "mnemonic": "li",
+    "text": "li a1,0x41",
+    "bytes": "93051004",
+    "provenance": "NCV omitted interval, existing saved project; read-only headless run"
+  },
+  {
+    "address": "0x00010120",
+    "length": 4,
+    "mnemonic": "addi",
+    "text": "addi a0,s0,-0x11c",
+    "bytes": "130544ee",
+    "provenance": "NCV omitted interval, existing saved project; read-only headless run"
+  },
+  {
+    "address": "0x00010124",
+    "length": 4,
+    "mnemonic": "jal",
+    "text": "jal ra,0x0000678c",
+    "bytes": "ef608fe6",
+    "provenance": "NCV omitted interval, existing saved project; read-only headless run"
+  },
+  {
+    "address": "0x00010128",
+    "length": 4,
+    "mnemonic": "li",
+    "text": "li a0,0xc8",
+    "bytes": "1305800c",
+    "provenance": "NCV omitted interval, existing saved project; read-only headless run"
+  },
+  {
+    "address": "0x0001012c",
+    "length": 4,
+    "mnemonic": "jal",
+    "text": "jal ra,0x0001a64c",
+    "bytes": "efa00052",
+    "provenance": "NCV omitted interval, existing saved project; read-only headless run"
+  },
+  {
+    "address": "0x00010130",
+    "length": 4,
+    "mnemonic": "lui",
+    "text": "lui s0,0x25",
+    "bytes": "37540200",
+    "provenance": "NCV omitted interval, existing saved project; read-only headless run"
+  },
+  {
+    "address": "0x00010134",
+    "length": 2,
+    "mnemonic": "c.li",
+    "text": "c.li a2,0x14",
+    "bytes": "5146",
+    "provenance": "NCV omitted interval, existing saved project; read-only headless run"
+  },
+  {
+    "address": "0x00010136",
+    "length": 2,
+    "mnemonic": "c.li",
+    "text": "c.li a1,0x1e",
+    "bytes": "f945",
+    "provenance": "NCV omitted interval, existing saved project; read-only headless run"
+  },
+  {
+    "address": "0x00010138",
+    "length": 4,
+    "mnemonic": "addi",
+    "text": "addi a0,s0,-0x10c",
+    "bytes": "130544ef",
+    "provenance": "NCV omitted interval, existing saved project; read-only headless run"
+  },
+  {
+    "address": "0x0001013c",
+    "length": 4,
+    "mnemonic": "jal",
+    "text": "jal ra,0x0000678c",
+    "bytes": "ef600fe5",
+    "provenance": "NCV omitted interval, existing saved project; read-only headless run"
+  },
+  {
+    "address": "0x00010140",
+    "length": 4,
+    "mnemonic": "li",
+    "text": "li a2,0xbe",
+    "bytes": "1306e00b",
+    "provenance": "NCV omitted interval, existing saved project; read-only headless run"
+  },
+  {
+    "address": "0x00010144",
+    "length": 2,
+    "mnemonic": "c.li",
+    "text": "c.li a1,0x1e",
+    "bytes": "f945",
+    "provenance": "NCV omitted interval, existing saved project; read-only headless run"
+  },
+  {
+    "address": "0x00010146",
+    "length": 4,
+    "mnemonic": "addi",
+    "text": "addi a0,s0,-0x10c",
+    "bytes": "130544ef",
+    "provenance": "NCV omitted interval, existing saved project; read-only headless run"
+  },
+  {
+    "address": "0x0001014a",
+    "length": 2,
+    "mnemonic": "c.j",
+    "text": "c.j 0x0000fe34",
+    "bytes": "edb1",
+    "provenance": "NCV omitted interval, existing saved project; read-only headless run"
+  },
+  {
+    "address": "0x0001014c",
+    "length": 2,
+    "mnemonic": "ret",
+    "text": "ret",
+    "bytes": "8280",
+    "provenance": "NCV omitted interval, existing saved project; read-only headless run"
+  }
+]

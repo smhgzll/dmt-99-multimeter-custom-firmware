@@ -1,0 +1,7 @@
+{
+  "success": 439,
+  "ghidra": "12.1",
+  "language": "RISCV:LE:32:WCH",
+  "failed": 0,
+  "functions": 439
+}

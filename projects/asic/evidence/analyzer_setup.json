@@ -1,0 +1,12 @@
+{
+  "origin": "Nobara dnf repository",
+  "rpm": "projects/asic/.local/rpms/sigrok-firmware-fx2lafw-0.1.7.git9fe40f8-1.fc44.noarch.rpm",
+  "rpm_sha256": "9fbadf55e4c1d9c0b0f44abc99abe423bfc3caf3f575dca68136b8f69f504ca5",
+  "rpm_K_result": "digests signatures OK",
+  "firmware": "projects/asic/.local/extracted/usr/share/sigrok-firmware/fx2lafw-saleae-logic.fw",
+  "firmware_sha256": "b75dcf0fe3f6e25d4f4ed60ba329ce925042ed8558d31730e1e5731ffb3e27fe",
+  "reference": "https://www.sigrok.org/wiki/Firmware",
+  "usb_id": "0925:3881",
+  "driver": "fx2lafw",
+  "target_programming_performed": false
+}

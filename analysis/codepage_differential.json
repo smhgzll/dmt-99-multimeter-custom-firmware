@@ -1,0 +1,9 @@
+{
+  "cases": 804,
+  "entries": [
+    "0x0000fc9e",
+    "0x0000fcfc"
+  ],
+  "native_library_sha256": "375fdd84220b2cf511abc0b7fc0de3124fcccdacd9c65b7e903369af27c9f040",
+  "scope": "All ASCII inputs, exceptional key031a, wrong pages and non-ASCII original ROM-fault path. Returns and first fault address preserved; unknown physical alias/bus behavior is not emulated."
+}

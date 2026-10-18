@@ -1,0 +1,20 @@
+{
+  "timestamp": "2026-10-18T01:51:23.547368+03:00",
+  "sources": [
+    {
+      "path": "./reconstructed/ui/screen.c",
+      "sha256": "25db6d488dfc31450b99198ede2c6e189512d899df92a8e08b6b04ed4e8f7ea5",
+      "role": "read-only NCV/LIVE or temperature host renderer reference"
+    },
+    {
+      "path": "./reconstructed/ui/reading.c",
+      "sha256": "d74707d5b7dd9f85d2d58b4a3d047c61a6c61293b0be9511be349c4c652e0936",
+      "role": "read-only NCV/LIVE or temperature host renderer reference"
+    }
+  ],
+  "manual_url": "https://www.docs.beti.com.tr/FNIRSI/DMT-99/DMT-99_ing.pdf",
+  "manual_sha256": "e12a9b93ffebffa85ebc128bef63d7d57e72c3a3dfac26a59d63326662139bd5",
+  "manual_pages": "printed16-17; PDF7-8",
+  "original_existing_source_hash_checks": 16,
+  "original_existing_sources_unchanged": true
+}

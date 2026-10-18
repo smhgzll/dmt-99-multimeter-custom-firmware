@@ -1,0 +1,150 @@
+{
+  "pass": true,
+  "image_sha256": "c6c3bfed28a7fa6eba0718b9121155be706a30c8829ea06deadb1937b4a41005",
+  "emulator_source": "./tools/fw_emulator.py",
+  "emulator_sha256": "7e31eac9f55b3be63ef6f6f8740b2555ab072f72b8d251b7bd572555a3ebc315",
+  "execution": "actual RV32 BIN, GPIO button events, emulated panel framebuffer",
+  "hardware_verified": false,
+  "native_frames_compared": 14,
+  "completed_frames": 14,
+  "actions": [
+    {
+      "gpio": "PC8",
+      "hold_seconds": 0.12,
+      "action": "f"
+    },
+    {
+      "gpio": "PC9",
+      "hold_seconds": 0.06,
+      "action": "w"
+    },
+    {
+      "gpio": "PC9",
+      "hold_seconds": 0.06,
+      "action": "w"
+    },
+    {
+      "gpio": "PC9",
+      "hold_seconds": 0.06,
+      "action": "w"
+    },
+    {
+      "gpio": "PC9",
+      "hold_seconds": 0.06,
+      "action": "w"
+    },
+    {
+      "gpio": "PC9",
+      "hold_seconds": 0.06,
+      "action": "w"
+    },
+    {
+      "gpio": "PC9",
+      "hold_seconds": 0.06,
+      "action": "w"
+    },
+    {
+      "gpio": "PC9",
+      "hold_seconds": 0.06,
+      "action": "w"
+    },
+    {
+      "gpio": "PC10",
+      "hold_seconds": 0.06,
+      "action": "a"
+    },
+    {
+      "gpio": "PC10",
+      "hold_seconds": 0.06,
+      "action": "a"
+    },
+    {
+      "gpio": "PC10",
+      "hold_seconds": 0.06,
+      "action": "a"
+    },
+    {
+      "gpio": "PC8",
+      "hold_seconds": 0.06,
+      "action": "f"
+    },
+    {
+      "gpio": "PC8",
+      "hold_seconds": 0.8,
+      "action": "p"
+    }
+  ],
+  "screenshots": [
+    {
+      "file": "01-menu.png",
+      "description": "Power-on menu",
+      "frame": 1,
+      "frame_sha256": "ffd2df1dea279a0b3b81c837a7f3dac90f91ab7c56702652f913a881f6f6c97b",
+      "png_sha256": "539d91c55e6bc741af487bc266f33138ca9e3ca95d765de5c0054e62107b2348",
+      "size": [
+        320,
+        240
+      ]
+    },
+    {
+      "file": "02-game.png",
+      "description": "E1M1 start",
+      "frame": 2,
+      "frame_sha256": "276fda645df9900d86556dffeb86457eec00631f2158bc5a2c2beba54751b3d8",
+      "png_sha256": "48db28ca4b86032e7684d44ead21959199c9c98c3584fe563883620688c567c1",
+      "size": [
+        320,
+        240
+      ]
+    },
+    {
+      "file": "03-forward.png",
+      "description": "Seven forward actions",
+      "frame": 9,
+      "frame_sha256": "37c742a122861840181b47bf0f338b49256681c9b03645041d0647c91c0ae490",
+      "png_sha256": "b079c1495bdc7fa0de116e44e3948f787316d0e50ad12e3281613d68c936baa1",
+      "size": [
+        320,
+        240
+      ]
+    },
+    {
+      "file": "04-enemies.png",
+      "description": "Three left turns; enemies visible",
+      "frame": 12,
+      "frame_sha256": "6faae9f261aca2d4c4b29a0c65752f49515aa1cb98e2e5e1cbfad2fb9a82a017",
+      "png_sha256": "baca76fa8c502846a53b7fede203739c970ec14b61a3cf2a87a4e2cfa695a328",
+      "size": [
+        320,
+        240
+      ]
+    },
+    {
+      "file": "05-fire.png",
+      "description": "Fire with enemies visible",
+      "frame": 13,
+      "frame_sha256": "8c8b1de60991a173d114de98de3a7628d40e9667ebfedd3bb0778402b3744fac",
+      "png_sha256": "2e92926a9be80f3b6715a8ab281a6d69a2f5bcd1605aa2c7746dfe957398d2a4",
+      "size": [
+        320,
+        240
+      ]
+    },
+    {
+      "file": "06-pause.png",
+      "description": "Pause menu from long PC8",
+      "frame": 14,
+      "frame_sha256": "1dbcfe75fb86cb8a01fd80291a3823afcb86c5a9847e98750a99bf000af5d52a",
+      "png_sha256": "9a169fbff2bb808b5e67836e6fcc663e8815d492454b0506faa973e22dc7ae97",
+      "size": [
+        320,
+        240
+      ]
+    }
+  ],
+  "no_asic_tx": true,
+  "no_internal_flash_writes": true,
+  "nor_unchanged": true,
+  "panel_out_of_range": 0,
+  "capture_date": "2026-10-18"
+}

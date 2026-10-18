@@ -1,0 +1,20 @@
+{
+  "timestamp": "2026-10-18T01:51:23.547368+03:00",
+  "command": "python3 -m unittest discover -s tests -v",
+  "tests_passed": 31,
+  "tests_failed": 0,
+  "hardware_uart_captures": 25,
+  "capture_statuses": {
+    "captured": 23,
+    "partial_or_failed": 2
+  },
+  "uart_candidates_total": 21928,
+  "real_regression_excerpt_sets": 24,
+  "independent_fixture_uart_checks": 48,
+  "independent_fixture_checks_passed": 48,
+  "asan_ubsan_100000_byte_stream_test": "passed",
+  "original_reference_source_hashes_unchanged": true,
+  "all_reanalysis_raw_and_uart_byte_records_unchanged": true,
+  "pending_scope": "Analog calibration; active NCV/LIVE levels; loaded current; Fahrenheit; range/opaque fields and RX integrity. User scope: open inputs only.",
+  "historical_reanalysis_scope": "Raw and UART record invariance audit in reanalysis_integrity.json covers the first18 captures; current index verifies all25 raw archive hashes."
+}

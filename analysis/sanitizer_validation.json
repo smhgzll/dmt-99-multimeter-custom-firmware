@@ -1,0 +1,15 @@
+{
+  "status": "passed",
+  "tests": 30,
+  "sanitizers": [
+    "address",
+    "undefined"
+  ],
+  "leak_detection": false,
+  "leak_detection_note": "Existing sandbox ptrace exception; address/undefined checks enabled",
+  "differential_inputs_sha256": "4c25e349b7c11c9127bc21ab688646e0e29495a5c0f7f62e37cbe849aba810a6",
+  "commands": [
+    "make host-sanitize simulator-sanitize profile-sanitize",
+    "make CONFIG=CUSTOM_DMT99 simulator-sanitize profile-sanitize"
+  ]
+}

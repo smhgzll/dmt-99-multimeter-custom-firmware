@@ -1,0 +1,480 @@
+{
+  "origin": "hardware_excerpt",
+  "source_capture": "projects/asic/captures/20261018T012301_continuity_open_7ec5dac1",
+  "source_capture_status": "captured",
+  "source_raw_sr_sha256": "7d392e263e7f2d5bbc4df790e64b6ebe4735ca012e1a6647d6ce06a6c905d36c",
+  "source_logic_sha256": "240616c8d8bfae232c8e7a21bb0ea9d1a41edc23af1a7f1510bff5a8b62a3127",
+  "source_metadata": {
+    "test": "continuity_open",
+    "label": "continuity_open",
+    "display_text": null,
+    "display_numeric": null,
+    "display_unit": null,
+    "display_tolerance": 0,
+    "component_actual": "Açık uç; problar birbirine değmiyor; harici komponent/kaynak yok",
+    "mode": "continuity",
+    "notes": "Kullanıcı buzzerda diye modu doğruladı; ekran metnini henüz bildirmedi, display metadata bilerek boş. Önceki kapasitans modunu nf yazıyor boşta diye ayrıca doğruladı.",
+    "schema": 1,
+    "origin": "hardware",
+    "status": "captured",
+    "host_started_at": "2026-10-18T01:23:01.171087+03:00",
+    "requested_seconds": 10.0,
+    "requested_samples": 10000000,
+    "requested_samplerate_hz": 1000000,
+    "channels": {
+      "D0": "MCU_TX_PA9_pin42",
+      "D2": "ASIC_TX_PA10_pin43"
+    },
+    "channel_map": {
+      "MCU_TX": 0,
+      "ASIC_TX": 2
+    },
+    "rx_frame_bytes": 12,
+    "uart": "9600 8N1",
+    "passive_connections_confirmed": true,
+    "device_preflight": {
+      "argv": [
+        "sigrok-cli",
+        "--driver",
+        "fx2lafw",
+        "--show"
+      ],
+      "returncode": 0,
+      "output": "Driver functions:\n    Logic analyzer\nScan options:\n    conn\nfx2lafw:conn=1.67 - Saleae Logic [S/N: Saleae Logic] with 8 channels: D0 D1 D2 D3 D4 D5 D6 D7\nChannel groups:\n    Logic: channels D0 D1 D2 D3 D4 D5 D6 D7\nSupported configuration options across all channel groups:\n    continuous: on, off\n    limit_samples: 0 (current)\n    conn: 1.67 (current)\n    samplerate - supported samplerates:\n      20 kHz (current)\n      25 kHz\n      50 kHz\n      100 kHz\n      200 kHz\n      250 kHz\n      500 kHz\n      1 MHz\n      2 MHz\n      3 MHz\n      4 MHz\n      6 MHz\n      8 MHz\n      12 MHz\n      16 MHz\n      24 MHz\n      48 MHz\n    Supported triggers: 0 1 r f e \n    captureratio: 0 (current)\n"
+    },
+    "command": [
+      "sigrok-cli",
+      "--loglevel",
+      "4",
+      "--driver",
+      "fx2lafw",
+      "--config",
+      "samplerate=1000000",
+      "--channels",
+      "D0,D2",
+      "--samples",
+      "10000000",
+      "--output-format",
+      "srzip",
+      "--output-file",
+      "projects/asic/captures/20261018T012301_continuity_open_7ec5dac1/raw.sr"
+    ],
+    "host_finished_at": "2026-10-18T01:23:11.287434+03:00",
+    "returncode": 0,
+    "received_samples": 10000000,
+    "analysis_error": null
+  },
+  "start_sample": 2486,
+  "end_sample_exclusive": 834233,
+  "samplerate_hz": 1000000,
+  "channel_map": {
+    "MCU_TX": 0,
+    "ASIC_TX": 2
+  },
+  "raw_excerpt_sha256": "99b743c9b840ec7aa4b5e46dfaa3f7275c615bca1da079d82478b12c78941dcb",
+  "expected": {
+    "MCU_TX": [],
+    "ASIC_TX": [
+      {
+        "value": 90,
+        "start_sample": 1000,
+        "errors": []
+      },
+      {
+        "value": 165,
+        "start_sample": 2053,
+        "errors": []
+      },
+      {
+        "value": 0,
+        "start_sample": 3119,
+        "errors": []
+      },
+      {
+        "value": 240,
+        "start_sample": 4172,
+        "errors": []
+      },
+      {
+        "value": 107,
+        "start_sample": 5212,
+        "errors": []
+      },
+      {
+        "value": 1,
+        "start_sample": 6265,
+        "errors": []
+      },
+      {
+        "value": 128,
+        "start_sample": 7318,
+        "errors": []
+      },
+      {
+        "value": 8,
+        "start_sample": 8358,
+        "errors": []
+      },
+      {
+        "value": 2,
+        "start_sample": 9411,
+        "errors": []
+      },
+      {
+        "value": 0,
+        "start_sample": 10464,
+        "errors": []
+      },
+      {
+        "value": 1,
+        "start_sample": 11517,
+        "errors": []
+      },
+      {
+        "value": 67,
+        "start_sample": 12570,
+        "errors": []
+      },
+      {
+        "value": 90,
+        "start_sample": 159553,
+        "errors": []
+      },
+      {
+        "value": 165,
+        "start_sample": 160593,
+        "errors": []
+      },
+      {
+        "value": 0,
+        "start_sample": 161646,
+        "errors": []
+      },
+      {
+        "value": 240,
+        "start_sample": 162699,
+        "errors": []
+      },
+      {
+        "value": 107,
+        "start_sample": 163752,
+        "errors": []
+      },
+      {
+        "value": 1,
+        "start_sample": 164804,
+        "errors": []
+      },
+      {
+        "value": 128,
+        "start_sample": 165857,
+        "errors": []
+      },
+      {
+        "value": 8,
+        "start_sample": 166910,
+        "errors": []
+      },
+      {
+        "value": 2,
+        "start_sample": 167963,
+        "errors": []
+      },
+      {
+        "value": 0,
+        "start_sample": 169003,
+        "errors": []
+      },
+      {
+        "value": 1,
+        "start_sample": 170056,
+        "errors": []
+      },
+      {
+        "value": 67,
+        "start_sample": 171096,
+        "errors": []
+      },
+      {
+        "value": 90,
+        "start_sample": 326503,
+        "errors": []
+      },
+      {
+        "value": 165,
+        "start_sample": 327556,
+        "errors": []
+      },
+      {
+        "value": 0,
+        "start_sample": 328609,
+        "errors": []
+      },
+      {
+        "value": 240,
+        "start_sample": 329661,
+        "errors": []
+      },
+      {
+        "value": 107,
+        "start_sample": 330714,
+        "errors": []
+      },
+      {
+        "value": 1,
+        "start_sample": 331767,
+        "errors": []
+      },
+      {
+        "value": 128,
+        "start_sample": 332820,
+        "errors": []
+      },
+      {
+        "value": 8,
+        "start_sample": 333873,
+        "errors": []
+      },
+      {
+        "value": 2,
+        "start_sample": 334926,
+        "errors": []
+      },
+      {
+        "value": 0,
+        "start_sample": 335966,
+        "errors": []
+      },
+      {
+        "value": 1,
+        "start_sample": 337019,
+        "errors": []
+      },
+      {
+        "value": 67,
+        "start_sample": 338059,
+        "errors": []
+      },
+      {
+        "value": 90,
+        "start_sample": 491100,
+        "errors": []
+      },
+      {
+        "value": 165,
+        "start_sample": 492140,
+        "errors": []
+      },
+      {
+        "value": 0,
+        "start_sample": 493193,
+        "errors": []
+      },
+      {
+        "value": 240,
+        "start_sample": 494246,
+        "errors": []
+      },
+      {
+        "value": 107,
+        "start_sample": 495298,
+        "errors": []
+      },
+      {
+        "value": 1,
+        "start_sample": 496338,
+        "errors": []
+      },
+      {
+        "value": 128,
+        "start_sample": 497378,
+        "errors": []
+      },
+      {
+        "value": 8,
+        "start_sample": 498431,
+        "errors": []
+      },
+      {
+        "value": 2,
+        "start_sample": 499471,
+        "errors": []
+      },
+      {
+        "value": 0,
+        "start_sample": 500524,
+        "errors": []
+      },
+      {
+        "value": 1,
+        "start_sample": 501577,
+        "errors": []
+      },
+      {
+        "value": 67,
+        "start_sample": 502630,
+        "errors": []
+      },
+      {
+        "value": 90,
+        "start_sample": 653487,
+        "errors": []
+      },
+      {
+        "value": 165,
+        "start_sample": 654540,
+        "errors": []
+      },
+      {
+        "value": 0,
+        "start_sample": 655593,
+        "errors": []
+      },
+      {
+        "value": 240,
+        "start_sample": 656646,
+        "errors": []
+      },
+      {
+        "value": 107,
+        "start_sample": 657699,
+        "errors": []
+      },
+      {
+        "value": 1,
+        "start_sample": 658752,
+        "errors": []
+      },
+      {
+        "value": 128,
+        "start_sample": 659804,
+        "errors": []
+      },
+      {
+        "value": 8,
+        "start_sample": 660857,
+        "errors": []
+      },
+      {
+        "value": 2,
+        "start_sample": 661910,
+        "errors": []
+      },
+      {
+        "value": 0,
+        "start_sample": 662950,
+        "errors": []
+      },
+      {
+        "value": 1,
+        "start_sample": 664003,
+        "errors": []
+      },
+      {
+        "value": 66,
+        "start_sample": 665056,
+        "errors": []
+      },
+      {
+        "value": 90,
+        "start_sample": 818136,
+        "errors": []
+      },
+      {
+        "value": 165,
+        "start_sample": 819189,
+        "errors": []
+      },
+      {
+        "value": 0,
+        "start_sample": 820255,
+        "errors": []
+      },
+      {
+        "value": 240,
+        "start_sample": 821308,
+        "errors": []
+      },
+      {
+        "value": 107,
+        "start_sample": 822348,
+        "errors": []
+      },
+      {
+        "value": 1,
+        "start_sample": 823401,
+        "errors": []
+      },
+      {
+        "value": 128,
+        "start_sample": 824453,
+        "errors": []
+      },
+      {
+        "value": 8,
+        "start_sample": 825506,
+        "errors": []
+      },
+      {
+        "value": 2,
+        "start_sample": 826559,
+        "errors": []
+      },
+      {
+        "value": 0,
+        "start_sample": 827612,
+        "errors": []
+      },
+      {
+        "value": 1,
+        "start_sample": 828665,
+        "errors": []
+      },
+      {
+        "value": 66,
+        "start_sample": 829705,
+        "errors": []
+      }
+    ]
+  },
+  "expected_packets": [
+    {
+      "direction": "ASIC_TX",
+      "hex": "5A A5 00 F0 6B 01 80 08 02 00 01 43",
+      "kind": "frame_candidate",
+      "uart_errors": []
+    },
+    {
+      "direction": "ASIC_TX",
+      "hex": "5A A5 00 F0 6B 01 80 08 02 00 01 43",
+      "kind": "frame_candidate",
+      "uart_errors": []
+    },
+    {
+      "direction": "ASIC_TX",
+      "hex": "5A A5 00 F0 6B 01 80 08 02 00 01 43",
+      "kind": "frame_candidate",
+      "uart_errors": []
+    },
+    {
+      "direction": "ASIC_TX",
+      "hex": "5A A5 00 F0 6B 01 80 08 02 00 01 43",
+      "kind": "frame_candidate",
+      "uart_errors": []
+    },
+    {
+      "direction": "ASIC_TX",
+      "hex": "5A A5 00 F0 6B 01 80 08 02 00 01 42",
+      "kind": "frame_candidate",
+      "uart_errors": []
+    },
+    {
+      "direction": "ASIC_TX",
+      "hex": "5A A5 00 F0 6B 01 80 08 02 00 01 42",
+      "kind": "frame_candidate",
+      "uart_errors": []
+    }
+  ],
+  "rx_checksum_verified": false,
+  "cut_policy": "exact contiguous samples; boundary truncation and initial-low errors retained"
+}

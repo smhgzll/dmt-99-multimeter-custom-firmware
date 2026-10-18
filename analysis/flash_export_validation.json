@@ -1,0 +1,121 @@
+{
+  "milestone": "Read-only firmware update and dump feasibility audit",
+  "date": "2026-10-17",
+  "code_commit": "1664672",
+  "metrics": {
+    "complete_native": 146,
+    "partial_native": 14,
+    "incomplete_nontrap_including_partial": 123,
+    "new_original_function_credit": 0,
+    "application_profiles_modified": false
+  },
+  "decision": {
+    "offline_prototype": "GO",
+    "original_device_payload_or_update": "NO-GO",
+    "preservation_by_RDP_release": "NO-GO",
+    "reason": "No proven lossless entry to exporter; updater erase/acceptance policy absent; writing an exporter would replace original bytes before capture; RDP release documented destructive.",
+    "Flash_CPU_read": "Conditionally supported by RM32.5.1 and original ROM/settings read paths; whole protected prefix not tested.",
+    "RAM_CPU_read": "No successful readout claim; explicit complete execution-context read matrix absent from reviewed RM; requires independent same-model tests."
+  },
+  "tests": {
+    "C_test_executables_passed": 1,
+    "Python_test_methods_passed": 6,
+    "C_ASan_UBSan_executions_passed": 1,
+    "leak_checking": "disabled under preserved ptrace exception; address and UB checks fail-fast",
+    "wire_oracle_sizes": [
+      1,
+      255,
+      256,
+      257,
+      513,
+      25600,
+      491520
+    ],
+    "chunk_sizes": [
+      1,
+      31,
+      32,
+      33,
+      291,
+      4096
+    ],
+    "original_BIN_transfer_bytes": 135096,
+    "CLI_passes": 2,
+    "CLI_identical_bytes": 135096,
+    "original_settings_instruction_comparisons": 41,
+    "original_entries": [
+      "0x0000d87c",
+      "0x0000d928"
+    ],
+    "trace_limits": "Private mocked MMIO intents; CSR800 skipped; no RDP, target timing or successful physical erase/program model.",
+    "stock_custom_application_regressions": "Not rerun: all112 prior sources and four ELF hashes unchanged; existing reports preserved.",
+    "RV32_flash_and_RAM_section_objects": "compiled; relocations inspected; not linked or executed"
+  },
+  "preservation": {
+    "baseline_evidence_files_checked": 885,
+    "baseline_hashes_passed": true,
+    "prior_source_test_hashes_checked": 112,
+    "BIN": {
+      "bytes": 135096,
+      "sha256": "4befdf6b58e063f03901f190000d790e60d20d0a23e5eeb2b6f6840f1830e98e",
+      "writable_mode_bits": 0
+    },
+    "SPI_Flash": {
+      "bytes": 8388608,
+      "sha256": "fc6bf2ed36f578c15725a4365c4a381c98ce42657d3b8a98ff06efb1b6427d69"
+    },
+    "unchanged_profile_ELFs": {
+      "STOCK_COMPATIBLE": {
+        "reconstruction.elf": "400010a975824b0f96562dbefb0647a6e6dc8b2db0f0061e030d2743662d8f0c",
+        "recovered_modules.elf": "6067964fc138939fa8c11e5bfeb7d8dacf372e216c5290f464cfa0480890c392"
+      },
+      "CUSTOM_DMT99": {
+        "reconstruction.elf": "ce585134fb2e3bbac0b12811afc862952679a386256f052c2c0806e660b6689e",
+        "recovered_modules.elf": "354890c279ce2ccc589e64179074119ae0c0a7574f7527e52d0b36f9a973dd44"
+      }
+    },
+    "source_coverage_sha256": "3a28c47df4289dfd4091cc24db679c2c42bf975413c71482de000419d85a529e",
+    "Ghidra_or_full_analysis_regenerated": false,
+    "prior_validation_reports_modified": false
+  },
+  "commands": [
+    "make -C reconstructed/offline_export test sanitize",
+    "python3 tools/analyze_update_feasibility.py",
+    "python3 tools/test_update_flash_trace.py",
+    "python3 -m py_compile tools/flash_dump_receiver.py tools/test_flash_export.py tools/analyze_update_feasibility.py tools/test_update_flash_trace.py",
+    "Offline CLI example in docs/FIRMWARE_DUMP_FEASIBILITY.md; results in logs/flash-export-cli.log",
+    "RV32 object build commands in analysis/flash_export_object_build.json"
+  ],
+  "file_sha256": {
+    "analysis/firmware_update_evidence.json": "cf47525dc0d06934d4b4fc5021787936a2e203392a86719382bac4635b6521f0",
+    "analysis/flash_export_object_build.json": "c5440cf17beebe90f1e84dfe911ebb665a38ca8b29784f4aafe7e67968f8b451",
+    "analysis/update_flash_trace.json": "574c02c7b96febe28de602843b559d75c2f901f1556b9cdc09fe896cc3be9d2f",
+    "docs/FIRMWARE_DUMP_FEASIBILITY.md": "2f6eb99e8e942d4b68b44880b38be622df4d87f411a7963a14c908a3c58d9e8b",
+    "logs/firmware-update-evidence.log": "72b3572cf87178c4236fedf27077c807b238d7fbfebd256b43d37f19f47578be",
+    "logs/flash-export-cli.log": "41d94a2ed21a4d5bf58dba7403ac5d1f4b535791658eeb8ab2e7cdcaf5fbd1c1",
+    "logs/flash-export-object-build.log": "451306a07bdbd3de89c84ca1d0628e863835051dc0ade5c810813492b40ff58b",
+    "logs/flash-export-tests.log": "b413105bbce9cd693f9fb07344e474aad5db857cb0a46d9d9de341fe6676ad03",
+    "logs/update-flash-trace.log": "b0e7e4dc54e9f5b1577b5d1d26558b670f586b17a5a603becde777396956a12d",
+    "reconstructed/offline_export/Makefile": "cb27bfa8441131c8b46a7fb23c934ff9cb732a57fae35006d54a87101f568a4a",
+    "reconstructed/offline_export/flash_export.c": "37325d3cb2369fdb2be801fc65d61c370c743b2cef67ef10786cdb037d5d833b",
+    "reconstructed/offline_export/flash_export.h": "9bf58d2fe15eb0b3f0dda300628e89229f587c0be565006eeba3aa5aef2620ca",
+    "reconstructed/offline_export/replay.c": "8fe5e6c8b4117922fbb5388c8dbb8ea305796fdbaac04283a0510aa422516ad2",
+    "reconstructed/offline_export/test_flash_export.c": "90ba6cdd35c58c290641d48a5379ae860d815976aa0d3e6ea90bf35e9244be26",
+    "references/wch-dump-feasibility/CH32FV2x_V3xRM_EN.PDF": "d961d2291a5d9079a8c391e89e5f9807d0c0fc22f66595c417acfd4ecebdbc44",
+    "references/wch-dump-feasibility/CH32FV2x_V3xRM_EN.PDF.selected.txt": "059bc3eab022aad3cc40fb1cae658aaa1af5f6371da90c73066462c75be1938b",
+    "references/wch-dump-feasibility/CH32FV2x_V3xRM_PDF.metadata.json": "aa8962d20210638e51cd05c974c6a61420d5519054b6b8dfe310e540cab3e0ab",
+    "references/wch-dump-feasibility/CH32V20x_30xDS0_EN.PDF": "9747c52e34d1f48cfb437cd7fbd65837e5c0f975a73f784f33634f539ed41250",
+    "references/wch-dump-feasibility/CH32V20x_30xDS0_EN.PDF.selected.txt": "204f5e19934be02a2f119e71e48d0aa1514e1452f1d8d78bb58ff7592af8bee9",
+    "references/wch-dump-feasibility/CH32V307DS0_PDF.metadata.json": "89eb4fe1a6c0b7d5935c28d1afc8ff64f194752a9d55ebb72ced0513f2509fd3",
+    "references/wch-dump-feasibility/sources.json": "8e66f88910ee52cddff1d8c4081f9c5ea4283c686e7096a126a6d4d99e2f834b",
+    "tools/analyze_update_feasibility.py": "440e381bc6506da3cca9795c5733c3095ef1b404bdc49223d5b6b541a68d4f01",
+    "tools/flash_dump_receiver.py": "9d01701db5406c7a597f0f2ff6594fc73b8f0ed721e8b771336fa2d41872da35",
+    "tools/test_flash_export.py": "e6ea1a4230f7d031428d9d0127545941d617c79c11bd4a2f53486e41b0461b7f",
+    "tools/test_update_flash_trace.py": "ed58a4e4c1a63a9b53ae49ecc90a79b3c285390d949bddf1882421aa03bfeab7"
+  },
+  "hardware_accessed": false,
+  "RDP_changed": false,
+  "physical_flash_written": false,
+  "firmware_patched": false,
+  "device_loadable_image_produced": false
+}

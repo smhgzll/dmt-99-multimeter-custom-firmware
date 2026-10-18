@@ -1,0 +1,14 @@
+{
+  "sources": [
+    {
+      "path": "flashdump/dmt99_flash_1.bin",
+      "size": 8388608,
+      "sha256": "fc6bf2ed36f578c15725a4365c4a381c98ce42657d3b8a98ff06efb1b6427d69",
+      "expected_match": true
+    }
+  ],
+  "expected_second_read_present": false,
+  "independent_read_agreement_verified": false,
+  "original_firmware_sha256": "4befdf6b58e063f03901f190000d790e60d20d0a23e5eeb2b6f6840f1830e98e",
+  "originals_opened_read_only": true
+}

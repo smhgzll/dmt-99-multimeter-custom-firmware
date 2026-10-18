@@ -1,0 +1,13 @@
+{
+  "status": "passed",
+  "profile": "STOCK_COMPATIBLE",
+  "requests": 7,
+  "html": true,
+  "c_command_state": true,
+  "bad_input_keeps_process_alive": true,
+  "png_bytes": 230723,
+  "binary_sha256": "f4d7041bbc71bb5abd4644c4d2972eae320108fe9e9abae3cd63bb50a860b859",
+  "viewer_sha256": "1c3d29aa19d183a931ac401411493438aa27bfe9a65e0f7e4132873097c42105",
+  "scope": "Temporary loopback-only HTTP GET/POST and actual C framebuffer; JavaScript browser automation and physical hardware not claimed",
+  "reproduce": "python3 tools/smoke_simulator_http.py"
+}

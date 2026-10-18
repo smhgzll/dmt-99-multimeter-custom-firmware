@@ -1,0 +1,20 @@
+{
+  "cases": {
+    "0x000164d4": 896,
+    "0x0001598c": 896,
+    "0x00015af6": 896,
+    "0x000169d4": 3584,
+    "0x0001a336": 4
+  },
+  "total": 6276,
+  "entries": [
+    "0x000164d4",
+    "0x0001598c",
+    "0x00015af6",
+    "0x000169d4",
+    "0x0001a336"
+  ],
+  "native_library_sha256": "2f4f584238794caf73fd63c7540b16c26548cba7acf9201fe3ff973b0522044a",
+  "original_sha256": "4befdf6b58e063f03901f190000d790e60d20d0a23e5eeb2b6f6840f1830e98e",
+  "scope": "Ordered display leaves and external-call contracts, complete menu ID/event matrix, both layouts/languages, cache hits/misses. Editor/history are synchronous isolated call boundaries; restart stops at nonreturning application-loop tail call. No interrupt/timing or hardware equivalence."
+}

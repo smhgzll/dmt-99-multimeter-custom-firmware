@@ -1,0 +1,520 @@
+{
+  "compiler": "GCC 14.2.0 Espressif RV32; standard RV32IMAC output, not vendor Xwchc generation",
+  "flags": "-Os -march=rv32imac_zicsr_zifencei -mabi=ilp32",
+  "compared": 64,
+  "byte_identical": 19,
+  "functions": [
+    {
+      "address": "0x0000c6f6",
+      "name": "ADC_Init",
+      "original_size": 86,
+      "sdk_gcc_size": 88,
+      "byte_identical": false,
+      "scope": "Function-body bytes only; relocation-bearing and nonidentical functions require further analysis."
+    },
+    {
+      "address": "0x0000c74c",
+      "name": "ADC_Cmd",
+      "original_size": 16,
+      "sdk_gcc_size": 16,
+      "byte_identical": true,
+      "scope": "Function-body bytes only; relocation-bearing and nonidentical functions require further analysis."
+    },
+    {
+      "address": "0x0000c75c",
+      "name": "ADC_ResetCalibration",
+      "original_size": 10,
+      "sdk_gcc_size": 10,
+      "byte_identical": true,
+      "scope": "Function-body bytes only; relocation-bearing and nonidentical functions require further analysis."
+    },
+    {
+      "address": "0x0000c766",
+      "name": "ADC_GetResetCalibrationStatus",
+      "original_size": 8,
+      "sdk_gcc_size": 8,
+      "byte_identical": true,
+      "scope": "Function-body bytes only; relocation-bearing and nonidentical functions require further analysis."
+    },
+    {
+      "address": "0x0000c76e",
+      "name": "ADC_StartCalibration",
+      "original_size": 10,
+      "sdk_gcc_size": 10,
+      "byte_identical": true,
+      "scope": "Function-body bytes only; relocation-bearing and nonidentical functions require further analysis."
+    },
+    {
+      "address": "0x0000c778",
+      "name": "ADC_GetCalibrationStatus",
+      "original_size": 8,
+      "sdk_gcc_size": 8,
+      "byte_identical": true,
+      "scope": "Function-body bytes only; relocation-bearing and nonidentical functions require further analysis."
+    },
+    {
+      "address": "0x0000c780",
+      "name": "ADC_SoftwareStartConvCmd",
+      "original_size": 24,
+      "sdk_gcc_size": 24,
+      "byte_identical": true,
+      "scope": "Function-body bytes only; relocation-bearing and nonidentical functions require further analysis."
+    },
+    {
+      "address": "0x0000c798",
+      "name": "ADC_RegularChannelConfig",
+      "original_size": 184,
+      "sdk_gcc_size": 180,
+      "byte_identical": false,
+      "scope": "Function-body bytes only; relocation-bearing and nonidentical functions require further analysis."
+    },
+    {
+      "address": "0x0000c850",
+      "name": "ADC_GetConversionValue",
+      "original_size": 8,
+      "sdk_gcc_size": 8,
+      "byte_identical": true,
+      "scope": "Function-body bytes only; relocation-bearing and nonidentical functions require further analysis."
+    },
+    {
+      "address": "0x0000c858",
+      "name": "ADC_GetFlagStatus",
+      "original_size": 10,
+      "sdk_gcc_size": 12,
+      "byte_identical": false,
+      "scope": "Function-body bytes only; relocation-bearing and nonidentical functions require further analysis."
+    },
+    {
+      "address": "0x0000c862",
+      "name": "DMA_Init",
+      "original_size": 56,
+      "sdk_gcc_size": 56,
+      "byte_identical": false,
+      "scope": "Function-body bytes only; relocation-bearing and nonidentical functions require further analysis."
+    },
+    {
+      "address": "0x0000c89a",
+      "name": "DMA_Cmd",
+      "original_size": 20,
+      "sdk_gcc_size": 20,
+      "byte_identical": true,
+      "scope": "Function-body bytes only; relocation-bearing and nonidentical functions require further analysis."
+    },
+    {
+      "address": "0x0000c8ae",
+      "name": "DMA_ITConfig",
+      "original_size": 18,
+      "sdk_gcc_size": 20,
+      "byte_identical": false,
+      "scope": "Function-body bytes only; relocation-bearing and nonidentical functions require further analysis."
+    },
+    {
+      "address": "0x0000c8c0",
+      "name": "DMA_SetCurrDataCounter",
+      "original_size": 4,
+      "sdk_gcc_size": 4,
+      "byte_identical": true,
+      "scope": "Function-body bytes only; relocation-bearing and nonidentical functions require further analysis."
+    },
+    {
+      "address": "0x0000c8c4",
+      "name": "DMA_ClearITPendingBit",
+      "original_size": 44,
+      "sdk_gcc_size": 8,
+      "byte_identical": false,
+      "scope": "Function-body bytes only; relocation-bearing and nonidentical functions require further analysis."
+    },
+    {
+      "address": "0x0000c8f0",
+      "name": "EXTI_Init",
+      "original_size": 106,
+      "sdk_gcc_size": 98,
+      "byte_identical": false,
+      "scope": "Function-body bytes only; relocation-bearing and nonidentical functions require further analysis."
+    },
+    {
+      "address": "0x0000c95a",
+      "name": "EXTI_GetITStatus",
+      "original_size": 30,
+      "sdk_gcc_size": 26,
+      "byte_identical": false,
+      "scope": "Function-body bytes only; relocation-bearing and nonidentical functions require further analysis."
+    },
+    {
+      "address": "0x0000c978",
+      "name": "EXTI_ClearITPendingBit",
+      "original_size": 10,
+      "sdk_gcc_size": 12,
+      "byte_identical": false,
+      "scope": "Function-body bytes only; relocation-bearing and nonidentical functions require further analysis."
+    },
+    {
+      "address": "0x0000c982",
+      "name": "FLASH_Unlock",
+      "original_size": 26,
+      "sdk_gcc_size": 26,
+      "byte_identical": true,
+      "scope": "Function-body bytes only; relocation-bearing and nonidentical functions require further analysis."
+    },
+    {
+      "address": "0x0000c99c",
+      "name": "FLASH_Lock",
+      "original_size": 14,
+      "sdk_gcc_size": 14,
+      "byte_identical": true,
+      "scope": "Function-body bytes only; relocation-bearing and nonidentical functions require further analysis."
+    },
+    {
+      "address": "0x0000c9aa",
+      "name": "FLASH_ClearFlag",
+      "original_size": 8,
+      "sdk_gcc_size": 8,
+      "byte_identical": true,
+      "scope": "Function-body bytes only; relocation-bearing and nonidentical functions require further analysis."
+    },
+    {
+      "address": "0x0000c9b2",
+      "name": "FLASH_GetStatus",
+      "original_size": 24,
+      "sdk_gcc_size": 22,
+      "byte_identical": false,
+      "scope": "Function-body bytes only; relocation-bearing and nonidentical functions require further analysis."
+    },
+    {
+      "address": "0x0000c9ca",
+      "name": "FLASH_WaitForLastOperation",
+      "original_size": 36,
+      "sdk_gcc_size": 54,
+      "byte_identical": false,
+      "scope": "Function-body bytes only; relocation-bearing and nonidentical functions require further analysis."
+    },
+    {
+      "address": "0x0000c9ee",
+      "name": "FLASH_ProgramHalfWord",
+      "original_size": 56,
+      "sdk_gcc_size": 78,
+      "byte_identical": false,
+      "scope": "Function-body bytes only; relocation-bearing and nonidentical functions require further analysis."
+    },
+    {
+      "address": "0x0000ca26",
+      "name": "FLASH_Unlock_Fast",
+      "original_size": 30,
+      "sdk_gcc_size": 30,
+      "byte_identical": true,
+      "scope": "Function-body bytes only; relocation-bearing and nonidentical functions require further analysis."
+    },
+    {
+      "address": "0x0000ca44",
+      "name": "FLASH_Lock_Fast",
+      "original_size": 14,
+      "sdk_gcc_size": 14,
+      "byte_identical": true,
+      "scope": "Function-body bytes only; relocation-bearing and nonidentical functions require further analysis."
+    },
+    {
+      "address": "0x0000ca52",
+      "name": "FLASH_ErasePage_Fast",
+      "original_size": 46,
+      "sdk_gcc_size": 46,
+      "byte_identical": true,
+      "scope": "Function-body bytes only; relocation-bearing and nonidentical functions require further analysis."
+    },
+    {
+      "address": "0x0000ca80",
+      "name": "GPIO_Init",
+      "original_size": 192,
+      "sdk_gcc_size": 190,
+      "byte_identical": false,
+      "scope": "Function-body bytes only; relocation-bearing and nonidentical functions require further analysis."
+    },
+    {
+      "address": "0x0000cb40",
+      "name": "GPIO_ReadInputDataBit",
+      "original_size": 10,
+      "sdk_gcc_size": 12,
+      "byte_identical": false,
+      "scope": "Function-body bytes only; relocation-bearing and nonidentical functions require further analysis."
+    },
+    {
+      "address": "0x0000cb4a",
+      "name": "GPIO_SetBits",
+      "original_size": 4,
+      "sdk_gcc_size": 4,
+      "byte_identical": true,
+      "scope": "Function-body bytes only; relocation-bearing and nonidentical functions require further analysis."
+    },
+    {
+      "address": "0x0000cb4e",
+      "name": "GPIO_ResetBits",
+      "original_size": 4,
+      "sdk_gcc_size": 4,
+      "byte_identical": true,
+      "scope": "Function-body bytes only; relocation-bearing and nonidentical functions require further analysis."
+    },
+    {
+      "address": "0x0000cb52",
+      "name": "GPIO_WriteBit",
+      "original_size": 10,
+      "sdk_gcc_size": 10,
+      "byte_identical": true,
+      "scope": "Function-body bytes only; relocation-bearing and nonidentical functions require further analysis."
+    },
+    {
+      "address": "0x0000cb5c",
+      "name": "GPIO_EXTILineConfig",
+      "original_size": 44,
+      "sdk_gcc_size": 44,
+      "byte_identical": false,
+      "scope": "Function-body bytes only; relocation-bearing and nonidentical functions require further analysis."
+    },
+    {
+      "address": "0x0000cc3a",
+      "name": "RCC_ADCCLKConfig",
+      "original_size": 18,
+      "sdk_gcc_size": 18,
+      "byte_identical": false,
+      "scope": "Function-body bytes only; relocation-bearing and nonidentical functions require further analysis."
+    },
+    {
+      "address": "0x0000cc4c",
+      "name": "RCC_GetClocksFreq",
+      "original_size": 262,
+      "sdk_gcc_size": 254,
+      "byte_identical": false,
+      "scope": "Function-body bytes only; relocation-bearing and nonidentical functions require further analysis."
+    },
+    {
+      "address": "0x0000cd52",
+      "name": "RCC_AHBPeriphClockCmd",
+      "original_size": 30,
+      "sdk_gcc_size": 24,
+      "byte_identical": false,
+      "scope": "Function-body bytes only; relocation-bearing and nonidentical functions require further analysis."
+    },
+    {
+      "address": "0x0000cd70",
+      "name": "RCC_APB2PeriphClockCmd",
+      "original_size": 30,
+      "sdk_gcc_size": 24,
+      "byte_identical": false,
+      "scope": "Function-body bytes only; relocation-bearing and nonidentical functions require further analysis."
+    },
+    {
+      "address": "0x0000cd8e",
+      "name": "RCC_APB1PeriphClockCmd",
+      "original_size": 30,
+      "sdk_gcc_size": 24,
+      "byte_identical": false,
+      "scope": "Function-body bytes only; relocation-bearing and nonidentical functions require further analysis."
+    },
+    {
+      "address": "0x0000cdac",
+      "name": "SPI_Init",
+      "original_size": 62,
+      "sdk_gcc_size": 90,
+      "byte_identical": false,
+      "scope": "Function-body bytes only; relocation-bearing and nonidentical functions require further analysis."
+    },
+    {
+      "address": "0x0000cdea",
+      "name": "SPI_Cmd",
+      "original_size": 26,
+      "sdk_gcc_size": 26,
+      "byte_identical": false,
+      "scope": "Function-body bytes only; relocation-bearing and nonidentical functions require further analysis."
+    },
+    {
+      "address": "0x0000ce04",
+      "name": "SPI_I2S_SendData",
+      "original_size": 4,
+      "sdk_gcc_size": 6,
+      "byte_identical": false,
+      "scope": "Function-body bytes only; relocation-bearing and nonidentical functions require further analysis."
+    },
+    {
+      "address": "0x0000ce08",
+      "name": "SPI_I2S_ReceiveData",
+      "original_size": 4,
+      "sdk_gcc_size": 6,
+      "byte_identical": false,
+      "scope": "Function-body bytes only; relocation-bearing and nonidentical functions require further analysis."
+    },
+    {
+      "address": "0x0000ce0c",
+      "name": "SPI_I2S_GetFlagStatus",
+      "original_size": 10,
+      "sdk_gcc_size": 12,
+      "byte_identical": false,
+      "scope": "Function-body bytes only; relocation-bearing and nonidentical functions require further analysis."
+    },
+    {
+      "address": "0x0000ce16",
+      "name": "TIM_TimeBaseInit",
+      "original_size": 170,
+      "sdk_gcc_size": 264,
+      "byte_identical": false,
+      "scope": "Function-body bytes only; relocation-bearing and nonidentical functions require further analysis."
+    },
+    {
+      "address": "0x0000cec0",
+      "name": "TIM_OC1Init",
+      "original_size": 130,
+      "sdk_gcc_size": 160,
+      "byte_identical": false,
+      "scope": "Function-body bytes only; relocation-bearing and nonidentical functions require further analysis."
+    },
+    {
+      "address": "0x0000cf42",
+      "name": "TIM_OC2Init",
+      "original_size": 174,
+      "sdk_gcc_size": 202,
+      "byte_identical": false,
+      "scope": "Function-body bytes only; relocation-bearing and nonidentical functions require further analysis."
+    },
+    {
+      "address": "0x0000cff0",
+      "name": "TIM_Cmd",
+      "original_size": 24,
+      "sdk_gcc_size": 24,
+      "byte_identical": false,
+      "scope": "Function-body bytes only; relocation-bearing and nonidentical functions require further analysis."
+    },
+    {
+      "address": "0x0000d008",
+      "name": "TIM_CtrlPWMOutputs",
+      "original_size": 22,
+      "sdk_gcc_size": 22,
+      "byte_identical": true,
+      "scope": "Function-body bytes only; relocation-bearing and nonidentical functions require further analysis."
+    },
+    {
+      "address": "0x0000d01e",
+      "name": "TIM_ITConfig",
+      "original_size": 18,
+      "sdk_gcc_size": 22,
+      "byte_identical": false,
+      "scope": "Function-body bytes only; relocation-bearing and nonidentical functions require further analysis."
+    },
+    {
+      "address": "0x0000d030",
+      "name": "TIM_ARRPreloadConfig",
+      "original_size": 26,
+      "sdk_gcc_size": 26,
+      "byte_identical": false,
+      "scope": "Function-body bytes only; relocation-bearing and nonidentical functions require further analysis."
+    },
+    {
+      "address": "0x0000d04a",
+      "name": "TIM_OC1PreloadConfig",
+      "original_size": 14,
+      "sdk_gcc_size": 18,
+      "byte_identical": false,
+      "scope": "Function-body bytes only; relocation-bearing and nonidentical functions require further analysis."
+    },
+    {
+      "address": "0x0000d058",
+      "name": "TIM_OC2PreloadConfig",
+      "original_size": 22,
+      "sdk_gcc_size": 26,
+      "byte_identical": false,
+      "scope": "Function-body bytes only; relocation-bearing and nonidentical functions require further analysis."
+    },
+    {
+      "address": "0x0000d06e",
+      "name": "TIM_SetCompare2",
+      "original_size": 4,
+      "sdk_gcc_size": 6,
+      "byte_identical": false,
+      "scope": "Function-body bytes only; relocation-bearing and nonidentical functions require further analysis."
+    },
+    {
+      "address": "0x0000d072",
+      "name": "TIM_GetITStatus",
+      "original_size": 24,
+      "sdk_gcc_size": 28,
+      "byte_identical": false,
+      "scope": "Function-body bytes only; relocation-bearing and nonidentical functions require further analysis."
+    },
+    {
+      "address": "0x0000d08a",
+      "name": "TIM_ClearITPendingBit",
+      "original_size": 12,
+      "sdk_gcc_size": 14,
+      "byte_identical": false,
+      "scope": "Function-body bytes only; relocation-bearing and nonidentical functions require further analysis."
+    },
+    {
+      "address": "0x0000d096",
+      "name": "USART_Init",
+      "original_size": 188,
+      "sdk_gcc_size": 188,
+      "byte_identical": false,
+      "scope": "Function-body bytes only; relocation-bearing and nonidentical functions require further analysis."
+    },
+    {
+      "address": "0x0000d152",
+      "name": "USART_Cmd",
+      "original_size": 22,
+      "sdk_gcc_size": 24,
+      "byte_identical": false,
+      "scope": "Function-body bytes only; relocation-bearing and nonidentical functions require further analysis."
+    },
+    {
+      "address": "0x0000d168",
+      "name": "USART_ITConfig",
+      "original_size": 54,
+      "sdk_gcc_size": 56,
+      "byte_identical": false,
+      "scope": "Function-body bytes only; relocation-bearing and nonidentical functions require further analysis."
+    },
+    {
+      "address": "0x0000d19e",
+      "name": "USART_DMACmd",
+      "original_size": 18,
+      "sdk_gcc_size": 22,
+      "byte_identical": false,
+      "scope": "Function-body bytes only; relocation-bearing and nonidentical functions require further analysis."
+    },
+    {
+      "address": "0x0000d1b0",
+      "name": "USART_SendData",
+      "original_size": 8,
+      "sdk_gcc_size": 10,
+      "byte_identical": false,
+      "scope": "Function-body bytes only; relocation-bearing and nonidentical functions require further analysis."
+    },
+    {
+      "address": "0x0000d1b8",
+      "name": "USART_ReceiveData",
+      "original_size": 8,
+      "sdk_gcc_size": 10,
+      "byte_identical": false,
+      "scope": "Function-body bytes only; relocation-bearing and nonidentical functions require further analysis."
+    },
+    {
+      "address": "0x0000d1c0",
+      "name": "USART_GetFlagStatus",
+      "original_size": 10,
+      "sdk_gcc_size": 12,
+      "byte_identical": false,
+      "scope": "Function-body bytes only; relocation-bearing and nonidentical functions require further analysis."
+    },
+    {
+      "address": "0x0000d1ca",
+      "name": "USART_ClearFlag",
+      "original_size": 12,
+      "sdk_gcc_size": 14,
+      "byte_identical": false,
+      "scope": "Function-body bytes only; relocation-bearing and nonidentical functions require further analysis."
+    },
+    {
+      "address": "0x0000d1d6",
+      "name": "USART_GetITStatus",
+      "original_size": 60,
+      "sdk_gcc_size": 70,
+      "byte_identical": false,
+      "scope": "Function-body bytes only; relocation-bearing and nonidentical functions require further analysis."
+    }
+  ]
+}

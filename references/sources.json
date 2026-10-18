@@ -1,0 +1,37 @@
+[
+  {
+    "path": "references/SD7502.pdf",
+    "url": "https://sdicmicro.cn/upload/img/2021-08/611627e6a2699.pdf",
+    "sha256": "dd40cd91e88d405614539a25bf77c2333a59ad6516b3704abc356b62ca13fe26",
+    "bytes": 580523,
+    "retrieved_date": "2026-10-16"
+  },
+  {
+    "path": "references/SD78P953.pdf",
+    "url": "https://sdicmicro.cn/upload/img/2022-11/6371b0eeeaeef.pdf",
+    "sha256": "927e687e23f891bfa81ef363580e736138aebff79f511eafb5bfb3a2c0bebcc5",
+    "bytes": 632219,
+    "retrieved_date": "2026-10-16"
+  },
+  {
+    "path": "references/SDIC-selection-catalog.pdf",
+    "url": "https://sdicmicro.cn/upload/img/2023-05/64633c119f860.pdf",
+    "sha256": "7680628bc5626cf2d215729d3dd84d1fe67ac7b254fe4d9b0553927b2a593c9a",
+    "bytes": 6351911,
+    "retrieved_date": "2026-10-16"
+  },
+  {
+    "path": "references/llvm-xwchc-pr.json",
+    "url": "https://api.github.com/repos/llvm/llvm-project/pulls/97925/files",
+    "sha256": "5c07a0f366cb0136331d54078712be074d2082f1ad74ff871cfd67854391ae71",
+    "bytes": 40067,
+    "retrieved_date": "2026-10-16"
+  },
+  {
+    "path": "references/wch-sdk-commit.json",
+    "url": "https://api.github.com/repos/openwch/ch32v307/commits/080af2e52055334eaa6af0f7ad7df527b4ef5a66",
+    "sha256": "3c723d8571fd94214f0b8706fc69e244619e2fb0abb4e2668f2e56128bdab7ee",
+    "bytes": 12059,
+    "retrieved_date": "2026-10-16"
+  }
+]

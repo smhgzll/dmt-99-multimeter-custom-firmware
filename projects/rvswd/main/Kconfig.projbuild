@@ -1,0 +1,69 @@
+menu "DMT99 read-only RVSWD diagnostic"
+config DIAG_PROGBUF_LAB
+    bool "Explicit fixed load-only Program Buffer experiment"
+    depends on DIAG_ABSTRACT_MEMORY_LAB && DIAG_ALLOW_HALT_RESUME
+    default n
+    help
+        Saves/restores x8/x9, DATA0 and two progbuf words; executes only lw/ebreak.
+        No target memory stores, reset or Flash controller access.
+config DIAG_ABSTRACT_MEMORY_LAB
+    bool "Lab only: bounded Abstract Access Memory read on an unprotected spare"
+    default n
+    help
+        Unverified on CH32V303. Validate on an unprotected spare first.
+        Separate commands require an already halted or already running spare.
+        A separate halt-memory-cycle command additionally requires the halt
+        build gate and explicit runtime token. Never resets or writes Flash.
+        Only reads two fixed 16-byte Code Flash windows, twice.
+        WCH V4 documentation is inconsistent about command type 2 support.
+config DIAG_ALLOW_DM_ACTIVATION
+    bool "Allow explicit DM activation (DMCONTROL.dmactive only)"
+    default n
+    help
+        Leave disabled unless you explicitly intend to activate the debug module.
+        The activation command writes only DMCONTROL=1 and requires a separate
+        runtime confirmation token. This does not enable halt or resume.
+config DIAG_ALLOW_HALT_RESUME
+    bool "Allow explicit halt/resume experiment"
+    default n
+    help
+        Leave disabled. This is independent of DM activation and requires its
+        own runtime confirmation token. Never enable for ordinary diagnostics.
+config DIAG_BOARD_PINS_VERIFIED
+    bool "Enable identification for the confirmed ESP32 GPIO25/26 board profile"
+    default y
+    help
+        The operator confirmed GPIO25/26 and UART0 on GPIO1/3. This only
+        enables explicit identification requests, still requiring runtime
+        wiring and measured-voltage checks. It does not indicate target
+        validation. GPIO16/17 remain unused to avoid PSRAM conflicts.
+config DIAG_BOARD_NAME
+    string "Board model/revision checked by operator (letters/numbers/spaces/dashes)"
+    default "ESP32-D0WD-V3 rev3.1 CP2102 GPIO25-26"
+config DIAG_HALF_PERIOD_US
+    int "Minimum clock low/high phase (microseconds)"
+    range 10 250
+    default 250
+    help
+        250 us gives at most 2 kHz; software overhead makes it slower.
+config DIAG_TURNAROUND_US
+    int "Extra settling time at each SWDIO ownership change (no extra clocks)"
+    range 2 200
+    default 50
+config DIAG_SAMPLE_LOW
+    bool "Experimental: sample at end of LOW phase (cnlohr timing)"
+    default n
+    help
+        Default samples during HIGH as in Nicolai and published captures.
+        Change manually only when comparing logic-analyzer traces.
+config DIAG_IDLE_CLOCK_HIGH
+    bool "Experimental: park SWCLK HIGH between frames"
+    default n
+    help
+        LOW is observed on V203; the V303 requirement is unverified.
+        No automatic transport or idle-mode changes occur.
+config DIAG_IDENTIFY_SAMPLES
+    int "Consecutive identification samples per operator request"
+    range 3 16
+    default 8
+endmenu

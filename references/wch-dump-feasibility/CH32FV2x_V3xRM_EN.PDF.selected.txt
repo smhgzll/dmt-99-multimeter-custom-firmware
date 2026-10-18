@@ -1,0 +1,648 @@
+PDF page 16 (1-based)
+CH32F/V20x_V30x_V31x Series Reference Manual                                                                 https://wch-ic.com
+
+
+                                               Figure 1-10 CH32F208 (Wireless) memory image
+
+                                                                                              0x5005 0400      Reserved
+                                                                                              0x5005 0000
+                                                                                                               Reserved
+                                                                                              0x5004 0000
+                                                                                                                  USBFS
+                                                                                              0x5000 0000
+                                                                                                                Reserved
+                                                                                              0x4002 A000
+                                                                                                                Ethernet
+                                                                                              0x4002 8000
+                                                                                                                Reserved
+                                                                                              0x4002 6000
+                                                                                                                 BLE 5.3
+                                                                                              0x4002 4000
+                                                                                                                Reserved
+                                                                                              0x4002 3C00
+                                                                                                                 EXTEND
+                                                                                              0x4002 3800
+                                                                                                                Reserved
+                                                                                              0x4002 3400
+                                                                                                                   CRC
+                                                                                              0x4002 3000
+                                                                                                                Reserved
+                                                                                              0x4002 2400
+                                                                                                             Flash Interface
+                                                                                              0x4002 2000
+                                                                                                                Reserved
+                                                                                              0x4002 1400
+                                                                                                                   RCC
+                                                                                              0x4002 1000
+                                                                                                               Reserved
+                                                                                              0x4002 0400
+                                                                                                                 DMA
+                                                                                              0x4002 0000
+                                                                                              0x4001 8400      Reserved
+                                                                                              0x4001 8000
+                                                                                              0x4001 5400
+                                                                                                               Reserved
+                                                                                              0x4001 5000
+                                                                                              0x4001 4C00
+                                                                                                              Reserved
+                                                                                              0x4001 3C00
+                                                                                                               USART1
+                                                                                              0x4001 3800
+                                                                                                              Reserved
+                                                                                              0x4001 3400
+                                                                                                                 SPI1
+                                                                                              0x4001 3000
+                                                                                                                TIM1
+                                                                                              0x4001 2C00
+                                                                                                              Reserved
+                                                                                              0x4001 2800
+                                                                                                            ADC1/TouchKey
+                                                                                              0x4001 2400
+                                                                                              0x4001 1C00      Reserved
+                                                                                              0x4001 1800
+                                                                                                                 Port D
+                                                                                              0x4001 1400
+                                                                                                                 Port C
+                                                                                              0x4001 1000
+                                                                                                                 Port B
+                                                                                              0x4001 0C00
+                                                                                                                 Port A
+                                                        0xFFFF FFFFF                          0x4001 0800
+                                                                         Reserved                                 EXTI
+                                                                                              0x4001 0400
+                                                                                                                  AFIO
+                                                        0xE010 0000                           0x4001 0000
+                                                                         Core Private
+                                                                         Peripherals          0x4000 7800      Reserved
+                                                        0xE000 0000
+                                                                                              0x4000 7400
+                                                                                                                  PWR
+                                                                                              0x4000 7000
+                                                                          Reserved                                 BKP
+                                                                                              0x4000 6C00
+                                                                                                                Reserved
+                                                                                              0x4000 6800
+                                                        0xC000 0000                                             bxCAN1
+                                                                                              0x4000 6400
+                                                                                                            share 512B SRAM
+                                                                                              0x4000 6000
+    0x1FFF FFFF                                                           Reserved                                USBD
+                        Reserved                                                              0x4000 5C00
+   0x1FFF F880                                                                                                     I2C2
+                                                                                              0x4000 5800
+                      Option Bytes                      0xA000 0000                                                I2C1
+   0x1FFF F800                                                                                0x4000 5400
+                      Vendor Bytes                                                                              Reserved
+   0x1FFF F700                                                                                0x4000 5000
+                                                                          Reserved                               UART4
+                        Reserved                                                              0x4000 4C00
+   0x1FFF F000                                                                                                  USART3
+                                                                                              0x4000 4800
+                                                        0x7000 0000                                              USART2
+                     System FLASH                                                             0x4000 4400
+                     (BOOT_28KB)                                                                               Reserved
+                                                                         Reserved
+                                                                                              0x4000 3C00
+   0x1FFF 8000                                                                                                   SPI2
+                                                                                              0x4000 3800
+                                                        0x6000 0000                                            Reserved
+                                                                                              0x4000 3400
+                                                                          Reserved                              IWDG
+                        Reserved                                                              0x4000 3000
+                                                                                                                WWDG
+                                                                                              0x4000 2C00
+                                                                                                                 RTC
+                                                                        Peripherals           0x4000 2800
+                                                        0x4000 0000
+                       Code FLASH                                        Reserved                              Reserved
+                       480KB max
+                  Include s 0 wait and non-0            0x2001 0000
+                        waiting areas                                  SRAM (64KBmax)         0x4000 1800
+                                                        0x2000 0000
+   0x0800 0000                                                                                0x4000 1400      Reserved
+                  Aliased to Flash or                                                         0x4000 1000
+                   system memory                                             FLASH                               TIM5
+                    depending on                                                              0x4000 0C00
+                                                                                                                 TIM4
+                      BOOT pins                                                               0x4000 0800
+   0x0000 0000                                          0x0000 0000                                              TIM3
+                                                                                              0x4000 0400
+                                                                       4G线性地址空间                                  TIM2
+                                                                                              0x4000 0000
+
+
+
+
+V2.5                                                                    11
+
+
+PDF page 17 (1-based)
+CH32F/V20x_V30x_V31x Series Reference Manual                                                  https://wch-ic.com
+
+
+             Figure 1-11 CH32V203 (Small-and-medium capacity general-purpose) memory image
+
+                                                                               0x5005 0400       Reserved
+                                                                               0x5005 0000
+                                                                                                Reserved
+                                                                               0x5004 0000
+                                                                                                  USBFS
+                                                                               0x5000 0000
+                                                                                                Reserved
+                                                                               0x4002 A000
+                                                                                             Ethernet (CH203RBx)
+                                                                               0x4002 8000
+                                                                               0x4002 6000
+                                                                                                 Reserved
+                                                                               0x4002 4000
+                                                                               0x4002 3C00
+                                                                                                  EXTEND
+                                                                               0x4002 3800
+                                                                                                 Reserved
+                                                                               0x4002 3400
+                                                                                                    CRC
+                                                                               0x4002 3000
+                                                                                                 Reserved
+                                                                               0x4002 2400
+                                                                                              Flash Interface
+                                                                               0x4002 2000
+                                                                                                 Reserved
+                                                                               0x4002 1400
+                                                                                                    RCC
+                                                                               0x4002 1000
+                                                                               0x4002 0800       Reserved
+                                                                               0x4002 0400
+                                                                                                   DMA
+                                                                               0x4002 0000
+                                                                               0x4001 8400
+                                                                                                 Reserved
+                                                                               0x4001 8000
+                                                                               0x4001 5400
+                                                                               0x4001 5000
+                                                                                                 Reserved
+                                                                               0x4001 4C00
+                                                                               0x4001 3C00
+                                                                                                USART1
+                                                                               0x4001 3800
+                                                                                               Reserved
+                                                                               0x4001 3400
+                                                                                                  SPI1
+                                                                               0x4001 3000
+                                                                                                 TIM1
+                                                                               0x4001 2C00
+                                                                                             ADC2/TouchKey
+                                                                               0x4001 2800
+                                                                                             ADC1/TouchKey
+                                                                               0x4001 2400
+                                                                               0x4001 1C00       Reserved
+                                                                               0x4001 1800
+                                                                                                  Port D
+                                                                               0x4001 1400
+                                                                                                  Port C
+                                                                               0x4001 1000
+                                                                                                  Port B
+                                                                               0x4001 0C00
+                                                                                                  Port A
+                                               0xFFFF FFFFF                    0x4001 0800
+                                                                Reserved                           EXTI
+                                                                               0x4001 0400
+                                                                                                   AFIO
+                                               0xE010 0000                     0x4001 0000
+                                                                Core Private
+                                                                Peripherals    0x4000 7800       Reserved
+                                               0xE000 0000
+                                                                               0x4000 7400
+                                                                                                   PWR
+                                                                               0x4000 7000
+                                                                 Reserved                           BKP
+                                                                               0x4000 6C00
+                                                                                                 Reserved
+                                                                               0x4000 6800
+                                               0xC000 0000                                       bxCAN1
+                                                                               0x4000 6400
+                                                                                             share 512B SRAM
+                                                                               0x4000 6000
+    0x1FFF FFFF                                                  Reserved                          USBD
+                        Reserved                                               0x4000 5C00
+   0x1FFF F880                                                                                      I2C2
+                                                                               0x4000 5800
+                      Option Bytes             0xA000 0000                                          I2C1
+   0x1FFF F800                                                                 0x4000 5400
+                      Vendor Bytes                                                               Reserved
+   0x1FFF F700                                                                 0x4000 5000
+                                                                 Reserved                         UART4
+                        Reserved                                               0x4000 4C00
+   0x1FFF F000                                                                                   USART3
+                                                                               0x4000 4800
+                                               0x7000 0000                                        USART2
+                     System FLASH                                              0x4000 4400
+                     (BOOT_28KB)                                               0x4000 4000       Reserved
+                                                                 Reserved
+                                                                               0x4000 3C00
+   0x1FFF 8000                                                                                     SPI2
+                                                                               0x4000 3800
+                                               0x6000 0000                                       Reserved
+                                                                               0x4000 3400
+                                                                 Reserved                         IWDG
+                        Reserved                                               0x4000 3000
+                                                                                                  WWDG
+                                                                               0x4000 2C00
+                                                                                                   RTC
+                                                               Peripherals     0x4000 2800
+                                               0x4000 0000
+                       Code FLASH                               Reserved
+                       224KB max
+                                                                                                 Reserved
+                  Include s 0 wait and non-0   0x2001 0000
+                        waiting areas                         SRAM (64KBmax)
+                                               0x2000 0000
+   0x0800 0000
+                  Aliased to Flash or                                          0x4000 1000
+                   system memory                                    FLASH                      TIM5 (CH203RBx)
+                    depending on                                               0x4000 0C00
+                                                                                                  TIM4
+                      BOOT pins                                                0x4000 0800
+   0x0000 0000                                 0x0000 0000                                        TIM3
+                                                                               0x4000 0400
+                                                              4G线性地址空间                            TIM2
+                                                                               0x4000 0000
+
+
+
+
+V2.5                                                           12
+
+
+PDF page 602 (1-based)
+CH32FV2x_V3x Reference Manual                                                                     http://wch-ic.com
+
+
+
+                Chapter 32 Flash Memory and User Option Bytes
+This chapter applies to the whole family of CH32F20x, CH32V20x, CH32V30x and CH32V31x.
+
+
+32.1 Flash Memory Organization
+The internal flash memory organization structure of the chip is as follows (Taking xVCT6 as an example):
+
+                               Table 32-1 Flash memory organization structure
+         Block              Name                       Address Range                    Size(byte)
+                            Page 0              0x08000000 to 0x080000FF                   256
+                            Page 1              0x08000100 to 0x080001FF                   256
+                            Page 2              0x08000200 to 0x080002FF                   256
+                            Page 3              0x08000300 to 0x080003FF                   256
+         Main               Page 4              0x08000400 to 0x080004FF                   256
+        memory              Page 5              0x08000500 to 0x080005FF                   256
+                            Page 6              0x08000600 to 0x080006FF                   256
+                            Page 7              0x08000700 to 0x080007FF                   256
+                              …                               …                             …
+                          Page 1919             0x08077F00 to 0x08077FFF                   256
+                     System boot loader
+       Information                              0x1FFF8000 to 0x1FFFEFFF                   28K
+                          storage
+          block
+                      User option bytes         0x1FFFF800 to 0x1FFFF87F                   128
+Note:
+1) The main memory area is used for the user's application program storage, and the write protection is
+  divided in unit of 4K bytes (32 pages). Except for the locked "Vendor Configuration Word" area before
+  delivery which is inaccessible to users, other areas can be operated by users under certain conditions.
+2) When carrying out FLASH-related operations, it is strongly recommended that the system main frequency
+  is not greater than 120M.
+If the actual application must require the use of system mains frequency greater than 120M, it should be
+  noted that:
+In the non-zero-wait area FLASH and zero-wait area FLASH, user word read/write and vendor
+configuration word and Boot area read, the following operations need to be done, firstly, HCLK is divided
+into two (Related peripheral clocks are also divided at the same time, the impact needs to be evaluated), and
+then restored after the FLASH operation is completed to ensure that the FLASH access clock frequency does
+not exceed 60Mhz (FLASH_ CTLR register bit[25]-SCKMOD can configure FLASH access clock frequency
+as system clock or half of system clock, the default configuration of this bit is half of system clock).
+
+
+32.2 Flash Memory Programming and Safety
+32.2.1 Two Program/Erase Methods
+ Standard programming: This method is the default programming method (Compatible method). In this
+mode, the CPU executes programming in a single 2-byte manner, and executes erasure and entire chip
+erasure operations in a single 4K byte
+
+V2.5                                                   597
+
+
+PDF page 603 (1-based)
+CH32FV2x_V3x Reference Manual                                                                 http://wch-ic.com
+
+
+ Fast programming: This method uses page operation (recommended). After unlocking through a
+specific sequence, a single 256-byte program, 256-byte erase, 32K-byte erase, and full chip erase are
+performed.
+Note: FLASH erase related functions can only be placed in the zero-wait area FLASH.
+
+
+32.2.2 Security-preventing against Illegal Access (Read, write and erase)
+      Page write protection
+      Read protection
+
+
+Under the read protection state:
+1） The main memory pages 0-15 (4K bytes) are automatically write-protected and are not controlled by
+   the FLASH_WPR register; when the read protection status is released, all main memory pages will be
+   controlled by the FLASH_WPR register.
+2） The main memory cannot be erased or programmed in the system boot code area, SWD or SDI mode,
+   and RAM area, except for the entire chip erasure. User option byte area can be erased or programmed.
+   If you try to release the read protection (program user word), the chip will automatically erase the entire
+   user area
+
+
+32.3 Flash Enhanced Read Mode
+FLASH enhanced reading mode is suitable for running in FLASH by user sequence (the user-generated
+CODE space exceeds the code size space configured by user-selected word RAM_CODE_MOD[1:0] bits).
+Turning on this mode can improve the access efficiency of FLASH. To start this mode, set the EHMOD bit
+in the FLASH_CTLR register, and then read the EHMODS bit, which means that the enhanced reading
+mode has taken effect. To close this mode, clear the EHMOD bit first, and then set the RSENACT to 1. At
+the same time, the access clock frequency can be selected by configuring the SCKMOD bit in the
+FLASH_CTLR register.
+Note: When using FLASH Enhanced Read Mode, the following points should be noted:
+1） Before performing any mode of erasing or programming on FLASH (Including unlocking user word
+   programming such as read protection), you must exit the enhanced read mode, otherwise the erasing
+   and programming operations will fail;
+2） Before entering the stop mode, you must exit the enhanced read mode, otherwise it may cause an
+   abnormal stop mode;
+3） After power reset and system reset, the chip is controlled by hardware to automatically exit the
+   enhanced read mode.
+
+
+
+32.4 Register Description
+
+                                          Table 32-2 FLASH registers
+             Name                  Access address                 Description                  Reset value
+R32_FLASH_KEYR                      0x40022004      FPEC key register                       0xXXXXXXXX
+R32_FLASH_OBKEYR                    0x40022008      OBKEY register                          0xXXXXXXXX
+R32_FLASH_STATR                     0x4002200C      Status register                           0x00000000
+R32_FLASH_CTLR                      0x40022010      Control register                          0x00008080
+
+
+V2.5                                                  598
+
+
+PDF page 614 (1-based)
+CH32FV2x_V3x Reference Manual                                                                  http://wch-ic.com
+
+
+7) Wait for the BSY bit to become '0' or the EOP bit in the FLASH_STATR register to be '1' to indicate the
+   end of erasing, and clear the EOP bit to 0.
+8) Query the FLASH_STATR register to see if there is an error, or read and erase the page address data
+   verification.
+9) To continue fast page erasing, you can repeat steps 5-8, and clear the BER32 bit to 0 after erasing.
+
+Note: After erasing is successful, word read - 0xe339e339, half word read - 0xe339, even address byte read -
+0x39, odd address read 0xe3.
+
+
+32.6 User Option Bytes
+The User Option Bytes are solidified in FLASH and will be reloaded into the corresponding register after the
+system reset, and the user can erase and program at will. The user option word information block has a total
+of 8 bytes (4 bytes for write protection, 1 byte for read protection, 1 byte for configuration options, 2 bytes
+for user data storage), and each bit has the inverted code bit for checking during loading. The structure and
+meaning of the selected word information are described below.
+
+                                 Table 32-3 32-bit option bytes format division
+          [31:24]                      [23:16]                     [15:8]                      [7:0]
+ Inverse code of option                                     Inverse code of option
+                                  Option bytes 1                                          Option bytes 0
+        bytes 1                                                    bytes 0
+
+                             Table 32-4 User option bytes information structure
+Address
+                             [31:24]                [23:16]                  [15:8]               [7:0]
+                    Bit
+   0x1FFFF800                nUSER                   USER                   nRDPR                RDPR
+   0x1FFFF804                nData1                  Data1                  nData0               Data0
+   0x1FFFF808                nWRPR1                 WRPR1                   nWRPR0              WRPR0
+   0x1FFFF80C                nWRPR3                 WRPR3                   nWRPR2              WRPR2
+
+
+            Name/Byte                                       Description                        Reset value
+                                    Read protection control. It configures whether the code
+                                    in the flash memory can be read.
+                                    0xA5: If this byte is 0xA5 (nRDP must be 0x5A), it
+                                    means that the current code is in a non-read protected
+               RDPR                                                                                0xA5
+                                    state and can be read;
+                                    Other values: Code read protection status, unreadable;
+                                    pages 0 to 15 pages (4K) will be automatically
+                                    write-protected and not controlled by WRPR0.
+                                    00x：CODE-192KB + RAM-128KB
+                                    01x：CODE-224KB + RAM-96KB
+                                    10x：CODE-256KB + RAM-64KB
+                                    110：CODE-128KB + RAM-192KB
+   USER       [7:5]       xx1b                                                                         x
+                                    111：CODE-288KB + RAM-32KB
+                                    Note: (1) Applied for CH32V303RC, CH32V303VC,
+                                    CH32V307RC,       CH32V307WC,     CH32V307VC,
+                                    CH32F203RC,       CH32F203VC,     CH32F207VC,
+
+V2.5                                                  609
+
+
+PDF page 615 (1-based)
+CH32FV2x_V3x Reference Manual                                                                http://wch-ic.com
+
+
+                                CH32V317VC, CH32V317WC, CH32V317SC.
+                                (2) The 110b applies only to products where the
+                                penultimate sixth digit of the lot number is not zero.
+                                00x：CODE-128KB + RAM-64KB
+                                01x：CODE-144KB + RAM-48KB
+                                1xx：CODE-160KB + RAM-32KB
+                                Note: Applied for CH32V20x_D8W, CH32V20x_D8 and
+                                CH32F20x_D8W series chip.
+            [4:3]    Reserved   Reserved                                                         11b
+                            System reset control in Standby mode:
+                    STANDYR 0: Enable; system is reset when entering Standby mode;
+              2                                                                                    1
+                       ST   1: Disable; system is not reset when entering Standby
+                            mode.
+                                System reset control in Stop mode:
+                                0: Enable; system will be reset when entering Stop
+              1     STOPRST     mode;                                                              1
+                                1: Disable; system will not be reset when entering Stop
+                                Mode.
+                                Independent watchdog (IWDG) hardware enable:
+                                0: The IWDG function is enabled by software (Depends
+              0     IWDGSW      on the LSI clock);                                                 1
+                                1: The IWDG function is enabled by software, and
+                                disabled by hardware.
+          Data0–Data1           Saving the user's data 2 bytes.                                   X
+                                Write protection control. Each bit is used to control the
+                                write protection status of 1 sector (4Kbytes/sector) in
+                                main memory:
+                                0: Enable write protection;
+                                1: Disable write protection.
+                                4 bytes are used to protect a total of 480K bytes of main    0xFFFFFFF
+       WRPR0 - WRPR3
+                                memory.                                                          F
+                                WRP0: Sectors 0-7 memory write protection control;
+                                WRP1: Sectors 8-15 memory write protection control;
+                                WRP2: Sectors 16-23 memory write protection control;
+                                WRP3: Bits 0-6 provide write protection for sectors
+                                24-30; bit 7 provides write protection for sectors 31-119.
+
+
+32.6.1 User Option Bytes Unlock
+The user option bytes operation can be unlocked by writing the sequence to the FLASH_OBKEYR register.
+After unlocking, the OBWRE bit in the FLASH_CTLR register will be set to 1, indicating that user option
+bytes can be erased and programmed. By setting the OBWRE bit in the FLASH_CTLR register, it will be
+cleared to 0 by software to lock again.
+
+Unlocking sequence
+1) Write KEY1 = 0x45670123 to the FLASH_OBKEYR register;
+2) Write KEY2 = 0xCDEF89AB to the FLASH_OBKEYR register.
+
+V2.5                                              610
+
+
+PDF page 616 (1-based)
+CH32FV2x_V3x Reference Manual                                                                   http://wch-ic.com
+
+
+Note: The user needs to unlock the 2 layers: "LOCK" and "OBWRE" for word selection.
+
+
+32.6.2 User Option Bytes Programming
+It only supports the standard programming mode. The half word (2 bytes) is written at a time. In the actual
+process, when programming the user option bytes, FPEC only uses the low byte in the half-word, and
+automatically calculates the high byte (The high byte is the inverse code of the low byte), and then starts the
+programming operation. Ensure that byte in the user option bytes and its inverse code are always correct.
+
+1) Check the LOCK bit in the FLASH_CTLR register. If it is 1, you need to perform the "Release Flash
+Memory Lock" operation.
+2) Check the BSY bit in the FLASH_STATR register to ensure that there is no other programming operation
+in progress.
+3) Check the OBWRE bit in the FLASH_CTLR register. If it is 0, you need to perform the "User Option
+Bytes Unlock" operation.
+4) Set the OBPG bit in the FLASH_CTLR register to ‘1’.
+5) Write the half word (2 bytes) to be programmed to the designated address.
+6) When the BSY bit changes to '0' or the EOP bit in the FLASH_STATR register to be '1', it indicates the
+end of programming. Clear the EOP bit to 0.
+7) Read the programming address data for verification.
+8) To continue programming, you can repeat steps 5-7, end programming and clear the OBPG bit to 0.
+Note: When the "read protection" in the option bytes is modified and becomes "non-protected", the main
+memory area will be erased automatically once. If you modify the selections other than "read protection",
+the entire chip erasure operation will not occur.
+
+
+32.6.3 User Option Bytes Erasure
+Erase the entire 128-byte user option bytes area directly.
+1) Check the LOCK bit in the FLASH_CTLR register. If it is 1, you need to perform the "Release Flash
+Memory Lock" operation.
+2) Check the BSY bit in the FLASH_STATR register to ensure that there is no programming operation in
+progress.
+3) Check the OBWRE bit in the FLASH_CTLR register. If it is 0, you need to perform the "User Option
+Bytes Unlock" operation.
+4) Set the OBER bit in the FLASH_CTLR register to ‘1’, then set the STRT bit in the FLASH_CTLR
+register to ‘1’, to enable the user option bytes erasure.
+5) When the BSY bit changes to '0' or the EOP bit in the FLASH_STATR register to be '1', it indicates the
+end of erasure. Clear the EOP bit to 0.
+6) Read the erasure address data for verification.
+7) Clear the OBER bit.
+
+Note: After erasing is successful, word read - 0xe339e339, half word read - 0xe339, byte read - 0x39.
+
+
+32.6.4 Read Protection Release
+The read protection of flash memory is determined by the user option bytes. Read the FLASH_OBR register.
+When the RDPRT bit is '1', it means that the current flash memory is in the read protection state, and the
+flash memory operation is subject to a series of safety protections in the read protection state. The process of
+releasing the read protection is as follows:
+
+
+V2.5                                                  611
+
+
+PDF page 617 (1-based)
+CH32FV2x_V3x Reference Manual                                                              http://wch-ic.com
+
+
+1) Erase the entire User Option Bytes area. At this time, the read protection field RDPR will become 0xFF,
+and the read protection will be still valid.
+2) The user option bytes programming and writes the correct RDPR code 0xA5 to release the read protection
+of the flash memory. (This step will first cause the system to automatically perform a whole chip erasure
+operation on the flash memory).
+3) Perform a power-on reset to reload the selection byte (Including the new RDPR code), and the read
+protection is released at this time.
+
+
+32.6.5 Write Protection Release
+The write protection of flash memory is determined by the user option bytes. Read the FLASH_WPR
+register. Each bit represents 4K bytes of flash memory space. When the bit is ‘1’, it means the
+non-write-protected state, and ‘0’ means write-protected. The process of releasing write-protected is as
+follows:
+1) Erase the whole user option bytes area.
+2) Write the correct RDPR code 0xA5, and the read access is allowed;
+3) Perform a system reset and reload the selection byte (Including the new WRPR[3:0] byte) to release the
+write protection.
+
+
+
+
+V2.5                                               612
+
+
+PDF page 609 (1-based), added for RDPRT/WRP and section 32.5.1
+CH32FV2x_V3x Reference Manual                                                                           http://wch-ic.com
+
+
+                                                  Read protection.
+       1               RDPRT          RO          0: Current read protection of flash is invalid;                 1
+                                                  1: Current read protection of flash is valid.
+                                         Option byte error.
+                                         0: Option byte matches its inverted code.
+    0           OBERR             RO                                                                              0
+                                         1: Option byte does not match its inverted
+                                         code.
+Note: USER and RDPRT are loaded from the user option byte area after system reset.
+
+
+32.4.7 Write Protection Register (FLASH_WPR)
+       Offset address: 0x20
+31         30     29    28     27    26      25      24         23    22    21     20     19        18       17       16
+                                                    WRP[31:16]
+15         14     13    12     11    10      9        8         7     6      5     4       3        2        1        0
+                                                    WRP[15:0]
+
+
+     Bit               Name         Access                           Description                          Reset Value
+                                           Flash write protection.
+                                           0: Write protection valid;
+ [31:0]    WRP[31:0]               RO      1: Write protection invalid.                                          X
+                                           Each bit represents the write protection state of
+                                           4-Kbytes (16 pages) memory.
+Note: WPR is loaded from the user option byte area after system reset.
+
+
+32.4.8 Extension Key Register (FLASH_MODEKEYR)
+       Offset address: 0x24
+31         30     29    28     27    26      25      24         23    22    21     20     19        18       17       16
+                                             MODEKEYR[31:16]
+15         14     13    12     11    10      9        8         7     6      5     4       3        2        1        0
+                                              MODEKEYR[15:0]
+
+
+   Bit                 Name         Access                           Description                          Reset value
+                                                 Enter the following sequence to unlock the fast
+                                                 program/erase mode:
+ [31:0]         MODEKEYR[31:0]       WO                                                                          X
+                                                 KEY1 = 0x45670123;
+                                                 KEY2 = 0xCDEF89AB.
+
+
+
+32.5 Flash Operation Procedure
+32.5.1 Read Operation
+Direct addressing is in the general address space, and the user can access the content of the flash memory
+module and get the corresponding data through any read operation of 8/16/32-bit data.
+
+
+
+
+V2.5                                                      604

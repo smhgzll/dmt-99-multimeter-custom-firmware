@@ -1,0 +1,3976 @@
+{
+ "definition": "Per-function status of the V2.4 application in the standalone firmware.",
+ "firmware": "0.1.0-rc1",
+ "summary": {
+  "functions": 439,
+  "by_status": {
+   "deviation": 8,
+   "library": 131,
+   "native": 190,
+   "partial": 2,
+   "replaced": 22,
+   "vector-default": 86
+  },
+  "bytes_by_status": {
+   "deviation": 798,
+   "library": 25636,
+   "native": 66778,
+   "partial": 168,
+   "replaced": 4362,
+   "vector-default": 172
+  }
+ },
+ "functions": [
+  {
+   "address": "0x06400",
+   "name": "application_entry",
+   "size": 4,
+   "status": "deviation",
+   "source": "firmware/startup.S",
+   "note": "reset jump at 0x0 instead of 0x6400",
+   "hardware_validated": false
+  },
+  {
+   "address": "0x06600",
+   "name": "wch_save_12",
+   "size": 8,
+   "status": "replaced",
+   "source": "millicode",
+   "note": "not needed by the firmware",
+   "hardware_validated": false
+  },
+  {
+   "address": "0x06608",
+   "name": "wch_save_10",
+   "size": 14,
+   "status": "replaced",
+   "source": "millicode",
+   "note": "not needed by the firmware",
+   "hardware_validated": false
+  },
+  {
+   "address": "0x06616",
+   "name": "wch_save_6",
+   "size": 26,
+   "status": "replaced",
+   "source": "millicode",
+   "note": "not needed by the firmware",
+   "hardware_validated": false
+  },
+  {
+   "address": "0x06630",
+   "name": "wch_save_2",
+   "size": 12,
+   "status": "replaced",
+   "source": "millicode",
+   "note": "not needed by the firmware",
+   "hardware_validated": false
+  },
+  {
+   "address": "0x0663c",
+   "name": "wch_restore_12",
+   "size": 36,
+   "status": "replaced",
+   "source": "millicode",
+   "note": "not needed by the firmware",
+   "hardware_validated": false
+  },
+  {
+   "address": "0x06660",
+   "name": "memset_recovered",
+   "size": 168,
+   "status": "native",
+   "source": "platform/memory.c",
+   "note": "portable memory fill",
+   "hardware_validated": false
+  },
+  {
+   "address": "0x06708",
+   "name": "jpeg_input_callback",
+   "size": 44,
+   "status": "native",
+   "source": "ui/resources.c",
+   "note": "File read/seek callback; retains original error-number return",
+   "hardware_validated": false
+  },
+  {
+   "address": "0x06734",
+   "name": "jpeg_display_callback",
+   "size": 88,
+   "status": "native",
+   "source": "ui/resources.c",
+   "note": "Original display rectangle/begin/data path; optional host canvas alternate",
+   "hardware_validated": false
+  },
+  {
+   "address": "0x0678c",
+   "name": "resource_draw_jpeg",
+   "size": 172,
+   "status": "native",
+   "source": "ui/resources.c",
+   "note": "Open/read/decode/close contract; caller-owned workspace replaces malloc/free; original silent decoder failure retained",
+   "hardware_validated": false
+  },
+  {
+   "address": "0x06838",
+   "name": "FUN_ram_00006838",
+   "size": 28,
+   "status": "library",
+   "source": "vendor/tjpgd/tjpgd.c",
+   "note": "Configured authentic upstream counterpart with recorded ABI/tables/behavior evidence; exact vendor source provenance unknown",
+   "hardware_validated": false
+  },
+  {
+   "address": "0x06854",
+   "name": "FUN_ram_00006854",
+   "size": 126,
+   "status": "library",
+   "source": "vendor/tjpgd/tjpgd.c",
+   "note": "Configured authentic upstream counterpart with recorded ABI/tables/behavior evidence; exact vendor source provenance unknown",
+   "hardware_validated": false
+  },
+  {
+   "address": "0x068d2",
+   "name": "FUN_ram_000068d2",
+   "size": 156,
+   "status": "library",
+   "source": "vendor/tjpgd/tjpgd.c",
+   "note": "Configured authentic upstream counterpart with recorded ABI/tables/behavior evidence; exact vendor source provenance unknown",
+   "hardware_validated": false
+  },
+  {
+   "address": "0x0696e",
+   "name": "jpeg_decoder_prepare",
+   "size": 1070,
+   "status": "library",
+   "source": "vendor/tjpgd/tjpgd.c",
+   "note": "Configured authentic upstream counterpart with recorded ABI/tables/behavior evidence; exact vendor source provenance unknown",
+   "hardware_validated": false
+  },
+  {
+   "address": "0x06d9c",
+   "name": "jpeg_decoder_decompress",
+   "size": 1990,
+   "status": "library",
+   "source": "vendor/tjpgd/tjpgd.c",
+   "note": "Configured authentic upstream counterpart with recorded ABI/tables/behavior evidence; exact vendor source provenance unknown",
+   "hardware_validated": false
+  },
+  {
+   "address": "0x07562",
+   "name": "charge_detect_gpio_init",
+   "size": 54,
+   "status": "native",
+   "source": "firmware/battery.c",
+   "note": "PA8 charger input",
+   "hardware_validated": false
+  },
+  {
+   "address": "0x07598",
+   "name": "adc_read_averaged",
+   "size": 88,
+   "status": "deviation",
+   "source": "firmware/battery.c",
+   "note": "ADC mean; EOC wait bounded",
+   "hardware_validated": false
+  },
+  {
+   "address": "0x075f0",
+   "name": "battery_percentage_estimate",
+   "size": 138,
+   "status": "native",
+   "source": "application/battery_level.c",
+   "note": "battery estimate, bit-exact",
+   "hardware_validated": false
+  },
+  {
+   "address": "0x0767a",
+   "name": "adc_battery_init",
+   "size": 144,
+   "status": "native",
+   "source": "firmware/battery.c",
+   "note": "ADC1 init incl. AWDCH leftover",
+   "hardware_validated": false
+  },
+  {
+   "address": "0x0770a",
+   "name": "battery_inputs_init",
+   "size": 12,
+   "status": "native",
+   "source": "firmware/battery.c",
+   "note": "battery_inputs_init",
+   "hardware_validated": false
+  },
+  {
+   "address": "0x07716",
+   "name": "FUN_ram_00007716",
+   "size": 32,
+   "status": "native",
+   "source": "platform/wch_runtime.c",
+   "note": "TIM3 vector priority",
+   "hardware_validated": false
+  },
+  {
+   "address": "0x07736",
+   "name": "tim3_periodic_init",
+   "size": 74,
+   "status": "native",
+   "source": "platform/wch_runtime.c",
+   "note": "fixed periodic timer configuration",
+   "hardware_validated": false
+  },
+  {
+   "address": "0x07780",
+   "name": "TIM3_IRQHandler",
+   "size": 140,
+   "status": "native",
+   "source": "application/power.c",
+   "note": "periodic IRQ policy; MMIO status handled by SDK binding",
+   "hardware_validated": false
+  },
+  {
+   "address": "0x0780c",
+   "name": "tim2_buzzer_pwm_config",
+   "size": 174,
+   "status": "native",
+   "source": "platform/wch_runtime.c",
+   "note": "TIM2 PWM configuration",
+   "hardware_validated": false
+  },
+  {
+   "address": "0x078ba",
+   "name": "FUN_ram_000078ba",
+   "size": 22,
+   "status": "native",
+   "source": "platform/wch_runtime.c",
+   "note": "fixed default PWM wrapper",
+   "hardware_validated": false
+  },
+  {
+   "address": "0x078d0",
+   "name": "buzzer_enable",
+   "size": 72,
+   "status": "native",
+   "source": "platform/wch_runtime.c",
+   "note": "enable/default PWM or compare0 GPIO-low disable",
+   "hardware_validated": false
+  },
+  {
+   "address": "0x07918",
+   "name": "FUN_ram_00007918",
+   "size": 22,
+   "status": "native",
+   "source": "application/application.c",
+   "note": "buzzer action through hardware callback",
+   "hardware_validated": false
+  },
+  {
+   "address": "0x0792e",
+   "name": "FUN_ram_0000792e",
+   "size": 22,
+   "status": "native",
+   "source": "application/application.c",
+   "note": "Default buzzer start, delay500 and disable external-call contract; mandatory bound callbacks in valid IO domain. No hardware/timing validation.",
+   "hardware_validated": false
+  },
+  {
+   "address": "0x07944",
+   "name": "buttons_gpio_exti_init",
+   "size": 452,
+   "status": "native",
+   "source": "platform/wch_runtime.c",
+   "note": "SDK GPIO/EXTI sequence",
+   "hardware_validated": false
+  },
+  {
+   "address": "0x07b08",
+   "name": "button_wait_longpress",
+   "size": 258,
+   "status": "native",
+   "source": "ui/buttons.c",
+   "note": "blocking key poll with41-sample release threshold",
+   "hardware_validated": false
+  },
+  {
+   "address": "0x07c0a",
+   "name": "EXTI2_IRQHandler",
+   "size": 56,
+   "status": "native",
+   "source": "ui/buttons.c",
+   "note": "blocking debounce/power event",
+   "hardware_validated": false
+  },
+  {
+   "address": "0x07c42",
+   "name": "EXTI9_5_IRQHandler",
+   "size": 150,
+   "status": "native",
+   "source": "ui/buttons.c",
+   "note": "PC8 long/short andPC9 overwrite behavior",
+   "hardware_validated": false
+  },
+  {
+   "address": "0x07cd8",
+   "name": "EXTI15_10_IRQHandler",
+   "size": 146,
+   "status": "native",
+   "source": "ui/buttons.c",
+   "note": "upper EXTI group overwrite behavior",
+   "hardware_validated": false
+  },
+  {
+   "address": "0x07d6a",
+   "name": "display_write_command",
+   "size": 80,
+   "status": "native",
+   "source": "drivers/display_bus.c",
+   "note": "command GPIO strobe sequence",
+   "hardware_validated": false
+  },
+  {
+   "address": "0x07dba",
+   "name": "display_write_data",
+   "size": 80,
+   "status": "native",
+   "source": "drivers/display_bus.c",
+   "note": "data GPIO strobe sequence",
+   "hardware_validated": false
+  },
+  {
+   "address": "0x07e0a",
+   "name": "display_write_register",
+   "size": 22,
+   "status": "native",
+   "source": "drivers/display.c",
+   "note": "command+data pair (used through display_cursor/window)",
+   "hardware_validated": false
+  },
+  {
+   "address": "0x07e20",
+   "name": "display_begin_pixels",
+   "size": 14,
+   "status": "native",
+   "source": "drivers/display.c",
+   "note": "memory-write command",
+   "hardware_validated": false
+  },
+  {
+   "address": "0x07e2e",
+   "name": "FUN_ram_00007e2e",
+   "size": 10,
+   "status": "native",
+   "source": "drivers/display_bus.c",
+   "note": "alias forwarding to data transport",
+   "hardware_validated": false
+  },
+  {
+   "address": "0x07e38",
+   "name": "FUN_ram_00007e38",
+   "size": 48,
+   "status": "native",
+   "source": "drivers/display.c",
+   "note": "column/row cursor writes",
+   "hardware_validated": false
+  },
+  {
+   "address": "0x07e68",
+   "name": "FUN_ram_00007e68",
+   "size": 152,
+   "status": "native",
+   "source": "drivers/display.c",
+   "note": "All eight direction values and default-zero register value; independent caller-owned dimensions/command registers, including original zero-dimension high-halfword behavior. GPIO command/data stream compared.",
+   "hardware_validated": false
+  },
+  {
+   "address": "0x07f00",
+   "name": "FUN_ram_00007f00",
+   "size": 24,
+   "status": "native",
+   "source": "drivers/display.c",
+   "note": "cursor/write pixel",
+   "hardware_validated": false
+  },
+  {
+   "address": "0x07f18",
+   "name": "display_set_orientation",
+   "size": 78,
+   "status": "native",
+   "source": "drivers/display.c",
+   "note": "original two orientation choices",
+   "hardware_validated": false
+  },
+  {
+   "address": "0x07f66",
+   "name": "tim8_backlight_pwm_config",
+   "size": 176,
+   "status": "native",
+   "source": "platform/wch_runtime.c",
+   "note": "TIM8 PWM configuration",
+   "hardware_validated": false
+  },
+  {
+   "address": "0x08016",
+   "name": "FUN_ram_00008016",
+   "size": 58,
+   "status": "native",
+   "source": "storage/settings.c + platform/wch_runtime.c",
+   "note": "backlight from settings",
+   "hardware_validated": false
+  },
+  {
+   "address": "0x08050",
+   "name": "FUN_ram_00008050",
+   "size": 132,
+   "status": "native",
+   "source": "ui/graphics.c",
+   "note": "pixel-order differential tests",
+   "hardware_validated": false
+  },
+  {
+   "address": "0x080d4",
+   "name": "FUN_ram_000080d4",
+   "size": 192,
+   "status": "native",
+   "source": "ui/graphics.c",
+   "note": "solid region and corner lines",
+   "hardware_validated": false
+  },
+  {
+   "address": "0x08194",
+   "name": "FUN_ram_00008194",
+   "size": 58,
+   "status": "native",
+   "source": "ui/graphics.c",
+   "note": "four edge traces",
+   "hardware_validated": false
+  },
+  {
+   "address": "0x081ce",
+   "name": "FUN_ram_000081ce",
+   "size": 152,
+   "status": "native",
+   "source": "ui/graphics.c",
+   "note": "eight edge traces",
+   "hardware_validated": false
+  },
+  {
+   "address": "0x08266",
+   "name": "FUN_ram_00008266",
+   "size": 368,
+   "status": "native",
+   "source": "ui/graphics.c",
+   "note": "valid printable font domain",
+   "hardware_validated": false
+  },
+  {
+   "address": "0x083d6",
+   "name": "FUN_ram_000083d6",
+   "size": 260,
+   "status": "native",
+   "source": "ui/graphics.c",
+   "note": "valid printable font domain",
+   "hardware_validated": false
+  },
+  {
+   "address": "0x084da",
+   "name": "FUN_ram_000084da",
+   "size": 174,
+   "status": "native",
+   "source": "ui/graphics.c",
+   "note": "bounded recovered digit counts<=10",
+   "hardware_validated": false
+  },
+  {
+   "address": "0x08588",
+   "name": "FUN_ram_00008588",
+   "size": 68,
+   "status": "native",
+   "source": "ui/graphics.c",
+   "note": "printable ASCII loop",
+   "hardware_validated": false
+  },
+  {
+   "address": "0x085cc",
+   "name": "FUN_ram_000085cc",
+   "size": 166,
+   "status": "native",
+   "source": "ui/graphics.c",
+   "note": "special-width flag enabled",
+   "hardware_validated": false
+  },
+  {
+   "address": "0x08672",
+   "name": "FUN_ram_00008672",
+   "size": 132,
+   "status": "native",
+   "source": "ui/graphics.c",
+   "note": "special-width flag disabled",
+   "hardware_validated": false
+  },
+  {
+   "address": "0x086f6",
+   "name": "FUN_ram_000086f6",
+   "size": 116,
+   "status": "native",
+   "source": "drivers/display.c",
+   "note": "recovered window command stream",
+   "hardware_validated": false
+  },
+  {
+   "address": "0x0876a",
+   "name": "display_fill",
+   "size": 64,
+   "status": "native",
+   "source": "drivers/display.c",
+   "note": "full fill incl fixed320x240 window",
+   "hardware_validated": false
+  },
+  {
+   "address": "0x087aa",
+   "name": "display_init",
+   "size": 600,
+   "status": "native",
+   "source": "firmware/display_port.c",
+   "note": "GPIO/reset + panel sequence, 76889 words identical",
+   "hardware_validated": false
+  },
+  {
+   "address": "0x08a02",
+   "name": "display_fill_rectangle",
+   "size": 88,
+   "status": "native",
+   "source": "drivers/display.c",
+   "note": "inclusive row streaming",
+   "hardware_validated": false
+  },
+  {
+   "address": "0x08a5a",
+   "name": "FUN_ram_00008a5a",
+   "size": 258,
+   "status": "native",
+   "source": "ui/chinese.c",
+   "note": "all embedded glyph records, both opaque and transparent original command/data sequences",
+   "hardware_validated": false
+  },
+  {
+   "address": "0x08b5c",
+   "name": "FUN_ram_00008b5c",
+   "size": 264,
+   "status": "native",
+   "source": "ui/chinese.c",
+   "note": "all embedded glyph records, both opaque and transparent original command/data sequences",
+   "hardware_validated": false
+  },
+  {
+   "address": "0x08c64",
+   "name": "FUN_ram_00008c64",
+   "size": 264,
+   "status": "native",
+   "source": "ui/chinese.c",
+   "note": "all embedded glyph records, both opaque and transparent original command/data sequences",
+   "hardware_validated": false
+  },
+  {
+   "address": "0x08d6c",
+   "name": "FUN_ram_00008d6c",
+   "size": 218,
+   "status": "native",
+   "source": "ui/chinese.c",
+   "note": "all embedded glyph records, both opaque and transparent original command/data sequences",
+   "hardware_validated": false
+  },
+  {
+   "address": "0x08e46",
+   "name": "FUN_ram_00008e46",
+   "size": 142,
+   "status": "native",
+   "source": "ui/chinese.c",
+   "note": "all embedded glyph records, both opaque and transparent original command/data sequences",
+   "hardware_validated": false
+  },
+  {
+   "address": "0x08ed4",
+   "name": "application_loop",
+   "size": 438,
+   "status": "native",
+   "source": "application/foreground.c",
+   "note": "Complete nonreturning original caller/reference with typed external callees: PC10/PC11 short-circuit boot selection, normal mode/event setup, all three button/event branches,16-byte saved-event copy, HOLD suppression, battery/charge order and diagnostic poll/skip/repeated-render path. Connected application_boot/step remain cooperative. Valid flags0/1, battery0..100; no interrupt/cycle/device equivalence or completion of callee internals.",
+   "hardware_validated": false
+  },
+  {
+   "address": "0x0908a",
+   "name": "main",
+   "size": 72,
+   "status": "native",
+   "source": "application/application.c",
+   "note": "Exact11 startup callee order and parameters with typed address-documented IO. The original8ed4 boundary does not return; offline tests stop there and permit the native callback to return. Peripheral internals and device boot are not credited.",
+   "hardware_validated": false
+  },
+  {
+   "address": "0x090d2",
+   "name": "strlen",
+   "size": 20,
+   "status": "replaced",
+   "source": "application/format.c",
+   "note": "strlen used only by 0x910e",
+   "hardware_validated": false
+  },
+  {
+   "address": "0x090e6",
+   "name": "FUN_ram_000090e6",
+   "size": 22,
+   "status": "native",
+   "source": "application/format.c",
+   "note": "decimal digit counting",
+   "hardware_validated": false
+  },
+  {
+   "address": "0x090fc",
+   "name": "FUN_ram_000090fc",
+   "size": 18,
+   "status": "native",
+   "source": "application/format.c",
+   "note": "hexadecimal digit counting",
+   "hardware_validated": false
+  },
+  {
+   "address": "0x0910e",
+   "name": "FUN_ram_0000910e",
+   "size": 1424,
+   "status": "native",
+   "source": "application/format.c",
+   "note": "formatter for every application format string",
+   "hardware_validated": false
+  },
+  {
+   "address": "0x0969e",
+   "name": "FUN_ram_0000969e",
+   "size": 34,
+   "status": "native",
+   "source": "application/format.c",
+   "note": "sprintf entry",
+   "hardware_validated": false
+  },
+  {
+   "address": "0x096c0",
+   "name": "FUN_ram_000096c0",
+   "size": 30,
+   "status": "native",
+   "source": "ui/reading.c",
+   "note": "Exact +/-9999 extrema sentinel stores; explicit state replaces original globals",
+   "hardware_validated": false
+  },
+  {
+   "address": "0x096de",
+   "name": "FUN_ram_000096de",
+   "size": 150,
+   "status": "native",
+   "source": "drivers/measurement_reading.c",
+   "note": "bounded frame-text input domain",
+   "hardware_validated": false
+  },
+  {
+   "address": "0x09774",
+   "name": "FUN_ram_00009774",
+   "size": 80,
+   "status": "native",
+   "source": "drivers/measurement_reading.c",
+   "note": "bounded numeric filtering",
+   "hardware_validated": false
+  },
+  {
+   "address": "0x097c4",
+   "name": "measurement_send_command",
+   "size": 52,
+   "status": "native",
+   "source": "platform/wch_platform.c",
+   "note": "ten-byte UART send and TC waits",
+   "hardware_validated": false
+  },
+  {
+   "address": "0x097f8",
+   "name": "measurement_forward_button_command",
+   "size": 178,
+   "status": "native",
+   "source": "drivers/measurement_asic.c",
+   "note": "All byte event values; recognized keys wait10ms, sample their original GPIO mask, conditionally send the exact AA55 command and clear the event. Event replacement during debounce tested. No ASIC analog meaning inferred.",
+   "hardware_validated": false
+  },
+  {
+   "address": "0x098aa",
+   "name": "measurement_segment_decode",
+   "size": 212,
+   "status": "native",
+   "source": "drivers/measurement_asic.c",
+   "note": "exhaustive256-byte decoder comparison",
+   "hardware_validated": false
+  },
+  {
+   "address": "0x0997e",
+   "name": "measurement_decode_segments",
+   "size": 78,
+   "status": "native",
+   "source": "drivers/measurement_asic.c",
+   "note": "packed nibble to four segment symbols",
+   "hardware_validated": false
+  },
+  {
+   "address": "0x099cc",
+   "name": "FUN_ram_000099cc",
+   "size": 734,
+   "status": "native",
+   "source": "application/format.c",
+   "note": "value-format comparison to original printf implementation",
+   "hardware_validated": false
+  },
+  {
+   "address": "0x09caa",
+   "name": "FUN_ram_00009caa",
+   "size": 2724,
+   "status": "native",
+   "source": "ui/reading.c",
+   "note": "All three views, relative/temperature display, gauges, extrema and graph call contracts. Resistance stack guard/scratch and inherited s5 are explicit state inputs. Monitor alarm consumes an injected application callback; no unknown stack contents or timing equivalence claimed",
+   "hardware_validated": false
+  },
+  {
+   "address": "0x0a74e",
+   "name": "FUN_ram_0000a74e",
+   "size": 52,
+   "status": "native",
+   "source": "ui/screen.c + ui/status_view.c",
+   "note": "NCV level",
+   "hardware_validated": false
+  },
+  {
+   "address": "0x0a782",
+   "name": "FUN_ram_0000a782",
+   "size": 34,
+   "status": "native",
+   "source": "ui/screen.c + ui/status_view.c",
+   "note": "LIVE indicator",
+   "hardware_validated": false
+  },
+  {
+   "address": "0x0a7a4",
+   "name": "FUN_ram_0000a7a4",
+   "size": 44,
+   "status": "native",
+   "source": "ui/screen.c",
+   "note": "mode dispatch to NCV/LIVE/reading",
+   "hardware_validated": false
+  },
+  {
+   "address": "0x0a7d0",
+   "name": "FUN_ram_0000a7d0",
+   "size": 320,
+   "status": "native",
+   "source": "ui/screen.c",
+   "note": "AC/DC label images",
+   "hardware_validated": false
+  },
+  {
+   "address": "0x0a910",
+   "name": "measurement_ui_regular_event",
+   "size": 1472,
+   "status": "native",
+   "source": "measurement/events.c + ui/screen.c",
+   "note": "regular FD events incl. \"LCD_Fill\" console text",
+   "hardware_validated": false
+  },
+  {
+   "address": "0x0aed0",
+   "name": "measurement_ui_record_event",
+   "size": 974,
+   "status": "native",
+   "source": "ui/screen.c",
+   "note": "Composed stock FD state/image contracts and non-FD reading/unit dispatch; monitor threshold dependencies recovered. Native void API excludes incidental return-register residue",
+   "hardware_validated": false
+  },
+  {
+   "address": "0x0b29e",
+   "name": "measurement_ui_monitor_event",
+   "size": 716,
+   "status": "native",
+   "source": "ui/screen.c",
+   "note": "Composed stock FD state/image contracts and non-FD reading/unit dispatch; monitor threshold dependencies recovered. Native void API excludes incidental return-register residue",
+   "hardware_validated": false
+  },
+  {
+   "address": "0x0b56a",
+   "name": "FUN_ram_0000b56a",
+   "size": 68,
+   "status": "native",
+   "source": "drivers/measurement_asic.c",
+   "note": "Exact AA55 05 0B ...10, delay200, AA55 02 A0 ...A2 sequence. All10 bytes and order compared with randomized original stack. A0 functional meaning is unknown. Callback contract is the original void-send/delay behavior; independent API local-failure handling is separate.",
+   "hardware_validated": false
+  },
+  {
+   "address": "0x0b5ae",
+   "name": "FUN_ram_0000b5ae",
+   "size": 26,
+   "status": "native",
+   "source": "application/control.c",
+   "note": "original post-menu event selection",
+   "hardware_validated": false
+  },
+  {
+   "address": "0x0b5c8",
+   "name": "measurement_regular_buttons",
+   "size": 1048,
+   "status": "native",
+   "source": "application/control.c",
+   "note": "Full regular button command/selector/relative call and state contract including real menu begin/dispatcher/return and view change. Both layouts/languages, events0..8, modes0..23, valid selectors and short/long press contexts compared. Base/history dependencies isolated; cooperative menu yield timing is explicitly outside equivalence.",
+   "hardware_validated": false
+  },
+  {
+   "address": "0x0b9e0",
+   "name": "measurement_record_buttons",
+   "size": 688,
+   "status": "native",
+   "source": "application/control.c",
+   "note": "Full recording button command/selector/history and menu entry/return contract including Fahrenheit text, template-zero TX and extrema reset. Both layouts/languages, events0..8, modes0..23 and valid selectors compared. Qualified history/base callees isolated; no timing or physical UART claim.",
+   "hardware_validated": false
+  },
+  {
+   "address": "0x0bc90",
+   "name": "measurement_monitor_buttons",
+   "size": 392,
+   "status": "native",
+   "source": "application/control.c",
+   "note": "Full monitor button command/selector and menu entry/return contract with buzzer disable and owner-specific selector/state reset. Both layouts/languages, events0..8, modes0..23 and valid selectors compared. Qualified base callee isolated; no timing or physical UART claim.",
+   "hardware_validated": false
+  },
+  {
+   "address": "0x0be18",
+   "name": "measurement_get_unit_code",
+   "size": 6,
+   "status": "native",
+   "source": "application/control.h",
+   "note": "unit getter (state field)",
+   "hardware_validated": false
+  },
+  {
+   "address": "0x0be1e",
+   "name": "measurement_get_value_bits",
+   "size": 6,
+   "status": "native",
+   "source": "application/control.h",
+   "note": "value getter (state field)",
+   "hardware_validated": false
+  },
+  {
+   "address": "0x0be24",
+   "name": "FUN_ram_0000be24",
+   "size": 6,
+   "status": "native",
+   "source": "application/control.h",
+   "note": "text getter (state field)",
+   "hardware_validated": false
+  },
+  {
+   "address": "0x0be2a",
+   "name": "measurement_overload_kind",
+   "size": 78,
+   "status": "native",
+   "source": "application/application.c",
+   "note": "overload kind",
+   "hardware_validated": false
+  },
+  {
+   "address": "0x0be78",
+   "name": "measurement_parse_display_frame",
+   "size": 674,
+   "status": "native",
+   "source": "drivers/measurement_reading.c",
+   "note": "Portable original LCD/text/value parser and thin controller adapter, including FD parsing, signed unknown-symbol slash, last-symbol numeric flag, decimal/unit priority, and both NUL stores from the7-character format call. Bounds and caller-owned mode/numeric/text context retained.",
+   "hardware_validated": false
+  },
+  {
+   "address": "0x0c11a",
+   "name": "FUN_ram_0000c11a",
+   "size": 302,
+   "status": "native",
+   "source": "ui/status_view.c",
+   "note": "cached unit resource rendering",
+   "hardware_validated": false
+  },
+  {
+   "address": "0x0c248",
+   "name": "settings_load_and_apply",
+   "size": 216,
+   "status": "native",
+   "source": "application/application.c",
+   "note": "settings load/apply, cooperative",
+   "hardware_validated": false
+  },
+  {
+   "address": "0x0c320",
+   "name": "power_down",
+   "size": 48,
+   "status": "native",
+   "source": "application/application.c + firmware/main.c",
+   "note": "power-down and halt",
+   "hardware_validated": false
+  },
+  {
+   "address": "0x0c350",
+   "name": "measurement_uart_dma_init",
+   "size": 280,
+   "status": "native",
+   "source": "platform/wch_platform.c",
+   "note": "SDK UART/DMA setup",
+   "hardware_validated": false
+  },
+  {
+   "address": "0x0c468",
+   "name": "USART1_IRQHandler",
+   "size": 264,
+   "status": "native",
+   "source": "platform/wch_runtime.c",
+   "note": "original DMA/IDLE behavior, hardware untested",
+   "hardware_validated": false
+  },
+  {
+   "address": "0x0c570",
+   "name": "DMA1_Channel5_IRQHandler",
+   "size": 78,
+   "status": "native",
+   "source": "platform/wch_runtime.c",
+   "note": "original TC clear only",
+   "hardware_validated": false
+  },
+  {
+   "address": "0x0c5be",
+   "name": "unused_default_trap_c5be",
+   "size": 2,
+   "status": "vector-default",
+   "source": "firmware/fault.c",
+   "note": "unused slot: record + reset",
+   "hardware_validated": false
+  },
+  {
+   "address": "0x0c5c0",
+   "name": "unused_default_trap_c5c0",
+   "size": 2,
+   "status": "vector-default",
+   "source": "firmware/fault.c",
+   "note": "unused slot: record + reset",
+   "hardware_validated": false
+  },
+  {
+   "address": "0x0c5c2",
+   "name": "Ecall_M_Mode_Handler_default",
+   "size": 2,
+   "status": "vector-default",
+   "source": "firmware/fault.c",
+   "note": "unused slot: record + reset",
+   "hardware_validated": false
+  },
+  {
+   "address": "0x0c5c4",
+   "name": "Ecall_U_Mode_Handler_default",
+   "size": 2,
+   "status": "vector-default",
+   "source": "firmware/fault.c",
+   "note": "unused slot: record + reset",
+   "hardware_validated": false
+  },
+  {
+   "address": "0x0c5c6",
+   "name": "Break_Point_Handler_default",
+   "size": 2,
+   "status": "vector-default",
+   "source": "firmware/fault.c",
+   "note": "unused slot: record + reset",
+   "hardware_validated": false
+  },
+  {
+   "address": "0x0c5c8",
+   "name": "SysTick_Handler_default",
+   "size": 2,
+   "status": "vector-default",
+   "source": "firmware/fault.c",
+   "note": "unused slot: record + reset",
+   "hardware_validated": false
+  },
+  {
+   "address": "0x0c5ca",
+   "name": "SW_Handler_default",
+   "size": 2,
+   "status": "vector-default",
+   "source": "firmware/fault.c",
+   "note": "unused slot: record + reset",
+   "hardware_validated": false
+  },
+  {
+   "address": "0x0c5cc",
+   "name": "WWDG_IRQHandler_default",
+   "size": 2,
+   "status": "vector-default",
+   "source": "firmware/fault.c",
+   "note": "unused slot: record + reset",
+   "hardware_validated": false
+  },
+  {
+   "address": "0x0c5ce",
+   "name": "PVD_IRQHandler_default",
+   "size": 2,
+   "status": "vector-default",
+   "source": "firmware/fault.c",
+   "note": "unused slot: record + reset",
+   "hardware_validated": false
+  },
+  {
+   "address": "0x0c5d0",
+   "name": "TAMPER_IRQHandler_default",
+   "size": 2,
+   "status": "vector-default",
+   "source": "firmware/fault.c",
+   "note": "unused slot: record + reset",
+   "hardware_validated": false
+  },
+  {
+   "address": "0x0c5d2",
+   "name": "RTC_IRQHandler_default",
+   "size": 2,
+   "status": "vector-default",
+   "source": "firmware/fault.c",
+   "note": "unused slot: record + reset",
+   "hardware_validated": false
+  },
+  {
+   "address": "0x0c5d4",
+   "name": "FLASH_IRQHandler_default",
+   "size": 2,
+   "status": "vector-default",
+   "source": "firmware/fault.c",
+   "note": "unused slot: record + reset",
+   "hardware_validated": false
+  },
+  {
+   "address": "0x0c5d6",
+   "name": "RCC_IRQHandler_default",
+   "size": 2,
+   "status": "vector-default",
+   "source": "firmware/fault.c",
+   "note": "unused slot: record + reset",
+   "hardware_validated": false
+  },
+  {
+   "address": "0x0c5d8",
+   "name": "EXTI0_IRQHandler_default",
+   "size": 2,
+   "status": "vector-default",
+   "source": "firmware/fault.c",
+   "note": "unused slot: record + reset",
+   "hardware_validated": false
+  },
+  {
+   "address": "0x0c5da",
+   "name": "EXTI1_IRQHandler_default",
+   "size": 2,
+   "status": "vector-default",
+   "source": "firmware/fault.c",
+   "note": "unused slot: record + reset",
+   "hardware_validated": false
+  },
+  {
+   "address": "0x0c5dc",
+   "name": "unused_default_trap_c5dc",
+   "size": 2,
+   "status": "vector-default",
+   "source": "firmware/fault.c",
+   "note": "unused slot: record + reset",
+   "hardware_validated": false
+  },
+  {
+   "address": "0x0c5de",
+   "name": "EXTI3_IRQHandler_default",
+   "size": 2,
+   "status": "vector-default",
+   "source": "firmware/fault.c",
+   "note": "unused slot: record + reset",
+   "hardware_validated": false
+  },
+  {
+   "address": "0x0c5e0",
+   "name": "EXTI4_IRQHandler_default",
+   "size": 2,
+   "status": "vector-default",
+   "source": "firmware/fault.c",
+   "note": "unused slot: record + reset",
+   "hardware_validated": false
+  },
+  {
+   "address": "0x0c5e2",
+   "name": "DMA1_Channel1_IRQHandler_default",
+   "size": 2,
+   "status": "vector-default",
+   "source": "firmware/fault.c",
+   "note": "unused slot: record + reset",
+   "hardware_validated": false
+  },
+  {
+   "address": "0x0c5e4",
+   "name": "DMA1_Channel2_IRQHandler_default",
+   "size": 2,
+   "status": "vector-default",
+   "source": "firmware/fault.c",
+   "note": "unused slot: record + reset",
+   "hardware_validated": false
+  },
+  {
+   "address": "0x0c5e6",
+   "name": "DMA1_Channel3_IRQHandler_default",
+   "size": 2,
+   "status": "vector-default",
+   "source": "firmware/fault.c",
+   "note": "unused slot: record + reset",
+   "hardware_validated": false
+  },
+  {
+   "address": "0x0c5e8",
+   "name": "DMA1_Channel4_IRQHandler_default",
+   "size": 2,
+   "status": "vector-default",
+   "source": "firmware/fault.c",
+   "note": "unused slot: record + reset",
+   "hardware_validated": false
+  },
+  {
+   "address": "0x0c5ea",
+   "name": "unused_default_trap_c5ea",
+   "size": 2,
+   "status": "vector-default",
+   "source": "firmware/fault.c",
+   "note": "unused slot: record + reset",
+   "hardware_validated": false
+  },
+  {
+   "address": "0x0c5ec",
+   "name": "DMA1_Channel6_IRQHandler_default",
+   "size": 2,
+   "status": "vector-default",
+   "source": "firmware/fault.c",
+   "note": "unused slot: record + reset",
+   "hardware_validated": false
+  },
+  {
+   "address": "0x0c5ee",
+   "name": "DMA1_Channel7_IRQHandler_default",
+   "size": 2,
+   "status": "vector-default",
+   "source": "firmware/fault.c",
+   "note": "unused slot: record + reset",
+   "hardware_validated": false
+  },
+  {
+   "address": "0x0c5f0",
+   "name": "ADC1_2_IRQHandler_default",
+   "size": 2,
+   "status": "vector-default",
+   "source": "firmware/fault.c",
+   "note": "unused slot: record + reset",
+   "hardware_validated": false
+  },
+  {
+   "address": "0x0c5f2",
+   "name": "USB_HP_CAN1_TX_IRQHandler_default",
+   "size": 2,
+   "status": "vector-default",
+   "source": "firmware/fault.c",
+   "note": "unused slot: record + reset",
+   "hardware_validated": false
+  },
+  {
+   "address": "0x0c5f4",
+   "name": "USB_LP_CAN1_RX0_IRQHandler_default",
+   "size": 2,
+   "status": "vector-default",
+   "source": "firmware/fault.c",
+   "note": "unused slot: record + reset",
+   "hardware_validated": false
+  },
+  {
+   "address": "0x0c5f6",
+   "name": "CAN1_RX1_IRQHandler_default",
+   "size": 2,
+   "status": "vector-default",
+   "source": "firmware/fault.c",
+   "note": "unused slot: record + reset",
+   "hardware_validated": false
+  },
+  {
+   "address": "0x0c5f8",
+   "name": "CAN1_SCE_IRQHandler_default",
+   "size": 2,
+   "status": "vector-default",
+   "source": "firmware/fault.c",
+   "note": "unused slot: record + reset",
+   "hardware_validated": false
+  },
+  {
+   "address": "0x0c5fa",
+   "name": "unused_default_trap_c5fa",
+   "size": 2,
+   "status": "vector-default",
+   "source": "firmware/fault.c",
+   "note": "unused slot: record + reset",
+   "hardware_validated": false
+  },
+  {
+   "address": "0x0c5fc",
+   "name": "TIM1_BRK_IRQHandler_default",
+   "size": 2,
+   "status": "vector-default",
+   "source": "firmware/fault.c",
+   "note": "unused slot: record + reset",
+   "hardware_validated": false
+  },
+  {
+   "address": "0x0c5fe",
+   "name": "TIM1_UP_IRQHandler_default",
+   "size": 2,
+   "status": "vector-default",
+   "source": "firmware/fault.c",
+   "note": "unused slot: record + reset",
+   "hardware_validated": false
+  },
+  {
+   "address": "0x0c600",
+   "name": "TIM1_TRG_COM_IRQHandler_default",
+   "size": 2,
+   "status": "vector-default",
+   "source": "firmware/fault.c",
+   "note": "unused slot: record + reset",
+   "hardware_validated": false
+  },
+  {
+   "address": "0x0c602",
+   "name": "TIM1_CC_IRQHandler_default",
+   "size": 2,
+   "status": "vector-default",
+   "source": "firmware/fault.c",
+   "note": "unused slot: record + reset",
+   "hardware_validated": false
+  },
+  {
+   "address": "0x0c604",
+   "name": "TIM2_IRQHandler_default",
+   "size": 2,
+   "status": "vector-default",
+   "source": "firmware/fault.c",
+   "note": "unused slot: record + reset",
+   "hardware_validated": false
+  },
+  {
+   "address": "0x0c606",
+   "name": "unused_default_trap_c606",
+   "size": 2,
+   "status": "vector-default",
+   "source": "firmware/fault.c",
+   "note": "unused slot: record + reset",
+   "hardware_validated": false
+  },
+  {
+   "address": "0x0c608",
+   "name": "TIM4_IRQHandler_default",
+   "size": 2,
+   "status": "vector-default",
+   "source": "firmware/fault.c",
+   "note": "unused slot: record + reset",
+   "hardware_validated": false
+  },
+  {
+   "address": "0x0c60a",
+   "name": "I2C1_EV_IRQHandler_default",
+   "size": 2,
+   "status": "vector-default",
+   "source": "firmware/fault.c",
+   "note": "unused slot: record + reset",
+   "hardware_validated": false
+  },
+  {
+   "address": "0x0c60c",
+   "name": "I2C1_ER_IRQHandler_default",
+   "size": 2,
+   "status": "vector-default",
+   "source": "firmware/fault.c",
+   "note": "unused slot: record + reset",
+   "hardware_validated": false
+  },
+  {
+   "address": "0x0c60e",
+   "name": "I2C2_EV_IRQHandler_default",
+   "size": 2,
+   "status": "vector-default",
+   "source": "firmware/fault.c",
+   "note": "unused slot: record + reset",
+   "hardware_validated": false
+  },
+  {
+   "address": "0x0c610",
+   "name": "I2C2_ER_IRQHandler_default",
+   "size": 2,
+   "status": "vector-default",
+   "source": "firmware/fault.c",
+   "note": "unused slot: record + reset",
+   "hardware_validated": false
+  },
+  {
+   "address": "0x0c612",
+   "name": "SPI1_IRQHandler_default",
+   "size": 2,
+   "status": "vector-default",
+   "source": "firmware/fault.c",
+   "note": "unused slot: record + reset",
+   "hardware_validated": false
+  },
+  {
+   "address": "0x0c614",
+   "name": "SPI2_IRQHandler_default",
+   "size": 2,
+   "status": "vector-default",
+   "source": "firmware/fault.c",
+   "note": "unused slot: record + reset",
+   "hardware_validated": false
+  },
+  {
+   "address": "0x0c616",
+   "name": "unused_default_trap_c616",
+   "size": 2,
+   "status": "vector-default",
+   "source": "firmware/fault.c",
+   "note": "unused slot: record + reset",
+   "hardware_validated": false
+  },
+  {
+   "address": "0x0c618",
+   "name": "USART2_IRQHandler_default",
+   "size": 2,
+   "status": "vector-default",
+   "source": "firmware/fault.c",
+   "note": "unused slot: record + reset",
+   "hardware_validated": false
+  },
+  {
+   "address": "0x0c61a",
+   "name": "USART3_IRQHandler_default",
+   "size": 2,
+   "status": "vector-default",
+   "source": "firmware/fault.c",
+   "note": "unused slot: record + reset",
+   "hardware_validated": false
+  },
+  {
+   "address": "0x0c61c",
+   "name": "unused_default_trap_c61c",
+   "size": 2,
+   "status": "vector-default",
+   "source": "firmware/fault.c",
+   "note": "unused slot: record + reset",
+   "hardware_validated": false
+  },
+  {
+   "address": "0x0c61e",
+   "name": "RTCAlarm_IRQHandler_default",
+   "size": 2,
+   "status": "vector-default",
+   "source": "firmware/fault.c",
+   "note": "unused slot: record + reset",
+   "hardware_validated": false
+  },
+  {
+   "address": "0x0c620",
+   "name": "TIM8_BRK_IRQHandler_default",
+   "size": 2,
+   "status": "vector-default",
+   "source": "firmware/fault.c",
+   "note": "unused slot: record + reset",
+   "hardware_validated": false
+  },
+  {
+   "address": "0x0c622",
+   "name": "TIM8_UP_IRQHandler_default",
+   "size": 2,
+   "status": "vector-default",
+   "source": "firmware/fault.c",
+   "note": "unused slot: record + reset",
+   "hardware_validated": false
+  },
+  {
+   "address": "0x0c624",
+   "name": "TIM8_TRG_COM_IRQHandler_default",
+   "size": 2,
+   "status": "vector-default",
+   "source": "firmware/fault.c",
+   "note": "unused slot: record + reset",
+   "hardware_validated": false
+  },
+  {
+   "address": "0x0c626",
+   "name": "TIM8_CC_IRQHandler_default",
+   "size": 2,
+   "status": "vector-default",
+   "source": "firmware/fault.c",
+   "note": "unused slot: record + reset",
+   "hardware_validated": false
+  },
+  {
+   "address": "0x0c628",
+   "name": "RNG_IRQHandler_default",
+   "size": 2,
+   "status": "vector-default",
+   "source": "firmware/fault.c",
+   "note": "unused slot: record + reset",
+   "hardware_validated": false
+  },
+  {
+   "address": "0x0c62a",
+   "name": "0_default",
+   "size": 2,
+   "status": "vector-default",
+   "source": "firmware/fault.c",
+   "note": "unused slot: record + reset",
+   "hardware_validated": false
+  },
+  {
+   "address": "0x0c62c",
+   "name": "SDIO_IRQHandler_default",
+   "size": 2,
+   "status": "vector-default",
+   "source": "firmware/fault.c",
+   "note": "unused slot: record + reset",
+   "hardware_validated": false
+  },
+  {
+   "address": "0x0c62e",
+   "name": "TIM5_IRQHandler_default",
+   "size": 2,
+   "status": "vector-default",
+   "source": "firmware/fault.c",
+   "note": "unused slot: record + reset",
+   "hardware_validated": false
+  },
+  {
+   "address": "0x0c630",
+   "name": "SPI3_IRQHandler_default",
+   "size": 2,
+   "status": "vector-default",
+   "source": "firmware/fault.c",
+   "note": "unused slot: record + reset",
+   "hardware_validated": false
+  },
+  {
+   "address": "0x0c632",
+   "name": "UART4_IRQHandler_default",
+   "size": 2,
+   "status": "vector-default",
+   "source": "firmware/fault.c",
+   "note": "unused slot: record + reset",
+   "hardware_validated": false
+  },
+  {
+   "address": "0x0c634",
+   "name": "UART5_IRQHandler_default",
+   "size": 2,
+   "status": "vector-default",
+   "source": "firmware/fault.c",
+   "note": "unused slot: record + reset",
+   "hardware_validated": false
+  },
+  {
+   "address": "0x0c636",
+   "name": "TIM6_IRQHandler_default",
+   "size": 2,
+   "status": "vector-default",
+   "source": "firmware/fault.c",
+   "note": "unused slot: record + reset",
+   "hardware_validated": false
+  },
+  {
+   "address": "0x0c638",
+   "name": "TIM7_IRQHandler_default",
+   "size": 2,
+   "status": "vector-default",
+   "source": "firmware/fault.c",
+   "note": "unused slot: record + reset",
+   "hardware_validated": false
+  },
+  {
+   "address": "0x0c63a",
+   "name": "DMA2_Channel1_IRQHandler_default",
+   "size": 2,
+   "status": "vector-default",
+   "source": "firmware/fault.c",
+   "note": "unused slot: record + reset",
+   "hardware_validated": false
+  },
+  {
+   "address": "0x0c63c",
+   "name": "DMA2_Channel2_IRQHandler_default",
+   "size": 2,
+   "status": "vector-default",
+   "source": "firmware/fault.c",
+   "note": "unused slot: record + reset",
+   "hardware_validated": false
+  },
+  {
+   "address": "0x0c63e",
+   "name": "DMA2_Channel3_IRQHandler_default",
+   "size": 2,
+   "status": "vector-default",
+   "source": "firmware/fault.c",
+   "note": "unused slot: record + reset",
+   "hardware_validated": false
+  },
+  {
+   "address": "0x0c640",
+   "name": "DMA2_Channel4_IRQHandler_default",
+   "size": 2,
+   "status": "vector-default",
+   "source": "firmware/fault.c",
+   "note": "unused slot: record + reset",
+   "hardware_validated": false
+  },
+  {
+   "address": "0x0c642",
+   "name": "DMA2_Channel5_IRQHandler_default",
+   "size": 2,
+   "status": "vector-default",
+   "source": "firmware/fault.c",
+   "note": "unused slot: record + reset",
+   "hardware_validated": false
+  },
+  {
+   "address": "0x0c644",
+   "name": "USBFS_IRQHandler_default",
+   "size": 2,
+   "status": "vector-default",
+   "source": "firmware/fault.c",
+   "note": "unused slot: record + reset",
+   "hardware_validated": false
+  },
+  {
+   "address": "0x0c646",
+   "name": "UART6_IRQHandler_default",
+   "size": 2,
+   "status": "vector-default",
+   "source": "firmware/fault.c",
+   "note": "unused slot: record + reset",
+   "hardware_validated": false
+  },
+  {
+   "address": "0x0c648",
+   "name": "UART7_IRQHandler_default",
+   "size": 2,
+   "status": "vector-default",
+   "source": "firmware/fault.c",
+   "note": "unused slot: record + reset",
+   "hardware_validated": false
+  },
+  {
+   "address": "0x0c64a",
+   "name": "UART8_IRQHandler_default",
+   "size": 2,
+   "status": "vector-default",
+   "source": "firmware/fault.c",
+   "note": "unused slot: record + reset",
+   "hardware_validated": false
+  },
+  {
+   "address": "0x0c64c",
+   "name": "TIM9_BRK_IRQHandler_default",
+   "size": 2,
+   "status": "vector-default",
+   "source": "firmware/fault.c",
+   "note": "unused slot: record + reset",
+   "hardware_validated": false
+  },
+  {
+   "address": "0x0c64e",
+   "name": "TIM9_UP_IRQHandler_default",
+   "size": 2,
+   "status": "vector-default",
+   "source": "firmware/fault.c",
+   "note": "unused slot: record + reset",
+   "hardware_validated": false
+  },
+  {
+   "address": "0x0c650",
+   "name": "TIM9_TRG_COM_IRQHandler_default",
+   "size": 2,
+   "status": "vector-default",
+   "source": "firmware/fault.c",
+   "note": "unused slot: record + reset",
+   "hardware_validated": false
+  },
+  {
+   "address": "0x0c652",
+   "name": "TIM9_CC_IRQHandler_default",
+   "size": 2,
+   "status": "vector-default",
+   "source": "firmware/fault.c",
+   "note": "unused slot: record + reset",
+   "hardware_validated": false
+  },
+  {
+   "address": "0x0c654",
+   "name": "TIM10_BRK_IRQHandler_default",
+   "size": 2,
+   "status": "vector-default",
+   "source": "firmware/fault.c",
+   "note": "unused slot: record + reset",
+   "hardware_validated": false
+  },
+  {
+   "address": "0x0c656",
+   "name": "TIM10_UP_IRQHandler_default",
+   "size": 2,
+   "status": "vector-default",
+   "source": "firmware/fault.c",
+   "note": "unused slot: record + reset",
+   "hardware_validated": false
+  },
+  {
+   "address": "0x0c658",
+   "name": "TIM10_TRG_COM_IRQHandler_default",
+   "size": 2,
+   "status": "vector-default",
+   "source": "firmware/fault.c",
+   "note": "unused slot: record + reset",
+   "hardware_validated": false
+  },
+  {
+   "address": "0x0c65a",
+   "name": "TIM10_CC_IRQHandler_default",
+   "size": 2,
+   "status": "vector-default",
+   "source": "firmware/fault.c",
+   "note": "unused slot: record + reset",
+   "hardware_validated": false
+  },
+  {
+   "address": "0x0c65c",
+   "name": "DMA2_Channel6_IRQHandler_default",
+   "size": 2,
+   "status": "vector-default",
+   "source": "firmware/fault.c",
+   "note": "unused slot: record + reset",
+   "hardware_validated": false
+  },
+  {
+   "address": "0x0c65e",
+   "name": "DMA2_Channel7_IRQHandler_default",
+   "size": 2,
+   "status": "vector-default",
+   "source": "firmware/fault.c",
+   "note": "unused slot: record + reset",
+   "hardware_validated": false
+  },
+  {
+   "address": "0x0c660",
+   "name": "DMA2_Channel8_IRQHandler_default",
+   "size": 2,
+   "status": "vector-default",
+   "source": "firmware/fault.c",
+   "note": "unused slot: record + reset",
+   "hardware_validated": false
+  },
+  {
+   "address": "0x0c662",
+   "name": "DMA2_Channel9_IRQHandler_default",
+   "size": 2,
+   "status": "vector-default",
+   "source": "firmware/fault.c",
+   "note": "unused slot: record + reset",
+   "hardware_validated": false
+  },
+  {
+   "address": "0x0c664",
+   "name": "DMA2_Channel10_IRQHandler_default",
+   "size": 2,
+   "status": "vector-default",
+   "source": "firmware/fault.c",
+   "note": "unused slot: record + reset",
+   "hardware_validated": false
+  },
+  {
+   "address": "0x0c666",
+   "name": "DMA2_Channel11_IRQHandler_default",
+   "size": 2,
+   "status": "vector-default",
+   "source": "firmware/fault.c",
+   "note": "unused slot: record + reset",
+   "hardware_validated": false
+  },
+  {
+   "address": "0x0c668",
+   "name": "handle_reset",
+   "size": 142,
+   "status": "deviation",
+   "source": "firmware/startup.S",
+   "note": "handle_reset; INTSYSCR=0, M-mode main, FPU off",
+   "hardware_validated": false
+  },
+  {
+   "address": "0x0c6f6",
+   "name": "ADC_Init",
+   "size": 86,
+   "status": "library",
+   "source": "WCH SDK (pinned)",
+   "note": "peripheral driver",
+   "hardware_validated": false
+  },
+  {
+   "address": "0x0c74c",
+   "name": "ADC_Cmd",
+   "size": 16,
+   "status": "library",
+   "source": "WCH SDK (pinned)",
+   "note": "peripheral driver",
+   "hardware_validated": false
+  },
+  {
+   "address": "0x0c75c",
+   "name": "ADC_ResetCalibration",
+   "size": 10,
+   "status": "library",
+   "source": "WCH SDK (pinned)",
+   "note": "peripheral driver",
+   "hardware_validated": false
+  },
+  {
+   "address": "0x0c766",
+   "name": "ADC_GetResetCalibrationStatus",
+   "size": 8,
+   "status": "library",
+   "source": "WCH SDK (pinned)",
+   "note": "peripheral driver",
+   "hardware_validated": false
+  },
+  {
+   "address": "0x0c76e",
+   "name": "ADC_StartCalibration",
+   "size": 10,
+   "status": "library",
+   "source": "WCH SDK (pinned)",
+   "note": "peripheral driver",
+   "hardware_validated": false
+  },
+  {
+   "address": "0x0c778",
+   "name": "ADC_GetCalibrationStatus",
+   "size": 8,
+   "status": "library",
+   "source": "WCH SDK (pinned)",
+   "note": "peripheral driver",
+   "hardware_validated": false
+  },
+  {
+   "address": "0x0c780",
+   "name": "ADC_SoftwareStartConvCmd",
+   "size": 24,
+   "status": "library",
+   "source": "WCH SDK (pinned)",
+   "note": "peripheral driver",
+   "hardware_validated": false
+  },
+  {
+   "address": "0x0c798",
+   "name": "ADC_RegularChannelConfig",
+   "size": 184,
+   "status": "library",
+   "source": "WCH SDK (pinned)",
+   "note": "peripheral driver",
+   "hardware_validated": false
+  },
+  {
+   "address": "0x0c850",
+   "name": "ADC_GetConversionValue",
+   "size": 8,
+   "status": "library",
+   "source": "WCH SDK (pinned)",
+   "note": "peripheral driver",
+   "hardware_validated": false
+  },
+  {
+   "address": "0x0c858",
+   "name": "ADC_GetFlagStatus",
+   "size": 10,
+   "status": "library",
+   "source": "WCH SDK (pinned)",
+   "note": "peripheral driver",
+   "hardware_validated": false
+  },
+  {
+   "address": "0x0c862",
+   "name": "DMA_Init",
+   "size": 56,
+   "status": "library",
+   "source": "WCH SDK (pinned)",
+   "note": "peripheral driver",
+   "hardware_validated": false
+  },
+  {
+   "address": "0x0c89a",
+   "name": "DMA_Cmd",
+   "size": 20,
+   "status": "library",
+   "source": "WCH SDK (pinned)",
+   "note": "peripheral driver",
+   "hardware_validated": false
+  },
+  {
+   "address": "0x0c8ae",
+   "name": "DMA_ITConfig",
+   "size": 18,
+   "status": "library",
+   "source": "WCH SDK (pinned)",
+   "note": "peripheral driver",
+   "hardware_validated": false
+  },
+  {
+   "address": "0x0c8c0",
+   "name": "DMA_SetCurrDataCounter",
+   "size": 4,
+   "status": "library",
+   "source": "WCH SDK (pinned)",
+   "note": "peripheral driver",
+   "hardware_validated": false
+  },
+  {
+   "address": "0x0c8c4",
+   "name": "DMA_ClearITPendingBit",
+   "size": 44,
+   "status": "library",
+   "source": "WCH SDK (pinned)",
+   "note": "peripheral driver",
+   "hardware_validated": false
+  },
+  {
+   "address": "0x0c8f0",
+   "name": "EXTI_Init",
+   "size": 106,
+   "status": "library",
+   "source": "WCH SDK (pinned)",
+   "note": "peripheral driver",
+   "hardware_validated": false
+  },
+  {
+   "address": "0x0c95a",
+   "name": "EXTI_GetITStatus",
+   "size": 30,
+   "status": "library",
+   "source": "WCH SDK (pinned)",
+   "note": "peripheral driver",
+   "hardware_validated": false
+  },
+  {
+   "address": "0x0c978",
+   "name": "EXTI_ClearITPendingBit",
+   "size": 10,
+   "status": "library",
+   "source": "WCH SDK (pinned)",
+   "note": "peripheral driver",
+   "hardware_validated": false
+  },
+  {
+   "address": "0x0c982",
+   "name": "FLASH_Unlock",
+   "size": 26,
+   "status": "library",
+   "source": "WCH SDK (pinned)",
+   "note": "peripheral driver",
+   "hardware_validated": false
+  },
+  {
+   "address": "0x0c99c",
+   "name": "FLASH_Lock",
+   "size": 14,
+   "status": "library",
+   "source": "WCH SDK (pinned)",
+   "note": "peripheral driver",
+   "hardware_validated": false
+  },
+  {
+   "address": "0x0c9aa",
+   "name": "FLASH_ClearFlag",
+   "size": 8,
+   "status": "library",
+   "source": "WCH SDK (pinned)",
+   "note": "peripheral driver",
+   "hardware_validated": false
+  },
+  {
+   "address": "0x0c9b2",
+   "name": "FLASH_GetStatus",
+   "size": 24,
+   "status": "library",
+   "source": "WCH SDK (pinned)",
+   "note": "peripheral driver",
+   "hardware_validated": false
+  },
+  {
+   "address": "0x0c9ca",
+   "name": "FLASH_WaitForLastOperation",
+   "size": 36,
+   "status": "library",
+   "source": "WCH SDK (pinned)",
+   "note": "peripheral driver",
+   "hardware_validated": false
+  },
+  {
+   "address": "0x0c9ee",
+   "name": "FLASH_ProgramHalfWord",
+   "size": 56,
+   "status": "library",
+   "source": "WCH SDK (pinned)",
+   "note": "peripheral driver",
+   "hardware_validated": false
+  },
+  {
+   "address": "0x0ca26",
+   "name": "FLASH_Unlock_Fast",
+   "size": 30,
+   "status": "library",
+   "source": "WCH SDK (pinned)",
+   "note": "peripheral driver",
+   "hardware_validated": false
+  },
+  {
+   "address": "0x0ca44",
+   "name": "FLASH_Lock_Fast",
+   "size": 14,
+   "status": "library",
+   "source": "WCH SDK (pinned)",
+   "note": "peripheral driver",
+   "hardware_validated": false
+  },
+  {
+   "address": "0x0ca52",
+   "name": "FLASH_ErasePage_Fast",
+   "size": 46,
+   "status": "library",
+   "source": "WCH SDK (pinned)",
+   "note": "peripheral driver",
+   "hardware_validated": false
+  },
+  {
+   "address": "0x0ca80",
+   "name": "GPIO_Init",
+   "size": 192,
+   "status": "library",
+   "source": "WCH SDK (pinned)",
+   "note": "peripheral driver",
+   "hardware_validated": false
+  },
+  {
+   "address": "0x0cb40",
+   "name": "GPIO_ReadInputDataBit",
+   "size": 10,
+   "status": "library",
+   "source": "WCH SDK (pinned)",
+   "note": "peripheral driver",
+   "hardware_validated": false
+  },
+  {
+   "address": "0x0cb4a",
+   "name": "GPIO_SetBits",
+   "size": 4,
+   "status": "library",
+   "source": "WCH SDK (pinned)",
+   "note": "peripheral driver",
+   "hardware_validated": false
+  },
+  {
+   "address": "0x0cb4e",
+   "name": "GPIO_ResetBits",
+   "size": 4,
+   "status": "library",
+   "source": "WCH SDK (pinned)",
+   "note": "peripheral driver",
+   "hardware_validated": false
+  },
+  {
+   "address": "0x0cb52",
+   "name": "GPIO_WriteBit",
+   "size": 10,
+   "status": "library",
+   "source": "WCH SDK (pinned)",
+   "note": "peripheral driver",
+   "hardware_validated": false
+  },
+  {
+   "address": "0x0cb5c",
+   "name": "GPIO_EXTILineConfig",
+   "size": 44,
+   "status": "library",
+   "source": "WCH SDK (pinned)",
+   "note": "peripheral driver",
+   "hardware_validated": false
+  },
+  {
+   "address": "0x0cb88",
+   "name": "NMI_Handler",
+   "size": 4,
+   "status": "native",
+   "source": "firmware/startup.S",
+   "note": "NMI_Handler mret",
+   "hardware_validated": false
+  },
+  {
+   "address": "0x0cb8c",
+   "name": "HardFault_Handler",
+   "size": 2,
+   "status": "vector-default",
+   "source": "firmware/fault.c",
+   "note": "unused slot: record + reset",
+   "hardware_validated": false
+  },
+  {
+   "address": "0x0cb8e",
+   "name": "NVIC_PriorityGroupConfig",
+   "size": 6,
+   "status": "native",
+   "source": "platform/wch_nvic.c",
+   "note": "NVIC_PriorityGroupConfig",
+   "hardware_validated": false
+  },
+  {
+   "address": "0x0cb94",
+   "name": "NVIC_Init",
+   "size": 166,
+   "status": "native",
+   "source": "platform/wch_nvic.c",
+   "note": "NVIC_Init with the image SDK encoding",
+   "hardware_validated": false
+  },
+  {
+   "address": "0x0cc3a",
+   "name": "RCC_ADCCLKConfig",
+   "size": 18,
+   "status": "library",
+   "source": "WCH SDK (pinned)",
+   "note": "peripheral driver",
+   "hardware_validated": false
+  },
+  {
+   "address": "0x0cc4c",
+   "name": "RCC_GetClocksFreq",
+   "size": 262,
+   "status": "library",
+   "source": "WCH SDK (pinned)",
+   "note": "peripheral driver",
+   "hardware_validated": false
+  },
+  {
+   "address": "0x0cd52",
+   "name": "RCC_AHBPeriphClockCmd",
+   "size": 30,
+   "status": "library",
+   "source": "WCH SDK (pinned)",
+   "note": "peripheral driver",
+   "hardware_validated": false
+  },
+  {
+   "address": "0x0cd70",
+   "name": "RCC_APB2PeriphClockCmd",
+   "size": 30,
+   "status": "library",
+   "source": "WCH SDK (pinned)",
+   "note": "peripheral driver",
+   "hardware_validated": false
+  },
+  {
+   "address": "0x0cd8e",
+   "name": "RCC_APB1PeriphClockCmd",
+   "size": 30,
+   "status": "library",
+   "source": "WCH SDK (pinned)",
+   "note": "peripheral driver",
+   "hardware_validated": false
+  },
+  {
+   "address": "0x0cdac",
+   "name": "SPI_Init",
+   "size": 62,
+   "status": "library",
+   "source": "WCH SDK (pinned)",
+   "note": "peripheral driver",
+   "hardware_validated": false
+  },
+  {
+   "address": "0x0cdea",
+   "name": "SPI_Cmd",
+   "size": 26,
+   "status": "library",
+   "source": "WCH SDK (pinned)",
+   "note": "peripheral driver",
+   "hardware_validated": false
+  },
+  {
+   "address": "0x0ce04",
+   "name": "SPI_I2S_SendData",
+   "size": 4,
+   "status": "library",
+   "source": "WCH SDK (pinned)",
+   "note": "peripheral driver",
+   "hardware_validated": false
+  },
+  {
+   "address": "0x0ce08",
+   "name": "SPI_I2S_ReceiveData",
+   "size": 4,
+   "status": "library",
+   "source": "WCH SDK (pinned)",
+   "note": "peripheral driver",
+   "hardware_validated": false
+  },
+  {
+   "address": "0x0ce0c",
+   "name": "SPI_I2S_GetFlagStatus",
+   "size": 10,
+   "status": "library",
+   "source": "WCH SDK (pinned)",
+   "note": "peripheral driver",
+   "hardware_validated": false
+  },
+  {
+   "address": "0x0ce16",
+   "name": "TIM_TimeBaseInit",
+   "size": 170,
+   "status": "library",
+   "source": "WCH SDK (pinned)",
+   "note": "peripheral driver",
+   "hardware_validated": false
+  },
+  {
+   "address": "0x0cec0",
+   "name": "TIM_OC1Init",
+   "size": 130,
+   "status": "library",
+   "source": "WCH SDK (pinned)",
+   "note": "peripheral driver",
+   "hardware_validated": false
+  },
+  {
+   "address": "0x0cf42",
+   "name": "TIM_OC2Init",
+   "size": 174,
+   "status": "library",
+   "source": "WCH SDK (pinned)",
+   "note": "peripheral driver",
+   "hardware_validated": false
+  },
+  {
+   "address": "0x0cff0",
+   "name": "TIM_Cmd",
+   "size": 24,
+   "status": "library",
+   "source": "WCH SDK (pinned)",
+   "note": "peripheral driver",
+   "hardware_validated": false
+  },
+  {
+   "address": "0x0d008",
+   "name": "TIM_CtrlPWMOutputs",
+   "size": 22,
+   "status": "library",
+   "source": "WCH SDK (pinned)",
+   "note": "peripheral driver",
+   "hardware_validated": false
+  },
+  {
+   "address": "0x0d01e",
+   "name": "TIM_ITConfig",
+   "size": 18,
+   "status": "library",
+   "source": "WCH SDK (pinned)",
+   "note": "peripheral driver",
+   "hardware_validated": false
+  },
+  {
+   "address": "0x0d030",
+   "name": "TIM_ARRPreloadConfig",
+   "size": 26,
+   "status": "library",
+   "source": "WCH SDK (pinned)",
+   "note": "peripheral driver",
+   "hardware_validated": false
+  },
+  {
+   "address": "0x0d04a",
+   "name": "TIM_OC1PreloadConfig",
+   "size": 14,
+   "status": "library",
+   "source": "WCH SDK (pinned)",
+   "note": "peripheral driver",
+   "hardware_validated": false
+  },
+  {
+   "address": "0x0d058",
+   "name": "TIM_OC2PreloadConfig",
+   "size": 22,
+   "status": "library",
+   "source": "WCH SDK (pinned)",
+   "note": "peripheral driver",
+   "hardware_validated": false
+  },
+  {
+   "address": "0x0d06e",
+   "name": "TIM_SetCompare2",
+   "size": 4,
+   "status": "library",
+   "source": "WCH SDK (pinned)",
+   "note": "peripheral driver",
+   "hardware_validated": false
+  },
+  {
+   "address": "0x0d072",
+   "name": "TIM_GetITStatus",
+   "size": 24,
+   "status": "library",
+   "source": "WCH SDK (pinned)",
+   "note": "peripheral driver",
+   "hardware_validated": false
+  },
+  {
+   "address": "0x0d08a",
+   "name": "TIM_ClearITPendingBit",
+   "size": 12,
+   "status": "library",
+   "source": "WCH SDK (pinned)",
+   "note": "peripheral driver",
+   "hardware_validated": false
+  },
+  {
+   "address": "0x0d096",
+   "name": "USART_Init",
+   "size": 188,
+   "status": "library",
+   "source": "WCH SDK (pinned)",
+   "note": "peripheral driver",
+   "hardware_validated": false
+  },
+  {
+   "address": "0x0d152",
+   "name": "USART_Cmd",
+   "size": 22,
+   "status": "library",
+   "source": "WCH SDK (pinned)",
+   "note": "peripheral driver",
+   "hardware_validated": false
+  },
+  {
+   "address": "0x0d168",
+   "name": "USART_ITConfig",
+   "size": 54,
+   "status": "library",
+   "source": "WCH SDK (pinned)",
+   "note": "peripheral driver",
+   "hardware_validated": false
+  },
+  {
+   "address": "0x0d19e",
+   "name": "USART_DMACmd",
+   "size": 18,
+   "status": "library",
+   "source": "WCH SDK (pinned)",
+   "note": "peripheral driver",
+   "hardware_validated": false
+  },
+  {
+   "address": "0x0d1b0",
+   "name": "USART_SendData",
+   "size": 8,
+   "status": "library",
+   "source": "WCH SDK (pinned)",
+   "note": "peripheral driver",
+   "hardware_validated": false
+  },
+  {
+   "address": "0x0d1b8",
+   "name": "USART_ReceiveData",
+   "size": 8,
+   "status": "library",
+   "source": "WCH SDK (pinned)",
+   "note": "peripheral driver",
+   "hardware_validated": false
+  },
+  {
+   "address": "0x0d1c0",
+   "name": "USART_GetFlagStatus",
+   "size": 10,
+   "status": "library",
+   "source": "WCH SDK (pinned)",
+   "note": "peripheral driver",
+   "hardware_validated": false
+  },
+  {
+   "address": "0x0d1ca",
+   "name": "USART_ClearFlag",
+   "size": 12,
+   "status": "library",
+   "source": "WCH SDK (pinned)",
+   "note": "peripheral driver",
+   "hardware_validated": false
+  },
+  {
+   "address": "0x0d1d6",
+   "name": "USART_GetITStatus",
+   "size": 60,
+   "status": "library",
+   "source": "WCH SDK (pinned)",
+   "note": "peripheral driver",
+   "hardware_validated": false
+  },
+  {
+   "address": "0x0d212",
+   "name": "SystemInit",
+   "size": 234,
+   "status": "deviation",
+   "source": "firmware/system.c",
+   "note": "SystemInit, plus HSI PLL fallback",
+   "hardware_validated": false
+  },
+  {
+   "address": "0x0d2fc",
+   "name": "SystemCoreClockUpdate",
+   "size": 142,
+   "status": "native",
+   "source": "firmware/system.c",
+   "note": "SystemCoreClockUpdate",
+   "hardware_validated": false
+  },
+  {
+   "address": "0x0d38a",
+   "name": "spi1_flash_init",
+   "size": 184,
+   "status": "native",
+   "source": "platform/wch_platform.c",
+   "note": "SDK mode3/prescaler8 GPIO setup",
+   "hardware_validated": false
+  },
+  {
+   "address": "0x0d442",
+   "name": "spi1_exchange_byte",
+   "size": 86,
+   "status": "native",
+   "source": "firmware/storage_port.c",
+   "note": "SPI1 byte exchange, 201-poll bound",
+   "hardware_validated": false
+  },
+  {
+   "address": "0x0d498",
+   "name": "spi_flash_send_byte",
+   "size": 12,
+   "status": "native",
+   "source": "firmware/storage_port.c",
+   "note": "send byte",
+   "hardware_validated": false
+  },
+  {
+   "address": "0x0d4a4",
+   "name": "spi_flash_receive_byte",
+   "size": 16,
+   "status": "native",
+   "source": "firmware/storage_port.c",
+   "note": "receive byte",
+   "hardware_validated": false
+  },
+  {
+   "address": "0x0d4b4",
+   "name": "spi_flash_read_jedec_id",
+   "size": 68,
+   "status": "native",
+   "source": "drivers/spi_flash.c",
+   "note": "JEDEC wire transaction",
+   "hardware_validated": false
+  },
+  {
+   "address": "0x0d4f8",
+   "name": "spi_flash_write_enable",
+   "size": 30,
+   "status": "native",
+   "source": "drivers/spi_flash.c",
+   "note": "WREN transaction",
+   "hardware_validated": false
+  },
+  {
+   "address": "0x0d516",
+   "name": "spi_flash_read_status",
+   "size": 34,
+   "status": "native",
+   "source": "drivers/spi_flash.c",
+   "note": "status wire transaction",
+   "hardware_validated": false
+  },
+  {
+   "address": "0x0d538",
+   "name": "spi_flash_erase_sector",
+   "size": 80,
+   "status": "native",
+   "source": "drivers/spi_flash.c",
+   "note": "sector-index erase with optional poll guard",
+   "hardware_validated": false
+  },
+  {
+   "address": "0x0d588",
+   "name": "spi_flash_page_program",
+   "size": 122,
+   "status": "native",
+   "source": "drivers/spi_flash.c",
+   "note": "clamped256-byte page program",
+   "hardware_validated": false
+  },
+  {
+   "address": "0x0d602",
+   "name": "spi_flash_program_pages",
+   "size": 84,
+   "status": "native",
+   "source": "drivers/spi_flash.c",
+   "note": "page-boundary splitting",
+   "hardware_validated": false
+  },
+  {
+   "address": "0x0d656",
+   "name": "spi_flash_read",
+   "size": 102,
+   "status": "native",
+   "source": "drivers/spi_flash.c",
+   "note": "read command and24-bit address",
+   "hardware_validated": false
+  },
+  {
+   "address": "0x0d6bc",
+   "name": "spi_flash_write_preserve_sector",
+   "size": 198,
+   "status": "native",
+   "source": "drivers/spi_flash.c",
+   "note": "read/erase/rewrite preserves both touched sectors",
+   "hardware_validated": false
+  },
+  {
+   "address": "0x0d782",
+   "name": "FUN_ram_0000d782",
+   "size": 234,
+   "status": "native",
+   "source": "drivers/spi_flash.c",
+   "note": "JEDEC capacity table, 40 ids identical",
+   "hardware_validated": false
+  },
+  {
+   "address": "0x0d86c",
+   "name": "spi_flash_init",
+   "size": 16,
+   "status": "native",
+   "source": "firmware/storage_port.c",
+   "note": "SPI init + JEDEC probe",
+   "hardware_validated": false
+  },
+  {
+   "address": "0x0d87c",
+   "name": "settings_commit_internal_flash",
+   "size": 140,
+   "status": "deviation",
+   "source": "storage/persistence.c + firmware/internal_flash.c",
+   "note": "commit; HCLK/IRQ restored",
+   "hardware_validated": false
+  },
+  {
+   "address": "0x0d908",
+   "name": "read_halfwords",
+   "size": 32,
+   "status": "native",
+   "source": "firmware/internal_flash.c",
+   "note": "halfword copy",
+   "hardware_validated": false
+  },
+  {
+   "address": "0x0d928",
+   "name": "settings_load_internal_flash",
+   "size": 28,
+   "status": "native",
+   "source": "storage/persistence.c",
+   "note": "backend read at08040000",
+   "hardware_validated": false
+  },
+  {
+   "address": "0x0d944",
+   "name": "settings_theme_access",
+   "size": 32,
+   "status": "native",
+   "source": "storage/settings.c",
+   "note": "theme field",
+   "hardware_validated": false
+  },
+  {
+   "address": "0x0d964",
+   "name": "settings_language_access",
+   "size": 130,
+   "status": "native",
+   "source": "storage/settings.c",
+   "note": "Explicit mutable20-byte prefix cache, six original paths, full-width selector switch, unsupported-selector stale-prefix retention, unmasked stored-word spill and original count-including-NUL return. Application uses supported UI languages0/1.",
+   "hardware_validated": false
+  },
+  {
+   "address": "0x0d9e6",
+   "name": "settings_field_3_4_access",
+   "size": 30,
+   "status": "native",
+   "source": "storage/settings.c",
+   "note": "brightness field",
+   "hardware_validated": false
+  },
+  {
+   "address": "0x0da04",
+   "name": "settings_layout_access",
+   "size": 36,
+   "status": "native",
+   "source": "storage/settings.c",
+   "note": "layout field",
+   "hardware_validated": false
+  },
+  {
+   "address": "0x0da28",
+   "name": "settings_temperature_access",
+   "size": 32,
+   "status": "native",
+   "source": "storage/settings.c",
+   "note": "temperature field including bit6 clear",
+   "hardware_validated": false
+  },
+  {
+   "address": "0x0da48",
+   "name": "settings_auto_off_access",
+   "size": 84,
+   "status": "native",
+   "source": "storage/settings.c",
+   "note": "Getter plus unmasked full-width setter, valid0/1/2/3 timeout side effects, invalid-selector preservation of previous timeout and original write-flag return.",
+   "hardware_validated": false
+  },
+  {
+   "address": "0x0da9c",
+   "name": "history_append_measurement",
+   "size": 272,
+   "status": "native",
+   "source": "storage/history.c",
+   "note": "record encoding, shift and capacity",
+   "hardware_validated": false
+  },
+  {
+   "address": "0x0dbac",
+   "name": "history_decode_entry",
+   "size": 154,
+   "status": "native",
+   "source": "storage/history.c",
+   "note": "value decode, metadata available in record",
+   "hardware_validated": false
+  },
+  {
+   "address": "0x0dc46",
+   "name": "settings_restore_defaults",
+   "size": 90,
+   "status": "native",
+   "source": "storage/persistence.c",
+   "note": "Original initialized17-halfword defaults, zeroed remainder of128-halfword image, ignored-result logo-removal external call, loaded-flag store after that call. Uses preserved initialized defaults; no device storage layout confirmation.",
+   "hardware_validated": false
+  },
+  {
+   "address": "0x0dca0",
+   "name": "disk_status",
+   "size": 4,
+   "status": "native",
+   "source": "storage/filesystem.c",
+   "note": "disk_status",
+   "hardware_validated": false
+  },
+  {
+   "address": "0x0dca4",
+   "name": "disk_initialize",
+   "size": 4,
+   "status": "native",
+   "source": "storage/filesystem.c",
+   "note": "disk_initialize",
+   "hardware_validated": false
+  },
+  {
+   "address": "0x0dca8",
+   "name": "disk_read",
+   "size": 40,
+   "status": "native",
+   "source": "storage/disk.c",
+   "note": "original16-bit count narrowing and drive mapping",
+   "hardware_validated": false
+  },
+  {
+   "address": "0x0dcd0",
+   "name": "disk_write",
+   "size": 48,
+   "status": "native",
+   "source": "storage/disk.c",
+   "note": "original drive/count checks plus backend error propagation guard",
+   "hardware_validated": false
+  },
+  {
+   "address": "0x0dd00",
+   "name": "disk_ioctl",
+   "size": 72,
+   "status": "native",
+   "source": "storage/disk.c",
+   "note": "sector geometry and ioctl results",
+   "hardware_validated": false
+  },
+  {
+   "address": "0x0dd48",
+   "name": "FUN_ram_0000dd48",
+   "size": 6,
+   "status": "native",
+   "source": "storage/filesystem.c",
+   "note": "get_fattime",
+   "hardware_validated": false
+  },
+  {
+   "address": "0x0dd4e",
+   "name": "filesystem_resources_init",
+   "size": 98,
+   "status": "deviation",
+   "source": "firmware/storage_port.c",
+   "note": "fdisk/mount/setlabel/mount; compare-before-write",
+   "hardware_validated": false
+  },
+  {
+   "address": "0x0ddb0",
+   "name": "FUN_ram_0000ddb0",
+   "size": 98,
+   "status": "native",
+   "source": "ui/resource_volume.c",
+   "note": "Optional logo and shared-object remount ordering",
+   "hardware_validated": false
+  },
+  {
+   "address": "0x0de12",
+   "name": "filesystem_logo_remove",
+   "size": 72,
+   "status": "native",
+   "source": "ui/resource_volume.c",
+   "note": "Mount/unlink/remount with injected write capability",
+   "hardware_validated": false
+  },
+  {
+   "address": "0x0de5a",
+   "name": "FUN_ram_0000de5a",
+   "size": 22,
+   "status": "library",
+   "source": "vendor/fatfs/ff.c",
+   "note": "Configured authentic upstream counterpart with recorded ABI/tables/behavior evidence; exact vendor source provenance unknown",
+   "hardware_validated": false
+  },
+  {
+   "address": "0x0de70",
+   "name": "FUN_ram_0000de70",
+   "size": 20,
+   "status": "library",
+   "source": "vendor/fatfs/ff.c",
+   "note": "Configured authentic upstream counterpart with recorded ABI/tables/behavior evidence; exact vendor source provenance unknown",
+   "hardware_validated": false
+  },
+  {
+   "address": "0x0de84",
+   "name": "FUN_ram_0000de84",
+   "size": 26,
+   "status": "library",
+   "source": "vendor/fatfs/ff.c",
+   "note": "Configured authentic upstream counterpart with recorded ABI/tables/behavior evidence; exact vendor source provenance unknown",
+   "hardware_validated": false
+  },
+  {
+   "address": "0x0de9e",
+   "name": "FUN_ram_0000de9e",
+   "size": 34,
+   "status": "library",
+   "source": "vendor/fatfs/ff.c",
+   "note": "Configured authentic upstream counterpart with recorded ABI/tables/behavior evidence; exact vendor source provenance unknown",
+   "hardware_validated": false
+  },
+  {
+   "address": "0x0dec0",
+   "name": "FUN_ram_0000dec0",
+   "size": 80,
+   "status": "library",
+   "source": "vendor/fatfs/ff.c",
+   "note": "Pinned FatFs R0.14b with bounded original return/memory/path comparison; ld_clust compiler-scalarized fs_type ABI explicitly adapted in test oracle",
+   "hardware_validated": false
+  },
+  {
+   "address": "0x0df10",
+   "name": "FUN_ram_0000df10",
+   "size": 64,
+   "status": "library",
+   "source": "FatFs R0.14b",
+   "note": "upstream source",
+   "hardware_validated": false
+  },
+  {
+   "address": "0x0df50",
+   "name": "FUN_ram_0000df50",
+   "size": 310,
+   "status": "library",
+   "source": "vendor/fatfs/ff.c",
+   "note": "Configured authentic upstream counterpart with recorded ABI/tables/behavior evidence; exact vendor source provenance unknown",
+   "hardware_validated": false
+  },
+  {
+   "address": "0x0e086",
+   "name": "FUN_ram_0000e086",
+   "size": 114,
+   "status": "library",
+   "source": "FatFs R0.14b",
+   "note": "upstream source",
+   "hardware_validated": false
+  },
+  {
+   "address": "0x0e0f8",
+   "name": "FUN_ram_0000e0f8",
+   "size": 30,
+   "status": "library",
+   "source": "vendor/fatfs/ff.c",
+   "note": "Pinned FatFs R0.14b with bounded original return/memory/path comparison; ld_clust compiler-scalarized fs_type ABI explicitly adapted in test oracle",
+   "hardware_validated": false
+  },
+  {
+   "address": "0x0e116",
+   "name": "FUN_ram_0000e116",
+   "size": 30,
+   "status": "library",
+   "source": "vendor/fatfs/ff.c",
+   "note": "Pinned FatFs R0.14b with bounded original return/memory/path comparison; ld_clust compiler-scalarized fs_type ABI explicitly adapted in test oracle",
+   "hardware_validated": false
+  },
+  {
+   "address": "0x0e134",
+   "name": "FUN_ram_0000e134",
+   "size": 72,
+   "status": "library",
+   "source": "FatFs R0.14b",
+   "note": "upstream source",
+   "hardware_validated": false
+  },
+  {
+   "address": "0x0e17c",
+   "name": "FUN_ram_0000e17c",
+   "size": 64,
+   "status": "library",
+   "source": "FatFs R0.14b",
+   "note": "upstream source",
+   "hardware_validated": false
+  },
+  {
+   "address": "0x0e1bc",
+   "name": "FUN_ram_0000e1bc",
+   "size": 252,
+   "status": "library",
+   "source": "FatFs R0.14b",
+   "note": "upstream source",
+   "hardware_validated": false
+  },
+  {
+   "address": "0x0e2b8",
+   "name": "FUN_ram_0000e2b8",
+   "size": 816,
+   "status": "library",
+   "source": "FatFs R0.14b",
+   "note": "upstream source",
+   "hardware_validated": false
+  },
+  {
+   "address": "0x0e5e8",
+   "name": "FUN_ram_0000e5e8",
+   "size": 310,
+   "status": "library",
+   "source": "FatFs R0.14b",
+   "note": "upstream source",
+   "hardware_validated": false
+  },
+  {
+   "address": "0x0e71e",
+   "name": "FUN_ram_0000e71e",
+   "size": 222,
+   "status": "library",
+   "source": "FatFs R0.14b",
+   "note": "upstream source",
+   "hardware_validated": false
+  },
+  {
+   "address": "0x0e7fc",
+   "name": "FUN_ram_0000e7fc",
+   "size": 182,
+   "status": "library",
+   "source": "FatFs R0.14b",
+   "note": "upstream source",
+   "hardware_validated": false
+  },
+  {
+   "address": "0x0e8b2",
+   "name": "FUN_ram_0000e8b2",
+   "size": 242,
+   "status": "library",
+   "source": "FatFs R0.14b",
+   "note": "upstream source",
+   "hardware_validated": false
+  },
+  {
+   "address": "0x0e9a4",
+   "name": "FUN_ram_0000e9a4",
+   "size": 122,
+   "status": "library",
+   "source": "FatFs R0.14b",
+   "note": "upstream source",
+   "hardware_validated": false
+  },
+  {
+   "address": "0x0ea1e",
+   "name": "FUN_ram_0000ea1e",
+   "size": 170,
+   "status": "library",
+   "source": "FatFs R0.14b",
+   "note": "upstream source",
+   "hardware_validated": false
+  },
+  {
+   "address": "0x0eac8",
+   "name": "FUN_ram_0000eac8",
+   "size": 94,
+   "status": "library",
+   "source": "FatFs R0.14b",
+   "note": "upstream source",
+   "hardware_validated": false
+  },
+  {
+   "address": "0x0eb26",
+   "name": "FUN_ram_0000eb26",
+   "size": 202,
+   "status": "library",
+   "source": "FatFs R0.14b",
+   "note": "upstream source",
+   "hardware_validated": false
+  },
+  {
+   "address": "0x0ebf0",
+   "name": "FUN_ram_0000ebf0",
+   "size": 78,
+   "status": "library",
+   "source": "FatFs R0.14b",
+   "note": "upstream source",
+   "hardware_validated": false
+  },
+  {
+   "address": "0x0ec3e",
+   "name": "FUN_ram_0000ec3e",
+   "size": 336,
+   "status": "library",
+   "source": "FatFs R0.14b",
+   "note": "upstream source",
+   "hardware_validated": false
+  },
+  {
+   "address": "0x0ed8e",
+   "name": "FUN_ram_0000ed8e",
+   "size": 80,
+   "status": "library",
+   "source": "FatFs R0.14b",
+   "note": "upstream source",
+   "hardware_validated": false
+  },
+  {
+   "address": "0x0edde",
+   "name": "FUN_ram_0000edde",
+   "size": 402,
+   "status": "library",
+   "source": "FatFs R0.14b",
+   "note": "upstream source",
+   "hardware_validated": false
+  },
+  {
+   "address": "0x0ef70",
+   "name": "FUN_ram_0000ef70",
+   "size": 794,
+   "status": "library",
+   "source": "FatFs R0.14b",
+   "note": "upstream source",
+   "hardware_validated": false
+  },
+  {
+   "address": "0x0f28a",
+   "name": "FUN_ram_0000f28a",
+   "size": 622,
+   "status": "library",
+   "source": "FatFs R0.14b",
+   "note": "upstream source",
+   "hardware_validated": false
+  },
+  {
+   "address": "0x0f4f8",
+   "name": "FUN_ram_0000f4f8",
+   "size": 82,
+   "status": "library",
+   "source": "vendor/fatfs/ff.c",
+   "note": "Configured authentic upstream counterpart with recorded ABI/tables/behavior evidence; exact vendor source provenance unknown",
+   "hardware_validated": false
+  },
+  {
+   "address": "0x0f54a",
+   "name": "FUN_ram_0000f54a",
+   "size": 488,
+   "status": "library",
+   "source": "vendor/fatfs/ff.c",
+   "note": "Configured authentic upstream counterpart with recorded ABI/tables/behavior evidence; exact vendor source provenance unknown",
+   "hardware_validated": false
+  },
+  {
+   "address": "0x0f732",
+   "name": "FUN_ram_0000f732",
+   "size": 370,
+   "status": "library",
+   "source": "vendor/fatfs/ff.c",
+   "note": "Configured authentic upstream counterpart with recorded ABI/tables/behavior evidence; exact vendor source provenance unknown",
+   "hardware_validated": false
+  },
+  {
+   "address": "0x0f8a4",
+   "name": "FUN_ram_0000f8a4",
+   "size": 156,
+   "status": "library",
+   "source": "FatFs R0.14b",
+   "note": "upstream source",
+   "hardware_validated": false
+  },
+  {
+   "address": "0x0f940",
+   "name": "FUN_ram_0000f940",
+   "size": 34,
+   "status": "library",
+   "source": "vendor/fatfs/ff.c",
+   "note": "Configured authentic upstream counterpart with recorded ABI/tables/behavior evidence; exact vendor source provenance unknown",
+   "hardware_validated": false
+  },
+  {
+   "address": "0x0f962",
+   "name": "FUN_ram_0000f962",
+   "size": 334,
+   "status": "library",
+   "source": "vendor/fatfs/ff.c",
+   "note": "Configured authentic upstream counterpart with recorded ABI/tables/behavior evidence; exact vendor source provenance unknown",
+   "hardware_validated": false
+  },
+  {
+   "address": "0x0fab0",
+   "name": "FUN_ram_0000fab0",
+   "size": 152,
+   "status": "library",
+   "source": "FatFs R0.14b",
+   "note": "upstream source",
+   "hardware_validated": false
+  },
+  {
+   "address": "0x0fb48",
+   "name": "FUN_ram_0000fb48",
+   "size": 286,
+   "status": "library",
+   "source": "FatFs R0.14b",
+   "note": "upstream source",
+   "hardware_validated": false
+  },
+  {
+   "address": "0x0fc66",
+   "name": "FUN_ram_0000fc66",
+   "size": 56,
+   "status": "library",
+   "source": "vendor/fatfs/ff.c",
+   "note": "Configured authentic upstream counterpart with recorded ABI/tables/behavior evidence; exact vendor source provenance unknown",
+   "hardware_validated": false
+  },
+  {
+   "address": "0x0fc9e",
+   "name": "FUN_ram_0000fc9e",
+   "size": 94,
+   "status": "partial",
+   "source": "storage/codepage.c",
+   "note": "CP936 tables absent in the image; fails closed",
+   "hardware_validated": false
+  },
+  {
+   "address": "0x0fcfc",
+   "name": "FUN_ram_0000fcfc",
+   "size": 74,
+   "status": "partial",
+   "source": "storage/codepage.c",
+   "note": "CP936 tables absent in the image; fails closed",
+   "hardware_validated": false
+  },
+  {
+   "address": "0x0fd46",
+   "name": "FUN_ram_0000fd46",
+   "size": 160,
+   "status": "library",
+   "source": "vendor/fatfs/unicode_upper.c",
+   "note": "Configured authentic upstream counterpart with recorded ABI/tables/behavior evidence; exact vendor source provenance unknown",
+   "hardware_validated": false
+  },
+  {
+   "address": "0x0fde6",
+   "name": "FUN_ram_0000fde6",
+   "size": 16,
+   "status": "native",
+   "source": "application/application.c",
+   "note": "Resets original row, previous-unit y and wrap globals; previous unit/text are deliberately retained",
+   "hardware_validated": false
+  },
+  {
+   "address": "0x0fdf6",
+   "name": "FUN_ram_0000fdf6",
+   "size": 18,
+   "status": "native",
+   "source": "application/application.c",
+   "note": "Alarm255, shared menu/unit cache25 and auto-label cache255; explicitly synchronizes semantic aliases",
+   "hardware_validated": false
+  },
+  {
+   "address": "0x0fe08",
+   "name": "FUN_ram_0000fe08",
+   "size": 322,
+   "status": "native",
+   "source": "ui/status_view.c",
+   "note": "NCV resource/delay sequence",
+   "hardware_validated": false
+  },
+  {
+   "address": "0x1014e",
+   "name": "FUN_ram_0001014e",
+   "size": 74,
+   "status": "native",
+   "source": "ui/status_view.c",
+   "note": "live image caching",
+   "hardware_validated": false
+  },
+  {
+   "address": "0x10198",
+   "name": "FUN_ram_00010198",
+   "size": 620,
+   "status": "native",
+   "source": "ui/gauge.c",
+   "note": "Original gauge geometry/pixel ordering and exact ROM bitmaps; defined bitmap length/domain guards and injected pixel transport",
+   "hardware_validated": false
+  },
+  {
+   "address": "0x10404",
+   "name": "FUN_ram_00010404",
+   "size": 616,
+   "status": "native",
+   "source": "ui/gauge.c",
+   "note": "Original gauge geometry/pixel ordering and exact ROM bitmaps; defined bitmap length/domain guards and injected pixel transport",
+   "hardware_validated": false
+  },
+  {
+   "address": "0x1066c",
+   "name": "FUN_ram_0001066c",
+   "size": 888,
+   "status": "native",
+   "source": "ui/gauge.c",
+   "note": "Original gauge geometry/pixel ordering and exact ROM bitmaps; defined bitmap length/domain guards and injected pixel transport",
+   "hardware_validated": false
+  },
+  {
+   "address": "0x109e4",
+   "name": "FUN_ram_000109e4",
+   "size": 492,
+   "status": "native",
+   "source": "ui/numeric_view.c",
+   "note": "All numeric JPEG glyphs/clears/spacing in NUL-terminated input domain<256",
+   "hardware_validated": false
+  },
+  {
+   "address": "0x10bd0",
+   "name": "FUN_ram_00010bd0",
+   "size": 694,
+   "status": "native",
+   "source": "ui/numeric_view.c",
+   "note": "Alternate numeric glyphs, JPEG decimal/E and exact clear/spacing behavior; NUL-terminated strings<256",
+   "hardware_validated": false
+  },
+  {
+   "address": "0x10e86",
+   "name": "FUN_ram_00010e86",
+   "size": 512,
+   "status": "native",
+   "source": "ui/menu_scene.c",
+   "note": "All six JPEG threshold rows, language/selection resource variants, lines and unit images; void API omits image return residue",
+   "hardware_validated": false
+  },
+  {
+   "address": "0x11086",
+   "name": "FUN_ram_00011086",
+   "size": 5714,
+   "status": "native",
+   "source": "measurement/thresholds.c",
+   "note": "resumable six-case editor and native drawing",
+   "hardware_validated": false
+  },
+  {
+   "address": "0x126d8",
+   "name": "FUN_ram_000126d8",
+   "size": 1064,
+   "status": "native",
+   "source": "measurement/thresholds.c",
+   "note": "six threshold digit rows incl encoded sign",
+   "hardware_validated": false
+  },
+  {
+   "address": "0x12b00",
+   "name": "FUN_ram_00012b00",
+   "size": 312,
+   "status": "native",
+   "source": "ui/monitor.c",
+   "note": "Exact compact unit glyph codes including unit17 nF and unit20 mHz quirks",
+   "hardware_validated": false
+  },
+  {
+   "address": "0x12c38",
+   "name": "FUN_ram_00012c38",
+   "size": 64,
+   "status": "native",
+   "source": "ui/history_view.c",
+   "note": "Current/previous unit color, order, y cache and last unit updates",
+   "hardware_validated": false
+  },
+  {
+   "address": "0x12c78",
+   "name": "FUN_ram_00012c78",
+   "size": 226,
+   "status": "native",
+   "source": "application/application.c",
+   "note": "Recording strip, previous text, row1..8/wrap, unit cache and packed history append composed from recovered helpers; bounded valid text/numeric record domain",
+   "hardware_validated": false
+  },
+  {
+   "address": "0x12d5a",
+   "name": "FUN_ram_00012d5a",
+   "size": 1290,
+   "status": "native",
+   "source": "ui/monitor.c",
+   "note": "V/current/temperature threshold headings, values, unit images, preference conversion and both layouts",
+   "hardware_validated": false
+  },
+  {
+   "address": "0x13264",
+   "name": "FUN_ram_00013264",
+   "size": 672,
+   "status": "native",
+   "source": "ui/monitor.c",
+   "note": "Existing exact threshold policy plus buzzer and ordered three-image state changes; equality retains alarm",
+   "hardware_validated": false
+  },
+  {
+   "address": "0x13504",
+   "name": "FUN_ram_00013504",
+   "size": 172,
+   "status": "native",
+   "source": "ui/reading.c",
+   "note": "Original absolute-magnitude precision selection and bounded formatter output",
+   "hardware_validated": false
+  },
+  {
+   "address": "0x135b0",
+   "name": "FUN_ram_000135b0",
+   "size": 1618,
+   "status": "native",
+   "source": "ui/settings_scene.c",
+   "note": "All setting pages/options, original unchecked/checked rectangle and text ordering, old state erasure and setting side effects. Classic Chinese theme2 selection retains original label1 bug. Native language prefix computed from settings instead of mutable target buffer",
+   "hardware_validated": false
+  },
+  {
+   "address": "0x13c02",
+   "name": "FUN_ram_00013c02",
+   "size": 1698,
+   "status": "native",
+   "source": "ui/settings_scene.c",
+   "note": "All setting pages/options, original unchecked/checked rectangle and text ordering, old state erasure and setting side effects. Classic Chinese theme2 selection retains original label1 bug. Native language prefix computed from settings instead of mutable target buffer",
+   "hardware_validated": false
+  },
+  {
+   "address": "0x142a4",
+   "name": "FUN_ram_000142a4",
+   "size": 138,
+   "status": "native",
+   "source": "ui/settings_scene.c",
+   "note": "Exact settings scene leaf ordering, coordinates/colors, language branches and original brightness side effects; resource/graphics primitives injected",
+   "hardware_validated": false
+  },
+  {
+   "address": "0x1432e",
+   "name": "FUN_ram_0001432e",
+   "size": 178,
+   "status": "native",
+   "source": "ui/settings_scene.c",
+   "note": "Exact settings scene leaf ordering, coordinates/colors, language branches and original brightness side effects; resource/graphics primitives injected",
+   "hardware_validated": false
+  },
+  {
+   "address": "0x143e0",
+   "name": "FUN_ram_000143e0",
+   "size": 40,
+   "status": "native",
+   "source": "ui/status_view.c",
+   "note": "original version text coordinates and box",
+   "hardware_validated": false
+  },
+  {
+   "address": "0x14408",
+   "name": "FUN_ram_00014408",
+   "size": 368,
+   "status": "native",
+   "source": "ui/status_view.c",
+   "note": "all six scrollbar positions in both layouts",
+   "hardware_validated": false
+  },
+  {
+   "address": "0x14578",
+   "name": "FUN_ram_00014578",
+   "size": 1306,
+   "status": "native",
+   "source": "ui/history_view.c",
+   "note": "Packed-history value/temperature/overload formatting, units, language images, row spacing and optional scrollbar; guard restricts indices to valid existing records",
+   "hardware_validated": false
+  },
+  {
+   "address": "0x14a92",
+   "name": "FUN_ram_00014a92",
+   "size": 432,
+   "status": "native",
+   "source": "application/application.c",
+   "note": "Resumable original page policy plus recovered page/scrollbar drawing and clearing; retains count%5 quirk. Execution timing differs from blocking original",
+   "hardware_validated": false
+  },
+  {
+   "address": "0x14c42",
+   "name": "FUN_ram_00014c42",
+   "size": 142,
+   "status": "native",
+   "source": "ui/status_view.c",
+   "note": "localized image/countdown; shutdown handled by application",
+   "hardware_validated": false
+  },
+  {
+   "address": "0x14cd6",
+   "name": "charge_screen_poll",
+   "size": 138,
+   "status": "native",
+   "source": "application/application.c",
+   "note": "charging screen, cooperative",
+   "hardware_validated": false
+  },
+  {
+   "address": "0x14d62",
+   "name": "battery_icon_theme_a",
+   "size": 230,
+   "status": "native",
+   "source": "ui/status_view.c",
+   "note": "layout1 battery image thresholds",
+   "hardware_validated": false
+  },
+  {
+   "address": "0x14e48",
+   "name": "FUN_ram_00014e48",
+   "size": 170,
+   "status": "native",
+   "source": "ui/status_view.c",
+   "note": "layout0 battery bar pixels",
+   "hardware_validated": false
+  },
+  {
+   "address": "0x14ef2",
+   "name": "FUN_ram_00014ef2",
+   "size": 552,
+   "status": "native",
+   "source": "ui/screen.c",
+   "note": "All base scenes, exact bitmaps, dashes and battery image ordering; ADC percentage injected by application caller, language prefix assumed initialized",
+   "hardware_validated": false
+  },
+  {
+   "address": "0x1511a",
+   "name": "application_show_initial_screen",
+   "size": 78,
+   "status": "native",
+   "source": "ui/screen.c",
+   "note": "Once-per-boot optional logo/fallback, backlight/delay, clear/base and normal flag via injected callbacks; no physical display timing validation",
+   "hardware_validated": false
+  },
+  {
+   "address": "0x15168",
+   "name": "FUN_ram_00015168",
+   "size": 320,
+   "status": "native",
+   "source": "application/application.c + ui/status_view.c",
+   "note": "language selection, cooperative",
+   "hardware_validated": false
+  },
+  {
+   "address": "0x152a8",
+   "name": "FUN_ram_000152a8",
+   "size": 296,
+   "status": "native",
+   "source": "ui/settings_scene.c",
+   "note": "Exact settings scene leaf ordering, coordinates/colors, language branches and original brightness side effects; resource/graphics primitives injected",
+   "hardware_validated": false
+  },
+  {
+   "address": "0x153d0",
+   "name": "FUN_ram_000153d0",
+   "size": 1468,
+   "status": "native",
+   "source": "ui/settings_scene.c",
+   "note": "Exact settings scene leaf ordering, coordinates/colors, language branches and original brightness side effects; resource/graphics primitives injected",
+   "hardware_validated": false
+  },
+  {
+   "address": "0x1598c",
+   "name": "FUN_ram_0001598c",
+   "size": 362,
+   "status": "native",
+   "source": "ui/menu.c",
+   "note": "State/brightness/render ordering, scrollbar1, back-to-settings region clears and pending BACK. Editor/history are explicit external-call contracts; application represents blocking waits as resumable states. Valid layouts0/1 and UI languages0/1.",
+   "hardware_validated": false
+  },
+  {
+   "address": "0x15af6",
+   "name": "FUN_ram_00015af6",
+   "size": 934,
+   "status": "native",
+   "source": "ui/menu.c",
+   "note": "View/threshold/settings selection and exact language/layout/temperature/timeout drawing order. Restart is an explicit nonreturning external-call boundary; cooperative caller returns to its scheduler without another menu paint. Valid layouts0/1 and UI languages0/1.",
+   "hardware_validated": false
+  },
+  {
+   "address": "0x15e9e",
+   "name": "FUN_ram_00015e9e",
+   "size": 932,
+   "status": "native",
+   "source": "ui/settings_scene.c",
+   "note": "Exact settings scene leaf ordering, coordinates/colors, language branches and original brightness side effects; resource/graphics primitives injected",
+   "hardware_validated": false
+  },
+  {
+   "address": "0x16242",
+   "name": "FUN_ram_00016242",
+   "size": 658,
+   "status": "native",
+   "source": "ui/settings_scene.c",
+   "note": "Exact settings scene leaf ordering, coordinates/colors, language branches and original brightness side effects; resource/graphics primitives injected",
+   "hardware_validated": false
+  },
+  {
+   "address": "0x164d4",
+   "name": "FUN_ram_000164d4",
+   "size": 1280,
+   "status": "native",
+   "source": "ui/menu.c",
+   "note": "Complete32-ID navigation switch, endpoint/holes, category erases/updates, headings, setting-page transitions and brightness side effects. Valid layouts0/1 and UI languages0/1.",
+   "hardware_validated": false
+  },
+  {
+   "address": "0x169d4",
+   "name": "menu_dispatch",
+   "size": 4318,
+   "status": "native",
+   "source": "ui/menu.c",
+   "note": "Dispatcher cache-hit suppression, all32 states/holes, ordered incremental erases/repaints, cursor peers, exit fill/base/reset/cache contract and original restart termination. Valid layouts0/1, UI languages0/1, views1..3, bounded history0..30. Declared base/threshold/history/version IO boundaries are tested calls; blocking/timing equivalence is not claimed.",
+   "hardware_validated": false
+  },
+  {
+   "address": "0x17ab2",
+   "name": "FUN_ram_00017ab2",
+   "size": 340,
+   "status": "native",
+   "source": "ui/graph.c",
+   "note": "Original strip/ring/normalization/arithmetic including index0 preceding slot, modulo197, count wrap, a1 reset and inherited s5 maximum seed. Explicit state prevents C array underflow; no smoothing/ranging invented",
+   "hardware_validated": false
+  },
+  {
+   "address": "0x17c06",
+   "name": "FUN_ram_00017c06",
+   "size": 134,
+   "status": "native",
+   "source": "ui/graph.c",
+   "note": "Original strip/ring/normalization/arithmetic including index0 preceding slot, modulo197, count wrap, a1 reset and inherited s5 maximum seed. Explicit state prevents C array underflow; no smoothing/ranging invented",
+   "hardware_validated": false
+  },
+  {
+   "address": "0x17c8c",
+   "name": "FUN_ram_00017c8c",
+   "size": 66,
+   "status": "native",
+   "source": "ui/graph.c",
+   "note": "Original strip/ring/normalization/arithmetic including index0 preceding slot, modulo197, count wrap, a1 reset and inherited s5 maximum seed. Explicit state prevents C array underflow; no smoothing/ranging invented",
+   "hardware_validated": false
+  },
+  {
+   "address": "0x17cce",
+   "name": "FUN_ram_00017cce",
+   "size": 708,
+   "status": "native",
+   "source": "ui/graph.c",
+   "note": "Original strip/ring/normalization/arithmetic including index0 preceding slot, modulo197, count wrap, a1 reset and inherited s5 maximum seed. Explicit state prevents C array underflow; no smoothing/ranging invented",
+   "hardware_validated": false
+  },
+  {
+   "address": "0x17f92",
+   "name": "FUN_ram_00017f92",
+   "size": 962,
+   "status": "native",
+   "source": "ui/units.c",
+   "note": "Exact shared cache and image/text effects after common a7a4 dispatch supplied by screen_reading; return residue omitted by void adapter",
+   "hardware_validated": false
+  },
+  {
+   "address": "0x18354",
+   "name": "FUN_ram_00018354",
+   "size": 1568,
+   "status": "native",
+   "source": "ui/units.c",
+   "note": "Exact shared cache and image/text effects after common a7a4 dispatch supplied by screen_reading; return residue omitted by void adapter",
+   "hardware_validated": false
+  },
+  {
+   "address": "0x18974",
+   "name": "FUN_ram_00018974",
+   "size": 350,
+   "status": "native",
+   "source": "ui/units.c",
+   "note": "Exact shared cache and image/text effects after common a7a4 dispatch supplied by screen_reading; return residue omitted by void adapter",
+   "hardware_validated": false
+  },
+  {
+   "address": "0x18ad2",
+   "name": "FUN_ram_00018ad2",
+   "size": 2196,
+   "status": "native",
+   "source": "ui/menu_scene.c",
+   "note": "Original category/choice or six threshold-hint leaf calls; language, initialization, highlight and erasure ordering, including English old Recording row bug",
+   "hardware_validated": false
+  },
+  {
+   "address": "0x19366",
+   "name": "FUN_ram_00019366",
+   "size": 1518,
+   "status": "native",
+   "source": "ui/menu_scene.c",
+   "note": "Original category/choice or six threshold-hint leaf calls; language, initialization, highlight and erasure ordering, including English old Recording row bug",
+   "hardware_validated": false
+  },
+  {
+   "address": "0x19954",
+   "name": "FUN_ram_00019954",
+   "size": 596,
+   "status": "native",
+   "source": "ui/menu_scene.c",
+   "note": "Original category/choice or six threshold-hint leaf calls; language, initialization, highlight and erasure ordering, including English old Recording row bug",
+   "hardware_validated": false
+  },
+  {
+   "address": "0x19ba8",
+   "name": "FUN_ram_00019ba8",
+   "size": 888,
+   "status": "native",
+   "source": "ui/menu_scene.c",
+   "note": "Original category/choice or six threshold-hint leaf calls; language, initialization, highlight and erasure ordering, including English old Recording row bug",
+   "hardware_validated": false
+  },
+  {
+   "address": "0x19f20",
+   "name": "FUN_ram_00019f20",
+   "size": 516,
+   "status": "native",
+   "source": "ui/menu_scene.c",
+   "note": "Original category/choice or six threshold-hint leaf calls; language, initialization, highlight and erasure ordering, including English old Recording row bug",
+   "hardware_validated": false
+  },
+  {
+   "address": "0x1a124",
+   "name": "FUN_ram_0001a124",
+   "size": 530,
+   "status": "native",
+   "source": "ui/menu_scene.c",
+   "note": "Original category/choice or six threshold-hint leaf calls; language, initialization, highlight and erasure ordering, including English old Recording row bug",
+   "hardware_validated": false
+  },
+  {
+   "address": "0x1a336",
+   "name": "FUN_ram_0001a336",
+   "size": 42,
+   "status": "native",
+   "source": "ui/menu_render.c",
+   "note": "All six unselected threshold hints in original order for both layouts and supported UI languages; missing decompiler arguments resolved from original instructions.",
+   "hardware_validated": false
+  },
+  {
+   "address": "0x1a360",
+   "name": "FUN_ram_0001a360",
+   "size": 264,
+   "status": "native",
+   "source": "ui/graphics.c",
+   "note": "Previously translated bitmap routine reused; newly checked against original glyph pixels with existing length/domain guards",
+   "hardware_validated": false
+  },
+  {
+   "address": "0x1a468",
+   "name": "FUN_ram_0001a468",
+   "size": 446,
+   "status": "native",
+   "source": "ui/gauge.c",
+   "note": "Original gauge geometry/pixel ordering and exact ROM bitmaps; defined bitmap length/domain guards and injected pixel transport",
+   "hardware_validated": false
+  },
+  {
+   "address": "0x1a626",
+   "name": "delay_init",
+   "size": 38,
+   "status": "deviation",
+   "source": "firmware/delay.c",
+   "note": "delay_init, free-running SysTick",
+   "hardware_validated": false
+  },
+  {
+   "address": "0x1a64c",
+   "name": "delay_ms",
+   "size": 54,
+   "status": "deviation",
+   "source": "firmware/delay.c",
+   "note": "delay_ms, ISR-safe",
+   "hardware_validated": false
+  },
+  {
+   "address": "0x1a682",
+   "name": "debug_usart2_init",
+   "size": 96,
+   "status": "native",
+   "source": "firmware/debug.c",
+   "note": "USART2 TX init",
+   "hardware_validated": false
+  },
+  {
+   "address": "0x1a6e2",
+   "name": "debug_putchar",
+   "size": 62,
+   "status": "native",
+   "source": "firmware/debug.c",
+   "note": "_write",
+   "hardware_validated": false
+  },
+  {
+   "address": "0x1a720",
+   "name": "FUN_ram_0001a720",
+   "size": 42,
+   "status": "replaced",
+   "source": "printf internals",
+   "note": "not needed by the firmware",
+   "hardware_validated": false
+  },
+  {
+   "address": "0x1a74a",
+   "name": "FUN_ram_0001a74a",
+   "size": 74,
+   "status": "replaced",
+   "source": "printf internals",
+   "note": "not needed by the firmware",
+   "hardware_validated": false
+  },
+  {
+   "address": "0x1a794",
+   "name": "FUN_ram_0001a794",
+   "size": 224,
+   "status": "replaced",
+   "source": "printf internals",
+   "note": "not needed by the firmware",
+   "hardware_validated": false
+  },
+  {
+   "address": "0x1a874",
+   "name": "FUN_ram_0001a874",
+   "size": 242,
+   "status": "replaced",
+   "source": "printf internals",
+   "note": "not needed by the firmware",
+   "hardware_validated": false
+  },
+  {
+   "address": "0x1a966",
+   "name": "FUN_ram_0001a966",
+   "size": 288,
+   "status": "replaced",
+   "source": "printf internals",
+   "note": "not needed by the firmware",
+   "hardware_validated": false
+  },
+  {
+   "address": "0x1aa86",
+   "name": "FUN_ram_0001aa86",
+   "size": 256,
+   "status": "replaced",
+   "source": "printf internals",
+   "note": "not needed by the firmware",
+   "hardware_validated": false
+  },
+  {
+   "address": "0x1ab86",
+   "name": "FUN_ram_0001ab86",
+   "size": 856,
+   "status": "replaced",
+   "source": "printf internals",
+   "note": "not needed by the firmware",
+   "hardware_validated": false
+  },
+  {
+   "address": "0x1aede",
+   "name": "FUN_ram_0001aede",
+   "size": 36,
+   "status": "native",
+   "source": "firmware/debug.c",
+   "note": "printf (own formatter, truncating %f)",
+   "hardware_validated": false
+  },
+  {
+   "address": "0x1af02",
+   "name": "FUN_ram_0001af02",
+   "size": 914,
+   "status": "replaced",
+   "source": "printf internals",
+   "note": "not needed by the firmware",
+   "hardware_validated": false
+  },
+  {
+   "address": "0x1b294",
+   "name": "FUN_ram_0001b294",
+   "size": 906,
+   "status": "replaced",
+   "source": "printf internals",
+   "note": "not needed by the firmware",
+   "hardware_validated": false
+  },
+  {
+   "address": "0x1b61e",
+   "name": "FUN_ram_0001b61e",
+   "size": 1840,
+   "status": "library",
+   "source": "libgcc soft-float",
+   "note": "upstream source",
+   "hardware_validated": false
+  },
+  {
+   "address": "0x1bd4e",
+   "name": "FUN_ram_0001bd4e",
+   "size": 1460,
+   "status": "library",
+   "source": "libgcc soft-float",
+   "note": "upstream source",
+   "hardware_validated": false
+  },
+  {
+   "address": "0x1c302",
+   "name": "FUN_ram_0001c302",
+   "size": 182,
+   "status": "library",
+   "source": "libgcc soft-float",
+   "note": "upstream source",
+   "hardware_validated": false
+  },
+  {
+   "address": "0x1c3b8",
+   "name": "FUN_ram_0001c3b8",
+   "size": 1208,
+   "status": "library",
+   "source": "libgcc soft-float",
+   "note": "upstream source",
+   "hardware_validated": false
+  },
+  {
+   "address": "0x1c870",
+   "name": "FUN_ram_0001c870",
+   "size": 1854,
+   "status": "library",
+   "source": "libgcc soft-float",
+   "note": "upstream source",
+   "hardware_validated": false
+  },
+  {
+   "address": "0x1cfae",
+   "name": "FUN_ram_0001cfae",
+   "size": 104,
+   "status": "library",
+   "source": "libgcc soft-float",
+   "note": "upstream source",
+   "hardware_validated": false
+  },
+  {
+   "address": "0x1d016",
+   "name": "FUN_ram_0001d016",
+   "size": 92,
+   "status": "library",
+   "source": "libgcc soft-float",
+   "note": "upstream source",
+   "hardware_validated": false
+  },
+  {
+   "address": "0x1d072",
+   "name": "FUN_ram_0001d072",
+   "size": 114,
+   "status": "library",
+   "source": "libgcc soft-float",
+   "note": "upstream source",
+   "hardware_validated": false
+  },
+  {
+   "address": "0x1d0e4",
+   "name": "FUN_ram_0001d0e4",
+   "size": 104,
+   "status": "library",
+   "source": "libgcc soft-float",
+   "note": "upstream source",
+   "hardware_validated": false
+  },
+  {
+   "address": "0x1d14c",
+   "name": "FUN_ram_0001d14c",
+   "size": 188,
+   "status": "library",
+   "source": "libgcc soft-float",
+   "note": "upstream source",
+   "hardware_validated": false
+  },
+  {
+   "address": "0x1d208",
+   "name": "FUN_ram_0001d208",
+   "size": 438,
+   "status": "library",
+   "source": "libgcc soft-float",
+   "note": "upstream source",
+   "hardware_validated": false
+  },
+  {
+   "address": "0x1d3be",
+   "name": "FUN_ram_0001d3be",
+   "size": 874,
+   "status": "library",
+   "source": "libgcc soft-float",
+   "note": "upstream source",
+   "hardware_validated": false
+  },
+  {
+   "address": "0x1d728",
+   "name": "FUN_ram_0001d728",
+   "size": 278,
+   "status": "library",
+   "source": "libgcc soft-float",
+   "note": "upstream source",
+   "hardware_validated": false
+  },
+  {
+   "address": "0x1d9da",
+   "name": "FUN_ram_0001d9da",
+   "size": 92,
+   "status": "library",
+   "source": "libgcc soft-float",
+   "note": "upstream source",
+   "hardware_validated": false
+  },
+  {
+   "address": "0x1da36",
+   "name": "FUN_ram_0001da36",
+   "size": 134,
+   "status": "library",
+   "source": "libgcc soft-float",
+   "note": "upstream source",
+   "hardware_validated": false
+  },
+  {
+   "address": "0x1dabc",
+   "name": "FUN_ram_0001dabc",
+   "size": 140,
+   "status": "library",
+   "source": "libgcc soft-float",
+   "note": "upstream source",
+   "hardware_validated": false
+  },
+  {
+   "address": "0x1db48",
+   "name": "FUN_ram_0001db48",
+   "size": 660,
+   "status": "library",
+   "source": "libgcc soft-float",
+   "note": "upstream source",
+   "hardware_validated": false
+  },
+  {
+   "address": "0x1dddc",
+   "name": "FUN_ram_0001dddc",
+   "size": 904,
+   "status": "library",
+   "source": "libgcc soft-float",
+   "note": "upstream source",
+   "hardware_validated": false
+  },
+  {
+   "address": "0x1e164",
+   "name": "FUN_ram_0001e164",
+   "size": 98,
+   "status": "library",
+   "source": "libgcc soft-float",
+   "note": "upstream source",
+   "hardware_validated": false
+  },
+  {
+   "address": "0x1e1c6",
+   "name": "FUN_ram_0001e1c6",
+   "size": 86,
+   "status": "library",
+   "source": "libgcc soft-float",
+   "note": "upstream source",
+   "hardware_validated": false
+  },
+  {
+   "address": "0x1e21c",
+   "name": "FUN_ram_0001e21c",
+   "size": 198,
+   "status": "library",
+   "source": "libgcc soft-float",
+   "note": "upstream source",
+   "hardware_validated": false
+  },
+  {
+   "address": "0x1e2e2",
+   "name": "FUN_ram_0001e2e2",
+   "size": 172,
+   "status": "library",
+   "source": "libgcc soft-float",
+   "note": "upstream source",
+   "hardware_validated": false
+  },
+  {
+   "address": "0x1e38e",
+   "name": "FUN_ram_0001e38e",
+   "size": 362,
+   "status": "library",
+   "source": "libgcc soft-float",
+   "note": "upstream source",
+   "hardware_validated": false
+  },
+  {
+   "address": "0x1e4f8",
+   "name": "FUN_ram_0001e4f8",
+   "size": 110,
+   "status": "library",
+   "source": "libgcc soft-float",
+   "note": "upstream source",
+   "hardware_validated": false
+  },
+  {
+   "address": "0x1e566",
+   "name": "FUN_ram_0001e566",
+   "size": 10,
+   "status": "replaced",
+   "source": "heap",
+   "note": "not needed by the firmware",
+   "hardware_validated": false
+  },
+  {
+   "address": "0x1e570",
+   "name": "FUN_ram_0001e570",
+   "size": 10,
+   "status": "replaced",
+   "source": "heap",
+   "note": "not needed by the firmware",
+   "hardware_validated": false
+  },
+  {
+   "address": "0x1e57a",
+   "name": "FUN_ram_0001e57a",
+   "size": 36,
+   "status": "native",
+   "source": "platform/memory.c",
+   "note": "memcmp",
+   "hardware_validated": false
+  },
+  {
+   "address": "0x1e59e",
+   "name": "*memcpy",
+   "size": 178,
+   "status": "native",
+   "source": "platform/memory.c",
+   "note": "portable memory copy",
+   "hardware_validated": false
+  },
+  {
+   "address": "0x1e650",
+   "name": "FUN_ram_0001e650",
+   "size": 164,
+   "status": "replaced",
+   "source": "heap tail",
+   "note": "not needed by the firmware",
+   "hardware_validated": false
+  },
+  {
+   "address": "0x1e6f4",
+   "name": "FUN_ram_0001e6f4",
+   "size": 206,
+   "status": "replaced",
+   "source": "heap tail",
+   "note": "not needed by the firmware",
+   "hardware_validated": false
+  },
+  {
+   "address": "0x1e7c2",
+   "name": "FUN_ram_0001e7c2",
+   "size": 50,
+   "status": "replaced",
+   "source": "heap tail",
+   "note": "not needed by the firmware",
+   "hardware_validated": false
+  },
+  {
+   "address": "0x1e7f4",
+   "name": "FUN_ram_0001e7f4",
+   "size": 24,
+   "status": "native",
+   "source": "platform/memory.c",
+   "note": "strchr",
+   "hardware_validated": false
+  },
+  {
+   "address": "0x1e80c",
+   "name": "FUN_ram_0001e80c",
+   "size": 16,
+   "status": "native",
+   "source": "application/application.c",
+   "note": "strcpy of the history text cache",
+   "hardware_validated": false
+  },
+  {
+   "address": "0x1e81c",
+   "name": "FUN_ram_0001e81c",
+   "size": 2,
+   "status": "replaced",
+   "source": "malloc locks",
+   "note": "not needed by the firmware",
+   "hardware_validated": false
+  },
+  {
+   "address": "0x1e81e",
+   "name": "FUN_ram_0001e81e",
+   "size": 2,
+   "status": "replaced",
+   "source": "malloc locks",
+   "note": "not needed by the firmware",
+   "hardware_validated": false
+  }
+ ]
+}

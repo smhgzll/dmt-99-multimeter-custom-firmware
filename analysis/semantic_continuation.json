@@ -1,0 +1,1494 @@
+{
+  "preserves": "analysis/functions.json and decompiled outputs remain unchanged",
+  "functions": [
+    {
+      "address": "0x00006838",
+      "name": "jpeg_pool_allocate",
+      "evidence": "Align request to 4 bytes; subtract remaining pool at +0x70, advance pointer +0x6c.",
+      "confidence": "high",
+      "semantic_detail_pending": false,
+      "pseudocode": "decompiled/raw/00006838.c"
+    },
+    {
+      "address": "0x00006854",
+      "name": "jpeg_read_entropy_bits",
+      "evidence": "Buffered MSB-first bits; handles FF00 stuffing and returns -2/-6 on exhaustion/marker.",
+      "confidence": "high",
+      "semantic_detail_pending": false,
+      "pseudocode": "decompiled/raw/00006854.c"
+    },
+    {
+      "address": "0x000068d2",
+      "name": "jpeg_decode_huffman_symbol",
+      "evidence": "Accumulates up to 16 bits and scans code lengths/codeword/value tables.",
+      "confidence": "high",
+      "semantic_detail_pending": false,
+      "pseudocode": "decompiled/raw/000068d2.c"
+    },
+    {
+      "address": "0x00007716",
+      "name": "tim3_interrupt_priority_config",
+      "evidence": "NVIC initialization selecting TIM3 vector and preemption priority 3.",
+      "confidence": "high",
+      "semantic_detail_pending": false,
+      "pseudocode": "decompiled/raw/00007716.c"
+    },
+    {
+      "address": "0x000078ba",
+      "name": "buzzer_start_default_pwm",
+      "evidence": "TIM2 period383/prescaler99/compare191 fixed wrapper.",
+      "confidence": "high",
+      "semantic_detail_pending": false,
+      "pseudocode": "decompiled/raw/000078ba.c"
+    },
+    {
+      "address": "0x00007918",
+      "name": "buzzer_beep_250ms",
+      "evidence": "Default PWM followed by delay250 and buzzer disable.",
+      "confidence": "high",
+      "semantic_detail_pending": false,
+      "pseudocode": "decompiled/raw/00007918.c"
+    },
+    {
+      "address": "0x0000792e",
+      "name": "buzzer_beep_500ms",
+      "evidence": "Default PWM followed by delay500 and buzzer disable.",
+      "confidence": "high",
+      "semantic_detail_pending": false,
+      "pseudocode": "decompiled/raw/0000792e.c"
+    },
+    {
+      "address": "0x00007e2e",
+      "name": "display_pixel_data_wrapper",
+      "evidence": "Tail call to display_write_data.",
+      "confidence": "high",
+      "semantic_detail_pending": false,
+      "pseudocode": "decompiled/raw/00007e2e.c"
+    },
+    {
+      "address": "0x00007e38",
+      "name": "display_set_cursor",
+      "evidence": "Column and row commands followed by high and low coordinate bytes.",
+      "confidence": "high",
+      "semantic_detail_pending": false,
+      "pseudocode": "decompiled/raw/00007e38.c"
+    },
+    {
+      "address": "0x00007e68",
+      "name": "display_scan_direction",
+      "evidence": "Register36 switch A0/E0/20/60/80/00/C0/40 and full extents.",
+      "confidence": "high",
+      "semantic_detail_pending": false,
+      "pseudocode": "decompiled/raw/00007e68.c"
+    },
+    {
+      "address": "0x00007f00",
+      "name": "display_draw_pixel",
+      "evidence": "Cursor, memory-write command, then RGB565 data.",
+      "confidence": "high",
+      "semantic_detail_pending": false,
+      "pseudocode": "decompiled/raw/00007f00.c"
+    },
+    {
+      "address": "0x00008016",
+      "name": "backlight_apply_setting",
+      "evidence": "Brightness field 0/1/2 selects PWM compare0/50/70.",
+      "confidence": "high",
+      "semantic_detail_pending": false,
+      "pseudocode": "decompiled/raw/00008016.c"
+    },
+    {
+      "address": "0x00008050",
+      "name": "display_draw_line",
+      "evidence": "Signed direction, maximum distance, error accumulators, inclusive distance+1 loop.",
+      "confidence": "high",
+      "semantic_detail_pending": false,
+      "pseudocode": "decompiled/raw/00008050.c"
+    },
+    {
+      "address": "0x000080d4",
+      "name": "display_fill_cut_rectangle",
+      "evidence": "Solid rectangle then black corner cutouts using four lines per inset.",
+      "confidence": "high",
+      "semantic_detail_pending": false,
+      "pseudocode": "decompiled/raw/000080d4.c"
+    },
+    {
+      "address": "0x00008194",
+      "name": "display_draw_rectangle",
+      "evidence": "Four calls to line primitive.",
+      "confidence": "high",
+      "semantic_detail_pending": false,
+      "pseudocode": "decompiled/raw/00008194.c"
+    },
+    {
+      "address": "0x000081ce",
+      "name": "display_draw_cut_border",
+      "evidence": "Eight lines forming clipped corners.",
+      "confidence": "high",
+      "semantic_detail_pending": false,
+      "pseudocode": "decompiled/raw/000081ce.c"
+    },
+    {
+      "address": "0x00008266",
+      "name": "display_measurement_glyph",
+      "evidence": "Column-major ASCII glyph; X/Y/Z/J special tables and half-width32px decimal.",
+      "confidence": "high",
+      "semantic_detail_pending": false,
+      "pseudocode": "decompiled/raw/00008266.c"
+    },
+    {
+      "address": "0x000083d6",
+      "name": "display_ascii_glyph",
+      "evidence": "Column-major bitmap glyphs for12/16/24/32px fonts, foreground/background modes.",
+      "confidence": "high",
+      "semantic_detail_pending": false,
+      "pseudocode": "decompiled/raw/000083d6.c"
+    },
+    {
+      "address": "0x000084da",
+      "name": "display_unsigned_decimal",
+      "evidence": "Decimal digits, leading-space/zero flags, measurement glyph calls.",
+      "confidence": "high",
+      "semantic_detail_pending": false,
+      "pseudocode": "decompiled/raw/000084da.c"
+    },
+    {
+      "address": "0x00008588",
+      "name": "display_ascii_string",
+      "evidence": "Printable ASCII loop with half-font-width advancement.",
+      "confidence": "high",
+      "semantic_detail_pending": false,
+      "pseudocode": "decompiled/raw/00008588.c"
+    },
+    {
+      "address": "0x000085cc",
+      "name": "display_measurement_text_box",
+      "evidence": "Wrapping measurement text with decimal and special16px glyph widths.",
+      "confidence": "high",
+      "semantic_detail_pending": false,
+      "pseudocode": "decompiled/raw/000085cc.c"
+    },
+    {
+      "address": "0x00008672",
+      "name": "display_plain_text_box",
+      "evidence": "Wrapping measurement text with decimal width adjustment only.",
+      "confidence": "high",
+      "semantic_detail_pending": false,
+      "pseudocode": "decompiled/raw/00008672.c"
+    },
+    {
+      "address": "0x000086f6",
+      "name": "display_set_window",
+      "evidence": "Column/row start and inclusive end coordinates derived from width/height.",
+      "confidence": "high",
+      "semantic_detail_pending": false,
+      "pseudocode": "decompiled/raw/000086f6.c"
+    },
+    {
+      "address": "0x00008a5a",
+      "name": "display_chinese_glyph_12",
+      "evidence": "Two-byte character lookup in12 records of26 bytes, LSB-first rows.",
+      "confidence": "high",
+      "semantic_detail_pending": false,
+      "pseudocode": "decompiled/raw/00008a5a.c"
+    },
+    {
+      "address": "0x00008b5c",
+      "name": "display_chinese_glyph_16",
+      "evidence": "Two-byte character lookup in63 records of34 bytes, LSB-first rows.",
+      "confidence": "high",
+      "semantic_detail_pending": false,
+      "pseudocode": "decompiled/raw/00008b5c.c"
+    },
+    {
+      "address": "0x00008c64",
+      "name": "display_chinese_glyph_24",
+      "evidence": "Two-byte character lookup in49 records of74 bytes, LSB-first rows.",
+      "confidence": "high",
+      "semantic_detail_pending": false,
+      "pseudocode": "decompiled/raw/00008c64.c"
+    },
+    {
+      "address": "0x00008d6c",
+      "name": "display_chinese_glyph_32",
+      "evidence": "Single D6D0 glyph bitmap at23582, LSB-first rows.",
+      "confidence": "high",
+      "semantic_detail_pending": false,
+      "pseudocode": "decompiled/raw/00008d6c.c"
+    },
+    {
+      "address": "0x00008e46",
+      "name": "display_chinese_string",
+      "evidence": "Dispatch by12/16/24/32 size and advance two encoded bytes per glyph.",
+      "confidence": "high",
+      "semantic_detail_pending": false,
+      "pseudocode": "decompiled/raw/00008e46.c"
+    },
+    {
+      "address": "0x000090e6",
+      "name": "format_decimal_digits",
+      "evidence": "Repeated unsigned division by10 counts digits including zero.",
+      "confidence": "high",
+      "semantic_detail_pending": false,
+      "pseudocode": "decompiled/raw/000090e6.c"
+    },
+    {
+      "address": "0x000090fc",
+      "name": "format_hex_digits",
+      "evidence": "Repeated shift by4 counts hexadecimal digits including zero.",
+      "confidence": "high",
+      "semantic_detail_pending": false,
+      "pseudocode": "decompiled/raw/000090fc.c"
+    },
+    {
+      "address": "0x0000910e",
+      "name": "format_buffer_engine",
+      "evidence": "Width/precision/zero/left handling; c,s,d,u,x,X,f conversions and buffer bound.",
+      "confidence": "high",
+      "semantic_detail_pending": false,
+      "pseudocode": "decompiled/raw/0000910e.c"
+    },
+    {
+      "address": "0x0000969e",
+      "name": "format_string_varargs",
+      "evidence": "Variadic wrapper supplying a zero length to buffer formatter.",
+      "confidence": "high",
+      "semantic_detail_pending": false,
+      "pseudocode": "decompiled/raw/0000969e.c"
+    },
+    {
+      "address": "0x000096c0",
+      "name": "record_extrema_reset",
+      "evidence": "Writes float sentinels9999 and-9999 at200001b4 and200001b0.",
+      "confidence": "high",
+      "semantic_detail_pending": false,
+      "pseudocode": "decompiled/raw/000096c0.c"
+    },
+    {
+      "address": "0x000096de",
+      "name": "parse_decimal_float",
+      "evidence": "Optional sign, whole/fraction/scale integer accumulation, then single-precision operations.",
+      "confidence": "high",
+      "semantic_detail_pending": false,
+      "pseudocode": "decompiled/raw/000096de.c"
+    },
+    {
+      "address": "0x00009774",
+      "name": "parse_measurement_numeric_text",
+      "evidence": "Filters digits, minus and decimal point, then decimal conversion.",
+      "confidence": "high",
+      "semantic_detail_pending": false,
+      "pseudocode": "decompiled/raw/00009774.c"
+    },
+    {
+      "address": "0x000099cc",
+      "name": "measurement_format_significant_digits",
+      "evidence": "Four-digit formatting with special leading zero columns for temperature and uA.",
+      "confidence": "high",
+      "semantic_detail_pending": false,
+      "pseudocode": "decompiled/raw/000099cc.c"
+    },
+    {
+      "address": "0x00009caa",
+      "name": "measurement_render_and_record_extrema",
+      "evidence": "Formats relative/temperature values; per-view rendering, unit-aware extrema and graph updates.",
+      "confidence": "high",
+      "semantic_detail_pending": false,
+      "pseudocode": "decompiled/raw/00009caa.c"
+    },
+    {
+      "address": "0x0000a74e",
+      "name": "ncv_decode_dash_level",
+      "evidence": "Counts symbol16 among four packed segments and passes count to NCV images.",
+      "confidence": "high",
+      "semantic_detail_pending": false,
+      "pseudocode": "decompiled/raw/0000a74e.c"
+    },
+    {
+      "address": "0x0000a782",
+      "name": "live_decode_symbol",
+      "evidence": "First decoded symbol equal14 selects live/non-live picture.",
+      "confidence": "high",
+      "semantic_detail_pending": false,
+      "pseudocode": "decompiled/raw/0000a782.c"
+    },
+    {
+      "address": "0x0000a7a4",
+      "name": "measurement_dispatch_special_display",
+      "evidence": "Mode9 NCV, mode13 live, otherwise numeric renderer.",
+      "confidence": "high",
+      "semantic_detail_pending": false,
+      "pseudocode": "decompiled/raw/0000a7a4.c"
+    },
+    {
+      "address": "0x0000a7d0",
+      "name": "auto_mode_label_update",
+      "evidence": "AC/DC/unit flags choose localized mode labels in default mode14.",
+      "confidence": "high",
+      "semantic_detail_pending": false,
+      "pseudocode": "decompiled/raw/0000a7d0.c"
+    },
+    {
+      "address": "0x0000b56a",
+      "name": "diagnostic_entry_commands",
+      "evidence": "Sends command0B then after200ms length02 commandA0/checksumA2; A0 ASIC meaning unknown.",
+      "confidence": "high",
+      "semantic_detail_pending": false,
+      "pseudocode": "decompiled/raw/0000b56a.c"
+    },
+    {
+      "address": "0x0000b5ae",
+      "name": "measurement_select_after_menu",
+      "evidence": "View1 schedules event5; other views reset record selector and schedule event3.",
+      "confidence": "high",
+      "semantic_detail_pending": false,
+      "pseudocode": "decompiled/raw/0000b5ae.c"
+    },
+    {
+      "address": "0x0000be24",
+      "name": "measurement_get_text_pointer",
+      "evidence": "Returns global text pointer20000280.",
+      "confidence": "high",
+      "semantic_detail_pending": false,
+      "pseudocode": "decompiled/raw/0000be24.c"
+    },
+    {
+      "address": "0x0000c11a",
+      "name": "measurement_unit_image",
+      "evidence": "Changed-unit cache, clear60x40 region and select unit image for IDs6..21.",
+      "confidence": "high",
+      "semantic_detail_pending": false,
+      "pseudocode": "decompiled/raw/0000c11a.c"
+    },
+    {
+      "address": "0x0000d782",
+      "name": "spi_flash_detect_geometry",
+      "evidence": "JEDEC IDs select capacity/4096, sector size4096; zero/FFFFFFFF means absent.",
+      "confidence": "medium",
+      "semantic_detail_pending": false,
+      "pseudocode": "decompiled/raw/0000d782.c"
+    },
+    {
+      "address": "0x0000dd48",
+      "name": "filesystem_fixed_timestamp",
+      "evidence": "Returns constant FAT timestamp0x46210000.",
+      "confidence": "high",
+      "semantic_detail_pending": false,
+      "pseudocode": "decompiled/raw/0000dd48.c"
+    },
+    {
+      "address": "0x0000ddb0",
+      "name": "filesystem_draw_optional_logo",
+      "evidence": "Mount drive0, draw0:/LOGO.jpg, restore drive1 and return error flag.",
+      "confidence": "high",
+      "semantic_detail_pending": false,
+      "pseudocode": "decompiled/raw/0000ddb0.c"
+    },
+    {
+      "address": "0x0000de5a",
+      "name": "fat_load_u32",
+      "evidence": "Little-endian 32-bit load from byte-addressed filesystem data.",
+      "confidence": "medium",
+      "semantic_detail_pending": false,
+      "pseudocode": "decompiled/raw/0000de5a.c"
+    },
+    {
+      "address": "0x0000de70",
+      "name": "fat_store_u32",
+      "evidence": "Writes four successive little-endian bytes.",
+      "confidence": "medium",
+      "semantic_detail_pending": false,
+      "pseudocode": "decompiled/raw/0000de70.c"
+    },
+    {
+      "address": "0x0000de84",
+      "name": "fat_cluster_to_sector",
+      "evidence": "Validate cluster bounds; data base plus sectors-per-cluster times(cluster-2).",
+      "confidence": "medium",
+      "semantic_detail_pending": false,
+      "pseudocode": "decompiled/raw/0000de84.c"
+    },
+    {
+      "address": "0x0000de9e",
+      "name": "fat_short_name_checksum",
+      "evidence": "Rotate-right/add checksum across11 short-name bytes.",
+      "confidence": "medium",
+      "semantic_detail_pending": false,
+      "pseudocode": "decompiled/raw/0000de9e.c"
+    },
+    {
+      "address": "0x0000dec0",
+      "name": "fat_parse_drive_prefix",
+      "evidence": "Parse optional single-digit0:/1: prefix, update input pointer.",
+      "confidence": "medium",
+      "semantic_detail_pending": false,
+      "pseudocode": "decompiled/raw/0000dec0.c"
+    },
+    {
+      "address": "0x0000df10",
+      "name": "fat_validate_object",
+      "evidence": "Check object filesystem pointer, mounted state, mount ID and disk status.",
+      "confidence": "medium",
+      "semantic_detail_pending": false,
+      "pseudocode": "decompiled/raw/0000df10.c"
+    },
+    {
+      "address": "0x0000df50",
+      "name": "fat_write_mbr_partitions",
+      "evidence": "Disk capacity,63-sector geometry, up to four16-byte partition entries,55AA signature, write sector0.",
+      "confidence": "medium",
+      "semantic_detail_pending": true,
+      "pseudocode": "decompiled/raw/0000df50.c"
+    },
+    {
+      "address": "0x0000e086",
+      "name": "fat_path_decode_character",
+      "evidence": "Single/double-byte input decode through code-page conversion.",
+      "confidence": "medium",
+      "semantic_detail_pending": false,
+      "pseudocode": "decompiled/raw/0000e086.c"
+    },
+    {
+      "address": "0x0000e0f8",
+      "name": "fat_directory_get_cluster",
+      "evidence": "FAT directory low cluster at26 and FAT32 high cluster at20.",
+      "confidence": "medium",
+      "semantic_detail_pending": false,
+      "pseudocode": "decompiled/raw/0000e0f8.c"
+    },
+    {
+      "address": "0x0000e116",
+      "name": "fat_directory_set_cluster",
+      "evidence": "Store directory cluster fields according to FAT type.",
+      "confidence": "medium",
+      "semantic_detail_pending": false,
+      "pseudocode": "decompiled/raw/0000e116.c"
+    },
+    {
+      "address": "0x0000e134",
+      "name": "fat_sync_window",
+      "evidence": "Write dirty sector window and mirrored second FAT when configured.",
+      "confidence": "medium",
+      "semantic_detail_pending": false,
+      "pseudocode": "decompiled/raw/0000e134.c"
+    },
+    {
+      "address": "0x0000e17c",
+      "name": "fat_move_window",
+      "evidence": "Flush dirty window, read target sector, update current-sector cache.",
+      "confidence": "medium",
+      "semantic_detail_pending": false,
+      "pseudocode": "decompiled/raw/0000e17c.c"
+    },
+    {
+      "address": "0x0000e1bc",
+      "name": "fat_check_volume_boot",
+      "evidence": "FAT12/16/32 boot recognition including FAT32 signature and55AA marker.",
+      "confidence": "medium",
+      "semantic_detail_pending": false,
+      "pseudocode": "decompiled/raw/0000e1bc.c"
+    },
+    {
+      "address": "0x0000e2b8",
+      "name": "fat_find_and_mount_volume",
+      "evidence": "Drive initialization, partition/boot probing and FAT geometry calculations.",
+      "confidence": "medium",
+      "semantic_detail_pending": false,
+      "pseudocode": "decompiled/raw/0000e2b8.c"
+    },
+    {
+      "address": "0x0000e5e8",
+      "name": "fat_put_cluster_entry",
+      "evidence": "FAT12 packed nibbles/FAT16/FAT32 entry writes.",
+      "confidence": "medium",
+      "semantic_detail_pending": false,
+      "pseudocode": "decompiled/raw/0000e5e8.c"
+    },
+    {
+      "address": "0x0000e71e",
+      "name": "fat_get_cluster_entry",
+      "evidence": "FAT12 packed nibbles/FAT16/FAT32 entry reads.",
+      "confidence": "medium",
+      "semantic_detail_pending": false,
+      "pseudocode": "decompiled/raw/0000e71e.c"
+    },
+    {
+      "address": "0x0000e7fc",
+      "name": "fat_directory_seek",
+      "evidence": "Directory byte offset, cluster-chain traversal and sector/cache pointer setup.",
+      "confidence": "medium",
+      "semantic_detail_pending": false,
+      "pseudocode": "decompiled/raw/0000e7fc.c"
+    },
+    {
+      "address": "0x0000e8b2",
+      "name": "fat_allocate_chain",
+      "evidence": "Search free clusters, link chain, decrement free count and mark FSInfo dirty.",
+      "confidence": "medium",
+      "semantic_detail_pending": false,
+      "pseudocode": "decompiled/raw/0000e8b2.c"
+    },
+    {
+      "address": "0x0000e9a4",
+      "name": "fat_remove_chain",
+      "evidence": "Free successive cluster entries and update free-count accounting.",
+      "confidence": "medium",
+      "semantic_detail_pending": false,
+      "pseudocode": "decompiled/raw/0000e9a4.c"
+    },
+    {
+      "address": "0x0000ea1e",
+      "name": "fat_sync_filesystem",
+      "evidence": "Dirty window/FSInfo signatures, free-count/last-cluster and CTRL_SYNC.",
+      "confidence": "medium",
+      "semantic_detail_pending": false,
+      "pseudocode": "decompiled/raw/0000ea1e.c"
+    },
+    {
+      "address": "0x0000eac8",
+      "name": "fat_clear_cluster",
+      "evidence": "Zero window and write all sectors in a cluster.",
+      "confidence": "medium",
+      "semantic_detail_pending": false,
+      "pseudocode": "decompiled/raw/0000eac8.c"
+    },
+    {
+      "address": "0x0000eb26",
+      "name": "fat_directory_next",
+      "evidence": "Advance32-byte entries, traverse/extend directory cluster chain.",
+      "confidence": "medium",
+      "semantic_detail_pending": false,
+      "pseudocode": "decompiled/raw/0000eb26.c"
+    },
+    {
+      "address": "0x0000ebf0",
+      "name": "fat_directory_allocate",
+      "evidence": "Find consecutive free entries, growing directory as necessary.",
+      "confidence": "medium",
+      "semantic_detail_pending": false,
+      "pseudocode": "decompiled/raw/0000ebf0.c"
+    },
+    {
+      "address": "0x0000ec3e",
+      "name": "fat_directory_read",
+      "evidence": "Scan directory entries with attribute/name filtering and LFN state.",
+      "confidence": "medium",
+      "semantic_detail_pending": false,
+      "pseudocode": "decompiled/raw/0000ec3e.c"
+    },
+    {
+      "address": "0x0000ed8e",
+      "name": "fat_directory_remove",
+      "evidence": "Mark directory entries deleted through current name sequence.",
+      "confidence": "medium",
+      "semantic_detail_pending": false,
+      "pseudocode": "decompiled/raw/0000ed8e.c"
+    },
+    {
+      "address": "0x0000edde",
+      "name": "fat_directory_find",
+      "evidence": "Search short/long directory names and track LFN checksum state.",
+      "confidence": "medium",
+      "semantic_detail_pending": false,
+      "pseudocode": "decompiled/raw/0000edde.c"
+    },
+    {
+      "address": "0x0000ef70",
+      "name": "fat_create_name",
+      "evidence": "Parse a path component, forbidden characters, SFN case and long-name construction.",
+      "confidence": "medium",
+      "semantic_detail_pending": false,
+      "pseudocode": "decompiled/raw/0000ef70.c"
+    },
+    {
+      "address": "0x0000f28a",
+      "name": "fat_directory_register",
+      "evidence": "Allocate entries and encode short/long name directory records.",
+      "confidence": "medium",
+      "semantic_detail_pending": false,
+      "pseudocode": "decompiled/raw/0000f28a.c"
+    },
+    {
+      "address": "0x0000f4f8",
+      "name": "fat_mount",
+      "evidence": "Public mount registration and optional immediate volume mount.",
+      "confidence": "medium",
+      "semantic_detail_pending": false,
+      "pseudocode": "decompiled/raw/0000f4f8.c"
+    },
+    {
+      "address": "0x0000f54a",
+      "name": "fat_open",
+      "evidence": "Public file-open path lookup, create flags, object size and first cluster setup.",
+      "confidence": "medium",
+      "semantic_detail_pending": false,
+      "pseudocode": "decompiled/raw/0000f54a.c"
+    },
+    {
+      "address": "0x0000f732",
+      "name": "fat_read",
+      "evidence": "Public file read using cluster-to-sector, sector transfer and buffer copy.",
+      "confidence": "medium",
+      "semantic_detail_pending": false,
+      "pseudocode": "decompiled/raw/0000f732.c"
+    },
+    {
+      "address": "0x0000f8a4",
+      "name": "fat_sync_file",
+      "evidence": "Flush file data and directory size/cluster/time metadata.",
+      "confidence": "medium",
+      "semantic_detail_pending": false,
+      "pseudocode": "decompiled/raw/0000f8a4.c"
+    },
+    {
+      "address": "0x0000f940",
+      "name": "fat_close_file",
+      "evidence": "File sync, object validation and invalidation.",
+      "confidence": "medium",
+      "semantic_detail_pending": false,
+      "pseudocode": "decompiled/raw/0000f940.c"
+    },
+    {
+      "address": "0x0000f962",
+      "name": "fat_seek_file",
+      "evidence": "Reposition file pointer, traversing/allocating clusters as appropriate.",
+      "confidence": "medium",
+      "semantic_detail_pending": false,
+      "pseudocode": "decompiled/raw/0000f962.c"
+    },
+    {
+      "address": "0x0000fab0",
+      "name": "fat_unlink_path",
+      "evidence": "Path lookup, directory removal and cluster-chain freeing.",
+      "confidence": "medium",
+      "semantic_detail_pending": false,
+      "pseudocode": "decompiled/raw/0000fab0.c"
+    },
+    {
+      "address": "0x0000fb48",
+      "name": "fat_make_directory",
+      "evidence": "Parent lookup, cluster allocation, dot entries and directory registration.",
+      "confidence": "medium",
+      "semantic_detail_pending": false,
+      "pseudocode": "decompiled/raw/0000fb48.c"
+    },
+    {
+      "address": "0x0000fc66",
+      "name": "fat_partition_drive",
+      "evidence": "Drive-status checks then0xdf50 with partition type7 and caller workspace: constructs MBR partition entries.",
+      "confidence": "medium",
+      "semantic_detail_pending": false,
+      "pseudocode": "decompiled/raw/0000fc66.c"
+    },
+    {
+      "address": "0x0000fc9e",
+      "name": "fat_unicode_to_codepage",
+      "evidence": "CP936 conversion by ROM-table lookup.",
+      "confidence": "medium",
+      "semantic_detail_pending": false,
+      "pseudocode": "decompiled/raw/0000fc9e.c"
+    },
+    {
+      "address": "0x0000fcfc",
+      "name": "fat_codepage_to_unicode",
+      "evidence": "CP936 conversion by ROM-table lookup.",
+      "confidence": "medium",
+      "semantic_detail_pending": false,
+      "pseudocode": "decompiled/raw/0000fcfc.c"
+    },
+    {
+      "address": "0x0000fd46",
+      "name": "fat_unicode_uppercase",
+      "evidence": "Range descriptors and exceptions implement Unicode uppercase mapping.",
+      "confidence": "medium",
+      "semantic_detail_pending": false,
+      "pseudocode": "decompiled/raw/0000fd46.c"
+    },
+    {
+      "address": "0x0000fde6",
+      "name": "record_rows_reset",
+      "evidence": "Set row1 and clear row/subview flags at2000024e/250.",
+      "confidence": "high",
+      "semantic_detail_pending": false,
+      "pseudocode": "decompiled/raw/0000fde6.c"
+    },
+    {
+      "address": "0x0000fdf6",
+      "name": "ui_invalidate_caches",
+      "evidence": "Set unit cacheFF, mode cache19, event cacheFF.",
+      "confidence": "high",
+      "semantic_detail_pending": false,
+      "pseudocode": "decompiled/raw/0000fdf6.c"
+    },
+    {
+      "address": "0x0000fe08",
+      "name": "ncv_draw_animation",
+      "evidence": "Level0..4 resource sequence, two200ms pauses, layout-specific wave pictures.",
+      "confidence": "high",
+      "semantic_detail_pending": false,
+      "pseudocode": "decompiled/raw/0000fe08.c"
+    },
+    {
+      "address": "0x0001014e",
+      "name": "live_draw_state",
+      "evidence": "Cache17/18 selects live.jpg/live1.jpg.",
+      "confidence": "high",
+      "semantic_detail_pending": false,
+      "pseudocode": "decompiled/raw/0001014e.c"
+    },
+    {
+      "address": "0x00010198",
+      "name": "gauge_draw_arc_segment",
+      "evidence": "Geometry/line/pixel calls for one gauge segment; exact coordinate algorithm not translated.",
+      "confidence": "medium",
+      "semantic_detail_pending": true,
+      "pseudocode": "decompiled/raw/00010198.c"
+    },
+    {
+      "address": "0x00010404",
+      "name": "gauge_clear_arc_segment",
+      "evidence": "Counterpart gauge geometry with line/pixel calls; exact coordinate algorithm not translated.",
+      "confidence": "medium",
+      "semantic_detail_pending": true,
+      "pseudocode": "decompiled/raw/00010404.c"
+    },
+    {
+      "address": "0x0001066c",
+      "name": "gauge_draw_value",
+      "evidence": "Number display and repeated arc-segment/bitmap operations.",
+      "confidence": "medium",
+      "semantic_detail_pending": true,
+      "pseudocode": "decompiled/raw/0001066c.c"
+    },
+    {
+      "address": "0x000109e4",
+      "name": "measurement_draw_jpeg_digits",
+      "evidence": "Maps text characters to num/*.jpg and clears changed digit regions.",
+      "confidence": "high",
+      "semantic_detail_pending": false,
+      "pseudocode": "decompiled/raw/000109e4.c"
+    },
+    {
+      "address": "0x00010bd0",
+      "name": "measurement_draw_bitmap_digits",
+      "evidence": "Cached digits drawn with embedded bitmaps and radix JPEG.",
+      "confidence": "high",
+      "semantic_detail_pending": false,
+      "pseudocode": "decompiled/raw/00010bd0.c"
+    },
+    {
+      "address": "0x00010e86",
+      "name": "threshold_draw_menu_icons",
+      "evidence": "Localized voltage/current/temperature/min/max menu image selection.",
+      "confidence": "high",
+      "semantic_detail_pending": false,
+      "pseudocode": "decompiled/raw/00010e86.c"
+    },
+    {
+      "address": "0x00011086",
+      "name": "threshold_edit_digit_loop",
+      "evidence": "Six sign/magnitude threshold editors at20000032..3c; \u00b1100/10/1 steps, peer limits, commit on5/6.",
+      "confidence": "high",
+      "semantic_detail_pending": false,
+      "pseudocode": "decompiled/raw/00011086.c"
+    },
+    {
+      "address": "0x000126d8",
+      "name": "threshold_draw_all_values",
+      "evidence": "Six encoded sign/magnitude values drawn with optional current decimal point.",
+      "confidence": "high",
+      "semantic_detail_pending": false,
+      "pseudocode": "decompiled/raw/000126d8.c"
+    },
+    {
+      "address": "0x00012b00",
+      "name": "record_draw_unit_label",
+      "evidence": "Unit-ID switch formats compact history row suffix including temperature preference.",
+      "confidence": "high",
+      "semantic_detail_pending": false,
+      "pseudocode": "decompiled/raw/00012b00.c"
+    },
+    {
+      "address": "0x00012c38",
+      "name": "record_draw_current_unit",
+      "evidence": "Get current unit and dispatch compact label renderer.",
+      "confidence": "high",
+      "semantic_detail_pending": false,
+      "pseudocode": "decompiled/raw/00012c38.c"
+    },
+    {
+      "address": "0x00012c78",
+      "name": "record_append_visible_row",
+      "evidence": "Eight-row highlight cycle, previous text cache, then persistent history append.",
+      "confidence": "high",
+      "semantic_detail_pending": false,
+      "pseudocode": "decompiled/raw/00012c78.c"
+    },
+    {
+      "address": "0x00012d5a",
+      "name": "monitor_draw_threshold_limits",
+      "evidence": "Decode mode-specific limits and render low/high values/units in two layouts.",
+      "confidence": "high",
+      "semantic_detail_pending": false,
+      "pseudocode": "decompiled/raw/00012d5a.c"
+    },
+    {
+      "address": "0x00013264",
+      "name": "monitor_update_alarm",
+      "evidence": "Compare reading to signed thresholds; update cached below/inside/above pictures and buzzer.",
+      "confidence": "high",
+      "semantic_detail_pending": false,
+      "pseudocode": "decompiled/raw/00013264.c"
+    },
+    {
+      "address": "0x00013504",
+      "name": "record_format_extremum",
+      "evidence": "Magnitude-dependent precision0..3 for extrema text.",
+      "confidence": "high",
+      "semantic_detail_pending": false,
+      "pseudocode": "decompiled/raw/00013504.c"
+    },
+    {
+      "address": "0x000135b0",
+      "name": "settings_select_layout_1",
+      "evidence": "Draw choices and mutate language/layout/temperature/auto-off settings.",
+      "confidence": "high",
+      "semantic_detail_pending": false,
+      "pseudocode": "decompiled/raw/000135b0.c"
+    },
+    {
+      "address": "0x00013c02",
+      "name": "settings_select_layout_0",
+      "evidence": "Draw choices and mutate language/layout/temperature/auto-off settings.",
+      "confidence": "high",
+      "semantic_detail_pending": false,
+      "pseudocode": "decompiled/raw/00013c02.c"
+    },
+    {
+      "address": "0x000142a4",
+      "name": "brightness_draw_image",
+      "evidence": "Draw lighting1/2/3 variants, optionally write brightness field.",
+      "confidence": "high",
+      "semantic_detail_pending": false,
+      "pseudocode": "decompiled/raw/000142a4.c"
+    },
+    {
+      "address": "0x0001432e",
+      "name": "brightness_draw_bar",
+      "evidence": "Three levels using clipped rectangles; write brightness field and border.",
+      "confidence": "high",
+      "semantic_detail_pending": false,
+      "pseudocode": "decompiled/raw/0001432e.c"
+    },
+    {
+      "address": "0x000143e0",
+      "name": "about_draw_version",
+      "evidence": "Draw literal DMT-99 V2.4 text.",
+      "confidence": "high",
+      "semantic_detail_pending": false,
+      "pseudocode": "decompiled/raw/000143e0.c"
+    },
+    {
+      "address": "0x00014408",
+      "name": "menu_draw_scrollbar",
+      "evidence": "Fill track and select one of six position segments by layout.",
+      "confidence": "high",
+      "semantic_detail_pending": false,
+      "pseudocode": "decompiled/raw/00014408.c"
+    },
+    {
+      "address": "0x00014578",
+      "name": "history_draw_page",
+      "evidence": "Decode up to five stored records; localized mode, value and unit rendering.",
+      "confidence": "high",
+      "semantic_detail_pending": false,
+      "pseudocode": "decompiled/raw/00014578.c"
+    },
+    {
+      "address": "0x00014a92",
+      "name": "history_browse_loop",
+      "evidence": "Bounded six-page navigation, partial-page count%5, exit4/6.",
+      "confidence": "high",
+      "semantic_detail_pending": false,
+      "pseudocode": "decompiled/raw/00014a92.c"
+    },
+    {
+      "address": "0x00014c42",
+      "name": "power_low_battery_countdown",
+      "evidence": "Localized close image and time/3,2,1 JPEGs with1s waits before shutdown.",
+      "confidence": "high",
+      "semantic_detail_pending": false,
+      "pseudocode": "decompiled/raw/00014c42.c"
+    },
+    {
+      "address": "0x00014e48",
+      "name": "battery_draw_seven_bars",
+      "evidence": "Thresholds13/26/38/51/63/76/88 choose green/empty/red segments.",
+      "confidence": "high",
+      "semantic_detail_pending": false,
+      "pseudocode": "decompiled/raw/00014e48.c"
+    },
+    {
+      "address": "0x00014ef2",
+      "name": "measurement_draw_screen_base",
+      "evidence": "Per-view screen resource initialization, battery, frames and labels.",
+      "confidence": "high",
+      "semantic_detail_pending": false,
+      "pseudocode": "decompiled/raw/00014ef2.c"
+    },
+    {
+      "address": "0x00015168",
+      "name": "startup_choose_language",
+      "evidence": "Two-choice Chinese/English toggle on3/4, confirm5 writes language.",
+      "confidence": "high",
+      "semantic_detail_pending": false,
+      "pseudocode": "decompiled/raw/00015168.c"
+    },
+    {
+      "address": "0x000152a8",
+      "name": "reset_draw_dialog",
+      "evidence": "Localized Return/Reset confirmation panel and clipped border.",
+      "confidence": "high",
+      "semantic_detail_pending": false,
+      "pseudocode": "decompiled/raw/000152a8.c"
+    },
+    {
+      "address": "0x000153d0",
+      "name": "settings_draw_language_layout_page",
+      "evidence": "Read language/layout, draw labels and checkboxes for initial settings page.",
+      "confidence": "high",
+      "semantic_detail_pending": false,
+      "pseudocode": "decompiled/raw/000153d0.c"
+    },
+    {
+      "address": "0x0001598c",
+      "name": "menu_enter_back",
+      "evidence": "Enter submenus/brightness/history on3; parent navigation on4.",
+      "confidence": "high",
+      "semantic_detail_pending": false,
+      "pseudocode": "decompiled/raw/0001598c.c"
+    },
+    {
+      "address": "0x00015af6",
+      "name": "menu_select",
+      "evidence": "Choice5 sets view, language/layout/units/auto-off, threshold editing or factory defaults.",
+      "confidence": "high",
+      "semantic_detail_pending": false,
+      "pseudocode": "decompiled/raw/00015af6.c"
+    },
+    {
+      "address": "0x00015e9e",
+      "name": "settings_draw_brightness_temperature_page",
+      "evidence": "Draw second settings page, controls and temperature selection.",
+      "confidence": "high",
+      "semantic_detail_pending": false,
+      "pseudocode": "decompiled/raw/00015e9e.c"
+    },
+    {
+      "address": "0x00016242",
+      "name": "settings_draw_auto_off_page",
+      "evidence": "Draw OFF/5min/15min/20min labels; encoded last option is1800seconds.",
+      "confidence": "high",
+      "semantic_detail_pending": false,
+      "pseudocode": "decompiled/raw/00016242.c"
+    },
+    {
+      "address": "0x000164d4",
+      "name": "menu_previous_next",
+      "evidence": "Two32-entry transition switches with page-specific rendering effects.",
+      "confidence": "high",
+      "semantic_detail_pending": false,
+      "pseudocode": "decompiled/raw/000164d4.c"
+    },
+    {
+      "address": "0x00017ab2",
+      "name": "graph_strip_plot",
+      "evidence": "Store x<196 into column-major196x20 buffer for selected20-row strip.",
+      "confidence": "high",
+      "semantic_detail_pending": false,
+      "pseudocode": "decompiled/raw/00017ab2.c"
+    },
+    {
+      "address": "0x00017c06",
+      "name": "graph_strip_line",
+      "evidence": "Same line algorithm as8050, writing graph strip pixels.",
+      "confidence": "high",
+      "semantic_detail_pending": false,
+      "pseudocode": "decompiled/raw/00017c06.c"
+    },
+    {
+      "address": "0x00017c8c",
+      "name": "graph_strip_blit",
+      "evidence": "Stream20 rows of196 column-major pixels to display window.",
+      "confidence": "high",
+      "semantic_detail_pending": false,
+      "pseudocode": "decompiled/raw/00017c8c.c"
+    },
+    {
+      "address": "0x00017cce",
+      "name": "record_graph_update",
+      "evidence": "Scale and scroll measurement graph, rebuild/blit20-row strips.",
+      "confidence": "high",
+      "semantic_detail_pending": false,
+      "pseudocode": "decompiled/raw/00017cce.c"
+    },
+    {
+      "address": "0x00017f92",
+      "name": "regular_update_unit_image",
+      "evidence": "Mode/unit switch and cache suppress repeated resource draws.",
+      "confidence": "high",
+      "semantic_detail_pending": false,
+      "pseudocode": "decompiled/raw/00017f92.c"
+    },
+    {
+      "address": "0x00018354",
+      "name": "record_update_unit_image",
+      "evidence": "Unit resource changes plus min/max suffix text updates.",
+      "confidence": "high",
+      "semantic_detail_pending": false,
+      "pseudocode": "decompiled/raw/00018354.c"
+    },
+    {
+      "address": "0x00018974",
+      "name": "monitor_update_unit_image",
+      "evidence": "Small monitor view unit and temperature suffix cache.",
+      "confidence": "high",
+      "semantic_detail_pending": false,
+      "pseudocode": "decompiled/raw/00018974.c"
+    },
+    {
+      "address": "0x00018ad2",
+      "name": "menu_draw_categories_layout_0",
+      "evidence": "Six-category labels/highlight and previous-category clearing.",
+      "confidence": "high",
+      "semantic_detail_pending": false,
+      "pseudocode": "decompiled/raw/00018ad2.c"
+    },
+    {
+      "address": "0x00019366",
+      "name": "menu_draw_categories_layout_1",
+      "evidence": "Six Chinese category labels/highlight and previous-category clearing.",
+      "confidence": "high",
+      "semantic_detail_pending": false,
+      "pseudocode": "decompiled/raw/00019366.c"
+    },
+    {
+      "address": "0x00019954",
+      "name": "menu_draw_view_choices_chinese",
+      "evidence": "Regular/record/monitor labels and selection boxes.",
+      "confidence": "high",
+      "semantic_detail_pending": false,
+      "pseudocode": "decompiled/raw/00019954.c"
+    },
+    {
+      "address": "0x00019ba8",
+      "name": "menu_draw_view_choices",
+      "evidence": "Localized Regular/Recording/Monitor choices with active/previous state.",
+      "confidence": "high",
+      "semantic_detail_pending": false,
+      "pseudocode": "decompiled/raw/00019ba8.c"
+    },
+    {
+      "address": "0x00019f20",
+      "name": "menu_draw_threshold_item_layout_1",
+      "evidence": "Six threshold-row labels/number decorations for layout1.",
+      "confidence": "high",
+      "semantic_detail_pending": false,
+      "pseudocode": "decompiled/raw/00019f20.c"
+    },
+    {
+      "address": "0x0001a124",
+      "name": "menu_draw_threshold_item_layout_0",
+      "evidence": "Six localized threshold-row labels/number decorations for layout0.",
+      "confidence": "high",
+      "semantic_detail_pending": false,
+      "pseudocode": "decompiled/raw/0001a124.c"
+    },
+    {
+      "address": "0x0001a336",
+      "name": "menu_draw_all_threshold_items",
+      "evidence": "Loop items1..6 dispatching by layout.",
+      "confidence": "high",
+      "semantic_detail_pending": false,
+      "pseudocode": "decompiled/raw/0001a336.c"
+    },
+    {
+      "address": "0x0001a360",
+      "name": "display_monochrome_bitmap",
+      "evidence": "Width/height header, row-major MSB-first packed bits, two opaque colors.",
+      "confidence": "high",
+      "semantic_detail_pending": false,
+      "pseudocode": "decompiled/raw/0001a360.c"
+    },
+    {
+      "address": "0x0001a468",
+      "name": "display_level_bitmap",
+      "evidence": "Bitmap foreground color split by a float-derived vertical fill level.",
+      "confidence": "high",
+      "semantic_detail_pending": false,
+      "pseudocode": "decompiled/raw/0001a468.c"
+    },
+    {
+      "address": "0x0001a720",
+      "name": "heap_adjust_break",
+      "evidence": "Bounded break within200054d8..2000f800, failureFFFFFFFF.",
+      "confidence": "high",
+      "semantic_detail_pending": false,
+      "pseudocode": "decompiled/raw/0001a720.c"
+    },
+    {
+      "address": "0x0001a74a",
+      "name": "debug_format_emit",
+      "evidence": "Formatting sink, debug_putchar and output cursor/count management.",
+      "confidence": "medium",
+      "semantic_detail_pending": false,
+      "pseudocode": "decompiled/raw/0001a74a.c"
+    },
+    {
+      "address": "0x0001a794",
+      "name": "debug_format_integer_digits",
+      "evidence": "Integer formatting helper shared by debug printf engine.",
+      "confidence": "medium",
+      "semantic_detail_pending": false,
+      "pseudocode": "decompiled/raw/0001a794.c"
+    },
+    {
+      "address": "0x0001a874",
+      "name": "debug_format_integer_field",
+      "evidence": "Integer field/padding helper shared by debug printf engine.",
+      "confidence": "medium",
+      "semantic_detail_pending": false,
+      "pseudocode": "decompiled/raw/0001a874.c"
+    },
+    {
+      "address": "0x0001a966",
+      "name": "debug_format_numeric_family",
+      "evidence": "Numeric formatting with64-bit division/remainder helpers; exact flags pending.",
+      "confidence": "medium",
+      "semantic_detail_pending": true,
+      "pseudocode": "decompiled/raw/0001a966.c"
+    },
+    {
+      "address": "0x0001aa86",
+      "name": "debug_format_float_family",
+      "evidence": "Double-format helper; exact flags/rounding pending.",
+      "confidence": "medium",
+      "semantic_detail_pending": true,
+      "pseudocode": "decompiled/raw/0001aa86.c"
+    },
+    {
+      "address": "0x0001ab86",
+      "name": "debug_format_engine",
+      "evidence": "Variadic debug formatter, null-string replacement and integer/float dispatch.",
+      "confidence": "medium",
+      "semantic_detail_pending": false,
+      "pseudocode": "decompiled/raw/0001ab86.c"
+    },
+    {
+      "address": "0x0001aede",
+      "name": "debug_printf",
+      "evidence": "Variadic wrapper for debug formatter.",
+      "confidence": "high",
+      "semantic_detail_pending": false,
+      "pseudocode": "decompiled/raw/0001aede.c"
+    },
+    {
+      "address": "0x0001af02",
+      "name": "runtime_unsigned_divide_64",
+      "evidence": "Machine execution23/7 returns3 in a0:a1; arithmetic long division implementation.",
+      "confidence": "high",
+      "semantic_detail_pending": false,
+      "pseudocode": "decompiled/raw/0001af02.c"
+    },
+    {
+      "address": "0x0001b294",
+      "name": "runtime_unsigned_remainder_64",
+      "evidence": "Machine execution23%7 returns2 in a0:a1; long remainder implementation.",
+      "confidence": "high",
+      "semantic_detail_pending": false,
+      "pseudocode": "decompiled/raw/0001b294.c"
+    },
+    {
+      "address": "0x0001b61e",
+      "name": "runtime_add_double",
+      "evidence": "Machine execution5.5+2.25 returns7.75; IEEE binary64 arithmetic.",
+      "confidence": "high",
+      "semantic_detail_pending": false,
+      "pseudocode": "decompiled/raw/0001b61e.c"
+    },
+    {
+      "address": "0x0001bd4e",
+      "name": "runtime_divide_double",
+      "evidence": "Machine execution5.5/2.25 returns2.4444444444444446.",
+      "confidence": "high",
+      "semantic_detail_pending": false,
+      "pseudocode": "decompiled/raw/0001bd4e.c"
+    },
+    {
+      "address": "0x0001c302",
+      "name": "runtime_compare_double",
+      "evidence": "Double sign/exponent/mantissa comparison with unordered handling.",
+      "confidence": "high",
+      "semantic_detail_pending": false,
+      "pseudocode": "decompiled/raw/0001c302.c"
+    },
+    {
+      "address": "0x0001c3b8",
+      "name": "runtime_multiply_double",
+      "evidence": "Machine execution5.5*2.25 returns12.375.",
+      "confidence": "high",
+      "semantic_detail_pending": false,
+      "pseudocode": "decompiled/raw/0001c3b8.c"
+    },
+    {
+      "address": "0x0001c870",
+      "name": "runtime_subtract_double",
+      "evidence": "Machine execution5.5-2.25 returns3.25.",
+      "confidence": "high",
+      "semantic_detail_pending": false,
+      "pseudocode": "decompiled/raw/0001c870.c"
+    },
+    {
+      "address": "0x0001cfae",
+      "name": "runtime_double_to_signed_int",
+      "evidence": "IEEE exponent shift, signed saturation/truncation.",
+      "confidence": "high",
+      "semantic_detail_pending": false,
+      "pseudocode": "decompiled/raw/0001cfae.c"
+    },
+    {
+      "address": "0x0001d016",
+      "name": "runtime_double_to_unsigned_int",
+      "evidence": "IEEE exponent shift and unsigned saturation/truncation.",
+      "confidence": "high",
+      "semantic_detail_pending": false,
+      "pseudocode": "decompiled/raw/0001d016.c"
+    },
+    {
+      "address": "0x0001d072",
+      "name": "runtime_signed_int_to_double",
+      "evidence": "Integer sign normalization and binary64 packing.",
+      "confidence": "high",
+      "semantic_detail_pending": false,
+      "pseudocode": "decompiled/raw/0001d072.c"
+    },
+    {
+      "address": "0x0001d0e4",
+      "name": "runtime_unsigned_int_to_double",
+      "evidence": "Unsigned integer normalization and binary64 packing.",
+      "confidence": "high",
+      "semantic_detail_pending": false,
+      "pseudocode": "decompiled/raw/0001d0e4.c"
+    },
+    {
+      "address": "0x0001d14c",
+      "name": "runtime_double_to_unsigned_64",
+      "evidence": "IEEE exponent extraction and two-word conversion.",
+      "confidence": "high",
+      "semantic_detail_pending": false,
+      "pseudocode": "decompiled/raw/0001d14c.c"
+    },
+    {
+      "address": "0x0001d208",
+      "name": "runtime_unsigned_64_to_double",
+      "evidence": "Two-word integer normalization and binary64 packing.",
+      "confidence": "high",
+      "semantic_detail_pending": false,
+      "pseudocode": "decompiled/raw/0001d208.c"
+    },
+    {
+      "address": "0x0001d3be",
+      "name": "runtime_add_float",
+      "evidence": "Used in parser fractional+whole; original execution agrees with native float cases.",
+      "confidence": "high",
+      "semantic_detail_pending": false,
+      "pseudocode": "decompiled/raw/0001d3be.c"
+    },
+    {
+      "address": "0x0001d728",
+      "name": "runtime_divide_float",
+      "evidence": "Used in parser fraction/scale; original execution agrees with native float cases.",
+      "confidence": "high",
+      "semantic_detail_pending": false,
+      "pseudocode": "decompiled/raw/0001d728.c"
+    },
+    {
+      "address": "0x0001d9da",
+      "name": "runtime_float_not_equal",
+      "evidence": "IEEE exponent/fraction checks; treats NaN unequal and \u00b10 equal.",
+      "confidence": "high",
+      "semantic_detail_pending": false,
+      "pseudocode": "decompiled/raw/0001d9da.c"
+    },
+    {
+      "address": "0x0001da36",
+      "name": "runtime_float_compare_ge",
+      "evidence": "Float sign/exponent/mantissa comparison, distinct unordered return convention.",
+      "confidence": "high",
+      "semantic_detail_pending": false,
+      "pseudocode": "decompiled/raw/0001da36.c"
+    },
+    {
+      "address": "0x0001dabc",
+      "name": "runtime_float_compare_le",
+      "evidence": "Float sign/exponent/mantissa comparison, distinct unordered return convention.",
+      "confidence": "high",
+      "semantic_detail_pending": false,
+      "pseudocode": "decompiled/raw/0001dabc.c"
+    },
+    {
+      "address": "0x0001db48",
+      "name": "runtime_multiply_float",
+      "evidence": "Used by decimal parser and history scaling; original execution matches native float.",
+      "confidence": "high",
+      "semantic_detail_pending": false,
+      "pseudocode": "decompiled/raw/0001db48.c"
+    },
+    {
+      "address": "0x0001dddc",
+      "name": "runtime_subtract_float",
+      "evidence": "Relative measurement subtraction at9caa and bitwise sign/mantissa arithmetic.",
+      "confidence": "high",
+      "semantic_detail_pending": false,
+      "pseudocode": "decompiled/raw/0001dddc.c"
+    },
+    {
+      "address": "0x0001e164",
+      "name": "runtime_float_to_signed_int",
+      "evidence": "Exponent shifts, signed saturation and truncation.",
+      "confidence": "high",
+      "semantic_detail_pending": false,
+      "pseudocode": "decompiled/raw/0001e164.c"
+    },
+    {
+      "address": "0x0001e1c6",
+      "name": "runtime_float_to_unsigned_int",
+      "evidence": "Exponent shifts, unsigned saturation and truncation.",
+      "confidence": "high",
+      "semantic_detail_pending": false,
+      "pseudocode": "decompiled/raw/0001e1c6.c"
+    },
+    {
+      "address": "0x0001e21c",
+      "name": "runtime_signed_int_to_float",
+      "evidence": "Integer sign normalization and IEEE binary32 packing.",
+      "confidence": "high",
+      "semantic_detail_pending": false,
+      "pseudocode": "decompiled/raw/0001e21c.c"
+    },
+    {
+      "address": "0x0001e2e2",
+      "name": "runtime_float_to_double",
+      "evidence": "IEEE binary32 exponent/mantissa expansion to binary64.",
+      "confidence": "high",
+      "semantic_detail_pending": false,
+      "pseudocode": "decompiled/raw/0001e2e2.c"
+    },
+    {
+      "address": "0x0001e38e",
+      "name": "runtime_double_to_float",
+      "evidence": "IEEE binary64 rounding and exponent/mantissa reduction to binary32.",
+      "confidence": "high",
+      "semantic_detail_pending": false,
+      "pseudocode": "decompiled/raw/0001e38e.c"
+    },
+    {
+      "address": "0x0001e4f8",
+      "name": "runtime_count_leading_zeros",
+      "evidence": "Word normalization by byte-table lookup used by floating-point helpers.",
+      "confidence": "high",
+      "semantic_detail_pending": false,
+      "pseudocode": "decompiled/raw/0001e4f8.c"
+    },
+    {
+      "address": "0x0001e566",
+      "name": "heap_malloc_wrapper",
+      "evidence": "Reentrant allocator wrapper at1e6f4.",
+      "confidence": "high",
+      "semantic_detail_pending": false,
+      "pseudocode": "decompiled/raw/0001e566.c"
+    },
+    {
+      "address": "0x0001e570",
+      "name": "heap_free_wrapper",
+      "evidence": "Reentrant free wrapper at1e650.",
+      "confidence": "high",
+      "semantic_detail_pending": false,
+      "pseudocode": "decompiled/raw/0001e570.c"
+    },
+    {
+      "address": "0x0001e57a",
+      "name": "runtime_memcmp",
+      "evidence": "Unsigned byte comparison up to length, returns first difference.",
+      "confidence": "high",
+      "semantic_detail_pending": false,
+      "pseudocode": "decompiled/raw/0001e57a.c"
+    },
+    {
+      "address": "0x0001e59e",
+      "name": "runtime_memcpy",
+      "evidence": "Byte/word source-to-destination copy with length and computed short tail; original compiler aggregate-copy helper.",
+      "confidence": "high",
+      "semantic_detail_pending": false,
+      "pseudocode": "decompiled/raw/0001e59e.c"
+    },
+    {
+      "address": "0x0001e650",
+      "name": "heap_free_reentrant",
+      "evidence": "Sorted free-list insertion, adjacent block coalescing, null-free no-op.",
+      "confidence": "high",
+      "semantic_detail_pending": false,
+      "pseudocode": "decompiled/raw/0001e650.c"
+    },
+    {
+      "address": "0x0001e6f4",
+      "name": "heap_malloc_reentrant",
+      "evidence": "Aligned free-list allocation, splitting and bounded sbrk extension.",
+      "confidence": "high",
+      "semantic_detail_pending": false,
+      "pseudocode": "decompiled/raw/0001e6f4.c"
+    },
+    {
+      "address": "0x0001e7c2",
+      "name": "heap_sbrk_reentrant",
+      "evidence": "Reentrant errno wrapper for heap break operation.",
+      "confidence": "high",
+      "semantic_detail_pending": false,
+      "pseudocode": "decompiled/raw/0001e7c2.c"
+    },
+    {
+      "address": "0x0001e7f4",
+      "name": "runtime_strchr",
+      "evidence": "Character search including NUL, returns null if absent.",
+      "confidence": "high",
+      "semantic_detail_pending": false,
+      "pseudocode": "decompiled/raw/0001e7f4.c"
+    },
+    {
+      "address": "0x0001e80c",
+      "name": "runtime_strcpy",
+      "evidence": "Byte copy through first NUL.",
+      "confidence": "high",
+      "semantic_detail_pending": false,
+      "pseudocode": "decompiled/raw/0001e80c.c"
+    },
+    {
+      "address": "0x0001e81c",
+      "name": "heap_lock_noop",
+      "evidence": "Return instruction only.",
+      "confidence": "high",
+      "semantic_detail_pending": false,
+      "pseudocode": "decompiled/raw/0001e81c.c"
+    },
+    {
+      "address": "0x0001e81e",
+      "name": "heap_unlock_noop",
+      "evidence": "Return instruction only.",
+      "confidence": "high",
+      "semantic_detail_pending": false,
+      "pseudocode": "decompiled/raw/0001e81e.c"
+    }
+  ],
+  "note": "All 186 previously unresolved functions are role-classified. Naming a role does not claim full algorithm recovery or source translation. Source and validation coverage are tracked separately in source_coverage.json."
+}

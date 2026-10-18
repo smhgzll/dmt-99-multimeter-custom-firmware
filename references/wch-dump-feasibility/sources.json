@@ -1,0 +1,18 @@
+[
+  {
+    "file": "CH32FV2x_V3xRM_EN.PDF",
+    "download_url": "https://ch32-riscv-ug.github.io/CH32V20x/datasheet_en/CH32FV2x_V3xRM.PDF",
+    "sha256": "d961d2291a5d9079a8c391e89e5f9807d0c0fc22f66595c417acfd4ecebdbc44",
+    "bytes": 5553146,
+    "authorship": "WCH manufacturer-authored PDF, third-party mirror; official direct PDF download returned refresh error",
+    "acquired": "2026-10-17"
+  },
+  {
+    "file": "CH32V20x_30xDS0_EN.PDF",
+    "download_url": "https://ch32-riscv-ug.github.io/CH32V307/datasheet_en/CH32V20x_30xDS0.PDF",
+    "sha256": "9747c52e34d1f48cfb437cd7fbd65837e5c0f975a73f784f33634f539ed41250",
+    "bytes": 1707866,
+    "authorship": "WCH manufacturer-authored PDF, third-party mirror; official direct PDF download returned refresh error",
+    "acquired": "2026-10-17"
+  }
+]

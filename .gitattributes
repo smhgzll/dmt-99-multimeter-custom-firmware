@@ -1,0 +1,13 @@
+# Preserve exact imported evidence/vendor bytes (including original CRLF).
+* -text
+*.png -text
+*.jpg -text
+*.jpeg -text
+*.gz -text
+*.pdf -text
+*.PDF -text
+*.bin -text
+*.sr -text
+*.sh text eol=lf
+*.py text eol=lf
+Makefile text eol=lf

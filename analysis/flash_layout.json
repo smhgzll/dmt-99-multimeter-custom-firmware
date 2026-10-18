@@ -1,0 +1,87 @@
+{
+  "image_size": 8388608,
+  "mbr_signature_valid": true,
+  "logical_sector_size": 4096,
+  "sector_size_evidence": "Both BPBs specify 4096, and partition bounds cover exactly the acquired device. 7-Zip independently detects 4096. Firmware disk_read uses sector<<12.",
+  "partition_type_warning": "Both MBR entries use 0x07 although their BPBs and cluster counts identify FAT12.",
+  "partitions": [
+    {
+      "slot": 0,
+      "type": 7,
+      "lba_start": 63,
+      "lba_count": 400,
+      "offset": 258048,
+      "size": 1638400
+    },
+    {
+      "slot": 1,
+      "type": 7,
+      "lba_start": 463,
+      "lba_count": 1585,
+      "offset": 1896448,
+      "size": 6492160
+    }
+  ],
+  "volumes": [
+    {
+      "index": 0,
+      "offset": 258048,
+      "size": 1638400,
+      "fat_bits": 12,
+      "bytes_per_sector": 4096,
+      "sectors_per_cluster": 1,
+      "reserved_sectors": 1,
+      "fat_copies": 2,
+      "fat_sectors": 1,
+      "root_entries": 512,
+      "root_offset": 270336,
+      "data_offset": 286720,
+      "total_sectors": 400,
+      "data_clusters": 393,
+      "fat_copies_identical": true,
+      "boot_signature_valid": true,
+      "active_files": 0,
+      "active_directories": 1,
+      "deleted_entries": 57,
+      "allocated_clusters": 4,
+      "orphan_allocated_clusters": [
+        3,
+        4,
+        7,
+        8
+      ],
+      "crosslinks": {},
+      "errors": [
+        {
+          "path": "System Volume Information",
+          "error": "free/reserved cluster in chain"
+        }
+      ]
+    },
+    {
+      "index": 1,
+      "offset": 1896448,
+      "size": 6492160,
+      "fat_bits": 12,
+      "bytes_per_sector": 4096,
+      "sectors_per_cluster": 1,
+      "reserved_sectors": 1,
+      "fat_copies": 2,
+      "fat_sectors": 1,
+      "root_entries": 512,
+      "root_offset": 1908736,
+      "data_offset": 1925120,
+      "total_sectors": 1585,
+      "data_clusters": 1578,
+      "fat_copies_identical": true,
+      "boot_signature_valid": true,
+      "active_files": 299,
+      "active_directories": 12,
+      "deleted_entries": 0,
+      "allocated_clusters": 778,
+      "orphan_allocated_clusters": [],
+      "crosslinks": {},
+      "errors": []
+    }
+  ]
+}

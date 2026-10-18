@@ -1,0 +1,13 @@
+# Xwchc unsigned offsets, matching LLVM RISCVInstrInfoXwch.td.
+wchb: uimm is cop1212 & cop1011 & cop0506 [ uimm = cop1212 | (cop1011 << 3) | (cop0506 << 1); ] { local tmp:4 = uimm; export tmp; }
+wchh: uimm is cop1012 & cop0506 [ uimm = (cop1012 << 3) | (cop0506 << 1); ] { local tmp:4 = uimm; export tmp; }
+wchsb: uimm is cop0707 & cop0808 & cop0910 [ uimm = (cop0707 | (cop0808 << 1) | (cop0910 << 2)); ] { local tmp:4 = uimm; export tmp; }
+wchsh: uimm is cop0707 & cop0808 & cop0910 [ uimm = (cop0707 << 4) | (cop0808 << 1) | (cop0910 << 2); ] { local tmp:4 = uimm; export tmp; }
+:qk.c.lbu cr0204s,wchb(cr0709s) is cr0204s & cr0709s & cop0001=0 & cop1315=1 & wchb { local ea:4 = cr0709s + wchb; cr0204s = zext(*[ram]:1 ea); }
+:qk.c.sb cr0204s,wchb(cr0709s) is cr0204s & cr0709s & cop0001=0 & cop1315=5 & wchb { local ea:4 = cr0709s + wchb; *[ram]:1 ea = cr0204s:1; }
+:qk.c.lhu cr0204s,wchh(cr0709s) is cr0204s & cr0709s & cop0001=2 & cop1315=1 & wchh { local ea:4 = cr0709s + wchh; cr0204s = zext(*[ram]:2 ea); }
+:qk.c.sh cr0204s,wchh(cr0709s) is cr0204s & cr0709s & cop0001=2 & cop1315=5 & wchh { local ea:4 = cr0709s + wchh; *[ram]:2 ea = cr0204s:2; }
+:qk.c.lbusp cr0204s,wchsb(sp) is cr0204s & sp & cop0001=0 & cop1112=0 & cop1315=4 & cop0506=0 & wchsb { local ea:4 = sp + wchsb; cr0204s = zext(*[ram]:1 ea); }
+:qk.c.lhusp cr0204s,wchsh(sp) is cr0204s & sp & cop0001=0 & cop1112=0 & cop1315=4 & cop0506=1 & wchsh { local ea:4 = sp + wchsh; cr0204s = zext(*[ram]:2 ea); }
+:qk.c.sbsp cr0204s,wchsb(sp) is cr0204s & sp & cop0001=0 & cop1112=0 & cop1315=4 & cop0506=2 & wchsb { local ea:4 = sp + wchsb; *[ram]:1 ea = cr0204s:1; }
+:qk.c.shsp cr0204s,wchsh(sp) is cr0204s & sp & cop0001=0 & cop1112=0 & cop1315=4 & cop0506=3 & wchsh { local ea:4 = sp + wchsh; *[ram]:2 ea = cr0204s:2; }

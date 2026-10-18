@@ -1,0 +1,445 @@
+{
+  "layout": "Candidate unsigned BE16 at offsets10..11; b9 scope recorded separately",
+  "layout_confirmed": false,
+  "semantic_hypotheses": [
+    "mode-dependent auxiliary measurement",
+    "status telemetry"
+  ],
+  "tenths_scale_and_temperature_semantics": "unverified, requires separate display or independent physical evidence",
+  "sessions": [
+    {
+      "capture": "20261018T003908_idle_already_powered_81d808b6",
+      "mode_reported": "AUTO",
+      "sample_count": 120,
+      "b9_values": [
+        0
+      ],
+      "b10_b11_be16_values": [
+        318,
+        319,
+        320
+      ],
+      "tenths_scale_candidate_values": [
+        31.8,
+        31.9,
+        32.0
+      ],
+      "interpretation_confirmed": false
+    },
+    {
+      "capture": "20261018T004101_auto_idle_d0_d2_2mhz_9eb57894",
+      "mode_reported": "AUTO",
+      "sample_count": 61,
+      "b9_values": [
+        0
+      ],
+      "b10_b11_be16_values": [
+        318,
+        319
+      ],
+      "tenths_scale_candidate_values": [
+        31.8,
+        31.9
+      ],
+      "interpretation_confirmed": false
+    },
+    {
+      "capture": "20261018T004155_startup_auto_d0_d2_2mhz_998d0648",
+      "mode_reported": "AUTO",
+      "sample_count": 148,
+      "b9_values": [
+        0
+      ],
+      "b10_b11_be16_values": [
+        0,
+        318,
+        319,
+        320,
+        328
+      ],
+      "tenths_scale_candidate_values": [
+        0.0,
+        31.8,
+        31.9,
+        32.0,
+        32.8
+      ],
+      "interpretation_confirmed": false
+    },
+    {
+      "capture": "20261018T010803_resistance_st2_1ohm_reported_63335c8a",
+      "mode_reported": "resistance",
+      "sample_count": 59,
+      "b9_values": [
+        0
+      ],
+      "b10_b11_be16_values": [
+        316,
+        317
+      ],
+      "tenths_scale_candidate_values": [
+        31.6,
+        31.7
+      ],
+      "interpretation_confirmed": false
+    },
+    {
+      "capture": "20261018T010905_resistance_st2_1ohm_repeat_c96379a8",
+      "mode_reported": "resistance",
+      "sample_count": 59,
+      "b9_values": [
+        0
+      ],
+      "b10_b11_be16_values": [
+        317,
+        318
+      ],
+      "tenths_scale_candidate_values": [
+        31.7,
+        31.8
+      ],
+      "interpretation_confirmed": false
+    },
+    {
+      "capture": "20261018T011007_resistance_st2_1kohm_9b1124e1",
+      "mode_reported": "resistance",
+      "sample_count": 58,
+      "b9_values": [
+        0
+      ],
+      "b10_b11_be16_values": [
+        318,
+        319
+      ],
+      "tenths_scale_candidate_values": [
+        31.8,
+        31.9
+      ],
+      "interpretation_confirmed": false
+    },
+    {
+      "capture": "20261018T011124_resistance_st2_10kohm_4e3927b0",
+      "mode_reported": "resistance",
+      "sample_count": 59,
+      "b9_values": [
+        0
+      ],
+      "b10_b11_be16_values": [
+        318
+      ],
+      "tenths_scale_candidate_values": [
+        31.8
+      ],
+      "interpretation_confirmed": false
+    },
+    {
+      "capture": "20261018T011245_resistance_st2_100kohm_2c0eb7ee",
+      "mode_reported": "resistance",
+      "sample_count": 60,
+      "b9_values": [
+        0
+      ],
+      "b10_b11_be16_values": [
+        318
+      ],
+      "tenths_scale_candidate_values": [
+        31.8
+      ],
+      "interpretation_confirmed": false
+    },
+    {
+      "capture": "20261018T011348_resistance_st2_open_91086a21",
+      "mode_reported": "resistance",
+      "sample_count": 60,
+      "b9_values": [
+        0
+      ],
+      "b10_b11_be16_values": [
+        318
+      ],
+      "tenths_scale_candidate_values": [
+        31.8
+      ],
+      "interpretation_confirmed": false
+    },
+    {
+      "capture": "20261018T011507_resistance_st2_1Mohm_7edb835a",
+      "mode_reported": "resistance",
+      "sample_count": 60,
+      "b9_values": [
+        0
+      ],
+      "b10_b11_be16_values": [
+        319,
+        320
+      ],
+      "tenths_scale_candidate_values": [
+        31.9,
+        32.0
+      ],
+      "interpretation_confirmed": false
+    },
+    {
+      "capture": "20261018T011705_resistance_st2_10Mohm_daf8f4d1",
+      "mode_reported": "resistance",
+      "sample_count": 59,
+      "b9_values": [
+        0
+      ],
+      "b10_b11_be16_values": [
+        318,
+        319,
+        320
+      ],
+      "tenths_scale_candidate_values": [
+        31.8,
+        31.9,
+        32.0
+      ],
+      "interpretation_confirmed": false
+    },
+    {
+      "capture": "20261018T011808_auto_to_resistance_open_fa59a550",
+      "mode_reported": "AUTO -> resistance",
+      "sample_count": 116,
+      "b9_values": [
+        0
+      ],
+      "b10_b11_be16_values": [
+        0,
+        319,
+        320
+      ],
+      "tenths_scale_candidate_values": [
+        0.0,
+        31.9,
+        32.0
+      ],
+      "interpretation_confirmed": false
+    },
+    {
+      "capture": "20261018T012010_open_probes_mode_sweep_9f01eea5",
+      "mode_reported": "user-controlled open-probe mode sweep",
+      "sample_count": 176,
+      "b9_values": [
+        0
+      ],
+      "b10_b11_be16_values": [
+        320,
+        321
+      ],
+      "tenths_scale_candidate_values": [
+        32.0,
+        32.1
+      ],
+      "interpretation_confirmed": false
+    },
+    {
+      "capture": "20261018T012123_capacitance_open_0015_reported_599d35bc",
+      "mode_reported": "capacitance",
+      "sample_count": 59,
+      "b9_values": [
+        0
+      ],
+      "b10_b11_be16_values": [
+        320,
+        321,
+        322
+      ],
+      "tenths_scale_candidate_values": [
+        32.0,
+        32.1,
+        32.2
+      ],
+      "interpretation_confirmed": false
+    },
+    {
+      "capture": "20261018T012301_continuity_open_7ec5dac1",
+      "mode_reported": "continuity",
+      "sample_count": 61,
+      "b9_values": [
+        0
+      ],
+      "b10_b11_be16_values": [
+        322,
+        323
+      ],
+      "tenths_scale_candidate_values": [
+        32.2,
+        32.3
+      ],
+      "interpretation_confirmed": false
+    },
+    {
+      "capture": "20261018T012445_dc_voltage_open_floating_4c4cae37",
+      "mode_reported": "dc_voltage",
+      "sample_count": 60,
+      "b9_values": [
+        0
+      ],
+      "b10_b11_be16_values": [
+        325,
+        326
+      ],
+      "tenths_scale_candidate_values": [
+        32.5,
+        32.6
+      ],
+      "interpretation_confirmed": false
+    },
+    {
+      "capture": "20261018T012633_ac_voltage_open_0f21932d",
+      "mode_reported": "ac_voltage",
+      "sample_count": 58,
+      "b9_values": [
+        0
+      ],
+      "b10_b11_be16_values": [
+        0
+      ],
+      "tenths_scale_candidate_values": [
+        0.0
+      ],
+      "interpretation_confirmed": false
+    },
+    {
+      "capture": "20261018T012926_frequency_open_8d1e1544",
+      "mode_reported": "frequency",
+      "sample_count": 61,
+      "b9_values": [
+        0
+      ],
+      "b10_b11_be16_values": [
+        325
+      ],
+      "tenths_scale_candidate_values": [
+        32.5
+      ],
+      "interpretation_confirmed": false
+    },
+    {
+      "capture": "20261018T014128_current_mA_open_first_416da768",
+      "mode_reported": "DC mA (user reported)",
+      "sample_count": 60,
+      "b9_values": [
+        0
+      ],
+      "b10_b11_be16_values": [
+        325,
+        326,
+        327
+      ],
+      "tenths_scale_candidate_values": [
+        32.5,
+        32.6,
+        32.7
+      ],
+      "interpretation_confirmed": false
+    },
+    {
+      "capture": "20261018T014244_current_AC_mA_open_f9bb5e6d",
+      "mode_reported": "AC mA (user reported)",
+      "sample_count": 59,
+      "b9_values": [
+        0
+      ],
+      "b10_b11_be16_values": [
+        0
+      ],
+      "tenths_scale_candidate_values": [
+        0.0
+      ],
+      "interpretation_confirmed": false
+    },
+    {
+      "capture": "20261018T014351_current_DC_A_open_b049a37a",
+      "mode_reported": "DC A (user reported)",
+      "sample_count": 61,
+      "b9_values": [
+        0
+      ],
+      "b10_b11_be16_values": [
+        325,
+        327
+      ],
+      "tenths_scale_candidate_values": [
+        32.5,
+        32.7
+      ],
+      "interpretation_confirmed": false
+    },
+    {
+      "capture": "20261018T014536_current_AC_A_open_56fe1dda",
+      "mode_reported": "AC A (user reported)",
+      "sample_count": 60,
+      "b9_values": [
+        0
+      ],
+      "b10_b11_be16_values": [
+        0
+      ],
+      "tenths_scale_candidate_values": [
+        0.0
+      ],
+      "interpretation_confirmed": false
+    },
+    {
+      "capture": "20261018T014653_cable_wave_icon_idle_unconfirmed_84761e13",
+      "mode_reported": "NCV ile uyumlu: dalgalı kablo ekranı; ardından tek tuşla LIVE",
+      "sample_count": 61,
+      "b9_values": [
+        0
+      ],
+      "b10_b11_be16_values": [
+        326,
+        327
+      ],
+      "tenths_scale_candidate_values": [
+        32.6,
+        32.7
+      ],
+      "interpretation_confirmed": false
+    },
+    {
+      "capture": "20261018T014757_LIVE_cable_only_idle_0fda3de2",
+      "mode_reported": "LIVE; kullanıcı yalnız kablo simgesi, kılavuzla uyumlu",
+      "sample_count": 61,
+      "b9_values": [
+        0
+      ],
+      "b10_b11_be16_values": [
+        325,
+        326,
+        327
+      ],
+      "tenths_scale_candidate_values": [
+        32.5,
+        32.6,
+        32.7
+      ],
+      "interpretation_confirmed": false
+    },
+    {
+      "capture": "20261018T014854_temperature_C_no_external_probe_0421fc54",
+      "mode_reported": "Temperature °C (user reported)",
+      "sample_count": 58,
+      "b9_values": [
+        0
+      ],
+      "b10_b11_be16_values": [
+        323,
+        324,
+        325,
+        326
+      ],
+      "tenths_scale_candidate_values": [
+        32.3,
+        32.4,
+        32.5,
+        32.6
+      ],
+      "interpretation_confirmed": false
+    }
+  ],
+  "temperature_observation": "Without an external sensor, primary32 matches user32 °C; BE16 tail323..326 yields32.3..32.6 under hypothetical /10. Correlation only; meaning/scale unverified."
+}

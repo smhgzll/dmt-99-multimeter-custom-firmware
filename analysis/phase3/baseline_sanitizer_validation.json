@@ -1,0 +1,14 @@
+{
+  "status": "passed",
+  "tests": 6,
+  "sanitizers": [
+    "address",
+    "undefined"
+  ],
+  "leak_detection": false,
+  "leak_detection_note": "LeakSanitizer cannot run under the sandbox ptrace environment; leak checking is disabled. These tests use stack/static storage.",
+  "compiler": "clang version 22.1.8 (Fedora 22.1.8-4.fc44)",
+  "differential_inputs_sha256": "c1ac872f853ea2815935c138e4fce1b4598970036ef6753a63dbe9c43ab36600",
+  "binary_sha256": "5291db416ffea6125c09b4ac31a7ab514aaf0ab5575fce851ccafef53a34ee4f",
+  "command": "make -C reconstructed host-sanitize"
+}

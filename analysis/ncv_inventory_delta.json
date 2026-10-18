@@ -1,0 +1,12 @@
+{
+  "original_function": "0x0000fe08",
+  "original_classified_body_bytes": 322,
+  "additional_instruction_records": 140,
+  "additional_instruction_bytes": 516,
+  "range": [
+    "0x0000ff48",
+    "0x0001014c"
+  ],
+  "preserved_baseline": true,
+  "note": "Read-only saved Ghidra project; cleared only omitted interval transiently. Changes discarded, original exports untouched."
+}

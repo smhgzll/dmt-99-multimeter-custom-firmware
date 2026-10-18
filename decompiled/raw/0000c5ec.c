@@ -1,0 +1,12 @@
+/* Original address: 0x0000c5ec; Ghidra pseudocode, not compilable reconstructed source. */
+
+/* high: Vector slot 32 uses this target; original opcode is c.j to itself */
+
+void DMA1_Channel6_IRQHandler_default(void)
+
+{
+  do {
+                    /* WARNING: Do nothing block with infinite loop */
+  } while( true );
+}
+

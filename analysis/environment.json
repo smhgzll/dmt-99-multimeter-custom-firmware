@@ -1,0 +1,40 @@
+{
+  "python": {
+    "path": "~/miniconda3/bin/python3",
+    "version": "Python 3.13.2"
+  },
+  "java": {
+    "path": "/usr/bin/java",
+    "version": "openjdk version \"25.0.4.1\" 2026-08-18"
+  },
+  "gcc_riscv": {
+    "path": "~/.espressif/tools/riscv32-esp-elf/esp-14.2.0_20260121/riscv32-esp-elf/bin/riscv32-esp-elf-gcc",
+    "version": "riscv32-esp-elf-gcc (crosstool-NG esp-14.2.0_20260121) 14.2.0"
+  },
+  "clang": {
+    "path": "/usr/bin/clang",
+    "version": "clang version 22.1.8 (Fedora 22.1.8-4.fc44)"
+  },
+  "gcc_host": {
+    "path": "/usr/bin/gcc",
+    "version": "gcc (GCC) 16.2.1 20260819 (Red Hat 16.2.1-2)"
+  },
+  "make": {
+    "path": "/usr/bin/make",
+    "version": "GNU Make 4.4.1"
+  },
+  "binwalk": {
+    "path": "/usr/bin/binwalk",
+    "version": "binwalk 3.1.0"
+  },
+  "ghidra": {
+    "version": "12.1",
+    "path": "~/Tools/ghidra_12.1_PUBLIC",
+    "custom_language": "RISCV:LE:32:WCH",
+    "compiler_spec": "gcc-soft"
+  },
+  "optional_python": {
+    "capstone": false,
+    "elftools": false
+  }
+}

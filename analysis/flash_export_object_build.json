@@ -1,0 +1,53 @@
+[
+  {
+    "placement": "flash",
+    "object": "reconstructed/build/offline_export/export-flash.o",
+    "sha256": "155882dd5a77b20a787cf4c1e966aeb8e22d033036f005e32e431a2448e5e511",
+    "command": [
+      "~/.espressif/tools/riscv32-esp-elf/esp-14.2.0_20260121/riscv32-esp-elf/bin/riscv32-esp-elf-gcc",
+      "-march=rv32imac_zicsr_zifencei",
+      "-mabi=ilp32",
+      "-std=c11",
+      "-Os",
+      "-ffreestanding",
+      "-fno-builtin",
+      "-ffunction-sections",
+      "-fdata-sections",
+      "-Wall",
+      "-Wextra",
+      "-Werror",
+      "-c",
+      "reconstructed/offline_export/flash_export.c",
+      "-o",
+      "./reconstructed/build/offline_export/export-flash.o"
+    ],
+    "linked": false,
+    "executed_on_hardware": false
+  },
+  {
+    "placement": "ram",
+    "object": "reconstructed/build/offline_export/export-ram.o",
+    "sha256": "663bb13352844844691220e75d4de02a2597c0c158fad6c57c4ea53fd1d71814",
+    "command": [
+      "~/.espressif/tools/riscv32-esp-elf/esp-14.2.0_20260121/riscv32-esp-elf/bin/riscv32-esp-elf-gcc",
+      "-DDMT_EXPORT_RAM_EXPERIMENT=1",
+      "-march=rv32imac_zicsr_zifencei",
+      "-mabi=ilp32",
+      "-std=c11",
+      "-Os",
+      "-ffreestanding",
+      "-fno-builtin",
+      "-ffunction-sections",
+      "-fdata-sections",
+      "-Wall",
+      "-Wextra",
+      "-Werror",
+      "-c",
+      "reconstructed/offline_export/flash_export.c",
+      "-o",
+      "./reconstructed/build/offline_export/export-ram.o"
+    ],
+    "linked": false,
+    "executed_on_hardware": false
+  }
+]

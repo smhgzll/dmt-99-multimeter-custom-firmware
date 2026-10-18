@@ -1,0 +1,19 @@
+{
+  "pass": true,
+  "errors": [],
+  "format": {
+    "size": 163444,
+    "flash_start": 134243328,
+    "flash_end": 134406772,
+    "reset": 26076,
+    "version": "0.4.0-doom"
+  },
+  "sha256": "2622d1bc35b678d74234178b79c922b0523e00d8e490df89d79b1dc253ee5d61",
+  "ram_static_bytes": 8568,
+  "stack_reserved_bytes": 6144,
+  "ram_gap_bytes": 18056,
+  "settings_page_written_by_application": false,
+  "external_flash_used": false,
+  "hardware_verified": false,
+  "bootloader_acceptance_verified": false
+}

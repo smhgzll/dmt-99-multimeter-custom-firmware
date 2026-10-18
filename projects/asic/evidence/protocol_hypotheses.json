@@ -1,0 +1,529 @@
+{
+  "source_captures": [
+    "20261018T003908_idle_already_powered_81d808b6",
+    "20261018T004101_auto_idle_d0_d2_2mhz_9eb57894",
+    "20261018T004155_startup_auto_d0_d2_2mhz_998d0648",
+    "20261018T010803_resistance_st2_1ohm_reported_63335c8a",
+    "20261018T010905_resistance_st2_1ohm_repeat_c96379a8",
+    "20261018T011007_resistance_st2_1kohm_9b1124e1",
+    "20261018T011124_resistance_st2_10kohm_4e3927b0",
+    "20261018T011245_resistance_st2_100kohm_2c0eb7ee",
+    "20261018T011348_resistance_st2_open_91086a21",
+    "20261018T011507_resistance_st2_1Mohm_7edb835a",
+    "20261018T011705_resistance_st2_10Mohm_daf8f4d1",
+    "20261018T011808_auto_to_resistance_open_fa59a550",
+    "20261018T012010_open_probes_mode_sweep_9f01eea5",
+    "20261018T012123_capacitance_open_0015_reported_599d35bc",
+    "20261018T012301_continuity_open_7ec5dac1",
+    "20261018T012445_dc_voltage_open_floating_4c4cae37",
+    "20261018T012633_ac_voltage_open_0f21932d",
+    "20261018T012926_frequency_open_8d1e1544",
+    "20261018T014128_current_mA_open_first_416da768",
+    "20261018T014244_current_AC_mA_open_f9bb5e6d",
+    "20261018T014351_current_DC_A_open_b049a37a",
+    "20261018T014536_current_AC_A_open_56fe1dda",
+    "20261018T014653_cable_wave_icon_idle_unconfirmed_84761e13",
+    "20261018T014757_LIVE_cable_only_idle_0fda3de2",
+    "20261018T014854_temperature_C_no_external_probe_0421fc54"
+  ],
+  "rx_integrity": {
+    "status": "hypotheses_only_separate_lengths",
+    "by_wire_length": {
+      "10": {
+        "status": "hypotheses_only",
+        "frames": 6,
+        "distinct_frames": 5,
+        "last_byte_deterministic_checksum_of_prefix": "unresolved",
+        "identical_prefix_different_last_byte": [],
+        "search": "sum8/negative_sum8/xor8 over contiguous prefix ending before target; no CRC claim",
+        "candidates": [
+          {
+            "algorithm": "sum8",
+            "input_start": 4,
+            "input_end_exclusive": 5,
+            "target_offset": 5,
+            "matching_distinct_frames": 5,
+            "confirmed": false,
+            "informative_input_variation": false,
+            "target_varies": false
+          },
+          {
+            "algorithm": "negative_sum8",
+            "input_start": 4,
+            "input_end_exclusive": 5,
+            "target_offset": 5,
+            "matching_distinct_frames": 5,
+            "confirmed": false,
+            "informative_input_variation": false,
+            "target_varies": false
+          },
+          {
+            "algorithm": "xor8",
+            "input_start": 4,
+            "input_end_exclusive": 5,
+            "target_offset": 5,
+            "matching_distinct_frames": 5,
+            "confirmed": false,
+            "informative_input_variation": false,
+            "target_varies": false
+          },
+          {
+            "algorithm": "sum8",
+            "input_start": 4,
+            "input_end_exclusive": 6,
+            "target_offset": 6,
+            "matching_distinct_frames": 5,
+            "confirmed": false,
+            "informative_input_variation": false,
+            "target_varies": false
+          },
+          {
+            "algorithm": "negative_sum8",
+            "input_start": 4,
+            "input_end_exclusive": 6,
+            "target_offset": 6,
+            "matching_distinct_frames": 5,
+            "confirmed": false,
+            "informative_input_variation": false,
+            "target_varies": false
+          },
+          {
+            "algorithm": "xor8",
+            "input_start": 4,
+            "input_end_exclusive": 6,
+            "target_offset": 6,
+            "matching_distinct_frames": 5,
+            "confirmed": false,
+            "informative_input_variation": false,
+            "target_varies": false
+          },
+          {
+            "algorithm": "sum8",
+            "input_start": 5,
+            "input_end_exclusive": 6,
+            "target_offset": 6,
+            "matching_distinct_frames": 5,
+            "confirmed": false,
+            "informative_input_variation": false,
+            "target_varies": false
+          },
+          {
+            "algorithm": "negative_sum8",
+            "input_start": 5,
+            "input_end_exclusive": 6,
+            "target_offset": 6,
+            "matching_distinct_frames": 5,
+            "confirmed": false,
+            "informative_input_variation": false,
+            "target_varies": false
+          },
+          {
+            "algorithm": "xor8",
+            "input_start": 5,
+            "input_end_exclusive": 6,
+            "target_offset": 6,
+            "matching_distinct_frames": 5,
+            "confirmed": false,
+            "informative_input_variation": false,
+            "target_varies": false
+          },
+          {
+            "algorithm": "sum8",
+            "input_start": 0,
+            "input_end_exclusive": 9,
+            "target_offset": 9,
+            "matching_distinct_frames": 5,
+            "confirmed": false,
+            "informative_input_variation": true,
+            "target_varies": true
+          }
+        ]
+      },
+      "12": {
+        "status": "hypotheses_only",
+        "frames": 1814,
+        "distinct_frames": 74,
+        "last_byte_deterministic_checksum_of_prefix": "contradicted_in_capture",
+        "identical_prefix_different_last_byte": [
+          {
+            "identical_prefix": [
+              90,
+              165,
+              0,
+              0,
+              128,
+              175,
+              13,
+              0,
+              32,
+              0,
+              1
+            ],
+            "observed_last_bytes": [
+              67,
+              68,
+              69,
+              70
+            ]
+          },
+          {
+            "identical_prefix": [
+              90,
+              165,
+              0,
+              224,
+              229,
+              4,
+              0,
+              0,
+              0,
+              0,
+              1
+            ],
+            "observed_last_bytes": [
+              70,
+              71
+            ]
+          },
+          {
+            "identical_prefix": [
+              90,
+              165,
+              0,
+              240,
+              107,
+              1,
+              128,
+              8,
+              2,
+              0,
+              1
+            ],
+            "observed_last_bytes": [
+              66,
+              67
+            ]
+          },
+          {
+            "identical_prefix": [
+              90,
+              165,
+              4,
+              0,
+              0,
+              0,
+              0,
+              36,
+              0,
+              0,
+              1
+            ],
+            "observed_last_bytes": [
+              60,
+              63
+            ]
+          },
+          {
+            "identical_prefix": [
+              90,
+              165,
+              4,
+              0,
+              0,
+              26,
+              10,
+              32,
+              0,
+              0,
+              1
+            ],
+            "observed_last_bytes": [
+              60,
+              61,
+              62
+            ]
+          },
+          {
+            "identical_prefix": [
+              90,
+              165,
+              4,
+              0,
+              0,
+              250,
+              11,
+              32,
+              0,
+              0,
+              1
+            ],
+            "observed_last_bytes": [
+              60,
+              62
+            ]
+          },
+          {
+            "identical_prefix": [
+              90,
+              165,
+              4,
+              192,
+              223,
+              143,
+              10,
+              36,
+              0,
+              0,
+              1
+            ],
+            "observed_last_bytes": [
+              63,
+              64
+            ]
+          },
+          {
+            "identical_prefix": [
+              90,
+              165,
+              4,
+              192,
+              223,
+              239,
+              7,
+              36,
+              0,
+              0,
+              1
+            ],
+            "observed_last_bytes": [
+              62,
+              63
+            ]
+          },
+          {
+            "identical_prefix": [
+              90,
+              165,
+              4,
+              224,
+              123,
+              1,
+              0,
+              36,
+              0,
+              0,
+              1
+            ],
+            "observed_last_bytes": [
+              61,
+              62,
+              63,
+              64,
+              65
+            ]
+          },
+          {
+            "identical_prefix": [
+              90,
+              165,
+              4,
+              250,
+              235,
+              235,
+              75,
+              32,
+              0,
+              0,
+              1
+            ],
+            "observed_last_bytes": [
+              62,
+              63
+            ]
+          },
+          {
+            "identical_prefix": [
+              90,
+              165,
+              6,
+              0,
+              0,
+              224,
+              27,
+              0,
+              1,
+              0,
+              1
+            ],
+            "observed_last_bytes": [
+              69,
+              70,
+              71
+            ]
+          },
+          {
+            "identical_prefix": [
+              90,
+              165,
+              96,
+              1,
+              42,
+              227,
+              5,
+              0,
+              0,
+              0,
+              1
+            ],
+            "observed_last_bytes": [
+              69,
+              70,
+              71
+            ]
+          },
+          {
+            "identical_prefix": [
+              90,
+              165,
+              228,
+              46,
+              99,
+              37,
+              7,
+              0,
+              0,
+              0,
+              1
+            ],
+            "observed_last_bytes": [
+              62,
+              63,
+              64,
+              72
+            ]
+          },
+          {
+            "identical_prefix": [
+              90,
+              165,
+              228,
+              219,
+              207,
+              239,
+              7,
+              36,
+              0,
+              0,
+              1
+            ],
+            "observed_last_bytes": [
+              63,
+              64
+            ]
+          },
+          {
+            "identical_prefix": [
+              90,
+              165,
+              228,
+              251,
+              11,
+              74,
+              46,
+              16,
+              0,
+              0,
+              1
+            ],
+            "observed_last_bytes": [
+              64,
+              65,
+              66
+            ]
+          },
+          {
+            "identical_prefix": [
+              90,
+              165,
+              230,
+              251,
+              235,
+              235,
+              11,
+              0,
+              1,
+              0,
+              1
+            ],
+            "observed_last_bytes": [
+              69,
+              71
+            ]
+          },
+          {
+            "identical_prefix": [
+              90,
+              165,
+              230,
+              251,
+              235,
+              235,
+              11,
+              0,
+              2,
+              0,
+              1
+            ],
+            "observed_last_bytes": [
+              63,
+              69,
+              70
+            ]
+          },
+          {
+            "identical_prefix": [
+              90,
+              165,
+              246,
+              251,
+              235,
+              139,
+              15,
+              0,
+              2,
+              0,
+              1
+            ],
+            "observed_last_bytes": [
+              63,
+              69,
+              70
+            ]
+          },
+          {
+            "identical_prefix": [
+              90,
+              165,
+              246,
+              251,
+              235,
+              171,
+              13,
+              0,
+              2,
+              0,
+              1
+            ],
+            "observed_last_bytes": [
+              69,
+              70
+            ]
+          }
+        ],
+        "search": "sum8/negative_sum8/xor8 over contiguous prefix ending before target; no CRC claim",
+        "candidates": []
+      }
+    }
+  },
+  "confirmed_checksum_rule": null
+}

@@ -1,0 +1,158 @@
+{
+  "pass": true,
+  "hardware_verified": false,
+  "image_sha256": "55eeb806cdecb097256b759fd8173d2135fdaa5cf9ad3c4063d94a48908c8aa0",
+  "scope": "actual RV32 CPU; read-only action/tick/frame observers replay the native oracle without replacing target instructions",
+  "cases": [
+    {
+      "case": "clean",
+      "initial_menu": "509795dcec2246c5d3b2c851c750f4a5c54a7b9a78f88a4877f8e6c51ffbd90a",
+      "target_fixtures": {
+        "autonomous_sight_chase_attack": true,
+        "kill_and_corpse": true,
+        "wall_blocks_vision_and_shot": true,
+        "collision_during_detour": true
+      },
+      "weapons_menu": true,
+      "autonomous_clock": true,
+      "pause_freezes_clock": true,
+      "power_off": true,
+      "tones": [
+        {
+          "hz": 800.0,
+          "psc": 143,
+          "arr": 1249,
+          "duty": 0.5
+        },
+        {
+          "hz": 800.0,
+          "psc": 143,
+          "arr": 1249,
+          "duty": 0.5
+        },
+        {
+          "hz": 2597.4025974025976,
+          "psc": 143,
+          "arr": 384,
+          "duty": 0.4987012987012987
+        },
+        {
+          "hz": 1300.3901170351105,
+          "psc": 143,
+          "arr": 768,
+          "duty": 0.49934980494148246
+        },
+        {
+          "hz": 330.03300330033005,
+          "psc": 143,
+          "arr": 3029,
+          "duty": 0.5
+        },
+        {
+          "hz": 220.02200220022002,
+          "psc": 143,
+          "arr": 4544,
+          "duty": 0.4998899889988999
+        },
+        {
+          "hz": 330.03300330033005,
+          "psc": 143,
+          "arr": 3029,
+          "duty": 0.5
+        },
+        {
+          "hz": 220.02200220022002,
+          "psc": 143,
+          "arr": 4544,
+          "duty": 0.4998899889988999
+        },
+        {
+          "hz": 2597.4025974025976,
+          "psc": 143,
+          "arr": 384,
+          "duty": 0.4987012987012987
+        },
+        {
+          "hz": 1300.3901170351105,
+          "psc": 143,
+          "arr": 768,
+          "duty": 0.49934980494148246
+        },
+        {
+          "hz": 1200.4801920768307,
+          "psc": 143,
+          "arr": 832,
+          "duty": 0.49939975990396157
+        },
+        {
+          "hz": 1798.5611510791366,
+          "psc": 143,
+          "arr": 555,
+          "duty": 0.5
+        },
+        {
+          "hz": 2398.0815347721823,
+          "psc": 143,
+          "arr": 416,
+          "duty": 0.4988009592326139
+        },
+        {
+          "hz": 2597.4025974025976,
+          "psc": 143,
+          "arr": 384,
+          "duty": 0.4987012987012987
+        },
+        {
+          "hz": 1300.3901170351105,
+          "psc": 143,
+          "arr": 768,
+          "duty": 0.49934980494148246
+        }
+      ],
+      "frames": 74,
+      "native_frames_compared": 37,
+      "fault": null,
+      "no_asic_tx": true,
+      "no_internal_flash_writes": true,
+      "nor_unchanged": true,
+      "panel_out_of_range": 0,
+      "stack_used_bytes": 852
+    },
+    {
+      "case": "leftovers",
+      "initial_menu": "509795dcec2246c5d3b2c851c750f4a5c54a7b9a78f88a4877f8e6c51ffbd90a",
+      "frames": 1,
+      "native_frames_compared": 1,
+      "fault": null,
+      "no_asic_tx": true,
+      "no_internal_flash_writes": true,
+      "nor_unchanged": true,
+      "panel_out_of_range": 0,
+      "stack_used_bytes": 708
+    },
+    {
+      "case": "hsi",
+      "initial_menu": "509795dcec2246c5d3b2c851c750f4a5c54a7b9a78f88a4877f8e6c51ffbd90a",
+      "frames": 1,
+      "native_frames_compared": 1,
+      "fault": null,
+      "no_asic_tx": true,
+      "no_internal_flash_writes": true,
+      "nor_unchanged": true,
+      "panel_out_of_range": 0,
+      "stack_used_bytes": 708
+    },
+    {
+      "case": "held-power",
+      "initial_menu": "509795dcec2246c5d3b2c851c750f4a5c54a7b9a78f88a4877f8e6c51ffbd90a",
+      "frames": 1,
+      "native_frames_compared": 1,
+      "fault": null,
+      "no_asic_tx": true,
+      "no_internal_flash_writes": true,
+      "nor_unchanged": true,
+      "panel_out_of_range": 0,
+      "stack_used_bytes": 708
+    }
+  ]
+}

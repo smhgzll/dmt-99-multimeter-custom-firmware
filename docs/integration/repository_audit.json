@@ -1,0 +1,9 @@
+{
+  "pass": true,
+  "public_files": 1978,
+  "errors": [],
+  "original_evidence_checked": 884,
+  "artifact_files_checked": 1663,
+  "optional_local_files_absent": 0,
+  "scope": "path/token patterns, primary-doc links, SHA-256; not a legal audit or hardware test"
+}

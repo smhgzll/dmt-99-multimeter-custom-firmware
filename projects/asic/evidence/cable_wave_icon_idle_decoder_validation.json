@@ -1,0 +1,52 @@
+[
+  {
+    "session": "projects/asic/captures/20261018T014653_cable_wave_icon_idle_unconfirmed_84761e13",
+    "origin": "hardware",
+    "source_logic_sha256": "ae7c5f28573f7dd6c1b85583b1ab927293cfff47bb09c2559f0d209070f7d16f",
+    "checks": [
+      {
+        "direction": "MCU_TX",
+        "channel": 0,
+        "command": [
+          "sigrok-cli",
+          "-i",
+          "captures/20261018T014653_cable_wave_icon_idle_unconfirmed_84761e13/logic.bin",
+          "-I",
+          "binary:numchannels=8:samplerate=1000000",
+          "-P",
+          "uart:rx=0:baudrate=9600:data_bits=8:parity=none:stop_bits=1",
+          "-B",
+          "uart=rx"
+        ],
+        "returncode": 0,
+        "python_byte_candidates": 0,
+        "reference_bytes": 0,
+        "python_all_clean": true,
+        "exact_match": true,
+        "reason": "Clean stream comparison"
+      },
+      {
+        "direction": "ASIC_TX",
+        "channel": 2,
+        "command": [
+          "sigrok-cli",
+          "-i",
+          "captures/20261018T014653_cable_wave_icon_idle_unconfirmed_84761e13/logic.bin",
+          "-I",
+          "binary:numchannels=8:samplerate=1000000",
+          "-P",
+          "uart:rx=2:baudrate=9600:data_bits=8:parity=none:stop_bits=1",
+          "-B",
+          "uart=rx"
+        ],
+        "returncode": 0,
+        "python_byte_candidates": 732,
+        "reference_bytes": 732,
+        "python_all_clean": true,
+        "exact_match": true,
+        "reason": "Clean stream comparison"
+      }
+    ],
+    "note": "Decoder agreement is not analog calibration or checksum validation"
+  }
+]

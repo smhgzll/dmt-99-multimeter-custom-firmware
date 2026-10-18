@@ -1,0 +1,10 @@
+{
+  "STOCK_COMPATIBLE": {
+    "preserved_parser_vectors": 1024,
+    "native_library_sha256": "fe318cd38c0ff224e16213ab64108b566a9c3944f83bfb53aa8b35ffef38e806"
+  },
+  "CUSTOM_DMT99": {
+    "preserved_parser_vectors": 1024,
+    "native_library_sha256": "026984327d39f6a3d543399d1168c6d1ed523f7272b6fa45866219ed115b21b5"
+  }
+}

@@ -1,0 +1,92 @@
+[
+  {
+    "start": "ram:00006400",
+    "name": "application_flash",
+    "write": false,
+    "volatile": false,
+    "read": true,
+    "size": 56,
+    "execute": true
+  },
+  {
+    "start": "ram:00006438",
+    "name": "vectors_and_padding",
+    "write": false,
+    "volatile": false,
+    "read": true,
+    "size": 456,
+    "execute": false
+  },
+  {
+    "start": "ram:00006600",
+    "name": "text",
+    "write": false,
+    "volatile": false,
+    "read": true,
+    "size": 98848,
+    "execute": true
+  },
+  {
+    "start": "ram:0001e820",
+    "name": "rodata_and_data_load",
+    "write": false,
+    "volatile": false,
+    "read": true,
+    "size": 35736,
+    "execute": false
+  },
+  {
+    "start": "ram:20000000",
+    "name": "sram_data",
+    "write": true,
+    "volatile": false,
+    "read": true,
+    "size": 488,
+    "execute": false
+  },
+  {
+    "start": "ram:200001e8",
+    "name": "sram_bss_stack",
+    "write": true,
+    "volatile": false,
+    "read": true,
+    "size": 65048,
+    "execute": false
+  },
+  {
+    "start": "ram:40000000",
+    "name": "apb_ahb_mmio",
+    "write": true,
+    "volatile": true,
+    "read": true,
+    "size": 196608,
+    "execute": false
+  },
+  {
+    "start": "ram:a0000000",
+    "name": "fsmc_mmio",
+    "write": true,
+    "volatile": true,
+    "read": true,
+    "size": 4096,
+    "execute": false
+  },
+  {
+    "start": "ram:e000e000",
+    "name": "pfic_systick",
+    "write": true,
+    "volatile": true,
+    "read": true,
+    "size": 8192,
+    "execute": false
+  },
+  {
+    "start": "csreg:0000",
+    "name": "csr",
+    "write": true,
+    "volatile": false,
+    "read": true,
+    "size": 16384,
+    "execute": false
+  }
+]

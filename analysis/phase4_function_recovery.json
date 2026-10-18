@@ -1,0 +1,464 @@
+{
+  "reviewed_entries": [
+    {
+      "address": "0x000096c0",
+      "source": "reconstructed/ui/reading.c",
+      "symbol": "reading_reset_extrema",
+      "extent": "full",
+      "kind": "native",
+      "validation_group": "phase4_render",
+      "scope": "Exact +/-9999 extrema sentinel stores; explicit state replaces original globals",
+      "hardware_validated": false
+    },
+    {
+      "address": "0x00009caa",
+      "source": "reconstructed/ui/reading.c",
+      "symbol": "reading_render",
+      "extent": "full",
+      "kind": "native",
+      "validation_group": "phase4_reading",
+      "scope": "All three views, relative/temperature display, gauges, extrema and graph call contracts. Resistance stack guard/scratch and inherited s5 are explicit state inputs. Monitor alarm consumes an injected application callback; no unknown stack contents or timing equivalence claimed",
+      "hardware_validated": false
+    },
+    {
+      "address": "0x0000aed0",
+      "source": "reconstructed/ui/screen.c",
+      "symbol": "screen_event / screen_reading / control_event",
+      "extent": "full",
+      "kind": "native",
+      "validation_group": "phase4_scenes",
+      "scope": "Composed stock FD state/image contracts and non-FD reading/unit dispatch; monitor threshold dependencies recovered. Native void API excludes incidental return-register residue",
+      "hardware_validated": false
+    },
+    {
+      "address": "0x0000b29e",
+      "source": "reconstructed/ui/screen.c",
+      "symbol": "screen_event / screen_reading / control_event",
+      "extent": "full",
+      "kind": "native",
+      "validation_group": "phase4_scenes",
+      "scope": "Composed stock FD state/image contracts and non-FD reading/unit dispatch; monitor threshold dependencies recovered. Native void API excludes incidental return-register residue",
+      "hardware_validated": false
+    },
+    {
+      "address": "0x0000dec0",
+      "source": "reconstructed/vendor/fatfs/ff.c",
+      "symbol": "get_ldnumber",
+      "extent": "full",
+      "kind": "upstream_library",
+      "classification": "Strong semantic",
+      "validation_group": "phase4_library",
+      "scope": "Pinned FatFs R0.14b with bounded original return/memory/path comparison; ld_clust compiler-scalarized fs_type ABI explicitly adapted in test oracle",
+      "hardware_validated": false
+    },
+    {
+      "address": "0x0000e0f8",
+      "source": "reconstructed/vendor/fatfs/ff.c",
+      "symbol": "ld_clust",
+      "extent": "full",
+      "kind": "upstream_library",
+      "classification": "Strong semantic",
+      "validation_group": "phase4_library",
+      "scope": "Pinned FatFs R0.14b with bounded original return/memory/path comparison; ld_clust compiler-scalarized fs_type ABI explicitly adapted in test oracle",
+      "hardware_validated": false
+    },
+    {
+      "address": "0x0000e116",
+      "source": "reconstructed/vendor/fatfs/ff.c",
+      "symbol": "st_clust",
+      "extent": "full",
+      "kind": "upstream_library",
+      "classification": "Strong semantic",
+      "validation_group": "phase4_library",
+      "scope": "Pinned FatFs R0.14b with bounded original return/memory/path comparison; ld_clust compiler-scalarized fs_type ABI explicitly adapted in test oracle",
+      "hardware_validated": false
+    },
+    {
+      "address": "0x0000fde6",
+      "source": "reconstructed/application/application.c",
+      "symbol": "application_reset_history_strip",
+      "extent": "full",
+      "kind": "native",
+      "validation_group": "phase4_simulator",
+      "scope": "Resets original row, previous-unit y and wrap globals; previous unit/text are deliberately retained",
+      "hardware_validated": false
+    },
+    {
+      "address": "0x0000fdf6",
+      "source": "reconstructed/application/application.c",
+      "symbol": "application_invalidate_display",
+      "extent": "full",
+      "kind": "native",
+      "validation_group": "phase4_simulator",
+      "scope": "Alarm255, shared menu/unit cache25 and auto-label cache255; explicitly synchronizes semantic aliases",
+      "hardware_validated": false
+    },
+    {
+      "address": "0x00010198",
+      "source": "reconstructed/ui/gauge.c",
+      "symbol": "gauge_lower",
+      "extent": "full",
+      "kind": "native",
+      "validation_group": "phase4_render",
+      "scope": "Original gauge geometry/pixel ordering and exact ROM bitmaps; defined bitmap length/domain guards and injected pixel transport",
+      "hardware_validated": false
+    },
+    {
+      "address": "0x00010404",
+      "source": "reconstructed/ui/gauge.c",
+      "symbol": "gauge_upper",
+      "extent": "full",
+      "kind": "native",
+      "validation_group": "phase4_render",
+      "scope": "Original gauge geometry/pixel ordering and exact ROM bitmaps; defined bitmap length/domain guards and injected pixel transport",
+      "hardware_validated": false
+    },
+    {
+      "address": "0x0001066c",
+      "source": "reconstructed/ui/gauge.c",
+      "symbol": "gauge_legacy",
+      "extent": "full",
+      "kind": "native",
+      "validation_group": "phase4_render",
+      "scope": "Original gauge geometry/pixel ordering and exact ROM bitmaps; defined bitmap length/domain guards and injected pixel transport",
+      "hardware_validated": false
+    },
+    {
+      "address": "0x00010e86",
+      "source": "reconstructed/ui/menu_scene.c",
+      "symbol": "menu_threshold_images",
+      "extent": "full",
+      "kind": "native",
+      "validation_group": "phase4_ui",
+      "scope": "All six JPEG threshold rows, language/selection resource variants, lines and unit images; void API omits image return residue",
+      "hardware_validated": false
+    },
+    {
+      "address": "0x00012b00",
+      "source": "reconstructed/ui/monitor.c",
+      "symbol": "compact_unit_draw",
+      "extent": "full",
+      "kind": "native",
+      "validation_group": "phase4_render",
+      "scope": "Exact compact unit glyph codes including unit17 nF and unit20 mHz quirks",
+      "hardware_validated": false
+    },
+    {
+      "address": "0x00012c38",
+      "source": "reconstructed/ui/history_view.c",
+      "symbol": "history_unit_update",
+      "extent": "full",
+      "kind": "native",
+      "validation_group": "phase4_history_strip",
+      "scope": "Current/previous unit color, order, y cache and last unit updates",
+      "hardware_validated": false
+    },
+    {
+      "address": "0x00012c78",
+      "source": "reconstructed/application/application.c",
+      "symbol": "control_effect / history_strip_render",
+      "extent": "full",
+      "kind": "native",
+      "validation_group": "phase4_history_strip",
+      "scope": "Recording strip, previous text, row1..8/wrap, unit cache and packed history append composed from recovered helpers; bounded valid text/numeric record domain",
+      "hardware_validated": false
+    },
+    {
+      "address": "0x00012d5a",
+      "source": "reconstructed/ui/monitor.c",
+      "symbol": "monitor_threshold_render",
+      "extent": "full",
+      "kind": "native",
+      "validation_group": "phase4_render",
+      "scope": "V/current/temperature threshold headings, values, unit images, preference conversion and both layouts",
+      "hardware_validated": false
+    },
+    {
+      "address": "0x00013264",
+      "source": "reconstructed/ui/monitor.c",
+      "symbol": "monitor_alarm_render",
+      "extent": "full",
+      "kind": "native",
+      "validation_group": "phase4_render",
+      "scope": "Existing exact threshold policy plus buzzer and ordered three-image state changes; equality retains alarm",
+      "hardware_validated": false
+    },
+    {
+      "address": "0x00013504",
+      "source": "reconstructed/ui/reading.c",
+      "symbol": "extrema_format",
+      "extent": "full",
+      "kind": "native",
+      "validation_group": "phase4_render",
+      "scope": "Original absolute-magnitude precision selection and bounded formatter output",
+      "hardware_validated": false
+    },
+    {
+      "address": "0x000135b0",
+      "source": "reconstructed/ui/settings_scene.c",
+      "symbol": "settings_select_render",
+      "extent": "full",
+      "kind": "native",
+      "validation_group": "phase4_ui",
+      "scope": "All setting pages/options, original unchecked/checked rectangle and text ordering, old state erasure and setting side effects. Classic Chinese theme2 selection retains original label1 bug. Native language prefix computed from settings instead of mutable target buffer",
+      "hardware_validated": false
+    },
+    {
+      "address": "0x00013c02",
+      "source": "reconstructed/ui/settings_scene.c",
+      "symbol": "settings_select_render",
+      "extent": "full",
+      "kind": "native",
+      "validation_group": "phase4_ui",
+      "scope": "All setting pages/options, original unchecked/checked rectangle and text ordering, old state erasure and setting side effects. Classic Chinese theme2 selection retains original label1 bug. Native language prefix computed from settings instead of mutable target buffer",
+      "hardware_validated": false
+    },
+    {
+      "address": "0x000142a4",
+      "source": "reconstructed/ui/settings_scene.c",
+      "symbol": "settings_brightness_image",
+      "extent": "full",
+      "kind": "native",
+      "validation_group": "phase4_ui",
+      "scope": "Exact settings scene leaf ordering, coordinates/colors, language branches and original brightness side effects; resource/graphics primitives injected",
+      "hardware_validated": false
+    },
+    {
+      "address": "0x0001432e",
+      "source": "reconstructed/ui/settings_scene.c",
+      "symbol": "settings_brightness_bar",
+      "extent": "full",
+      "kind": "native",
+      "validation_group": "phase4_ui",
+      "scope": "Exact settings scene leaf ordering, coordinates/colors, language branches and original brightness side effects; resource/graphics primitives injected",
+      "hardware_validated": false
+    },
+    {
+      "address": "0x00014578",
+      "source": "reconstructed/ui/history_view.c",
+      "symbol": "history_page_render",
+      "extent": "full",
+      "kind": "native",
+      "validation_group": "phase4_render",
+      "scope": "Packed-history value/temperature/overload formatting, units, language images, row spacing and optional scrollbar; guard restricts indices to valid existing records",
+      "hardware_validated": false
+    },
+    {
+      "address": "0x00014a92",
+      "source": "reconstructed/application/application.c",
+      "symbol": "application_step / history_browser_step",
+      "extent": "full",
+      "kind": "native",
+      "validation_group": "phase4_simulator",
+      "scope": "Resumable original page policy plus recovered page/scrollbar drawing and clearing; retains count%5 quirk. Execution timing differs from blocking original",
+      "hardware_validated": false
+    },
+    {
+      "address": "0x00014ef2",
+      "source": "reconstructed/ui/screen.c",
+      "symbol": "screen_base",
+      "extent": "full",
+      "kind": "native",
+      "validation_group": "phase4_scenes",
+      "scope": "All base scenes, exact bitmaps, dashes and battery image ordering; ADC percentage injected by application caller, language prefix assumed initialized",
+      "hardware_validated": false
+    },
+    {
+      "address": "0x0001511a",
+      "source": "reconstructed/ui/screen.c",
+      "symbol": "screen_initial",
+      "extent": "full",
+      "kind": "native",
+      "validation_group": "phase4_simulator",
+      "scope": "Once-per-boot optional logo/fallback, backlight/delay, clear/base and normal flag via injected callbacks; no physical display timing validation",
+      "hardware_validated": false
+    },
+    {
+      "address": "0x000152a8",
+      "source": "reconstructed/ui/settings_scene.c",
+      "symbol": "settings_reset_choices",
+      "extent": "full",
+      "kind": "native",
+      "validation_group": "phase4_ui",
+      "scope": "Exact settings scene leaf ordering, coordinates/colors, language branches and original brightness side effects; resource/graphics primitives injected",
+      "hardware_validated": false
+    },
+    {
+      "address": "0x000153d0",
+      "source": "reconstructed/ui/settings_scene.c",
+      "symbol": "settings_scene_theme",
+      "extent": "full",
+      "kind": "native",
+      "validation_group": "phase4_ui",
+      "scope": "Exact settings scene leaf ordering, coordinates/colors, language branches and original brightness side effects; resource/graphics primitives injected",
+      "hardware_validated": false
+    },
+    {
+      "address": "0x00015e9e",
+      "source": "reconstructed/ui/settings_scene.c",
+      "symbol": "settings_scene_measurement",
+      "extent": "full",
+      "kind": "native",
+      "validation_group": "phase4_ui",
+      "scope": "Exact settings scene leaf ordering, coordinates/colors, language branches and original brightness side effects; resource/graphics primitives injected",
+      "hardware_validated": false
+    },
+    {
+      "address": "0x00016242",
+      "source": "reconstructed/ui/settings_scene.c",
+      "symbol": "settings_scene_auto_off",
+      "extent": "full",
+      "kind": "native",
+      "validation_group": "phase4_ui",
+      "scope": "Exact settings scene leaf ordering, coordinates/colors, language branches and original brightness side effects; resource/graphics primitives injected",
+      "hardware_validated": false
+    },
+    {
+      "address": "0x00017ab2",
+      "source": "reconstructed/ui/graph.c",
+      "symbol": "graph_strip_pixel",
+      "extent": "full",
+      "kind": "native",
+      "validation_group": "phase4_graph",
+      "scope": "Original strip/ring/normalization/arithmetic including index0 preceding slot, modulo197, count wrap, a1 reset and inherited s5 maximum seed. Explicit state prevents C array underflow; no smoothing/ranging invented",
+      "hardware_validated": false
+    },
+    {
+      "address": "0x00017c06",
+      "source": "reconstructed/ui/graph.c",
+      "symbol": "graph_strip_line",
+      "extent": "full",
+      "kind": "native",
+      "validation_group": "phase4_graph",
+      "scope": "Original strip/ring/normalization/arithmetic including index0 preceding slot, modulo197, count wrap, a1 reset and inherited s5 maximum seed. Explicit state prevents C array underflow; no smoothing/ranging invented",
+      "hardware_validated": false
+    },
+    {
+      "address": "0x00017c8c",
+      "source": "reconstructed/ui/graph.c",
+      "symbol": "graph_strip_blit",
+      "extent": "full",
+      "kind": "native",
+      "validation_group": "phase4_graph",
+      "scope": "Original strip/ring/normalization/arithmetic including index0 preceding slot, modulo197, count wrap, a1 reset and inherited s5 maximum seed. Explicit state prevents C array underflow; no smoothing/ranging invented",
+      "hardware_validated": false
+    },
+    {
+      "address": "0x00017cce",
+      "source": "reconstructed/ui/graph.c",
+      "symbol": "graph_update",
+      "extent": "full",
+      "kind": "native",
+      "validation_group": "phase4_graph",
+      "scope": "Original strip/ring/normalization/arithmetic including index0 preceding slot, modulo197, count wrap, a1 reset and inherited s5 maximum seed. Explicit state prevents C array underflow; no smoothing/ranging invented",
+      "hardware_validated": false
+    },
+    {
+      "address": "0x00017f92",
+      "source": "reconstructed/ui/units.c",
+      "symbol": "units_regular / screen_reading",
+      "extent": "full",
+      "kind": "native",
+      "validation_group": "phase4_ui",
+      "scope": "Exact shared cache and image/text effects after common a7a4 dispatch supplied by screen_reading; return residue omitted by void adapter",
+      "hardware_validated": false
+    },
+    {
+      "address": "0x00018354",
+      "source": "reconstructed/ui/units.c",
+      "symbol": "units_recording / screen_reading",
+      "extent": "full",
+      "kind": "native",
+      "validation_group": "phase4_ui",
+      "scope": "Exact shared cache and image/text effects after common a7a4 dispatch supplied by screen_reading; return residue omitted by void adapter",
+      "hardware_validated": false
+    },
+    {
+      "address": "0x00018974",
+      "source": "reconstructed/ui/units.c",
+      "symbol": "units_monitor / screen_reading",
+      "extent": "full",
+      "kind": "native",
+      "validation_group": "phase4_ui",
+      "scope": "Exact shared cache and image/text effects after common a7a4 dispatch supplied by screen_reading; return residue omitted by void adapter",
+      "hardware_validated": false
+    },
+    {
+      "address": "0x00018ad2",
+      "source": "reconstructed/ui/menu_scene.c",
+      "symbol": "menu_category_compact",
+      "extent": "full",
+      "kind": "native",
+      "validation_group": "phase4_ui",
+      "scope": "Original category/choice or six threshold-hint leaf calls; language, initialization, highlight and erasure ordering, including English old Recording row bug",
+      "hardware_validated": false
+    },
+    {
+      "address": "0x00019366",
+      "source": "reconstructed/ui/menu_scene.c",
+      "symbol": "menu_category_large",
+      "extent": "full",
+      "kind": "native",
+      "validation_group": "phase4_ui",
+      "scope": "Original category/choice or six threshold-hint leaf calls; language, initialization, highlight and erasure ordering, including English old Recording row bug",
+      "hardware_validated": false
+    },
+    {
+      "address": "0x00019954",
+      "source": "reconstructed/ui/menu_scene.c",
+      "symbol": "menu_choice_large",
+      "extent": "full",
+      "kind": "native",
+      "validation_group": "phase4_ui",
+      "scope": "Original category/choice or six threshold-hint leaf calls; language, initialization, highlight and erasure ordering, including English old Recording row bug",
+      "hardware_validated": false
+    },
+    {
+      "address": "0x00019ba8",
+      "source": "reconstructed/ui/menu_scene.c",
+      "symbol": "menu_choice_compact",
+      "extent": "full",
+      "kind": "native",
+      "validation_group": "phase4_ui",
+      "scope": "Original category/choice or six threshold-hint leaf calls; language, initialization, highlight and erasure ordering, including English old Recording row bug",
+      "hardware_validated": false
+    },
+    {
+      "address": "0x00019f20",
+      "source": "reconstructed/ui/menu_scene.c",
+      "symbol": "menu_threshold_hint",
+      "extent": "full",
+      "kind": "native",
+      "validation_group": "phase4_ui",
+      "scope": "Original category/choice or six threshold-hint leaf calls; language, initialization, highlight and erasure ordering, including English old Recording row bug",
+      "hardware_validated": false
+    },
+    {
+      "address": "0x0001a124",
+      "source": "reconstructed/ui/menu_scene.c",
+      "symbol": "menu_threshold_hint",
+      "extent": "full",
+      "kind": "native",
+      "validation_group": "phase4_ui",
+      "scope": "Original category/choice or six threshold-hint leaf calls; language, initialization, highlight and erasure ordering, including English old Recording row bug",
+      "hardware_validated": false
+    },
+    {
+      "address": "0x0001a468",
+      "source": "reconstructed/ui/gauge.c",
+      "symbol": "gauge_bitmap",
+      "extent": "full",
+      "kind": "native",
+      "validation_group": "phase4_render",
+      "scope": "Original gauge geometry/pixel ordering and exact ROM bitmaps; defined bitmap length/domain guards and injected pixel transport",
+      "hardware_validated": false
+    }
+  ],
+  "codepage_boundaries": [
+    "0x0000fc9e",
+    "0x0000fcfc"
+  ],
+  "custom_original_function_credit": 0,
+  "remaining_dispatcher": "0x000169d4",
+  "hardware_validated": false
+}

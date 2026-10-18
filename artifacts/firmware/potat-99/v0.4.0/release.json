@@ -1,0 +1,24 @@
+{
+ "name": "DMT99 reconstructed firmware",
+ "version": "0.4.0",
+ "date": "20261018",
+ "source_commit": "cbc1145",
+ "file": "DMT-99_V0.4.0_20261018.bin",
+ "size": 134704,
+ "sha256": "a2bb50f669536653991b546d62a718c6b6a28bbebf196debb80a20aa3194782c",
+ "format": "raw application BIN for the manufacturer USB bootloader, same layout as DMT-99_V2.4_20240306.bin",
+ "flash_range": [
+  "0x08006400",
+  "0x0802722f"
+ ],
+ "preserved": {
+  "bootloader": "0x08000000-0x080063ff (not part of the image, never written)",
+  "settings_page": "0x08040000-0x080400ff (V2.4 format, kept)"
+ },
+ "reset_entry": "0x65e0",
+ "rollback_file": {
+  "name": "DMT-99_V2.4_20240306.bin",
+  "sha256": "4befdf6b58e063f03901f190000d790e60d20d0a23e5eeb2b6f6840f1830e98e"
+ },
+ "verified_on": "emulated CH32V303 board only (tools/test_update_image.py, test_original_differential.py, test_firmware_emulation.py); not yet run on a physical DMT99"
+}

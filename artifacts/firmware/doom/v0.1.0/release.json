@@ -1,0 +1,18 @@
+{
+  "project": "POTAT-99 DOOM",
+  "version": "0.1.0",
+  "date": "20261018",
+  "file": "DMT-99_V0.1.0_20261018.bin",
+  "load_address": "0x08006400",
+  "execution_alias": "0x6400",
+  "vector_alias": "0x6438",
+  "flash_end_exclusive": "0x8019c00",
+  "image_bytes": 79872,
+  "sha256": "c6c3bfed28a7fa6eba0718b9121155be706a30c8829ea06deadb1937b4a41005",
+  "static_ram_bytes": 6136,
+  "reserved_stack_bytes": 6144,
+  "hardware_verified": false,
+  "bootloader_acceptance_verified": false,
+  "external_asset_file_needed": false,
+  "writes_internal_or_external_flash_at_runtime": false
+}

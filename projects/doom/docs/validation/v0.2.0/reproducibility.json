@@ -1,0 +1,6 @@
+{
+  "pass": true,
+  "before": "2a551b1e3df0ce78fb4f9953d093d5a34423227a12e941cc882da2912c8b63f0",
+  "after": "2a551b1e3df0ce78fb4f9953d093d5a34423227a12e941cc882da2912c8b63f0",
+  "method": "forced complete object and asset rebuild, same compiler/options"
+}

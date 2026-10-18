@@ -1,0 +1,165 @@
+{
+  "sessions": [
+    {
+      "capture": "20261018T014128_current_mA_open_first_416da768",
+      "reported_mode": "DC mA (user reported)",
+      "reported_display": "mA DC",
+      "reported_unit": "mA",
+      "clean_display_packets": 60,
+      "uart_error_candidates": 0,
+      "display_histogram": [
+        {
+          "text": "   0",
+          "unit": "uA",
+          "count": 60
+        }
+      ],
+      "ac_dc_codes": {
+        "2": 60
+      },
+      "mode_selection_command_captured": false,
+      "analog_calibration_validated": false
+    },
+    {
+      "capture": "20261018T014244_current_AC_mA_open_f9bb5e6d",
+      "reported_mode": "AC mA (user reported)",
+      "reported_display": "mA AC",
+      "reported_unit": "mA",
+      "clean_display_packets": 59,
+      "uart_error_candidates": 0,
+      "display_histogram": [
+        {
+          "text": "   3",
+          "unit": "uA",
+          "count": 59
+        }
+      ],
+      "ac_dc_codes": {
+        "1": 59
+      },
+      "mode_selection_command_captured": false,
+      "analog_calibration_validated": false
+    },
+    {
+      "capture": "20261018T014351_current_DC_A_open_b049a37a",
+      "reported_mode": "DC A (user reported)",
+      "reported_display": "amper DC",
+      "reported_unit": "A",
+      "clean_display_packets": 61,
+      "uart_error_candidates": 0,
+      "display_histogram": [
+        {
+          "text": "0.000",
+          "unit": "A",
+          "count": 61
+        }
+      ],
+      "ac_dc_codes": {
+        "2": 61
+      },
+      "mode_selection_command_captured": false,
+      "analog_calibration_validated": false
+    },
+    {
+      "capture": "20261018T014536_current_AC_A_open_56fe1dda",
+      "reported_mode": "AC A (user reported)",
+      "reported_display": "amper AC boşta",
+      "reported_unit": "A",
+      "clean_display_packets": 60,
+      "uart_error_candidates": 1,
+      "display_histogram": [
+        {
+          "text": "0.001",
+          "unit": "A",
+          "count": 60
+        }
+      ],
+      "ac_dc_codes": {
+        "1": 60
+      },
+      "mode_selection_command_captured": false,
+      "analog_calibration_validated": false
+    },
+    {
+      "capture": "20261018T014653_cable_wave_icon_idle_unconfirmed_84761e13",
+      "reported_mode": "NCV ile uyumlu: dalgalı kablo ekranı; ardından tek tuşla LIVE",
+      "reported_display": "Kablo simgesi, altında/üstünde sinyalimsi görüntü",
+      "reported_unit": null,
+      "clean_display_packets": 61,
+      "uart_error_candidates": 0,
+      "display_histogram": [
+        {
+          "text": " E? ",
+          "unit": "unknown",
+          "count": 61
+        }
+      ],
+      "ac_dc_codes": {
+        "255": 61
+      },
+      "mode_selection_command_captured": false,
+      "analog_calibration_validated": false,
+      "host_ui_status_with_explicit_context": [
+        {
+          "kind": "NCV_level",
+          "value": 0,
+          "evidence": "original_screen_c_mode_09",
+          "active_input_validated": false
+        }
+      ]
+    },
+    {
+      "capture": "20261018T014757_LIVE_cable_only_idle_0fda3de2",
+      "reported_mode": "LIVE; kullanıcı yalnız kablo simgesi, kılavuzla uyumlu",
+      "reported_display": "Sadece kablo var; dalga yok",
+      "reported_unit": null,
+      "clean_display_packets": 61,
+      "uart_error_candidates": 0,
+      "display_histogram": [
+        {
+          "text": "L1UE",
+          "unit": "unknown",
+          "count": 61
+        }
+      ],
+      "ac_dc_codes": {
+        "255": 61
+      },
+      "mode_selection_command_captured": false,
+      "analog_calibration_validated": false,
+      "host_ui_status_with_explicit_context": [
+        {
+          "kind": "LIVE_active_render",
+          "value": false,
+          "evidence": "original_screen_c_mode_13",
+          "active_input_validated": false
+        }
+      ]
+    },
+    {
+      "capture": "20261018T014854_temperature_C_no_external_probe_0421fc54",
+      "reported_mode": "Temperature °C (user reported)",
+      "reported_display": "32 °C",
+      "reported_unit": "degC",
+      "clean_display_packets": 58,
+      "uart_error_candidates": 0,
+      "display_histogram": [
+        {
+          "text": "  32",
+          "unit": "temperature_C_or_F",
+          "count": 58
+        }
+      ],
+      "ac_dc_codes": {
+        "255": 58
+      },
+      "mode_selection_command_captured": false,
+      "analog_calibration_validated": false,
+      "numeric_only_screen_matches": 58,
+      "unit_comparison_note": "User selected °C; generic wire unit21 alone remains C/F ambiguous. Numeric-only matches do not authenticate units or calibration."
+    }
+  ],
+  "automatic_semantic_confirmation": false,
+  "total_clean_display_packets": 420,
+  "source_note": "Each histogram and source metadata remain separately preserved; actual regression samples unmodified."
+}

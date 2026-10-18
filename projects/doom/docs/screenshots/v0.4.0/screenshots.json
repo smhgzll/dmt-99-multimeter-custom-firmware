@@ -1,0 +1,20 @@
+{
+  "image_sha256": "2622d1bc35b678d74234178b79c922b0523e00d8e490df89d79b1dc253ee5d61",
+  "source": "actual RV32 BIN with GPIO inputs and emulated panel; actor scenes use controlled SRAM fixtures",
+  "hardware_verified": false,
+  "sha256": {
+    "clean-menu.png": "6e138ab60b31a124dd9dc3a8ebb51b8c725f56a2063708d8619d5b0f2f80f613",
+    "weapons.png": "977d9a5545bfe2f15cca26aaffb95dbc30d72a32f700c525675f75e2881e691c",
+    "shotgun.png": "ac118ae0b6e28d0b10f4698ff4fc2220698d9bbfbb798694650f71ea6d25289b",
+    "game.png": "8f351456459e69ed4aa18000830c928e9e6a70303e7f47a2ba79c1c8a2047ef7",
+    "fire.png": "c7f0dede8c65b528de1edf7a6769848db8dadde67806415669abee01cff82c1f",
+    "held-fire.png": "61f7d923f9ed8bafb1ae3919922824349a74cf15a799d3eb0ce54a1dfb21ab09",
+    "pause.png": "f8790bbd3c21a9f78dac113b41268552ab06e4a47de1824a86bf513ec5d132ac",
+    "god-on.png": "0abab9ec067ca157d2cb5f252fca41726c5b8c788514b0efca1a6b9b6fdd6211",
+    "sound-off.png": "d78d87aa5075b71ca38087b1c89db2ddee8baf295445286a7cd3f07f26fed2e3",
+    "god-protects.png": "8b845d76d1dc86d9b63207b1dc0e18fb90067e0b0bc64b46d4e989fbc6ee5516",
+    "muted-fire.png": "4587aae1a15a3271ed0f3fa8eb82dbd40acf45cf9075f4f30cea6ddc51f1d6f8",
+    "wall-blocks-shot.png": "42cf1a61ca5eab500f61a5122e0ee43bc3fa9644667f4cc284f4a40f2ef58ef7",
+    "corpse-removed.png": "f0667bf8db8c6956da310acfe8933c55293f5e3ed30887c1bfc2a53d3cc3f926"
+  }
+}

@@ -1,0 +1,18 @@
+{
+  "potat-clean": {
+    "sha256": "e7381d64205047d3e43102e690acc0be5663532424f6103665579fd576c50ed0",
+    "bytes": 141868
+  },
+  "potat-release": {
+    "sha256": "e7381d64205047d3e43102e690acc0be5663532424f6103665579fd576c50ed0",
+    "bytes": 141868
+  },
+  "doom-clean": {
+    "sha256": "2622d1bc35b678d74234178b79c922b0523e00d8e490df89d79b1dc253ee5d61",
+    "bytes": 163444
+  },
+  "doom-release": {
+    "sha256": "2622d1bc35b678d74234178b79c922b0523e00d8e490df89d79b1dc253ee5d61",
+    "bytes": 163444
+  }
+}

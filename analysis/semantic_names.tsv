@@ -1,0 +1,253 @@
+0x00006400	application_entry	high: Entry JAL to verified reset routine
+0x0000c668	handle_reset	high: AUIPC SRAM initialization CSR setup and mepc handoff
+0x0000908a	main	high: Startup mepc target initializes drivers then calls nonreturning application
+0x00008ed4	application_loop	high: Three UI branches selected by 0x200001de plus packet processing and power checks
+0x00006600	wch_save_12	high: GCC t0-return register-save helper; 64-byte frame
+0x00006608	wch_save_10	high: GCC t0-return register-save helper; 48-byte frame
+0x00006616	wch_save_6	high: GCC t0-return register-save helper; 32-byte frame
+0x00006630	wch_save_2	high: GCC t0-return register-save helper; 16-byte frame
+0x0000663c	wch_restore_12	high: Shared restore fallthroughs at 0x6640 0x664a 0x6654
+0x00006660	memset_recovered	high: Repeated byte/word fill and length; computed tail branch
+0x0000678c	resource_draw_jpeg	high: Opens path then invokes decoder with output callback and display coordinates
+0x00006708	jpeg_input_callback	high: File read/seek adapter passed to decoder
+0x00006734	jpeg_display_callback	high: Pixel rectangle callback passed to decoder
+0x0000696e	jpeg_decoder_prepare	medium: Called with 0x1c00 work area and input callback before pixel decoding
+0x00006d9c	jpeg_decoder_decompress	medium: Decoder calls rectangle callback; JPEG preparation relationship
+0x00007562	charge_detect_gpio_init	high: GPIOA pin 8 floating input
+0x00007598	adc_read_averaged	high: Repeated ADC conversion polling and averaging
+0x000075f0	battery_percentage_estimate	medium: ADC channel 10 and voltage diagnostics; float conversion signatures unresolved
+0x0000767a	adc_battery_init	high: ADC1 initialization calibration and PC0 analog input
+0x0000770a	battery_inputs_init	medium: Calls ADC and GPIO initialization routines
+0x00007736	tim3_periodic_init	high: TIM3 base values 9999 and 14399; update interrupt setup
+0x00007780	TIM3_IRQHandler	high: Vector slot 45; TIM3 update flag and periodic power management
+0x0000780c	tim2_buzzer_pwm_config	medium: TIM2 PWM on PA1; disable counterpart drives pin low
+0x000078d0	buzzer_enable	medium: TIM2 compare output and PA1 level control
+0x00007944	buttons_gpio_exti_init	high: PC2 8 9 10 11 12 pullups and falling-edge EXTI mapping
+0x00007b08	button_wait_longpress	high: Polls five PC inputs at 10ms intervals with thresholds 41 and 101
+0x00007c0a	EXTI2_IRQHandler	high: Vector slot 24; PC2 debounce event 8 and conditional power-off
+0x00007c42	EXTI9_5_IRQHandler	high: Vector slot 39; PC9 event 3 and PC8 short 5 long 6
+0x00007cd8	EXTI15_10_IRQHandler	high: Vector slot 56; PC10 11 12 events 1 2 4
+0x00007d6a	display_write_command	high: PC5 low PB output word PC13 write strobe PC4 select
+0x00007dba	display_write_data	high: PC5 high PB output word PC13 write strobe PC4 select
+0x00007e0a	display_write_register	high: Command then data transport
+0x00007e20	display_begin_pixels	medium: Writes configured memory-write command
+0x00007f18	display_set_orientation	high: 320x240 geometry and orientation command selection
+0x00007f66	tim8_backlight_pwm_config	medium: TIM8 PWM on PC6; duty used on display startup and power-off
+0x0000876a	display_fill	high: Width times height repeated color writes after window setup
+0x000087aa	display_init	high: GPIOB data port PC control pins reset and LCD initialization commands
+0x00008a02	display_fill_rectangle	high: Window bounds followed by repeated RGB565 color writes
+0x000090d2	strlen	high: Byte loop ending at zero and return length
+0x000097c4	measurement_send_command	high: Exactly ten USART1 bytes with transfer-complete polling
+0x000097f8	measurement_forward_button_command	high: Builds AA55 template for IDs 1 3 8 9 from button events
+0x000098aa	measurement_segment_decode	high: Masks 0x10 then matches explicit seven-segment patterns
+0x0000997e	measurement_decode_segments	high: Combines high/low nibbles across bytes 2 through 6 into four symbols
+0x0000a910	measurement_ui_regular_event	high: 0xfd event dispatch and resource paths for measurement modes
+0x0000aed0	measurement_ui_record_event	high: 0xfd event dispatch in second application branch
+0x0000b29e	measurement_ui_monitor_event	medium: Third application branch event processing and threshold UI
+0x0000b5c8	measurement_regular_buttons	high: Button events select documented command IDs and menu state
+0x0000b9e0	measurement_record_buttons	high: Command construction plus history append from event 5
+0x0000bc90	measurement_monitor_buttons	medium: Third application branch command construction
+0x0000be18	measurement_get_unit_code	high: Returns 0x20000289
+0x0000be1e	measurement_get_value_bits	high: Returns raw 32-bit float representation at 0x20000284
+0x0000be2a	measurement_overload_kind	high: String positions distinguish two OL representations returning 1 or 2
+0x0000be78	measurement_parse_display_frame	high: 5AA5 header packed segment decoding decimal and unit flag extraction
+0x0000c248	settings_load_and_apply	high: Loads packed settings and applies theme language layout and auto-off
+0x0000c320	power_down	high: Saves settings dims backlight drives PC1 low then infinite loop
+0x0000c350	measurement_uart_dma_init	high: USART1 PA9 PA10 13-byte circular DMA1 channel 5
+0x0000c468	USART1_IRQHandler	high: Vector slot 53; IDLE clears and rearms DMA plus 13-byte event snapshot
+0x0000c570	DMA1_Channel5_IRQHandler	high: Vector slot 31; DMA transfer-complete flag handling
+0x0000c6f6	ADC_Init	high: Register masks and struct offsets correspond to official WCH ADC_Init
+0x0000c74c	ADC_Cmd	high: ADC CTLR2 bit 0 enable
+0x0000c75c	ADC_ResetCalibration	high: ADC CTLR2 reset-calibration bit
+0x0000c766	ADC_GetResetCalibrationStatus	high: ADC CTLR2 reset-calibration status
+0x0000c76e	ADC_StartCalibration	high: ADC CTLR2 calibration bit
+0x0000c778	ADC_GetCalibrationStatus	high: ADC CTLR2 calibration status
+0x0000c780	ADC_SoftwareStartConvCmd	high: ADC CTLR2 mask 0x500000
+0x0000c798	ADC_RegularChannelConfig	high: ADC sample time and regular sequence register selection
+0x0000c850	ADC_GetConversionValue	high: ADC data register halfword read
+0x0000c858	ADC_GetFlagStatus	high: ADC status mask test
+0x0000c862	DMA_Init	high: Channel peripheral memory count and CFGR struct fields
+0x0000c89a	DMA_Cmd	high: DMA CFGR enable bit
+0x0000c8ae	DMA_ITConfig	high: DMA CFGR interrupt mask enable
+0x0000c8c0	DMA_SetCurrDataCounter	high: DMA CNTR write
+0x0000c8c4	DMA_ClearITPendingBit	high: DMA interrupt-clear registers selected by encoded flag
+0x0000c8f0	EXTI_Init	high: EXTI rising falling and interrupt-event mode masks
+0x0000c95a	EXTI_GetITStatus	high: EXTI enable plus pending tests
+0x0000c978	EXTI_ClearITPendingBit	high: EXTI pending write-one-to-clear
+0x0000c982	FLASH_Unlock	high: Internal flash two-key unlock sequence
+0x0000c99c	FLASH_Lock	high: Internal flash CTLR lock bit
+0x0000c9aa	FLASH_ClearFlag	high: Internal flash STATR write
+0x0000c9b2	FLASH_GetStatus	high: Internal flash busy and error status logic
+0x0000c9ca	FLASH_WaitForLastOperation	high: Polls internal flash status with timeout
+0x0000c9ee	FLASH_ProgramHalfWord	high: Internal flash program bit halfword store wait and disable
+0x0000ca26	FLASH_Unlock_Fast	high: Fast-mode two-key unlock
+0x0000ca44	FLASH_Lock_Fast	high: Fast-mode lock bit
+0x0000ca52	FLASH_ErasePage_Fast	high: Fast erase with address rounded to 256-byte boundary
+0x0000ca80	GPIO_Init	high: GPIO configuration nibbles and pullup-pulldown register logic
+0x0000cb40	GPIO_ReadInputDataBit	high: GPIO INDR masked boolean read
+0x0000cb4a	GPIO_SetBits	high: GPIO BSHR write
+0x0000cb4e	GPIO_ResetBits	high: GPIO BCR write
+0x0000cb52	GPIO_WriteBit	high: GPIO BSHR or BCR according to bit action
+0x0000cb5c	GPIO_EXTILineConfig	high: AFIO external interrupt port selector nibble
+0x0000cb88	NMI_Handler	high: Vector slot 2; mret
+0x0000cb8c	HardFault_Handler	high: Vector slot 3; infinite self-loop
+0x0000cb8e	NVIC_PriorityGroupConfig	high: CSR priority group write
+0x0000cb94	NVIC_Init	high: PFIC enable disable and priority configuration
+0x0000cc3a	RCC_ADCCLKConfig	high: RCC CFGR0 ADC prescaler field
+0x0000cc4c	RCC_GetClocksFreq	high: RCC clock mux PLL multiplier and bus prescaler calculations
+0x0000cd52	RCC_AHBPeriphClockCmd	high: RCC AHB clock enable register
+0x0000cd70	RCC_APB2PeriphClockCmd	high: RCC APB2 clock enable register
+0x0000cd8e	RCC_APB1PeriphClockCmd	high: RCC APB1 clock enable register
+0x0000cdac	SPI_Init	high: SPI configuration mask struct offsets CRC polynomial
+0x0000cdea	SPI_Cmd	high: SPI CTLR1 enable bit
+0x0000ce04	SPI_I2S_SendData	high: SPI DATAR halfword store
+0x0000ce08	SPI_I2S_ReceiveData	high: SPI DATAR halfword load
+0x0000ce0c	SPI_I2S_GetFlagStatus	high: SPI status flag mask
+0x0000ce16	TIM_TimeBaseInit	high: TIM prescaler auto-reload and update generation
+0x0000cec0	TIM_OC1Init	high: TIM channel 1 output compare registers
+0x0000cf42	TIM_OC2Init	high: TIM channel 2 output compare registers
+0x0000cff0	TIM_Cmd	high: TIM CTLR1 enable bit
+0x0000d008	TIM_CtrlPWMOutputs	high: TIM BDTR master output enable
+0x0000d01e	TIM_ITConfig	high: TIM interrupt DMA enable register mask
+0x0000d030	TIM_ARRPreloadConfig	high: TIM CTLR1 bit 7 auto-reload preload enable
+0x0000d04a	TIM_OC1PreloadConfig	high: TIM CHCTLR1 bit 3 output compare preload
+0x0000d058	TIM_OC2PreloadConfig	high: TIM CHCTLR1 second channel preload
+0x0000d06e	TIM_SetCompare2	high: TIM channel 2 compare halfword write
+0x0000d072	TIM_GetITStatus	high: TIM interrupt enable and pending bits
+0x0000d08a	TIM_ClearITPendingBit	high: TIM status complement-mask write
+0x0000d096	USART_Init	high: Official USART struct bit masks and baud divisor
+0x0000d152	USART_Cmd	high: USART CTLR1 enable bit
+0x0000d168	USART_ITConfig	high: Encoded USART interrupt register selection
+0x0000d19e	USART_DMACmd	high: USART CTLR3 DMA mask
+0x0000d1b0	USART_SendData	high: USART DATAR write masked to nine bits
+0x0000d1b8	USART_ReceiveData	high: USART DATAR read masked to nine bits
+0x0000d1c0	USART_GetFlagStatus	high: USART STATR mask
+0x0000d1ca	USART_ClearFlag	high: USART STATR complement-mask write
+0x0000d1d6	USART_GetITStatus	high: Encoded USART interrupt enable and status tests
+0x0000d212	SystemInit	high: RCC 8MHz HSE times 18 PLL configuration for 144MHz
+0x0000d2fc	SystemCoreClockUpdate	high: RCC decode stores core clock at 0x200001cc
+0x0000d38a	spi1_flash_init	high: PA4 CS PA5 SCK PA6 MISO PA7 MOSI and SPI1 configuration
+0x0000d442	spi1_exchange_byte	high: SPI1 TXE RXNE loops bounded by 201 polls
+0x0000d498	spi_flash_send_byte	high: Wrapper around SPI1 exchange
+0x0000d4a4	spi_flash_receive_byte	high: Wrapper exchanges dummy byte
+0x0000d4b4	spi_flash_read_jedec_id	high: 0x9f and three response bytes with PA4 CS
+0x0000d4f8	spi_flash_write_enable	high: 0x06 command under PA4 CS
+0x0000d516	spi_flash_read_status	high: 0x05 command under PA4 CS
+0x0000d538	spi_flash_erase_sector	high: 0x20 command and three address bytes with sector index shift
+0x0000d588	spi_flash_page_program	high: 0x02 command 24-bit address and up to 256 data bytes
+0x0000d602	spi_flash_program_pages	high: Splits writes at 256-byte page boundaries
+0x0000d656	spi_flash_read	high: 0x03 command 24-bit address and dummy-clock reads
+0x0000d6bc	spi_flash_write_preserve_sector	high: 4096-byte read modify erase rewrite sequence
+0x0000d86c	spi_flash_init	high: Calls SPI1 initialization and JEDEC ID read
+0x0000d87c	settings_commit_internal_flash	high: Erases/programs 0x08040000 and copies 128 halfwords
+0x0000d908	read_halfwords	high: 16-bit source-to-destination copy
+0x0000d928	settings_load_internal_flash	high: Copies 128 halfwords from 0x08040000 to 0x20000020
+0x0000d944	settings_theme_access	high: Packed word bits 8 and 9
+0x0000d964	settings_language_access	high: Packed word low three bits and language resource path
+0x0000d9e6	settings_field_3_4_access	high: Packed word bits 3 and 4; UI meaning not yet established
+0x0000da04	settings_layout_access	high: Packed word bits 10 and 11; selects alternate layout
+0x0000da28	settings_temperature_access	high: Packed word bit 5; temperature display call site
+0x0000da48	settings_auto_off_access	high: Packed word bits 6 and 7; 0 300 900 1800 second thresholds
+0x0000da9c	history_append_measurement	high: Shifts 29 four-byte entries caps count at 30 and packs measurement
+0x0000dbac	history_decode_entry	high: Extracts mode unit sign scale and magnitude from selected four-byte entry
+0x0000dc46	settings_restore_defaults	medium: Copies defaults and clears remaining 128-halfword settings buffer
+0x0000dca0	disk_status	medium: FatFs-facing drive status wrapper returns zero
+0x0000dca4	disk_initialize	medium: FatFs-facing drive initialization wrapper returns zero
+0x0000dca8	disk_read	high: Sector index shifted by 12 then SPI read
+0x0000dcd0	disk_write	high: Sector index shifted by 12 then preserved-sector SPI write
+0x0000dd00	disk_ioctl	high: Sector count 2048 sector size 4096 erase block 1
+0x0000dd4e	filesystem_resources_init	high: Mount calls and BOOT resource handling
+0x0000de12	filesystem_logo_remove	high: Mounts resources removes LOGO.jpg then remounts
+0x00014cd6	charge_screen_poll	high: GPIOA pin 8 controls recharge image loop
+0x00014d62	battery_icon_theme_a	high: Ten cell image paths selected by percentage thresholds
+0x0001511a	application_show_initial_screen	high: Optional on.jpg splash then measurement screen setup
+0x000169d4	menu_dispatch	medium: Thirty-two state switch with settings history and about branches
+0x0001a626	delay_init	high: Core-clock-derived millisecond and microsecond factors
+0x0001a64c	delay_ms	high: SysTick compare count enable and status polling
+0x0001a682	debug_usart2_init	high: PA2 alternate output USART2 at main argument 115200
+0x0001a6e2	debug_putchar	high: USART2 transmit register and TC polling
+0x0000c5c2	Ecall_M_Mode_Handler_default	high: Vector slot 5 uses this target; original opcode is c.j to itself
+0x0000c5c4	Ecall_U_Mode_Handler_default	high: Vector slot 8 uses this target; original opcode is c.j to itself
+0x0000c5c6	Break_Point_Handler_default	high: Vector slot 9 uses this target; original opcode is c.j to itself
+0x0000c5c8	SysTick_Handler_default	high: Vector slot 12 uses this target; original opcode is c.j to itself
+0x0000c5ca	SW_Handler_default	high: Vector slot 14 uses this target; original opcode is c.j to itself
+0x0000c5cc	WWDG_IRQHandler_default	high: Vector slot 16 uses this target; original opcode is c.j to itself
+0x0000c5ce	PVD_IRQHandler_default	high: Vector slot 17 uses this target; original opcode is c.j to itself
+0x0000c5d0	TAMPER_IRQHandler_default	high: Vector slot 18 uses this target; original opcode is c.j to itself
+0x0000c5d2	RTC_IRQHandler_default	high: Vector slot 19 uses this target; original opcode is c.j to itself
+0x0000c5d4	FLASH_IRQHandler_default	high: Vector slot 20 uses this target; original opcode is c.j to itself
+0x0000c5d6	RCC_IRQHandler_default	high: Vector slot 21 uses this target; original opcode is c.j to itself
+0x0000c5d8	EXTI0_IRQHandler_default	high: Vector slot 22 uses this target; original opcode is c.j to itself
+0x0000c5da	EXTI1_IRQHandler_default	high: Vector slot 23 uses this target; original opcode is c.j to itself
+0x0000c5de	EXTI3_IRQHandler_default	high: Vector slot 25 uses this target; original opcode is c.j to itself
+0x0000c5e0	EXTI4_IRQHandler_default	high: Vector slot 26 uses this target; original opcode is c.j to itself
+0x0000c5e2	DMA1_Channel1_IRQHandler_default	high: Vector slot 27 uses this target; original opcode is c.j to itself
+0x0000c5e4	DMA1_Channel2_IRQHandler_default	high: Vector slot 28 uses this target; original opcode is c.j to itself
+0x0000c5e6	DMA1_Channel3_IRQHandler_default	high: Vector slot 29 uses this target; original opcode is c.j to itself
+0x0000c5e8	DMA1_Channel4_IRQHandler_default	high: Vector slot 30 uses this target; original opcode is c.j to itself
+0x0000c5ec	DMA1_Channel6_IRQHandler_default	high: Vector slot 32 uses this target; original opcode is c.j to itself
+0x0000c5ee	DMA1_Channel7_IRQHandler_default	high: Vector slot 33 uses this target; original opcode is c.j to itself
+0x0000c5f0	ADC1_2_IRQHandler_default	high: Vector slot 34 uses this target; original opcode is c.j to itself
+0x0000c5f2	USB_HP_CAN1_TX_IRQHandler_default	high: Vector slot 35 uses this target; original opcode is c.j to itself
+0x0000c5f4	USB_LP_CAN1_RX0_IRQHandler_default	high: Vector slot 36 uses this target; original opcode is c.j to itself
+0x0000c5f6	CAN1_RX1_IRQHandler_default	high: Vector slot 37 uses this target; original opcode is c.j to itself
+0x0000c5f8	CAN1_SCE_IRQHandler_default	high: Vector slot 38 uses this target; original opcode is c.j to itself
+0x0000c5fc	TIM1_BRK_IRQHandler_default	high: Vector slot 40 uses this target; original opcode is c.j to itself
+0x0000c5fe	TIM1_UP_IRQHandler_default	high: Vector slot 41 uses this target; original opcode is c.j to itself
+0x0000c600	TIM1_TRG_COM_IRQHandler_default	high: Vector slot 42 uses this target; original opcode is c.j to itself
+0x0000c602	TIM1_CC_IRQHandler_default	high: Vector slot 43 uses this target; original opcode is c.j to itself
+0x0000c604	TIM2_IRQHandler_default	high: Vector slot 44 uses this target; original opcode is c.j to itself
+0x0000c608	TIM4_IRQHandler_default	high: Vector slot 46 uses this target; original opcode is c.j to itself
+0x0000c60a	I2C1_EV_IRQHandler_default	high: Vector slot 47 uses this target; original opcode is c.j to itself
+0x0000c60c	I2C1_ER_IRQHandler_default	high: Vector slot 48 uses this target; original opcode is c.j to itself
+0x0000c60e	I2C2_EV_IRQHandler_default	high: Vector slot 49 uses this target; original opcode is c.j to itself
+0x0000c610	I2C2_ER_IRQHandler_default	high: Vector slot 50 uses this target; original opcode is c.j to itself
+0x0000c612	SPI1_IRQHandler_default	high: Vector slot 51 uses this target; original opcode is c.j to itself
+0x0000c614	SPI2_IRQHandler_default	high: Vector slot 52 uses this target; original opcode is c.j to itself
+0x0000c618	USART2_IRQHandler_default	high: Vector slot 54 uses this target; original opcode is c.j to itself
+0x0000c61a	USART3_IRQHandler_default	high: Vector slot 55 uses this target; original opcode is c.j to itself
+0x0000c61e	RTCAlarm_IRQHandler_default	high: Vector slot 57 uses this target; original opcode is c.j to itself
+0x0000c620	TIM8_BRK_IRQHandler_default	high: Vector slot 59 uses this target; original opcode is c.j to itself
+0x0000c622	TIM8_UP_IRQHandler_default	high: Vector slot 60 uses this target; original opcode is c.j to itself
+0x0000c624	TIM8_TRG_COM_IRQHandler_default	high: Vector slot 61 uses this target; original opcode is c.j to itself
+0x0000c626	TIM8_CC_IRQHandler_default	high: Vector slot 62 uses this target; original opcode is c.j to itself
+0x0000c628	RNG_IRQHandler_default	high: Vector slot 63 uses this target; original opcode is c.j to itself
+0x0000c62a	0_default	high: Vector slot 64 uses this target; original opcode is c.j to itself
+0x0000c62c	SDIO_IRQHandler_default	high: Vector slot 65 uses this target; original opcode is c.j to itself
+0x0000c62e	TIM5_IRQHandler_default	high: Vector slot 66 uses this target; original opcode is c.j to itself
+0x0000c630	SPI3_IRQHandler_default	high: Vector slot 67 uses this target; original opcode is c.j to itself
+0x0000c632	UART4_IRQHandler_default	high: Vector slot 68 uses this target; original opcode is c.j to itself
+0x0000c634	UART5_IRQHandler_default	high: Vector slot 69 uses this target; original opcode is c.j to itself
+0x0000c636	TIM6_IRQHandler_default	high: Vector slot 70 uses this target; original opcode is c.j to itself
+0x0000c638	TIM7_IRQHandler_default	high: Vector slot 71 uses this target; original opcode is c.j to itself
+0x0000c63a	DMA2_Channel1_IRQHandler_default	high: Vector slot 72 uses this target; original opcode is c.j to itself
+0x0000c63c	DMA2_Channel2_IRQHandler_default	high: Vector slot 73 uses this target; original opcode is c.j to itself
+0x0000c63e	DMA2_Channel3_IRQHandler_default	high: Vector slot 74 uses this target; original opcode is c.j to itself
+0x0000c640	DMA2_Channel4_IRQHandler_default	high: Vector slot 75 uses this target; original opcode is c.j to itself
+0x0000c642	DMA2_Channel5_IRQHandler_default	high: Vector slot 76 uses this target; original opcode is c.j to itself
+0x0000c644	USBFS_IRQHandler_default	high: Vector slot 83 uses this target; original opcode is c.j to itself
+0x0000c646	UART6_IRQHandler_default	high: Vector slot 87 uses this target; original opcode is c.j to itself
+0x0000c648	UART7_IRQHandler_default	high: Vector slot 88 uses this target; original opcode is c.j to itself
+0x0000c64a	UART8_IRQHandler_default	high: Vector slot 89 uses this target; original opcode is c.j to itself
+0x0000c64c	TIM9_BRK_IRQHandler_default	high: Vector slot 90 uses this target; original opcode is c.j to itself
+0x0000c64e	TIM9_UP_IRQHandler_default	high: Vector slot 91 uses this target; original opcode is c.j to itself
+0x0000c650	TIM9_TRG_COM_IRQHandler_default	high: Vector slot 92 uses this target; original opcode is c.j to itself
+0x0000c652	TIM9_CC_IRQHandler_default	high: Vector slot 93 uses this target; original opcode is c.j to itself
+0x0000c654	TIM10_BRK_IRQHandler_default	high: Vector slot 94 uses this target; original opcode is c.j to itself
+0x0000c656	TIM10_UP_IRQHandler_default	high: Vector slot 95 uses this target; original opcode is c.j to itself
+0x0000c658	TIM10_TRG_COM_IRQHandler_default	high: Vector slot 96 uses this target; original opcode is c.j to itself
+0x0000c65a	TIM10_CC_IRQHandler_default	high: Vector slot 97 uses this target; original opcode is c.j to itself
+0x0000c65c	DMA2_Channel6_IRQHandler_default	high: Vector slot 98 uses this target; original opcode is c.j to itself
+0x0000c65e	DMA2_Channel7_IRQHandler_default	high: Vector slot 99 uses this target; original opcode is c.j to itself
+0x0000c660	DMA2_Channel8_IRQHandler_default	high: Vector slot 100 uses this target; original opcode is c.j to itself
+0x0000c662	DMA2_Channel9_IRQHandler_default	high: Vector slot 101 uses this target; original opcode is c.j to itself
+0x0000c664	DMA2_Channel10_IRQHandler_default	high: Vector slot 102 uses this target; original opcode is c.j to itself
+0x0000c666	DMA2_Channel11_IRQHandler_default	high: Vector slot 103 uses this target; original opcode is c.j to itself
+0x0000c5be	unused_default_trap_c5be	high: Two-byte self-loop inside the contiguous WCH weak-handler stub region; no vector points here
+0x0000c5c0	unused_default_trap_c5c0	high: Two-byte self-loop inside the contiguous WCH weak-handler stub region; no vector points here
+0x0000c5dc	unused_default_trap_c5dc	high: Two-byte self-loop inside the contiguous WCH weak-handler stub region; no vector points here
+0x0000c5ea	unused_default_trap_c5ea	high: Two-byte self-loop inside the contiguous WCH weak-handler stub region; no vector points here
+0x0000c5fa	unused_default_trap_c5fa	high: Two-byte self-loop inside the contiguous WCH weak-handler stub region; no vector points here
+0x0000c606	unused_default_trap_c606	high: Two-byte self-loop inside the contiguous WCH weak-handler stub region; no vector points here
+0x0000c616	unused_default_trap_c616	high: Two-byte self-loop inside the contiguous WCH weak-handler stub region; no vector points here
+0x0000c61c	unused_default_trap_c61c	high: Two-byte self-loop inside the contiguous WCH weak-handler stub region; no vector points here

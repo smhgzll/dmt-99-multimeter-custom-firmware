@@ -1,0 +1,27 @@
+[
+  {
+    "start": "0xff48",
+    "end_exclusive": "0x1014c",
+    "size": 516
+  },
+  {
+    "start": "0x14cd0",
+    "end_exclusive": "0x14cd6",
+    "size": 6
+  },
+  {
+    "start": "0x14d5c",
+    "end_exclusive": "0x14d5e",
+    "size": 2
+  },
+  {
+    "start": "0x15e9c",
+    "end_exclusive": "0x15e9e",
+    "size": 2
+  },
+  {
+    "start": "0x1d9b8",
+    "end_exclusive": "0x1d9c0",
+    "size": 8
+  }
+]

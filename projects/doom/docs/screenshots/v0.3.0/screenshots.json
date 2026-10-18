@@ -1,0 +1,22 @@
+{
+  "source": "actual RV32 emulator framebuffer",
+  "actor_scenes": "controlled SRAM fixtures; no physical hardware",
+  "sha256": {
+    "clean-menu.png": "ca3133a14d8dcf775559a6c81532b100a197705a57972b5ab801c02d0140be7a",
+    "weapons.png": "977d9a5545bfe2f15cca26aaffb95dbc30d72a32f700c525675f75e2881e691c",
+    "shotgun.png": "ac118ae0b6e28d0b10f4698ff4fc2220698d9bbfbb798694650f71ea6d25289b",
+    "game.png": "82ac38c64a6b11e70e37ecc0b4b375f68963e63444d2908e253f1cf621181a71",
+    "fire.png": "6c6754caedcbf3e9700a12744419d8fcde4ccf7e0e0a605b71f821f2d5f6c162",
+    "pause.png": "f481a503e7d98c6732e157f2e1155db99fb99b1047c97967fe5aa842a0f6c6b0",
+    "enemy-idle.png": "08aaa81826f8cc7c001a658d239c236462849b7bd4126c11f22a8099eef2cd4a",
+    "enemy-walk-1.png": "8268688ac4065a49eec8756e0c0f19890f6e9420deb63639480eae66cfdece32",
+    "enemy-walk-2.png": "e37e92e505cd6f5eefd13ab02aee60f02cdd4473c9e023560c2e21d3e86755a5",
+    "enemy-walk-3.png": "750382a9ef28a88347a33878bdb34c24321979508abaaf4d13031d8285b31da5",
+    "enemy-attack.png": "11ca486271d24b627651616c6f46619a6b70c964f81fbefdb6121677d4c32a38",
+    "enemy-death.png": "a79f2bf0cdd98430c4e6592872fcd8adb20984f6c1a39eb4e9b8cfb50d51211f",
+    "corpse-0.png": "9812c35199778b3c4539519225e581ae715739a75f5c8c60881fc417a16f6bd7",
+    "corpse-1.png": "9a4f39ef2307334d73a9ec49b83f67902d9ec1f624c91df909036d63563c1f99",
+    "corpse-2.png": "51c0ed48c6944f037b62737266a63137c1bc4f69156059cdebe2cdee6f601da8",
+    "wall-blocks-shot.png": "ac962518c7a1a7fd5545d92f277547ba8caf9bc46626ecb7d5813ac748788916"
+  }
+}

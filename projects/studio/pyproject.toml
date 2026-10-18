@@ -1,0 +1,12 @@
+[project]
+name = "dmt99-studio"
+version = "0.1.0"
+description = "Theme editor, flash manager and companion tool for the FNIRSI DMT99 (POTAT-99 firmware)"
+requires-python = ">=3.10"
+dependencies = ["PySide6-Essentials>=6.6", "Pillow>=10", "pyserial>=3.5", "numpy>=1.26"]
+
+[project.scripts]
+dmt99-studio = "dmt99studio.gui.app:main"
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]

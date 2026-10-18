@@ -1,0 +1,292 @@
+{
+  "cases": 41,
+  "entries": [
+    "0xd87c",
+    "0xd928"
+  ],
+  "vectors": [
+    {
+      "entry": "0xd87c",
+      "initial_status": 0,
+      "failure_after_store": null,
+      "erase": "0x8040000",
+      "attempted_halfwords": 0,
+      "final_status": 0
+    },
+    {
+      "entry": "0xd87c",
+      "initial_status": 0,
+      "failure_after_store": 0,
+      "erase": "0x8040000",
+      "attempted_halfwords": 0,
+      "final_status": 0
+    },
+    {
+      "entry": "0xd87c",
+      "initial_status": 0,
+      "failure_after_store": 1,
+      "erase": "0x8040000",
+      "attempted_halfwords": 0,
+      "final_status": 0
+    },
+    {
+      "entry": "0xd87c",
+      "initial_status": 0,
+      "failure_after_store": 63,
+      "erase": "0x8040000",
+      "attempted_halfwords": 0,
+      "final_status": 0
+    },
+    {
+      "entry": "0xd87c",
+      "initial_status": 0,
+      "failure_after_store": 127,
+      "erase": "0x8040000",
+      "attempted_halfwords": 0,
+      "final_status": 0
+    },
+    {
+      "entry": "0xd87c",
+      "initial_status": 1,
+      "failure_after_store": null,
+      "erase": "0x8040000",
+      "attempted_halfwords": 0,
+      "final_status": 1
+    },
+    {
+      "entry": "0xd87c",
+      "initial_status": 1,
+      "failure_after_store": 0,
+      "erase": "0x8040000",
+      "attempted_halfwords": 0,
+      "final_status": 1
+    },
+    {
+      "entry": "0xd87c",
+      "initial_status": 1,
+      "failure_after_store": 1,
+      "erase": "0x8040000",
+      "attempted_halfwords": 0,
+      "final_status": 1
+    },
+    {
+      "entry": "0xd87c",
+      "initial_status": 1,
+      "failure_after_store": 63,
+      "erase": "0x8040000",
+      "attempted_halfwords": 0,
+      "final_status": 1
+    },
+    {
+      "entry": "0xd87c",
+      "initial_status": 1,
+      "failure_after_store": 127,
+      "erase": "0x8040000",
+      "attempted_halfwords": 0,
+      "final_status": 1
+    },
+    {
+      "entry": "0xd87c",
+      "initial_status": 3,
+      "failure_after_store": null,
+      "erase": "0x8040000",
+      "attempted_halfwords": 0,
+      "final_status": 3
+    },
+    {
+      "entry": "0xd87c",
+      "initial_status": 3,
+      "failure_after_store": 0,
+      "erase": "0x8040000",
+      "attempted_halfwords": 0,
+      "final_status": 3
+    },
+    {
+      "entry": "0xd87c",
+      "initial_status": 3,
+      "failure_after_store": 1,
+      "erase": "0x8040000",
+      "attempted_halfwords": 0,
+      "final_status": 3
+    },
+    {
+      "entry": "0xd87c",
+      "initial_status": 3,
+      "failure_after_store": 63,
+      "erase": "0x8040000",
+      "attempted_halfwords": 0,
+      "final_status": 3
+    },
+    {
+      "entry": "0xd87c",
+      "initial_status": 3,
+      "failure_after_store": 127,
+      "erase": "0x8040000",
+      "attempted_halfwords": 0,
+      "final_status": 3
+    },
+    {
+      "entry": "0xd87c",
+      "initial_status": 4,
+      "failure_after_store": null,
+      "erase": "0x8040000",
+      "attempted_halfwords": 128,
+      "final_status": 4
+    },
+    {
+      "entry": "0xd87c",
+      "initial_status": 4,
+      "failure_after_store": 0,
+      "erase": "0x8040000",
+      "attempted_halfwords": 1,
+      "final_status": 3
+    },
+    {
+      "entry": "0xd87c",
+      "initial_status": 4,
+      "failure_after_store": 1,
+      "erase": "0x8040000",
+      "attempted_halfwords": 2,
+      "final_status": 3
+    },
+    {
+      "entry": "0xd87c",
+      "initial_status": 4,
+      "failure_after_store": 63,
+      "erase": "0x8040000",
+      "attempted_halfwords": 64,
+      "final_status": 3
+    },
+    {
+      "entry": "0xd87c",
+      "initial_status": 4,
+      "failure_after_store": 127,
+      "erase": "0x8040000",
+      "attempted_halfwords": 128,
+      "final_status": 3
+    },
+    {
+      "entry": "0xd87c",
+      "initial_status": 5,
+      "failure_after_store": null,
+      "erase": "0x8040000",
+      "attempted_halfwords": 0,
+      "final_status": 5
+    },
+    {
+      "entry": "0xd87c",
+      "initial_status": 5,
+      "failure_after_store": 0,
+      "erase": "0x8040000",
+      "attempted_halfwords": 0,
+      "final_status": 5
+    },
+    {
+      "entry": "0xd87c",
+      "initial_status": 5,
+      "failure_after_store": 1,
+      "erase": "0x8040000",
+      "attempted_halfwords": 0,
+      "final_status": 5
+    },
+    {
+      "entry": "0xd87c",
+      "initial_status": 5,
+      "failure_after_store": 63,
+      "erase": "0x8040000",
+      "attempted_halfwords": 0,
+      "final_status": 5
+    },
+    {
+      "entry": "0xd87c",
+      "initial_status": 5,
+      "failure_after_store": 127,
+      "erase": "0x8040000",
+      "attempted_halfwords": 0,
+      "final_status": 5
+    },
+    {
+      "entry": "0xd928",
+      "read": "0x08040000",
+      "halfwords": 128
+    },
+    {
+      "entry": "0xd928",
+      "read": "0x08040000",
+      "halfwords": 128
+    },
+    {
+      "entry": "0xd928",
+      "read": "0x08040000",
+      "halfwords": 128
+    },
+    {
+      "entry": "0xd928",
+      "read": "0x08040000",
+      "halfwords": 128
+    },
+    {
+      "entry": "0xd928",
+      "read": "0x08040000",
+      "halfwords": 128
+    },
+    {
+      "entry": "0xd928",
+      "read": "0x08040000",
+      "halfwords": 128
+    },
+    {
+      "entry": "0xd928",
+      "read": "0x08040000",
+      "halfwords": 128
+    },
+    {
+      "entry": "0xd928",
+      "read": "0x08040000",
+      "halfwords": 128
+    },
+    {
+      "entry": "0xd928",
+      "read": "0x08040000",
+      "halfwords": 128
+    },
+    {
+      "entry": "0xd928",
+      "read": "0x08040000",
+      "halfwords": 128
+    },
+    {
+      "entry": "0xd928",
+      "read": "0x08040000",
+      "halfwords": 128
+    },
+    {
+      "entry": "0xd928",
+      "read": "0x08040000",
+      "halfwords": 128
+    },
+    {
+      "entry": "0xd928",
+      "read": "0x08040000",
+      "halfwords": 128
+    },
+    {
+      "entry": "0xd928",
+      "read": "0x08040000",
+      "halfwords": 128
+    },
+    {
+      "entry": "0xd928",
+      "read": "0x08040000",
+      "halfwords": 128
+    },
+    {
+      "entry": "0xd928",
+      "read": "0x08040000",
+      "halfwords": 128
+    }
+  ],
+  "native_library_sha256": "fe318cd38c0ff224e16213ab64108b566a9c3944f83bfb53aa8b35ffef38e806",
+  "scope": "Original instructions including FLASH SDK bodies; private MMIO intent mock; CSR 0x800 skipped; no RDP/timing/erase success claim.",
+  "hardware_accessed": false
+}

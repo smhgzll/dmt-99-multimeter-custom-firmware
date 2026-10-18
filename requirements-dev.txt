@@ -1,0 +1,3 @@
+# Desktop/GUI tests and optional RV32 emulation. Firmware/ASIC C builds do not need Qt.
+-r tools/requirements-emulation.txt
+-r projects/studio/requirements.txt

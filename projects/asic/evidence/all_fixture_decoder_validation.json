@@ -1,0 +1,482 @@
+[
+  {
+    "fixture": "real_ac_voltage_open_1000000hz.json",
+    "direction": "MCU_TX",
+    "status": "exact_match",
+    "bytes": 0,
+    "raw_sha256": "a2bf780464155525eb1f5a875e6a40b801f4ebb030fb61318535ea5fc9889e24",
+    "python_all_clean": true,
+    "sigrok_returncode": 0,
+    "sigrok_stderr": ""
+  },
+  {
+    "fixture": "real_ac_voltage_open_1000000hz.json",
+    "direction": "ASIC_TX",
+    "status": "exact_match",
+    "bytes": 144,
+    "raw_sha256": "a2bf780464155525eb1f5a875e6a40b801f4ebb030fb61318535ea5fc9889e24",
+    "python_all_clean": true,
+    "sigrok_returncode": 0,
+    "sigrok_stderr": ""
+  },
+  {
+    "fixture": "real_auto_idle_1000000hz.json",
+    "direction": "MCU_TX",
+    "status": "exact_match",
+    "bytes": 0,
+    "raw_sha256": "9d34eae0dffc1b16ccd173e0120aa990460986307d3425f1514875817735a9f7",
+    "python_all_clean": true,
+    "sigrok_returncode": 0,
+    "sigrok_stderr": ""
+  },
+  {
+    "fixture": "real_auto_idle_1000000hz.json",
+    "direction": "ASIC_TX",
+    "status": "exact_match",
+    "bytes": 36,
+    "raw_sha256": "9d34eae0dffc1b16ccd173e0120aa990460986307d3425f1514875817735a9f7",
+    "python_all_clean": true,
+    "sigrok_returncode": 0,
+    "sigrok_stderr": ""
+  },
+  {
+    "fixture": "real_auto_idle_2000000hz.json",
+    "direction": "MCU_TX",
+    "status": "exact_match",
+    "bytes": 0,
+    "raw_sha256": "f428954ece31e82aadbd1e03deace3d8917c689e90e4115a2388bb52010e22fe",
+    "python_all_clean": true,
+    "sigrok_returncode": 0,
+    "sigrok_stderr": ""
+  },
+  {
+    "fixture": "real_auto_idle_2000000hz.json",
+    "direction": "ASIC_TX",
+    "status": "exact_match",
+    "bytes": 36,
+    "raw_sha256": "f428954ece31e82aadbd1e03deace3d8917c689e90e4115a2388bb52010e22fe",
+    "python_all_clean": true,
+    "sigrok_returncode": 0,
+    "sigrok_stderr": ""
+  },
+  {
+    "fixture": "real_cable_wave_icon_idle_1000000hz.json",
+    "direction": "MCU_TX",
+    "status": "exact_match",
+    "bytes": 0,
+    "raw_sha256": "81611915b1320ab2da14ac2387b38f28eff998c79a086c40b22d77bc897851b7",
+    "python_all_clean": true,
+    "sigrok_returncode": 0,
+    "sigrok_stderr": ""
+  },
+  {
+    "fixture": "real_cable_wave_icon_idle_1000000hz.json",
+    "direction": "ASIC_TX",
+    "status": "exact_match",
+    "bytes": 72,
+    "raw_sha256": "81611915b1320ab2da14ac2387b38f28eff998c79a086c40b22d77bc897851b7",
+    "python_all_clean": true,
+    "sigrok_returncode": 0,
+    "sigrok_stderr": ""
+  },
+  {
+    "fixture": "real_capacitance_mode_event_1000000hz.json",
+    "direction": "MCU_TX",
+    "status": "exact_match",
+    "bytes": 10,
+    "raw_sha256": "148a44552c898a496c9393d11d62432e80ab206c0b379facbf3a69200381306f",
+    "python_all_clean": true,
+    "sigrok_returncode": 0,
+    "sigrok_stderr": ""
+  },
+  {
+    "fixture": "real_capacitance_mode_event_1000000hz.json",
+    "direction": "ASIC_TX",
+    "status": "exact_match",
+    "bytes": 10,
+    "raw_sha256": "148a44552c898a496c9393d11d62432e80ab206c0b379facbf3a69200381306f",
+    "python_all_clean": true,
+    "sigrok_returncode": 0,
+    "sigrok_stderr": ""
+  },
+  {
+    "fixture": "real_capacitance_open_1000000hz.json",
+    "direction": "MCU_TX",
+    "status": "exact_match",
+    "bytes": 0,
+    "raw_sha256": "78e65fee383c5adf2b887de84b6c9f39cd4afa5d69f0690e87cbe11d72b61726",
+    "python_all_clean": true,
+    "sigrok_returncode": 0,
+    "sigrok_stderr": ""
+  },
+  {
+    "fixture": "real_capacitance_open_1000000hz.json",
+    "direction": "ASIC_TX",
+    "status": "exact_match",
+    "bytes": 72,
+    "raw_sha256": "78e65fee383c5adf2b887de84b6c9f39cd4afa5d69f0690e87cbe11d72b61726",
+    "python_all_clean": true,
+    "sigrok_returncode": 0,
+    "sigrok_stderr": ""
+  },
+  {
+    "fixture": "real_continuity_open_1000000hz.json",
+    "direction": "MCU_TX",
+    "status": "exact_match",
+    "bytes": 0,
+    "raw_sha256": "99b743c9b840ec7aa4b5e46dfaa3f7275c615bca1da079d82478b12c78941dcb",
+    "python_all_clean": true,
+    "sigrok_returncode": 0,
+    "sigrok_stderr": ""
+  },
+  {
+    "fixture": "real_continuity_open_1000000hz.json",
+    "direction": "ASIC_TX",
+    "status": "exact_match",
+    "bytes": 72,
+    "raw_sha256": "99b743c9b840ec7aa4b5e46dfaa3f7275c615bca1da079d82478b12c78941dcb",
+    "python_all_clean": true,
+    "sigrok_returncode": 0,
+    "sigrok_stderr": ""
+  },
+  {
+    "fixture": "real_current_ac_a_open_1000000hz.json",
+    "direction": "MCU_TX",
+    "status": "exact_match",
+    "bytes": 0,
+    "raw_sha256": "b003114b28e79e58e6baef97d96e959bd61c8bbffa256678819c7d55b31cb2c4",
+    "python_all_clean": true,
+    "sigrok_returncode": 0,
+    "sigrok_stderr": ""
+  },
+  {
+    "fixture": "real_current_ac_a_open_1000000hz.json",
+    "direction": "ASIC_TX",
+    "status": "exact_match",
+    "bytes": 72,
+    "raw_sha256": "b003114b28e79e58e6baef97d96e959bd61c8bbffa256678819c7d55b31cb2c4",
+    "python_all_clean": true,
+    "sigrok_returncode": 0,
+    "sigrok_stderr": ""
+  },
+  {
+    "fixture": "real_current_ac_ma_open_1000000hz.json",
+    "direction": "MCU_TX",
+    "status": "exact_match",
+    "bytes": 0,
+    "raw_sha256": "5d54b5c3c157a672cfe2f0a45b0af5709e309fd9d675090a50caabb0b6d5c4cc",
+    "python_all_clean": true,
+    "sigrok_returncode": 0,
+    "sigrok_stderr": ""
+  },
+  {
+    "fixture": "real_current_ac_ma_open_1000000hz.json",
+    "direction": "ASIC_TX",
+    "status": "exact_match",
+    "bytes": 72,
+    "raw_sha256": "5d54b5c3c157a672cfe2f0a45b0af5709e309fd9d675090a50caabb0b6d5c4cc",
+    "python_all_clean": true,
+    "sigrok_returncode": 0,
+    "sigrok_stderr": ""
+  },
+  {
+    "fixture": "real_current_dc_a_open_1000000hz.json",
+    "direction": "MCU_TX",
+    "status": "exact_match",
+    "bytes": 0,
+    "raw_sha256": "e6dc698c90d3aa3770a9727052b5678d994c476fcd6b66fa49efe89671fc2c81",
+    "python_all_clean": true,
+    "sigrok_returncode": 0,
+    "sigrok_stderr": ""
+  },
+  {
+    "fixture": "real_current_dc_a_open_1000000hz.json",
+    "direction": "ASIC_TX",
+    "status": "exact_match",
+    "bytes": 72,
+    "raw_sha256": "e6dc698c90d3aa3770a9727052b5678d994c476fcd6b66fa49efe89671fc2c81",
+    "python_all_clean": true,
+    "sigrok_returncode": 0,
+    "sigrok_stderr": ""
+  },
+  {
+    "fixture": "real_current_dc_ma_open_1000000hz.json",
+    "direction": "MCU_TX",
+    "status": "exact_match",
+    "bytes": 0,
+    "raw_sha256": "6aede8d2d0433cbd3ab84006e3decad677e0bed3201d7d5cb4c04d55026be394",
+    "python_all_clean": true,
+    "sigrok_returncode": 0,
+    "sigrok_stderr": ""
+  },
+  {
+    "fixture": "real_current_dc_ma_open_1000000hz.json",
+    "direction": "ASIC_TX",
+    "status": "exact_match",
+    "bytes": 72,
+    "raw_sha256": "6aede8d2d0433cbd3ab84006e3decad677e0bed3201d7d5cb4c04d55026be394",
+    "python_all_clean": true,
+    "sigrok_returncode": 0,
+    "sigrok_stderr": ""
+  },
+  {
+    "fixture": "real_dc_voltage_open_1000000hz.json",
+    "direction": "MCU_TX",
+    "status": "exact_match",
+    "bytes": 0,
+    "raw_sha256": "74beac181db7533ef5f3c278ec4fa9dcb08bbba419088d424b79395090d17e8b",
+    "python_all_clean": true,
+    "sigrok_returncode": 0,
+    "sigrok_stderr": ""
+  },
+  {
+    "fixture": "real_dc_voltage_open_1000000hz.json",
+    "direction": "ASIC_TX",
+    "status": "exact_match",
+    "bytes": 144,
+    "raw_sha256": "74beac181db7533ef5f3c278ec4fa9dcb08bbba419088d424b79395090d17e8b",
+    "python_all_clean": true,
+    "sigrok_returncode": 0,
+    "sigrok_stderr": ""
+  },
+  {
+    "fixture": "real_frequency_open_1000000hz.json",
+    "direction": "MCU_TX",
+    "status": "exact_match",
+    "bytes": 0,
+    "raw_sha256": "85f8fab15e2c35e0d1c9a5c3c830c0edc7bd08919428463461fefd3acc552483",
+    "python_all_clean": true,
+    "sigrok_returncode": 0,
+    "sigrok_stderr": ""
+  },
+  {
+    "fixture": "real_frequency_open_1000000hz.json",
+    "direction": "ASIC_TX",
+    "status": "exact_match",
+    "bytes": 144,
+    "raw_sha256": "85f8fab15e2c35e0d1c9a5c3c830c0edc7bd08919428463461fefd3acc552483",
+    "python_all_clean": true,
+    "sigrok_returncode": 0,
+    "sigrok_stderr": ""
+  },
+  {
+    "fixture": "real_live_cable_only_idle_1000000hz.json",
+    "direction": "MCU_TX",
+    "status": "exact_match",
+    "bytes": 0,
+    "raw_sha256": "bcf21af157a2e86cb6f883fe8c421d82f7b3d65ace412aa8f939c8eb9fee3651",
+    "python_all_clean": true,
+    "sigrok_returncode": 0,
+    "sigrok_stderr": ""
+  },
+  {
+    "fixture": "real_live_cable_only_idle_1000000hz.json",
+    "direction": "ASIC_TX",
+    "status": "exact_match",
+    "bytes": 72,
+    "raw_sha256": "bcf21af157a2e86cb6f883fe8c421d82f7b3d65ace412aa8f939c8eb9fee3651",
+    "python_all_clean": true,
+    "sigrok_returncode": 0,
+    "sigrok_stderr": ""
+  },
+  {
+    "fixture": "real_mode_transition_1000000hz.json",
+    "direction": "MCU_TX",
+    "status": "exact_match",
+    "bytes": 30,
+    "raw_sha256": "b9a2065bd152f7ad3ab03e625c6a60301b45abac41333ed487157034b554948b",
+    "python_all_clean": true,
+    "sigrok_returncode": 0,
+    "sigrok_stderr": ""
+  },
+  {
+    "fixture": "real_mode_transition_1000000hz.json",
+    "direction": "ASIC_TX",
+    "status": "exact_match",
+    "bytes": 198,
+    "raw_sha256": "b9a2065bd152f7ad3ab03e625c6a60301b45abac41333ed487157034b554948b",
+    "python_all_clean": true,
+    "sigrok_returncode": 0,
+    "sigrok_stderr": ""
+  },
+  {
+    "fixture": "real_resistance_100kohm_1000000hz.json",
+    "direction": "MCU_TX",
+    "status": "exact_match",
+    "bytes": 0,
+    "raw_sha256": "0cf738f228138d68f853e342c23d1870eb8dd8a6008a4c9dc12dbdf10a3c8812",
+    "python_all_clean": true,
+    "sigrok_returncode": 0,
+    "sigrok_stderr": ""
+  },
+  {
+    "fixture": "real_resistance_100kohm_1000000hz.json",
+    "direction": "ASIC_TX",
+    "status": "exact_match",
+    "bytes": 72,
+    "raw_sha256": "0cf738f228138d68f853e342c23d1870eb8dd8a6008a4c9dc12dbdf10a3c8812",
+    "python_all_clean": true,
+    "sigrok_returncode": 0,
+    "sigrok_stderr": ""
+  },
+  {
+    "fixture": "real_resistance_10Mohm_1000000hz.json",
+    "direction": "MCU_TX",
+    "status": "exact_match",
+    "bytes": 0,
+    "raw_sha256": "273653ea49d7ee8e188cdc19028600e952acc69272b9726fd015751881d509cf",
+    "python_all_clean": true,
+    "sigrok_returncode": 0,
+    "sigrok_stderr": ""
+  },
+  {
+    "fixture": "real_resistance_10Mohm_1000000hz.json",
+    "direction": "ASIC_TX",
+    "status": "exact_match",
+    "bytes": 72,
+    "raw_sha256": "273653ea49d7ee8e188cdc19028600e952acc69272b9726fd015751881d509cf",
+    "python_all_clean": true,
+    "sigrok_returncode": 0,
+    "sigrok_stderr": ""
+  },
+  {
+    "fixture": "real_resistance_10kohm_1000000hz.json",
+    "direction": "MCU_TX",
+    "status": "exact_match",
+    "bytes": 0,
+    "raw_sha256": "339e5952a47ad4f8e44ce6f090ded8f77c0feb1a4b8e064a200a0ddddacf4f9a",
+    "python_all_clean": true,
+    "sigrok_returncode": 0,
+    "sigrok_stderr": ""
+  },
+  {
+    "fixture": "real_resistance_10kohm_1000000hz.json",
+    "direction": "ASIC_TX",
+    "status": "exact_match",
+    "bytes": 72,
+    "raw_sha256": "339e5952a47ad4f8e44ce6f090ded8f77c0feb1a4b8e064a200a0ddddacf4f9a",
+    "python_all_clean": true,
+    "sigrok_returncode": 0,
+    "sigrok_stderr": ""
+  },
+  {
+    "fixture": "real_resistance_1Mohm_1000000hz.json",
+    "direction": "MCU_TX",
+    "status": "exact_match",
+    "bytes": 0,
+    "raw_sha256": "91b3860cfb77cf641d1bea85dc6fc6f4e863082e72b16f8780c44d523c15f6e5",
+    "python_all_clean": true,
+    "sigrok_returncode": 0,
+    "sigrok_stderr": ""
+  },
+  {
+    "fixture": "real_resistance_1Mohm_1000000hz.json",
+    "direction": "ASIC_TX",
+    "status": "exact_match",
+    "bytes": 72,
+    "raw_sha256": "91b3860cfb77cf641d1bea85dc6fc6f4e863082e72b16f8780c44d523c15f6e5",
+    "python_all_clean": true,
+    "sigrok_returncode": 0,
+    "sigrok_stderr": ""
+  },
+  {
+    "fixture": "real_resistance_1kohm_1000000hz.json",
+    "direction": "MCU_TX",
+    "status": "exact_match",
+    "bytes": 0,
+    "raw_sha256": "b1cd36add0f4d3d6523dfc119bf11f9a9aa7422acd6d749f5c31ea2296615c78",
+    "python_all_clean": true,
+    "sigrok_returncode": 0,
+    "sigrok_stderr": ""
+  },
+  {
+    "fixture": "real_resistance_1kohm_1000000hz.json",
+    "direction": "ASIC_TX",
+    "status": "exact_match",
+    "bytes": 72,
+    "raw_sha256": "b1cd36add0f4d3d6523dfc119bf11f9a9aa7422acd6d749f5c31ea2296615c78",
+    "python_all_clean": true,
+    "sigrok_returncode": 0,
+    "sigrok_stderr": ""
+  },
+  {
+    "fixture": "real_resistance_1ohm_1000000hz.json",
+    "direction": "MCU_TX",
+    "status": "exact_match",
+    "bytes": 0,
+    "raw_sha256": "b160bd97e1fe9b8e944206c4cdd89f6f7fde61e901ad54d58a531c34595ba0f2",
+    "python_all_clean": true,
+    "sigrok_returncode": 0,
+    "sigrok_stderr": ""
+  },
+  {
+    "fixture": "real_resistance_1ohm_1000000hz.json",
+    "direction": "ASIC_TX",
+    "status": "exact_match",
+    "bytes": 72,
+    "raw_sha256": "b160bd97e1fe9b8e944206c4cdd89f6f7fde61e901ad54d58a531c34595ba0f2",
+    "python_all_clean": true,
+    "sigrok_returncode": 0,
+    "sigrok_stderr": ""
+  },
+  {
+    "fixture": "real_resistance_open_1000000hz.json",
+    "direction": "MCU_TX",
+    "status": "exact_match",
+    "bytes": 0,
+    "raw_sha256": "c7d90a2f8d4363988e0e986f4131b5f205e1fa3a75efdd30edbdb8b584615dfb",
+    "python_all_clean": true,
+    "sigrok_returncode": 0,
+    "sigrok_stderr": ""
+  },
+  {
+    "fixture": "real_resistance_open_1000000hz.json",
+    "direction": "ASIC_TX",
+    "status": "exact_match",
+    "bytes": 72,
+    "raw_sha256": "c7d90a2f8d4363988e0e986f4131b5f205e1fa3a75efdd30edbdb8b584615dfb",
+    "python_all_clean": true,
+    "sigrok_returncode": 0,
+    "sigrok_stderr": ""
+  },
+  {
+    "fixture": "real_startup_command_event_2000000hz.json",
+    "direction": "MCU_TX",
+    "status": "exact_match",
+    "bytes": 10,
+    "raw_sha256": "02f5f885ea0c37aa46591f5509a45f83a804222e3963a9597cce5b28f9d92485",
+    "python_all_clean": true,
+    "sigrok_returncode": 0,
+    "sigrok_stderr": ""
+  },
+  {
+    "fixture": "real_startup_command_event_2000000hz.json",
+    "direction": "ASIC_TX",
+    "status": "exact_match",
+    "bytes": 10,
+    "raw_sha256": "02f5f885ea0c37aa46591f5509a45f83a804222e3963a9597cce5b28f9d92485",
+    "python_all_clean": true,
+    "sigrok_returncode": 0,
+    "sigrok_stderr": ""
+  },
+  {
+    "fixture": "real_temperature_C_open_1000000hz.json",
+    "direction": "MCU_TX",
+    "status": "exact_match",
+    "bytes": 0,
+    "raw_sha256": "fb90e2d09c96ca4c6740c5428aef5eedf879e5227a02ce6c36fcd6c152f3b1c2",
+    "python_all_clean": true,
+    "sigrok_returncode": 0,
+    "sigrok_stderr": ""
+  },
+  {
+    "fixture": "real_temperature_C_open_1000000hz.json",
+    "direction": "ASIC_TX",
+    "status": "exact_match",
+    "bytes": 72,
+    "raw_sha256": "fb90e2d09c96ca4c6740c5428aef5eedf879e5227a02ce6c36fcd6c152f3b1c2",
+    "python_all_clean": true,
+    "sigrok_returncode": 0,
+    "sigrok_stderr": ""
+  }
+]

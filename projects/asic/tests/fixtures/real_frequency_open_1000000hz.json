@@ -1,0 +1,892 @@
+{
+  "origin": "hardware_excerpt",
+  "source_capture": "projects/asic/captures/20261018T012926_frequency_open_8d1e1544",
+  "source_capture_status": "captured",
+  "source_raw_sr_sha256": "5463e5101bdbe0ab1c007f5452dd070d8edfa81ec63e2006a354d790348ebdc7",
+  "source_logic_sha256": "5124d998da6b553ca32755dfcef5edeca25c6f5a527dca75daee180f5c6b5678",
+  "source_metadata": {
+    "test": "frequency_open",
+    "label": "frequency_open",
+    "display_text": "Yaklaşık 50 Hz",
+    "display_numeric": null,
+    "display_unit": "Hz",
+    "display_tolerance": 0,
+    "component_actual": "Problar açık; sinyal kaynağı veya komponent bağlı değil",
+    "mode": "frequency",
+    "notes": "Kullanıcı Hz modunda olduğunu ve daha sonra 50 civarı evet diyerek yaklaşık ekran değerini doğruladı. Tam sayısal ekran hedefi girilmedi; kayıtta 48.40..51.57 Hz görüldü. Harici kaynak bağlı değil, frekans kalibrasyonu sayılmaz.",
+    "schema": 1,
+    "origin": "hardware",
+    "status": "captured",
+    "host_started_at": "2026-10-18T01:29:26.625689+03:00",
+    "requested_seconds": 10.0,
+    "requested_samples": 10000000,
+    "requested_samplerate_hz": 1000000,
+    "channels": {
+      "D0": "MCU_TX_PA9_pin42",
+      "D2": "ASIC_TX_PA10_pin43"
+    },
+    "channel_map": {
+      "MCU_TX": 0,
+      "ASIC_TX": 2
+    },
+    "rx_frame_bytes": 12,
+    "uart": "9600 8N1",
+    "passive_connections_confirmed": true,
+    "device_preflight": {
+      "argv": [
+        "sigrok-cli",
+        "--driver",
+        "fx2lafw",
+        "--show"
+      ],
+      "returncode": 0,
+      "output": "Driver functions:\n    Logic analyzer\nScan options:\n    conn\nfx2lafw:conn=1.67 - Saleae Logic [S/N: Saleae Logic] with 8 channels: D0 D1 D2 D3 D4 D5 D6 D7\nChannel groups:\n    Logic: channels D0 D1 D2 D3 D4 D5 D6 D7\nSupported configuration options across all channel groups:\n    continuous: on, off\n    limit_samples: 0 (current)\n    conn: 1.67 (current)\n    samplerate - supported samplerates:\n      20 kHz (current)\n      25 kHz\n      50 kHz\n      100 kHz\n      200 kHz\n      250 kHz\n      500 kHz\n      1 MHz\n      2 MHz\n      3 MHz\n      4 MHz\n      6 MHz\n      8 MHz\n      12 MHz\n      16 MHz\n      24 MHz\n      48 MHz\n    Supported triggers: 0 1 r f e \n    captureratio: 0 (current)\n"
+    },
+    "command": [
+      "sigrok-cli",
+      "--loglevel",
+      "4",
+      "--driver",
+      "fx2lafw",
+      "--config",
+      "samplerate=1000000",
+      "--channels",
+      "D0,D2",
+      "--samples",
+      "10000000",
+      "--output-format",
+      "srzip",
+      "--output-file",
+      "projects/asic/captures/20261018T012926_frequency_open_8d1e1544/raw.sr"
+    ],
+    "host_finished_at": "2026-10-18T01:29:36.741176+03:00",
+    "returncode": 0,
+    "received_samples": 10000000,
+    "analysis_error": null,
+    "annotation_history": [
+      {
+        "timestamp": "2026-10-18T01:31:13.051244+03:00",
+        "previous": {
+          "display_text": null,
+          "display_numeric": null,
+          "display_unit": null,
+          "display_tolerance": 0,
+          "display_is_approximate": null,
+          "component_actual": "Problar açık; sinyal kaynağı veya komponent bağlı değil",
+          "mode": "frequency",
+          "notes": "Kullanıcı hz modunda diye modu doğruladı. Sayısal ekran/birim metni ayrıca bildirilmedi; display metadata boş. Önceki AC ekranında ikinci/küçük ek okuma olmadığını yok yanıtıyla bildirdi. Son fiziksel test olarak açık uç Hz kaydı alınıyor."
+        }
+      }
+    ],
+    "display_is_approximate": true
+  },
+  "start_sample": 31013,
+  "end_sample_exclusive": 1847521,
+  "samplerate_hz": 1000000,
+  "channel_map": {
+    "MCU_TX": 0,
+    "ASIC_TX": 2
+  },
+  "raw_excerpt_sha256": "85f8fab15e2c35e0d1c9a5c3c830c0edc7bd08919428463461fefd3acc552483",
+  "expected": {
+    "MCU_TX": [],
+    "ASIC_TX": [
+      {
+        "value": 90,
+        "start_sample": 1000,
+        "errors": []
+      },
+      {
+        "value": 165,
+        "start_sample": 2053,
+        "errors": []
+      },
+      {
+        "value": 196,
+        "start_sample": 3106,
+        "errors": []
+      },
+      {
+        "value": 231,
+        "start_sample": 4159,
+        "errors": []
+      },
+      {
+        "value": 251,
+        "start_sample": 5198,
+        "errors": []
+      },
+      {
+        "value": 139,
+        "start_sample": 6251,
+        "errors": []
+      },
+      {
+        "value": 10,
+        "start_sample": 7291,
+        "errors": []
+      },
+      {
+        "value": 0,
+        "start_sample": 8344,
+        "errors": []
+      },
+      {
+        "value": 4,
+        "start_sample": 9384,
+        "errors": []
+      },
+      {
+        "value": 0,
+        "start_sample": 10437,
+        "errors": []
+      },
+      {
+        "value": 1,
+        "start_sample": 11490,
+        "errors": []
+      },
+      {
+        "value": 69,
+        "start_sample": 12543,
+        "errors": []
+      },
+      {
+        "value": 90,
+        "start_sample": 165168,
+        "errors": []
+      },
+      {
+        "value": 165,
+        "start_sample": 166221,
+        "errors": []
+      },
+      {
+        "value": 68,
+        "start_sample": 167274,
+        "errors": []
+      },
+      {
+        "value": 238,
+        "start_sample": 168327,
+        "errors": []
+      },
+      {
+        "value": 95,
+        "start_sample": 169380,
+        "errors": []
+      },
+      {
+        "value": 238,
+        "start_sample": 170432,
+        "errors": []
+      },
+      {
+        "value": 11,
+        "start_sample": 171485,
+        "errors": []
+      },
+      {
+        "value": 0,
+        "start_sample": 172538,
+        "errors": []
+      },
+      {
+        "value": 4,
+        "start_sample": 173591,
+        "errors": []
+      },
+      {
+        "value": 0,
+        "start_sample": 174631,
+        "errors": []
+      },
+      {
+        "value": 1,
+        "start_sample": 175684,
+        "errors": []
+      },
+      {
+        "value": 69,
+        "start_sample": 176737,
+        "errors": []
+      },
+      {
+        "value": 90,
+        "start_sample": 329648,
+        "errors": []
+      },
+      {
+        "value": 165,
+        "start_sample": 330688,
+        "errors": []
+      },
+      {
+        "value": 68,
+        "start_sample": 331741,
+        "errors": []
+      },
+      {
+        "value": 238,
+        "start_sample": 332794,
+        "errors": []
+      },
+      {
+        "value": 95,
+        "start_sample": 333847,
+        "errors": []
+      },
+      {
+        "value": 238,
+        "start_sample": 334900,
+        "errors": []
+      },
+      {
+        "value": 11,
+        "start_sample": 335952,
+        "errors": []
+      },
+      {
+        "value": 0,
+        "start_sample": 337005,
+        "errors": []
+      },
+      {
+        "value": 4,
+        "start_sample": 338058,
+        "errors": []
+      },
+      {
+        "value": 0,
+        "start_sample": 339098,
+        "errors": []
+      },
+      {
+        "value": 1,
+        "start_sample": 340151,
+        "errors": []
+      },
+      {
+        "value": 69,
+        "start_sample": 341204,
+        "errors": []
+      },
+      {
+        "value": 90,
+        "start_sample": 494206,
+        "errors": []
+      },
+      {
+        "value": 165,
+        "start_sample": 495259,
+        "errors": []
+      },
+      {
+        "value": 68,
+        "start_sample": 496312,
+        "errors": []
+      },
+      {
+        "value": 238,
+        "start_sample": 497352,
+        "errors": []
+      },
+      {
+        "value": 95,
+        "start_sample": 498392,
+        "errors": []
+      },
+      {
+        "value": 238,
+        "start_sample": 499445,
+        "errors": []
+      },
+      {
+        "value": 11,
+        "start_sample": 500498,
+        "errors": []
+      },
+      {
+        "value": 0,
+        "start_sample": 501550,
+        "errors": []
+      },
+      {
+        "value": 4,
+        "start_sample": 502603,
+        "errors": []
+      },
+      {
+        "value": 0,
+        "start_sample": 503656,
+        "errors": []
+      },
+      {
+        "value": 1,
+        "start_sample": 504709,
+        "errors": []
+      },
+      {
+        "value": 69,
+        "start_sample": 505762,
+        "errors": []
+      },
+      {
+        "value": 90,
+        "start_sample": 658517,
+        "errors": []
+      },
+      {
+        "value": 165,
+        "start_sample": 659570,
+        "errors": []
+      },
+      {
+        "value": 196,
+        "start_sample": 660623,
+        "errors": []
+      },
+      {
+        "value": 7,
+        "start_sample": 661676,
+        "errors": []
+      },
+      {
+        "value": 218,
+        "start_sample": 662729,
+        "errors": []
+      },
+      {
+        "value": 135,
+        "start_sample": 663782,
+        "errors": []
+      },
+      {
+        "value": 10,
+        "start_sample": 664835,
+        "errors": []
+      },
+      {
+        "value": 0,
+        "start_sample": 665888,
+        "errors": []
+      },
+      {
+        "value": 4,
+        "start_sample": 666940,
+        "errors": []
+      },
+      {
+        "value": 0,
+        "start_sample": 667980,
+        "errors": []
+      },
+      {
+        "value": 1,
+        "start_sample": 669033,
+        "errors": []
+      },
+      {
+        "value": 69,
+        "start_sample": 670086,
+        "errors": []
+      },
+      {
+        "value": 90,
+        "start_sample": 822932,
+        "errors": []
+      },
+      {
+        "value": 165,
+        "start_sample": 823972,
+        "errors": []
+      },
+      {
+        "value": 196,
+        "start_sample": 825025,
+        "errors": []
+      },
+      {
+        "value": 7,
+        "start_sample": 826078,
+        "errors": []
+      },
+      {
+        "value": 218,
+        "start_sample": 827131,
+        "errors": []
+      },
+      {
+        "value": 135,
+        "start_sample": 828171,
+        "errors": []
+      },
+      {
+        "value": 10,
+        "start_sample": 829211,
+        "errors": []
+      },
+      {
+        "value": 0,
+        "start_sample": 830264,
+        "errors": []
+      },
+      {
+        "value": 4,
+        "start_sample": 831304,
+        "errors": []
+      },
+      {
+        "value": 0,
+        "start_sample": 832356,
+        "errors": []
+      },
+      {
+        "value": 1,
+        "start_sample": 833409,
+        "errors": []
+      },
+      {
+        "value": 69,
+        "start_sample": 834462,
+        "errors": []
+      },
+      {
+        "value": 90,
+        "start_sample": 987243,
+        "errors": []
+      },
+      {
+        "value": 165,
+        "start_sample": 988296,
+        "errors": []
+      },
+      {
+        "value": 196,
+        "start_sample": 989349,
+        "errors": []
+      },
+      {
+        "value": 7,
+        "start_sample": 990402,
+        "errors": []
+      },
+      {
+        "value": 218,
+        "start_sample": 991455,
+        "errors": []
+      },
+      {
+        "value": 135,
+        "start_sample": 992508,
+        "errors": []
+      },
+      {
+        "value": 10,
+        "start_sample": 993561,
+        "errors": []
+      },
+      {
+        "value": 0,
+        "start_sample": 994614,
+        "errors": []
+      },
+      {
+        "value": 4,
+        "start_sample": 995667,
+        "errors": []
+      },
+      {
+        "value": 0,
+        "start_sample": 996707,
+        "errors": []
+      },
+      {
+        "value": 1,
+        "start_sample": 997759,
+        "errors": []
+      },
+      {
+        "value": 69,
+        "start_sample": 998812,
+        "errors": []
+      },
+      {
+        "value": 90,
+        "start_sample": 1151658,
+        "errors": []
+      },
+      {
+        "value": 165,
+        "start_sample": 1152711,
+        "errors": []
+      },
+      {
+        "value": 196,
+        "start_sample": 1153764,
+        "errors": []
+      },
+      {
+        "value": 7,
+        "start_sample": 1154804,
+        "errors": []
+      },
+      {
+        "value": 218,
+        "start_sample": 1155844,
+        "errors": []
+      },
+      {
+        "value": 135,
+        "start_sample": 1156897,
+        "errors": []
+      },
+      {
+        "value": 10,
+        "start_sample": 1157950,
+        "errors": []
+      },
+      {
+        "value": 0,
+        "start_sample": 1159003,
+        "errors": []
+      },
+      {
+        "value": 4,
+        "start_sample": 1160056,
+        "errors": []
+      },
+      {
+        "value": 0,
+        "start_sample": 1161109,
+        "errors": []
+      },
+      {
+        "value": 1,
+        "start_sample": 1162161,
+        "errors": []
+      },
+      {
+        "value": 69,
+        "start_sample": 1163214,
+        "errors": []
+      },
+      {
+        "value": 90,
+        "start_sample": 1315878,
+        "errors": []
+      },
+      {
+        "value": 165,
+        "start_sample": 1316931,
+        "errors": []
+      },
+      {
+        "value": 196,
+        "start_sample": 1317984,
+        "errors": []
+      },
+      {
+        "value": 231,
+        "start_sample": 1319037,
+        "errors": []
+      },
+      {
+        "value": 251,
+        "start_sample": 1320090,
+        "errors": []
+      },
+      {
+        "value": 139,
+        "start_sample": 1321130,
+        "errors": []
+      },
+      {
+        "value": 15,
+        "start_sample": 1322170,
+        "errors": []
+      },
+      {
+        "value": 0,
+        "start_sample": 1323223,
+        "errors": []
+      },
+      {
+        "value": 4,
+        "start_sample": 1324263,
+        "errors": []
+      },
+      {
+        "value": 0,
+        "start_sample": 1325316,
+        "errors": []
+      },
+      {
+        "value": 1,
+        "start_sample": 1326369,
+        "errors": []
+      },
+      {
+        "value": 69,
+        "start_sample": 1327422,
+        "errors": []
+      },
+      {
+        "value": 90,
+        "start_sample": 1474236,
+        "errors": []
+      },
+      {
+        "value": 165,
+        "start_sample": 1475288,
+        "errors": []
+      },
+      {
+        "value": 196,
+        "start_sample": 1476341,
+        "errors": []
+      },
+      {
+        "value": 231,
+        "start_sample": 1477394,
+        "errors": []
+      },
+      {
+        "value": 251,
+        "start_sample": 1478447,
+        "errors": []
+      },
+      {
+        "value": 139,
+        "start_sample": 1479500,
+        "errors": []
+      },
+      {
+        "value": 15,
+        "start_sample": 1480540,
+        "errors": []
+      },
+      {
+        "value": 0,
+        "start_sample": 1481580,
+        "errors": []
+      },
+      {
+        "value": 4,
+        "start_sample": 1482633,
+        "errors": []
+      },
+      {
+        "value": 0,
+        "start_sample": 1483686,
+        "errors": []
+      },
+      {
+        "value": 1,
+        "start_sample": 1484739,
+        "errors": []
+      },
+      {
+        "value": 69,
+        "start_sample": 1485792,
+        "errors": []
+      },
+      {
+        "value": 90,
+        "start_sample": 1638573,
+        "errors": []
+      },
+      {
+        "value": 165,
+        "start_sample": 1639626,
+        "errors": []
+      },
+      {
+        "value": 196,
+        "start_sample": 1640678,
+        "errors": []
+      },
+      {
+        "value": 231,
+        "start_sample": 1641731,
+        "errors": []
+      },
+      {
+        "value": 251,
+        "start_sample": 1642784,
+        "errors": []
+      },
+      {
+        "value": 139,
+        "start_sample": 1643824,
+        "errors": []
+      },
+      {
+        "value": 15,
+        "start_sample": 1644864,
+        "errors": []
+      },
+      {
+        "value": 0,
+        "start_sample": 1645917,
+        "errors": []
+      },
+      {
+        "value": 4,
+        "start_sample": 1646970,
+        "errors": []
+      },
+      {
+        "value": 0,
+        "start_sample": 1648023,
+        "errors": []
+      },
+      {
+        "value": 1,
+        "start_sample": 1649076,
+        "errors": []
+      },
+      {
+        "value": 69,
+        "start_sample": 1650129,
+        "errors": []
+      },
+      {
+        "value": 90,
+        "start_sample": 1802923,
+        "errors": []
+      },
+      {
+        "value": 165,
+        "start_sample": 1803963,
+        "errors": []
+      },
+      {
+        "value": 196,
+        "start_sample": 1805016,
+        "errors": []
+      },
+      {
+        "value": 231,
+        "start_sample": 1806068,
+        "errors": []
+      },
+      {
+        "value": 251,
+        "start_sample": 1807121,
+        "errors": []
+      },
+      {
+        "value": 139,
+        "start_sample": 1808174,
+        "errors": []
+      },
+      {
+        "value": 15,
+        "start_sample": 1809214,
+        "errors": []
+      },
+      {
+        "value": 0,
+        "start_sample": 1810254,
+        "errors": []
+      },
+      {
+        "value": 4,
+        "start_sample": 1811307,
+        "errors": []
+      },
+      {
+        "value": 0,
+        "start_sample": 1812360,
+        "errors": []
+      },
+      {
+        "value": 1,
+        "start_sample": 1813413,
+        "errors": []
+      },
+      {
+        "value": 69,
+        "start_sample": 1814466,
+        "errors": []
+      }
+    ]
+  },
+  "expected_packets": [
+    {
+      "direction": "ASIC_TX",
+      "hex": "5A A5 C4 E7 FB 8B 0A 00 04 00 01 45",
+      "kind": "frame_candidate",
+      "uart_errors": []
+    },
+    {
+      "direction": "ASIC_TX",
+      "hex": "5A A5 44 EE 5F EE 0B 00 04 00 01 45",
+      "kind": "frame_candidate",
+      "uart_errors": []
+    },
+    {
+      "direction": "ASIC_TX",
+      "hex": "5A A5 44 EE 5F EE 0B 00 04 00 01 45",
+      "kind": "frame_candidate",
+      "uart_errors": []
+    },
+    {
+      "direction": "ASIC_TX",
+      "hex": "5A A5 44 EE 5F EE 0B 00 04 00 01 45",
+      "kind": "frame_candidate",
+      "uart_errors": []
+    },
+    {
+      "direction": "ASIC_TX",
+      "hex": "5A A5 C4 07 DA 87 0A 00 04 00 01 45",
+      "kind": "frame_candidate",
+      "uart_errors": []
+    },
+    {
+      "direction": "ASIC_TX",
+      "hex": "5A A5 C4 07 DA 87 0A 00 04 00 01 45",
+      "kind": "frame_candidate",
+      "uart_errors": []
+    },
+    {
+      "direction": "ASIC_TX",
+      "hex": "5A A5 C4 07 DA 87 0A 00 04 00 01 45",
+      "kind": "frame_candidate",
+      "uart_errors": []
+    },
+    {
+      "direction": "ASIC_TX",
+      "hex": "5A A5 C4 07 DA 87 0A 00 04 00 01 45",
+      "kind": "frame_candidate",
+      "uart_errors": []
+    },
+    {
+      "direction": "ASIC_TX",
+      "hex": "5A A5 C4 E7 FB 8B 0F 00 04 00 01 45",
+      "kind": "frame_candidate",
+      "uart_errors": []
+    },
+    {
+      "direction": "ASIC_TX",
+      "hex": "5A A5 C4 E7 FB 8B 0F 00 04 00 01 45",
+      "kind": "frame_candidate",
+      "uart_errors": []
+    },
+    {
+      "direction": "ASIC_TX",
+      "hex": "5A A5 C4 E7 FB 8B 0F 00 04 00 01 45",
+      "kind": "frame_candidate",
+      "uart_errors": []
+    },
+    {
+      "direction": "ASIC_TX",
+      "hex": "5A A5 C4 E7 FB 8B 0F 00 04 00 01 45",
+      "kind": "frame_candidate",
+      "uart_errors": []
+    }
+  ],
+  "rx_checksum_verified": false,
+  "cut_policy": "exact contiguous samples; boundary truncation and initial-low errors retained"
+}

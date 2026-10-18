@@ -1,0 +1,68 @@
+{
+  "baseline": {
+    "complete_native": 141,
+    "partial_native": 18,
+    "incomplete_nontrap": 128
+  },
+  "full_added": 5,
+  "prior_partials_completed": 4,
+  "newly_translated_original_bodies": 1,
+  "entries": [
+    {
+      "address": "0x00008ed4",
+      "source": "reconstructed/application/foreground.c",
+      "symbol": "foreground_loop / foreground_enter / foreground_iteration / foreground_diagnostic_iteration",
+      "extent": "full",
+      "validation_group": "asic_foreground",
+      "scope": "Complete nonreturning original caller/reference with typed external callees: PC10/PC11 short-circuit boot selection, normal mode/event setup, all three button/event branches,16-byte saved-event copy, HOLD suppression, battery/charge order and diagnostic poll/skip/repeated-render path. Connected application_boot/step remain cooperative. Valid flags0/1, battery0..100; no interrupt/cycle/device equivalence or completion of callee internals.",
+      "hardware_validated": false,
+      "kind": "native"
+    },
+    {
+      "address": "0x0000b56a",
+      "source": "reconstructed/drivers/measurement_asic.c",
+      "symbol": "measurement_diagnostic_entry",
+      "extent": "full",
+      "kind": "native",
+      "validation_group": "asic_foreground",
+      "scope": "Exact AA55 05 0B ...10, delay200, AA55 02 A0 ...A2 sequence. All10 bytes and order compared with randomized original stack. A0 functional meaning is unknown. Callback contract is the original void-send/delay behavior; independent API local-failure handling is separate.",
+      "hardware_validated": false
+    },
+    {
+      "address": "0x0000b5c8",
+      "source": "reconstructed/application/control.c",
+      "symbol": "control_buttons / control_effect / menu_step_rendered",
+      "extent": "full",
+      "validation_group": "asic_buttons_composed",
+      "scope": "Full regular button command/selector/relative call and state contract including real menu begin/dispatcher/return and view change. Both layouts/languages, events0..8, modes0..23, valid selectors and short/long press contexts compared. Base/history dependencies isolated; cooperative menu yield timing is explicitly outside equivalence.",
+      "hardware_validated": false,
+      "kind": "native"
+    },
+    {
+      "address": "0x0000b9e0",
+      "source": "reconstructed/application/control.c",
+      "symbol": "control_buttons / control_effect / menu_step_rendered",
+      "extent": "full",
+      "validation_group": "asic_buttons_composed",
+      "scope": "Full recording button command/selector/history and menu entry/return contract including Fahrenheit text, template-zero TX and extrema reset. Both layouts/languages, events0..8, modes0..23 and valid selectors compared. Qualified history/base callees isolated; no timing or physical UART claim.",
+      "hardware_validated": false,
+      "kind": "native"
+    },
+    {
+      "address": "0x0000bc90",
+      "source": "reconstructed/application/control.c",
+      "symbol": "control_buttons / control_effect / menu_step_rendered",
+      "extent": "full",
+      "validation_group": "asic_buttons_composed",
+      "scope": "Full monitor button command/selector and menu entry/return contract with buzzer disable and owner-specific selector/state reset. Both layouts/languages, events0..8, modes0..23 and valid selectors compared. Qualified base callee isolated; no timing or physical UART claim.",
+      "hardware_validated": false,
+      "kind": "native"
+    }
+  ],
+  "relocated_without_extra_credit": [
+    "0x000096de",
+    "0x00009774",
+    "0x0000be78"
+  ],
+  "hardware_validated": false
+}

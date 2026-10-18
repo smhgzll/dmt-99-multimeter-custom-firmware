@@ -1,0 +1,19 @@
+{
+  "cases": {
+    "button_policies": 1152,
+    "event_state": 3456,
+    "frame_value": 1024,
+    "menu_policy": 1900,
+    "graphics": 352,
+    "thresholds": 720,
+    "format": 72,
+    "status_rendering": 214,
+    "history": 162,
+    "history_browser": 62,
+    "scrollbar": 16,
+    "chinese_glyphs": 258
+  },
+  "total": 9388,
+  "oracle": "Preserved original instructions; IO/render hooks; no hardware emulation",
+  "hardware_validated": false
+}

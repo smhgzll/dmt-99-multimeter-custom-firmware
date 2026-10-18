@@ -1,0 +1,496 @@
+{
+  "origin": "hardware_excerpt",
+  "source_capture": "projects/asic/captures/20261018T014128_current_mA_open_first_416da768",
+  "source_capture_status": "captured",
+  "source_raw_sr_sha256": "a0f3c07083bb47242df5197697a769b88671aa9ee922889735eb8105205a877c",
+  "source_logic_sha256": "b634a8f3d236e97a408f1fa618300034facb0d3a5e5b556f906134cf1fd43783",
+  "source_metadata": {
+    "test": "current_ma_open",
+    "label": "current_mA_open_first",
+    "display_text": "mA DC",
+    "display_numeric": null,
+    "display_unit": "mA",
+    "display_tolerance": 0,
+    "display_is_approximate": false,
+    "component_actual": "Ölçüm girişleri boş, harici kaynak/komponent yok",
+    "mode": "DC mA (user reported)",
+    "notes": "Kullanıcı ekranda ma dc gözükmekte bildirdi; sayı ayrıca söylenmedi. ASIC verisinde unit_code=8 (eski firmware UI association uA) ve durum kodu2, çözülen metin üç boş hane ardından0. Kullanıcı mA etiketi ve ham flag uA ilişkisi birlikte korunur; otomatik kademe veya nonzero akım ölçeği doğrulanmış sayılmaz.",
+    "schema": 1,
+    "origin": "hardware",
+    "status": "captured",
+    "host_started_at": "2026-10-18T01:41:28.502008+03:00",
+    "requested_seconds": 10.0,
+    "requested_samples": 10000000,
+    "requested_samplerate_hz": 1000000,
+    "channels": {
+      "D0": "MCU_TX_PA9_pin42",
+      "D2": "ASIC_TX_PA10_pin43"
+    },
+    "channel_map": {
+      "MCU_TX": 0,
+      "ASIC_TX": 2
+    },
+    "rx_frame_bytes": 12,
+    "uart": "9600 8N1",
+    "passive_connections_confirmed": true,
+    "device_preflight": {
+      "argv": [
+        "sigrok-cli",
+        "--driver",
+        "fx2lafw",
+        "--show"
+      ],
+      "returncode": 0,
+      "output": "Driver functions:\n    Logic analyzer\nScan options:\n    conn\nfx2lafw:conn=1.69 - Saleae Logic [S/N: Saleae Logic] with 8 channels: D0 D1 D2 D3 D4 D5 D6 D7\nChannel groups:\n    Logic: channels D0 D1 D2 D3 D4 D5 D6 D7\nSupported configuration options across all channel groups:\n    continuous: on, off\n    limit_samples: 0 (current)\n    conn: 1.69 (current)\n    samplerate - supported samplerates:\n      20 kHz (current)\n      25 kHz\n      50 kHz\n      100 kHz\n      200 kHz\n      250 kHz\n      500 kHz\n      1 MHz\n      2 MHz\n      3 MHz\n      4 MHz\n      6 MHz\n      8 MHz\n      12 MHz\n      16 MHz\n      24 MHz\n      48 MHz\n    Supported triggers: 0 1 r f e \n    captureratio: 0 (current)\n"
+    },
+    "command": [
+      "sigrok-cli",
+      "--loglevel",
+      "4",
+      "--driver",
+      "fx2lafw",
+      "--config",
+      "samplerate=1000000",
+      "--channels",
+      "D0,D2",
+      "--samples",
+      "10000000",
+      "--output-format",
+      "srzip",
+      "--output-file",
+      "projects/asic/captures/20261018T014128_current_mA_open_first_416da768/raw.sr"
+    ],
+    "host_finished_at": "2026-10-18T01:41:38.618061+03:00",
+    "returncode": 0,
+    "received_samples": 10000000,
+    "analysis_error": null,
+    "annotation_history": [
+      {
+        "timestamp": "2026-10-18T01:42:27.103935+03:00",
+        "previous": {
+          "display_text": null,
+          "display_numeric": null,
+          "display_unit": null,
+          "display_tolerance": 0,
+          "display_is_approximate": false,
+          "component_actual": "Ölçüm girişleri boş, harici kaynak/komponent yok",
+          "mode": "mA, DC/AC unreported",
+          "notes": "Kullanıcı mili amper moduna aldım bir de amper modu var bildirdi. DC/AC ve ekran sayısı henüz belirtilmedi; bu alanlar tahmin edilmedi. D0/D2/GND pasif bağlantısı korunuyor."
+        }
+      }
+    ]
+  },
+  "start_sample": 43594,
+  "end_sample_exclusive": 878707,
+  "samplerate_hz": 1000000,
+  "channel_map": {
+    "MCU_TX": 0,
+    "ASIC_TX": 2
+  },
+  "raw_excerpt_sha256": "6aede8d2d0433cbd3ab84006e3decad677e0bed3201d7d5cb4c04d55026be394",
+  "expected": {
+    "MCU_TX": [],
+    "ASIC_TX": [
+      {
+        "value": 90,
+        "start_sample": 1000,
+        "errors": []
+      },
+      {
+        "value": 165,
+        "start_sample": 2053,
+        "errors": []
+      },
+      {
+        "value": 6,
+        "start_sample": 3106,
+        "errors": []
+      },
+      {
+        "value": 0,
+        "start_sample": 4146,
+        "errors": []
+      },
+      {
+        "value": 0,
+        "start_sample": 5186,
+        "errors": []
+      },
+      {
+        "value": 224,
+        "start_sample": 6238,
+        "errors": []
+      },
+      {
+        "value": 27,
+        "start_sample": 7291,
+        "errors": []
+      },
+      {
+        "value": 0,
+        "start_sample": 8344,
+        "errors": []
+      },
+      {
+        "value": 1,
+        "start_sample": 9397,
+        "errors": []
+      },
+      {
+        "value": 0,
+        "start_sample": 10450,
+        "errors": []
+      },
+      {
+        "value": 1,
+        "start_sample": 11516,
+        "errors": []
+      },
+      {
+        "value": 70,
+        "start_sample": 12569,
+        "errors": []
+      },
+      {
+        "value": 90,
+        "start_sample": 160267,
+        "errors": []
+      },
+      {
+        "value": 165,
+        "start_sample": 161320,
+        "errors": []
+      },
+      {
+        "value": 6,
+        "start_sample": 162373,
+        "errors": []
+      },
+      {
+        "value": 0,
+        "start_sample": 163426,
+        "errors": []
+      },
+      {
+        "value": 0,
+        "start_sample": 164479,
+        "errors": []
+      },
+      {
+        "value": 224,
+        "start_sample": 165532,
+        "errors": []
+      },
+      {
+        "value": 27,
+        "start_sample": 166585,
+        "errors": []
+      },
+      {
+        "value": 0,
+        "start_sample": 167625,
+        "errors": []
+      },
+      {
+        "value": 1,
+        "start_sample": 168678,
+        "errors": []
+      },
+      {
+        "value": 0,
+        "start_sample": 169731,
+        "errors": []
+      },
+      {
+        "value": 1,
+        "start_sample": 170783,
+        "errors": []
+      },
+      {
+        "value": 70,
+        "start_sample": 171836,
+        "errors": []
+      },
+      {
+        "value": 90,
+        "start_sample": 325657,
+        "errors": []
+      },
+      {
+        "value": 165,
+        "start_sample": 326710,
+        "errors": []
+      },
+      {
+        "value": 6,
+        "start_sample": 327763,
+        "errors": []
+      },
+      {
+        "value": 0,
+        "start_sample": 328816,
+        "errors": []
+      },
+      {
+        "value": 0,
+        "start_sample": 329856,
+        "errors": []
+      },
+      {
+        "value": 224,
+        "start_sample": 330909,
+        "errors": []
+      },
+      {
+        "value": 27,
+        "start_sample": 331962,
+        "errors": []
+      },
+      {
+        "value": 0,
+        "start_sample": 333015,
+        "errors": []
+      },
+      {
+        "value": 1,
+        "start_sample": 334068,
+        "errors": []
+      },
+      {
+        "value": 0,
+        "start_sample": 335108,
+        "errors": []
+      },
+      {
+        "value": 1,
+        "start_sample": 336173,
+        "errors": []
+      },
+      {
+        "value": 70,
+        "start_sample": 337213,
+        "errors": []
+      },
+      {
+        "value": 90,
+        "start_sample": 490956,
+        "errors": []
+      },
+      {
+        "value": 165,
+        "start_sample": 491996,
+        "errors": []
+      },
+      {
+        "value": 6,
+        "start_sample": 493049,
+        "errors": []
+      },
+      {
+        "value": 0,
+        "start_sample": 494089,
+        "errors": []
+      },
+      {
+        "value": 0,
+        "start_sample": 495142,
+        "errors": []
+      },
+      {
+        "value": 224,
+        "start_sample": 496182,
+        "errors": []
+      },
+      {
+        "value": 27,
+        "start_sample": 497222,
+        "errors": []
+      },
+      {
+        "value": 0,
+        "start_sample": 498275,
+        "errors": []
+      },
+      {
+        "value": 1,
+        "start_sample": 499315,
+        "errors": []
+      },
+      {
+        "value": 0,
+        "start_sample": 500367,
+        "errors": []
+      },
+      {
+        "value": 1,
+        "start_sample": 501433,
+        "errors": []
+      },
+      {
+        "value": 70,
+        "start_sample": 502473,
+        "errors": []
+      },
+      {
+        "value": 90,
+        "start_sample": 656164,
+        "errors": []
+      },
+      {
+        "value": 165,
+        "start_sample": 657204,
+        "errors": []
+      },
+      {
+        "value": 6,
+        "start_sample": 658257,
+        "errors": []
+      },
+      {
+        "value": 0,
+        "start_sample": 659310,
+        "errors": []
+      },
+      {
+        "value": 0,
+        "start_sample": 660363,
+        "errors": []
+      },
+      {
+        "value": 224,
+        "start_sample": 661403,
+        "errors": []
+      },
+      {
+        "value": 27,
+        "start_sample": 662443,
+        "errors": []
+      },
+      {
+        "value": 0,
+        "start_sample": 663496,
+        "errors": []
+      },
+      {
+        "value": 1,
+        "start_sample": 664536,
+        "errors": []
+      },
+      {
+        "value": 0,
+        "start_sample": 665588,
+        "errors": []
+      },
+      {
+        "value": 1,
+        "start_sample": 666654,
+        "errors": []
+      },
+      {
+        "value": 70,
+        "start_sample": 667707,
+        "errors": []
+      },
+      {
+        "value": 90,
+        "start_sample": 821502,
+        "errors": []
+      },
+      {
+        "value": 165,
+        "start_sample": 822555,
+        "errors": []
+      },
+      {
+        "value": 6,
+        "start_sample": 823608,
+        "errors": []
+      },
+      {
+        "value": 0,
+        "start_sample": 824661,
+        "errors": []
+      },
+      {
+        "value": 0,
+        "start_sample": 825701,
+        "errors": []
+      },
+      {
+        "value": 224,
+        "start_sample": 826754,
+        "errors": []
+      },
+      {
+        "value": 27,
+        "start_sample": 827807,
+        "errors": []
+      },
+      {
+        "value": 0,
+        "start_sample": 828860,
+        "errors": []
+      },
+      {
+        "value": 1,
+        "start_sample": 829913,
+        "errors": []
+      },
+      {
+        "value": 0,
+        "start_sample": 830965,
+        "errors": []
+      },
+      {
+        "value": 1,
+        "start_sample": 832018,
+        "errors": []
+      },
+      {
+        "value": 70,
+        "start_sample": 833071,
+        "errors": []
+      }
+    ]
+  },
+  "expected_packets": [
+    {
+      "direction": "ASIC_TX",
+      "hex": "5A A5 06 00 00 E0 1B 00 01 00 01 46",
+      "kind": "frame_candidate",
+      "uart_errors": []
+    },
+    {
+      "direction": "ASIC_TX",
+      "hex": "5A A5 06 00 00 E0 1B 00 01 00 01 46",
+      "kind": "frame_candidate",
+      "uart_errors": []
+    },
+    {
+      "direction": "ASIC_TX",
+      "hex": "5A A5 06 00 00 E0 1B 00 01 00 01 46",
+      "kind": "frame_candidate",
+      "uart_errors": []
+    },
+    {
+      "direction": "ASIC_TX",
+      "hex": "5A A5 06 00 00 E0 1B 00 01 00 01 46",
+      "kind": "frame_candidate",
+      "uart_errors": []
+    },
+    {
+      "direction": "ASIC_TX",
+      "hex": "5A A5 06 00 00 E0 1B 00 01 00 01 46",
+      "kind": "frame_candidate",
+      "uart_errors": []
+    },
+    {
+      "direction": "ASIC_TX",
+      "hex": "5A A5 06 00 00 E0 1B 00 01 00 01 46",
+      "kind": "frame_candidate",
+      "uart_errors": []
+    }
+  ],
+  "rx_checksum_verified": false,
+  "cut_policy": "exact contiguous samples; boundary truncation and initial-low errors retained"
+}

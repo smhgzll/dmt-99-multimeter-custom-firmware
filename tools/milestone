@@ -1,0 +1,8 @@
+#!/bin/sh
+# Prefer ordinary Git in public clones; preserve the original local milestone store.
+set -eu
+root=$(CDPATH= cd -- "$(dirname -- "$0")/.." && pwd)
+if [ -e "$root/.git" ]; then
+    exec git -C "$root" "$@"
+fi
+exec git --git-dir="$root/.history/git" --work-tree="$root" "$@"

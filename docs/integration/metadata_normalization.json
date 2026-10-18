@@ -1,0 +1,398 @@
+[
+  {
+    "path": "analysis/flash_export_object_build.json",
+    "before_sha256": "c5440cf17beebe90f1e84dfe911ebb665a38ca8b29784f4aafe7e67968f8b451",
+    "after_sha256": "002aa5be8d0cb6f5cf81c86ef286fcb7089a8a5be2c1981360517f8172c48672",
+    "reason": "remove local absolute paths/device serial IDs; no machine-code or sample bytes changed"
+  },
+  {
+    "path": "analysis/environment.json",
+    "before_sha256": "f9530cd33409a9a76fc2a30cd7873a53df2da57d9a36a2d59601fe022d25caad",
+    "after_sha256": "5f762c30fa97bb9a91fff444719c35e0387aad355a0e4f180bdd3ea412d683d8",
+    "reason": "remove local absolute paths/device serial IDs; no machine-code or sample bytes changed"
+  },
+  {
+    "path": "analysis/simulator_screenshots.json",
+    "before_sha256": "5fccd108f0301936bc2454b9ad3e4f976965c272657dfacec17378d658ddd0d4",
+    "after_sha256": "11e0aea5dfd8c6ecbe83421ab9360bd1dd87f266e2b1eeaa3a886ef87205531d",
+    "reason": "remove local absolute paths/device serial IDs; no machine-code or sample bytes changed"
+  },
+  {
+    "path": "analysis/library_extension_matches.json",
+    "before_sha256": "71229949d967e07bde4040da1b84d1ffdf9164a65c7160e50848b1372e685659",
+    "after_sha256": "4caefecade318a2b3cd79a3c67bf7f291af30a90ae62656563cedf550bbc7fa0",
+    "reason": "remove local absolute paths/device serial IDs; no machine-code or sample bytes changed"
+  },
+  {
+    "path": "analysis/library_fingerprints.json",
+    "before_sha256": "a9a175a115222a629f18ae7ec28e448720fa61fc8b750d181a59c0bedbb157b5",
+    "after_sha256": "5ccacc637e4b4a13470ab184bb9852ae59faa19fc6e63d50851f20c54244b995",
+    "reason": "remove local absolute paths/device serial IDs; no machine-code or sample bytes changed"
+  },
+  {
+    "path": "analysis/phase4/baseline_library_fingerprints.json",
+    "before_sha256": "a9a175a115222a629f18ae7ec28e448720fa61fc8b750d181a59c0bedbb157b5",
+    "after_sha256": "5ccacc637e4b4a13470ab184bb9852ae59faa19fc6e63d50851f20c54244b995",
+    "reason": "remove local absolute paths/device serial IDs; no machine-code or sample bytes changed"
+  },
+  {
+    "path": "projects/studio/README.md",
+    "before_sha256": "1339c3ec2bfd1d0922d45ccdd39d1f401aa118e1ddb531f993aaca582ded2d2d",
+    "after_sha256": "9ee7a2990f072a53321ddc96a3c882a97fb4c720828b3aeaff0c7aff460597f9",
+    "reason": "remove local absolute paths/device serial IDs; no machine-code or sample bytes changed"
+  },
+  {
+    "path": "projects/asic/README.md",
+    "before_sha256": "fe8c95f74a38d73390f36bc3ff4d9433a44414feb8669c72d3eb6a11dd64d8a4",
+    "after_sha256": "46d319af6595d5a78a75e4675e31123bab0d89da1e6a37d7a9b5bdd6571538ad",
+    "reason": "remove local absolute paths/device serial IDs; no machine-code or sample bytes changed"
+  },
+  {
+    "path": "projects/rvswd/DEBUG_CAPABILITIES.md",
+    "before_sha256": "191cc7f16a0f86df72dbcc9a6f6216daad3b6b6e344ce0ae106b275a48818549",
+    "after_sha256": "6cbb321850cc739e337b3e94fdfe1b12e12f21f7565a10a1f9b80ed569397013",
+    "reason": "remove local absolute paths/device serial IDs; no machine-code or sample bytes changed"
+  },
+  {
+    "path": "projects/rvswd/FLASH_RECOVERY_REPORT.md",
+    "before_sha256": "8de84df4ecbfc752a35b55773747e6b2c4a50e6009d4e9c77dbf947210c34cd7",
+    "after_sha256": "a0ef7718273e146297159228fe9ecbfb799231df4c80e0216bc4f5ac6b17695b",
+    "reason": "remove local absolute paths/device serial IDs; no machine-code or sample bytes changed"
+  },
+  {
+    "path": "projects/doom/NOTICE.md",
+    "before_sha256": "16c641e63acc28f63e8f3fa281c6393b305e6da8a35787426aab57255daec53a",
+    "after_sha256": "fbc575c2a87e277bddacaa22640fbf41fee576e18ecb2ff61c9bc8661e7084d6",
+    "reason": "remove local absolute paths/device serial IDs; no machine-code or sample bytes changed"
+  },
+  {
+    "path": "projects/doom/docs/copied_sources.json",
+    "before_sha256": "5066a45754bf3820beeb4375d56fddd1c73d4e6362d3cd53ac24b3f572f0e7fe",
+    "after_sha256": "c2a4c2c377e78668b5b511e347e18f3b621d60e128a647c4044a5f3041fdf4f8",
+    "reason": "remove local absolute paths/device serial IDs; no machine-code or sample bytes changed"
+  },
+  {
+    "path": "projects/doom/docs/screenshots/emulator/capture.json",
+    "before_sha256": "34f27a1e6e20a948ee3524e5aa91a69be483b32a609144a51867991c15bdb278",
+    "after_sha256": "97b552544d7db9331190fb82c373098755578b7c09daac9e9588d2178e9f0a0e",
+    "reason": "remove local absolute paths/device serial IDs; no machine-code or sample bytes changed"
+  },
+  {
+    "path": "projects/doom/docs/validation/v0.4.0/host_tests.txt",
+    "before_sha256": "8a3a72936c87db7506aed74f1706468a51df3aef0e6b372d12b3371eececa64d",
+    "after_sha256": "82577d3c6c13604ab31a89534286c2523df8855a0507df3d0af80f103c138d8e",
+    "reason": "remove local absolute paths/device serial IDs; no machine-code or sample bytes changed"
+  },
+  {
+    "path": "projects/doom/docs/validation/v0.3.0/host_tests.txt",
+    "before_sha256": "a434e48c2a789ff468db0a1bedc3244d116d9f0e2805b66899397e3556e8e8f8",
+    "after_sha256": "580b60099e01d4c02346232ec9fb4a4f3e101d7eaded104268c6dd826538f8d2",
+    "reason": "remove local absolute paths/device serial IDs; no machine-code or sample bytes changed"
+  },
+  {
+    "path": "projects/doom/docs/validation/v0.2.0/host_tests.txt",
+    "before_sha256": "b31e2e1917a0a1f12fcc8919fb6044217c20746a712cace7e68df684865f5808",
+    "after_sha256": "76b16468d5e9ca1f81a5e566e1002ab12d465814923e74f00afd1f2061aef032",
+    "reason": "remove local absolute paths/device serial IDs; no machine-code or sample bytes changed"
+  },
+  {
+    "path": "projects/rvswd/docs/BUILD_REPORT.md",
+    "before_sha256": "02ef24d1fd1ad9777fb72c65f23cbe74184073817d5601cd6447015ba4b1fcd5",
+    "after_sha256": "da0d5bbd0302cce18a7475f3da592bba5d7956a54377b73a0085e0deca0c40b2",
+    "reason": "remove local absolute paths/device serial IDs; no machine-code or sample bytes changed"
+  },
+  {
+    "path": "projects/rvswd/docs/HARDWARE_SESSION.md",
+    "before_sha256": "a02823d80f8f7edee96887807c789fd04776c7ac05bd448a7997f4b0144bc9ea",
+    "after_sha256": "ec9e952981e9130ad4d4e5cb294638b28e982b20eac4951eb04ff66674b68138",
+    "reason": "remove local absolute paths/device serial IDs; no machine-code or sample bytes changed"
+  },
+  {
+    "path": "projects/asic/evidence/rv32_build.json",
+    "before_sha256": "86af1d358cd9d83f79b9e073f336cc7ba47be7608649c3cfa9e72c12ea21d9d1",
+    "after_sha256": "5f73a72a5d69e3380d93994f04aa7064c6a30c2f814db1e9f0beaea3af67152a",
+    "reason": "remove local absolute paths/device serial IDs; no machine-code or sample bytes changed"
+  },
+  {
+    "path": "projects/asic/evidence/open_mode_host_sources.json",
+    "before_sha256": "0658239fe1511b0c76c7452782a924dc55a197dace22a5aaf9eef4f807ebd72f",
+    "after_sha256": "ef755f3be8ed64e03bdbc6ac1ddc39ecf201f8695f506128b9ec2858900c29f9",
+    "reason": "remove local absolute paths/device serial IDs; no machine-code or sample bytes changed"
+  },
+  {
+    "path": "projects/asic/evidence/temperature_C_open_decoder_validation.json",
+    "before_sha256": "8031c0d6456b085f91887b2f37f49f8803f17dfa7bbdf5846a00c581951b9fc0",
+    "after_sha256": "71db6aa14bad4c7835fc84b28c32ca22ce1de26ef925b6b311b66778b45e776c",
+    "reason": "remove local absolute paths/device serial IDs; no machine-code or sample bytes changed"
+  },
+  {
+    "path": "projects/asic/evidence/resistance_comparison.json",
+    "before_sha256": "4a643240125971033cdb44d39cc26f1861fedb8e0b09b825c0243f0b9a005f9f",
+    "after_sha256": "0fc0e39727f0785c1f0caffbf845936809f3e68ad40abe3e6e7cd00b383980af",
+    "reason": "remove local absolute paths/device serial IDs; no machine-code or sample bytes changed"
+  },
+  {
+    "path": "projects/asic/evidence/resistance_10M_excerpt_decoder_validation.json",
+    "before_sha256": "1e7521b97b4fdd59551b66ae305f35e7e64636fc310cab1f7afa08426cd9ac14",
+    "after_sha256": "ebf1f72e868dd9635c07368f6924064c9d4005f2876f46ca6d3a68110f27e201",
+    "reason": "remove local absolute paths/device serial IDs; no machine-code or sample bytes changed"
+  },
+  {
+    "path": "projects/asic/evidence/LIVE_cable_only_idle_decoder_validation.json",
+    "before_sha256": "11fe30a345fbf3e2c2a6b7bd29a689abff4434bdc902f32c717eb8f1087b6587",
+    "after_sha256": "293fdb1f657709c1760f7417ad52329ce43c2a154d6376a030fe680a9c56df4d",
+    "reason": "remove local absolute paths/device serial IDs; no machine-code or sample bytes changed"
+  },
+  {
+    "path": "projects/asic/evidence/frequency_open_decoder_validation.json",
+    "before_sha256": "0c984187430f2564b7c994c5845a0d8de12d7b4d7365a092045a5166ab6d3814",
+    "after_sha256": "49162a0d87ddcf2f2962b967a97d948e6025057595860437cf786aeb78fd2d1a",
+    "reason": "remove local absolute paths/device serial IDs; no machine-code or sample bytes changed"
+  },
+  {
+    "path": "projects/asic/evidence/cable_wave_icon_idle_decoder_validation.json",
+    "before_sha256": "97e5f2b06ba7f1a5b08d28de5070c53f3f6062deadc483b7705b691561130a78",
+    "after_sha256": "c0e6f6e65d153fc68b03731ff47883676753f99e67f3d72cb8aae07970c5c422",
+    "reason": "remove local absolute paths/device serial IDs; no machine-code or sample bytes changed"
+  },
+  {
+    "path": "projects/asic/evidence/decompiled_audit.json",
+    "before_sha256": "0e0f7f0c7cc00938d2819a98922f6cadcc3ecd9dbdb303d01304384edbcd82ce",
+    "after_sha256": "18741649127b3bf2ac17a67b97085411c7b22b45301aeba3f393e1747d5ee96b",
+    "reason": "remove local absolute paths/device serial IDs; no machine-code or sample bytes changed"
+  },
+  {
+    "path": "projects/asic/evidence/current_DC_A_open_decoder_validation.json",
+    "before_sha256": "99ee38e49f802fc5a20afa173ecccee714093276a6ae7df3b7b4807b4cd21b64",
+    "after_sha256": "8dbacac981d6bcd7bf1bc97caa86a8082566adc9afea7abf6db796cacbbdb5ec",
+    "reason": "remove local absolute paths/device serial IDs; no machine-code or sample bytes changed"
+  },
+  {
+    "path": "projects/asic/evidence/sources.json",
+    "before_sha256": "adbd0a352b604d74d27c926ff5d20e04beacac6071fdf311e4b14f0b801b135b",
+    "after_sha256": "6b0662d61e5cd947756de2ccff72cc28abc3a9c67046d7793affee4e30f48d12",
+    "reason": "remove local absolute paths/device serial IDs; no machine-code or sample bytes changed"
+  },
+  {
+    "path": "projects/asic/evidence/resistance_1k_10k_decoder_validation.json",
+    "before_sha256": "8a3339b267b890a2f70074c8b1ed8810d520f2af5de865bc662dfb381105a40b",
+    "after_sha256": "1d62f2e9e1e4190dfc21873193a35753f91d4267b0158ca6018fdaf486fc0722",
+    "reason": "remove local absolute paths/device serial IDs; no machine-code or sample bytes changed"
+  },
+  {
+    "path": "projects/asic/evidence/current_AC_mA_open_decoder_validation.json",
+    "before_sha256": "c21e9b18bf3e6beb73772d93ac5ebf39a75be1ac6d99f0545bc4ad1fdcc36d9b",
+    "after_sha256": "2cf66a103d793d8f6e141436a86b00618c1c4b351d5609f9ce7e9ea4b6ea427e",
+    "reason": "remove local absolute paths/device serial IDs; no machine-code or sample bytes changed"
+  },
+  {
+    "path": "projects/asic/evidence/dc_open_decoder_validation.json",
+    "before_sha256": "e0a077ed6656a6a9947ba442f9eac2e7b5d4ac8530b662651ed2f23ce5eed10a",
+    "after_sha256": "19f74bad0c765593c29b82aec08d8aec33b514ad75b203fef6fe1c18c1ec43ce",
+    "reason": "remove local absolute paths/device serial IDs; no machine-code or sample bytes changed"
+  },
+  {
+    "path": "projects/asic/evidence/current_AC_A_open_decoder_validation.json",
+    "before_sha256": "586c9fb646805d74e368ee667aaf6a5b19e67dc247fc1559c5e648e923833214",
+    "after_sha256": "13911b91d2c44369116b479022f5fed8764b89bd8a19b28065c0122c22a9635a",
+    "reason": "remove local absolute paths/device serial IDs; no machine-code or sample bytes changed"
+  },
+  {
+    "path": "projects/asic/evidence/analyzer_setup.json",
+    "before_sha256": "e5fc75f1929277150954828a3572c636682c5bc9be89f293460e072d6d60f723",
+    "after_sha256": "b57d942459f06ca80763bb9d2982d932087adb4a70723810e38f62eb3e3a36c5",
+    "reason": "remove local absolute paths/device serial IDs; no machine-code or sample bytes changed"
+  },
+  {
+    "path": "projects/asic/evidence/resistance_1M_decoder_validation.json",
+    "before_sha256": "e6c991b3164659fcf8c3ecc1c7fa7893cf2e8f97716a7d723869a1384937ac90",
+    "after_sha256": "af7578686c290bb7132ee50379465003549b035293122b6004718aab5bfab570",
+    "reason": "remove local absolute paths/device serial IDs; no machine-code or sample bytes changed"
+  },
+  {
+    "path": "projects/asic/evidence/continuity_open_decoder_validation.json",
+    "before_sha256": "abe875a7dd8727f22a2e4f5c66eff93cc29dc36ab9607e5e25ce959373e8056f",
+    "after_sha256": "689119612212b771c43040237831c84d76e6c2c54049a30b48b12c33046178eb",
+    "reason": "remove local absolute paths/device serial IDs; no machine-code or sample bytes changed"
+  },
+  {
+    "path": "projects/asic/evidence/current_mA_open_first_decoder_validation.json",
+    "before_sha256": "13d26af0a1d8412bddbe5fcd60f366f96637752926b1393979160be06055877c",
+    "after_sha256": "8de05ed771585ec40e8e61ab752aa448c3d3063626aad93713bb7f26f6d5bf90",
+    "reason": "remove local absolute paths/device serial IDs; no machine-code or sample bytes changed"
+  },
+  {
+    "path": "projects/asic/evidence/resistance_open_decoder_validation.json",
+    "before_sha256": "7590306e3f5490f9b1f21d5b4b5164d1e6f48cbc5d76be9d1907cedd8a1d723c",
+    "after_sha256": "360201f71617218cd99de866648c9142323e8b9cbf0b7adad08c4b62352cf6cb",
+    "reason": "remove local absolute paths/device serial IDs; no machine-code or sample bytes changed"
+  },
+  {
+    "path": "projects/asic/evidence/mode_transition_decoder_validation.json",
+    "before_sha256": "375987c9a05014e1831da15c5d23e3b70cc0efd33655ff80290e15a1fd7b6d58",
+    "after_sha256": "ad9c78aa8627e322ab8b10b7a45775703ecfaeb4f91c364f4d9fe4fd60fe5ddf",
+    "reason": "remove local absolute paths/device serial IDs; no machine-code or sample bytes changed"
+  },
+  {
+    "path": "projects/asic/evidence/open_modes_decoder_validation.json",
+    "before_sha256": "86f77fd17f689b857c8574a25eeef096c0b3232fc0168c30bb01e02f4145f18e",
+    "after_sha256": "01bd6a0d65789ead20bf20cea23165a8b2f9ca668cbdcb3e7de143fe7fb91dc3",
+    "reason": "remove local absolute paths/device serial IDs; no machine-code or sample bytes changed"
+  },
+  {
+    "path": "projects/asic/evidence/resistance_100k_decoder_validation.json",
+    "before_sha256": "b81b7eb167e765fbadadbf31748ada05e4dad5ad85f8237845aabc5b941f3883",
+    "after_sha256": "3ffb588e4cced74f4308b28cc9c373cc5c026744f4905a74402b51734370d61d",
+    "reason": "remove local absolute paths/device serial IDs; no machine-code or sample bytes changed"
+  },
+  {
+    "path": "projects/asic/docs/DECOMPILED_COMPARISON.md",
+    "before_sha256": "772d5a6151b16a9a9cf92eec4fa8d832d6276ad33b98cd032e84f3f6fe6a6438",
+    "after_sha256": "543eff4daebdb84c300cc445d24ca1b273fadbd3f6f00fa07b67362b7fafdc6f",
+    "reason": "remove local absolute paths/device serial IDs; no machine-code or sample bytes changed"
+  },
+  {
+    "path": "projects/asic/tests/fixtures/real_temperature_C_open_1000000hz.json",
+    "before_sha256": "1b0fc53f2bcef4c07e6654fa202d65643c16fa81e2e09e17610f3356cbb85c58",
+    "after_sha256": "6a1e7cf2ca3870960dfc59c068c1ef132365b574ee57bec57bb8833c2fb12659",
+    "reason": "remove local absolute paths/device serial IDs; no machine-code or sample bytes changed"
+  },
+  {
+    "path": "projects/asic/tests/fixtures/real_current_dc_ma_open_1000000hz.json",
+    "before_sha256": "2bf6176e1db73c477c87d5abb8d510677706935a5180dd2f8dceb2d599da9625",
+    "after_sha256": "574bc67e1427d1e2a272428d7c3ea3dfb371fcd0ac723cfc3686f51885d48d13",
+    "reason": "remove local absolute paths/device serial IDs; no machine-code or sample bytes changed"
+  },
+  {
+    "path": "projects/asic/tests/fixtures/real_resistance_10Mohm_1000000hz.json",
+    "before_sha256": "a35dade9ae8424b885216ceffd3efaed01475a48861b1b504590e0b5fbfcc3c7",
+    "after_sha256": "9d7d0bbdf4e95b8766759a73d161d5f64c6d5e6a08d1ad91fb8a0e2f5566904f",
+    "reason": "remove local absolute paths/device serial IDs; no machine-code or sample bytes changed"
+  },
+  {
+    "path": "projects/asic/tests/fixtures/real_auto_idle_2000000hz.json",
+    "before_sha256": "7d641a335d86675782e029f97ecef440ea3a9ebad0a36a82a9abfaadcb5237bd",
+    "after_sha256": "7e236d7f5128374ab74ab34d73705ec4ff8f62361d898fcef6e2bda163f4080a",
+    "reason": "remove local absolute paths/device serial IDs; no machine-code or sample bytes changed"
+  },
+  {
+    "path": "projects/asic/tests/fixtures/real_capacitance_open_1000000hz.json",
+    "before_sha256": "f1e847c4288a16a7269c1db222325d3f1d70d591295e21f8fe01bdd5fc0f3a9a",
+    "after_sha256": "d39dc7b54c800b87a1660867ae8ab3e739c643d48d822278900d1f191935bead",
+    "reason": "remove local absolute paths/device serial IDs; no machine-code or sample bytes changed"
+  },
+  {
+    "path": "projects/asic/tests/fixtures/real_resistance_open_1000000hz.json",
+    "before_sha256": "1b5c09bf933048f348bda790c10768346f3deb06f6e13ad31ef46529bcfe2a4b",
+    "after_sha256": "3e6d842e5f38f5638da8748ccb44885ce2c9711c4908ea973a7ffbffb8253c0f",
+    "reason": "remove local absolute paths/device serial IDs; no machine-code or sample bytes changed"
+  },
+  {
+    "path": "projects/asic/tests/fixtures/real_mode_transition_1000000hz.json",
+    "before_sha256": "7f4087ca4941c70bf5569d47e4a5af04f098a6df273438e7e24acc7f8336abca",
+    "after_sha256": "8a904d1706f47a6981149187bc1d1a8b0b4f25298c1c63c698f90580326935dd",
+    "reason": "remove local absolute paths/device serial IDs; no machine-code or sample bytes changed"
+  },
+  {
+    "path": "projects/asic/tests/fixtures/real_cable_wave_icon_idle_1000000hz.json",
+    "before_sha256": "31900f38fe53cfa449f65d1507dd25d97c7e5b6ee21ac6f24ce86e278111b281",
+    "after_sha256": "fa5da6812e6df3c4e5064dd19e4bcec3f9aa581ec1660d07cf0f13138ece75d1",
+    "reason": "remove local absolute paths/device serial IDs; no machine-code or sample bytes changed"
+  },
+  {
+    "path": "projects/asic/tests/fixtures/real_live_cable_only_idle_1000000hz.json",
+    "before_sha256": "2995db6abb7e351d85eb461e66437596c6e7bbeee38a27096cbee9dcceaad750",
+    "after_sha256": "8c0536b1679e51d05d3421deb68f6c82b1207059c1710865499f1dd56b617bb2",
+    "reason": "remove local absolute paths/device serial IDs; no machine-code or sample bytes changed"
+  },
+  {
+    "path": "projects/asic/tests/fixtures/real_startup_command_event_2000000hz.json",
+    "before_sha256": "437a3b2565493f59bf2db13e491067080176d8a70ec348cf0dbce4893ce96137",
+    "after_sha256": "4a1aaab99f06435ffe0280d0920c3c484578c2f89d87d47338535cccc8ec3f8d",
+    "reason": "remove local absolute paths/device serial IDs; no machine-code or sample bytes changed"
+  },
+  {
+    "path": "projects/asic/tests/fixtures/real_auto_idle_1000000hz.json",
+    "before_sha256": "a3ecf4453a1c239e21c2c19b049e5e0edc03728c215ba5867576c72378c76c11",
+    "after_sha256": "76df43c9d733acbccc67a7b7da1ad05dbedf8143bd61ed104e9b78f8041360db",
+    "reason": "remove local absolute paths/device serial IDs; no machine-code or sample bytes changed"
+  },
+  {
+    "path": "projects/asic/tests/fixtures/real_current_ac_a_open_1000000hz.json",
+    "before_sha256": "378eec4e1a57845e975451d4eca3aa1b2c7c00a36f5bb1b62eb0f40db28d7dfb",
+    "after_sha256": "c4a2433c9404aed2d6d5085b36608a9f083132e348cd1dfe9640b186744076e7",
+    "reason": "remove local absolute paths/device serial IDs; no machine-code or sample bytes changed"
+  },
+  {
+    "path": "projects/asic/tests/fixtures/real_continuity_open_1000000hz.json",
+    "before_sha256": "7e2ff3f5eef5646d2d3fe8ada57dffe56a3fa52ac6bd1fb08bfbbaf2f8847c51",
+    "after_sha256": "658037c67a6a742926a0d7f2fba4d4377e8f9f0eec44ad678ffae3aba070056f",
+    "reason": "remove local absolute paths/device serial IDs; no machine-code or sample bytes changed"
+  },
+  {
+    "path": "projects/asic/tests/fixtures/real_current_ac_ma_open_1000000hz.json",
+    "before_sha256": "4b12603e70b8e07428a2d02e9b1496b6f6ce89cc4483e47690a99f8d9ed27222",
+    "after_sha256": "bb1286ed95683446ac47f089c3e1765127f26f4d61b6b962915119f748f3680a",
+    "reason": "remove local absolute paths/device serial IDs; no machine-code or sample bytes changed"
+  },
+  {
+    "path": "projects/asic/tests/fixtures/real_dc_voltage_open_1000000hz.json",
+    "before_sha256": "cf1ffabc975c0695c3f0830a44e874bf21481752703e09fe54d16876ac714b48",
+    "after_sha256": "995df499b174c6b19b69b94ceb3eb711704a8b8231f11f0c73d132945ea3edbd",
+    "reason": "remove local absolute paths/device serial IDs; no machine-code or sample bytes changed"
+  },
+  {
+    "path": "projects/asic/tests/fixtures/real_ac_voltage_open_1000000hz.json",
+    "before_sha256": "439ed2f21defb9621ef1012404da2bb6e1cbf9130367341bb89845246c2b912a",
+    "after_sha256": "b73b143a88d69355d37d52cc749680bbba880c518b6f0801251642aa2ee0566d",
+    "reason": "remove local absolute paths/device serial IDs; no machine-code or sample bytes changed"
+  },
+  {
+    "path": "projects/asic/tests/fixtures/real_resistance_10kohm_1000000hz.json",
+    "before_sha256": "47f908766c1a3297354390efe44ffe0bfc295fb611ec863972dea08b3b27ccd2",
+    "after_sha256": "32f7d7c9c83f2083a601bef4a11667d5d28087b39f441a73b30bf72ebc89ef6f",
+    "reason": "remove local absolute paths/device serial IDs; no machine-code or sample bytes changed"
+  },
+  {
+    "path": "projects/asic/tests/fixtures/real_capacitance_mode_event_1000000hz.json",
+    "before_sha256": "b3308671a6cc4921f0ae9b8b71cae449ad85a6cdacfc5e8c1fb0b567b2a80b35",
+    "after_sha256": "5918e2117760d19d434f31a8edfbc9fedaf648fa1251ba3a41802cc0d40ce903",
+    "reason": "remove local absolute paths/device serial IDs; no machine-code or sample bytes changed"
+  },
+  {
+    "path": "projects/asic/tests/fixtures/real_resistance_100kohm_1000000hz.json",
+    "before_sha256": "dc0e7893bde93f8d8400b4864a90fa509a817632c4d6f6cbcb65edd5b1cad4a2",
+    "after_sha256": "e7993c2836f8e12e66e44b7a2f92aa0badc148c6cd6e7232b19d8939ddadfcc7",
+    "reason": "remove local absolute paths/device serial IDs; no machine-code or sample bytes changed"
+  },
+  {
+    "path": "projects/asic/tests/fixtures/real_current_dc_a_open_1000000hz.json",
+    "before_sha256": "e59f85fcf716299f696b39fca6e020ea073e65e9128a314f877c1e85ce320786",
+    "after_sha256": "f53255b4b5fcb6fd1dc24503b21a0e13cf345d8e417c570049735d608ae8f59a",
+    "reason": "remove local absolute paths/device serial IDs; no machine-code or sample bytes changed"
+  },
+  {
+    "path": "projects/asic/tests/fixtures/real_resistance_1kohm_1000000hz.json",
+    "before_sha256": "fdac894a0cbe4fdbd45a15c68b565336f7317c1652b3626285d82a008719021c",
+    "after_sha256": "c3a3f1d20df0650f50dc3acc03eeb5a3a721b95a058cd9c0364336a918edb960",
+    "reason": "remove local absolute paths/device serial IDs; no machine-code or sample bytes changed"
+  },
+  {
+    "path": "projects/asic/tests/fixtures/real_resistance_1ohm_1000000hz.json",
+    "before_sha256": "cd876ed7961ce7777c96fe02e3d51ec16753c5f582d052410e89864178621a45",
+    "after_sha256": "12aec09fa353a4efacf1f6bdacdb3e048608f2082350e365096f87f61f479c1f",
+    "reason": "remove local absolute paths/device serial IDs; no machine-code or sample bytes changed"
+  },
+  {
+    "path": "projects/asic/tests/fixtures/real_frequency_open_1000000hz.json",
+    "before_sha256": "c7ab6358c640ba037913b69929daf982403bf22b2db8c0e86df032f25859bbbf",
+    "after_sha256": "c6e20b87c888ccb1016ce417221164051cf2d20eebb04671b2a7a42583cd4abb",
+    "reason": "remove local absolute paths/device serial IDs; no machine-code or sample bytes changed"
+  },
+  {
+    "path": "projects/asic/tests/fixtures/real_resistance_1Mohm_1000000hz.json",
+    "before_sha256": "2358c22c1c50a918ba7e7668c1b758b3c0ac36c99f15563d0682b3ca1122069a",
+    "after_sha256": "25f7e8baeec95c5f9529c527b5d51503c08174a5ee1ad367d7204167d8234500",
+    "reason": "remove local absolute paths/device serial IDs; no machine-code or sample bytes changed"
+  }
+]

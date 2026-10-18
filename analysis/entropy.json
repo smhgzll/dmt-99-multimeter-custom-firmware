@@ -1,0 +1,662 @@
+[
+  {
+    "offset": "0x0",
+    "size": 1024,
+    "entropy": 5.424
+  },
+  {
+    "offset": "0x400",
+    "size": 1024,
+    "entropy": 6.9295
+  },
+  {
+    "offset": "0x800",
+    "size": 1024,
+    "entropy": 6.875
+  },
+  {
+    "offset": "0xc00",
+    "size": 1024,
+    "entropy": 6.8854
+  },
+  {
+    "offset": "0x1000",
+    "size": 1024,
+    "entropy": 6.7584
+  },
+  {
+    "offset": "0x1400",
+    "size": 1024,
+    "entropy": 6.3861
+  },
+  {
+    "offset": "0x1800",
+    "size": 1024,
+    "entropy": 6.4662
+  },
+  {
+    "offset": "0x1c00",
+    "size": 1024,
+    "entropy": 6.741
+  },
+  {
+    "offset": "0x2000",
+    "size": 1024,
+    "entropy": 6.8203
+  },
+  {
+    "offset": "0x2400",
+    "size": 1024,
+    "entropy": 6.3872
+  },
+  {
+    "offset": "0x2800",
+    "size": 1024,
+    "entropy": 6.9234
+  },
+  {
+    "offset": "0x2c00",
+    "size": 1024,
+    "entropy": 6.8016
+  },
+  {
+    "offset": "0x3000",
+    "size": 1024,
+    "entropy": 6.8633
+  },
+  {
+    "offset": "0x3400",
+    "size": 1024,
+    "entropy": 6.3561
+  },
+  {
+    "offset": "0x3800",
+    "size": 1024,
+    "entropy": 6.5191
+  },
+  {
+    "offset": "0x3c00",
+    "size": 1024,
+    "entropy": 6.1319
+  },
+  {
+    "offset": "0x4000",
+    "size": 1024,
+    "entropy": 6.4563
+  },
+  {
+    "offset": "0x4400",
+    "size": 1024,
+    "entropy": 6.1936
+  },
+  {
+    "offset": "0x4800",
+    "size": 1024,
+    "entropy": 6.0847
+  },
+  {
+    "offset": "0x4c00",
+    "size": 1024,
+    "entropy": 6.075
+  },
+  {
+    "offset": "0x5000",
+    "size": 1024,
+    "entropy": 6.4303
+  },
+  {
+    "offset": "0x5400",
+    "size": 1024,
+    "entropy": 6.4523
+  },
+  {
+    "offset": "0x5800",
+    "size": 1024,
+    "entropy": 6.521
+  },
+  {
+    "offset": "0x5c00",
+    "size": 1024,
+    "entropy": 6.4805
+  },
+  {
+    "offset": "0x6000",
+    "size": 1024,
+    "entropy": 6.4965
+  },
+  {
+    "offset": "0x6400",
+    "size": 1024,
+    "entropy": 6.8053
+  },
+  {
+    "offset": "0x6800",
+    "size": 1024,
+    "entropy": 6.6088
+  },
+  {
+    "offset": "0x6c00",
+    "size": 1024,
+    "entropy": 6.757
+  },
+  {
+    "offset": "0x7000",
+    "size": 1024,
+    "entropy": 6.5637
+  },
+  {
+    "offset": "0x7400",
+    "size": 1024,
+    "entropy": 6.5188
+  },
+  {
+    "offset": "0x7800",
+    "size": 1024,
+    "entropy": 6.7462
+  },
+  {
+    "offset": "0x7c00",
+    "size": 1024,
+    "entropy": 6.8667
+  },
+  {
+    "offset": "0x8000",
+    "size": 1024,
+    "entropy": 6.9324
+  },
+  {
+    "offset": "0x8400",
+    "size": 1024,
+    "entropy": 6.8537
+  },
+  {
+    "offset": "0x8800",
+    "size": 1024,
+    "entropy": 6.8718
+  },
+  {
+    "offset": "0x8c00",
+    "size": 1024,
+    "entropy": 6.7394
+  },
+  {
+    "offset": "0x9000",
+    "size": 1024,
+    "entropy": 6.9831
+  },
+  {
+    "offset": "0x9400",
+    "size": 1024,
+    "entropy": 7.0115
+  },
+  {
+    "offset": "0x9800",
+    "size": 1024,
+    "entropy": 6.4962
+  },
+  {
+    "offset": "0x9c00",
+    "size": 1024,
+    "entropy": 6.1272
+  },
+  {
+    "offset": "0xa000",
+    "size": 1024,
+    "entropy": 6.1709
+  },
+  {
+    "offset": "0xa400",
+    "size": 1024,
+    "entropy": 6.4708
+  },
+  {
+    "offset": "0xa800",
+    "size": 1024,
+    "entropy": 6.1837
+  },
+  {
+    "offset": "0xac00",
+    "size": 1024,
+    "entropy": 6.5249
+  },
+  {
+    "offset": "0xb000",
+    "size": 1024,
+    "entropy": 6.3983
+  },
+  {
+    "offset": "0xb400",
+    "size": 1024,
+    "entropy": 6.3069
+  },
+  {
+    "offset": "0xb800",
+    "size": 1024,
+    "entropy": 6.3022
+  },
+  {
+    "offset": "0xbc00",
+    "size": 1024,
+    "entropy": 6.3504
+  },
+  {
+    "offset": "0xc000",
+    "size": 1024,
+    "entropy": 6.4441
+  },
+  {
+    "offset": "0xc400",
+    "size": 1024,
+    "entropy": 5.9045
+  },
+  {
+    "offset": "0xc800",
+    "size": 1024,
+    "entropy": 6.3578
+  },
+  {
+    "offset": "0xcc00",
+    "size": 1024,
+    "entropy": 6.5065
+  },
+  {
+    "offset": "0xd000",
+    "size": 1024,
+    "entropy": 6.3181
+  },
+  {
+    "offset": "0xd400",
+    "size": 1024,
+    "entropy": 5.6248
+  },
+  {
+    "offset": "0xd800",
+    "size": 1024,
+    "entropy": 5.763
+  },
+  {
+    "offset": "0xdc00",
+    "size": 1024,
+    "entropy": 5.894
+  },
+  {
+    "offset": "0xe000",
+    "size": 1024,
+    "entropy": 6.3515
+  },
+  {
+    "offset": "0xe400",
+    "size": 1024,
+    "entropy": 6.4051
+  },
+  {
+    "offset": "0xe800",
+    "size": 1024,
+    "entropy": 6.2919
+  },
+  {
+    "offset": "0xec00",
+    "size": 1024,
+    "entropy": 6.3911
+  },
+  {
+    "offset": "0xf000",
+    "size": 1024,
+    "entropy": 5.7711
+  },
+  {
+    "offset": "0xf400",
+    "size": 1024,
+    "entropy": 6.2939
+  },
+  {
+    "offset": "0xf800",
+    "size": 1024,
+    "entropy": 6.0982
+  },
+  {
+    "offset": "0xfc00",
+    "size": 1024,
+    "entropy": 6.0504
+  },
+  {
+    "offset": "0x10000",
+    "size": 1024,
+    "entropy": 6.4178
+  },
+  {
+    "offset": "0x10400",
+    "size": 1024,
+    "entropy": 6.2804
+  },
+  {
+    "offset": "0x10800",
+    "size": 1024,
+    "entropy": 5.8552
+  },
+  {
+    "offset": "0x10c00",
+    "size": 1024,
+    "entropy": 6.0973
+  },
+  {
+    "offset": "0x11000",
+    "size": 1024,
+    "entropy": 5.3637
+  },
+  {
+    "offset": "0x11400",
+    "size": 1024,
+    "entropy": 6.2085
+  },
+  {
+    "offset": "0x11800",
+    "size": 1024,
+    "entropy": 6.831
+  },
+  {
+    "offset": "0x11c00",
+    "size": 1024,
+    "entropy": 5.9754
+  },
+  {
+    "offset": "0x12000",
+    "size": 1024,
+    "entropy": 5.9956
+  },
+  {
+    "offset": "0x12400",
+    "size": 1024,
+    "entropy": 6.3703
+  },
+  {
+    "offset": "0x12800",
+    "size": 1024,
+    "entropy": 5.6737
+  },
+  {
+    "offset": "0x12c00",
+    "size": 1024,
+    "entropy": 5.8145
+  },
+  {
+    "offset": "0x13000",
+    "size": 1024,
+    "entropy": 5.5977
+  },
+  {
+    "offset": "0x13400",
+    "size": 1024,
+    "entropy": 5.7088
+  },
+  {
+    "offset": "0x13800",
+    "size": 1024,
+    "entropy": 5.8658
+  },
+  {
+    "offset": "0x13c00",
+    "size": 1024,
+    "entropy": 6.3903
+  },
+  {
+    "offset": "0x14000",
+    "size": 1024,
+    "entropy": 6.9028
+  },
+  {
+    "offset": "0x14400",
+    "size": 1024,
+    "entropy": 6.9805
+  },
+  {
+    "offset": "0x14800",
+    "size": 1024,
+    "entropy": 6.5937
+  },
+  {
+    "offset": "0x14c00",
+    "size": 1024,
+    "entropy": 6.458
+  },
+  {
+    "offset": "0x15000",
+    "size": 1024,
+    "entropy": 6.545
+  },
+  {
+    "offset": "0x15400",
+    "size": 1024,
+    "entropy": 6.3293
+  },
+  {
+    "offset": "0x15800",
+    "size": 1024,
+    "entropy": 6.7154
+  },
+  {
+    "offset": "0x15c00",
+    "size": 1024,
+    "entropy": 6.8956
+  },
+  {
+    "offset": "0x16000",
+    "size": 1024,
+    "entropy": 6.7829
+  },
+  {
+    "offset": "0x16400",
+    "size": 1024,
+    "entropy": 6.4873
+  },
+  {
+    "offset": "0x16800",
+    "size": 1024,
+    "entropy": 6.1471
+  },
+  {
+    "offset": "0x16c00",
+    "size": 1024,
+    "entropy": 6.6511
+  },
+  {
+    "offset": "0x17000",
+    "size": 1024,
+    "entropy": 6.5135
+  },
+  {
+    "offset": "0x17400",
+    "size": 1024,
+    "entropy": 6.6811
+  },
+  {
+    "offset": "0x17800",
+    "size": 1024,
+    "entropy": 6.5186
+  },
+  {
+    "offset": "0x17c00",
+    "size": 1024,
+    "entropy": 6.4913
+  },
+  {
+    "offset": "0x18000",
+    "size": 1024,
+    "entropy": 6.8171
+  },
+  {
+    "offset": "0x18400",
+    "size": 1024,
+    "entropy": 4.1493
+  },
+  {
+    "offset": "0x18800",
+    "size": 1024,
+    "entropy": 4.2221
+  },
+  {
+    "offset": "0x18c00",
+    "size": 1024,
+    "entropy": 3.7774
+  },
+  {
+    "offset": "0x19000",
+    "size": 1024,
+    "entropy": 3.9933
+  },
+  {
+    "offset": "0x19400",
+    "size": 1024,
+    "entropy": 3.2177
+  },
+  {
+    "offset": "0x19800",
+    "size": 1024,
+    "entropy": 3.6784
+  },
+  {
+    "offset": "0x19c00",
+    "size": 1024,
+    "entropy": 3.2648
+  },
+  {
+    "offset": "0x1a000",
+    "size": 1024,
+    "entropy": 2.8982
+  },
+  {
+    "offset": "0x1a400",
+    "size": 1024,
+    "entropy": 2.6059
+  },
+  {
+    "offset": "0x1a800",
+    "size": 1024,
+    "entropy": 3.1016
+  },
+  {
+    "offset": "0x1ac00",
+    "size": 1024,
+    "entropy": 2.9463
+  },
+  {
+    "offset": "0x1b000",
+    "size": 1024,
+    "entropy": 2.7257
+  },
+  {
+    "offset": "0x1b400",
+    "size": 1024,
+    "entropy": 2.6685
+  },
+  {
+    "offset": "0x1b800",
+    "size": 1024,
+    "entropy": 4.437
+  },
+  {
+    "offset": "0x1bc00",
+    "size": 1024,
+    "entropy": 5.5125
+  },
+  {
+    "offset": "0x1c000",
+    "size": 1024,
+    "entropy": 5.31
+  },
+  {
+    "offset": "0x1c400",
+    "size": 1024,
+    "entropy": 4.8612
+  },
+  {
+    "offset": "0x1c800",
+    "size": 1024,
+    "entropy": 4.3975
+  },
+  {
+    "offset": "0x1cc00",
+    "size": 1024,
+    "entropy": 4.4978
+  },
+  {
+    "offset": "0x1d000",
+    "size": 1024,
+    "entropy": 4.7924
+  },
+  {
+    "offset": "0x1d400",
+    "size": 1024,
+    "entropy": 4.4214
+  },
+  {
+    "offset": "0x1d800",
+    "size": 1024,
+    "entropy": 6.1152
+  },
+  {
+    "offset": "0x1dc00",
+    "size": 1024,
+    "entropy": 4.4661
+  },
+  {
+    "offset": "0x1e000",
+    "size": 1024,
+    "entropy": 4.8468
+  },
+  {
+    "offset": "0x1e400",
+    "size": 1024,
+    "entropy": 4.7571
+  },
+  {
+    "offset": "0x1e800",
+    "size": 1024,
+    "entropy": 4.7189
+  },
+  {
+    "offset": "0x1ec00",
+    "size": 1024,
+    "entropy": 5.186
+  },
+  {
+    "offset": "0x1f000",
+    "size": 1024,
+    "entropy": 3.7175
+  },
+  {
+    "offset": "0x1f400",
+    "size": 1024,
+    "entropy": 3.2324
+  },
+  {
+    "offset": "0x1f800",
+    "size": 1024,
+    "entropy": 3.4486
+  },
+  {
+    "offset": "0x1fc00",
+    "size": 1024,
+    "entropy": 3.2877
+  },
+  {
+    "offset": "0x20000",
+    "size": 1024,
+    "entropy": 3.1235
+  },
+  {
+    "offset": "0x20400",
+    "size": 1024,
+    "entropy": 3.3897
+  },
+  {
+    "offset": "0x20800",
+    "size": 1024,
+    "entropy": 3.5991
+  },
+  {
+    "offset": "0x20c00",
+    "size": 952,
+    "entropy": 3.1934
+  }
+]

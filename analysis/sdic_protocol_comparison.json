@@ -1,0 +1,52 @@
+{
+  "scope": "Reviewed public generic SoC sheets plus one SDIC-branded application-sheet mirror; no matching published DMT99 protocol established. Not a proof that no other vendor/application protocol exists.",
+  "dmt99": {
+    "uart": "9600 8N1",
+    "tx_bytes": 10,
+    "rx_bytes": 13,
+    "headers": [
+      "aa55",
+      "5aa5"
+    ],
+    "wire_captured": false
+  },
+  "documents": [
+    {
+      "part": "SD7502",
+      "url": "https://sdicmicro.cn/upload/img/2021-08/611627e6a2699.pdf",
+      "local": "references/SD7502.pdf",
+      "sha256": "dd40cd91e88d405614539a25bf77c2333a59ad6516b3704abc356b62ca13fe26",
+      "finding": "Programmable OTP SoC with UART; reviewed sheet has no matching host wire command table."
+    },
+    {
+      "part": "SD78P953",
+      "url": "https://sdicmicro.cn/upload/img/2022-11/6371b0eeeaeef.pdf",
+      "local": "references/SD78P953.pdf",
+      "sha256": "927e687e23f891bfa81ef363580e736138aebff79f511eafb5bfb3a2c0bebcc5",
+      "finding": "Programmable OTP SoC with UART; reviewed sheet has no matching host wire command table."
+    },
+    {
+      "part": "SD7501",
+      "url": "https://sdicmicro.cn/upload/img/2021-08/611cad9c519ad.pdf",
+      "local": null,
+      "finding": "Generic SoC/UART resource sheet, not an application command-set match."
+    },
+    {
+      "part": "SD7501A6",
+      "url": "https://www.scribd.com/document/683202907/SD7501A6-6000",
+      "version": "v0,2020/08,section8,page5",
+      "local": null,
+      "provenance_limit": "SDIC-branded manufacturer-authored application sheet hosted by a mirror; authenticated vendor-hosted copy not obtained. Used only for protocol comparison, not chip identification.",
+      "published_parameters": {
+        "baud": 2400,
+        "data_bits": 8,
+        "parity": "none",
+        "direction": "one-way to computer",
+        "bytes": 15,
+        "framing": "High nibbles identify positions1..F; low nibbles are LCD segment/COM data"
+      },
+      "finding": "Different application framing/rate/direction/length from DMT99; no wire compatibility assumed."
+    }
+  ],
+  "inference": "Programmable SDIC silicon with custom application firmware remains possible; none is positively identified by the observed frames. No commands were imported from public sheets into the driver."
+}

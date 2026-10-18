@@ -1,0 +1,48 @@
+{
+  "archives": "references/upstream_archives/manifest.json",
+  "selected": {
+    "TJpgDec": "tjpgd1b.zip",
+    "FatFs": "ff14b.zip"
+  },
+  "files": [
+    {
+      "path": "reconstructed/vendor/tjpgd/integer.h",
+      "sha256": "4a2fcdd7dce5d38fc553b3ec1fd9427681f629c657220404fb84cdfecb295560"
+    },
+    {
+      "path": "reconstructed/vendor/tjpgd/tjpgd.c",
+      "sha256": "f9592997a26222c8475ad5c300ab23adc27a3b9ec393a3562dc81c70281635ca"
+    },
+    {
+      "path": "reconstructed/vendor/tjpgd/tjpgd.h",
+      "sha256": "5b9b0649d495be82d0bc7da9ed43b71d562b24e1d2435338755099b68253fbe7"
+    },
+    {
+      "path": "reconstructed/vendor/fatfs/diskio.h",
+      "sha256": "43b63bc5d1c35b2aa4a57c4e1cd7b66ab318748b51e9c6b12aded2574896e73c"
+    },
+    {
+      "path": "reconstructed/vendor/fatfs/ff.c",
+      "sha256": "a6938c99498603df619eac8fc9fb1155da50023aefb12afa5d7bbf1d0f4b6590"
+    },
+    {
+      "path": "reconstructed/vendor/fatfs/ff.h",
+      "sha256": "46e9a88e181289ff68a5bf7faf63a6ac2cc0f04f49f6cbd94073e42720960d95"
+    },
+    {
+      "path": "reconstructed/vendor/fatfs/ffconf.h",
+      "sha256": "3b464d28b3c74fc3937c3252e4bda8bc5ed36ea5278bd0ce39083ddb03ecab91",
+      "note": "FF_USE_LABEL=1 (was 0, sha256 3b89319184f521aca0787af748c700e02a2a16ea1d816b8ba085d377f39f979c): the V2.4 image contains f_setlabel at 0xfb48, called by dd4e with \"0:BOOT\"."
+    },
+    {
+      "path": "reconstructed/vendor/fatfs/unicode_upper.c",
+      "sha256": "ce617778ae66936a08f12b253c02f57cbfeff02b80b49003034f9b6c1d5d2124"
+    }
+  ],
+  "patches": [
+    "TJpgDec JD_FORMAT=1; fixed-width host integer binding; source algorithm unchanged",
+    "FatFs configured CP936/LFN2/2volumes/variable512..4096 sectors/multipartition/mkfs; ff.c unchanged",
+    "Only authentic ff_wtoupper is extracted from ffunicode.c; absent original CP936 tables remain explicit application boundary"
+  ],
+  "provenance_limit": "Verified upstream counterparts, not a claim to possess the original vendor source tree or exact compiler."
+}

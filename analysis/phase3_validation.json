@@ -1,0 +1,54 @@
+{
+  "phase_complete": false,
+  "baseline": {
+    "native_full": 80,
+    "native_partial": 36,
+    "upstream_library_counterparts": 0,
+    "remaining_incomplete_nontrap": 209,
+    "direct_entries": 34,
+    "host_c_tests": 19,
+    "differential_cases": 13740
+  },
+  "current": {
+    "native_full": 87,
+    "native_partial": 36,
+    "upstream_library_counterparts": 17,
+    "remaining_incomplete_nontrap": 185,
+    "direct_entries": 51,
+    "host_c_tests": 26,
+    "host_python_tests": 11,
+    "differential_cases": 15881,
+    "asan_ubsan_tests": 13,
+    "cross_build": "pass",
+    "reproducible_both_elfs": true
+  },
+  "flash": {
+    "verified_images_available": 1,
+    "second_acquisition_available": false,
+    "logical_sector_size": 4096,
+    "volumes": 2,
+    "live_files": 299,
+    "jpeg_files": 297,
+    "native_file_reads": 298,
+    "native_jpeg_renders": 296,
+    "native_jpeg_repeats": 2,
+    "deleted_directory_leads": 57,
+    "sectors_inventoried": 2048,
+    "carved_rv32_applications": 1,
+    "carved_x86_extents": 4
+  },
+  "new_library_matches": {
+    "Exact": 1,
+    "Strong semantic": 16
+  },
+  "limitations": [
+    "Second CH341A image missing",
+    "One non-ASCII filename requires unresolved original CP936 handling",
+    "Alternative application normalized/CFG version comparison incomplete",
+    "Menu/base scenes and graph/extrema paths remain",
+    "Original USB bootloader/transport/update recognition not recovered",
+    "No physical hardware or calibration validation"
+  ],
+  "evidence_preserved": 885,
+  "hardware_validated": false
+}

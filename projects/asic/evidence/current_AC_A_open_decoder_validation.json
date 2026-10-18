@@ -1,0 +1,52 @@
+[
+  {
+    "session": "projects/asic/captures/20261018T014536_current_AC_A_open_56fe1dda",
+    "origin": "hardware",
+    "source_logic_sha256": "10f5efaf4c7db3067cd32569891685dafe47e1e7a3699a7467dfb9701209ca1b",
+    "checks": [
+      {
+        "direction": "MCU_TX",
+        "channel": 0,
+        "command": [
+          "sigrok-cli",
+          "-i",
+          "captures/20261018T014536_current_AC_A_open_56fe1dda/logic.bin",
+          "-I",
+          "binary:numchannels=8:samplerate=1000000",
+          "-P",
+          "uart:rx=0:baudrate=9600:data_bits=8:parity=none:stop_bits=1",
+          "-B",
+          "uart=rx"
+        ],
+        "returncode": 0,
+        "python_byte_candidates": 0,
+        "reference_bytes": 0,
+        "python_all_clean": true,
+        "exact_match": true,
+        "reason": "Clean stream comparison"
+      },
+      {
+        "direction": "ASIC_TX",
+        "channel": 2,
+        "command": [
+          "sigrok-cli",
+          "-i",
+          "captures/20261018T014536_current_AC_A_open_56fe1dda/logic.bin",
+          "-I",
+          "binary:numchannels=8:samplerate=1000000",
+          "-P",
+          "uart:rx=2:baudrate=9600:data_bits=8:parity=none:stop_bits=1",
+          "-B",
+          "uart=rx"
+        ],
+        "returncode": 0,
+        "python_byte_candidates": 730,
+        "reference_bytes": 730,
+        "python_all_clean": false,
+        "exact_match": null,
+        "reason": "Not compared: UART error/partial candidates retained for separate review"
+      }
+    ],
+    "note": "Decoder agreement is not analog calibration or checksum validation"
+  }
+]

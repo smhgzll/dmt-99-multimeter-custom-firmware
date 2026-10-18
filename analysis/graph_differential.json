@@ -1,0 +1,11 @@
+{
+  "cases": 105,
+  "entries": [
+    "0x00017ab2",
+    "0x00017c06",
+    "0x00017c8c",
+    "0x00017cce"
+  ],
+  "native_library_sha256": "375fdd84220b2cf511abc0b7fc0de3124fcccdacd9c65b7e903369af27c9f040",
+  "scope": "Strip pixel/line and full original graph arithmetic/buffer/state against C; blit callback isolated. Inherited s5 explicitly injected. Reset/index underflow modeled as separate leading slot."
+}

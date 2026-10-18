@@ -1,0 +1,2632 @@
+[
+  {
+    "address": "0x0000662e",
+    "function": "0x00006616",
+    "length": 2,
+    "mnemonic": "c.jr",
+    "text": "c.jr t0",
+    "flows": [],
+    "flow_type": "COMPUTED_JUMP",
+    "references": [],
+    "resolution": "known GCC save-helper t0 return"
+  },
+  {
+    "address": "0x0000663a",
+    "function": "0x00006630",
+    "length": 2,
+    "mnemonic": "c.jr",
+    "text": "c.jr t0",
+    "flows": [],
+    "flow_type": "COMPUTED_JUMP",
+    "references": [],
+    "resolution": "known GCC save-helper t0 return"
+  },
+  {
+    "address": "0x00006696",
+    "function": "0x00006660",
+    "length": 4,
+    "mnemonic": "jr",
+    "text": "jr 0xa(a3)",
+    "flows": [
+      "0x0000669e",
+      "0x000066be",
+      "0x0000669a",
+      "0x000066ba",
+      "0x000066b6",
+      "0x000066d6",
+      "0x000066b2",
+      "0x000066d2",
+      "0x000066ae",
+      "0x000066ce",
+      "0x000066aa",
+      "0x000066ca",
+      "0x000066a6",
+      "0x000066c6",
+      "0x000066a2",
+      "0x000066c2"
+    ],
+    "flow_type": "COMPUTED_JUMP",
+    "references": [
+      {
+        "to": "0x0000669a",
+        "type": "COMPUTED_JUMP"
+      },
+      {
+        "to": "0x0000669e",
+        "type": "COMPUTED_JUMP"
+      },
+      {
+        "to": "0x000066a2",
+        "type": "COMPUTED_JUMP"
+      },
+      {
+        "to": "0x000066a6",
+        "type": "COMPUTED_JUMP"
+      },
+      {
+        "to": "0x000066aa",
+        "type": "COMPUTED_JUMP"
+      },
+      {
+        "to": "0x000066ae",
+        "type": "COMPUTED_JUMP"
+      },
+      {
+        "to": "0x000066b2",
+        "type": "COMPUTED_JUMP"
+      },
+      {
+        "to": "0x000066b6",
+        "type": "COMPUTED_JUMP"
+      },
+      {
+        "to": "0x000066ba",
+        "type": "COMPUTED_JUMP"
+      },
+      {
+        "to": "0x000066be",
+        "type": "COMPUTED_JUMP"
+      },
+      {
+        "to": "0x000066c2",
+        "type": "COMPUTED_JUMP"
+      },
+      {
+        "to": "0x000066c6",
+        "type": "COMPUTED_JUMP"
+      },
+      {
+        "to": "0x000066ca",
+        "type": "COMPUTED_JUMP"
+      },
+      {
+        "to": "0x000066ce",
+        "type": "COMPUTED_JUMP"
+      },
+      {
+        "to": "0x000066d2",
+        "type": "COMPUTED_JUMP"
+      },
+      {
+        "to": "0x000066d6",
+        "type": "COMPUTED_JUMP"
+      }
+    ],
+    "resolution": "jump-table targets recovered"
+  },
+  {
+    "address": "0x000066f6",
+    "function": "0x00006660",
+    "length": 4,
+    "mnemonic": "jalr",
+    "text": "jalr ra,a3,-0x58",
+    "flows": [],
+    "fallthrough": "0x000066fa",
+    "flow_type": "COMPUTED_CALL",
+    "references": [],
+    "resolution": "unresolved computed transfer or callback; inspect caller context"
+  },
+  {
+    "address": "0x000068c6",
+    "function": "0x00006854",
+    "length": 2,
+    "mnemonic": "c.jalr",
+    "text": "c.jalr a5",
+    "flows": [],
+    "fallthrough": "0x000068c8",
+    "flow_type": "COMPUTED_CALL",
+    "references": [],
+    "resolution": "unresolved computed transfer or callback; inspect caller context"
+  },
+  {
+    "address": "0x0000694c",
+    "function": "0x000068d2",
+    "length": 2,
+    "mnemonic": "c.jalr",
+    "text": "c.jalr a5",
+    "flows": [],
+    "fallthrough": "0x0000694e",
+    "flow_type": "COMPUTED_CALL",
+    "references": [],
+    "resolution": "unresolved computed transfer or callback; inspect caller context"
+  },
+  {
+    "address": "0x000069e0",
+    "function": "0x0000696e",
+    "length": 2,
+    "mnemonic": "c.jalr",
+    "text": "c.jalr a5",
+    "flows": [],
+    "fallthrough": "0x000069e2",
+    "flow_type": "COMPUTED_CALL",
+    "references": [],
+    "resolution": "unresolved computed transfer or callback; inspect caller context"
+  },
+  {
+    "address": "0x00006a26",
+    "function": "0x0000696e",
+    "length": 2,
+    "mnemonic": "c.jalr",
+    "text": "c.jalr a5",
+    "flows": [],
+    "fallthrough": "0x00006a28",
+    "flow_type": "COMPUTED_CALL",
+    "references": [],
+    "resolution": "unresolved computed transfer or callback; inspect caller context"
+  },
+  {
+    "address": "0x00006a78",
+    "function": "0x0000696e",
+    "length": 2,
+    "mnemonic": "c.jr",
+    "text": "c.jr a5",
+    "flows": [
+      "0x00006c9e",
+      "0x00006a7a",
+      "0x00006d88",
+      "0x00006ab6",
+      "0x00006b26",
+      "0x00006c26",
+      "0x00006b00"
+    ],
+    "flow_type": "COMPUTED_JUMP",
+    "references": [
+      {
+        "to": "0x00006a7a",
+        "type": "COMPUTED_JUMP"
+      },
+      {
+        "to": "0x00006ab6",
+        "type": "COMPUTED_JUMP"
+      },
+      {
+        "to": "0x00006b26",
+        "type": "COMPUTED_JUMP"
+      },
+      {
+        "to": "0x00006d88",
+        "type": "COMPUTED_JUMP"
+      },
+      {
+        "to": "0x00006c9e",
+        "type": "COMPUTED_JUMP"
+      },
+      {
+        "to": "0x00006c26",
+        "type": "COMPUTED_JUMP"
+      },
+      {
+        "to": "0x00006b00",
+        "type": "COMPUTED_JUMP"
+      }
+    ],
+    "resolution": "jump-table targets recovered"
+  },
+  {
+    "address": "0x00006a8a",
+    "function": "0x0000696e",
+    "length": 2,
+    "mnemonic": "c.jalr",
+    "text": "c.jalr a5",
+    "flows": [],
+    "fallthrough": "0x00006a8c",
+    "flow_type": "COMPUTED_CALL",
+    "references": [],
+    "resolution": "unresolved computed transfer or callback; inspect caller context"
+  },
+  {
+    "address": "0x00006b10",
+    "function": "0x0000696e",
+    "length": 2,
+    "mnemonic": "c.jalr",
+    "text": "c.jalr a5",
+    "flows": [],
+    "fallthrough": "0x00006b12",
+    "flow_type": "COMPUTED_CALL",
+    "references": [],
+    "resolution": "unresolved computed transfer or callback; inspect caller context"
+  },
+  {
+    "address": "0x00006b36",
+    "function": "0x0000696e",
+    "length": 2,
+    "mnemonic": "c.jalr",
+    "text": "c.jalr a5",
+    "flows": [],
+    "fallthrough": "0x00006b38",
+    "flow_type": "COMPUTED_CALL",
+    "references": [],
+    "resolution": "unresolved computed transfer or callback; inspect caller context"
+  },
+  {
+    "address": "0x00006c36",
+    "function": "0x0000696e",
+    "length": 2,
+    "mnemonic": "c.jalr",
+    "text": "c.jalr a5",
+    "flows": [],
+    "fallthrough": "0x00006c38",
+    "flow_type": "COMPUTED_CALL",
+    "references": [],
+    "resolution": "unresolved computed transfer or callback; inspect caller context"
+  },
+  {
+    "address": "0x00006cb0",
+    "function": "0x0000696e",
+    "length": 2,
+    "mnemonic": "c.jalr",
+    "text": "c.jalr a5",
+    "flows": [],
+    "fallthrough": "0x00006cb2",
+    "flow_type": "COMPUTED_CALL",
+    "references": [],
+    "resolution": "unresolved computed transfer or callback; inspect caller context"
+  },
+  {
+    "address": "0x00006d7c",
+    "function": "0x0000696e",
+    "length": 2,
+    "mnemonic": "c.jalr",
+    "text": "c.jalr a5",
+    "flows": [],
+    "fallthrough": "0x00006d7e",
+    "flow_type": "COMPUTED_CALL",
+    "references": [],
+    "resolution": "unresolved computed transfer or callback; inspect caller context"
+  },
+  {
+    "address": "0x00006d90",
+    "function": "0x0000696e",
+    "length": 2,
+    "mnemonic": "c.jalr",
+    "text": "c.jalr a5",
+    "flows": [],
+    "fallthrough": "0x00006d92",
+    "flow_type": "COMPUTED_CALL",
+    "references": [],
+    "resolution": "unresolved computed transfer or callback; inspect caller context"
+  },
+  {
+    "address": "0x00006e12",
+    "function": "0x00006d9c",
+    "length": 2,
+    "mnemonic": "c.jalr",
+    "text": "c.jalr a4",
+    "flows": [],
+    "fallthrough": "0x00006e14",
+    "flow_type": "COMPUTED_CALL",
+    "references": [],
+    "resolution": "unresolved computed transfer or callback; inspect caller context"
+  },
+  {
+    "address": "0x00007304",
+    "function": "0x00006d9c",
+    "length": 2,
+    "mnemonic": "c.jalr",
+    "text": "c.jalr a5",
+    "flows": [],
+    "fallthrough": "0x00007306",
+    "flow_type": "COMPUTED_CALL",
+    "references": [],
+    "resolution": "unresolved computed transfer or callback; inspect caller context"
+  },
+  {
+    "address": "0x00007e80",
+    "function": "0x00007e68",
+    "length": 2,
+    "mnemonic": "c.jr",
+    "text": "c.jr a5",
+    "flows": [
+      "0x00007ede",
+      "0x00007efc",
+      "0x00007eea",
+      "0x00007ed8",
+      "0x00007ef6",
+      "0x00007ee4",
+      "0x00007e82",
+      "0x00007ef0"
+    ],
+    "flow_type": "COMPUTED_JUMP",
+    "references": [
+      {
+        "to": "0x00007ef0",
+        "type": "COMPUTED_JUMP"
+      },
+      {
+        "to": "0x00007ef6",
+        "type": "COMPUTED_JUMP"
+      },
+      {
+        "to": "0x00007ee4",
+        "type": "COMPUTED_JUMP"
+      },
+      {
+        "to": "0x00007eea",
+        "type": "COMPUTED_JUMP"
+      },
+      {
+        "to": "0x00007e82",
+        "type": "COMPUTED_JUMP"
+      },
+      {
+        "to": "0x00007efc",
+        "type": "COMPUTED_JUMP"
+      },
+      {
+        "to": "0x00007ede",
+        "type": "COMPUTED_JUMP"
+      },
+      {
+        "to": "0x00007ed8",
+        "type": "COMPUTED_JUMP"
+      }
+    ],
+    "resolution": "jump-table targets recovered"
+  },
+  {
+    "address": "0x0000a9c0",
+    "function": "0x0000a910",
+    "length": 2,
+    "mnemonic": "c.jr",
+    "text": "c.jr a5",
+    "flows": [
+      "0x0000adbe",
+      "0x0000acac",
+      "0x0000ad5c",
+      "0x0000adec",
+      "0x0000adba",
+      "0x0000aa38",
+      "0x0000a9e6",
+      "0x0000ae44",
+      "0x0000adb4",
+      "0x0000ad04",
+      "0x0000ac54"
+    ],
+    "flow_type": "COMPUTED_JUMP",
+    "references": [
+      {
+        "to": "0x0000ae44",
+        "type": "COMPUTED_JUMP"
+      },
+      {
+        "to": "0x0000aa38",
+        "type": "COMPUTED_JUMP"
+      },
+      {
+        "to": "0x0000adb4",
+        "type": "COMPUTED_JUMP"
+      },
+      {
+        "to": "0x0000ad04",
+        "type": "COMPUTED_JUMP"
+      },
+      {
+        "to": "0x0000ac54",
+        "type": "COMPUTED_JUMP"
+      },
+      {
+        "to": "0x0000a9e6",
+        "type": "COMPUTED_JUMP"
+      },
+      {
+        "to": "0x0000acac",
+        "type": "COMPUTED_JUMP"
+      },
+      {
+        "to": "0x0000ad5c",
+        "type": "COMPUTED_JUMP"
+      },
+      {
+        "to": "0x0000adec",
+        "type": "COMPUTED_JUMP"
+      },
+      {
+        "to": "0x0000adba",
+        "type": "COMPUTED_JUMP"
+      },
+      {
+        "to": "0x0000adbe",
+        "type": "COMPUTED_JUMP"
+      }
+    ],
+    "resolution": "jump-table targets recovered"
+  },
+  {
+    "address": "0x0000af2e",
+    "function": "0x0000aed0",
+    "length": 2,
+    "mnemonic": "c.jr",
+    "text": "c.jr a4",
+    "flows": [
+      "0x0000b25e",
+      "0x0000b14e",
+      "0x0000b10a",
+      "0x0000b21a",
+      "0x0000af56",
+      "0x0000b1d6",
+      "0x0000b192",
+      "0x0000af30"
+    ],
+    "flow_type": "COMPUTED_JUMP",
+    "references": [
+      {
+        "to": "0x0000b25e",
+        "type": "COMPUTED_JUMP"
+      },
+      {
+        "to": "0x0000af56",
+        "type": "COMPUTED_JUMP"
+      },
+      {
+        "to": "0x0000b192",
+        "type": "COMPUTED_JUMP"
+      },
+      {
+        "to": "0x0000b10a",
+        "type": "COMPUTED_JUMP"
+      },
+      {
+        "to": "0x0000af30",
+        "type": "COMPUTED_JUMP"
+      },
+      {
+        "to": "0x0000b14e",
+        "type": "COMPUTED_JUMP"
+      },
+      {
+        "to": "0x0000b1d6",
+        "type": "COMPUTED_JUMP"
+      },
+      {
+        "to": "0x0000b21a",
+        "type": "COMPUTED_JUMP"
+      }
+    ],
+    "resolution": "jump-table targets recovered"
+  },
+  {
+    "address": "0x0000b306",
+    "function": "0x0000b29e",
+    "length": 2,
+    "mnemonic": "c.jr",
+    "text": "c.jr a5",
+    "flows": [
+      "0x0000b49e",
+      "0x0000b4ce",
+      "0x0000b50c",
+      "0x0000b316",
+      "0x0000b3c0"
+    ],
+    "flow_type": "COMPUTED_JUMP",
+    "references": [
+      {
+        "to": "0x0000b50c",
+        "type": "COMPUTED_JUMP"
+      },
+      {
+        "to": "0x0000b3c0",
+        "type": "COMPUTED_JUMP"
+      },
+      {
+        "to": "0x0000b49e",
+        "type": "COMPUTED_JUMP"
+      },
+      {
+        "to": "0x0000b316",
+        "type": "COMPUTED_JUMP"
+      },
+      {
+        "to": "0x0000b4ce",
+        "type": "COMPUTED_JUMP"
+      }
+    ],
+    "resolution": "jump-table targets recovered"
+  },
+  {
+    "address": "0x0000b636",
+    "function": "0x0000b5c8",
+    "length": 2,
+    "mnemonic": "c.jr",
+    "text": "c.jr a5",
+    "flows": [
+      "0x0000b818",
+      "0x0000b806",
+      "0x0000b800",
+      "0x0000b810",
+      "0x0000b820"
+    ],
+    "flow_type": "COMPUTED_JUMP",
+    "references": [
+      {
+        "to": "0x0000b800",
+        "type": "COMPUTED_JUMP"
+      },
+      {
+        "to": "0x0000b806",
+        "type": "COMPUTED_JUMP"
+      },
+      {
+        "to": "0x0000b810",
+        "type": "COMPUTED_JUMP"
+      },
+      {
+        "to": "0x0000b818",
+        "type": "COMPUTED_JUMP"
+      },
+      {
+        "to": "0x0000b820",
+        "type": "COMPUTED_JUMP"
+      }
+    ],
+    "resolution": "jump-table targets recovered"
+  },
+  {
+    "address": "0x0000ba44",
+    "function": "0x0000b9e0",
+    "length": 2,
+    "mnemonic": "c.jr",
+    "text": "c.jr a5",
+    "flows": [
+      "0x0000bb4e",
+      "0x0000bb5e",
+      "0x0000bb3a",
+      "0x0000bb46",
+      "0x0000bb56"
+    ],
+    "flow_type": "COMPUTED_JUMP",
+    "references": [
+      {
+        "to": "0x0000bb3a",
+        "type": "COMPUTED_JUMP"
+      },
+      {
+        "to": "0x0000bb46",
+        "type": "COMPUTED_JUMP"
+      },
+      {
+        "to": "0x0000bb4e",
+        "type": "COMPUTED_JUMP"
+      },
+      {
+        "to": "0x0000bb56",
+        "type": "COMPUTED_JUMP"
+      },
+      {
+        "to": "0x0000bb5e",
+        "type": "COMPUTED_JUMP"
+      }
+    ],
+    "resolution": "jump-table targets recovered"
+  },
+  {
+    "address": "0x0000c170",
+    "function": "0x0000c11a",
+    "length": 2,
+    "mnemonic": "c.jr",
+    "text": "c.jr a5",
+    "flows": [
+      "0x0000c21e",
+      "0x0000c1bc",
+      "0x0000c23a",
+      "0x0000c1d8",
+      "0x0000c1f4",
+      "0x0000c172",
+      "0x0000c192",
+      "0x0000c130",
+      "0x0000c210",
+      "0x0000c1ae",
+      "0x0000c22c",
+      "0x0000c1ca",
+      "0x0000c1e6",
+      "0x0000c184",
+      "0x0000c202",
+      "0x0000c1a0"
+    ],
+    "flow_type": "COMPUTED_JUMP",
+    "references": [
+      {
+        "to": "0x0000c172",
+        "type": "COMPUTED_JUMP"
+      },
+      {
+        "to": "0x0000c184",
+        "type": "COMPUTED_JUMP"
+      },
+      {
+        "to": "0x0000c1ae",
+        "type": "COMPUTED_JUMP"
+      },
+      {
+        "to": "0x0000c1a0",
+        "type": "COMPUTED_JUMP"
+      },
+      {
+        "to": "0x0000c192",
+        "type": "COMPUTED_JUMP"
+      },
+      {
+        "to": "0x0000c1d8",
+        "type": "COMPUTED_JUMP"
+      },
+      {
+        "to": "0x0000c1ca",
+        "type": "COMPUTED_JUMP"
+      },
+      {
+        "to": "0x0000c1bc",
+        "type": "COMPUTED_JUMP"
+      },
+      {
+        "to": "0x0000c130",
+        "type": "COMPUTED_JUMP"
+      },
+      {
+        "to": "0x0000c1f4",
+        "type": "COMPUTED_JUMP"
+      },
+      {
+        "to": "0x0000c1e6",
+        "type": "COMPUTED_JUMP"
+      },
+      {
+        "to": "0x0000c202",
+        "type": "COMPUTED_JUMP"
+      },
+      {
+        "to": "0x0000c22c",
+        "type": "COMPUTED_JUMP"
+      },
+      {
+        "to": "0x0000c21e",
+        "type": "COMPUTED_JUMP"
+      },
+      {
+        "to": "0x0000c210",
+        "type": "COMPUTED_JUMP"
+      },
+      {
+        "to": "0x0000c23a",
+        "type": "COMPUTED_JUMP"
+      }
+    ],
+    "resolution": "jump-table targets recovered"
+  },
+  {
+    "address": "0x0000d998",
+    "function": "0x0000d964",
+    "length": 2,
+    "mnemonic": "c.jr",
+    "text": "c.jr a5",
+    "flows": [
+      "0x0000d9bc",
+      "0x0000d99a",
+      "0x0000d9da",
+      "0x0000d9c6",
+      "0x0000d9b2",
+      "0x0000d9d0"
+    ],
+    "flow_type": "COMPUTED_JUMP",
+    "references": [
+      {
+        "to": "0x0000d99a",
+        "type": "COMPUTED_JUMP"
+      },
+      {
+        "to": "0x0000d9b2",
+        "type": "COMPUTED_JUMP"
+      },
+      {
+        "to": "0x0000d9bc",
+        "type": "COMPUTED_JUMP"
+      },
+      {
+        "to": "0x0000d9c6",
+        "type": "COMPUTED_JUMP"
+      },
+      {
+        "to": "0x0000d9d0",
+        "type": "COMPUTED_JUMP"
+      },
+      {
+        "to": "0x0000d9da",
+        "type": "COMPUTED_JUMP"
+      }
+    ],
+    "resolution": "jump-table targets recovered"
+  },
+  {
+    "address": "0x0000fd92",
+    "function": "0x0000fd46",
+    "length": 2,
+    "mnemonic": "c.jr",
+    "text": "c.jr a2",
+    "flows": [
+      "0x0000fd9e",
+      "0x0000fdce",
+      "0x0000fdbc",
+      "0x0000fdaa",
+      "0x0000fdca",
+      "0x0000fdb8",
+      "0x0000fdc6",
+      "0x0000fdd4",
+      "0x0000fdc0"
+    ],
+    "flow_type": "COMPUTED_JUMP",
+    "references": [
+      {
+        "to": "0x0000fd9e",
+        "type": "COMPUTED_JUMP"
+      },
+      {
+        "to": "0x0000fdaa",
+        "type": "COMPUTED_JUMP"
+      },
+      {
+        "to": "0x0000fdb8",
+        "type": "COMPUTED_JUMP"
+      },
+      {
+        "to": "0x0000fdbc",
+        "type": "COMPUTED_JUMP"
+      },
+      {
+        "to": "0x0000fdc0",
+        "type": "COMPUTED_JUMP"
+      },
+      {
+        "to": "0x0000fdc6",
+        "type": "COMPUTED_JUMP"
+      },
+      {
+        "to": "0x0000fdca",
+        "type": "COMPUTED_JUMP"
+      },
+      {
+        "to": "0x0000fdce",
+        "type": "COMPUTED_JUMP"
+      },
+      {
+        "to": "0x0000fdd4",
+        "type": "COMPUTED_JUMP"
+      }
+    ],
+    "resolution": "jump-table targets recovered"
+  },
+  {
+    "address": "0x0000fe20",
+    "function": "0x0000fe08",
+    "length": 2,
+    "mnemonic": "c.jr",
+    "text": "c.jr a5",
+    "flows": [
+      "0x0001004a",
+      "0x0000ff48",
+      "0x0000fe46",
+      "0x0000fe22"
+    ],
+    "flow_type": "COMPUTED_JUMP",
+    "references": [
+      {
+        "to": "0x0000fe22",
+        "type": "COMPUTED_JUMP"
+      },
+      {
+        "to": "0x0000fe46",
+        "type": "COMPUTED_JUMP"
+      },
+      {
+        "to": "0x0000ff48",
+        "type": "COMPUTED_JUMP"
+      },
+      {
+        "to": "0x0001004a",
+        "type": "COMPUTED_JUMP"
+      }
+    ],
+    "resolution": "jump-table targets recovered"
+  },
+  {
+    "address": "0x00010a32",
+    "function": "0x000109e4",
+    "length": 2,
+    "mnemonic": "c.jr",
+    "text": "c.jr a5",
+    "flows": [
+      "0x00010ade",
+      "0x00010b5e",
+      "0x00010b7c",
+      "0x00010afa",
+      "0x00010b38",
+      "0x00010b16",
+      "0x00010a34",
+      "0x00010ab4",
+      "0x00010b54",
+      "0x00010b72",
+      "0x00010ad0",
+      "0x00010aec",
+      "0x00010b08",
+      "0x00010b68",
+      "0x00010aa6",
+      "0x00010b46",
+      "0x00010b24",
+      "0x00010ac2"
+    ],
+    "flow_type": "COMPUTED_JUMP",
+    "references": [
+      {
+        "to": "0x00010b38",
+        "type": "COMPUTED_JUMP"
+      },
+      {
+        "to": "0x00010b24",
+        "type": "COMPUTED_JUMP"
+      },
+      {
+        "to": "0x00010b7c",
+        "type": "COMPUTED_JUMP"
+      },
+      {
+        "to": "0x00010a34",
+        "type": "COMPUTED_JUMP"
+      },
+      {
+        "to": "0x00010aa6",
+        "type": "COMPUTED_JUMP"
+      },
+      {
+        "to": "0x00010ab4",
+        "type": "COMPUTED_JUMP"
+      },
+      {
+        "to": "0x00010ac2",
+        "type": "COMPUTED_JUMP"
+      },
+      {
+        "to": "0x00010ad0",
+        "type": "COMPUTED_JUMP"
+      },
+      {
+        "to": "0x00010ade",
+        "type": "COMPUTED_JUMP"
+      },
+      {
+        "to": "0x00010aec",
+        "type": "COMPUTED_JUMP"
+      },
+      {
+        "to": "0x00010afa",
+        "type": "COMPUTED_JUMP"
+      },
+      {
+        "to": "0x00010b08",
+        "type": "COMPUTED_JUMP"
+      },
+      {
+        "to": "0x00010b16",
+        "type": "COMPUTED_JUMP"
+      },
+      {
+        "to": "0x00010b46",
+        "type": "COMPUTED_JUMP"
+      },
+      {
+        "to": "0x00010b72",
+        "type": "COMPUTED_JUMP"
+      },
+      {
+        "to": "0x00010b68",
+        "type": "COMPUTED_JUMP"
+      },
+      {
+        "to": "0x00010b5e",
+        "type": "COMPUTED_JUMP"
+      },
+      {
+        "to": "0x00010b54",
+        "type": "COMPUTED_JUMP"
+      }
+    ],
+    "resolution": "jump-table targets recovered"
+  },
+  {
+    "address": "0x00010c16",
+    "function": "0x00010bd0",
+    "length": 2,
+    "mnemonic": "c.jr",
+    "text": "c.jr a5",
+    "flows": [
+      "0x00010cfe",
+      "0x00010e1c",
+      "0x00010d98",
+      "0x00010c18",
+      "0x00010d18",
+      "0x00010c96",
+      "0x00010db4",
+      "0x00010d32",
+      "0x00010cb0",
+      "0x00010dce",
+      "0x00010d4c",
+      "0x00010e2a",
+      "0x00010cca",
+      "0x00010de8",
+      "0x00010d66",
+      "0x00010ce4",
+      "0x00010e02",
+      "0x00010d80"
+    ],
+    "flow_type": "COMPUTED_JUMP",
+    "references": [
+      {
+        "to": "0x00010d98",
+        "type": "COMPUTED_JUMP"
+      },
+      {
+        "to": "0x00010d80",
+        "type": "COMPUTED_JUMP"
+      },
+      {
+        "to": "0x00010e2a",
+        "type": "COMPUTED_JUMP"
+      },
+      {
+        "to": "0x00010c18",
+        "type": "COMPUTED_JUMP"
+      },
+      {
+        "to": "0x00010c96",
+        "type": "COMPUTED_JUMP"
+      },
+      {
+        "to": "0x00010cb0",
+        "type": "COMPUTED_JUMP"
+      },
+      {
+        "to": "0x00010cca",
+        "type": "COMPUTED_JUMP"
+      },
+      {
+        "to": "0x00010ce4",
+        "type": "COMPUTED_JUMP"
+      },
+      {
+        "to": "0x00010cfe",
+        "type": "COMPUTED_JUMP"
+      },
+      {
+        "to": "0x00010d18",
+        "type": "COMPUTED_JUMP"
+      },
+      {
+        "to": "0x00010d32",
+        "type": "COMPUTED_JUMP"
+      },
+      {
+        "to": "0x00010d4c",
+        "type": "COMPUTED_JUMP"
+      },
+      {
+        "to": "0x00010d66",
+        "type": "COMPUTED_JUMP"
+      },
+      {
+        "to": "0x00010db4",
+        "type": "COMPUTED_JUMP"
+      },
+      {
+        "to": "0x00010e1c",
+        "type": "COMPUTED_JUMP"
+      },
+      {
+        "to": "0x00010e02",
+        "type": "COMPUTED_JUMP"
+      },
+      {
+        "to": "0x00010de8",
+        "type": "COMPUTED_JUMP"
+      },
+      {
+        "to": "0x00010dce",
+        "type": "COMPUTED_JUMP"
+      }
+    ],
+    "resolution": "jump-table targets recovered"
+  },
+  {
+    "address": "0x000110ca",
+    "function": "0x00011086",
+    "length": 2,
+    "mnemonic": "c.jr",
+    "text": "c.jr a4",
+    "flows": [
+      "0x0001144e",
+      "0x000110cc",
+      "0x00011bcc",
+      "0x0001234c",
+      "0x000117d8",
+      "0x00011fc6"
+    ],
+    "flow_type": "COMPUTED_JUMP",
+    "references": [
+      {
+        "to": "0x000110cc",
+        "type": "COMPUTED_JUMP"
+      },
+      {
+        "to": "0x0001144e",
+        "type": "COMPUTED_JUMP"
+      },
+      {
+        "to": "0x000117d8",
+        "type": "COMPUTED_JUMP"
+      },
+      {
+        "to": "0x00011bcc",
+        "type": "COMPUTED_JUMP"
+      },
+      {
+        "to": "0x00011fc6",
+        "type": "COMPUTED_JUMP"
+      },
+      {
+        "to": "0x0001234c",
+        "type": "COMPUTED_JUMP"
+      }
+    ],
+    "resolution": "jump-table targets recovered"
+  },
+  {
+    "address": "0x00012b24",
+    "function": "0x00012b00",
+    "length": 2,
+    "mnemonic": "c.jr",
+    "text": "c.jr a5",
+    "flows": [
+      "0x00012bbe",
+      "0x00012b9e",
+      "0x00012b5c",
+      "0x00012bda",
+      "0x00012bf6",
+      "0x00012b72",
+      "0x00012c12",
+      "0x00012b8e",
+      "0x00012bae",
+      "0x00012bce",
+      "0x00012bea",
+      "0x00012b26",
+      "0x00012b62",
+      "0x00012b82",
+      "0x00012c02"
+    ],
+    "flow_type": "COMPUTED_JUMP",
+    "references": [
+      {
+        "to": "0x00012b26",
+        "type": "COMPUTED_JUMP"
+      },
+      {
+        "to": "0x00012b62",
+        "type": "COMPUTED_JUMP"
+      },
+      {
+        "to": "0x00012b8e",
+        "type": "COMPUTED_JUMP"
+      },
+      {
+        "to": "0x00012b82",
+        "type": "COMPUTED_JUMP"
+      },
+      {
+        "to": "0x00012b72",
+        "type": "COMPUTED_JUMP"
+      },
+      {
+        "to": "0x00012bbe",
+        "type": "COMPUTED_JUMP"
+      },
+      {
+        "to": "0x00012bae",
+        "type": "COMPUTED_JUMP"
+      },
+      {
+        "to": "0x00012b9e",
+        "type": "COMPUTED_JUMP"
+      },
+      {
+        "to": "0x00012b5c",
+        "type": "COMPUTED_JUMP"
+      },
+      {
+        "to": "0x00012bda",
+        "type": "COMPUTED_JUMP"
+      },
+      {
+        "to": "0x00012bce",
+        "type": "COMPUTED_JUMP"
+      },
+      {
+        "to": "0x00012c02",
+        "type": "COMPUTED_JUMP"
+      },
+      {
+        "to": "0x00012bf6",
+        "type": "COMPUTED_JUMP"
+      },
+      {
+        "to": "0x00012bea",
+        "type": "COMPUTED_JUMP"
+      },
+      {
+        "to": "0x00012c12",
+        "type": "COMPUTED_JUMP"
+      }
+    ],
+    "resolution": "jump-table targets recovered"
+  },
+  {
+    "address": "0x00013296",
+    "function": "0x00013264",
+    "length": 2,
+    "mnemonic": "c.jr",
+    "text": "c.jr a5",
+    "flows": [
+      "0x0001338c",
+      "0x00013298",
+      "0x00013358",
+      "0x00013444"
+    ],
+    "flow_type": "COMPUTED_JUMP",
+    "references": [
+      {
+        "to": "0x00013298",
+        "type": "COMPUTED_JUMP"
+      },
+      {
+        "to": "0x00013444",
+        "type": "COMPUTED_JUMP"
+      },
+      {
+        "to": "0x00013358",
+        "type": "COMPUTED_JUMP"
+      },
+      {
+        "to": "0x0001338c",
+        "type": "COMPUTED_JUMP"
+      }
+    ],
+    "resolution": "jump-table targets recovered"
+  },
+  {
+    "address": "0x00014448",
+    "function": "0x00014408",
+    "length": 2,
+    "mnemonic": "c.jr",
+    "text": "c.jr a5",
+    "flows": [
+      "0x000144ee",
+      "0x0001451c",
+      "0x0001445a",
+      "0x0001454a",
+      "0x00014492",
+      "0x000144c0"
+    ],
+    "flow_type": "COMPUTED_JUMP",
+    "references": [
+      {
+        "to": "0x0001445a",
+        "type": "COMPUTED_JUMP"
+      },
+      {
+        "to": "0x00014492",
+        "type": "COMPUTED_JUMP"
+      },
+      {
+        "to": "0x000144c0",
+        "type": "COMPUTED_JUMP"
+      },
+      {
+        "to": "0x000144ee",
+        "type": "COMPUTED_JUMP"
+      },
+      {
+        "to": "0x0001451c",
+        "type": "COMPUTED_JUMP"
+      },
+      {
+        "to": "0x0001454a",
+        "type": "COMPUTED_JUMP"
+      }
+    ],
+    "resolution": "jump-table targets recovered"
+  },
+  {
+    "address": "0x0001465c",
+    "function": "0x00014578",
+    "length": 2,
+    "mnemonic": "c.jr",
+    "text": "c.jr a5",
+    "flows": [
+      "0x000146ae",
+      "0x0001482c",
+      "0x000148c8",
+      "0x000147f8",
+      "0x00014676",
+      "0x00014894",
+      "0x000147c4",
+      "0x000146e2",
+      "0x00014860",
+      "0x00014730"
+    ],
+    "flow_type": "COMPUTED_JUMP",
+    "references": [
+      {
+        "to": "0x0001482c",
+        "type": "COMPUTED_JUMP"
+      },
+      {
+        "to": "0x00014860",
+        "type": "COMPUTED_JUMP"
+      },
+      {
+        "to": "0x00014676",
+        "type": "COMPUTED_JUMP"
+      },
+      {
+        "to": "0x000146ae",
+        "type": "COMPUTED_JUMP"
+      },
+      {
+        "to": "0x00014894",
+        "type": "COMPUTED_JUMP"
+      },
+      {
+        "to": "0x000148c8",
+        "type": "COMPUTED_JUMP"
+      },
+      {
+        "to": "0x000147c4",
+        "type": "COMPUTED_JUMP"
+      },
+      {
+        "to": "0x000146e2",
+        "type": "COMPUTED_JUMP"
+      },
+      {
+        "to": "0x00014730",
+        "type": "COMPUTED_JUMP"
+      },
+      {
+        "to": "0x000147f8",
+        "type": "COMPUTED_JUMP"
+      }
+    ],
+    "resolution": "jump-table targets recovered"
+  },
+  {
+    "address": "0x000147ac",
+    "function": "0x00014578",
+    "length": 2,
+    "mnemonic": "c.jr",
+    "text": "c.jr a5",
+    "flows": [
+      "0x000149fc",
+      "0x00014a5c",
+      "0x00014998",
+      "0x000149d8",
+      "0x00014a18",
+      "0x00014a78",
+      "0x00014a56",
+      "0x000149d0",
+      "0x000149f0",
+      "0x000149ae",
+      "0x00014a0c",
+      "0x00014a6c",
+      "0x000149c8",
+      "0x000149e4",
+      "0x00014a04",
+      "0x00014a20"
+    ],
+    "flow_type": "COMPUTED_JUMP",
+    "references": [
+      {
+        "to": "0x00014998",
+        "type": "COMPUTED_JUMP"
+      },
+      {
+        "to": "0x000149ae",
+        "type": "COMPUTED_JUMP"
+      },
+      {
+        "to": "0x000149d8",
+        "type": "COMPUTED_JUMP"
+      },
+      {
+        "to": "0x000149d0",
+        "type": "COMPUTED_JUMP"
+      },
+      {
+        "to": "0x000149c8",
+        "type": "COMPUTED_JUMP"
+      },
+      {
+        "to": "0x000149fc",
+        "type": "COMPUTED_JUMP"
+      },
+      {
+        "to": "0x000149f0",
+        "type": "COMPUTED_JUMP"
+      },
+      {
+        "to": "0x000149e4",
+        "type": "COMPUTED_JUMP"
+      },
+      {
+        "to": "0x00014a56",
+        "type": "COMPUTED_JUMP"
+      },
+      {
+        "to": "0x00014a0c",
+        "type": "COMPUTED_JUMP"
+      },
+      {
+        "to": "0x00014a04",
+        "type": "COMPUTED_JUMP"
+      },
+      {
+        "to": "0x00014a18",
+        "type": "COMPUTED_JUMP"
+      },
+      {
+        "to": "0x00014a6c",
+        "type": "COMPUTED_JUMP"
+      },
+      {
+        "to": "0x00014a5c",
+        "type": "COMPUTED_JUMP"
+      },
+      {
+        "to": "0x00014a20",
+        "type": "COMPUTED_JUMP"
+      },
+      {
+        "to": "0x00014a78",
+        "type": "COMPUTED_JUMP"
+      }
+    ],
+    "resolution": "jump-table targets recovered"
+  },
+  {
+    "address": "0x00014bb2",
+    "function": "0x00014a92",
+    "length": 2,
+    "mnemonic": "c.jr",
+    "text": "c.jr a5",
+    "flows": [
+      "0x00014c0e",
+      "0x00014c1c",
+      "0x00014bf2",
+      "0x00014be0",
+      "0x00014c00"
+    ],
+    "flow_type": "COMPUTED_JUMP",
+    "references": [
+      {
+        "to": "0x00014be0",
+        "type": "COMPUTED_JUMP"
+      },
+      {
+        "to": "0x00014bf2",
+        "type": "COMPUTED_JUMP"
+      },
+      {
+        "to": "0x00014c00",
+        "type": "COMPUTED_JUMP"
+      },
+      {
+        "to": "0x00014c0e",
+        "type": "COMPUTED_JUMP"
+      },
+      {
+        "to": "0x00014c1c",
+        "type": "COMPUTED_JUMP"
+      }
+    ],
+    "resolution": "jump-table targets recovered"
+  },
+  {
+    "address": "0x00015a70",
+    "function": "0x0001598c",
+    "length": 2,
+    "mnemonic": "c.jr",
+    "text": "c.jr a5",
+    "flows": [
+      "0x00015a7c",
+      "0x000159da",
+      "0x00015a78",
+      "0x00015a72",
+      "0x00015af2"
+    ],
+    "flow_type": "COMPUTED_JUMP",
+    "references": [
+      {
+        "to": "0x00015a72",
+        "type": "COMPUTED_JUMP"
+      },
+      {
+        "to": "0x000159da",
+        "type": "COMPUTED_JUMP"
+      },
+      {
+        "to": "0x00015a78",
+        "type": "COMPUTED_JUMP"
+      },
+      {
+        "to": "0x00015a7c",
+        "type": "COMPUTED_JUMP"
+      },
+      {
+        "to": "0x00015af2",
+        "type": "COMPUTED_JUMP"
+      }
+    ],
+    "resolution": "jump-table targets recovered"
+  },
+  {
+    "address": "0x00015b26",
+    "function": "0x00015af6",
+    "length": 2,
+    "mnemonic": "c.jr",
+    "text": "c.jr a5",
+    "flows": [
+      "0x00015b3e",
+      "0x00015e5e",
+      "0x00015b5c",
+      "0x00015d1a",
+      "0x00015b38",
+      "0x00015b78",
+      "0x00015e78",
+      "0x00015e56",
+      "0x00015b74",
+      "0x00015b52",
+      "0x00015b70",
+      "0x00015e70",
+      "0x00015b6c",
+      "0x00015e8c",
+      "0x00015b28",
+      "0x00015b68",
+      "0x00015c88",
+      "0x00015e68",
+      "0x00015be6",
+      "0x00015e46",
+      "0x00015e86",
+      "0x00015b64",
+      "0x00015be0"
+    ],
+    "flow_type": "COMPUTED_JUMP",
+    "references": [
+      {
+        "to": "0x00015b28",
+        "type": "COMPUTED_JUMP"
+      },
+      {
+        "to": "0x00015b3e",
+        "type": "COMPUTED_JUMP"
+      },
+      {
+        "to": "0x00015b52",
+        "type": "COMPUTED_JUMP"
+      },
+      {
+        "to": "0x00015b38",
+        "type": "COMPUTED_JUMP"
+      },
+      {
+        "to": "0x00015b5c",
+        "type": "COMPUTED_JUMP"
+      },
+      {
+        "to": "0x00015b64",
+        "type": "COMPUTED_JUMP"
+      },
+      {
+        "to": "0x00015b68",
+        "type": "COMPUTED_JUMP"
+      },
+      {
+        "to": "0x00015b6c",
+        "type": "COMPUTED_JUMP"
+      },
+      {
+        "to": "0x00015b70",
+        "type": "COMPUTED_JUMP"
+      },
+      {
+        "to": "0x00015b74",
+        "type": "COMPUTED_JUMP"
+      },
+      {
+        "to": "0x00015c88",
+        "type": "COMPUTED_JUMP"
+      },
+      {
+        "to": "0x00015d1a",
+        "type": "COMPUTED_JUMP"
+      },
+      {
+        "to": "0x00015b78",
+        "type": "COMPUTED_JUMP"
+      },
+      {
+        "to": "0x00015be6",
+        "type": "COMPUTED_JUMP"
+      },
+      {
+        "to": "0x00015be0",
+        "type": "COMPUTED_JUMP"
+      },
+      {
+        "to": "0x00015e46",
+        "type": "COMPUTED_JUMP"
+      },
+      {
+        "to": "0x00015e56",
+        "type": "COMPUTED_JUMP"
+      },
+      {
+        "to": "0x00015e5e",
+        "type": "COMPUTED_JUMP"
+      },
+      {
+        "to": "0x00015e68",
+        "type": "COMPUTED_JUMP"
+      },
+      {
+        "to": "0x00015e70",
+        "type": "COMPUTED_JUMP"
+      },
+      {
+        "to": "0x00015e78",
+        "type": "COMPUTED_JUMP"
+      },
+      {
+        "to": "0x00015e86",
+        "type": "COMPUTED_JUMP"
+      },
+      {
+        "to": "0x00015e8c",
+        "type": "COMPUTED_JUMP"
+      }
+    ],
+    "resolution": "jump-table targets recovered"
+  },
+  {
+    "address": "0x0001651a",
+    "function": "0x000164d4",
+    "length": 2,
+    "mnemonic": "c.jr",
+    "text": "c.jr a5",
+    "flows": [
+      "0x0001671e",
+      "0x0001651c",
+      "0x0001689c",
+      "0x0001671a",
+      "0x00016614",
+      "0x00016914",
+      "0x00016792",
+      "0x00016910",
+      "0x0001678e",
+      "0x000167cc",
+      "0x0001668c",
+      "0x0001690c",
+      "0x0001678a",
+      "0x0001660a",
+      "0x000167c8",
+      "0x00016606",
+      "0x000167c4",
+      "0x00016904",
+      "0x000167c0",
+      "0x00016700",
+      "0x000166fc",
+      "0x00016538",
+      "0x000166f4",
+      "0x000168f0",
+      "0x000166ec",
+      "0x000168a0"
+    ],
+    "flow_type": "COMPUTED_JUMP",
+    "references": [
+      {
+        "to": "0x0001651c",
+        "type": "COMPUTED_JUMP"
+      },
+      {
+        "to": "0x00016792",
+        "type": "COMPUTED_JUMP"
+      },
+      {
+        "to": "0x0001678a",
+        "type": "COMPUTED_JUMP"
+      },
+      {
+        "to": "0x0001678e",
+        "type": "COMPUTED_JUMP"
+      },
+      {
+        "to": "0x00016538",
+        "type": "COMPUTED_JUMP"
+      },
+      {
+        "to": "0x000167c0",
+        "type": "COMPUTED_JUMP"
+      },
+      {
+        "to": "0x000167c4",
+        "type": "COMPUTED_JUMP"
+      },
+      {
+        "to": "0x000167c8",
+        "type": "COMPUTED_JUMP"
+      },
+      {
+        "to": "0x000167cc",
+        "type": "COMPUTED_JUMP"
+      },
+      {
+        "to": "0x00016606",
+        "type": "COMPUTED_JUMP"
+      },
+      {
+        "to": "0x0001660a",
+        "type": "COMPUTED_JUMP"
+      },
+      {
+        "to": "0x00016614",
+        "type": "COMPUTED_JUMP"
+      },
+      {
+        "to": "0x0001668c",
+        "type": "COMPUTED_JUMP"
+      },
+      {
+        "to": "0x000168f0",
+        "type": "COMPUTED_JUMP"
+      },
+      {
+        "to": "0x000166ec",
+        "type": "COMPUTED_JUMP"
+      },
+      {
+        "to": "0x0001689c",
+        "type": "COMPUTED_JUMP"
+      },
+      {
+        "to": "0x000168a0",
+        "type": "COMPUTED_JUMP"
+      },
+      {
+        "to": "0x00016904",
+        "type": "COMPUTED_JUMP"
+      },
+      {
+        "to": "0x0001690c",
+        "type": "COMPUTED_JUMP"
+      },
+      {
+        "to": "0x000166f4",
+        "type": "COMPUTED_JUMP"
+      },
+      {
+        "to": "0x00016910",
+        "type": "COMPUTED_JUMP"
+      },
+      {
+        "to": "0x00016914",
+        "type": "COMPUTED_JUMP"
+      },
+      {
+        "to": "0x000166fc",
+        "type": "COMPUTED_JUMP"
+      },
+      {
+        "to": "0x00016700",
+        "type": "COMPUTED_JUMP"
+      },
+      {
+        "to": "0x0001671a",
+        "type": "COMPUTED_JUMP"
+      },
+      {
+        "to": "0x0001671e",
+        "type": "COMPUTED_JUMP"
+      }
+    ],
+    "resolution": "jump-table targets recovered"
+  },
+  {
+    "address": "0x00016762",
+    "function": "0x000164d4",
+    "length": 2,
+    "mnemonic": "c.jr",
+    "text": "c.jr a5",
+    "flows": [
+      "0x0001689c",
+      "0x00016898",
+      "0x00016918",
+      "0x00016796",
+      "0x00016914",
+      "0x00016792",
+      "0x000167d0",
+      "0x00016910",
+      "0x000169d0",
+      "0x0001678e",
+      "0x000167cc",
+      "0x0001678a",
+      "0x0001660a",
+      "0x000167c8",
+      "0x00016908",
+      "0x000167c4",
+      "0x00016904",
+      "0x000167c0",
+      "0x000167bc",
+      "0x000167f8",
+      "0x000166f8",
+      "0x00016974",
+      "0x000166f0",
+      "0x00016764",
+      "0x000168a4",
+      "0x000168a0"
+    ],
+    "flow_type": "COMPUTED_JUMP",
+    "references": [
+      {
+        "to": "0x00016764",
+        "type": "COMPUTED_JUMP"
+      },
+      {
+        "to": "0x0001678a",
+        "type": "COMPUTED_JUMP"
+      },
+      {
+        "to": "0x0001678e",
+        "type": "COMPUTED_JUMP"
+      },
+      {
+        "to": "0x00016792",
+        "type": "COMPUTED_JUMP"
+      },
+      {
+        "to": "0x00016796",
+        "type": "COMPUTED_JUMP"
+      },
+      {
+        "to": "0x0001660a",
+        "type": "COMPUTED_JUMP"
+      },
+      {
+        "to": "0x000167bc",
+        "type": "COMPUTED_JUMP"
+      },
+      {
+        "to": "0x000167c0",
+        "type": "COMPUTED_JUMP"
+      },
+      {
+        "to": "0x000167c4",
+        "type": "COMPUTED_JUMP"
+      },
+      {
+        "to": "0x000167c8",
+        "type": "COMPUTED_JUMP"
+      },
+      {
+        "to": "0x000167cc",
+        "type": "COMPUTED_JUMP"
+      },
+      {
+        "to": "0x000167d0",
+        "type": "COMPUTED_JUMP"
+      },
+      {
+        "to": "0x000167f8",
+        "type": "COMPUTED_JUMP"
+      },
+      {
+        "to": "0x0001689c",
+        "type": "COMPUTED_JUMP"
+      },
+      {
+        "to": "0x000168a0",
+        "type": "COMPUTED_JUMP"
+      },
+      {
+        "to": "0x00016898",
+        "type": "COMPUTED_JUMP"
+      },
+      {
+        "to": "0x000168a4",
+        "type": "COMPUTED_JUMP"
+      },
+      {
+        "to": "0x000166f0",
+        "type": "COMPUTED_JUMP"
+      },
+      {
+        "to": "0x00016904",
+        "type": "COMPUTED_JUMP"
+      },
+      {
+        "to": "0x00016908",
+        "type": "COMPUTED_JUMP"
+      },
+      {
+        "to": "0x000166f8",
+        "type": "COMPUTED_JUMP"
+      },
+      {
+        "to": "0x00016910",
+        "type": "COMPUTED_JUMP"
+      },
+      {
+        "to": "0x00016914",
+        "type": "COMPUTED_JUMP"
+      },
+      {
+        "to": "0x00016918",
+        "type": "COMPUTED_JUMP"
+      },
+      {
+        "to": "0x000169d0",
+        "type": "COMPUTED_JUMP"
+      },
+      {
+        "to": "0x00016974",
+        "type": "COMPUTED_JUMP"
+      }
+    ],
+    "resolution": "jump-table targets recovered"
+  },
+  {
+    "address": "0x00016a4a",
+    "function": "0x000169d4",
+    "length": 2,
+    "mnemonic": "c.jr",
+    "text": "c.jr a5",
+    "flows": [
+      "0x0001779c",
+      "0x00017118",
+      "0x00017658",
+      "0x00017998",
+      "0x00017714",
+      "0x000177d4",
+      "0x00016d0e",
+      "0x000170ce",
+      "0x000179ce",
+      "0x00016a4c",
+      "0x0001768c",
+      "0x000173c2",
+      "0x00017240",
+      "0x000175c0",
+      "0x0001753a",
+      "0x00016c78",
+      "0x000171f6",
+      "0x000174b4",
+      "0x00017634",
+      "0x00017272",
+      "0x00017572",
+      "0x00016dee",
+      "0x000171ac",
+      "0x00016a2a",
+      "0x00016d68",
+      "0x00017428",
+      "0x000179e6",
+      "0x00017162",
+      "0x00017360"
+    ],
+    "flow_type": "COMPUTED_JUMP",
+    "references": [
+      {
+        "to": "0x00016a4c",
+        "type": "COMPUTED_JUMP"
+      },
+      {
+        "to": "0x00016c78",
+        "type": "COMPUTED_JUMP"
+      },
+      {
+        "to": "0x00016d0e",
+        "type": "COMPUTED_JUMP"
+      },
+      {
+        "to": "0x00016d68",
+        "type": "COMPUTED_JUMP"
+      },
+      {
+        "to": "0x00016dee",
+        "type": "COMPUTED_JUMP"
+      },
+      {
+        "to": "0x000170ce",
+        "type": "COMPUTED_JUMP"
+      },
+      {
+        "to": "0x00017118",
+        "type": "COMPUTED_JUMP"
+      },
+      {
+        "to": "0x00017162",
+        "type": "COMPUTED_JUMP"
+      },
+      {
+        "to": "0x000171ac",
+        "type": "COMPUTED_JUMP"
+      },
+      {
+        "to": "0x000171f6",
+        "type": "COMPUTED_JUMP"
+      },
+      {
+        "to": "0x00017240",
+        "type": "COMPUTED_JUMP"
+      },
+      {
+        "to": "0x00017272",
+        "type": "COMPUTED_JUMP"
+      },
+      {
+        "to": "0x00017360",
+        "type": "COMPUTED_JUMP"
+      },
+      {
+        "to": "0x000174b4",
+        "type": "COMPUTED_JUMP"
+      },
+      {
+        "to": "0x0001753a",
+        "type": "COMPUTED_JUMP"
+      },
+      {
+        "to": "0x00016a2a",
+        "type": "COMPUTED_JUMP"
+      },
+      {
+        "to": "0x000173c2",
+        "type": "COMPUTED_JUMP"
+      },
+      {
+        "to": "0x00017428",
+        "type": "COMPUTED_JUMP"
+      },
+      {
+        "to": "0x00017572",
+        "type": "COMPUTED_JUMP"
+      },
+      {
+        "to": "0x000175c0",
+        "type": "COMPUTED_JUMP"
+      },
+      {
+        "to": "0x00017634",
+        "type": "COMPUTED_JUMP"
+      },
+      {
+        "to": "0x00017658",
+        "type": "COMPUTED_JUMP"
+      },
+      {
+        "to": "0x0001768c",
+        "type": "COMPUTED_JUMP"
+      },
+      {
+        "to": "0x00017714",
+        "type": "COMPUTED_JUMP"
+      },
+      {
+        "to": "0x0001779c",
+        "type": "COMPUTED_JUMP"
+      },
+      {
+        "to": "0x000177d4",
+        "type": "COMPUTED_JUMP"
+      },
+      {
+        "to": "0x00017998",
+        "type": "COMPUTED_JUMP"
+      },
+      {
+        "to": "0x000179ce",
+        "type": "COMPUTED_JUMP"
+      },
+      {
+        "to": "0x000179e6",
+        "type": "COMPUTED_JUMP"
+      }
+    ],
+    "resolution": "jump-table targets recovered"
+  },
+  {
+    "address": "0x00017fc6",
+    "function": "0x00017f92",
+    "length": 2,
+    "mnemonic": "c.jr",
+    "text": "c.jr a5",
+    "flows": [
+      "0x000181ae",
+      "0x00017fc8",
+      "0x000182a6",
+      "0x00018256",
+      "0x00018104",
+      "0x00018100"
+    ],
+    "flow_type": "COMPUTED_JUMP",
+    "references": [
+      {
+        "to": "0x000181ae",
+        "type": "COMPUTED_JUMP"
+      },
+      {
+        "to": "0x00017fc8",
+        "type": "COMPUTED_JUMP"
+      },
+      {
+        "to": "0x00018100",
+        "type": "COMPUTED_JUMP"
+      },
+      {
+        "to": "0x000182a6",
+        "type": "COMPUTED_JUMP"
+      },
+      {
+        "to": "0x00018104",
+        "type": "COMPUTED_JUMP"
+      },
+      {
+        "to": "0x00018256",
+        "type": "COMPUTED_JUMP"
+      }
+    ],
+    "resolution": "jump-table targets recovered"
+  },
+  {
+    "address": "0x00017fe6",
+    "function": "0x00017f92",
+    "length": 2,
+    "mnemonic": "c.jr",
+    "text": "c.jr a5",
+    "flows": [
+      "0x0001801e",
+      "0x00017fe8",
+      "0x000180e6",
+      "0x000180b4",
+      "0x00018082",
+      "0x00018050"
+    ],
+    "flow_type": "COMPUTED_JUMP",
+    "references": [
+      {
+        "to": "0x0001801e",
+        "type": "COMPUTED_JUMP"
+      },
+      {
+        "to": "0x00017fe8",
+        "type": "COMPUTED_JUMP"
+      },
+      {
+        "to": "0x000180e6",
+        "type": "COMPUTED_JUMP"
+      },
+      {
+        "to": "0x000180b4",
+        "type": "COMPUTED_JUMP"
+      },
+      {
+        "to": "0x00018050",
+        "type": "COMPUTED_JUMP"
+      },
+      {
+        "to": "0x00018082",
+        "type": "COMPUTED_JUMP"
+      }
+    ],
+    "resolution": "jump-table targets recovered"
+  },
+  {
+    "address": "0x00018388",
+    "function": "0x00018354",
+    "length": 2,
+    "mnemonic": "c.jr",
+    "text": "c.jr a5",
+    "flows": [
+      "0x0001838a",
+      "0x0001888a",
+      "0x000187fa",
+      "0x000186f8",
+      "0x000185f8",
+      "0x00018476",
+      "0x00018800"
+    ],
+    "flow_type": "COMPUTED_JUMP",
+    "references": [
+      {
+        "to": "0x000186f8",
+        "type": "COMPUTED_JUMP"
+      },
+      {
+        "to": "0x0001838a",
+        "type": "COMPUTED_JUMP"
+      },
+      {
+        "to": "0x00018476",
+        "type": "COMPUTED_JUMP"
+      },
+      {
+        "to": "0x0001888a",
+        "type": "COMPUTED_JUMP"
+      },
+      {
+        "to": "0x000185f8",
+        "type": "COMPUTED_JUMP"
+      },
+      {
+        "to": "0x00018800",
+        "type": "COMPUTED_JUMP"
+      },
+      {
+        "to": "0x000187fa",
+        "type": "COMPUTED_JUMP"
+      }
+    ],
+    "resolution": "jump-table targets recovered"
+  },
+  {
+    "address": "0x000183a8",
+    "function": "0x00018354",
+    "length": 2,
+    "mnemonic": "c.jr",
+    "text": "c.jr a5",
+    "flows": [
+      "0x0001856c",
+      "0x000183aa",
+      "0x000187fa",
+      "0x00018496",
+      "0x00018526",
+      "0x000185b2"
+    ],
+    "flow_type": "COMPUTED_JUMP",
+    "references": [
+      {
+        "to": "0x000183aa",
+        "type": "COMPUTED_JUMP"
+      },
+      {
+        "to": "0x00018496",
+        "type": "COMPUTED_JUMP"
+      },
+      {
+        "to": "0x000187fa",
+        "type": "COMPUTED_JUMP"
+      },
+      {
+        "to": "0x000185b2",
+        "type": "COMPUTED_JUMP"
+      },
+      {
+        "to": "0x00018526",
+        "type": "COMPUTED_JUMP"
+      },
+      {
+        "to": "0x0001856c",
+        "type": "COMPUTED_JUMP"
+      }
+    ],
+    "resolution": "jump-table targets recovered"
+  },
+  {
+    "address": "0x00018494",
+    "function": "0x00018354",
+    "length": 2,
+    "mnemonic": "c.jr",
+    "text": "c.jr a5",
+    "flows": [
+      "0x0001856c",
+      "0x000187fa",
+      "0x00018496",
+      "0x00018526",
+      "0x000185b2",
+      "0x000184e0"
+    ],
+    "flow_type": "COMPUTED_JUMP",
+    "references": [
+      {
+        "to": "0x000184e0",
+        "type": "COMPUTED_JUMP"
+      },
+      {
+        "to": "0x00018496",
+        "type": "COMPUTED_JUMP"
+      },
+      {
+        "to": "0x000187fa",
+        "type": "COMPUTED_JUMP"
+      },
+      {
+        "to": "0x000185b2",
+        "type": "COMPUTED_JUMP"
+      },
+      {
+        "to": "0x00018526",
+        "type": "COMPUTED_JUMP"
+      },
+      {
+        "to": "0x0001856c",
+        "type": "COMPUTED_JUMP"
+      }
+    ],
+    "resolution": "jump-table targets recovered"
+  },
+  {
+    "address": "0x00018e2c",
+    "function": "0x00018ad2",
+    "length": 2,
+    "mnemonic": "c.jr",
+    "text": "c.jr a5",
+    "flows": [
+      "0x00018f5e",
+      "0x00018f6c",
+      "0x00018ef6",
+      "0x00018f34",
+      "0x00018f42",
+      "0x00018f50"
+    ],
+    "flow_type": "COMPUTED_JUMP",
+    "references": [
+      {
+        "to": "0x00018ef6",
+        "type": "COMPUTED_JUMP"
+      },
+      {
+        "to": "0x00018f34",
+        "type": "COMPUTED_JUMP"
+      },
+      {
+        "to": "0x00018f42",
+        "type": "COMPUTED_JUMP"
+      },
+      {
+        "to": "0x00018f50",
+        "type": "COMPUTED_JUMP"
+      },
+      {
+        "to": "0x00018f5e",
+        "type": "COMPUTED_JUMP"
+      },
+      {
+        "to": "0x00018f6c",
+        "type": "COMPUTED_JUMP"
+      }
+    ],
+    "resolution": "jump-table targets recovered"
+  },
+  {
+    "address": "0x00018f8c",
+    "function": "0x00018ad2",
+    "length": 2,
+    "mnemonic": "c.jr",
+    "text": "c.jr a5",
+    "flows": [
+      "0x00018f8e",
+      "0x0001901e",
+      "0x000190a8",
+      "0x00019136",
+      "0x000191c0",
+      "0x00019280"
+    ],
+    "flow_type": "COMPUTED_JUMP",
+    "references": [
+      {
+        "to": "0x00018f8e",
+        "type": "COMPUTED_JUMP"
+      },
+      {
+        "to": "0x0001901e",
+        "type": "COMPUTED_JUMP"
+      },
+      {
+        "to": "0x000190a8",
+        "type": "COMPUTED_JUMP"
+      },
+      {
+        "to": "0x00019136",
+        "type": "COMPUTED_JUMP"
+      },
+      {
+        "to": "0x000191c0",
+        "type": "COMPUTED_JUMP"
+      },
+      {
+        "to": "0x00019280",
+        "type": "COMPUTED_JUMP"
+      }
+    ],
+    "resolution": "jump-table targets recovered"
+  },
+  {
+    "address": "0x000192de",
+    "function": "0x00018ad2",
+    "length": 2,
+    "mnemonic": "c.jr",
+    "text": "c.jr a5",
+    "flows": [
+      "0x000190be",
+      "0x0001914c",
+      "0x000191d6",
+      "0x00019296",
+      "0x00019034",
+      "0x00018fa2"
+    ],
+    "flow_type": "COMPUTED_JUMP",
+    "references": [
+      {
+        "to": "0x00018fa2",
+        "type": "COMPUTED_JUMP"
+      },
+      {
+        "to": "0x00019034",
+        "type": "COMPUTED_JUMP"
+      },
+      {
+        "to": "0x000190be",
+        "type": "COMPUTED_JUMP"
+      },
+      {
+        "to": "0x0001914c",
+        "type": "COMPUTED_JUMP"
+      },
+      {
+        "to": "0x000191d6",
+        "type": "COMPUTED_JUMP"
+      },
+      {
+        "to": "0x00019296",
+        "type": "COMPUTED_JUMP"
+      }
+    ],
+    "resolution": "jump-table targets recovered"
+  },
+  {
+    "address": "0x000196d8",
+    "function": "0x00019366",
+    "length": 2,
+    "mnemonic": "c.jr",
+    "text": "c.jr a5",
+    "flows": [
+      "0x0001988e",
+      "0x0001975c",
+      "0x000196fa",
+      "0x0001992a",
+      "0x00019828",
+      "0x000197c2"
+    ],
+    "flow_type": "COMPUTED_JUMP",
+    "references": [
+      {
+        "to": "0x000196fa",
+        "type": "COMPUTED_JUMP"
+      },
+      {
+        "to": "0x0001975c",
+        "type": "COMPUTED_JUMP"
+      },
+      {
+        "to": "0x000197c2",
+        "type": "COMPUTED_JUMP"
+      },
+      {
+        "to": "0x00019828",
+        "type": "COMPUTED_JUMP"
+      },
+      {
+        "to": "0x0001988e",
+        "type": "COMPUTED_JUMP"
+      },
+      {
+        "to": "0x0001992a",
+        "type": "COMPUTED_JUMP"
+      }
+    ],
+    "resolution": "jump-table targets recovered"
+  },
+  {
+    "address": "0x0001bdfc",
+    "function": "0x0001bd4e",
+    "length": 2,
+    "mnemonic": "c.jr",
+    "text": "c.jr a2",
+    "flows": [
+      "0x0001bf2c",
+      "0x0001bf86",
+      "0x0001be14",
+      "0x0001bf24",
+      "0x0001be44",
+      "0x0001bf90"
+    ],
+    "flow_type": "COMPUTED_JUMP",
+    "references": [
+      {
+        "to": "0x0001bf90",
+        "type": "COMPUTED_JUMP"
+      },
+      {
+        "to": "0x0001be14",
+        "type": "COMPUTED_JUMP"
+      },
+      {
+        "to": "0x0001bf24",
+        "type": "COMPUTED_JUMP"
+      },
+      {
+        "to": "0x0001bf2c",
+        "type": "COMPUTED_JUMP"
+      },
+      {
+        "to": "0x0001be44",
+        "type": "COMPUTED_JUMP"
+      },
+      {
+        "to": "0x0001bf86",
+        "type": "COMPUTED_JUMP"
+      }
+    ],
+    "resolution": "jump-table targets recovered"
+  },
+  {
+    "address": "0x0001c46e",
+    "function": "0x0001c3b8",
+    "length": 2,
+    "mnemonic": "c.jr",
+    "text": "c.jr a3",
+    "flows": [
+      "0x0001c4ba",
+      "0x0001c5c8",
+      "0x0001c4b8",
+      "0x0001c486",
+      "0x0001c5b4",
+      "0x0001c4c0"
+    ],
+    "flow_type": "COMPUTED_JUMP",
+    "references": [
+      {
+        "to": "0x0001c5c8",
+        "type": "COMPUTED_JUMP"
+      },
+      {
+        "to": "0x0001c4ba",
+        "type": "COMPUTED_JUMP"
+      },
+      {
+        "to": "0x0001c4b8",
+        "type": "COMPUTED_JUMP"
+      },
+      {
+        "to": "0x0001c4c0",
+        "type": "COMPUTED_JUMP"
+      },
+      {
+        "to": "0x0001c486",
+        "type": "COMPUTED_JUMP"
+      },
+      {
+        "to": "0x0001c5b4",
+        "type": "COMPUTED_JUMP"
+      }
+    ],
+    "resolution": "jump-table targets recovered"
+  },
+  {
+    "address": "0x0001d7b4",
+    "function": "0x0001d728",
+    "length": 2,
+    "mnemonic": "c.jr",
+    "text": "c.jr a5",
+    "flows": [
+      "0x0001d8e2",
+      "0x0001d810"
+    ],
+    "flow_type": "COMPUTED_JUMP",
+    "references": [
+      {
+        "to": "0x0001d8e2",
+        "type": "COMPUTED_JUMP"
+      },
+      {
+        "to": "0x0001d810",
+        "type": "COMPUTED_JUMP"
+      }
+    ],
+    "resolution": "jump-table targets recovered"
+  },
+  {
+    "address": "0x0001d7d4",
+    "function": "0x0001d728",
+    "length": 2,
+    "mnemonic": "c.jr",
+    "text": "c.jr a5",
+    "flows": [
+      "0x0001d8dc",
+      "0x0001d808"
+    ],
+    "flow_type": "COMPUTED_JUMP",
+    "references": [
+      {
+        "to": "0x0001d8dc",
+        "type": "COMPUTED_JUMP"
+      },
+      {
+        "to": "0x0001d808",
+        "type": "COMPUTED_JUMP"
+      }
+    ],
+    "resolution": "jump-table targets recovered"
+  },
+  {
+    "address": "0x0001dbdc",
+    "function": "0x0001db48",
+    "length": 2,
+    "mnemonic": "c.jr",
+    "text": "c.jr a5",
+    "flows": [
+      "0x0001dc1e",
+      "0x0001dbee",
+      "0x0001dccc",
+      "0x0001dc1a",
+      "0x0001dcba",
+      "0x0001dc18"
+    ],
+    "flow_type": "COMPUTED_JUMP",
+    "references": [
+      {
+        "to": "0x0001dccc",
+        "type": "COMPUTED_JUMP"
+      },
+      {
+        "to": "0x0001dc1a",
+        "type": "COMPUTED_JUMP"
+      },
+      {
+        "to": "0x0001dc18",
+        "type": "COMPUTED_JUMP"
+      },
+      {
+        "to": "0x0001dc1e",
+        "type": "COMPUTED_JUMP"
+      },
+      {
+        "to": "0x0001dbee",
+        "type": "COMPUTED_JUMP"
+      },
+      {
+        "to": "0x0001dcba",
+        "type": "COMPUTED_JUMP"
+      }
+    ],
+    "resolution": "jump-table targets recovered"
+  }
+]

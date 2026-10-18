@@ -1,0 +1,11 @@
+{
+  "pass": true,
+  "upstream_commit": "f584566ec2e18041725e1de5668c6cb1f764ab58",
+  "original_level1_sha256": "f98cdedd5de2f39e56fda191556934090f2b5c0bf2ba286928e7811d902a9914",
+  "cases": {
+    "gameplay_actions": 3000,
+    "collision_points": 3000,
+    "ray_intersections": 3000
+  },
+  "scope": "host-compiled unedited upstream core vs maintained C; no AVR or hardware execution"
+}
