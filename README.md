@@ -140,10 +140,16 @@ make doom           # projects/doom/build/dmt99-doom.bin
 projects/studio/dmt99-studio
 ```
 
-Source and small regression excerpts are selected for Git. The manufacturer
-BIN, 8 MiB dump, complete captures and DOOM game data remain in the local
-[`artifacts/` archive](artifacts/README.md) and are not automatically published.
-In a clean clone, place missing inputs in the locations listed in the
+The [8 MiB external Flash dump](artifacts/flash/original/dmt99_flash_1.bin)
+is included so Studio can load the original images and render previews after
+cloning. In Studio, choose **File → Open original dump**. This is W25Q64
+resource/storage data, **not an MCU backup or USB firmware update BIN**.
+Verify it with `sha256sum -c artifacts/flash/original/SHA256SUMS`.
+Third-party rights still apply; inclusion grants no redistribution license.
+
+The manufacturer update BIN, complete captures, DOOM game data and other
+binary outputs remain local in the [`artifacts/` archive](artifacts/README.md).
+Place missing inputs in the locations listed in the
 [build guide](docs/BUILDING.md#input-files).
 The [SHA-256 catalog](artifacts/catalog.json) identifies the archived files.
 

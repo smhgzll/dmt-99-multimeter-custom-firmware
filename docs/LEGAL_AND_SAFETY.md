@@ -55,8 +55,12 @@ obligations for distribution and, where relevant, network use are described
 in [GNU AGPL](https://www.gnu.org/licenses/agpl-3.0.en.html).
 This code license grants no rights to id Software WAD/maps/textures/sprites.
 
-The default `.gitignore` excludes manufacturer images, raw Flash dumps,
-complete sessions, DOOM data and binary/debug outputs. Local files are retained.
+The default `.gitignore` excludes manufacturer update images, other raw dumps,
+complete sessions, DOOM data and binary/debug outputs. The single W25Q64 dump
+at `artifacts/flash/original/dmt99_flash_1.bin` is explicitly included for
+resource previews at the repository owner's request. It contains third-party
+firmware/images; redistribution permission has not been established, and
+inclusion grants no license to those contents. Local files are retained.
 This filter is not a substitute for a full legal or personal-data review.
 
 ## Evidence limits

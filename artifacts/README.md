@@ -28,10 +28,16 @@ READMEs/reports are retained as historical records; current instructions are in
 [UPDATING](../docs/UPDATING.md), [THEMES](../docs/THEMES.md) and
 [BUILDING](../docs/BUILDING.md).
 
-Large/private inputs and data with uncertain redistribution rights are
-excluded from Git. Only the catalog and selected release metadata are tracked.
-A clean clone is expected to lack the catalog's BIN/dump/WAD files; it is
-not a complete backup. [Place required inputs here](../docs/BUILDING.md#input-files).
+The single [8 MiB external Flash dump](flash/original/dmt99_flash_1.bin) and
+its [checksum](flash/original/SHA256SUMS) are included for Studio and simulator
+resource previews. It is byte-for-byte original acquisition data, not an MCU
+Flash backup or a USB update BIN. Its firmware/images retain their existing
+third-party rights; inclusion is not a grant of redistribution permission.
+
+Other large/private inputs, firmware BINs, full captures, extracted data and
+WAD files remain excluded from Git. The catalog and selected release metadata
+are tracked, but a clone is not a complete archive backup.
+[Place missing inputs here](../docs/BUILDING.md#input-files).
 
 Do not overwrite an existing release version. New intermediate outputs remain
 in each project's `build/` directory; POTAT-99 `make release` and DOOM

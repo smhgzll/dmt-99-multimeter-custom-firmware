@@ -6,8 +6,9 @@ None of the build/test commands below programs hardware or transmits to the meas
 
 ## Input files
 
-Files with uncertain redistribution rights are excluded from Git. Place
-your own backups at these locations; do not overwrite an existing acquisition:
+The 8 MiB external Flash dump is included for Studio and simulator resource
+previews. Other inputs below are excluded from Git; supply your own copies
+at these locations and do not overwrite an existing acquisition:
 
 | File | Location | SHA-256 |
 |---|---|---|
@@ -22,7 +23,10 @@ Git configuration that substitutes text files for symlinks; use WSL.
 
 Create missing directories with
 `mkdir -p artifacts/firmware/original artifacts/flash/original`.
-The dump is needed for simulator/Studio resource previews. POTAT-99 C builds
+Verify the included dump from the repository root with
+`sha256sum -c artifacts/flash/original/SHA256SUMS`. In Studio, choose
+**File → Open original dump**. It opens this file read-only; it does not need
+an MCU internal Flash dump. POTAT-99 C builds
 use the recovered MCU ROM tables in `ui/*rom*`. The V2.4 BIN is needed for
 image-format and original-code comparisons.
 

@@ -27,12 +27,14 @@ Thumbs.db
 *.p12
 *.pfx
 
-# Acquired firmware, dumps, game data, captures and generated outputs stay local.
-# Only the reviewed catalog and release metadata are public by default.
+# Acquired firmware, game data, captures and generated outputs stay local.
+# The catalog, selected release metadata and the single external Flash dump are public.
 /artifacts/**
 !/artifacts/**/
 !/artifacts/README.md
 !/artifacts/catalog.json
+!/artifacts/flash/original/dmt99_flash_1.bin
+!/artifacts/flash/original/SHA256SUMS
 !/artifacts/firmware/potat-99/README.md
 !/artifacts/firmware/potat-99/CHANGELOG.md
 !/artifacts/firmware/potat-99/v*/release.json
@@ -50,7 +52,7 @@ Thumbs.db
 /analysis/ghidra_projects/
 /analysis/ghidra_decoder_projects/
 /references/upstream_archives/
-# Relative compatibility symlinks are tracked; the data they point to are ignored.
+# Relative compatibility symlinks are tracked; their other data remains ignored.
 
 # Binary build products may embed private absolute paths.
 *.o
