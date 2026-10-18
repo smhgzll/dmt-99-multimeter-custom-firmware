@@ -37,11 +37,23 @@ while running the DOOM firmware.
 ## Gallery
 
 User-supplied device photos appear alongside emulator/native C renders and
-Studio screenshots. Each group is labeled by its source in the full gallery.
+Studio screenshots. Each group below is labeled by its source.
 
-| On the device: DOOM | On the device: POTAT-99 simple screen |
+### Device photos
+
+| DOOM: corridor gameplay | DOOM: enemy encounter | POTAT-99: simple screen |
+|---|---|---|
+| <img src="docs/gallery/doom1.jpeg" width="260" alt="DOOM corridor gameplay on the DMT99 display"> | <img src="docs/gallery/doom2.jpeg" width="260" alt="A close enemy encounter in DOOM on the DMT99"> | <img src="docs/gallery/simple_theme.jpeg" width="260" alt="POTAT-99 simple DC voltage screen on the DMT99"> |
+
+| CH32V303RCT6 MCU and 8 MHz crystal | Winbond W25Q64 external SPI Flash |
 |---|---|
-| <img src="docs/gallery/doom1.jpeg" width="280" alt="DOOM running on the DMT99 display"> | <img src="docs/gallery/simple_theme.jpeg" width="280" alt="POTAT-99 simple DC voltage screen on the DMT99"> |
+| <img src="docs/gallery/mcu.jpeg" width="300" alt="DMT99 PCB with the CH32V303RCT6 MCU and 8 MHz crystal"> | <img src="docs/gallery/flash.jpeg" width="300" alt="Winbond W25Q64 Flash chip on the DMT99 PCB"> |
+
+| RVSWD debug wiring | Logic-analyzer capture setup |
+|---|---|
+| <img src="docs/gallery/jtag.jpeg" width="280" alt="Opened DMT99 with RVSWD debug wiring attached"> | <img src="docs/gallery/logic_analyser.jpeg" width="520" alt="Opened DMT99 connected to a USB logic analyzer"> |
+
+### Emulator and Studio screenshots
 
 | POTAT-99: regular measurement | POTAT-99: recording view |
 |---|---|
