@@ -36,8 +36,12 @@ while running the DOOM firmware.
 
 ## Gallery
 
-Screens come from the emulator/native C renderer and the actual Studio UI.
-They are not device photographs or evidence of physical performance.
+User-supplied device photos appear alongside emulator/native C renders and
+Studio screenshots. Each group is labeled by its source in the full gallery.
+
+| On the device: DOOM | On the device: POTAT-99 simple screen |
+|---|---|
+| <img src="docs/gallery/doom1.jpeg" width="280" alt="DOOM running on the DMT99 display"> | <img src="docs/gallery/simple_theme.jpeg" width="280" alt="POTAT-99 simple DC voltage screen on the DMT99"> |
 
 | POTAT-99: regular measurement | POTAT-99: recording view |
 |---|---|
@@ -49,7 +53,7 @@ They are not device photographs or evidence of physical performance.
 
 ![Studio theme editor — actual offline Qt interface](docs/gallery/studio-theme-editor.png)
 
-[More screenshots and their provenance](docs/gallery/README.md).
+[All device photos, PCB/debug setups and screenshots](docs/gallery/README.md).
 
 ## Device and memory
 

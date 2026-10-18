@@ -1,4 +1,32 @@
-# Screenshot gallery
+# Photo and screenshot gallery
+
+## Device photos
+
+User-supplied photographs of the DMT99 and the research setup. These are
+physical-device photos; the emulator and desktop captures are grouped separately below.
+The photos show the displayed applications and hardware, without identifying
+the exact installed BIN or establishing measurement accuracy.
+
+### DOOM and the simple screen
+
+| DOOM: corridor gameplay | DOOM: enemy encounter | POTAT-99: simple DC voltage screen |
+|---|---|---|
+| <img src="doom1.jpeg" width="260" alt="DMT99 displaying DOOM corridor gameplay"> | <img src="doom2.jpeg" width="260" alt="DMT99 displaying a close enemy encounter in DOOM"> | <img src="simple_theme.jpeg" width="260" alt="DMT99 simple screen with green digits and a DC voltage reading"> |
+
+### MCU and external Flash
+
+| CH32V303RCT6 MCU and 8 MHz crystal | Winbond W25Q64 external SPI Flash |
+|---|---|
+| <img src="mcu.jpeg" width="320" alt="DMT99 PCB close-up showing the CH32V303RCT6 and its 8 MHz crystal"> | <img src="flash.jpeg" width="320" alt="Close-up of the Winbond W25Q64 Flash chip on the DMT99 PCB"> |
+
+### Debug and UART capture setup
+
+The debug connection used by this project is two-wire **RVSWD**; the
+original photo filename `jtag.jpeg` is retained.
+
+| RVSWD debug wiring on the opened meter | Logic-analyzer capture setup |
+|---|---|
+| <img src="jtag.jpeg" width="280" alt="Opened DMT99 with debug wires attached to the PCB"> | <img src="logic_analyser.jpeg" width="520" alt="Opened DMT99 connected to a USB logic analyzer for signal capture"> |
 
 ## POTAT-99 / custom firmware
 
