@@ -48,7 +48,7 @@ Rights in original firmware, extracted JPEGs/fonts, decompilation, game data
 and patented/copyrighted components are separate from open-source code
 licenses. Presence in this workspace is not permission to relicense or
 redistribute those materials freely.
-Consult [license scope](../LICENSE.md) and [third-party notices](../THIRD_PARTY_NOTICES.md).
+Consult [MIT license](../LICENSE), [licensing scope](../LICENSING.md) and [third-party notices](../THIRD_PARTY_NOTICES.md).
 
 DOOM adaptation code is AGPL-3.0-or-later. Applicable Corresponding Source
 obligations for distribution and, where relevant, network use are described

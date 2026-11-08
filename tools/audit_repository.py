@@ -13,7 +13,7 @@ import subprocess
 from urllib.parse import unquote
 
 ROOT = Path(__file__).resolve().parents[1]
-PUBLIC_DOCS = ('README.md', 'LICENSE.md', 'THIRD_PARTY_NOTICES.md', 'docs/README.md',
+PUBLIC_DOCS = ('README.md', 'LICENSE', 'LICENSING.md', 'THIRD_PARTY_NOTICES.md', 'docs/README.md',
                'docs/BUILDING.md', 'docs/UPDATING.md', 'docs/THEMES.md',
                'docs/RESEARCH.md', 'docs/LEGAL_AND_SAFETY.md',
                'docs/WORKSPACE_MIGRATION.md', 'docs/gallery/README.md', 'artifacts/README.md')

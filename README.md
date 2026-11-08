@@ -189,7 +189,7 @@ Original images are preserved; the active theme is searched first.
 Installation writes to the assets partition, so keep a Flash backup.
 [Preparing themes, size limits and undoing changes](docs/THEMES.md).
 
-## Limitations, risks and licensing
+## Limitations and risks
 
 - Custom firmware does not certify measurement accuracy, calibration or
   safety ratings. Do not use it for critical, mains or safety-related measurements.
@@ -201,9 +201,21 @@ Installation writes to the assets partition, so keep a Flash backup.
   internal Flash layout are unavailable. No speculative bootloader has been added.
 - Studio's real USB management transport is unfinished. Simulated-device
   readings are not physical measurements.
-- Code, manufacturer firmware/images, the WCH SDK and DOOM game data have
-  separate rights. Consolidation does not place every file under one open-source license.
-  [License scope](LICENSE.md) · [Third-party notices](THIRD_PARTY_NOTICES.md).
+## License
+
+The project's own code and documentation (POTAT-99 firmware sources, DMT99
+Studio, the ASIC parser, tools and docs) are released under the
+[MIT license](LICENSE). Exceptions:
+
+| Part | License |
+|---|---|
+| DOOM adaptation (`projects/doom/`) | [AGPL-3.0-or-later](projects/doom/LICENSE) |
+| ESP32 RVSWD (`projects/rvswd/`) | [MIT](projects/rvswd/LICENSE), with upstream attribution |
+| WCH SDK, FatFs, TJpgDec | Notices in their source headers |
+| FNIRSI firmware, bootloader, Flash dump, images and fonts | Owned by their rights holders; not covered by MIT |
+| DOOM game data | id Software; not covered by MIT or AGPL |
+
+[Details and reasoning](LICENSING.md) · [Third-party notices](THIRD_PARTY_NOTICES.md)
 
 ## References
 

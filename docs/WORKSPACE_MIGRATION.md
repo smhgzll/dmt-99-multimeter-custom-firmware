@@ -50,8 +50,9 @@ Nothing was pushed to a remote.
 - Root Git contains selected source/documents, small regression excerpts,
   gallery images and selected release metadata. Uploading the entire local
   archive as a source ZIP would bypass this privacy filter.
-- Licenses and attribution are retained. The root notice does not relicense
-  all research/game data; raw manufacturer/game data is unpublished by default.
+- Licenses and attribution are retained. The root MIT license covers only the
+  contributors' own work, not research/game data; raw manufacturer/game data is
+  unpublished by default.
 
 `tools/audit_repository.py` checks selected files for personal absolute
 paths, certain key/token patterns, primary-guide local links and SHA-256

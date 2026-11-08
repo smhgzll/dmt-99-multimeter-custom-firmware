@@ -14,7 +14,7 @@ missing captures, version labels or folder locations do not override later evide
 | Risks, liability and independence | [LEGAL_AND_SAFETY](LEGAL_AND_SAFETY.md) |
 | Folder migration, privacy and tests | [WORKSPACE_MIGRATION](WORKSPACE_MIGRATION.md) |
 | Screenshots | [Gallery](gallery/README.md) |
-| Artifacts and licensing/distribution boundaries | [Artifacts](../artifacts/README.md), [LICENSE](../LICENSE.md), [notices](../THIRD_PARTY_NOTICES.md) |
+| Artifacts and licensing/distribution boundaries | [Artifacts](../artifacts/README.md), [MIT license](../LICENSE), [licensing scope](../LICENSING.md), [notices](../THIRD_PARTY_NOTICES.md) |
 
 ## Technical references
 

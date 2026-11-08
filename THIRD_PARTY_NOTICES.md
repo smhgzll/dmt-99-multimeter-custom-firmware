@@ -26,4 +26,4 @@
   development/runtime dependencies with their own versions and licenses.
   Python environments and the ESP-IDF SDK are not embedded in this repository.
 
-[Scope and redistribution limits](LICENSE.md).
+[Scope and redistribution limits](LICENSING.md).
